@@ -9,8 +9,6 @@ install:
 
 script:
  - mkdocs build
-
-after_success:
  - bash ./deploy.sh
 
 env:
