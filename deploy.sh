@@ -16,5 +16,5 @@ git config user.email ""
 git config user.name "atomist-travisci"
 git add .
 git commit -m "Generated from ${TRAVIS_REPO_SLUG} ${TRAVIS_COMMIT}"
-#git push --force --quiet "https://${GITHUB_TOKEN}@$github.com/${GITHUB_REPO}.git" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN}@$github.com/${GITHUB_REPO}.git" master:gh-pages > /dev/null 2>&1
 
