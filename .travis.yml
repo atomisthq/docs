@@ -1,16 +1,12 @@
 sudo: false
 language: python
-
 python:
-  - 3.5
-
+- 3.5
 install:
-  - pip install -r requirements.txt 
-
+- pip install -r requirements.txt
 script:
-  - bash ./deploy.sh
-
+- bash ./deploy.sh
 env:
   global:
-    - secure: ZEU2ODZq3k/5lMRWwAx5wr07N70s8hRf61Aq+VcFMJYbNy5ZPPvi96Bq14HIbOcpAP9fTMivyf7xg86hDf8+ca8JV72ghSDt2BK4tYph0qxJ396a1S4EFrKltF54OzjGeN/l8v89IpLPMcriAkAkerjy1VI4tza+6PMi8TG25Tz3aQPGt8EQ7tC/c8iY0Lo5NRFjGiUSnbKfCa/ulnXfiTnMxxZpo3FKBrj0UNxnFfm8BqaBezkoSP9jQraMOJTBLTNoMdWKWBsSijWn8U0nK//2DSvTTSvk/LG48isS1y6f7lLN5hkcmUElZKouN5Mqy7XJuysQLNwGZ+LQPZFcQvnlsHLZoeaGW3Cgg4Wmpk8Cop1LNWXhdG9KoSFcWqLGGuc0oXAVrts87f1Hjl7yOV8bCEbufCW/Rzc1qu2lVv3+jzZ9lq8wmn5YTgC9d8oP4K2vv35/gTjIwg1/Wi62dpTjvtJfBKMx4VK/zjf2YxHcb/EMIbn7pnTCDn0MkDhTbOxbPwbDyIaLQtgM5MbY7wCQCHwp0iq7rei33SO7A0TLCrbLRRR2eWTGAvhDPcHHvU7XrXTUzJCSaFTzaWCAfZKPC5tOtXeEv40uO0qNe41AEMgc67QLfPEBN/QffL252cTcRB90J0UmV7HlCZCKmnd/Nv3XnaIIZyrqN1+L8k4=
-    - GITHUB_REPO: "atomisthq/atomisthq.github.io"
+  - GITHUB_REPO: atomisthq/atomisthq.github.io
+  - secure: Ai6i3qjHGJ+JfWPoLjIZV7V23kKtLw2T795H4veMcvR04+zHjf2cYAbYzpU9WirtLJ+fH4xfBLauGox4vB9K0bXsDXLSx/lUpfQVsEueDDFCWBOyzEUgifkXmgBRWBrVkc5MGQbdFII897QbvG112KBM83FfmA1slBnXWJt9ymfmOZAuhD71lxbVqGOuDi+zoOD2F1Sjx1XnldZg6Yezx3sGa/vWo5xCn+icw3uJwl8VjVQ5tFnpPGXW/BUhYRHt5i+0Sdeh4QnqLHeJb0vYjohqcKgnJSzw6kFuvLXaCq7NtI1OSMDXaUw05DjK0v5b/b5ONTWzJHt0nPXZ1wRKMY1tXcujZsV5KpYSJYxL6d2OFdKEacWJ3/pvcV+76ixNADP0zOQPEUl/RBCtGIP8p+aXxIeOzNz9kz+2cZrZkTC9grHVatNPnYmW/rbYu5bJqZMe0F3BybGU7Rk8N8CavOLKsdGVw+nqaSuQDV6VlBpaN7gyeo2vhnaz7WhbFu9eBPtCY8eZGBId54VJxmg2tGXWscsz4+t87Bhi//V+/fEyGQQDMTZntYYUa40BB/SfoRMCZ2D9WkkmvhB8gStruKbkFjKh8MDhEqvId2HsuUYhKn0JkAp0fWkPad4+LA0zOrNLuazJM0Pjc35JEy/BtAuG2j9Bcrdoq7PRefOtW54=
