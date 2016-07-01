@@ -1,3 +1,10 @@
-site_name: Atomist documentation
+site_name: The Atomist Documentation
 copyright: 2016, Atomist
 theme: readthedocs
+pages:
+- Welcome to Atomist: 'index.md'
+- Quick Starts:
+  - Introduction: 'quick-starts/index.md'
+  - Enrolling your team with Atomist: 'quick-starts/enrollment.md'
+  - Create a new Project based on a Template: 'quick-starts/create-new-project.md'
+  - Create a new Atomist Project Template: 'quick-starts/new-project-template.md'

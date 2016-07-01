@@ -1,17 +1,19 @@
-# Welcome to MkDocs
+<img style="float: left; padding-top: 7px; padding-right: 10px; padding-bottom: 20px;" src="images/atomist-logo-source.jpg">
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+Atomist is all about high quality productivity in your software. Whether it be working with large legacy codebases, your own "majestic monoliths" or aiming for "zero overhead microservices", Atomist is the best place to be to turn the speed up as high as it can go.
 
-## Commands
+While usually our own Atomist bot can guide you into doing what you need to do, sometimes you might be looking for a little more help to get working with Atomist, possibly more advanced context to an advanced question, or even how to customise Atomist for your own needs.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+If that is what you're looking for, you're now in the right place.
 
-## Project layout
+## Just get me going *right now*: Quick Starts
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+The following are quick recipes that you can use to navigate the most common activites through Atomist.
+
+[Go to the Quick Starts...](quick-starts/index.md)
+
+## I want to know more: Reference Documentation
+
+The reference documentation aims to help you get a deeper dive through the tools, techniques and stucture of Atomist:
+
+[Go to the Reference Documentation...](reference-docs/index.md)
