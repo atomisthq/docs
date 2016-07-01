@@ -1,5 +1,3 @@
-# Quick Start: Create a new project based on an Atomist Project Template
-
 Creating new projects, especially if you're working with multiple microservices, and coordinating them across group discussion channels is a real challenge!
 
 Microservices means lots of projects, continually changing as you come up with the right microservices for your own domain and context. Creating those projects really shouldn't be a hit on productivity and so Atomist has considered this a core feature from its very start.
@@ -16,15 +14,13 @@ You can start to create a project template of your own in three main ways:
 
 ## Forking and customising an existing Atomist Project Template
 
-First off just fork an existing project template to get started. As explained in the [Overview on Atomist Project Templates](../reference-docs/project-template-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.
+First off just fork an existing project template to get started. As explained in the [Overview on Atomist Project Templates](../reference-docs/project-templates-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.
 
 Atomist public templates currently reside in the public atomist-project-templates organisation on GitHub. Navigate there, select the template you'd like to use as a baseline and then simply click on the Fork button, forking the template to your own team's organisation.
 
 Once you've forked your baseline template into your own organisation then clone it to a local directory and you're all set to make your changes.
 
-### Some optional steps for your consideration
-
-It's usually a good idea to rename your new template repository at this point to really make it your own. You might even consider changing its description too.
+> **NOTE:** It's usually a good idea to rename your new template repository at this point to really make it your own. You might even consider changing its description too.
 
 ### ...Customize, Commit & Push...
 

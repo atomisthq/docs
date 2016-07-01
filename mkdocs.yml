@@ -8,3 +8,6 @@ pages:
   - Enrolling your team with Atomist: 'quick-starts/enrollment.md'
   - Create a new Project based on a Template: 'quick-starts/create-new-project.md'
   - Create a new Atomist Project Template: 'quick-starts/new-project-template.md'
+- Reference Documentation:
+  - Introduction: 'reference-docs/index.md'
+  - Overview of Atomist Project Templates: 'reference-docs/project-templates-overview.md'
