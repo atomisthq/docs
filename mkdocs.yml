@@ -6,8 +6,10 @@ pages:
 - Quick Starts:
   - Introduction: 'quick-starts/index.md'
   - Enrolling your team with Atomist: 'quick-starts/enrollment.md'
-  - Create a new Project based on a Template: 'quick-starts/create-new-project.md'
+  - Create a new Project based on a Template: 'quick-starts/new-project-template/create-new-project.md'
+  - Create a new Project based on Forking an existing Template: 'quick-starts/new-project-template/new-project-template-from-fork.md'
   - Create a new Atomist Project Template: 'quick-starts/new-project-template.md'
 - Reference Documentation:
   - Introduction: 'reference-docs/index.md'
   - Overview of Atomist Project Templates: 'reference-docs/project-templates-overview.md'
+  - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'
