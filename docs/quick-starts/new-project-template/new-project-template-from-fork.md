@@ -1,6 +1,8 @@
-First off just fork an existing project template to get started. As explained in the [Overview on Atomist Project Templates](../reference-docs/project-templates-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.
+Forking an existing Atomist Project Template is a very common way to create a new project creation template for your own unique needs.
 
-Atomist public templates currently reside in the public atomist-project-templates organisation on GitHub. Navigate there, select the template you'd like to use as a baseline and then simply click on the Fork button, forking the template to your own team's organisation.
+As explained in the [Overview on Atomist Project Templates](../reference-docs/project-templates-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.
+
+Atomist public templates currently reside in the public [atomist-project-templates](https://github.com/atomist-project-templates) organisation on GitHub. Navigate there, select the template you'd like to use as a baseline and then simply click on the Fork button, forking the template to your own team's organisation.
 
 Once you've forked your baseline template into your own organisation then clone it to a local directory and you're all set to make your changes.
 
