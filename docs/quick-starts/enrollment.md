@@ -20,6 +20,6 @@ When you log into your slack team you should now get a message from Atomist aski
 
 Congratulations, you're now all set to use Atomist!
 
-## You might also be interested in
+## You might also be interested in...
 
 * [Creating a new project using Atomist](create-new-project.md)

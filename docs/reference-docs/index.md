@@ -5,4 +5,4 @@
 * *Coming Soon* Project Operations - actions you can take to construct and act on your projects.
 * Atomist Project Template Overview - an introduction to Atomist templates and how they work.
 * *Coming Soon* - *Custom Project Editors*
-* [Systems that Atomist Integrates with and Current Supports](current-system-integrations.md)
+* [Systems that Atomist Integrates with and Currently Supports](current-system-integrations.md)

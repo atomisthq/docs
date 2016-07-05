@@ -2,7 +2,7 @@
 
 Forking an existing Atomist Project Template is a very common way to create a new project creation template for your own unique needs.
 
-As explained in the [Overview on Atomist Project Templates](../../reference-docs/project-templates/project-templates-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.
+As explained in the [Overview on Atomist Project Templates](/reference-docs/project-templates-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.
 
 Atomist public templates currently reside in the public [atomist-project-templates](https://github.com/atomist-project-templates) organisation on GitHub. Navigate there, select the template you'd like to use as a baseline and then simply click on the Fork button, forking the template to your own team's organisation.
 
@@ -43,7 +43,7 @@ To see your own new template in that list it's time to publish it:
 
 ---
 
-> ***NOTE:*** It is an error to attempt to publish a template with public visibility with the same name as another public template. [More on public and private templates...](../../reference-docs/project-templates/project-templates-overview.md)
+> ***NOTE:*** It is an error to attempt to publish a template with public visibility with the same name as another public template. [More on public and private templates...](/reference-docs/project-templates-overview.md)
 
 The bot will then ask what template you'd like to publish, from which repository in your GitHub organisation:
 
@@ -99,6 +99,6 @@ it will take parameters `[description]`,`{group_id}`,`{name}`,`[artifact_id]`,`[
 
 ---
 
-# You might also be interested in
+# You might also be interested in...
 
-* [Overview of Atomist Project Templates](../../reference-docs/project-templates/project-templates-overview.md)
+* [Overview of Atomist Project Templates](/reference-docs/project-templates-overview.md)

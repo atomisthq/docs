@@ -380,7 +380,7 @@ The following example shows how to access and use of two of these parameters in 
 Created from template ${template_name}, version ${template_version}.
 ```
 
-## You might also be interested in
+## You might also be interested in...
 
-* [Quick Start: Creating and publishing a new Atomist Project Template]()
+* [Quick Start: Creating and publishing a new Atomist Project Template](/quick-starts/new-project-template/new-project-template.md)
 

@@ -14,7 +14,7 @@ You can start to create a project template of your own in three main ways:
 * [Creating an Atomist Project Template from Scratch](new-project-template-from-scratch.md)
 * ***Coming soon*** *Super Forking* an existing project of your own into being the basis for a new Atomist Project Template
 
-## Where you might like to go next...
+## You might also be interested in...
 
 * [Creating a new project based on an Atomist Project Template](../create-new-project.md)
 

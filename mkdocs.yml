@@ -13,5 +13,5 @@ pages:
   - Extract a Microservice: 'quick-starts/extract-microservice.md'
 - Reference Documentation:
   - Introduction: 'reference-docs/index.md'
-  - Overview of Atomist Project Templates: 'reference-docs/project-templates/project-templates-overview.md'
+  - Overview of Atomist Project Templates: 'reference-docs/project-templates-overview.md'
   - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'
