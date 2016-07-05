@@ -11,6 +11,7 @@ pages:
   - Create a new Project Project Template based on Forking an existing Template: 'quick-starts/new-project-template/new-project-template-from-fork.md'
   - Create a new Project Template from Scratch: 'quick-starts/new-project-template/new-project-template-from-scratch.md'
   - Extract a Microservice: 'quick-starts/extract-microservice.md'
+  - Deleting and Tidying Up a Microservice: 'quick-starts/delete-microservice.md'
 - Reference Documentation:
   - Introduction: 'reference-docs/index.md'
   - Overview of Atomist Project Templates: 'reference-docs/project-templates-overview.md'
