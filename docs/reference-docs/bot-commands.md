@@ -16,6 +16,11 @@ Projects can be created in any Slack channel.
 
 ```
 @atomist create new service called my-project
+
+or 
+
+@atomist create a new microservice
+
 ```
 
 The bot may recognize some parameters--in this case, name--from the initial message. It will then ask you for any further required parameters, insisting on valid input as implied by the validation pattern specified in the parameter.
@@ -26,14 +31,44 @@ When the project is created, the bot will create a new Slack channel for the pro
 
 * ***NOTE:*** There is no need to identify a project to the bot when sending messages within a project channel.
 
+
+
 ### Admin Operations
 
-#### delete
+#### Use Private or Public repositories by default
+
+```
+@atomist use public repos
+
+or
+
+@atomist use private repos
+```
+
+#### Your User Information
+
+GitHub user information:
+
+```
+@atomist show github user
+```
+
+Atomist user information:
+
+```
+@atomist whoami
+```
+
+#### Delete and Cleanup
 
 If you have authorized Atomist for delete scope in GitHub, it's possible to delete the repo as follows:
 
 ```
 @atomist delete
+
+or
+
+@atomist cleanup service
 ```
 
 This will prompt as to whether the repo should be deleted (respond `yes` or `no`). 
