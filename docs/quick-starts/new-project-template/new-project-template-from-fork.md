@@ -61,15 +61,7 @@ I'm ready to `submit` the request.  You can tell me to `set param to value` if y
 Do you want to change any of these values?
 branch
 
-master
-
-public
-
-false
-
-repo
-
-`<your repository name>`
+`<a list of the parameters and their values as set so far>`
 
 ---
 
