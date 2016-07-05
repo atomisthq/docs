@@ -10,7 +10,50 @@ Atomist templates can be invoked with or without a service contract (a definitio
 
 * ***NOTE:*** Templates are normally sourced from a single GitHub repo although underneath the hood the templating system is independent of GitHub.
 
-## Structure of an Atomist Project Template
+## Lifecycle of an Atomist Project Template
+
+Templates are normally defined in GitHub repositories but must be published to be available to your team.
+
+## Templates and Contracts
+
+Atomist templates can be invoked with or without a service contract (definition of a microservice). Simple templates may ignore contracts, but templates that are contract-aware must generate a valid application whether or not a contract is supplied.
+
+## Template Identification
+
+Templates are identified by group/artifact/version (GAV), following the widely adopted practice of Maven and other tools.
+
+For example, the Atomist-supplied Spring Rest template is identified as follows:
+
+```
+group: atomist
+artifact: spring-rest-service
+version: 1.0.0
+```
+
+> ***NOTE:*** All Atomist-supplied templates are in the atomist group.
+
+## Template Parameters
+
+Templates declare parameters which are available during template evaluation.
+
+* ***parameters:*** Parameters that you must supply for each use of the template. Validation information is provided in the form of regular expression. Parameters may have default values. Such parameters are gathered before template evaluation.
+* ***computed parameters:*** Parameters computed from regular parameters before template evaluation. For example, when generating a Spring MVC project, the name and path of the @RestController class is a function of the base source path, package and name parameters. Computed parameters are computed by logic in a template class (implemented in Java or Scala) or in a JavaScript function defined in the template itself.
+
+## Template Tags
+
+Templates expose tags that allow their classification. For example, the spring-rest-service exposes java, spring, spring-boot and rest tags.
+
+## Template Visibility (Public and Private)
+
+Templates may be public or private. A public template is visible to all users and must have a unique name across all users. A private template is visible only to the group of the template creator. Visibility is specified when a template is published.
+
+## Version Numbering
+
+Templates follow semantic versioning. Atomist automatically manages the version numbers of templates. 
+
+The first release will be version `1.0.0-SNAPSHOT`. Thereafter increments are automatic.
+
+## Contents of an Atomist Project Template
 
 An Atomist Project Template is configured as a project in GitHub in its own right, and it following a common structure that is shown in the following:
 
@@ -29,15 +72,67 @@ These directories contain:
 
 Content in the root or in any folder other than these three will be ignored and will not be copied to generated projects. It is however also common, but not mandated, to have an appropriate `README.md` and `LICENSE` file for your template as well.
 
-## Lifecycle of an Atomist Project Template
+## Contents of the `/meta` directory
 
+Content in the `/meta` directory describes the template and adds processing scripts. it contains the required info.yml file describing the template, and optional JavaScript files that can perform additional processing.
 
+### The `info.yml` file
 
-## Public and Private Templates
+The required info.yml file describes the template in terms of required properties and the template's parameters.
 
-Atomist supports private and public templates. When a template is published it is declared to be private or public (with private being default).
+### Template Properties in the `info.yml` file
 
-The key differences between the two levels is best shown in the following figure.
+An Atomist Project Template has a number of properties it needs to describe the template effectively to the system. An example would be the following:
 
-TBD Figure of how private and public templates are exposed, possibly embelishing the existing project template lifecycle documentation.
+```
+name: 
+  rest-service
+
+type:
+  spring-boot
+
+description: 
+  Spring Boot REST microservice
+```
+
+This example is taken from the canonical example available from the [atomist-project-templates](https://github.com/orgs/atomist-project-templates/) [Spring Rest Microservice template](https://github.com/atomist-project-templates/spring-rest-service).
+
+As a minimum the template `name` is required. Regardless of where the template is sourced from the name is taken from info.yml within the template.
+
+The `type` is optional. If specified it must be a well-known type supported by the system, for which additional JVM code is executed when the template is instantiated and/or before the template is evaluated.
+
+For example, to define additional parameters or use a specific library to create file content. Most needs can be met by JavaScript and VTL within the template so you can safely ignore this field except when creating Spring Boot templates.
+
+The `description` field is optional and is used as a hint when prompting the Atomist user to select this template.
+
+### Specifying Template Parameters
+
+Parameters are specified in a block under the parameters section of the YML document. The block looks as follows:
+
+```
+parameters:
+
+  - name: number1
+    required: true
+    description: A number of great significance.
+    default-value: 42
+    pattern: \d+
+    valid-input-description: A positive number.
+```
+
+The following fields are available:
+
+| Name        | Provision           | Notes  |
+| ----------- |:-----------------:|:-------|
+| name      | required | Name of the parameter |
+| required     | optional (default is true)      |   Whether or not the parameter is required |
+| description | required      | Description of the template for display when being used |
+| valid-input-description | optional      | Description of valid input, such as a valid Java package name or valid Github repo name |
+| valid-input-description | optional      | Description of valid input, such as a valid Java package name or valid Github repo name |
+| default-value | optional      | Default value if an optional parameter isn't supplied |
+| default-ref | optional      | Name of other field whose value to use if an optional parameter isn't supplied |
+
+## You might also be interested in
+
+* [Quick Start: Creating and publishing a new Atomist Project Template]()
 

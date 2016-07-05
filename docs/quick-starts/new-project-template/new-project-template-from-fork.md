@@ -41,6 +41,8 @@ To see your own new template in that list it's time to publish it:
 
 ---
 
+> ***NOTE:*** It is an error to attempt to publish a template with public visibility with the same name as another public template. [More on public and private templates...](../../reference-docs/project-templates-overview.md)
+
 The bot will then ask what template you'd like to publish, from which repository in your GitHub organisation:
 
 ---
@@ -94,3 +96,7 @@ type `@atomist create 1` to use the spring-rest-service template (Spring Boot RE
 it will take parameters `[description]`,`{group_id}`,`{name}`,`[artifact_id]`,`[version]`,`{package_name}
 
 ---
+
+# You might also be interested in
+
+* [Overview of Atomist Project Templates](../../reference-docs/project-templates-overview.md)
