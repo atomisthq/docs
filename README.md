@@ -31,16 +31,18 @@ or
 
 ```
 $ sudo apt-get install python3
+$ curl -O https://bootstrap.pypa.io/get-pip.py
+$ sudo python3.5 get-pip.py
 ```
 
 Then create a virtual environment to host the dependencies:
 
 ```
-$ pip install virtualenv
+$ pip3 install virtualenv
 $ mkdir ~/.venvs
 $ echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
 $ source ~/.bashrc
-$ virtualenv ~/.venvs/userdocs
+$ virtualenv -p `which python3` ~/.venvs/userdocs
 ```
 
 Every time you want to work on this repository,
