@@ -251,6 +251,48 @@ function generate(po, mh) {
 
 > ***NOTE:*** Template file paths must be relative to the template's base `/templates` directory.
 
+### Working with Service Contracts in JavaScript
+
+If, as part of the template execution, a service contract is available and is provided (for example when a project template is being executed to create a new microservice that will need to exhibit a particular contract) the contract will be exposed to all JavaScript methods via the parameter map:
+
+```javascript
+function generate(params, mergeHelper) {
+
+  // Returns the JSON serialized form of an Atomist ServiceContract
+  var jcs = params["js_contract"];
+  // Evaluate the JSON
+  var sc = eval("(" + jcs + ")");
+  ...
+```
+
+It is now possible to work with the service contract operations and other details that are defined on the contract in order to generate files (as in this case) or to add parameters available to templates. 
+
+A simple example of provided JSON format for the contract would be:
+
+```javascript
+{"name":"Jokes","annotations":[],"version":"1.0.0","canonical":false,"client_view":false,"refs":[],
+"operations":[
+{"path":"/","name":"random","parameters":[],"annotations":["GET"],"responses":[{"code":200,"return_type":"Joke","array":false}]}
+],
+"custom_types":[
+{"discriminator":"object","@id":1,"canonical":false,"name":"Value","description":"","fields":[
+{"primitive_type":"Integer","name":"id","description":"","required":true,"array":false},
+{"primitive_type":"String","name":"joke","description":"","required":true,"array":false},
+{"custom_type":{"discriminator":"object","@id":2,"canonical":false,"name":"categories","description":"Unknown type","fields":[]},"name":"categories","description":"","required":true,"array":true}]},{"discriminator":"object","@id":3,"canonical":false,"name":"Joke","description":"","fields":[{"primitive_type":"String","name":"type","description":"","required":true,"array":false},{"custom_type":{"discriminator":"object","@id":4,"canonical":false,"name":"Value","description":"","fields":[{"primitive_type":"Integer","name":"id","description":"","required":true,"array":false},{"primitive_type":"String","name":"joke","description":"","required":true,"array":false},{"custom_type":{"discriminator":"object","@id":5,"canonical":false,"name":"categories","description":"Unknown type","fields":[]},"name":"categories","description":"","required":true,"array":true}]},"name":"value","description":"","required":true,"array":false}]},{"discriminator":"object","@id":6,"canonical":false,"name":"categories","description":"Unknown type","fields":[]}]}
+```
+
+#### General Recommendations for your JavaScript
+
+We recommend using the underscore library to make JavaScript more elegant. This library can be imported in any Atomist Project Template  JavaScript by invoking:
+
+```javascript
+load("http://underscorejs.org/underscore.js");
+```
+
+## Contents of the `/project` directory
+
+
+
 ## You might also be interested in
 
 * [Quick Start: Creating and publishing a new Atomist Project Template]()
