@@ -15,4 +15,4 @@ it will take parameters `[description]`,`{group_id}`,`{name}`,`[artifact_id]`,`[
 
 ---
 
-To create your own blank template to work from all you need to do is follow the instructions to [create a new project based on an Atomist Project Template](create-new-project.md) (it's just in this case it will contain the starting point for an Atomist Project Template) then get to work on your newly created Atomist Project Template code.
+To create your own blank template to work from all you need to do is follow the instructions to [create a new project based on an Atomist Project Template](new-project-template.md) (it's just in this case it will contain the starting point for an Atomist Project Template) then get to work on your newly created Atomist Project Template code.
