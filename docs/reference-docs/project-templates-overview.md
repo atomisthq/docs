@@ -382,5 +382,5 @@ Created from template ${template_name}, version ${template_version}.
 
 ## You might also be interested in...
 
-* [Quick Start: Creating and publishing a new Atomist Project Template](/quick-starts/new-project-template/new-project-template.md)
+* [Quick Start: Creating and publishing a new Atomist Project Template](/quick-starts/project-templates/new-project-template.md)
 
