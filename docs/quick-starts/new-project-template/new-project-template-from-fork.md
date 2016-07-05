@@ -1,3 +1,5 @@
+## Forking an Existing Atomist Project Template
+
 Forking an existing Atomist Project Template is a very common way to create a new project creation template for your own unique needs.
 
 As explained in the [Overview on Atomist Project Templates](../../reference-docs/project-templates/project-templates-overview.md), at the moment a project template consists of a combination of javascript and Velocity Templates (more template approaches are on the roadmap) and so grabbing something reasonable as a starting point is usually a helpful idea.

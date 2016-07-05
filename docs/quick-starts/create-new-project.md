@@ -1,6 +1,8 @@
+## Creating a new project based on an Atomist Project Template
+
 We recognised that creating new projects is an incredibly common task in microservice-based systems. As such Atomist uses templates to make creating new projects as quick as possible.
 
-## Creating a new project based on an Atomist Project Template
+
 
 First ask Atomist to create a new microservice for you:
 

@@ -1,3 +1,5 @@
+## Enrolling your organisation with Atomist
+
 Your journey with Atomist begins with enrolling Atomist in your Slack and Github organisations.
 
 > ***NOTE:*** At the moment Github and Slack are the two main systems that Atomist can work with. More are in the works and bookmark the [reference documenation]() to be notified as we add them.

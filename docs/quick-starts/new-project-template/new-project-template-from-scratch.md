@@ -1,3 +1,5 @@
+## Create an Atomist Project Template from Scratch
+
 Atomist comes with a template to create a new Atomist Project Template from scratch. You can see this `blank-template` Atomist Project Template if you ask the Bot to list templates:
 
 ---
