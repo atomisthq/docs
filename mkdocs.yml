@@ -1,6 +1,6 @@
 site_name: The Atomist Documentation
 copyright: 2016, Atomist
-theme: readthedocs
+theme_dir: atomist
 pages:
 - Welcome to Atomist: 'index.md'
 - Quick Starts:
