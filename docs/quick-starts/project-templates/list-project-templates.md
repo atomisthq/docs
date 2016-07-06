@@ -2,11 +2,9 @@
 
 To see all of the current Atomist Project Tempates available to your team simply ask the bot with:
 
----
-
+```
 @atomist list templates
-
----
+```
 
 ### You might also be interested in...
 
