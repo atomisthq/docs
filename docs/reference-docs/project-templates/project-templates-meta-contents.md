@@ -49,13 +49,13 @@ parameters:
 The following fields are available:
 
 | Name        | Provision           | Notes  |
-| ----------- |:-----------------:|:-------|
+| ----------- |:-----------------|:-------|
 | name      | required | Name of the parameter |
 | required     | optional (default is true)      |   Whether or not the parameter is required |
 | description | required      | Description of the template for display when being used |
 | valid-input-description | optional      | Description of valid input, such as a valid Java package name or valid Github repo name |
-| valid-input-description | optional      | Description of valid input, such as a valid Java package name or valid Github repo name |
 | default-value | optional      | Default value if an optional parameter isn't supplied |
+| pattern | optional      | Regular Expression that will be allowed for the parameter value |
 | default-ref | optional      | Name of other field whose value to use if an optional parameter isn't supplied |
 
 #### Specifying template tags
@@ -63,7 +63,7 @@ The following fields are available:
 Any number of tags may be specified in the tags section. This help you find templates. Tags are defined as follows:
 
 |Name	|Provision	|Notes|
-| ----------- |:-----------------:|:-------|
+| ----------- |:-----------------|:-------|
 |name | required | Name of the tag |
 | description| required | Description of the tag's meaning, such as Python 3 |
 | parent | optional | Name of parent tag |
