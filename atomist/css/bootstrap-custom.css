@@ -2635,7 +2635,6 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     background-color: #eee;
 }
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
-    color: #fff;
     text-decoration: none;
     background-color: #177D7F;
     outline: 0;
