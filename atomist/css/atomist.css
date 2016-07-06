@@ -10,14 +10,19 @@ body {
     color: #343838;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family:'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family:'BrandonGrotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #222;
 }
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+h1 small, .h1 small, h1 .small, .h1 .small,
+h2 small, .h2 small, h2 .small, .h2 .small,
+h3 small, .h3 small, h3 .small, .h3 .small,
+h4 small, .h4 small, h4 .small, .h4 .small,
+h5 small, .h5 small, h5 .small, .h5 .small,
+h6 small, .h6 small, h6 .small, .h6 .small {
     color: #B1B7B9;
 }
 h1, h2 {
-    font-weight: 700;
+    font-weight: 300;
 }
 h4 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -48,7 +53,8 @@ pre {
     color: #B1B7B9;
 }
 .navbar-default {
-    background-color: #343838;
+    background-color: #1c344a;
+    background: linear-gradient(to right,  #1c344a 0%,#2d7d7c 50%,#93c26f 100%);
     border-bottom: 8px #EBF2F2 solid;
 }
 .bs-sidenav {

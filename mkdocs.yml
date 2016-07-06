@@ -1,6 +1,8 @@
 site_name: The Atomist Documentation
 copyright: 2016, Atomist
 theme_dir: atomist
+extra_css:
+  - "css/brandon-grotesque.css"
 pages:
 - Welcome to Atomist: 'index.md'
 - Quick Starts:
