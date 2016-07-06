@@ -18,5 +18,9 @@ pages:
 - Reference Documentation:
   - Introduction: 'reference-docs/index.md'
   - Atomist Bot Commands: 'reference-docs/bot-commands.md'
-  - Overview of Atomist Project Templates: 'reference-docs/project-templates-overview.md'
+  - Overview of Atomist Project Templates: 'reference-docs/project-templates/project-templates-overview.md'
+  - Overview of Atomist Project Templates Content: 'reference-docs/project-templates/project-template-contents-overview.md'
+  - Contents of the Meta Directory: 'reference-docs/project-templates/project-templates-meta-contents.md'
+  - Contents of the Project Directory: 'reference-docs/project-templates/project-templates-project-contents.md'
+  - How Atomist Project Templates are Used: 'reference-docs/project-templates/how-project-templates-are-used.md'
   - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'
