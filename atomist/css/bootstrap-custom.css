@@ -3134,11 +3134,11 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
     color: #fff;
-    background-color: #272727;
+    background-color: rgba(0,0,0,0.3);
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
     color: #fff;
-    background-color: #272727;
+    background-color: rgba(0,0,0,0.3);
 }
 .navbar-default .navbar-nav>.disabled>a, .navbar-default .navbar-nav>.disabled>a:hover, .navbar-default .navbar-nav>.disabled>a:focus {
     color: #ccc;
@@ -3158,7 +3158,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
     color: #fff;
-    background-color: #272727;
+    background-color: rgba(0,0,0,0.3);
 }
 @media(max-width:767px) {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
@@ -3166,11 +3166,11 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
     color: #fff;
-    background-color: #272727;
+    background-color: rgba(0,0,0,0.3);
 }
 .navbar-default .navbar-nav .open .dropdown-menu>.active>a, .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
     color: #fff;
-    background-color: #272727;
+    background-color: rgba(0,0,0,0.3);
 }
 .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a, .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus {
     color: #ccc;
@@ -4969,7 +4969,7 @@ th.visible-print, td.visible-print {
     color: #fff;
 }
 .navbar-default .dropdown-menu>li>a:hover, .navbar-default .dropdown-menu>.active>a, .navbar-default .dropdown-menu>.active>a:hover {
-    background-color: #272727;
+    background-color: rgba(0,0,0,0.3);
 }
 .navbar-inverse .dropdown-menu {
     background-color: #008cba;

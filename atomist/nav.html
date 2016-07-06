@@ -14,7 +14,9 @@
             {% endif %}
 
             <!-- Main title -->
-            <a class="navbar-brand" href="{{ homepage_url }}">{{ site_name }}</a>
+            <a class="navbar-brand" href="{{ homepage_url }}">
+              <img src="/img/atomist-logo-horiz-reversed.svg" height="20px"/>
+            </a>
         </div>
 
         <!-- Expanded navigation -->
@@ -50,12 +52,12 @@
                 {% if include_next_prev %}
                     <li {% if not previous_page %}class="disabled"{% endif %}>
                         <a rel="next" {% if previous_page %}href="{{ previous_page.url }}"{% endif %}>
-                            <i class="fa fa-arrow-left"></i> Previous
+                            <i class="fa fa-chevron-left"></i> Previous
                         </a>
                     </li>
                     <li {% if not next_page %}class="disabled"{% endif %}>
                         <a rel="prev" {% if next_page %}href="{{ next_page.url }}"{% endif %}>
-                            Next <i class="fa fa-arrow-right"></i>
+                            Next <i class="fa fa-chevron-right"></i>
                         </a>
                     </li>
                 {% endif %}
