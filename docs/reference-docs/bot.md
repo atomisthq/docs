@@ -1,8 +1,12 @@
-## Atomist Bot Commands
+## Introducing the Atomist Bot
 
-The Atomist bot uses natural language processing, so you do not need to remember precise syntax as with a command line. However, knowing the basic shape of commands will help you use the bot more effectively.
+The Atomist bot uses natural language processing so you do not need to remember precise syntax as with a command line. However, knowing the basic shape of commands will help you use the bot more effectively.
 
-### Basics: Getting Out of Trouble
+Currently the Bot integrated with and works within Slack.
+
+> ***NOTE:*** Currently the atomist bot should be enrolled only once per Slack team.
+
+### The Basics: Getting Out of Trouble
 
 If you wish to abort a conversation flow, e.g. because you don't want to create a project with the given parameters, the following command can be used:
 
