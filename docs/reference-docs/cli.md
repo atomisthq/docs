@@ -2,12 +2,6 @@
 
 The Atomist command line is in early internal-use mode.
 
-## Running the Atomist Shell CLI
-
-Download the distribution zip and run from the `/bin` directory. You may need to make the binary executable.
-
-If building from source, use `sbt`. Type `sbt run` to build and start the shell. First, install sbt. On OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
-
 ## Concepts
 
 Each shell session is stateful, maintaining a context of:
@@ -57,7 +51,23 @@ autoload=spring-rest-service,angular2-qs,rugs
 
 The names of the individual templates correspond to template directories under your `template_root`.
 
-## Commands
+## Running the Atomist Shell CLI from Binary
+
+Download the distribution zip and run from the `/bin` directory. You may need to make the binary executable.
+
+## Building and Running the Atomist Shell CLI from Source
+
+The Atomist Shell CLI project is built and run using `sbt`. First you need to ensure you have [`sbt` installed](http://www.scala-sbt.org/0.13/docs/Setup.html).
+
+For example on OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
+
+Once you have `sbt` enter the following from the command line to build and start the shell:
+
+```
+> sbt run
+```
+
+## Atomist Shell CLI Commands
 
  Type `help` during shell execution for a list of commands. Important commands include:
  
@@ -67,9 +77,9 @@ The names of the individual templates correspond to template directories under y
  * `exit`: Exit the shell
  * `show`: Show the current state of the shell, including registered generators and editors.
  * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects.
- * `help`: Show the available current commands and these descriptions.
  
-## Suggested Workflow
+## Suggested Workflow with the Atomist Shell CLI
+
  1. `git clone` GitHub template repository, which can include a generator and multiple editors. Then work on the template locally.
  2. Use `create` and `edit` CLI commands to create and work on generated projects. It's a good idea to `git init` these projects for easy diffing.
  3. Use `reload` command when files change.
