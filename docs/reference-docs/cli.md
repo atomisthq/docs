@@ -2,13 +2,14 @@
 
 The Atomist command line is in early internal-use mode.
 
-## Running
+## Running the Atomist Shell CLI
 
 Download the distribution zip and run from the `/bin` directory. You may need to make the binary executable.
 
 If building from source, use `sbt`. Type `sbt run` to build and start the shell. First, install sbt. On OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
 
 ## Concepts
+
 Each shell session is stateful, maintaining a context of:
 
 * **Loaded project operations**. Project operations (generators, editors and reviewers) may be loaded from:
@@ -17,26 +18,47 @@ Each shell session is stateful, maintaining a context of:
  * *Template base directory*: Directory under which templates are located by relative path.
  * *Output base directory*: Directory to which output projects are created, and in which projects to be edited are expected to reside.
 
-## Configuration
+## Atomist Shell CLI Configuration
+
 Place a file named `.atomist-profile` in the user home directory.
 
-The contents should look like this:
+The contents should contain, as a minimum, the following paths to working directories:
 
 ```
-github_token=<Your GitHub token here>
+template_root=/Users/russmiles/atomist/template-source/
+output_root=/Users/russmiles/atomist/output/
+```
 
-# Templates will be loaded under this directory
-template_root=/Users/rodjohnson/sforzando-dev/
+> ***NOTE***: The CLI will not start up without a configuration file. Changes to configuration made during a session will not be written back to the configuration file. Please edit this file manually between sessions.
 
-# Output projects will be created under this directory
-output_root=/Users/rodjohnson/temp/
+### *template_root*: The Template Working Directory
 
-# CSV list of templates that will be loaded on startup
+Templates will be loaded under this directory:
+
+```
+template_root=/Users/russmiles/atomist/template-source/
+```
+
+### *output_root*: Project Operations Output Directory
+
+Output projects will be created under this directory:
+
+```
+output_root=/Users/russmiles/atomist/output/
+```
+
+### *Optional* A CSV list of templates that will be loaded on startup
+
+If you include this in your configuration file the specified templates will be automatically scanned and made available when the CLI is launched:
+
+```
 autoload=spring-rest-service,angular2-qs,rugs
 ```
-The CLI will not start up without a configuration file. Changes to configuration made during a session will not be written back to the configuration file. Please edit this file manually between sessions.
+
+The names of the individual templates correspond to template directories under your `template_root`.
 
 ## Commands
+
  Type `help` during shell execution for a list of commands. Important commands include:
  
  * `reload`: Reload project operations from known sources. Invoke this command after making changes to generators or ediors.
@@ -44,7 +66,8 @@ The CLI will not start up without a configuration file. Changes to configuration
  * `edit <existing project path>`: Edit an existing project using a registered editor.
  * `exit`: Exit the shell
  * `show`: Show the current state of the shell, including registered generators and editors.
- * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects. 
+ * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects.
+ * `help`: Show the available current commands and these descriptions.
  
 ## Suggested Workflow
  1. `git clone` GitHub template repository, which can include a generator and multiple editors. Then work on the template locally.
