@@ -23,4 +23,5 @@ pages:
   - Contents of the Meta Directory: 'reference-docs/project-templates/project-templates-meta-contents.md'
   - Contents of the Project Directory: 'reference-docs/project-templates/project-templates-project-contents.md'
   - How Atomist Project Templates are Used: 'reference-docs/project-templates/how-project-templates-are-used.md'
+  - Authoring Atomist Project Editors and Reviewers with the Atomist DSL: 'reference-docs/rug.md'
   - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'

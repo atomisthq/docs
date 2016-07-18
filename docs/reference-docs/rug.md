@@ -308,6 +308,7 @@ inspired by Scala
 
 Where a return value isn't required--for example, when a JavaScript block manipulates the currently scoped variable--the special `eval` function can be used.
 
+<!--
 ## Extending Rug
 If JavaScript is not enough
 "kinds" (rename)
@@ -315,3 +316,4 @@ If JavaScript is not enough
 ## Rug Grammar
 tbd
 
+-->

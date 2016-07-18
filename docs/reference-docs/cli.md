@@ -1,7 +1,9 @@
 # Command Line Tooling for Project Operations
-The Atomist command line.
+
+The Atomist command line is in early internal-use mode.
 
 ## Running
+
 Download the distribution zip and run from the `/bin` directory. You may need to make the binary executable.
 
 If building from source, use `sbt`. Type `sbt run` to build and start the shell. First, install sbt. On OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
