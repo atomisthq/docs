@@ -1,7 +1,9 @@
-# Authoring Editors and Reviewers with the Atomist DSL
+## Authoring Editors and Reviewers with the Atomist DSL
+
 Atomist provides an external DSL for authoring editors, codenamed **Rug**, in honor of the Dude. Rug ties things together.
 
 ## How Editors and Reviewers are Packaged
+
 Editors are packaged in GitHub repos. All editors must be in or under the `/editors` directory in the root of the repo. Editors have access to template content in the same archive, packaged under `/templates`. 
 
 Editor files must have a `.rug` extension. A `.rug` file can contain one or more editors and reviewers.

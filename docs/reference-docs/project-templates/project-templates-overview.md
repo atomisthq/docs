@@ -7,7 +7,7 @@ Atomist Project Templates are projects used by Atomist to create new projects. I
 * [What you can expect to find in an Atomist Project Template](project-template-contents-overview.md)
 * [How Atomist Project Templates are used](how-project-templates-are-used.md)
 
-## You might also be interested in...
+### You might also be interested in...
 
 * [Quick Start: Creating and publishing a new Atomist Project Template](/quick-starts/project-templates/new-project-template.md)
 
