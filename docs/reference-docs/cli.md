@@ -59,7 +59,7 @@ Download the distribution zip and run from the `/bin` directory. You may need to
 
 The Atomist Shell CLI project is built and run using `sbt`. First you need to ensure you have [`sbt` installed](http://www.scala-sbt.org/0.13/docs/Setup.html).
 
-For example on OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
+On OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
 
 Once you have `sbt` enter the following from the command line to build and start the shell:
 
@@ -76,11 +76,13 @@ Once you have `sbt` enter the following from the command line to build and start
  * `edit <existing project path>`: Edit an existing project using a registered editor.
  * `exit`: Exit the shell
  * `show`: Show the current state of the shell, including registered generators and editors.
- * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects.
+ * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. (A seed project such as the `angular/quickstart` demo is ideal for this). Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects. You can then evolve the template to parameterize more parts of it: In the case of a JavaScript project, you would probably begin by turning `package.json` into a template by appending `_.mustache` to the filename and populating it using parameters you declare in `meta/info.yml`. See documentation on template structure (TODO: LINK) for more information.
  
 ## Suggested Workflow with the Atomist Shell CLI
 
- 1. `git clone` GitHub template repository, which can include a generator and multiple editors. Then work on the template locally.
- 2. Use `create` and `edit` CLI commands to create and work on generated projects. It's a good idea to `git init` these projects for easy diffing.
- 3. Use `reload` command when files change.
- 4. Commit and push templates as necessary. 
+ 1. `git clone` GitHub a template repository, which can include a generator and multiple editors, under the `template_root` directory specified in your configuration. Then work on the template locally.
+ 2. Use `create` and `edit` CLI commands to create and work on generated projects. It's a good idea to `git init` these projects for easy diffing, even if you don't intend to push them.
+ 3. Use the shell's `reload` command when files change.
+ 4. Commit and push the template as necessary. 
+
+As an alternative to step (1) above, you could begin by "superforking" an existing project on GitHub to create a template.

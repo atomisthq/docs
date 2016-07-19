@@ -2,28 +2,28 @@
 
 Atomist provides an external DSL for authoring editors, codenamed **Rug**, in honor of the Dude. Rug ties things together.
 
+**Project editors** are named units of functionality that can be used to update one or more projects. The typical Atomist workflow is to create a project with a **project generator** (often referred to as a "project template") and then evolve it with the help of project editors.
+
 ## How Editors and Reviewers are Packaged
 
-Editors are packaged in GitHub repos. All editors must be in or under the `/editors` directory in the root of the repo. Editors have access to template content in the same archive, packaged under `/templates`. 
+Editors are packaged in GitHub repos. All editors must be in or under the `/editors` directory in the root of the repo. Editors have access to template content in the same archive, packaged under `/templates`. The presence of editors does not affect the potential of a repo to define a template for a project generator, although editors and the project generator can share template files.
 
 Editor files must have a `.rug` extension. A `.rug` file can contain one or more editors and reviewers.
 
 Any number of Rug editors can be bundled in a template, and this is often done in order to help users evolve generated projects.
 
 ## Underpinnings
-Editors are built on the same underpinnings as ProjectEditor and ProjectGenerator support. They share familiar concepts:
+Rug editors are built on the same underpinnings as non-Rug editors and project generators. They share familiar concepts:
 
 * **Parameters**: Editors and reviewers can expose any number of parameters, specifying a validation pattern.
-* **Templates**: Editors can be shipped in archives including templates.
+* **Templates**: Editors can be packaged in archives including templates.
 
 ## A Quick Tour of Rug
 Rug is an English-like DSL, designed to make the definition of project operations concise and readable. 
 
 White space is not significant. However we encourage sensible indentation.
 
-Before we go into a more systematic presentation of Rug syntax, let's start by building up a simple program.
-
-Here is a basic Rug program:
+Before we go into a more systematic presentation of Rug syntax, let's start by building up a simple program: a project editor that appends to a file:
 
 ```
 editor AppendToFile
@@ -33,7 +33,7 @@ with file f
 do
  append "\nAnd this is a new line"
 ```
-This means *for each file in the project if name contains ".txt" append the given string to the end of the file.*
+This means *for each file in the project if name contains ".txt" append the given string to the end of the file.* The code between `when` and `do` is a *predicate*, specifying which files to match.
 
 Let's make this a little more sophisticated. Perhaps we'd like to decide what content we should append. This would be a natural parameter:
 
@@ -47,15 +47,16 @@ with file f
 do
  append to_append
 ```
-Now we will append the value of the parameter to the end of the file.
+Now we will append the value of the parameter to the end of the file. Unlike our first, naive, editor, this editor can be used to modify files in ways determined by the caller. (Parameters are typically entered by a user, prompted by the Atomist bot or a web form.) Note that the parameter definition specifies a regular expression that will be used to validate it before it's passed to the editor. So the editor's implementation can assume that it's valid upon execution.
 
-It would be good to describe this editor so that users see information beyond its name. We can do this with the `description` annotation:
+It would be good to describe this editor so that users see information beyond its name. We can do this with the `description` annotation. We can also describe the parameter:
 
 ```
 @description """Appends value of to_append parameter to
-     the end of the file"""
+     the end of files with a .txt extension"""
 editor AppendToFile
 
+@description "Text to append to the file"
 param to_append: .*
 
 with file f
@@ -80,10 +81,10 @@ do
 with file f
  when name contains ".java"
 do
- prepend "// Ha ha! This is a sneaky comment\n"
+ prepend "// Ha ha! This is a sneaky comment.\n"
 ```
 
-Sometimes we need to compute additional values, like `x` below:
+Sometimes we need to compute additional values like `x` below:
 
 ```
 editor AppendToFile
@@ -94,18 +95,15 @@ x = "This is a value"
 
 with file f
  when name contains ".txt"
-do
+do begin
+ prepend x
  append to_append
- 
-with file f
- when name contains ".java"
-do
- prepend "// Ha ha! This is a sneaky comment\n"
+end
 ```
 
-Such values will be exposed to templates as well as the rest of the Rug program itself.
+Such computed values will be exposed to templates as well as the rest of the Rug program itself.
 
-We can compose predicates. In the following example, we `and` two tests on a file to narrow matching:
+We can compose predicates used with `with`. In the following example, we `and` two tests on a file to narrow matching:
 
 ```
 editor AppendToFile
@@ -127,8 +125,6 @@ editor AppendToFile
 
 param to_append: .*
 
-x = y
-
 with file f
  when name contains ".txt" 
  begin
@@ -137,7 +133,7 @@ with file f
 end
 ```
 
-We can escape to JavaScript to compute the value of any expression, or perform a do manipulation. A JavaScript expression is enclosed in curly braces. The following example builds the string to be prepended using JavaScript. 
+We can escape to JavaScript to compute the value of any expression, or perform a do manipulation. A JavaScript expression is enclosed in curly braces. The following example builds the string to be appended using JavaScript. 
 
 ```
 editor AppendToFile
@@ -159,10 +155,10 @@ with file f
 do
  append "42"
  ```
-
-
+<!--
 ### Rug Samples
 The best way to get started with Rug is to look at the ********
+-->
 
 ## Editor and Reviewer Composition
 Editors can be composed. For example, executing the `Foo` editor in the following Rug script will result in `some` being replaced by `foo` and then by `bar`, as the `Foo` editor invokes the `Bar` editor.
@@ -183,31 +179,31 @@ editor Bar
 with file f
 do replaceAll "foo" "bar"
 ```
+In this case, `Foo` and `Bar` are in the same file, but they could be in separate files within the same archive. We could also refer to editors outside the current archive, depending on which project operations are loaded in the current context.
 
 ## Syntax Guide
 Now, for a more detailed tour of Rug syntax.
 
 ### Case conventions
-Rug identifiers must follow case conventions. 
+Rug identifiers must observe the following case conventions. 
 
-* Types
-* Functions
+* *Type names*, such as editors and reviewer names: Same convention as for valid Java identifiers, except that they must begin with a capital letter.
+* *Function names*, such as `append` in the earlier examples: Same convention as for valid Java identifiers, except that they must begin with a lower case letter.
 
 #### Reserved words
-The following are Rug reserved words:
+Reserved words may not be used as identifiers. The following are Rug reserved words:
 
 |  Reserved word |  Purpose
 |---|---|---|---|
 | `editor`, `reviewer` | Identify program
 `param` | Parameter declaration
 `uses` | Identify imported editor or reviewer
-`precondition` | 
-`postcondition` |
-`with`  |   |      |
-|`do`   |   |   |
-|   |   |   |
-
-Other words are reserved but not yet used:
+`precondition` | Predicate that should hold for the editor be applicable or run
+`postcondition` | Predicate that should hold after the editor has run. Including this makes an editor more robust, as it will fail rather than make any updates if the postcondition does not hold.
+`with`  |  Specifies a with block |      |
+|`do`   |   Begins an action within a with block|   
+| `run` | Specifies an action within a with block that executes another project operation. 
+| `begin` - `end`  | Group a sequence of actions within a with block. Actions can include `do`, a nested `with` block, or `run`. Each action will see the context in the state it was left in by the last action.
 
 #### Rug Symbols
 |  Symbol |  Purpose
@@ -216,8 +212,17 @@ Other words are reserved but not yet used:
 | `{}`  | Surrounds a JavaScript block. The JavaScript expression(s) in the block are evaluated, and the return value can be used as a function argument.
 `=` | Equality test
 
+#### String Literals
+Rug supports three types of string literals:
+
+| String type | Notes | Examples
+|---|---|---
+| Double quoted | As supported in Java, including escaping via `\` | `"Donny" "Walter\n" "Jeff Bridges is the \"Dude\""`
+| Single quoted | As in Python or JavaScript. However, does not support escaping | `'This is a test'`
+| Triple quoted | Can span linebreaks, as in Python or Scala. Unlike in Python, only double quotes are allowed | `"""This content could span many lines"""`
+
 ### Annotations
-*Annotations* are used to describe elements such as editors and reviewers. For example: 
+*Annotations* are used to describe the following program elements: editors, reviewers and parameters. For example: 
 
 ```
 @description "Takes EJBs and delivers a roundhouse kick to them"
@@ -233,15 +238,17 @@ with file f
 do
  setContent "Now this won't compile, will it!"
 ```
+The permitted values are consistent with parameter definitions used extensively in Atomist components.
+
 |  Annotation |  Applies to | Meaning
 |---|---|---|---|
 | description | editor, reviewer or parameter | Describes the parameter
 | optional | parameter | Whether the parameter is required. Default is required.
-
-
+| validInput | parameter | Description of valid input, such as "A valid email address" or "3-10 alphanumeric characters"
+| hide | parameter | Indicates that this parameter is only for use by programs and should not be displayed to users.
 
 ### Comments
-Any content on a line after # is a comment. For example:
+Any content on a line after `#` is a comment. For example:
 
 ```
 editor Foo
@@ -251,11 +258,12 @@ do
    # This is not something we'd want to do in real life
    setContent "Something else"
 ```
+There is no multiline comment support: Use a `#` on each line.
 
 ## Reviewers
-**Reviewers** are programs with similar structure to editors. However, they cannot make changes to projects, but report any problems they find.
+**Reviewers** are programs with similar structure to editors. They also use parameters, computed values, `with` blocks with predicates and `do` blocks. However, they cannot make changes to projects, but report any problems they find.
 
-Simple example:
+A simple example:
 
 ```
 reviewer NoEjbs
@@ -268,9 +276,15 @@ majorProblem "This file uses EJB"
 ## Preconditions and Postconditions
 Reviewers are often used as editor **preconditions**. 
 
-**Postconditions** can be used to verify the result of editing. An editor that fails to meet its postcondition will not make any changes, but throw an error message.
+**Postconditions** can be used to verify the result of editing. An editor that fails to meet its postcondition will not make any changes, but throw an error message. Thus including postconditions makes an editor more robust as well as self-documenting.
 
-## Core types
+## Core Types
+Consider the following line:
+
+```
+with file f
+```
+`file` here is not a function or a reserved word in Rug, but a **type**.
 
 ### Project
 One of the key operations on a project is a template merge. Rug editors can access all template languages supported by Atomist. There are two methods:
@@ -299,10 +313,12 @@ def mergeTemplates(templatesPath: String, outputPath: String,
 ### File
 The file type is used for operations that are not language specific, such as regular expression replacement and changing the file path.
 
-LIST OPERATIONS
+LIST OPERATIONS ON FILE
 
 ## Language-specific Types
-Rug ships with support for Java and JavaScript out of the box.
+Rug ships with support for Java out of the box. For example:
+
+
 
 ## Escaping into JavaScript
 Rug is intentionally limited, aiming for readability rather than power. However, it makes it easy to escape to JavaScript at any time to perform more complex tasks.
