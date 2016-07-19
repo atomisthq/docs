@@ -297,7 +297,9 @@ And
 def mergeTemplates(templatesPath: String, outputPath: String, 
 ```
 ### File
-File operations are not language specific. Replacement
+The file type is used for operations that are not language specific, such as regular expression replacement and changing the file path.
+
+LIST OPERATIONS
 
 ## Language-specific Types
 Rug ships with support for Java and JavaScript out of the box.
@@ -305,10 +307,56 @@ Rug ships with support for Java and JavaScript out of the box.
 ## Escaping into JavaScript
 Rug is intentionally limited, aiming for readability rather than power. However, it makes it easy to escape to JavaScript at any time to perform more complex tasks.
 
-Any expression
-inspired by Scala
+Anywhere an expresson value is required, curly braces can be used to enclose a JavaScript statement or statements. As in Scala, the last statement in the expression will be used as the value of the expression. In the following example, the value of the JavaScript statement is passed to the `setContent` method on the `file` type.
 
-Where a return value isn't required--for example, when a JavaScript block manipulates the currently scoped variable--the special `eval` function can be used.
+```
+with file f when name = "thing.txt"
+do setContent { f.content() + "\nAppend stuff" }
+```
+
+Where a return value isn't required--for example, when a JavaScript block manipulates the currently scoped variable--the special `eval` function can be used, as follows:
+
+```
+with file f when name = "thing.txt"
+do eval { f.setContent(f.content() + "\nAppend stuff") }
+```
+JavaScript expressions are also commonly used in predicates, like this:
+
+```
+with file f when { f.name().toLowerCase().contains("xyz") }
+do eval { f.setContent(f.content() + "\nAppend stuff") }
+```
+A JavaScript expression blog has a context that is automatically propagated by Rug. This includes:
+
+* All parameters to the Rug script. These can be accessed by name or via the `params` map.
+* All computed parameters.
+* The current context object, which is accessed via the alias declared in the `with` statement (`f` in the example above.)
+* The parent of the current context, accessible via the `parent` method on the context object.
+
+JavaScript execution is performed using Java Nashorn, with the Rug runtime creating a synthetic function to enclose the block.
+
+	All invocations on context objects must use 
+	parentheses or a reference error will occur.
+	
+In the case of multiple statements, a `return` statement should be used for the last expression:
+
+```
+do myFunction {
+   var x = "y"
+   var y = x
+   return y;
+}
+
+Finally, a JavaScript expression can be used to compute a Rug computed value, like this:
+
+```
+editor Test
+
+param name: .*
+
+lowerized = { name.toLowerCase() }
+...
+```
 
 <!--
 ## Extending Rug
