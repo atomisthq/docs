@@ -133,7 +133,7 @@ with file f
 end
 ```
 
-We can escape to JavaScript to compute the value of any expression, or perform a do manipulation. A JavaScript expression is enclosed in curly braces. The following example builds the string to be appended using JavaScript. 
+We can escape to JavaScript to compute the value of any expression, or perform a do manipulation. A JavaScript expression is enclosed in curly braces. The following example builds the string to be appended using JavaScript:
 
 ```
 editor AppendToFile
@@ -144,7 +144,8 @@ with file f
  when name contains ".txt"
 do
  append { to_append + " plus this from JavaScript" }
- ```
+```
+ 
 We can also use JavaScript expressions in predicates, like this:
 
 ```
@@ -154,7 +155,8 @@ with file f
  when name contains ".txt" and { 13 < 27 }
 do
  append "42"
- ```
+```
+ 
 <!--
 ### Rug Samples
 The best way to get started with Rug is to look at the ********
@@ -376,8 +378,10 @@ do myFunction {
    var y = x
    return y;
 }
+```
 
 Finally, a JavaScript expression can be used to compute a Rug computed value, like this:
+
 
 ```
 editor Test
@@ -385,8 +389,9 @@ editor Test
 param name: .*
 
 lowerized = { name.toLowerCase() }
-...
+
 ```
+
 
 <!--
 ## Extending Rug
