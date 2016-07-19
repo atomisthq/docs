@@ -284,9 +284,12 @@ Consider the following line:
 ```
 with file f
 ```
-`file` here is not a function or a reserved word in Rug, but a **type**.
+`file` here is not a function or a reserved word in Rug, but a **type**. Types are an important extension point of Rug, enabling it to expose a wide range of functionality in a native-seeming way. Types support a range of methods, which can be used in `with` predicates or `do` statements. 
 
+There are a number of types shipped out of the box.
 ### Project
+Type for a project.
+
 One of the key operations on a project is a template merge. Rug editors can access all template languages supported by Atomist. There are two methods:
 
 ```
@@ -297,8 +300,7 @@ One of the key operations on a project is a template merge. Rug editors can acce
 */
 def merge(template: String, path: String)
 ```
-
-And
+and
 
 ```
 /**
@@ -316,9 +318,21 @@ The file type is used for operations that are not language specific, such as reg
 LIST OPERATIONS ON FILE
 
 ## Language-specific Types
-Rug ships with support for Java out of the box. For example:
+Rug ships with support for Java out of the box, defining `class` and `method` types. For example, this editor adds an annotation to classes whose name contain a given pattern:
 
+```
+@description "Annotate dogs"
+editor Annotator
 
+param name_match: .*
+param annotation_package: .*
+param annotation: .*
+
+with class c when { c.name().contains(name_match) }
+do
+  addAnnotation annotation_package annotation
+```
+TODO replace these annotation patterns with valid ones
 
 ## Escaping into JavaScript
 Rug is intentionally limited, aiming for readability rather than power. However, it makes it easy to escape to JavaScript at any time to perform more complex tasks.
