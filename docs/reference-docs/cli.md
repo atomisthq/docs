@@ -77,7 +77,7 @@ Once you have `sbt` enter the following from the command line to build and start
  * `exit`: Exit the shell
  * `show`: Show the current state of the shell, including registered generators and editors.
  * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. (A seed project such as the `angular/quickstart` demo is ideal for this). Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects. You can then evolve the template to parameterize more parts of it: In the case of a JavaScript project, you would probably begin by turning `package.json` into a template by appending `_.mustache` to the filename and populating it using parameters you declare in `meta/info.yml`. See documentation on template structure (TODO: LINK) for more information.
- * `smart-merge` <existing project path> <template path>: (NOT YET SUPPORTED) Attempt to update the template with changes that have been made to the given project, which must have been created by the template. This allows for a workflow where a project is created from a template and then edited using standard tooling (such as an IDE) in order to identify updates for the upstream template.
+ * `smart-merge <existing project path>  <template path>`: (NOT YET SUPPORTED) Attempt to update the template with changes that have been made to the given project, which must have been created by the template. This allows for a workflow where a project is created from a template and then edited using standard tooling (such as an IDE) in order to identify updates for the upstream template.
  
 ## Suggested Workflow with the Atomist Shell CLI
 
