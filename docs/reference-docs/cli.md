@@ -19,8 +19,8 @@ Place a file named `.atomist-profile` in the user home directory.
 The contents should contain, as a minimum, the following paths to working directories:
 
 ```
-template_root=/Users/russmiles/atomist/template-source/
-output_root=/Users/russmiles/atomist/output/
+template_root=/Users/russmiles/atomist/template-source
+output_root=/Users/russmiles/atomist/output
 ```
 
 > ***NOTE***: The CLI will not start up without a configuration file. Changes to configuration made during a session will not be written back to the configuration file. Please edit this file manually between sessions.
@@ -30,26 +30,17 @@ output_root=/Users/russmiles/atomist/output/
 Templates will be loaded under this directory:
 
 ```
-template_root=/Users/russmiles/atomist/template-source/
+template_root=/Users/russmiles/atomist/template-source
 ```
+Any templates added via CLI commands will be added automatically. If you add a template via a `git clone` operation, use the `reload` command within the shell to load it.
 
 ### *output_root*: Project Operations Output Directory
 
 Output projects will be created under this directory:
 
 ```
-output_root=/Users/russmiles/atomist/output/
+output_root=/Users/russmiles/atomist/output
 ```
-
-### *Optional* A CSV list of templates that will be loaded on startup
-
-If you include this in your configuration file the specified templates will be automatically scanned and made available when the CLI is launched:
-
-```
-autoload=spring-rest-service,angular2-qs,rugs
-```
-
-The names of the individual templates correspond to template directories under your `template_root`.
 
 ## Running the Atomist Shell CLI from Binary
 
@@ -72,12 +63,13 @@ Once you have `sbt` enter the following from the command line to build and start
  Type `help` during shell execution for a list of commands. Important commands include:
  
  * `reload`: Reload project operations from known sources. Invoke this command after making changes to generators or ediors.
- * `create <output path>`: Create a new project under the current output path. The shell will prompt for a template to use and for the parameters needed by that template.
- * `edit <existing project path>`: Edit an existing project using a registered editor.
+ * `create`: Create a new project under the current output path. The shell will prompt for a template to use and for the parameters needed by that template.
+ * `edit`: Edit an existing local project using a registered editor.
+ * `edit-remote`: Edit an existing GitHub project using a registered editor. The edit will appear as a pull request in the repo.
  * `exit`: Exit the shell
  * `show`: Show the current state of the shell, including registered generators and editors.
  * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. (A seed project such as the `angular/quickstart` demo is ideal for this). Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects. You can then evolve the template to parameterize more parts of it: In the case of a JavaScript project, you would probably begin by turning `package.json` into a template by appending `_.mustache` to the filename and populating it using parameters you declare in `meta/info.yml`. See documentation on template structure (TODO: LINK) for more information.
- * `smart-merge <existing project path>  <template path>`: (NOT YET SUPPORTED) Attempt to update the template with changes that have been made to the given project, which must have been created by the template. This allows for a workflow where a project is created from a template and then edited using standard tooling (such as an IDE) in order to identify updates for the upstream template.
+ * `template-synch`: Attempt to update the template with changes that have been made to the given project, which must have been created by the template. This allows for a workflow where a project is created from a template and then edited using standard tooling (such as an IDE) in order to identify updates for the upstream template.
  
 ## Suggested Workflow with the Atomist Shell CLI
 
