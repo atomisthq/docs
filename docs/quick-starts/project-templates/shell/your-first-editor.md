@@ -47,3 +47,8 @@ If you now ask the shell to `reload` you still won't see any editors listed, but
 ## Adding a *very* simple Atomist Project Editor
 
 It's now time to add our first Atomist Project Editor to the `my-first-editor` template directory.
+
+## You might also be interested in...
+
+* [Introduction to Atomist Project Editors](/reference-docs/project-editors.md)
+* [Authoring Editors and Reviewers with the Atomist DSL](/reference-docs/rug.md)
