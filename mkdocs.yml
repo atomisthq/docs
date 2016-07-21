@@ -14,6 +14,8 @@ pages:
   - Create a new Project Project Template based on Forking an existing Template: 'quick-starts/project-templates/new-project-template-from-fork.md'
   - Create a new Project Template from Scratch: 'quick-starts/project-templates/new-project-template-from-scratch.md'
   - Working Locally with Atomist Project Templates and the CLI: 'quick-starts/project-templates/cli/project-operations-cli-quickstarts.md'
+  - Getting Set Up with the Atomist Shell CLI: 'quick-starts/project-templates/cli/getting-started-with-the-cli.md'
+  - Creating a new Atomist Project Template by Superforking with the CLI: 'quick-starts/project-templates/cli/superforking-a-new-template.md'
   - Extract a Microservice: 'quick-starts/extract-microservice.md'
   - Deleting and Tidying Up a Microservice: 'quick-starts/delete-microservice.md'
 - Reference Documentation:
