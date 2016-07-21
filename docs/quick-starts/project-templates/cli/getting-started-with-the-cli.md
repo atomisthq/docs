@@ -57,6 +57,69 @@ From the `show` menu you can execute a command by entering its index number or b
 
 If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `:q` command to get back to the `show` menu of commands.
 
-## Next?
+## Grabbing a baseline Atomist Project Template to work with
 
-A good next step is for you to create a template to work with. The best way to do that *if* you have some existing code in a repository you have access to is to do a `superfork` as you'll see in the [next quick start](superforking-a-new-template)...
+Now you can grab an existing [Atomist Project Template] to get working with it from the CLI. We'll use a canonical template that is already pre-baked by the Atomist team, the `spring-rest-service` template that is available in the `atomist-project-templates` [organisation on GitHub](https://github.com/atomist-project-templates/spring-rest-service).
+
+Take a fork of that repository into your own GitHub organisation and then clone it to the directory you specified before in the `.atomist-profile` for `templates-root`.
+
+If you have the CLI running and you now enter the `show` command you might be forgiven to being slightly unimpressed when you see the following:
+
+```
+Templates are 
+	spring-rest-service
+Generators are 
+	
+Editors are 
+	
+Reviewers are 
+Template root is '/Users/russellmiles/atomist/template-source/'
+Output root is '/Users/russellmiles/atomist/output/'
+GitHub Token is 'null'
+Choose command. Please enter one of
+	0 create
+	1 edit
+	2 edit-remote
+	3 exit
+	4 reload
+	5 show
+	6 superfork
+	7 template-synch
+
+```
+
+The shell has automatically noticed your template, but it hasn't noticed any of the features the template contains. `Generators` will be able to create for you project starting points, and `Editors` will be able to work on existing projects, but at the moment we have neither.
+
+In order for the shell to be able to access any `Generators` and `Editors` available in your template directory we need to ask it to `reload` and then you'll see:
+
+```
+reload
+Executing command reload
+Reloading /Users/russellmiles/atomist/template-source//spring-rest-service
+Templates are 
+	spring-rest-service
+Generators are 
+	spring-rest-service: (Spring Boot REST microservice) description,group_id,name,artifact_id,version,package_name
+Editors are 
+	
+Reviewers are 
+Template root is '/Users/russellmiles/atomist/template-source/'
+Output root is '/Users/russellmiles/atomist/output/'
+GitHub Token is 'null'
+Choose command. Please enter one of
+	0 create
+	1 edit
+	2 edit-remote
+	3 exit
+	4 reload
+	5 show
+	6 superfork
+	7 template-synch
+```
+
+> ***NOTE***: If you restart the shell this automatically executes load of generators and editors from known templates in the `template-root`.
+
+## Next Steps
+
+Now you have a template to hand you can use the Atomist Shell to [create new local projects based upon it...](creating-a-local-project-based-on-local-template.md)
+
