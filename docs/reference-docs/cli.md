@@ -1,6 +1,6 @@
 # Command Line Tooling for Project Operations
 
-The Atomist command line is in early internal-use mode.
+> ***NOTE***: The Atomist Shell is in early internal-use mode.
 
 ## Concepts
 
@@ -12,7 +12,7 @@ Each shell session is stateful, maintaining a context of:
  * *Template base directory*: Directory under which templates are located by relative path.
  * *Output base directory*: Directory to which output projects are created, and in which projects to be edited are expected to reside.
 
-## Atomist Shell CLI Configuration
+## Atomist Shell Configuration
 
 Place a file named `.atomist-profile` in the user home directory.
 
@@ -42,11 +42,11 @@ Output projects will be created under this directory:
 output_root=/Users/russmiles/atomist/output
 ```
 
-## Running the Atomist Shell CLI from Binary
+## Running the Atomist Shell from Binary
 
 Download the distribution zip and run from the `/bin` directory. You may need to make the binary executable.
 
-## Building and Running the Atomist Shell CLI from Source
+## Building and Running the Atomist Shell from Source
 
 The Atomist Shell CLI project is built and run using `maven`.
 
@@ -58,7 +58,7 @@ The following from the command line to build and start the shell:
 > > mvn compile exec:javaDexec.mainClass="com.atomist.projectoperation.cli.Main"
 ```
 
-## Atomist Shell CLI Commands
+## Atomist Shell Commands
 
  Type `help` during shell execution for a list of commands. Important commands include:
  
@@ -75,10 +75,10 @@ The following from the command line to build and start the shell:
 
 If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `:q` command to get back to the `show` menu of commands.
  
-## Suggested Workflow with the Atomist Shell CLI
+## Suggested Workflow with the Atomist Shell
 
  1. `git clone` GitHub a template repository, which can include a generator and multiple editors, under the `template_root` directory specified in your configuration. Then work on the template locally.
- 2. Use `create` and `edit` CLI commands to create and work on generated projects. It's a good idea to `git init` these projects for easy diffing, even if you don't intend to push them.
+ 2. Use `create` and `edit` shell commands to create and work on generated projects. It's a good idea to `git init` these projects for easy diffing, even if you don't intend to push them.
  3. Use the shell's `reload` command when files change.
  4. Commit and push the template as necessary. 
 

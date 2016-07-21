@@ -1,6 +1,6 @@
-## Getting Set Up with the Atomist Shell CLI
+## Getting Set Up with the Atomist Shell
 
-Let's get rolling creating your own Atomist project templates and editors with the Atomist Shell CLI. First up, make sure you've either grabbed the [binary of the shell or built your own local copy](/reference-docs/cli.md).
+Let's get rolling creating your own Atomist project templates and editors with the Atomist Shell. First up, make sure you've either grabbed the [binary of the shell or built your own local copy](/reference-docs/cli.md).
 
 ### Creating an initial Atomist Profile
 
@@ -11,11 +11,11 @@ template_root=/Users/russellmiles/atomist/template-source/
 output_root=/Users/russellmiles/atomist/output/
 ```
 
-You should set those paths to to where you want the CLI to work from. More will go in that file a little later on as we explore the functionality of the CLI.
+You should set those paths to to where you want the shell to work from. More will go in that file a little later on as we explore the functionality of the shell.
 
-### Running the CLI for the first time from Source
+### Running the Atomist Shell for the first time from Source
 
-Assuming for now that you're working with the CLI from source then the following command will get the CLI running:
+Assuming for now that you're working with the shell from source then the following command will get the shell running:
 
 ```
 > mvn compile exec:javaDexec.mainClass="com.atomist.projectoperation.cli.Main"
@@ -59,11 +59,11 @@ If you've kicked off a flow with a command and realise you no longer want to con
 
 ## Grabbing a baseline Atomist Project Template to work with
 
-Now you can grab an existing [Atomist Project Template] to get working with it from the CLI. We'll use a canonical template that is already pre-baked by the Atomist team, the `spring-rest-service` template that is available in the `atomist-project-templates` [organisation on GitHub](https://github.com/atomist-project-templates/spring-rest-service).
+Now you can grab an existing [Atomist Project Template] to get working with it from the shell. We'll use a canonical template that is already pre-baked by the Atomist team, the `spring-rest-service` template that is available in the `atomist-project-templates` [organisation on GitHub](https://github.com/atomist-project-templates/spring-rest-service).
 
 Take a fork of that repository into your own GitHub organisation and then clone it to the directory you specified before in the `.atomist-profile` for `templates-root`.
 
-If you have the CLI running and you now enter the `show` command you might be forgiven to being slightly unimpressed when you see the following:
+If you have the shell running and you now enter the `show` command you might be forgiven to being slightly unimpressed when you see the following:
 
 ```
 Templates are 
