@@ -49,4 +49,10 @@ At this point you don't have any [Atomist Project Templates](/reference-docs/pro
 
 If you ever want to see this status again all you need to do is execute the `status` command.
 
+## Getting out of trouble: *Cancelling a Command with :q*
+
+If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `:q` command to get back to the `show` menu of commands.
+
+## Next?
+
 A good next step is for you to create a template to work with. The best way to do that *if* you have some existing code in a repository you have access to is to do a `superfork` as you'll see in the [next quick start](superforking-a-new-template)...

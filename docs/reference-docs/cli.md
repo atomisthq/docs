@@ -48,14 +48,14 @@ Download the distribution zip and run from the `/bin` directory. You may need to
 
 ## Building and Running the Atomist Shell CLI from Source
 
-The Atomist Shell CLI project is built and run using `sbt`. First you need to ensure you have [`sbt` installed](http://www.scala-sbt.org/0.13/docs/Setup.html).
+The Atomist Shell CLI project is built and run using `maven`.
 
-On OS/X you can do this with `brew install sbt`. The sbt build relies on a local Maven repository with access to Atomist Artifactory artifacts.
+The build relies on a local Maven repository with access to Atomist Artifactory artifacts.
 
-Once you have `sbt` enter the following from the command line to build and start the shell:
+The following from the command line to build and start the shell:
 
 ```
-> sbt run
+> > mvn compile exec:javaDexec.mainClass="com.atomist.projectoperation.cli.Main"
 ```
 
 ## Atomist Shell CLI Commands
@@ -70,6 +70,10 @@ Once you have `sbt` enter the following from the command line to build and start
  * `show`: Show the current state of the shell, including registered generators and editors.
  * `superfork`: Specify a GitHub repo containing a project that you wish to use as the basis for a template. (A seed project such as the `angular/quickstart` demo is ideal for this). Instead of a simple clone, the result will be a new directory under the current `template_root` containing a template that can create similar projects. You can then evolve the template to parameterize more parts of it: In the case of a JavaScript project, you would probably begin by turning `package.json` into a template by appending `_.mustache` to the filename and populating it using parameters you declare in `meta/info.yml`. See documentation on [template structure](/reference-docs/project-templates/project-template-contents-overview.md) for more information.
  * `template-synch`: Attempt to update the template with changes that have been made to the given project, which must have been created by the template. This allows for a workflow where a project is created from a template and then edited using standard tooling (such as an IDE) in order to identify updates for the upstream template.
+ 
+## Getting out of trouble: *Cancelling a Command*
+
+If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `:q` command to get back to the `show` menu of commands.
  
 ## Suggested Workflow with the Atomist Shell CLI
 
