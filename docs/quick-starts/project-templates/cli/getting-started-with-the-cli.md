@@ -49,6 +49,10 @@ At this point you don't have any [Atomist Project Templates](/reference-docs/pro
 
 If you ever want to see this status again all you need to do is execute the `status` command.
 
+## Executing a *Command*
+
+From the `show` menu you can execute a command by entering its index number or by typing in the actual command name.
+
 ## Getting out of trouble: *Cancelling a Command with :q*
 
 If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `:q` command to get back to the `show` menu of commands.
