@@ -25,5 +25,5 @@ Project written to '/Users/russellmiles/atomist/output/mynewservice': generated 
 
 ### Next?
 
-Now you have a brand new project to work in it's time to explore creating and applying your own Atomist editors...
+Now you have a brand new project to work in it's time to explore [constructing and executing an Atomist Editor that can work on an existing project...](your-first-editor.md)
 
