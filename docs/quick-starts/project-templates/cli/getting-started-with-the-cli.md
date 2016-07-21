@@ -2,7 +2,18 @@
 
 Let's get rolling creating your own Atomist project templates and editors with the Atomist Shell CLI. First up, make sure you've either grabbed the [binary of the shell or built your own local copy](/reference-docs/cli.md).
 
-Before you run anything make sure you also have [set up an initial .atomist-profile](/reference-docs/cli.md) in your home directory as well.
+### Creating an initial Atomist Profile
+
+Before you run anything make sure you also have [set up an initial .atomist-profile](/reference-docs/cli.md) in your home directory as well. At this point you only need the following information in that profile file:
+
+```
+template_root=/Users/russellmiles/atomist/template-source/
+output_root=/Users/russellmiles/atomist/output/
+```
+
+You should set those paths to to where you want the CLI to work from. More will go in that file a little later on as we explore the functionality of the CLI.
+
+### Running the CLI for the first time from Source
 
 Assuming for now that you're working with the CLI from source then the following command will get the CLI running:
 
