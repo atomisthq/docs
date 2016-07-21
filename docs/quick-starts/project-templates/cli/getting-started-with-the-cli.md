@@ -47,4 +47,6 @@ Choose command. Please enter one of
 
 At this point you don't have any [Atomist Project Templates](/reference-docs/project-templates/project-templates-overview.md) or [Editors](/reference-docs/project-editors.md).
 
+If you ever want to see this status again all you need to do is execute the `status` command.
+
 A good next step is for you to create a template to work with. The best way to do that *if* you have some existing code in a repository you have access to is to do a `superfork` as you'll see in the [next quick start](superforking-a-new-template)...
