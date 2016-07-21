@@ -62,7 +62,7 @@ Once you have `sbt` enter the following from the command line to build and start
 
  Type `help` during shell execution for a list of commands. Important commands include:
  
- * `reload`: Reload project operations from known sources. Invoke this command after making changes to generators or ediors.
+ * `reload`: Reload project operations from known sources. Invoke this command after making changes to generators or editors.
  * `create`: Create a new project under the current output path. The shell will prompt for a template to use and for the parameters needed by that template.
  * `edit`: Edit an existing local project using a registered editor.
  * `edit-remote`: Edit an existing GitHub project using a registered editor. The edit will appear as a pull request in the repo.
