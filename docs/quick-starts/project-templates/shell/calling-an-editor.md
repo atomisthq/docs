@@ -77,6 +77,8 @@ Updated /Users/russellmiles/atomist/output/mynewservice: edited with my-first-ed
 
 Now check out the contents of your `pom.xml` in your `mynewservice` project and you should see the change has successfully been applied!
 
+## Calling Editors uising the `run` declaration
+
 To chain these two editors together let's create a new editor, called `MoveAndChangeArtifactId`, that calls both:
 
 ```
@@ -112,6 +114,8 @@ run PomParameterizer
 ```
 
 > ***NOTE***: We could have simply called the `PackageMove` editor from the `PomParameterizer` editor in this case by adding teh `run` delaration at the end of the `PomParameterizer` editor script. It is often better and clearer however to create a separate editor that simply orchestrates a number of simple, single-purposed editors.
+
+## Run your Editor that calls other Editors
 
 Reload the shell with the `reload` command and you should see the following snippet:
 
