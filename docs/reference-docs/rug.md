@@ -256,7 +256,7 @@ The permitted values are consistent with parameter definitions used extensively 
 | validInput | parameter | Description of valid input, such as "A valid email address" or "3-10 alphanumeric characters"
 | hide | parameter | Indicates that this parameter is only for use by programs and should not be displayed to users.
 
-`@` Annotations are also used to look up pre-packaged variables that are supplied to your script for use when declaring editor parameters, for example:
+`@` Annotations are also used to look up pre-packaged variables that are supplied to your script for use when declaring editor parameter patterns, for example:
 
 ```
 editor ClassRenamer
@@ -265,7 +265,7 @@ param old_class: @java_class
 param new_class: @java_class
 ```
 
-Currently pre-packaged variables that can be looked up in this manner for parameter declarations include the following:
+Currently pre-packaged variables that can be looked up in this manner for parameter pattern declarations specifically include the following:
 
 | Identifier | Type |
 |---|---|---|---|
