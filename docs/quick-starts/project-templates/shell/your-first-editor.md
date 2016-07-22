@@ -48,7 +48,7 @@ If you now ask the shell to `reload` you still won't see any editors listed, but
 
 It's now time to add our first Atomist Project Editor to the `my-first-editor` template directory.
 
-Create a file in the `editors` directory called `movePackageEditor`. Then declare an actual editor in your script with the following [rug](/reference-docs/rud.md) declaration in that file:
+Create a file in the `editors` directory called `movePackageEditor`. Then declare an actual editor in your script with the following [rug](/reference-docs/rug.md) declaration in that file:
 
 ```
 editor PackageMove
@@ -147,7 +147,7 @@ Take a look in your output `mynewservice` project and marvel in how your project
 
 ## Next?
 
-Take your Atomist Project Editor skills to the next level by adding another editor and then reusing your existing `PackageMove` editor...
+Take your Atomist Project Editor skills to the next level by adding another editor and then [reusing your existing `PackageMove` editor by running it](calling-an-editor.md)...
 
 ## You might also be interested in...
 

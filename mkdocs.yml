@@ -17,6 +17,7 @@ pages:
   - Getting Set Up with the Atomist Shell: 'quick-starts/project-templates/shell/getting-started-with-the-shell.md'
   - Creating a new new project based on a local Atomist Project Template with the Atomist Shell: 'quick-starts/project-templates/shell/creating-a-local-project-based-on-local-template.md'
   - Constructing and executing an Atomist Editor that can work on an existing project with the Atomist Shell: 'quick-starts/project-templates/shell/your-first-editor.md'
+  - Calling an Atomist Project Editor from another Editor: 'quick-starts/project-templates/shell/calling-an-editor.md'
   - Extract a Microservice: 'quick-starts/extract-microservice.md'
   - Deleting and Tidying Up a Microservice: 'quick-starts/delete-microservice.md'
 - Reference Documentation:
