@@ -163,6 +163,7 @@ The best way to get started with Rug is to look at the ********
 -->
 
 ## Editor and Reviewer Composition
+
 Editors can be composed. For example, executing the `Foo` editor in the following Rug script will result in `some` being replaced by `foo` and then by `bar`, as the `Foo` editor invokes the `Bar` editor.
 
 ```
@@ -184,15 +185,18 @@ do replaceAll "foo" "bar"
 In this case, `Foo` and `Bar` are in the same file, but they could be in separate files within the same archive. We could also refer to editors outside the current archive, depending on which project operations are loaded in the current context.
 
 ## Syntax Guide
+
 Now, for a more detailed tour of Rug syntax.
 
 ### Case conventions
+
 Rug identifiers must observe the following case conventions. 
 
 * *Type names*, such as editors and reviewer names: Same convention as for valid Java identifiers, except that they must begin with a capital letter.
 * *Function names*, such as `append` in the earlier examples: Same convention as for valid Java identifiers, except that they must begin with a lower case letter.
 
 #### Reserved words
+
 Reserved words may not be used as identifiers. The following are Rug reserved words:
 
 |  Reserved word |  Purpose
@@ -208,13 +212,15 @@ Reserved words may not be used as identifiers. The following are Rug reserved wo
 | `begin` - `end`  | Group a sequence of actions within a with block. Actions can include `do`, a nested `with` block, or `run`. Each action will see the context in the state it was left in by the last action.
 
 #### Rug Symbols
+
 |  Symbol |  Purpose
 |---|---|---|---|
-| `@` | Prefixes an *annotation*. Annotations are used to describe program elements.
+| `@` | Prefixes an *annotation* or a pre-packaged Rug variable lookup when using on declared parameters. Annotations are used to describe program elements.
 | `{}`  | Surrounds a JavaScript block. The JavaScript expression(s) in the block are evaluated, and the return value can be used as a function argument.
 `=` | Equality test
 
 #### String Literals
+
 Rug supports three types of string literals:
 
 | String type | Notes | Examples
@@ -224,6 +230,7 @@ Rug supports three types of string literals:
 | Triple quoted | Can span linebreaks, as in Python or Scala. Unlike in Python, only double quotes are allowed | `"""This content could span many lines"""`
 
 ### Annotations
+
 *Annotations* are used to describe the following program elements: editors, reviewers and parameters. For example: 
 
 ```
@@ -248,6 +255,28 @@ The permitted values are consistent with parameter definitions used extensively 
 | optional | parameter | Whether the parameter is required. Default is required.
 | validInput | parameter | Description of valid input, such as "A valid email address" or "3-10 alphanumeric characters"
 | hide | parameter | Indicates that this parameter is only for use by programs and should not be displayed to users.
+
+`@` Annotations are also used to look up pre-packaged variables that are supplied to your script for use when declaring editor parameters, for example:
+
+```
+editor ClassRenamer
+
+param old_class: @java_class
+param new_class: @java_class
+```
+
+Currently pre-packaged variables that can be looked up in this manner for parameter declarations include the following:
+
+| Identifier | Type |
+|---|---|---|---|
+| artifact_id | RegEx Pattern |
+| group_id | RegEx Pattern |
+| java_class | RegEx Pattern |
+| java_package | RegEx Pattern |
+| project_name | RegEx Pattern |
+| port | RegEx Pattern |
+| semantic_version | RegEx Pattern |
+| url | RegEx Pattern |
 
 ### Comments
 Any content on a line after `#` is a comment. For example:
