@@ -422,12 +422,21 @@ lowerized = { name.toLowerCase() }
 ```
 
 
-<!--
 ## Extending Rug
-If JavaScript is not enough
-"kinds" (rename)
+Rug can be extended by via new **types**, which expose an element of the target project structure to convenient manipulation.
+
+The `com.atomist.rug.spi` packge provides interfaces to be extended to create user extensions.
+
+To implement a type, you need to extend the `com.atomist.rug.spi.Type` trait to provide:
+
+* the alias for your new type
+* a method enabling Rug to find your new type from its parent element type
+* Methods that can be invoked in Rug programs to conveniently obtain information and update an instance of your type
+* code to update the parent context when your type has changed
+
+Type instances are mutable. They should maintain a backing model, which knows how to write itself back out to a string or other permanent representation. For example, the Java type support uses `GitHubJavaParser` to parse Java source and write it back out, exposes the AST, and write it back out after changes.
+>Well-behaved type instances will preserve comments and formatting from the input. 
 
 ## Rug Grammar
 tbd
 
--->
