@@ -437,6 +437,15 @@ To implement a type, you need to extend the `com.atomist.rug.spi.Type` trait to 
 Type instances are mutable. They should maintain a backing model, which knows how to write itself back out to a string or other permanent representation. For example, the Java type support uses `GitHubJavaParser` to parse Java source and write it back out, exposes the AST, and write it back out after changes.
 >Well-behaved type instances will preserve comments and formatting from the input. 
 
+Type extensions are found from the classpath using Spring classpath scanning. To enable your own types to be found, place a custom `type-registrations.xml` on your classpath. The default scans for Atomist implementations of the `Type` trait, as follows:
+
+```xml
+<context:component-scan base-package="com.atomist.rug.kind">
+        <context:include-filter type="assignable" expression="com.atomist.rug.spi.Type"/>
+</context:component-scan>
+
+```
+You can modify the base package, and also define beans that can be injected into any type implementation using autowiring.
 ## Rug Grammar
 tbd
 
