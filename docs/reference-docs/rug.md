@@ -6,11 +6,44 @@ Atomist provides an external DSL for authoring editors, codenamed **Rug**, in ho
 
 ## How Editors and Reviewers are Packaged
 
-Editors are packaged in GitHub repos. All editors must be in or under the `/editors` directory in the root of the repo. Editors have access to template content in the same archive, packaged under `/templates`. The presence of editors does not affect the potential of a repo to define a template for a project generator, although editors and the project generator can share template files.
+Editors are packaged in GitHub repos. All editors must be in or under the `/.atomist/editors` directory the repo. Editors have access to template content in the same archive, packaged under `/templates`. The presence of editors does not affect the potential of a repo to define a template for a project generator, although editors and the project generator can share template files.
 
-Editor files must have a `.rug` extension. A `.rug` file can contain one or more editors and reviewers.
+>**Remember: All Atomist files should be under the `.atomist` directory in the root of a project.**
+
+Editor files must have a `.rug` extension. A `.rug` file can contain one or more editors and reviewers. A `.rug` file must contain either:
+
+* All the project operations in the archive -- *or*
+* A single project operation with the same name as the project file, excluding the `.rug` extension. This corresponds to Java's enforcement of the packaging of public classes.
 
 Any number of Rug editors can be bundled in a template, and this is often done in order to help users evolve generated projects.
+## Generators from Editors
+An editor annotated with the `@generator` annotation constitutes a project generator, acting on the content of the repo it is located in, excluding the `.atomist` directly. A single repo can contain multiple project generator editors. 
+
+Typically project generator editors do not contain logic of their own, but invoke multiple other editors. For example, here is the complete Spring Rest generator:
+
+```
+@tag "java"
+@tag "spring"
+@tag "spring-boot"
+# @tags [ "java", "spring", ]
+@description "Creates a new Spring Rest project"
+@generator "Spring Rest"
+editor NewSpringProject
+
+# Pattern to replace in old class name.
+old_class = "SpringRest"
+
+# Root package of the old file
+old_package = "com.atomist.springrest"
+
+# Now we invoke generic editors that do the actual work
+UpdateReadme
+PomParameterizer
+PackageMove
+ClassRenamer
+
+```
+Note that it concludes by invoking four other editors. The parameters from these editors propagate to the calling context--typically an interaction with a user--except for `old_class` and `old_package` which are explicitly set.
 
 ## Underpinnings
 Rug editors are built on the same underpinnings as non-Rug editors and project generators. They share familiar concepts:
@@ -101,7 +134,7 @@ do begin
 end
 ```
 
-Such computed values will be exposed to templates as well as the rest of the Rug program itself.
+Such computed values will be exposed to templates as well as the remainder of the Rug program itself.
 
 We can compose predicates used with `with`. In the following example, we `and` two tests on a file to narrow matching:
 
@@ -169,14 +202,12 @@ Editors can be composed. For example, executing the `Foo` editor in the followin
 ```
 editor Foo
 
-uses Bar
-
 with file f
 do
   replaceAll "some" "foo"
-run Foo
+Foo
 
-
+# ------
 editor Bar
 
 with file f
@@ -289,7 +320,15 @@ do
    # This is not something we'd want to do in real life
    setContent "Something else"
 ```
-There is no multiline comment support: Use a `#` on each line.
+C style multi-line comments are supported:
+
+```
+/*
+	This is a comment that goes on so long
+	that we need line breaks.
+*/
+editor Sample ...
+```
 
 ## Reviewers
 **Reviewers** are programs with similar structure to editors. They also use parameters, computed values, `with` blocks with predicates and `do` blocks. However, they cannot make changes to projects, but report any problems they find.
