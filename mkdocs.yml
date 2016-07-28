@@ -30,5 +30,6 @@ pages:
   - How Atomist Project Templates are Used: 'reference-docs/project-templates/how-project-templates-are-used.md'
   - Introduction to Atomist Project Editors: 'reference-docs/project-editors.md'
   - Authoring Atomist Project Editors and Reviewers with the Atomist DSL: 'reference-docs/rug.md'
+  - Test-Driven Atomist Project Editors, Generators and Reviewers with the Atomist DSL Test Framework: 'reference-docs/rug-test.md'
   - Command Line Tooling for Project Operations: 'reference-docs/cli.md'
   - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'
