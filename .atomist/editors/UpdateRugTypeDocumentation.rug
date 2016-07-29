@@ -8,18 +8,12 @@ editor UpdateRugTypeDocumentation
 uses core.TypeDoc
 
 @description """
-  Path to output the rug type documentation to
+  File and path to output the rug type documentation to
 """
 @default "/docs/reference-docs/rug-kinds.md"
 @optional
 param output_filepath: .*
 
-@description """
-  File to output the rug type documentation to
-"""
-@default "rug-kinds.md"
-@optional
-param output_filename: .*
 
 @description """
   Entry for mkdocs.yml file to index the type documentation file

@@ -2,8 +2,7 @@ scenario UpdateRugTypeDocumentation should produce a new types markdown document
 
 uses core.TypeDoc
 
-let output_path = "/docs/reference-docs/"
-let output_filename = "rug-kinds.md"
+let output_path = "/docs/reference-docs/rug-kinds.md"
 let mkdocs_entry = "  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'"
 
 given
@@ -13,6 +12,6 @@ given
   UpdateRugTypeDocumentation
 
 then
-  { !p.fileExists(output_path + output_filename) }
+  { !p.fileExists(output_path) }
   and fileExists "mkdocs.yml"
   and fileContains "mkdocs.yml" "  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'"
