@@ -10,25 +10,28 @@ uses core.TypeDoc
 @description """
   Path to output the rug type documentation to
 """
-param output_path: .*
+@default "/docs/reference-docs/rug-kinds.md"
+@optional
+param output_filepath: .*
 
 @description """
   File to output the rug type documentation to
 """
+@default "rug-kinds.md"
+@optional
 param output_filename: .*
 
 @description """
   Entry for mkdocs.yml file to index the type documentation file
 """
+@default "  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'"
+@optional
 param mkdocs_entry: .*
 
 TypeDoc
 
 with file f when { f.name().contains("rugKinds.md") }
-begin
-  do setPath output_path
-  do setName output_filename
-end
+  do setPath output_filepath
 
 with file f when { f.name().contains("mkdocs.yml") && !f.content().contains(mkdocs_entry) }
 begin
