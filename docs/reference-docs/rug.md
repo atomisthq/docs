@@ -1,25 +1,40 @@
 ## Authoring Editors and Reviewers with the Atomist DSL
 
-Atomist provides an external DSL for authoring editors, codenamed **Rug**, in honor of the Dude. Rug ties things together.
+Atomist provides an external DSL for authoring **project editors** and **project reviewers**, codenamed **Rug**, in honor of the Dude. Rug ties things together.
 
-**Project editors** are named units of functionality that can be used to update one or more projects. The typical Atomist workflow is to create a project with a **project generator** (often referred to as a "project template") and then evolve it with the help of project editors.
+**Project editors** are named units of functionality that can be used to update one or more projects. The typical Atomist workflow is to create a project which contains static content as a starting point and a number of editors that can be used to create new projects from it and help users to evolve created projects.
+
+**Project reviewers** are similar modules to project editors, but do not update projects, but report potential problems with them.
+
+## Basic Concepts
+Rug is a simple, English-like, DSL. It does not contain a full-blown set of control structures and this is not its purpose.
+
+Rug exists to do these things well:
+
+* **Iterate over files and AST nodes** in supported languages and enable easy modification. *Rug is designed to be extensible to allow further node types to be supported.*
+* Use the same constructs to easily **extract values from files.** 
+* **Compose** operations to maximize reuse.
+* **Declare parameters** to allow automated gathering of valid user input to drive operations.
 
 ## How Editors and Reviewers are Packaged
 
-Editors are packaged in GitHub repos. All editors must be in or under the `/.atomist/editors` directory the repo. Editors have access to template content in the same archive, packaged under `/templates`. The presence of editors does not affect the potential of a repo to define a template for a project generator, although editors and the project generator can share template files.
+Editors are packaged in a fixed directory structure. Normally this is sourced from a GitHub. All editors must be in or under the `/.atomist/editors` directory the repo. Editors have access to template content in the same archive, packaged under `/.atomist/templates`. 
 
 >**Remember: All Atomist files should be under the `.atomist` directory in the root of a project.**
 
 Editor files must have a `.rug` extension. A `.rug` file can contain one or more editors and reviewers. A `.rug` file must contain either:
 
-* All the project operations in the archive -- *or*
-* A single project operation with the same name as the project file, excluding the `.rug` extension. This corresponds to Java's enforcement of the packaging of public classes.
+* A single project operation with the same name as the project file, excluding the `.rug` extension. This corresponds to Java's enforcement of the packaging of public classes. *-or-*
+* A single project operation with the same name as the project file, excluding the `.rug` extension, plus any number of other project operations that are used only by that project operation. 
 
-Any number of Rug editors can be bundled in a template, and this is often done in order to help users evolve generated projects.
+This convention is analogous to Java public class packaging. 
+
+Any number of Rug editors can be bundled in a repository.
+
 ## Generators from Editors
-An editor annotated with the `@generator` annotation constitutes a project generator, acting on the content of the repo it is located in, excluding the `.atomist` directly. A single repo can contain multiple project generator editors. 
+An editor annotated with the `@generator` annotation can be used as a **project generator**, acting on the content of the repo it is located in, excluding the `.atomist` directly. A single repo can contain multiple project generator editors. 
 
-Typically project generator editors do not contain logic of their own, but invoke multiple other editors. For example, here is the complete Spring Rest generator:
+Typically project generator editors do not contain logic of their own, but invoke a number of other editors. For example, here is a complete Spring Rest generator:
 
 ```
 @tag "java"
@@ -45,8 +60,12 @@ ClassRenamer
 ```
 Note that it concludes by invoking four other editors. The parameters from these editors propagate to the calling context--typically an interaction with a user--except for `old_class` and `old_package` which are explicitly set.
 
+This modular approach enables multiple project generator editors to share common functionality.
+
+Project generator editors can also be used as regular editors and be invoked by other editors.
+
 ## Underpinnings
-Rug editors are built on the same underpinnings as non-Rug editors and project generators. They share familiar concepts:
+Rug editors are built on the same underpinnings as non-Rug editors. They share familiar concepts:
 
 * **Parameters**: Editors and reviewers can expose any number of parameters, specifying a validation pattern.
 * **Templates**: Editors can be packaged in archives including templates.
@@ -356,36 +375,14 @@ with file f
 ```
 `file` here is not a function or a reserved word in Rug, but a **type**. Types are an important extension point of Rug, enabling it to expose a wide range of functionality in a native-seeming way. Types support a range of methods, which can be used in `with` predicates or `do` statements. 
 
-There are a number of types shipped out of the box.
-### Project
-Type for a project.
+A number of types are shipped out of the box. The most important are:
 
-One of the key operations on a project is a template merge. Rug editors can access all template languages supported by Atomist. There are two methods:
+* project
+* file
+* java.source, java.class/java.method
+* docker
 
-```
-/**
-* Merge the given template to the given output path
-* @param template template to merge, within Rug archive
-* @param path path of merged file within output project
-*/
-def merge(template: String, path: String)
-```
-and
-
-```
-/**
-* Merge templates from the specified directory in the backing /templates
-* directory to the specified direction in the output project
-*
-* @param templatesPath path under /templates in backing Rug archive
-* @param outputPath    path under root in output file
-*/
-def mergeTemplates(templatesPath: String, outputPath: String, 
-```
-### File
-The file type is used for operations that are not language specific, such as regular expression replacement and changing the file path.
-
-LIST OPERATIONS ON FILE
+See reference documentation HERE
 
 ## Language-specific Types
 Rug ships with support for Java out of the box, defining `class` and `method` types. For example, this editor adds an annotation to classes whose name contain a given pattern:
