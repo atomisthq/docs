@@ -33,3 +33,4 @@ pages:
   - Test-Driven Atomist Project Editors, Generators and Reviewers with the Atomist DSL Test Framework: 'reference-docs/rug-test.md'
   - Command Line Tooling for Project Operations: 'reference-docs/cli.md'
   - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'
+  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'
