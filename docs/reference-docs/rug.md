@@ -205,7 +205,7 @@ editor Foo
 with file f
 do
   replaceAll "some" "foo"
-Foo
+Bar
 
 # ------
 editor Bar
