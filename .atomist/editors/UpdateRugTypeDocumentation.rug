@@ -1,0 +1,36 @@
+@tag "docs"
+@description """
+	Produce a new TypeDocs documentation file on the latest
+  rug types.
+"""
+editor UpdateRugTypeDocumentation
+
+uses core.TypeDoc
+
+@description """
+  Path to output the rug type documentation to
+"""
+param output_path: .*
+
+@description """
+  File to output the rug type documentation to
+"""
+param output_filename: .*
+
+@description """
+  Entry for mkdocs.yml file to index the type documentation file
+"""
+param mkdocs_entry: .*
+
+TypeDoc
+
+with file f when { f.name().contains("rugKinds.md") }
+begin
+  do setPath output_path
+  do setName output_filename
+end
+
+with file f when { f.name().contains("mkdocs.yml") && !f.content().contains(mkdocs_entry) }
+begin
+  do append mkdocs_entry
+end

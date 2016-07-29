@@ -1,0 +1,18 @@
+scenario UpdateRugTypeDocumentation should produce a new types markdown documentation file
+
+uses core.TypeDoc
+
+let output_path = "/docs/reference-docs/"
+let output_filename = "rug-kinds.md"
+let mkdocs_entry = "  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'"
+
+given
+
+  ArchiveRoot
+
+  UpdateRugTypeDocumentation
+
+then
+  { !p.fileExists(output_path + output_filename) }
+  and fileExists "mkdocs.yml"
+  and fileContains "mkdocs.yml" "  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'"
