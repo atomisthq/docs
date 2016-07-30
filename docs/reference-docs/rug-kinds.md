@@ -11,6 +11,8 @@
 
 **Parameters**
 
+
+
 pkg : class java.lang.String : Package where the annotation is sourced
 
 annotation : class java.lang.String : The annotation to add
@@ -20,6 +22,8 @@ annotation : class java.lang.String : The annotation to add
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -31,6 +35,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -39,6 +45,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 annotation : class java.lang.String : The string name of the annotation to look for
 
 
@@ -46,6 +54,8 @@ annotation : class java.lang.String : The string name of the annotation to look 
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -57,6 +67,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -67,11 +79,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -85,6 +101,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to append
 
 
@@ -92,6 +110,8 @@ literal : class java.lang.String : The string to append
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -103,6 +123,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 what : class java.lang.String : The string to use when looking for it in the file
 
 
@@ -110,6 +132,8 @@ what : class java.lang.String : The string to use when looking for it in the fil
     Does the file content contain a match for the given regex
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to look for in the file's content
 
@@ -119,11 +143,15 @@ regexp : class java.lang.String : The regular expression to look for in the file
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -133,11 +161,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `findMatches`
     Return all matches for the given regexp in this file
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -147,6 +179,8 @@ regexp : class java.lang.String : The regular expression to search for
 
 **Parameters**
 
+
+
 regexp : class java.lang.String : The regular expression to search for
 
 
@@ -155,11 +189,15 @@ regexp : class java.lang.String : The regular expression to search for
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -171,6 +209,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -181,11 +221,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `nameContains`
     Does the file name (not path) contain the given string?
 
 **Parameters**
+
+
 
 what : class java.lang.String : The string to use when looking for it in the file name or path
 
@@ -195,6 +239,8 @@ what : class java.lang.String : The string to use when looking for it in the fil
 
 **Parameters**
 
+
+
 ic : interface com.atomist.rug.runtime.FunctionInvocationContext : 
 
 
@@ -203,11 +249,15 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext :
 
 **Parameters**
 
+*None*
+
 
 ### `prepend`
     Prepend the given content to the file
 
 **Parameters**
+
+
 
 literal : class java.lang.String : The string to prepend to the file
 
@@ -217,6 +267,8 @@ literal : class java.lang.String : The string to prepend to the file
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -224,6 +276,8 @@ msg : class java.lang.String : The message to be displayed
     Replace all occurrences of the given regexp in this file
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -235,6 +289,8 @@ replaceWith : class java.lang.String : The string to replace matching expression
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to search for
 
 replaceWith : class java.lang.String : The string to replace the matches with
@@ -245,6 +301,8 @@ replaceWith : class java.lang.String : The string to replace the matches with
 
 **Parameters**
 
+
+
 newContent : class java.lang.String : The content to set the file to
 
 
@@ -253,6 +311,8 @@ newContent : class java.lang.String : The content to set the file to
 
 **Parameters**
 
+
+
 name : class java.lang.String : The name to set the file to
 
 
@@ -260,6 +320,8 @@ name : class java.lang.String : The name to set the file to
     Change the package name
 
 **Parameters**
+
+
 
 newName : class java.lang.String : The name to set the package to
 
@@ -271,6 +333,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext :
 
 **Parameters**
 
+
+
 newPath : class java.lang.String : The path to change the file to
 
 
@@ -278,6 +342,8 @@ newPath : class java.lang.String : The path to change the file to
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 **Parameters**
+
+
 
 root : class java.lang.String : The root path to begin searching from
 
@@ -291,6 +357,8 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -301,11 +369,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -314,6 +386,8 @@ msg : class java.lang.String : The message to be displayed
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -325,6 +399,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -335,11 +411,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -348,6 +428,8 @@ msg : class java.lang.String : The message to be displayed
     Update this line's content
 
 **Parameters**
+
+
 
 s2 : class java.lang.String : The content to update this line to
 
@@ -365,6 +447,8 @@ operations can be inefficient.
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 content : class java.lang.String : The content to be placed in the new file
@@ -374,6 +458,8 @@ content : class java.lang.String : The content to be placed in the new file
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -385,6 +471,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 
@@ -392,6 +480,8 @@ path : class java.lang.String : The path to use
     Delete the given file from the project. Path can contain /s.
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -401,6 +491,8 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 
@@ -409,6 +501,8 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -416,6 +510,8 @@ msg : class java.lang.String : The message to be displayed
     Does a file with the given path exist and have the expected content?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -427,11 +523,15 @@ content : class java.lang.String : The content to check
 
 **Parameters**
 
+*None*
+
 
 ### `fileExists`
     Does a file with the given path exist?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -440,6 +540,8 @@ path : class java.lang.String : The path to use
     Does a file with the given path exist and have the expected content?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -450,6 +552,8 @@ content : class java.lang.String : The content to check against the given file
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -463,6 +567,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
       
 
 **Parameters**
+
+
 
 template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
@@ -480,6 +586,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
+
+
 templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
 outputPath : class java.lang.String : The destination path within the destintion project
@@ -492,6 +600,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -502,6 +612,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 path : class java.lang.String : The root path to move the file to
 
 
@@ -510,6 +622,8 @@ path : class java.lang.String : The root path to move the file to
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -517,6 +631,8 @@ msg : class java.lang.String : The message to be displayed
     Replace all occurrences of the given regular expression in this project
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -528,6 +644,8 @@ replacement : class java.lang.String : The string to replace matches with
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to look for
 
 replaceWith : class java.lang.String : The string to replace matches with
@@ -537,6 +655,8 @@ replaceWith : class java.lang.String : The string to replace matches with
     Globally replace all occurrences of the given string literal in file paths in this project
 
 **Parameters**
+
+
 
 literal : class java.lang.String : The string to search for
 
@@ -552,6 +672,8 @@ replacement : class java.lang.String : The string to replace in the paths if fou
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -562,11 +684,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -576,11 +702,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -592,6 +722,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -602,6 +734,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 newPackage : class java.lang.String : The package to move the source file to
 
 
@@ -610,17 +744,23 @@ newPackage : class java.lang.String : The package to move the source file to
 
 **Parameters**
 
+*None*
+
 
 ### `pkg`
     Return the package name
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -630,11 +770,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 **Parameters**
+
+
 
 root : class java.lang.String : The root path to begin searching from
 
@@ -648,6 +792,8 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -658,11 +804,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -672,11 +822,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `imports`
     Does the module import the given module?
 
 **Parameters**
+
+
 
 moduleName : class java.lang.String : The module name to check
 
@@ -685,6 +839,8 @@ moduleName : class java.lang.String : The module name to check
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -696,6 +852,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -706,17 +864,23 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `path`
     Return file path, with forward slashes
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -726,6 +890,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 newName : class java.lang.String : The module name to change to
 
 
@@ -734,6 +900,8 @@ newName : class java.lang.String : The module name to change to
 
 **Parameters**
 
+
+
 root : class java.lang.String : The root path to begin searching from
 
 
@@ -741,6 +909,8 @@ root : class java.lang.String : The root path to begin searching from
     Update the given module import
 
 **Parameters**
+
+
 
 oldModuleName : class java.lang.String : The old module import name
 
@@ -756,6 +926,8 @@ newName : class java.lang.String : The module name to change to
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 content : class java.lang.String : The content to be placed in the new file
@@ -765,6 +937,8 @@ content : class java.lang.String : The content to be placed in the new file
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -776,6 +950,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 
@@ -783,6 +959,8 @@ path : class java.lang.String : The path to use
     Delete the given file from the project. Path can contain /s.
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -792,6 +970,8 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 
@@ -800,6 +980,8 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -807,6 +989,8 @@ msg : class java.lang.String : The message to be displayed
     Does a file with the given path exist and have the expected content?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -818,11 +1002,15 @@ content : class java.lang.String : The content to check
 
 **Parameters**
 
+*None*
+
 
 ### `fileExists`
     Does a file with the given path exist?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -831,6 +1019,8 @@ path : class java.lang.String : The path to use
     Does a file with the given path exist and have the expected content?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -842,11 +1032,15 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
+*None*
+
 
 ### `isSpring`
     Is this a Spring project?
 
 **Parameters**
+
+*None*
 
 
 ### `isSpringBoot`
@@ -854,17 +1048,23 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
+*None*
+
 
 ### `javaFileCount`
     Return the number of Java files in this module
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -878,6 +1078,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
       
 
 **Parameters**
+
+
 
 template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
@@ -895,6 +1097,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
+
+
 templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
 outputPath : class java.lang.String : The destination path within the destintion project
@@ -907,6 +1111,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -917,6 +1123,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 path : class java.lang.String : The root path to move the file to
 
 
@@ -925,11 +1133,15 @@ path : class java.lang.String : The root path to move the file to
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -938,6 +1150,8 @@ msg : class java.lang.String : The message to be displayed
     Replace all occurrences of the given regular expression in this project
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -949,6 +1163,8 @@ replacement : class java.lang.String : The string to replace matches with
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to look for
 
 replaceWith : class java.lang.String : The string to replace matches with
@@ -958,6 +1174,8 @@ replaceWith : class java.lang.String : The string to replace matches with
     Globally replace all occurrences of the given string literal in file paths in this project
 
 **Parameters**
+
+
 
 literal : class java.lang.String : The string to search for
 
@@ -973,6 +1191,8 @@ replacement : class java.lang.String : The string to replace in the paths if fou
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 content : class java.lang.String : The content to be placed in the new file
@@ -982,6 +1202,8 @@ content : class java.lang.String : The content to be placed in the new file
     Add the given annotation to the Spring Boot application class
 
 **Parameters**
+
+
 
 pkg : class java.lang.String : The package of the annotation
 
@@ -993,6 +1215,8 @@ annotationName : class java.lang.String : The annotation to add
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1003,6 +1227,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 
@@ -1010,6 +1236,8 @@ path : class java.lang.String : The path to use
     Delete the given file from the project. Path can contain /s.
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -1019,6 +1247,8 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
+
+
 path : class java.lang.String : The path to use
 
 
@@ -1027,6 +1257,8 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -1034,6 +1266,8 @@ msg : class java.lang.String : The message to be displayed
     Does a file with the given path exist and have the expected content?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -1045,11 +1279,15 @@ content : class java.lang.String : The content to check
 
 **Parameters**
 
+*None*
+
 
 ### `fileExists`
     Does a file with the given path exist?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -1058,6 +1296,8 @@ path : class java.lang.String : The path to use
     Does a file with the given path exist and have the expected content?
 
 **Parameters**
+
+
 
 path : class java.lang.String : The path to use
 
@@ -1069,11 +1309,15 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
+*None*
+
 
 ### `isSpring`
     Is this a Spring project?
 
 **Parameters**
+
+*None*
 
 
 ### `isSpringBoot`
@@ -1081,17 +1325,23 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
+*None*
+
 
 ### `javaFileCount`
     Return the number of Java files in this module
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1105,6 +1355,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
       
 
 **Parameters**
+
+
 
 template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
@@ -1122,6 +1374,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
+
+
 templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
 outputPath : class java.lang.String : The destination path within the destintion project
@@ -1134,6 +1388,8 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1144,6 +1400,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 path : class java.lang.String : The root path to move the file to
 
 
@@ -1152,11 +1410,15 @@ path : class java.lang.String : The root path to move the file to
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1165,6 +1427,8 @@ msg : class java.lang.String : The message to be displayed
     Replace all occurrences of the given regular expression in this project
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -1176,6 +1440,8 @@ replacement : class java.lang.String : The string to replace matches with
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to look for
 
 replaceWith : class java.lang.String : The string to replace matches with
@@ -1185,6 +1451,8 @@ replaceWith : class java.lang.String : The string to replace matches with
     Globally replace all occurrences of the given string literal in file paths in this project
 
 **Parameters**
+
+
 
 literal : class java.lang.String : The string to search for
 
@@ -1200,6 +1468,8 @@ replacement : class java.lang.String : The string to replace in the paths if fou
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1210,6 +1480,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -1217,6 +1489,8 @@ msg : class java.lang.String : The message to be displayed
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1228,6 +1502,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1238,11 +1514,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1256,6 +1536,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1266,11 +1548,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1280,11 +1566,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1296,6 +1586,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1306,11 +1598,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1320,6 +1616,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 root : class java.lang.String : The root path to begin searching from
 
 
@@ -1327,6 +1625,8 @@ root : class java.lang.String : The root path to begin searching from
     Return the value of the given key
 
 **Parameters**
+
+
 
 name : class java.lang.String : The YAML key whose content you want
 
@@ -1340,6 +1640,8 @@ name : class java.lang.String : The YAML key whose content you want
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1350,11 +1652,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1364,11 +1670,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1380,6 +1690,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1390,11 +1702,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1404,6 +1720,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 root : class java.lang.String : The root path to begin searching from
 
 
@@ -1411,6 +1729,8 @@ root : class java.lang.String : The root path to begin searching from
     Do something magical
 
 **Parameters**
+
+*None*
 
 ## `xml`
 **XML file**
@@ -1422,6 +1742,8 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1432,11 +1754,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1446,11 +1772,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1462,6 +1792,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1472,11 +1804,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1485,6 +1821,8 @@ msg : class java.lang.String : The message to be displayed
     Update the content of this simple node
 
 **Parameters**
+
+
 
 xpath : class java.lang.String : The node to select
 
@@ -1496,6 +1834,8 @@ newValue : class java.lang.String : The new content for that node
 
 **Parameters**
 
+
+
 xpath : class java.lang.String : The name of the simple node
 
 
@@ -1503,6 +1843,8 @@ xpath : class java.lang.String : The name of the simple node
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 **Parameters**
+
+
 
 root : class java.lang.String : The root path to begin searching from
 
@@ -1518,6 +1860,8 @@ Type for a file within a project. Supports generic options such as find and repl
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to append
 
 
@@ -1525,6 +1869,8 @@ literal : class java.lang.String : The string to append
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1536,6 +1882,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 what : class java.lang.String : The string to use when looking for it in the file
 
 
@@ -1543,6 +1891,8 @@ what : class java.lang.String : The string to use when looking for it in the fil
     Does the file content contain a match for the given regex
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to look for in the file's content
 
@@ -1552,11 +1902,15 @@ regexp : class java.lang.String : The regular expression to look for in the file
 
 **Parameters**
 
+*None*
+
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1566,11 +1920,15 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+*None*
+
 
 ### `findMatches`
     Return all matches for the given regexp in this file
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -1580,6 +1938,8 @@ regexp : class java.lang.String : The regular expression to search for
 
 **Parameters**
 
+
+
 regexp : class java.lang.String : The regular expression to search for
 
 
@@ -1588,11 +1948,15 @@ regexp : class java.lang.String : The regular expression to search for
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1604,6 +1968,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1614,11 +1980,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `nameContains`
     Does the file name (not path) contain the given string?
 
 **Parameters**
+
+
 
 what : class java.lang.String : The string to use when looking for it in the file name or path
 
@@ -1628,11 +1998,15 @@ what : class java.lang.String : The string to use when looking for it in the fil
 
 **Parameters**
 
+*None*
+
 
 ### `prepend`
     Prepend the given content to the file
 
 **Parameters**
+
+
 
 literal : class java.lang.String : The string to prepend to the file
 
@@ -1642,6 +2016,8 @@ literal : class java.lang.String : The string to prepend to the file
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -1649,6 +2025,8 @@ msg : class java.lang.String : The message to be displayed
     Replace all occurrences of the given regexp in this file
 
 **Parameters**
+
+
 
 regexp : class java.lang.String : The regular expression to search for
 
@@ -1660,6 +2038,8 @@ replaceWith : class java.lang.String : The string to replace matching expression
 
 **Parameters**
 
+
+
 literal : class java.lang.String : The string to search for
 
 replaceWith : class java.lang.String : The string to replace the matches with
@@ -1670,6 +2050,8 @@ replaceWith : class java.lang.String : The string to replace the matches with
 
 **Parameters**
 
+
+
 newContent : class java.lang.String : The content to set the file to
 
 
@@ -1677,6 +2059,8 @@ newContent : class java.lang.String : The content to set the file to
     Set the file name, not path, to the given value
 
 **Parameters**
+
+
 
 name : class java.lang.String : The name to set the file to
 
@@ -1686,6 +2070,8 @@ name : class java.lang.String : The name to set the file to
 
 **Parameters**
 
+
+
 newPath : class java.lang.String : The path to change the file to
 
 
@@ -1693,6 +2079,8 @@ newPath : class java.lang.String : The path to change the file to
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 **Parameters**
+
+
 
 root : class java.lang.String : The root path to begin searching from
 
@@ -1706,6 +2094,8 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
+
+
 pkg : class java.lang.String : Package where the annotation is sourced
 
 annotation : class java.lang.String : The annotation to add
@@ -1716,6 +2106,8 @@ annotation : class java.lang.String : The annotation to add
 
 **Parameters**
 
+
+
 fqn : class java.lang.String : The fully qualified name of the import
 
 
@@ -1723,6 +2115,8 @@ fqn : class java.lang.String : The fully qualified name of the import
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1734,6 +2128,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -1742,6 +2138,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 annotation : class java.lang.String : The string name of the annotation to look for
 
 
@@ -1749,6 +2147,8 @@ annotation : class java.lang.String : The string name of the annotation to look 
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1760,6 +2160,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1770,6 +2172,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 newPackage : class java.lang.String : The package to move the type to
 
 
@@ -1778,17 +2182,23 @@ newPackage : class java.lang.String : The package to move the type to
 
 **Parameters**
 
+*None*
+
 
 ### `pkg`
     Return the package
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1798,6 +2208,8 @@ msg : class java.lang.String : The message to be displayed
 
 **Parameters**
 
+
+
 newName : class java.lang.String : The new name of the type
 
 
@@ -1805,6 +2217,8 @@ newName : class java.lang.String : The new name of the type
     Rename the type by replacing a pattern in the name
 
 **Parameters**
+
+
 
 target : class java.lang.String : The name of the type to replace
 
@@ -1820,6 +2234,8 @@ replacement : class java.lang.String : The replacement pattern
 
 **Parameters**
 
+
+
 pkg : class java.lang.String : Package where the annotation is sourced
 
 annotation : class java.lang.String : The annotation to add
@@ -1829,6 +2245,8 @@ annotation : class java.lang.String : The annotation to add
     Report a severe, blocking problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1840,6 +2258,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 
@@ -1847,6 +2267,8 @@ msg : class java.lang.String : The message to be displayed
     Does the element have the given annotation?
 
 **Parameters**
+
+
 
 annotation : class java.lang.String : The string name of the annotation to look for
 
@@ -1856,11 +2278,15 @@ annotation : class java.lang.String : The string name of the annotation to look 
 
 **Parameters**
 
+*None*
+
 
 ### `majorProblem`
     Report a major problem
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
@@ -1872,6 +2298,8 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+
+
 msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
@@ -1882,11 +2310,15 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
+*None*
+
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 **Parameters**
+
+
 
 msg : class java.lang.String : The message to be displayed
 
