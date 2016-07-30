@@ -11,9 +11,9 @@
 
 **Parameters**
 
-package : class java.lang.String : Package where the annotation is sourced
+pkg : class java.lang.String : Package where the annotation is sourced
 
-arg1 : class java.lang.String : No Description
+annotation : class java.lang.String : The annotation to add
 
 
 ### `blockingProblem`
@@ -39,7 +39,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+annotation : class java.lang.String : The string name of the annotation to look for
 
 
 ### `majorProblem`
@@ -602,7 +602,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newPackage : class java.lang.String : The package to move the source file to
 
 
 ### `path`
@@ -678,7 +678,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+moduleName : class java.lang.String : The module name to check
 
 
 ### `majorProblem`
@@ -726,7 +726,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newName : class java.lang.String : The module name to change to
 
 
 ### `underPath`
@@ -742,9 +742,9 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+oldModuleName : class java.lang.String : The old module import name
 
-arg1 : class java.lang.String : No Description
+newName : class java.lang.String : The module name to change to
 
 ## `java.project`
 **Java project**
@@ -983,9 +983,9 @@ content : class java.lang.String : The content to be placed in the new file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+pkg : class java.lang.String : The package of the annotation
 
-arg1 : class java.lang.String : No Description
+annotationName : class java.lang.String : The annotation to add
 
 
 ### `blockingProblem`
@@ -1706,9 +1706,9 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
-package : class java.lang.String : Package where the annotation is sourced
+pkg : class java.lang.String : Package where the annotation is sourced
 
-arg1 : class java.lang.String : No Description
+annotation : class java.lang.String : The annotation to add
 
 
 ### `addImport`
@@ -1716,7 +1716,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+fqn : class java.lang.String : The fully qualified name of the import
 
 
 ### `blockingProblem`
@@ -1742,7 +1742,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+annotation : class java.lang.String : The string name of the annotation to look for
 
 
 ### `majorProblem`
@@ -1770,7 +1770,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newPackage : class java.lang.String : The package to move the type to
 
 
 ### `name`
@@ -1798,7 +1798,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newName : class java.lang.String : The new name of the type
 
 
 ### `renameByReplace`
@@ -1806,9 +1806,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+target : class java.lang.String : The name of the type to replace
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The replacement pattern
 
 ## `java.method`
 **Method in a Java class**
@@ -1820,9 +1820,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-package : class java.lang.String : Package where the annotation is sourced
+pkg : class java.lang.String : Package where the annotation is sourced
 
-arg1 : class java.lang.String : No Description
+annotation : class java.lang.String : The annotation to add
 
 
 ### `blockingProblem`
@@ -1848,7 +1848,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+annotation : class java.lang.String : The string name of the annotation to look for
 
 
 ### `javadoc`
