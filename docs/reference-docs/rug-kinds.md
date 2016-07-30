@@ -1,439 +1,459 @@
 
 # Rug Standard Types
 
-## `java.field`
+## Type: `java.field`
 **Field in a Java class**
 *Parent*: Some(class com.atomist.rug.kind.java.JavaClassType)
 
 
-### `addAnnotation`
+### Operation: `addAnnotation`
     Annotate the element with the given annotation
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***pkg*** | `class java.lang.String` | *Package where the annotation is sourced* |
+| ***annotation*** | `class java.lang.String` | *The annotation to add* |
 
-pkg : class java.lang.String : Package where the annotation is sourced
 
-annotation : class java.lang.String : The annotation to add
-
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `hasAnnotation`
+### Operation: `hasAnnotation`
     Does the element have the given annotation?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***annotation*** | `class java.lang.String` | *The string name of the annotation to look for* |
 
-annotation : class java.lang.String : The string name of the annotation to look for
 
-
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `name`
+### Operation: `name`
     Return the name of the field
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
-
-## `packageJSON`
+## Type: `packageJSON`
 **package.json configuration file**
 *Parent*: None
 
 
-### `append`
+### Operation: `append`
     Append the given content to the file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to append* |
 
-literal : class java.lang.String : The string to append
 
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `contains`
+### Operation: `contains`
     Does the file content contain the given string?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***what*** | `class java.lang.String` | *The string to use when looking for it in the file* |
 
-what : class java.lang.String : The string to use when looking for it in the file
 
-
-### `containsMatch`
+### Operation: `containsMatch`
     Does the file content contain a match for the given regex
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to look for in the file's content* |
 
-regexp : class java.lang.String : The regular expression to look for in the file's content
 
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `findMatches`
+### Operation: `findMatches`
     Return all matches for the given regexp in this file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-
-### `firstMatch`
+### Operation: `firstMatch`
     Return the first match for the given regex, or the empty string if not found. Call containsMatch first to check presence.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-
-### `isJava`
+### Operation: `isJava`
     Is this a Java file?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `name`
+### Operation: `name`
     Name of the file, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `nameContains`
+### Operation: `nameContains`
     Does the file name (not path) contain the given string?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***what*** | `class java.lang.String` | *The string to use when looking for it in the file name or path* |
 
-what : class java.lang.String : The string to use when looking for it in the file name or path
 
-
-### `packageName`
+### Operation: `packageName`
     Return package name
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : 
 
-
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `prepend`
+### Operation: `prepend`
     Prepend the given content to the file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to prepend to the file* |
 
-literal : class java.lang.String : The string to prepend to the file
 
-
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `regexpReplace`
+### Operation: `regexpReplace`
     Replace all occurrences of the given regexp in this file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace matching expressions with* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-replaceWith : class java.lang.String : The string to replace matching expressions with
-
-
-### `replace`
+### Operation: `replace`
     Replace all instances of the given literal string in this file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to search for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace the matches with* |
 
-literal : class java.lang.String : The string to search for
 
-replaceWith : class java.lang.String : The string to replace the matches with
-
-
-### `setContent`
+### Operation: `setContent`
     Set entire file content to new string
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newContent*** | `class java.lang.String` | *The content to set the file to* |
 
-newContent : class java.lang.String : The content to set the file to
 
-
-### `setName`
+### Operation: `setName`
     Set the file name, not path, to the given value
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The name to set the file to* |
 
-name : class java.lang.String : The name to set the file to
 
-
-### `setPackageName`
+### Operation: `setPackageName`
     Change the package name
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newName*** | `class java.lang.String` | *The name to set the package to* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-newName : class java.lang.String : The name to set the package to
 
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : 
-
-
-### `setPath`
+### Operation: `setPath`
     Change the path to the given value. Path should use forward slashes to denote directories
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newPath*** | `class java.lang.String` | *The path to change the file to* |
 
-newPath : class java.lang.String : The path to change the file to
 
-
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
-
-## `line`
+## Type: `line`
 **Represents a line within a text file**
 *Parent*: None
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `content`
+### Operation: `content`
     Return this line's content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `number`
+### Operation: `number`
     Line number
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `update`
+### Operation: `update`
     Update this line's content
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***s2*** | `class java.lang.String` | *The content to update this line to* |
 
-s2 : class java.lang.String : The content to update this line to
-
-## `project`
+## Type: `project`
 **
 Type for a project. Supports global operations.
 Consider using file and other lower types by preference as project
@@ -442,1883 +462,1942 @@ operations can be inefficient.
 *Parent*: None
 
 
-### `addFile`
+### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to be placed in the new file
-
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `deleteDirectory`
+### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `deleteFile`
+### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `directoryExists`
+### Operation: `directoryExists`
     Does a directory with the given path exist?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `fileContains`
+### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to check
-
-
-### `fileCount`
+### Operation: `fileCount`
     Return the number of files in this project
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fileExists`
+### Operation: `fileExists`
     Does a file with the given path exist?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `fileHasContent`
+### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to check against the given file
-
-
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `merge`
+### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
       
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***template*** | `class java.lang.String` | *The name of the template within the backing Rug archive, under /.atomist / templates* |
+| ***path*** | `class java.lang.String` | *The path that will be the merged path within the output project.* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
-template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
-path : class java.lang.String : The path that will be the merged path within the output project.
-
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
-
-
-### `mergeTemplates`
+### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
         |edited
       
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destintion project* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
-templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
-outputPath : class java.lang.String : The destination path within the destintion project
-
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `moveUnder`
+### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
-path : class java.lang.String : The root path to move the file to
 
-
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `regexpReplace`
+### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-replacement : class java.lang.String : The string to replace matches with
-
-
-### `replace`
+### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to look for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
-literal : class java.lang.String : The string to look for
 
-replaceWith : class java.lang.String : The string to replace matches with
-
-
-### `replaceInPath`
+### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
 
-literal : class java.lang.String : The string to search for
-
-replacement : class java.lang.String : The string to replace in the paths if found
-
-## `java.source`
+## Type: `java.source`
 **Java source file**
 *Parent*: None
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `movePackage`
+### Operation: `movePackage`
     Move the source file to the given package
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newPackage*** | `class java.lang.String` | *The package to move the source file to* |
 
-newPackage : class java.lang.String : The package to move the source file to
 
-
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `pkg`
+### Operation: `pkg`
     Return the package name
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `typeCount`
+### Operation: `typeCount`
     Count the types in this source file
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
-
-## `elm.module`
+## Type: `elm.module`
 **Elm module**
 *Parent*: None
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `imports`
+### Operation: `imports`
     Does the module import the given module?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***moduleName*** | `class java.lang.String` | *The module name to check* |
 
-moduleName : class java.lang.String : The module name to check
 
-
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `name`
+### Operation: `name`
     Return the name of the module
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `setName`
+### Operation: `setName`
     Change the name of the module
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newName*** | `class java.lang.String` | *The module name to change to* |
 
-newName : class java.lang.String : The module name to change to
 
-
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
 
-
-### `updateImport`
+### Operation: `updateImport`
     Update the given module import
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***oldModuleName*** | `class java.lang.String` | *The old module import name* |
+| ***newName*** | `class java.lang.String` | *The module name to change to* |
 
-oldModuleName : class java.lang.String : The old module import name
-
-newName : class java.lang.String : The module name to change to
-
-## `java.project`
+## Type: `java.project`
 **Java project**
 *Parent*: None
 
 
-### `addFile`
+### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to be placed in the new file
-
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `deleteDirectory`
+### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `deleteFile`
+### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `directoryExists`
+### Operation: `directoryExists`
     Does a directory with the given path exist?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `fileContains`
+### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to check
-
-
-### `fileCount`
+### Operation: `fileCount`
     Return the number of files in this project
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fileExists`
+### Operation: `fileExists`
     Does a file with the given path exist?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `fileHasContent`
+### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to check against the given file
-
-
-### `isMaven`
+### Operation: `isMaven`
     Is this a Maven project?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `isSpring`
+### Operation: `isSpring`
     Is this a Spring project?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `isSpringBoot`
+### Operation: `isSpringBoot`
     Is this a Spring Boot project?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `javaFileCount`
+### Operation: `javaFileCount`
     Return the number of Java files in this module
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `merge`
+### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
       
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***template*** | `class java.lang.String` | *The name of the template within the backing Rug archive, under /.atomist / templates* |
+| ***path*** | `class java.lang.String` | *The path that will be the merged path within the output project.* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
-template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
-path : class java.lang.String : The path that will be the merged path within the output project.
-
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
-
-
-### `mergeTemplates`
+### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
         |edited
       
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destintion project* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
-templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
-outputPath : class java.lang.String : The destination path within the destintion project
-
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `moveUnder`
+### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
-path : class java.lang.String : The root path to move the file to
 
-
-### `packages`
+### Operation: `packages`
     List the packages in this project
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `regexpReplace`
+### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-replacement : class java.lang.String : The string to replace matches with
-
-
-### `replace`
+### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to look for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
-literal : class java.lang.String : The string to look for
 
-replaceWith : class java.lang.String : The string to replace matches with
-
-
-### `replaceInPath`
+### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
 
-literal : class java.lang.String : The string to search for
-
-replacement : class java.lang.String : The string to replace in the paths if found
-
-## `spring.bootProject`
+## Type: `spring.bootProject`
 **Spring Boot project**
 *Parent*: None
 
 
-### `addFile`
+### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to be placed in the new file
-
-
-### `annotateBootApplication`
+### Operation: `annotateBootApplication`
     Add the given annotation to the Spring Boot application class
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***pkg*** | `class java.lang.String` | *The package of the annotation* |
+| ***annotationName*** | `class java.lang.String` | *The annotation to add* |
 
-pkg : class java.lang.String : The package of the annotation
 
-annotationName : class java.lang.String : The annotation to add
-
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `deleteDirectory`
+### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `deleteFile`
+### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `directoryExists`
+### Operation: `directoryExists`
     Does a directory with the given path exist?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `fileContains`
+### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to check
-
-
-### `fileCount`
+### Operation: `fileCount`
     Return the number of files in this project
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fileExists`
+### Operation: `fileExists`
     Does a file with the given path exist?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
 
-path : class java.lang.String : The path to use
 
-
-### `fileHasContent`
+### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
-path : class java.lang.String : The path to use
 
-content : class java.lang.String : The content to check against the given file
-
-
-### `isMaven`
+### Operation: `isMaven`
     Is this a Maven project?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `isSpring`
+### Operation: `isSpring`
     Is this a Spring project?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `isSpringBoot`
+### Operation: `isSpringBoot`
     Is this a Spring Boot project?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `javaFileCount`
+### Operation: `javaFileCount`
     Return the number of Java files in this module
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `merge`
+### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
       
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***template*** | `class java.lang.String` | *The name of the template within the backing Rug archive, under /.atomist / templates* |
+| ***path*** | `class java.lang.String` | *The path that will be the merged path within the output project.* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
-template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
-path : class java.lang.String : The path that will be the merged path within the output project.
-
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
-
-
-### `mergeTemplates`
+### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
         |edited
       
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destintion project* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
-templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
-outputPath : class java.lang.String : The destination path within the destintion project
-
-ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `moveUnder`
+### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
-path : class java.lang.String : The root path to move the file to
 
-
-### `packages`
+### Operation: `packages`
     List the packages in this project
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `regexpReplace`
+### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-replacement : class java.lang.String : The string to replace matches with
-
-
-### `replace`
+### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to look for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
-literal : class java.lang.String : The string to look for
 
-replaceWith : class java.lang.String : The string to replace matches with
-
-
-### `replaceInPath`
+### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
 
-literal : class java.lang.String : The string to search for
-
-replacement : class java.lang.String : The string to replace in the paths if found
-
-## `java.parameter`
+## Type: `java.parameter`
 **Method parameter in a Java class**
 *Parent*: Some(class com.atomist.rug.kind.java.JavaClassType)
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `name`
+### Operation: `name`
     Return the name of the parameter
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
-
-## `yml`
+## Type: `yml`
 **YML file**
 *Parent*: None
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
 
-
-### `valueOf`
+### Operation: `valueOf`
     Return the value of the given key
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The YAML key whose content you want* |
 
-name : class java.lang.String : The YAML key whose content you want
-
-## `docker`
+## Type: `docker`
 **Docker file type**
 *Parent*: None
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
 
-
-### `upgrade`
+### Operation: `upgrade`
     Do something magical
 
-**Parameters**
+***Parameters***
 
 *None*
 
-## `xml`
+## Type: `xml`
 **XML file**
 *Parent*: None
 
 
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `setSimpleNode`
+### Operation: `setSimpleNode`
     Update the content of this simple node
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The node to select* |
+| ***newValue*** | `class java.lang.String` | *The new content for that node* |
 
-xpath : class java.lang.String : The node to select
 
-newValue : class java.lang.String : The new content for that node
-
-
-### `simpleNode`
+### Operation: `simpleNode`
     Return the content of this simple node
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The name of the simple node* |
 
-xpath : class java.lang.String : The name of the simple node
 
-
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
-
-## `file`
+## Type: `file`
 **
 Type for a file within a project. Supports generic options such as find and replace.
     **
 *Parent*: None
 
 
-### `append`
+### Operation: `append`
     Append the given content to the file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to append* |
 
-literal : class java.lang.String : The string to append
 
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `contains`
+### Operation: `contains`
     Does the file content contain the given string?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***what*** | `class java.lang.String` | *The string to use when looking for it in the file* |
 
-what : class java.lang.String : The string to use when looking for it in the file
 
-
-### `containsMatch`
+### Operation: `containsMatch`
     Does the file content contain a match for the given regex
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to look for in the file's content* |
 
-regexp : class java.lang.String : The regular expression to look for in the file's content
 
-
-### `content`
+### Operation: `content`
     Return file content
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `filename`
+### Operation: `filename`
     Return file name, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `findMatches`
+### Operation: `findMatches`
     Return all matches for the given regexp in this file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-
-### `firstMatch`
+### Operation: `firstMatch`
     Return the first match for the given regex, or the empty string if not found. Call containsMatch first to check presence.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-
-### `isJava`
+### Operation: `isJava`
     Is this a Java file?
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `name`
+### Operation: `name`
     Name of the file, excluding path
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `nameContains`
+### Operation: `nameContains`
     Does the file name (not path) contain the given string?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***what*** | `class java.lang.String` | *The string to use when looking for it in the file name or path* |
 
-what : class java.lang.String : The string to use when looking for it in the file name or path
 
-
-### `path`
+### Operation: `path`
     Return file path, with forward slashes
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `prepend`
+### Operation: `prepend`
     Prepend the given content to the file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to prepend to the file* |
 
-literal : class java.lang.String : The string to prepend to the file
 
-
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `regexpReplace`
+### Operation: `regexpReplace`
     Replace all occurrences of the given regexp in this file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace matching expressions with* |
 
-regexp : class java.lang.String : The regular expression to search for
 
-replaceWith : class java.lang.String : The string to replace matching expressions with
-
-
-### `replace`
+### Operation: `replace`
     Replace all instances of the given literal string in this file
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to search for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace the matches with* |
 
-literal : class java.lang.String : The string to search for
 
-replaceWith : class java.lang.String : The string to replace the matches with
-
-
-### `setContent`
+### Operation: `setContent`
     Set entire file content to new string
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newContent*** | `class java.lang.String` | *The content to set the file to* |
 
-newContent : class java.lang.String : The content to set the file to
 
-
-### `setName`
+### Operation: `setName`
     Set the file name, not path, to the given value
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The name to set the file to* |
 
-name : class java.lang.String : The name to set the file to
 
-
-### `setPath`
+### Operation: `setPath`
     Change the path to the given value. Path should use forward slashes to denote directories
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newPath*** | `class java.lang.String` | *The path to change the file to* |
 
-newPath : class java.lang.String : The path to change the file to
 
-
-### `underPath`
+### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-root : class java.lang.String : The root path to begin searching from
-
-## `java.class`
+## Type: `java.class`
 **Java class**
 *Parent*: Some(class com.atomist.rug.kind.java.JavaSourceType)
 
 
-### `addAnnotation`
+### Operation: `addAnnotation`
     Annotate the element with the given annotation
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***pkg*** | `class java.lang.String` | *Package where the annotation is sourced* |
+| ***annotation*** | `class java.lang.String` | *The annotation to add* |
 
-pkg : class java.lang.String : Package where the annotation is sourced
 
-annotation : class java.lang.String : The annotation to add
-
-
-### `addImport`
+### Operation: `addImport`
     Add an import to the containing Java source
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***fqn*** | `class java.lang.String` | *The fully qualified name of the import* |
 
-fqn : class java.lang.String : The fully qualified name of the import
 
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `hasAnnotation`
+### Operation: `hasAnnotation`
     Does the element have the given annotation?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***annotation*** | `class java.lang.String` | *The string name of the annotation to look for* |
 
-annotation : class java.lang.String : The string name of the annotation to look for
 
-
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `movePackage`
+### Operation: `movePackage`
     Move the type to the given package
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newPackage*** | `class java.lang.String` | *The package to move the type to* |
 
-newPackage : class java.lang.String : The package to move the type to
 
-
-### `name`
+### Operation: `name`
     Return the name of the type
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `pkg`
+### Operation: `pkg`
     Return the package
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `rename`
+### Operation: `rename`
     Rename the type
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newName*** | `class java.lang.String` | *The new name of the type* |
 
-newName : class java.lang.String : The new name of the type
 
-
-### `renameByReplace`
+### Operation: `renameByReplace`
     Rename the type by replacing a pattern in the name
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***target*** | `class java.lang.String` | *The name of the type to replace* |
+| ***replacement*** | `class java.lang.String` | *The replacement pattern* |
 
-target : class java.lang.String : The name of the type to replace
-
-replacement : class java.lang.String : The replacement pattern
-
-## `java.method`
+## Type: `java.method`
 **Method in a Java class**
 *Parent*: Some(class com.atomist.rug.kind.java.JavaClassType)
 
 
-### `addAnnotation`
+### Operation: `addAnnotation`
     Annotate the element with the given annotation
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***pkg*** | `class java.lang.String` | *Package where the annotation is sourced* |
+| ***annotation*** | `class java.lang.String` | *The annotation to add* |
 
-pkg : class java.lang.String : Package where the annotation is sourced
 
-annotation : class java.lang.String : The annotation to add
-
-
-### `blockingProblem`
+### Operation: `blockingProblem`
     Report a severe, blocking problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `fail`
+### Operation: `fail`
     Cause the operation to fail with a fatal error
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-msg : class java.lang.String : The message to be displayed
 
-
-### `hasAnnotation`
+### Operation: `hasAnnotation`
     Does the element have the given annotation?
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***annotation*** | `class java.lang.String` | *The string name of the annotation to look for* |
 
-annotation : class java.lang.String : The string name of the annotation to look for
 
-
-### `javadoc`
+### Operation: `javadoc`
     Return the Javadoc for the method, or an empty string if there isn't any
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `majorProblem`
+### Operation: `majorProblem`
     Report a major problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `minorProblem`
+### Operation: `minorProblem`
     Report a minor problem
 
-**Parameters**
+***Parameters***
 
 
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
-msg : class java.lang.String : The message to be displayed
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
-
-
-### `name`
+### Operation: `name`
     Return the name of the method
 
-**Parameters**
+***Parameters***
 
 *None*
 
 
-### `println`
+### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-**Parameters**
+***Parameters***
 
 
-
-msg : class java.lang.String : The message to be displayed
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
