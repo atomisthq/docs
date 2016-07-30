@@ -85,7 +85,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to append
 
 
 ### `blockingProblem`
@@ -103,7 +103,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+what : class java.lang.String : The string to use when looking for it in the file
 
 
 ### `containsMatch`
@@ -111,7 +111,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to look for in the file's content
 
 
 ### `content`
@@ -139,7 +139,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
 
 ### `firstMatch`
@@ -147,7 +147,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
 
 ### `isJava`
@@ -187,7 +187,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+what : class java.lang.String : The string to use when looking for it in the file name or path
 
 
 ### `packageName`
@@ -209,7 +209,7 @@ arg0 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to prepend to the file
 
 
 ### `println`
@@ -225,9 +225,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace matching expressions with
 
 
 ### `replace`
@@ -235,9 +235,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to search for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace the matches with
 
 
 ### `setContent`
@@ -245,7 +245,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newContent : class java.lang.String : The content to set the file to
 
 
 ### `setName`
@@ -253,7 +253,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+name : class java.lang.String : The name to set the file to
 
 
 ### `setPackageName`
@@ -271,7 +271,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newPath : class java.lang.String : The path to change the file to
 
 
 ### `underPath`
@@ -279,7 +279,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 ## `line`
 **Represents a line within a text file**
@@ -349,7 +349,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+s2 : class java.lang.String : The content to update this line to
 
 ## `project`
 **
@@ -365,9 +365,9 @@ operations can be inefficient.
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to be placed in the new file
 
 
 ### `blockingProblem`
@@ -381,11 +381,11 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 
 ### `deleteDirectory`
-    Does a directory with the given path exist?
+    Deletes a directory with the given path
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `deleteFile`
@@ -393,7 +393,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `directoryExists`
@@ -401,7 +401,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `fail`
@@ -417,9 +417,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to check
 
 
 ### `fileCount`
@@ -433,7 +433,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `fileHasContent`
@@ -441,9 +441,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to check against the given file
 
 
 ### `majorProblem`
@@ -459,18 +459,16 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 ### `merge`
     
         |Merge the given template to the given output path.
-        |The template parameter is the name of the template within the backing Rug archive,
-        |under /.atomist/templates
-        |Path is the merged path within the output project.
+        |
       
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
-arg1 : class java.lang.String : No Description
+path : class java.lang.String : The path that will be the merged path within the output project.
 
-arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
 
 
 ### `mergeTemplates`
@@ -482,11 +480,11 @@ arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
-arg1 : class java.lang.String : No Description
+outputPath : class java.lang.String : The destination path within the destintion project
 
-arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
 
 
 ### `minorProblem`
@@ -504,7 +502,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The root path to move the file to
 
 
 ### `println`
@@ -520,9 +518,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The string to replace matches with
 
 
 ### `replace`
@@ -530,9 +528,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to look for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace matches with
 
 
 ### `replaceInPath`
@@ -540,9 +538,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to search for
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The string to replace in the paths if found
 
 ## `java.source`
 **Java source file**
@@ -638,7 +636,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 ## `elm.module`
 **Elm module**
@@ -736,7 +734,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 
 ### `updateImport`
@@ -758,9 +756,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to be placed in the new file
 
 
 ### `blockingProblem`
@@ -774,11 +772,11 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 
 ### `deleteDirectory`
-    Does a directory with the given path exist?
+    Deletes a directory with the given path
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `deleteFile`
@@ -786,7 +784,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `directoryExists`
@@ -794,7 +792,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `fail`
@@ -810,9 +808,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to check
 
 
 ### `fileCount`
@@ -826,7 +824,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `fileHasContent`
@@ -834,9 +832,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to check against the given file
 
 
 ### `isMaven`
@@ -876,18 +874,16 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 ### `merge`
     
         |Merge the given template to the given output path.
-        |The template parameter is the name of the template within the backing Rug archive,
-        |under /.atomist/templates
-        |Path is the merged path within the output project.
+        |
       
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
-arg1 : class java.lang.String : No Description
+path : class java.lang.String : The path that will be the merged path within the output project.
 
-arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
 
 
 ### `mergeTemplates`
@@ -899,11 +895,11 @@ arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
-arg1 : class java.lang.String : No Description
+outputPath : class java.lang.String : The destination path within the destintion project
 
-arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
 
 
 ### `minorProblem`
@@ -921,7 +917,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The root path to move the file to
 
 
 ### `packages`
@@ -943,9 +939,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The string to replace matches with
 
 
 ### `replace`
@@ -953,9 +949,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to look for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace matches with
 
 
 ### `replaceInPath`
@@ -963,9 +959,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to search for
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The string to replace in the paths if found
 
 ## `spring.bootProject`
 **Spring Boot project**
@@ -977,9 +973,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to be placed in the new file
 
 
 ### `annotateBootApplication`
@@ -1003,11 +999,11 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 
 ### `deleteDirectory`
-    Does a directory with the given path exist?
+    Deletes a directory with the given path
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `deleteFile`
@@ -1015,7 +1011,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `directoryExists`
@@ -1023,7 +1019,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `fail`
@@ -1039,9 +1035,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to check
 
 
 ### `fileCount`
@@ -1055,7 +1051,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
 
 ### `fileHasContent`
@@ -1063,9 +1059,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The path to use
 
-arg1 : class java.lang.String : No Description
+content : class java.lang.String : The content to check against the given file
 
 
 ### `isMaven`
@@ -1105,18 +1101,16 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 ### `merge`
     
         |Merge the given template to the given output path.
-        |The template parameter is the name of the template within the backing Rug archive,
-        |under /.atomist/templates
-        |Path is the merged path within the output project.
+        |
       
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+template : class java.lang.String : The name of the template within the backing Rug archive, under /.atomist / templates
 
-arg1 : class java.lang.String : No Description
+path : class java.lang.String : The path that will be the merged path within the output project.
 
-arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
 
 
 ### `mergeTemplates`
@@ -1128,11 +1122,11 @@ arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+templatesPath : class java.lang.String : Source template path where content will be used to merge into target project
 
-arg1 : class java.lang.String : No Description
+outputPath : class java.lang.String : The destination path within the destintion project
 
-arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project identifier to use
 
 
 ### `minorProblem`
@@ -1150,7 +1144,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+path : class java.lang.String : The root path to move the file to
 
 
 ### `packages`
@@ -1172,9 +1166,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The string to replace matches with
 
 
 ### `replace`
@@ -1182,9 +1176,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to look for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace matches with
 
 
 ### `replaceInPath`
@@ -1192,9 +1186,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to search for
 
-arg1 : class java.lang.String : No Description
+replacement : class java.lang.String : The string to replace in the paths if found
 
 ## `java.parameter`
 **Method parameter in a Java class**
@@ -1326,7 +1320,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 
 ### `valueOf`
@@ -1410,7 +1404,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 
 ### `upgrade`
@@ -1510,7 +1504,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 ## `file`
 **
@@ -1524,7 +1518,7 @@ Type for a file within a project. Supports generic options such as find and repl
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to append
 
 
 ### `blockingProblem`
@@ -1542,7 +1536,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+what : class java.lang.String : The string to use when looking for it in the file
 
 
 ### `containsMatch`
@@ -1550,7 +1544,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to look for in the file's content
 
 
 ### `content`
@@ -1578,7 +1572,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
 
 ### `firstMatch`
@@ -1586,7 +1580,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
 
 ### `isJava`
@@ -1626,7 +1620,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+what : class java.lang.String : The string to use when looking for it in the file name or path
 
 
 ### `path`
@@ -1640,7 +1634,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to prepend to the file
 
 
 ### `println`
@@ -1656,9 +1650,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+regexp : class java.lang.String : The regular expression to search for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace matching expressions with
 
 
 ### `replace`
@@ -1666,9 +1660,9 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+literal : class java.lang.String : The string to search for
 
-arg1 : class java.lang.String : No Description
+replaceWith : class java.lang.String : The string to replace the matches with
 
 
 ### `setContent`
@@ -1676,7 +1670,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newContent : class java.lang.String : The content to set the file to
 
 
 ### `setName`
@@ -1684,7 +1678,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+name : class java.lang.String : The name to set the file to
 
 
 ### `setPath`
@@ -1692,7 +1686,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newPath : class java.lang.String : The path to change the file to
 
 
 ### `underPath`
@@ -1700,7 +1694,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+root : class java.lang.String : The root path to begin searching from
 
 ## `java.class`
 **Java class**
