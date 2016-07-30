@@ -21,7 +21,7 @@ annotation : class java.lang.String : The annotation to add
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -31,7 +31,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `hasAnnotation`
@@ -47,7 +47,7 @@ annotation : class java.lang.String : The string name of the annotation to look 
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -57,7 +57,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -73,7 +73,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 ## `packageJSON`
 **package.json configuration file**
@@ -93,7 +93,7 @@ literal : class java.lang.String : The string to append
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -125,7 +125,7 @@ regexp : class java.lang.String : The regular expression to look for in the file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -161,7 +161,7 @@ regexp : class java.lang.String : The regular expression to search for
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -171,7 +171,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -195,7 +195,7 @@ what : class java.lang.String : The string to use when looking for it in the fil
 
 **Parameters**
 
-arg0 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : 
 
 
 ### `path`
@@ -217,7 +217,7 @@ literal : class java.lang.String : The string to prepend to the file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `regexpReplace`
@@ -261,9 +261,9 @@ name : class java.lang.String : The name to set the file to
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+newName : class java.lang.String : The name to set the package to
 
-arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
+ic : interface com.atomist.rug.runtime.FunctionInvocationContext : 
 
 
 ### `setPath`
@@ -291,7 +291,7 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -307,7 +307,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `majorProblem`
@@ -315,7 +315,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -325,7 +325,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -341,7 +341,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `update`
@@ -375,7 +375,7 @@ content : class java.lang.String : The content to be placed in the new file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -409,7 +409,7 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `fileContains`
@@ -451,7 +451,7 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -492,7 +492,7 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -510,7 +510,7 @@ path : class java.lang.String : The root path to move the file to
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `regexpReplace`
@@ -552,7 +552,7 @@ replacement : class java.lang.String : The string to replace in the paths if fou
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -568,7 +568,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -582,7 +582,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -592,7 +592,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -622,7 +622,7 @@ newPackage : class java.lang.String : The package to move the source file to
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `typeCount`
@@ -648,7 +648,7 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -664,7 +664,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -686,7 +686,7 @@ moduleName : class java.lang.String : The module name to check
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -696,7 +696,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -718,7 +718,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `setName`
@@ -766,7 +766,7 @@ content : class java.lang.String : The content to be placed in the new file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -800,7 +800,7 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `fileContains`
@@ -866,7 +866,7 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -907,7 +907,7 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -931,7 +931,7 @@ path : class java.lang.String : The root path to move the file to
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `regexpReplace`
@@ -993,7 +993,7 @@ annotationName : class java.lang.String : The annotation to add
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1027,7 +1027,7 @@ path : class java.lang.String : The path to use
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `fileContains`
@@ -1093,7 +1093,7 @@ content : class java.lang.String : The content to check against the given file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1134,7 +1134,7 @@ ic : interface com.atomist.rug.runtime.FunctionInvocationContext : The project i
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1158,7 +1158,7 @@ path : class java.lang.String : The root path to move the file to
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `regexpReplace`
@@ -1200,7 +1200,7 @@ replacement : class java.lang.String : The string to replace in the paths if fou
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1210,7 +1210,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `majorProblem`
@@ -1218,7 +1218,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1228,7 +1228,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1244,7 +1244,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 ## `yml`
 **YML file**
@@ -1256,7 +1256,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1272,7 +1272,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -1286,7 +1286,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1296,7 +1296,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1312,7 +1312,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `underPath`
@@ -1328,7 +1328,7 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+name : class java.lang.String : The YAML key whose content you want
 
 ## `docker`
 **Docker file type**
@@ -1340,7 +1340,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1356,7 +1356,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -1370,7 +1370,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1380,7 +1380,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1396,7 +1396,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `underPath`
@@ -1422,7 +1422,7 @@ root : class java.lang.String : The root path to begin searching from
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1438,7 +1438,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -1452,7 +1452,7 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1462,7 +1462,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1478,7 +1478,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `setSimpleNode`
@@ -1486,9 +1486,9 @@ arg0 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+xpath : class java.lang.String : The node to select
 
-arg1 : class java.lang.String : No Description
+newValue : class java.lang.String : The new content for that node
 
 
 ### `simpleNode`
@@ -1496,7 +1496,7 @@ arg1 : class java.lang.String : No Description
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+xpath : class java.lang.String : The name of the simple node
 
 
 ### `underPath`
@@ -1526,7 +1526,7 @@ literal : class java.lang.String : The string to append
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1558,7 +1558,7 @@ regexp : class java.lang.String : The regular expression to look for in the file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `filename`
@@ -1594,7 +1594,7 @@ regexp : class java.lang.String : The regular expression to search for
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1604,7 +1604,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1642,7 +1642,7 @@ literal : class java.lang.String : The string to prepend to the file
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `regexpReplace`
@@ -1724,7 +1724,7 @@ fqn : class java.lang.String : The fully qualified name of the import
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1734,7 +1734,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `hasAnnotation`
@@ -1750,7 +1750,7 @@ annotation : class java.lang.String : The string name of the annotation to look 
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1760,7 +1760,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1790,7 +1790,7 @@ newPackage : class java.lang.String : The package to move the type to
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `rename`
@@ -1830,7 +1830,7 @@ annotation : class java.lang.String : The annotation to add
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1840,7 +1840,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 
 ### `hasAnnotation`
@@ -1862,7 +1862,7 @@ annotation : class java.lang.String : The string name of the annotation to look 
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1872,7 +1872,7 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
 arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
@@ -1888,5 +1888,5 @@ arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Descript
 
 **Parameters**
 
-arg0 : class java.lang.String : No Description
+msg : class java.lang.String : The message to be displayed
 
