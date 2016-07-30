@@ -9,41 +9,41 @@
 ### `addAnnotation`
     Annotate the element with the given annotation
 
-arg0
-arg1
+package : class java.lang.String : Package where the annotation is sourced
+arg1 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `hasAnnotation`
     Does the element have the given annotation?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `name`
@@ -54,7 +54,7 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `packageJSON`
 **package.json configuration file**
@@ -64,26 +64,26 @@ arg0
 ### `append`
     Append the given content to the file
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `contains`
     Does the file content contain the given string?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `containsMatch`
     Does the file content contain a match for the given regex
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `content`
@@ -94,7 +94,7 @@ arg0
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -105,13 +105,13 @@ arg0
 ### `findMatches`
     Return all matches for the given regexp in this file
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `firstMatch`
     Return the first match for the given regex, or the empty string if not found. Call containsMatch first to check presence.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `isJava`
@@ -122,15 +122,15 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `name`
@@ -141,13 +141,13 @@ arg1
 ### `nameContains`
     Does the file name (not path) contain the given string?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `packageName`
     Return package name
 
-arg0
+arg0 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `path`
@@ -158,58 +158,58 @@ arg0
 ### `prepend`
     Prepend the given content to the file
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `regexpReplace`
     Replace all occurrences of the given regexp in this file
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replace`
     Replace all instances of the given literal string in this file
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `setContent`
     Set entire file content to new string
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `setName`
     Set the file name, not path, to the given value
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `setPackageName`
     Change the package name
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `setPath`
     Change the path to the given value. Path should use forward slashes to denote directories
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `line`
 **Represents a line within a text file**
@@ -219,8 +219,8 @@ arg0
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `content`
@@ -231,21 +231,21 @@ arg1
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `number`
@@ -256,13 +256,13 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `update`
     Update this line's content
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `project`
 **
@@ -276,46 +276,46 @@ operations can be inefficient.
 ### `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `deleteDirectory`
     Does a directory with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `directoryExists`
     Does a directory with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fileContains`
     Does a file with the given path exist and have the expected content?
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `fileCount`
@@ -326,21 +326,21 @@ arg1
 ### `fileExists`
     Does a file with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `merge`
@@ -351,9 +351,9 @@ arg1
         |Path is the merged path within the output project.
       
 
-arg0
-arg1
-arg2
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
+arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `mergeTemplates`
@@ -363,49 +363,49 @@ arg2
         |edited
       
 
-arg0
-arg1
-arg2
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
+arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `moveUnder`
     Move this file under the given path, preserving its present path under that
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 ## `java.source`
 **Java source file**
@@ -415,8 +415,8 @@ arg1
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `content`
@@ -427,7 +427,7 @@ arg1
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -438,21 +438,21 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `movePackage`
     Move the source file to the given package
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `path`
@@ -468,7 +468,7 @@ arg0
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `typeCount`
@@ -479,7 +479,7 @@ arg0
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `elm.module`
 **Elm module**
@@ -489,8 +489,8 @@ arg0
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `content`
@@ -501,7 +501,7 @@ arg1
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -512,21 +512,21 @@ arg0
 ### `imports`
     Does the module import the given module?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `name`
@@ -542,26 +542,26 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `setName`
     Change the name of the module
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `updateImport`
     Update the given module import
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 ## `java.project`
 **Java project**
@@ -571,46 +571,46 @@ arg1
 ### `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `deleteDirectory`
     Does a directory with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `directoryExists`
     Does a directory with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fileContains`
     Does a file with the given path exist and have the expected content?
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `fileCount`
@@ -621,14 +621,14 @@ arg1
 ### `fileExists`
     Does a file with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `isMaven`
@@ -654,8 +654,8 @@ arg1
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `merge`
@@ -666,9 +666,9 @@ arg1
         |Path is the merged path within the output project.
       
 
-arg0
-arg1
-arg2
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
+arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `mergeTemplates`
@@ -678,22 +678,22 @@ arg2
         |edited
       
 
-arg0
-arg1
-arg2
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
+arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `moveUnder`
     Move this file under the given path, preserving its present path under that
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `packages`
@@ -704,28 +704,28 @@ arg0
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 ## `spring.bootProject`
 **Spring Boot project**
@@ -735,53 +735,53 @@ arg1
 ### `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `annotateBootApplication`
     Add the given annotation to the Spring Boot application class
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `deleteDirectory`
     Does a directory with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `directoryExists`
     Does a directory with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fileContains`
     Does a file with the given path exist and have the expected content?
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `fileCount`
@@ -792,14 +792,14 @@ arg1
 ### `fileExists`
     Does a file with the given path exist?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `isMaven`
@@ -825,8 +825,8 @@ arg1
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `merge`
@@ -837,9 +837,9 @@ arg1
         |Path is the merged path within the output project.
       
 
-arg0
-arg1
-arg2
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
+arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `mergeTemplates`
@@ -849,22 +849,22 @@ arg2
         |edited
       
 
-arg0
-arg1
-arg2
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
+arg2 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `moveUnder`
     Move this file under the given path, preserving its present path under that
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `packages`
@@ -875,28 +875,28 @@ arg0
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 ## `java.parameter`
 **Method parameter in a Java class**
@@ -906,28 +906,28 @@ arg1
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `name`
@@ -938,7 +938,7 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `yml`
 **YML file**
@@ -948,8 +948,8 @@ arg0
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `content`
@@ -960,7 +960,7 @@ arg1
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -971,15 +971,15 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `path`
@@ -990,19 +990,19 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `valueOf`
     Return the value of the given key
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `docker`
 **Docker file type**
@@ -1012,8 +1012,8 @@ arg0
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `content`
@@ -1024,7 +1024,7 @@ arg1
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -1035,15 +1035,15 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `path`
@@ -1054,13 +1054,13 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `upgrade`
@@ -1075,8 +1075,8 @@ arg0
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `content`
@@ -1087,7 +1087,7 @@ arg1
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -1098,15 +1098,15 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `path`
@@ -1117,26 +1117,26 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `setSimpleNode`
     Update the content of this simple node
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `simpleNode`
     Return the content of this simple node
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `file`
 **
@@ -1148,26 +1148,26 @@ Type for a file within a project. Supports generic options such as find and repl
 ### `append`
     Append the given content to the file
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `contains`
     Does the file content contain the given string?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `containsMatch`
     Does the file content contain a match for the given regex
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `content`
@@ -1178,7 +1178,7 @@ arg0
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `filename`
@@ -1189,13 +1189,13 @@ arg0
 ### `findMatches`
     Return all matches for the given regexp in this file
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `firstMatch`
     Return the first match for the given regex, or the empty string if not found. Call containsMatch first to check presence.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `isJava`
@@ -1206,15 +1206,15 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `name`
@@ -1225,7 +1225,7 @@ arg1
 ### `nameContains`
     Does the file name (not path) contain the given string?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `path`
@@ -1236,51 +1236,51 @@ arg0
 ### `prepend`
     Prepend the given content to the file
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `regexpReplace`
     Replace all occurrences of the given regexp in this file
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `replace`
     Replace all instances of the given literal string in this file
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 
 ### `setContent`
     Set entire file content to new string
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `setName`
     Set the file name, not path, to the given value
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `setPath`
     Change the path to the given value. Path should use forward slashes to denote directories
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-arg0
+arg0 : class java.lang.String : No Description
 
 ## `java.class`
 **Java class**
@@ -1290,53 +1290,53 @@ arg0
 ### `addAnnotation`
     Annotate the element with the given annotation
 
-arg0
-arg1
+package : class java.lang.String : Package where the annotation is sourced
+arg1 : class java.lang.String : No Description
 
 
 ### `addImport`
     Add an import to the containing Java source
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `hasAnnotation`
     Does the element have the given annotation?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `movePackage`
     Move the type to the given package
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `name`
@@ -1352,20 +1352,20 @@ arg0
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `rename`
     Rename the type
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `renameByReplace`
     Rename the type by replacing a pattern in the name
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : class java.lang.String : No Description
 
 ## `java.method`
 **Method in a Java class**
@@ -1375,27 +1375,27 @@ arg1
 ### `addAnnotation`
     Annotate the element with the given annotation
 
-arg0
-arg1
+package : class java.lang.String : Package where the annotation is sourced
+arg1 : class java.lang.String : No Description
 
 
 ### `blockingProblem`
     Report a severe, blocking problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `fail`
     Cause the operation to fail with a fatal error
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `hasAnnotation`
     Does the element have the given annotation?
 
-arg0
+arg0 : class java.lang.String : No Description
 
 
 ### `javadoc`
@@ -1406,15 +1406,15 @@ arg0
 ### `majorProblem`
     Report a major problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `minorProblem`
     Report a minor problem
 
-arg0
-arg1
+arg0 : class java.lang.String : No Description
+arg1 : interface com.atomist.rug.runtime.FunctionInvocationContext : No Description
 
 
 ### `name`
@@ -1425,5 +1425,5 @@ arg1
 ### `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-arg0
+arg0 : class java.lang.String : No Description
 
