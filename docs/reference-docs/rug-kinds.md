@@ -1220,6 +1220,91 @@ operations can be inefficient.
 | ***literal*** | `class java.lang.String` | *The string to search for* |
 | ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
 
+## Type: `grammar`
+**User-defined grammar**
+*Parent*: Some(class com.atomist.rug.kind.core.FileArtifactType)
+
+
+### Operation: `blockingProblem`
+    Report a severe, blocking problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `fail`
+    Cause the operation to fail with a fatal error
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+### Operation: `majorProblem`
+    Report a major problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `minorProblem`
+    Report a minor problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `println`
+    Cause the editor to print to the console. Useful for debugging if running editors locally.
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+### Operation: `set`
+    Set the value of the given key
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***key*** | `class java.lang.String` | *The match key whose content you want* |
+| ***value*** | `class java.lang.String` | *The new value* |
+
+
+### Operation: `valueOf`
+    Return the value of the given key
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The match key whose content you want* |
+
 ## Type: `spring.bootProject`
 **Spring Boot project**
 *Parent*: None
@@ -1785,9 +1870,172 @@ operations can be inefficient.
 
 *None*
 
+## Type: `properties`
+**Properties file**
+*Parent*: None
+
+
+### Operation: `blockingProblem`
+    Report a severe, blocking problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `containsKey`
+    Return whether a property key exists in this file or not
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***key*** | `class java.lang.String` | *The key of the property being searched for* |
+
+
+### Operation: `containsValue`
+    Return whether a property value exists in this file or not
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***value*** | `class java.lang.String` | *The value being searched for* |
+
+
+### Operation: `content`
+    Return file content
+
+***Parameters***
+
+*None*
+
+
+### Operation: `fail`
+    Cause the operation to fail with a fatal error
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+### Operation: `filename`
+    Return file name, excluding path
+
+***Parameters***
+
+*None*
+
+
+### Operation: `getValue`
+    Return the content of this property
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***key*** | `class java.lang.String` | *The name of the simple node* |
+
+
+### Operation: `keys`
+    Return a list of the supported keys
+
+***Parameters***
+
+*None*
+
+
+### Operation: `majorProblem`
+    Report a major problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `minorProblem`
+    Report a minor problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `path`
+    Return file path, with forward slashes
+
+***Parameters***
+
+*None*
+
+
+### Operation: `println`
+    Cause the editor to print to the console. Useful for debugging if running editors locally.
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+### Operation: `setProperty`
+    Set the value of the specified property, creating a property if not present
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***key*** | `class java.lang.String` | *The key of the property being set* |
+| ***value*** | `class java.lang.String` | *The value of the property* |
+
+
+### Operation: `underPath`
+    Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
+
 ## Type: `xml`
 **XML file**
 *Parent*: None
+
+
+### Operation: `addChildNode`
+    Add the specified content under the indicated xpath-selected node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
+| ***newNode*** | `class java.lang.String` | *The new node name to be added as a child* |
+| ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
 
 
 ### Operation: `blockingProblem`
