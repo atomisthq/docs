@@ -12,27 +12,27 @@ Rug is a simple, English-like, DSL. It does not contain a full-blown set of cont
 Rug exists to do these things well:
 
 * **Iterate over files and AST nodes** in supported languages and enable easy modification. *Rug is designed to be extensible to allow further node types to be supported.*
-* Use the same constructs to easily **extract values from files.** 
+* Use the same constructs to easily **extract values from files.**
 * **Compose** operations to maximize reuse.
 * **Declare parameters** to allow automated gathering of valid user input to drive operations.
 
 ## How Editors and Reviewers are Packaged
 
-Editors are packaged in a fixed directory structure. Normally this is sourced from a GitHub. All editors must be in or under the `/.atomist/editors` directory the repo. Editors have access to template content in the same archive, packaged under `/.atomist/templates`. 
+Editors are packaged in a fixed directory structure. Normally this is sourced from a GitHub. All editors must be in or under the `/.atomist/editors` directory the repo. Editors have access to template content in the same archive, packaged under `/.atomist/templates`.
 
 >**Remember: All Atomist files should be under the `.atomist` directory in the root of a project.**
 
 Editor files must have a `.rug` extension. A `.rug` file can contain one or more editors and reviewers. A `.rug` file must contain either:
 
 * A single project operation with the same name as the project file, excluding the `.rug` extension. This corresponds to Java's enforcement of the packaging of public classes. *-or-*
-* A single project operation with the same name as the project file, excluding the `.rug` extension, plus any number of other project operations that are used only by that project operation. 
+* A single project operation with the same name as the project file, excluding the `.rug` extension, plus any number of other project operations that are used only by that project operation.
 
-This convention is analogous to Java public class packaging. 
+This convention is analogous to Java public class packaging.
 
 Any number of Rug editors can be bundled in a repository.
 
 ## Generators from Editors
-An editor annotated with the `@generator` annotation can be used as a **project generator**, acting on the content of the repo it is located in, excluding the `.atomist` directly. A single repo can contain multiple project generator editors. 
+An editor annotated with the `@generator` annotation can be used as a **project generator**, acting on the content of the repo it is located in, excluding the `.atomist` directly. A single repo can contain multiple project generator editors.
 
 Typically project generator editors do not contain logic of their own, but invoke a number of other editors. For example, here is a complete Spring Rest generator:
 
@@ -71,7 +71,7 @@ Rug editors are built on the same underpinnings as non-Rug editors. They share f
 * **Templates**: Editors can be packaged in archives including templates.
 
 ## A Quick Tour of Rug
-Rug is an English-like DSL, designed to make the definition of project operations concise and readable. 
+Rug is an English-like DSL, designed to make the definition of project operations concise and readable.
 
 White space is not significant. However we encourage sensible indentation.
 
@@ -129,7 +129,7 @@ with file f
  when name contains ".txt"
 do
  append to_append
- 
+
 with file f
  when name contains ".java"
 do
@@ -178,7 +178,7 @@ editor AppendToFile
 param to_append: .*
 
 with file f
- when name contains ".txt" 
+ when name contains ".txt"
  begin
 	do append to_append
 	do append "And now for something completely different"
@@ -197,7 +197,7 @@ with file f
 do
  append { to_append + " plus this from JavaScript" }
 ```
- 
+
 We can also use JavaScript expressions in predicates, like this:
 
 ```
@@ -208,7 +208,7 @@ with file f
 do
  append "42"
 ```
- 
+
 <!--
 ### Rug Samples
 The best way to get started with Rug is to look at the ********
@@ -240,7 +240,7 @@ Now, for a more detailed tour of Rug syntax.
 
 ### Case conventions
 
-Rug identifiers must observe the following case conventions. 
+Rug identifiers must observe the following case conventions.
 
 * *Type names*, such as editors and reviewer names: Same convention as for valid Java identifiers, except that they must begin with a capital letter.
 * *Function names*, such as `append` in the earlier examples: Same convention as for valid Java identifiers, except that they must begin with a lower case letter.
@@ -258,7 +258,7 @@ Reserved words may not be used as identifiers. The following are Rug reserved wo
 `postcondition` | Predicate that should hold after the editor has run. Including this makes an editor more robust, as it will fail rather than make any updates if the postcondition does not hold.
 `with`  |  Specifies a with block |      |
 |`do`   |   Begins an action within a with block|   
-| `run` | Specifies an action within a with block that executes another project operation. 
+| `run` | Specifies an action within a with block that executes another project operation.
 | `begin` - `end`  | Group a sequence of actions within a with block. Actions can include `do`, a nested `with` block, or `run`. Each action will see the context in the state it was left in by the last action.
 
 #### Rug Symbols
@@ -281,7 +281,7 @@ Rug supports three types of string literals:
 
 ### Annotations
 
-*Annotations* are used to describe the following program elements: editors, reviewers and parameters. For example: 
+*Annotations* are used to describe the following program elements: editors, reviewers and parameters. For example:
 
 ```
 @description "Takes EJBs and delivers a roundhouse kick to them"
@@ -329,6 +329,7 @@ Currently pre-packaged variables that can be looked up in this manner for parame
 | url | RegEx Pattern |
 
 ### Comments
+
 Any content on a line after `#` is a comment. For example:
 
 ```
@@ -358,12 +359,12 @@ A simple example:
 reviewer NoEjbs
 
 with JavaClass c
-when imports "javax.ejb" 
+when imports "javax.ejb"
 do
 majorProblem "This file uses EJB"
 ```
 ## Preconditions and Postconditions
-Reviewers are often used as editor **preconditions**. 
+Reviewers are often used as editor **preconditions**.
 
 **Postconditions** can be used to verify the result of editing. An editor that fails to meet its postcondition will not make any changes, but throw an error message. Thus including postconditions makes an editor more robust as well as self-documenting.
 
@@ -373,7 +374,7 @@ Consider the following line:
 ```
 with file f
 ```
-`file` here is not a function or a reserved word in Rug, but a **type**. Types are an important extension point of Rug, enabling it to expose a wide range of functionality in a native-seeming way. Types support a range of methods, which can be used in `with` predicates or `do` statements. 
+`file` here is not a function or a reserved word in Rug, but a **type**. Types are an important extension point of Rug, enabling it to expose a wide range of functionality in a native-seeming way. Types support a range of methods, which can be used in `with` predicates or `do` statements.
 
 A number of types are shipped out of the box. The most important are:
 
@@ -399,7 +400,32 @@ with class c when { c.name().contains(name_match) }
 do
   addAnnotation annotation_package annotation
 ```
-TODO replace these annotation patterns with valid ones
+
+## Custom Grammars with BNF
+
+Out of the box Rug supports many different kinds of files, projects, languages and useful manipulations on those concepts. However there are always other cases where you might want to manipulate a custom file, or even programming language, that Rug does not (yet) support natively.
+
+That's where the custom [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form) support in Rug comes in.
+
+A simple example of using the custom grammar support would be:
+
+```
+editor Turn21
+
+let ageGrammar = <
+   name → \\w+
+   age → \\d+
+   expr ::= <name> was aged <age>
+>
+
+with file f when name = "$filename"
+	with grammar(ageGrammar) g begin
+   do set "age" "21"
+   do set "name" { g.valueOf("name").toUpperCase() }
+end
+```
+
+Here we've defined a custom grammar where can now easily edit the document according to the identified structure, rather than having to attempt to edit the document in a textual and potentially error prone way.
 
 ## Escaping into JavaScript
 Rug is intentionally limited, aiming for readability rather than power. However, it makes it easy to escape to JavaScript at any time to perform more complex tasks.
@@ -432,9 +458,9 @@ A JavaScript expression blog has a context that is automatically propagated by R
 
 JavaScript execution is performed using Java Nashorn, with the Rug runtime creating a synthetic function to enclose the block.
 
-	All invocations on context objects must use 
+	All invocations on context objects must use
 	parentheses or a reference error will occur.
-	
+
 In the case of multiple statements, a `return` statement should be used for the last expression:
 
 ```
@@ -471,7 +497,7 @@ To implement a type, you need to extend the `com.atomist.rug.spi.Type` trait to 
 * code to update the parent context when your type has changed
 
 Type instances are mutable. They should maintain a backing model, which knows how to write itself back out to a string or other permanent representation. For example, the Java type support uses `GitHubJavaParser` to parse Java source and write it back out, exposes the AST, and write it back out after changes.
->Well-behaved type instances will preserve comments and formatting from the input. 
+>Well-behaved type instances will preserve comments and formatting from the input.
 
 Type extensions are found from the classpath using Spring classpath scanning. To enable your own types to be found, place a custom `type-registrations.xml` on your classpath. The default scans for Atomist implementations of the `Type` trait, as follows:
 
@@ -484,4 +510,3 @@ Type extensions are found from the classpath using Spring classpath scanning. To
 You can modify the base package, and also define beans that can be injected into any type implementation using autowiring.
 ## Rug Grammar
 tbd
-

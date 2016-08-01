@@ -1,4 +1,5 @@
 # Rug Test
+
 Rug provides a testing framework, based on [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) concepts. 
 
 This takes the form of a test DSL that reuses features and types from Rug, to ensure it is easy for Rug authors to adopt.
@@ -37,9 +38,9 @@ The given block specifies the input to the editor invocation in the form of mult
 
 |  File spec |  Sample | Meaning
 |---|---|---|---|
-| inline file | `dir/foo.txt = "bar"` | Populates the file | 
+| inline file | `dir/foo.txt = "bar"` | Populates the file |
 loaded file | `dir/foo.txt from "/some/path/file.txt"` | Load the file content from the archive.
-| archive root | `ArchiveRoot` | With all the files in the archive this editor is in, excluding the content of the `.atomist` directory. This is useful and convenient when building templates, as it enables verification that the contents of the template are a valid starting point for the editor being tested. 
+| archive root | `ArchiveRoot` | With all the files in the archive this editor is in, excluding the content of the `.atomist` directory. This is useful and convenient when building templates, as it enables verification that the contents of the template are a valid starting point for the editor being tested.
 ## Run block
 Pass named args as in Rug itself.
 
@@ -54,7 +55,7 @@ Certainly well-known assertions can be used alone. These are indicated in the fo
 * `InvalidParameters`: The scenario passes if the editor fails due to invalid parameters. Used to test parameter validation.
 
 ### Predicate Assertions
-Most often, assertions are Rug predicates, chained with `and`. 
+Most often, assertions are Rug predicates, chained with `and`.
 
 Unlike in Rug programs, using `and` does not create a single composed predicate, but chains separate predicates, allowing the test runtime to produce more informative error messages.
 
@@ -62,7 +63,7 @@ Unlike in Rug programs, using `and` does not create a single composed predicate,
 
 ```
 <test> ::= <given> <run> <then>
-  
+
 <given> ::= <filespec> { <filespec> }
 
 TODO FILESPEC
