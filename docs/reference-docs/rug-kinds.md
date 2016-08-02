@@ -462,6 +462,18 @@ operations can be inefficient.
 *Parent*: None
 
 
+### Operation: `addDirectory`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The name of the directory being added* |
+| ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
+
+
 ### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
@@ -955,6 +967,18 @@ operations can be inefficient.
 *Parent*: None
 
 
+### Operation: `addDirectory`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The name of the directory being added* |
+| ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
+
+
 ### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
@@ -1308,6 +1332,18 @@ operations can be inefficient.
 ## Type: `spring.bootProject`
 **Spring Boot project**
 *Parent*: None
+
+
+### Operation: `addDirectory`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The name of the directory being added* |
+| ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
 
 
 ### Operation: `addFile`
