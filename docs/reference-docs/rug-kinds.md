@@ -1,21 +1,34 @@
 
 # Rug Standard Types
 
-## Type: `java.field`
-**Field in a Java class**
-*Parent*: Some(class com.atomist.rug.kind.java.JavaClassType)
+## Type: `services`
+**
+Type for services. Used in executors.
+    **
 
 
-### Operation: `addAnnotation`
-    Annotate the element with the given annotation
+### Operation: `addDirectory`
+    Create a directory
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***pkg*** | `class java.lang.String` | *Package where the annotation is sourced* |
-| ***annotation*** | `class java.lang.String` | *The annotation to add* |
+| ***name*** | `class java.lang.String` | *The name of the directory being added* |
+| ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
+
+
+### Operation: `addFile`
+    Add the given file to the project. Path can contain /s. Content is a literal string
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
 
 ### Operation: `blockingProblem`
@@ -30,6 +43,39 @@
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
+### Operation: `deleteDirectory`
+    Deletes a directory with the given path
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+
+
+### Operation: `deleteFile`
+    Delete the given file from the project. Path can contain /s.
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+
+
+### Operation: `directoryExists`
+    Does a directory with the given path exist?
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+
+
 ### Operation: `fail`
     Cause the operation to fail with a fatal error
 
@@ -41,15 +87,47 @@
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `hasAnnotation`
-    Does the element have the given annotation?
+### Operation: `fileContains`
+    Does a file with the given path exist and have the expected content?
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***annotation*** | `class java.lang.String` | *The string name of the annotation to look for* |
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check* |
+
+
+### Operation: `fileCount`
+    Return the number of files in this project
+
+***Parameters***
+
+*None*
+
+
+### Operation: `fileExists`
+    Does a file with the given path exist?
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+
+
+### Operation: `fileHasContent`
+    Does a file with the given path exist and have the expected content?
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
 
 ### Operation: `majorProblem`
@@ -64,6 +142,39 @@
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
+### Operation: `merge`
+    
+        |Merge the given template to the given output path.
+        |
+      
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***template*** | `class java.lang.String` | *The name of the template within the backing Rug archive, under /.atomist / templates* |
+| ***path*** | `class java.lang.String` | *The path that will be the merged path within the output project.* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
+
+
+### Operation: `mergeTemplates`
+    
+        |Merge templates from the specified directory in the backing archive,
+        |under /.atomist/templates, to the given output path in the project being
+        |edited
+      
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destination project* |
+| ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
+
+
 ### Operation: `minorProblem`
     Report a minor problem
 
@@ -76,8 +187,19 @@
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
+### Operation: `moveUnder`
+    Move this file under the given path, preserving its present path under that
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The root path to move the file to* |
+
+
 ### Operation: `name`
-    Return the name of the field
+    Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
 
 ***Parameters***
 
@@ -94,9 +216,55 @@
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
+
+### Operation: `raiseIssue`
+    Raise issue in this service's issue tracker
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
+
+
+### Operation: `regexpReplace`
+    Replace all occurrences of the given regular expression in this project
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
+
+
+### Operation: `replace`
+    Replace all occurrences of the given string literal in this project. Use with care!
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to look for* |
+| ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
+
+
+### Operation: `replaceInPath`
+    Globally replace all occurrences of the given string literal in file paths in this project
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***literal*** | `class java.lang.String` | *The string to search for* |
+| ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
+
 ## Type: `packageJSON`
 **package.json configuration file**
-*Parent*: None
 
 
 ### Operation: `append`
@@ -366,7 +534,6 @@
 
 ## Type: `line`
 **Represents a line within a text file**
-*Parent*: None
 
 
 ### Operation: `blockingProblem`
@@ -459,7 +626,6 @@ Type for a project. Supports global operations.
 Consider using file and other lower types by preference as project
 operations can be inefficient.
     **
-*Parent*: None
 
 
 ### Operation: `addDirectory`
@@ -626,7 +792,7 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
-| ***outputPath*** | `class java.lang.String` | *The destination path within the destintion project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destination project* |
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
@@ -651,6 +817,14 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
+
+
+### Operation: `name`
+    Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
+
+***Parameters***
+
+*None*
 
 
 ### Operation: `println`
@@ -701,7 +875,6 @@ operations can be inefficient.
 
 ## Type: `java.source`
 **Java source file**
-*Parent*: None
 
 
 ### Operation: `blockingProblem`
@@ -825,7 +998,6 @@ operations can be inefficient.
 
 ## Type: `elm.module`
 **Elm module**
-*Parent*: None
 
 
 ### Operation: `blockingProblem`
@@ -964,7 +1136,6 @@ operations can be inefficient.
 
 ## Type: `java.project`
 **Java project**
-*Parent*: None
 
 
 ### Operation: `addDirectory`
@@ -1163,7 +1334,7 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
-| ***outputPath*** | `class java.lang.String` | *The destination path within the destintion project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destination project* |
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
@@ -1188,6 +1359,14 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
+
+
+### Operation: `name`
+    Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
+
+***Parameters***
+
+*None*
 
 
 ### Operation: `packages`
@@ -1244,94 +1423,8 @@ operations can be inefficient.
 | ***literal*** | `class java.lang.String` | *The string to search for* |
 | ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
 
-## Type: `grammar`
-**User-defined grammar**
-*Parent*: Some(class com.atomist.rug.kind.core.FileArtifactType)
-
-
-### Operation: `blockingProblem`
-    Report a severe, blocking problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `fail`
-    Cause the operation to fail with a fatal error
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-
-
-### Operation: `majorProblem`
-    Report a major problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `minorProblem`
-    Report a minor problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `println`
-    Cause the editor to print to the console. Useful for debugging if running editors locally.
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-
-
-### Operation: `set`
-    Set the value of the given key
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***key*** | `class java.lang.String` | *The match key whose content you want* |
-| ***value*** | `class java.lang.String` | *The new value* |
-
-
-### Operation: `valueOf`
-    Return the value of the given key
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *The match key whose content you want* |
-
 ## Type: `spring.bootProject`
 **Spring Boot project**
-*Parent*: None
 
 
 ### Operation: `addDirectory`
@@ -1542,7 +1635,7 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***templatesPath*** | `class java.lang.String` | *Source template path where content will be used to merge into target project* |
-| ***outputPath*** | `class java.lang.String` | *The destination path within the destintion project* |
+| ***outputPath*** | `class java.lang.String` | *The destination path within the destination project* |
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
@@ -1567,6 +1660,14 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
+
+
+### Operation: `name`
+    Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
+
+***Parameters***
+
+*None*
 
 
 ### Operation: `packages`
@@ -1623,79 +1724,8 @@ operations can be inefficient.
 | ***literal*** | `class java.lang.String` | *The string to search for* |
 | ***replacement*** | `class java.lang.String` | *The string to replace in the paths if found* |
 
-## Type: `java.parameter`
-**Method parameter in a Java class**
-*Parent*: Some(class com.atomist.rug.kind.java.JavaClassType)
-
-
-### Operation: `blockingProblem`
-    Report a severe, blocking problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `fail`
-    Cause the operation to fail with a fatal error
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-
-
-### Operation: `majorProblem`
-    Report a major problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `minorProblem`
-    Report a minor problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `name`
-    Return the name of the parameter
-
-***Parameters***
-
-*None*
-
-
-### Operation: `println`
-    Cause the editor to print to the console. Useful for debugging if running editors locally.
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-
 ## Type: `yml`
 **YML file**
-*Parent*: None
 
 
 ### Operation: `blockingProblem`
@@ -1803,7 +1833,171 @@ operations can be inefficient.
 
 ## Type: `docker`
 **Docker file type**
-*Parent*: None
+
+
+### Operation: `addAdd`
+    Add ADD directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***addContents*** | `class java.lang.String` | *The contents of the ADD directive* |
+
+
+### Operation: `addCopy`
+    Add COPY directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***copyContents*** | `class java.lang.String` | *The contents of the COPY directive* |
+
+
+### Operation: `addEnv`
+    Add Env directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***envContents*** | `class java.lang.String` | *The contents of the Env directive* |
+
+
+### Operation: `addExpose`
+    Add EXPOSE directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***exposeContents*** | `class java.lang.String` | *The contents of the EXPOSE directive* |
+
+
+### Operation: `addLabel`
+    Add LABEL directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***labelContents*** | `class java.lang.String` | *The contents of the LABEL directive* |
+
+
+### Operation: `addMaintainer`
+    Add MAINTAINER directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***maintainerContents*** | `class java.lang.String` | *The contents of the MAINTAINER directive* |
+
+
+### Operation: `addOrUpdateCmd`
+    Add or update CMD directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***cmdContents*** | `class java.lang.String` | *The contents of the CMD directive* |
+
+
+### Operation: `addOrUpdateEntryPoint`
+    Add or update ENTRYPOINT directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***entrypointContent*** | `class java.lang.String` | *The contents of the ENTRYPOINT directive* |
+
+
+### Operation: `addOrUpdateExpose`
+    Add or update EXPOSE directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***exposeContents*** | `class java.lang.String` | *The contents of the EXPOSE directive* |
+
+
+### Operation: `addOrUpdateFrom`
+    Add or update FROM directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***fromContents*** | `class java.lang.String` | *The contents of the FROM directive* |
+
+
+### Operation: `addOrUpdateLabel`
+    Add or update LABEL directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***labelContents*** | `class java.lang.String` | *The contents of the LABEL directive* |
+
+
+### Operation: `addOrUpdateMaintainer`
+    Add or update MAINTAINER directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***maintainerContents*** | `class java.lang.String` | *The contents of the MAINTAINER directive* |
+
+
+### Operation: `addOrUpdateWorkdir`
+    Add or update WORKDIR directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***workdirContents*** | `class java.lang.String` | *The contents of the WORKDIR directive* |
+
+
+### Operation: `addRun`
+    Add RUN directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***runContents*** | `class java.lang.String` | *The contents of the RUN directive* |
+
+
+### Operation: `addVolume`
+    Add VOLUME directive
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***volumeContents*** | `class java.lang.String` | *The contents of the VOLUME directive* |
 
 
 ### Operation: `blockingProblem`
@@ -1898,17 +2092,8 @@ operations can be inefficient.
 | ------------|:---------------|:-------------|
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
-
-### Operation: `upgrade`
-    Do something magical
-
-***Parameters***
-
-*None*
-
 ## Type: `properties`
 **Properties file**
-*Parent*: None
 
 
 ### Operation: `blockingProblem`
@@ -2058,7 +2243,6 @@ operations can be inefficient.
 
 ## Type: `xml`
 **XML file**
-*Parent*: None
 
 
 ### Operation: `addChildNode`
@@ -2086,6 +2270,17 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
+### Operation: `contains`
+    Tests whether a node matching the given xpath expression is present
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
+
+
 ### Operation: `content`
     Return file content
 
@@ -2111,6 +2306,17 @@ operations can be inefficient.
 ***Parameters***
 
 *None*
+
+
+### Operation: `getTextContentFor`
+    Get the text content for a specific xpath expression
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
 
 
 ### Operation: `majorProblem`
@@ -2193,7 +2399,6 @@ operations can be inefficient.
 **
 Type for a file within a project. Supports generic options such as find and replace.
     **
-*Parent*: None
 
 
 ### Operation: `append`
@@ -2440,7 +2645,6 @@ Type for a file within a project. Supports generic options such as find and repl
 
 ## Type: `java.class`
 **Java class**
-*Parent*: Some(class com.atomist.rug.kind.java.JavaSourceType)
 
 
 ### Operation: `addAnnotation`
@@ -2583,105 +2787,4 @@ Type for a file within a project. Supports generic options such as find and repl
 | ------------|:---------------|:-------------|
 | ***target*** | `class java.lang.String` | *The name of the type to replace* |
 | ***replacement*** | `class java.lang.String` | *The replacement pattern* |
-
-## Type: `java.method`
-**Method in a Java class**
-*Parent*: Some(class com.atomist.rug.kind.java.JavaClassType)
-
-
-### Operation: `addAnnotation`
-    Annotate the element with the given annotation
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***pkg*** | `class java.lang.String` | *Package where the annotation is sourced* |
-| ***annotation*** | `class java.lang.String` | *The annotation to add* |
-
-
-### Operation: `blockingProblem`
-    Report a severe, blocking problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `fail`
-    Cause the operation to fail with a fatal error
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-
-
-### Operation: `hasAnnotation`
-    Does the element have the given annotation?
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***annotation*** | `class java.lang.String` | *The string name of the annotation to look for* |
-
-
-### Operation: `javadoc`
-    Return the Javadoc for the method, or an empty string if there isn't any
-
-***Parameters***
-
-*None*
-
-
-### Operation: `majorProblem`
-    Report a major problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `minorProblem`
-    Report a minor problem
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-### Operation: `name`
-    Return the name of the method
-
-***Parameters***
-
-*None*
-
-
-### Operation: `println`
-    Cause the editor to print to the console. Useful for debugging if running editors locally.
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
