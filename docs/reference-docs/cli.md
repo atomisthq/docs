@@ -108,7 +108,7 @@ The following from the command line to build and start the shell:
 
 ## Getting out of trouble: *Cancelling a Command*
 
-If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `:q` command to get back to the `show` menu of commands.
+If you've kicked off a flow with a command and realise you no longer want to continue you can use the defactor standard `0` command to get back to the `show` menu of commands.
 
 ## Suggested Workflow with the Atomist Shell
 
