@@ -1,6 +1,6 @@
 # Rug Test
 
-Rug provides a testing framework, based on [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) concepts. 
+Rug provides a testing framework, based on [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) concepts.
 
 This takes the form of a test DSL that reuses features and types from Rug, to ensure it is easy for Rug authors to adopt.
 
@@ -24,7 +24,8 @@ scenario Dogs can be turned into cats
 given
    src/main/java/Dog.java = "class Dog {}"
 
-Rename old_class="Dog", new_class = "Cat"
+when
+   Rename old_class="Dog", new_class = "Cat"
 
 then
   fileCount = 1
@@ -33,7 +34,8 @@ then
 Note that scenario name can be free text till the end of the line with the `scenario` token, so long
 as it doesn't contain `#`, which will cause the rest of the line to be discarded as a comment.
 
-## Given
+## `Given` Initial Expectations
+
 The given block specifies the input to the editor invocation in the form of multiple *file specs*. There are several choices for file specs:
 
 |  File spec |  Sample | Meaning
@@ -41,10 +43,13 @@ The given block specifies the input to the editor invocation in the form of mult
 | inline file | `dir/foo.txt = "bar"` | Populates the file |
 loaded file | `dir/foo.txt from "/some/path/file.txt"` | Load the file content from the archive.
 | archive root | `ArchiveRoot` | With all the files in the archive this editor is in, excluding the content of the `.atomist` directory. This is useful and convenient when building templates, as it enables verification that the contents of the template are a valid starting point for the editor being tested.
-## Run block
-Pass named args as in Rug itself.
 
-## Assertions
+## `When` You Run Your tests
+
+The `when` block is optional, but for clarity helps the test consumer to understand where the actual test is being run.
+
+## `Then` Assertions
+
 Then `then` block consists of one or more assertions about the final state of the project.
 ### Well-Known Assertions
 Certainly well-known assertions can be used alone. These are indicated in the following keywords:
@@ -62,13 +67,13 @@ Unlike in Rug programs, using `and` does not create a single composed predicate,
 ## Rug Test Grammar
 
 ```
-<test> ::= <given> <run> <then>
+<test> ::= <given> <run> <when> <then>
 
 <given> ::= <filespec> { <filespec> }
 
 TODO FILESPEC
 
-<run> ::= run <editorname> <namedargs>
+<when> ::= <editorname> <namedargs>
 
 <namedargs> :: = <namedarg> { namedarg }
 
@@ -80,6 +85,7 @@ TODO FILESPEC
 
 ```
 ## Advanced Usage
+
 ### No Change
 When there's no change
 
@@ -89,11 +95,12 @@ scenario Foobar
 given
    "src/main/java/Squirrel" = "class Squirrel {}"
 
-run
+when
  Rename old_class="Dog", new_class = "Cat"
 
 then
   NoChange
 ```
 This scenario will pass only if there's no change in the input artifact source.
+
 ### Input Ranges
