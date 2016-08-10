@@ -428,9 +428,15 @@ end
 Here we've defined a custom grammar where can now easily edit the document according to the identified structure, rather than having to attempt to edit the document in a textual and potentially error prone way.
 
 ## Escaping into JavaScript
-Rug is intentionally limited, aiming for readability rather than power. However, it makes it easy to escape to JavaScript at any time to perform more complex tasks.
 
-Anywhere an expresson value is required, curly braces can be used to enclose a JavaScript statement or statements. As in Scala, the last statement in the expression will be used as the value of the expression. In the following example, the value of the JavaScript statement is passed to the `setContent` method on the `file` type.
+Rug is intentionally limited, aiming for readability rather than power. However, it makes it easy to escape to JavaScript at any time to perform more complex tasks. Currently there are two places where you can escape into JavaScript:
+
+* JavaScript Expressions
+* JavaScript Blocks
+
+### Escaping into JavaScript Expressions
+
+Anywhere an expression value is required, curly braces can be used to enclose a JavaScript statement or statements. As in Scala, the last statement in the expression will be used as the value of the expression. In the following example, the value of the JavaScript statement is passed to the `setContent` method on the `file` type.
 
 ```
 with file f when name = "thing.txt"
@@ -449,7 +455,7 @@ JavaScript expressions are also commonly used in predicates, like this:
 with file f when { f.name().toLowerCase().contains("xyz") }
 do eval { f.setContent(f.content() + "\nAppend stuff") }
 ```
-A JavaScript expression blog has a context that is automatically propagated by Rug. This includes:
+A JavaScript expression block has a context that is automatically propagated by Rug. This includes:
 
 * All parameters to the Rug script. These can be accessed by name or via the `params` map.
 * All computed parameters.
@@ -471,7 +477,7 @@ do myFunction {
 }
 ```
 
-Finally, a JavaScript expression can be used to compute a Rug computed value, like this:
+Finally a JavaScript expression can be used to compute a Rug computed value, like this:
 
 
 ```
@@ -483,11 +489,48 @@ lowerized = { name.toLowerCase() }
 
 ```
 
+### Escaping into JavaScript Blocks
+
+While Rug itself is usually an excellent choice for implementing your editors, reviewers and generators, you can write whole parts of your editors, reviewers and generators using JavaScript using a JavaScript block demarcated with `{}`:
+
+```
+editor Walter
+
+param text: .*
+param message: .*
+
+{
+var allFiles = project.files();
+
+for (i = 0; i < allFiles.length; i++) {
+    var currentFile = allFiles.get(i);
+    if (currentFile.isJava()) {
+        currentFile.append(identifiers.get("text").get());
+    }
+}
+}
+```
+
+## Escaping into Clojure through Clojure Blocks
+
+In addition to JavaScript, it is also possible to use Clojure for parts of your editors, reviewers and generators by implementing a Clojure Script block that is naturally demarcated with `()`. A Clojure Script block also requires a function to be defined that takes two parameters that are the `project` and additional `identifiers`:
+
+```
+editor Walter
+
+param text: .*
+param message: .*
+
+((defn workOn [project, identifiers]
+   (doseq [file (.files project)]
+        (if (.isJava file)
+            (.append file (.get (.get identifiers "text")))))))
+```
 
 ## Extending Rug
 Rug can be extended by via new **types**, which expose an element of the target project structure to convenient manipulation.
 
-The `com.atomist.rug.spi` packge provides interfaces to be extended to create user extensions.
+The `com.atomist.rug.spi` package provides interfaces to be extended to create user extensions.
 
 To implement a type, you need to extend the `com.atomist.rug.spi.Type` trait to provide:
 
