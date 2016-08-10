@@ -32,15 +32,15 @@
 
 
 ### Operation: `addOrReplaceProjectProperty`
-    Set the content of the parent block
+    Add or replace a project property
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***propertyName*** | `class java.lang.String` | *The name of the project property being set* |
-| ***propertyValue*** | `class java.lang.String` | *The value of the project property being set* |
+| ***projectPropertyName*** | `class java.lang.String` | *The name of the project property being set* |
+| ***projectPropertyValue*** | `class java.lang.String` | *The value of the project property being set* |
 
 
 ### Operation: `artifactId`
@@ -80,6 +80,28 @@
 ***Parameters***
 
 *None*
+
+
+### Operation: `deleteNode`
+    Deletes the specified node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
+
+
+### Operation: `deleteProjectProperty`
+    Add or replace a project property
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***projectPropertyName*** | `class java.lang.String` | *The name of the project property being deleted* |
 
 
 ### Operation: `description`
@@ -2754,6 +2776,17 @@ operations can be inefficient.
 ***Parameters***
 
 *None*
+
+
+### Operation: `deleteNode`
+    Deletes the specified node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
 
 
 ### Operation: `fail`
