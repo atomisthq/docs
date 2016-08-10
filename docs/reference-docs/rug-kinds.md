@@ -1,6 +1,460 @@
 
 # Rug Standard Types
 
+## Type: `pom`
+**POM XML file**
+
+
+### Operation: `addChildNode`
+    Add the specified content under the indicated xpath-selected node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
+| ***newNode*** | `class java.lang.String` | *The new node name to be added as a child* |
+| ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
+
+
+### Operation: `addOrReplaceNode`
+    Adds or replaces a node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***parentNodeXPath*** | `class java.lang.String` | *The XPath selector for the parent node* |
+| ***node*** | `class java.lang.String` | *The name of the node to be added or replaced* |
+| ***nodeContent*** | `class java.lang.String` | *The XML content to be used to add or replace the node* |
+
+
+### Operation: `addOrReplaceProjectProperty`
+    Set the content of the parent block
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***propertyName*** | `class java.lang.String` | *The name of the project property being set* |
+| ***propertyValue*** | `class java.lang.String` | *The value of the project property being set* |
+
+
+### Operation: `artifactId`
+    Return the content of the artifactId element
+
+***Parameters***
+
+*None*
+
+
+### Operation: `blockingProblem`
+    Report a severe, blocking problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `contains`
+    Tests whether a node matching the given xpath expression is present
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
+
+
+### Operation: `content`
+    Return file content
+
+***Parameters***
+
+*None*
+
+
+### Operation: `description`
+    Return the content of the description element
+
+***Parameters***
+
+*None*
+
+
+### Operation: `fail`
+    Cause the operation to fail with a fatal error
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+### Operation: `filename`
+    Return file name, excluding path
+
+***Parameters***
+
+*None*
+
+
+### Operation: `getTextContentFor`
+    Get the text content for a specific xpath expression
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
+
+
+### Operation: `groupId`
+    Return the content of the groupId element
+
+***Parameters***
+
+*None*
+
+
+### Operation: `isProjectBuildPluginPresent`
+    Return whether a project build plugin is present as specified by artifactId and groupId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the build plugin you are looking to test the presence of* |
+| ***groupId*** | `class java.lang.String` | *The groupId of the build plugin you are looking to test the presence of* |
+
+
+### Operation: `isProjectBuildPluginPresent`
+    Return whether a project build plugin is present as specified by artifactId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the build plugin you are looking to test the presence of* |
+
+
+### Operation: `isProjectDirectDependencyPresent`
+    Return whether a direct dependency is present as specified by artifactId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to test the presence of* |
+
+
+### Operation: `isProjectDirectDependencyPresent`
+    Return whether a direct dependency is present as specified by artifactId and groupId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to test the presence of* |
+| ***groupId*** | `class java.lang.String` | *The groupId of the dependency you are looking to test the presence of* |
+
+
+### Operation: `majorProblem`
+    Report a major problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `minorProblem`
+    Report a minor problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+### Operation: `name`
+    Return the content of the name element
+
+***Parameters***
+
+*None*
+
+
+### Operation: `packaging`
+    Return the content of the packaging element
+
+***Parameters***
+
+*None*
+
+
+### Operation: `parentArtifactId`
+    Return the content of the parent artifactId
+
+***Parameters***
+
+*None*
+
+
+### Operation: `parentGroupId`
+    Return the content of the parent groupId
+
+***Parameters***
+
+*None*
+
+
+### Operation: `parentVersion`
+    Return the content of the parent version
+
+***Parameters***
+
+*None*
+
+
+### Operation: `path`
+    Return file path, with forward slashes
+
+***Parameters***
+
+*None*
+
+
+### Operation: `println`
+    Cause the editor to print to the console. Useful for debugging if running editors locally.
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+### Operation: `projectDirectDependencyGroupId`
+    Return the value of a direct dependency's groupId as specified by artifactId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to inspect* |
+
+
+### Operation: `projectDirectDependencyScope`
+    Return the value of a direct dependency's scope as specified by artifactId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to inspect* |
+
+
+### Operation: `projectProperty`
+    Return the value of a project property
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***projectPropertyName*** | `class java.lang.String` | *The project property you are looking to inspect* |
+
+
+### Operation: `replaceNode`
+    Replaces the xpath-selected node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
+| ***newNode*** | `class java.lang.String` | *The node to be replaced* |
+| ***nodeContent*** | `class java.lang.String` | *XML document to be substituted for the node* |
+
+
+### Operation: `replaceParent`
+    Set the content of the parent block
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newParentBlock*** | `class java.lang.String` | *The parent block that you are trying to set* |
+
+
+### Operation: `setArtifactId`
+    Set the content of the artifactId element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newArtifactId*** | `class java.lang.String` | *The artifactId that you are trying to set* |
+
+
+### Operation: `setDescription`
+    Set the content of the description element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newDescription*** | `class java.lang.String` | *The description that you are trying to set* |
+
+
+### Operation: `setGroupId`
+    Set the content of the groupId element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newGroupId*** | `class java.lang.String` | *The groupId that you are trying to set* |
+
+
+### Operation: `setPackaging`
+    Set the content of the packaging element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newPackaging*** | `class java.lang.String` | *The packaging that you are trying to set* |
+
+
+### Operation: `setParentArtifactId`
+    Set the content of the parent artifactId element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newParentArtifactId*** | `class java.lang.String` | *The parent artifactId that you are trying to set* |
+
+
+### Operation: `setParentGroupId`
+    Set the content of the parent groupId element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newParentGroupId*** | `class java.lang.String` | *The parent groupId that you are trying to set* |
+
+
+### Operation: `setParentVersion`
+    Set the content of the parent version element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newParentVersion*** | `class java.lang.String` | *The parent version that you are trying to set* |
+
+
+### Operation: `setSimpleNode`
+    Update the content of this simple node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The node to select* |
+| ***newValue*** | `class java.lang.String` | *The new content for that node* |
+
+
+### Operation: `setTextContentFor`
+    Set the text content for a specific xpath expression
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to use to set the test content* |
+| ***arg1*** | `class java.lang.String` | ** |
+
+
+### Operation: `setVersion`
+    Set the content of the version element
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newVersion*** | `class java.lang.String` | *The version that you are trying to set* |
+
+
+### Operation: `simpleNode`
+    Return the content of this simple node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The name of the simple node* |
+
+
+### Operation: `underPath`
+    Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
+
+
+### Operation: `version`
+    Return the content of the version element
+
+***Parameters***
+
+*None*
+
 ## Type: `services`
 **
 Type for services. Used in executors.
@@ -2258,6 +2712,19 @@ operations can be inefficient.
 | ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
 
 
+### Operation: `addOrReplaceNode`
+    Adds or replaces a node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***parentNodeXPath*** | `class java.lang.String` | *The XPath selector for the parent node* |
+| ***node*** | `class java.lang.String` | *The name of the node to be added or replaced* |
+| ***nodeContent*** | `class java.lang.String` | *The XML content to be used to add or replace the node* |
+
+
 ### Operation: `blockingProblem`
     Report a severe, blocking problem
 
@@ -2362,6 +2829,19 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
+### Operation: `replaceNode`
+    Replaces the xpath-selected node
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
+| ***newNode*** | `class java.lang.String` | *The node to be replaced* |
+| ***nodeContent*** | `class java.lang.String` | *XML document to be substituted for the node* |
+
+
 ### Operation: `setSimpleNode`
     Update the content of this simple node
 
@@ -2372,6 +2852,18 @@ operations can be inefficient.
 | ------------|:---------------|:-------------|
 | ***xpath*** | `class java.lang.String` | *The node to select* |
 | ***newValue*** | `class java.lang.String` | *The new content for that node* |
+
+
+### Operation: `setTextContentFor`
+    Set the text content for a specific xpath expression
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to use to set the test content* |
+| ***arg1*** | `class java.lang.String` | ** |
 
 
 ### Operation: `simpleNode`
