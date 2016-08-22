@@ -92,7 +92,7 @@ The build relies on a local Maven repository with access to Atomist Artifactory 
 The following from the command line to build and start the shell:
 
 ```
-> > mvn compile exec:javaDexec.mainClass="com.atomist.projectoperation.cli.Main"
+> mvn compile exec:java -Dexec.mainClass="com.atomist.projectoperation.cli.Main"
 ```
 
 ## Atomist Shell Commands
