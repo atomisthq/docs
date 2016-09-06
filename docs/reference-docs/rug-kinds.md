@@ -4,8 +4,10 @@
 ## Type: `pom`
 **POM XML file**
 
+### `pom` Operations
 
-### Operation: `addChildNode`
+
+#### Operation: `addChildNode`
     Add the specified content under the indicated xpath-selected node
 
 ***Parameters***
@@ -18,7 +20,71 @@
 | ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
 
 
-### Operation: `addOrReplaceNode`
+#### Operation: `addOrReplaceBuildPlugin`
+    Adds or replaces a build plugin
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the build plugin's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the build plugin's artifactId* |
+| ***pluginContent*** | `class java.lang.String` | *The XML content for the plugin* |
+
+
+#### Operation: `addOrReplaceDependency`
+    Add or replace a dependency
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+
+
+#### Operation: `addOrReplaceDependencyManagementDependency`
+    Adds or replaces a dependency management dependency
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+| ***dependencyContent*** | `class java.lang.String` | *The XML content for the dependency* |
+
+
+#### Operation: `addOrReplaceDependencyScope`
+    Add or replace a dependency's scope
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+| ***newVersion*** | `class java.lang.String` | *The value of the dependency's scope to be set* |
+
+
+#### Operation: `addOrReplaceDependencyVersion`
+    Add or replace a dependency's version
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+| ***newVersion*** | `class java.lang.String` | *The value of the dependency's version to be set* |
+
+
+#### Operation: `addOrReplaceNode`
     Adds or replaces a node
 
 ***Parameters***
@@ -27,23 +93,24 @@
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***parentNodeXPath*** | `class java.lang.String` | *The XPath selector for the parent node* |
-| ***node*** | `class java.lang.String` | *The name of the node to be added or replaced* |
-| ***nodeContent*** | `class java.lang.String` | *The XML content to be used to add or replace the node* |
+| ***xPathOfNodeToReplace*** | `class java.lang.String` | *The XPath selector for the node to replace* |
+| ***newNode*** | `class java.lang.String` | *The name of the node being placed* |
+| ***nodeContent*** | `class java.lang.String` | *The content of the node being placed* |
 
 
-### Operation: `addOrReplaceProjectProperty`
-    Add or replace a project property
+#### Operation: `addOrReplaceProperty`
+    Add or replace a property
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***projectPropertyName*** | `class java.lang.String` | *The name of the project property being set* |
-| ***projectPropertyValue*** | `class java.lang.String` | *The value of the project property being set* |
+| ***propertyName*** | `class java.lang.String` | *The name of the property being set* |
+| ***propertyValue*** | `class java.lang.String` | *The value of the property being set* |
 
 
-### Operation: `artifactId`
+#### Operation: `artifactId`
     Return the content of the artifactId element
 
 ***Parameters***
@@ -51,7 +118,7 @@
 *None*
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -63,7 +130,7 @@
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `contains`
+#### Operation: `contains`
     Tests whether a node matching the given xpath expression is present
 
 ***Parameters***
@@ -74,7 +141,7 @@
 | ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -82,7 +149,7 @@
 *None*
 
 
-### Operation: `deleteNode`
+#### Operation: `deleteNode`
     Deletes the specified node
 
 ***Parameters***
@@ -93,18 +160,31 @@
 | ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
 
 
-### Operation: `deleteProjectProperty`
-    Add or replace a project property
+#### Operation: `dependencyScope`
+    Return the value of a dependency's scope as specified by artifactId
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***projectPropertyName*** | `class java.lang.String` | *The name of the project property being deleted* |
+| ***groupId*** | `class java.lang.String` | *The groupId of the dependency you are looking to inspect* |
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to inspect* |
 
 
-### Operation: `description`
+#### Operation: `dependencyVersion`
+    Return the value of a dependency's version as specified by artifactId
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The groupId of the dependency you are looking to inspect* |
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to inspect* |
+
+
+#### Operation: `description`
     Return the content of the description element
 
 ***Parameters***
@@ -112,7 +192,18 @@
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -123,7 +214,7 @@
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -131,7 +222,7 @@
 *None*
 
 
-### Operation: `getTextContentFor`
+#### Operation: `getTextContentFor`
     Get the text content for a specific xpath expression
 
 ***Parameters***
@@ -142,7 +233,7 @@
 | ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
 
 
-### Operation: `groupId`
+#### Operation: `groupId`
     Return the content of the groupId element
 
 ***Parameters***
@@ -150,53 +241,51 @@
 *None*
 
 
-### Operation: `isProjectBuildPluginPresent`
-    Return whether a project build plugin is present as specified by artifactId and groupId
+#### Operation: `isBuildPluginPresent`
+    Return whether a build plugin is present as specified by artifactId and groupId
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***artifactId*** | `class java.lang.String` | *The artifactId of the build plugin you are looking to test the presence of* |
 | ***groupId*** | `class java.lang.String` | *The groupId of the build plugin you are looking to test the presence of* |
-
-
-### Operation: `isProjectBuildPluginPresent`
-    Return whether a project build plugin is present as specified by artifactId
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
 | ***artifactId*** | `class java.lang.String` | *The artifactId of the build plugin you are looking to test the presence of* |
 
 
-### Operation: `isProjectDirectDependencyPresent`
-    Return whether a direct dependency is present as specified by artifactId
+#### Operation: `isDependencyManagementDependencyPresent`
+    Return whether a dependency management dependency is present as specified by artifactId and groupId
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to test the presence of* |
+| ***groupId*** | `class java.lang.String` | *The groupId of the dependency management dependency you are looking to test the presence of* |
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency management dependency you are looking to test the presence of* |
 
 
-### Operation: `isProjectDirectDependencyPresent`
-    Return whether a direct dependency is present as specified by artifactId and groupId
+#### Operation: `isDependencyPresent`
+    Return whether a dependency is present as specified by artifactId and groupId
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to test the presence of* |
 | ***groupId*** | `class java.lang.String` | *The groupId of the dependency you are looking to test the presence of* |
+| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to test the presence of* |
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -208,7 +297,7 @@
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -220,7 +309,7 @@
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the content of the name element
 
 ***Parameters***
@@ -228,7 +317,7 @@
 *None*
 
 
-### Operation: `packaging`
+#### Operation: `packaging`
     Return the content of the packaging element
 
 ***Parameters***
@@ -236,7 +325,7 @@
 *None*
 
 
-### Operation: `parentArtifactId`
+#### Operation: `parentArtifactId`
     Return the content of the parent artifactId
 
 ***Parameters***
@@ -244,7 +333,7 @@
 *None*
 
 
-### Operation: `parentGroupId`
+#### Operation: `parentGroupId`
     Return the content of the parent groupId
 
 ***Parameters***
@@ -252,7 +341,7 @@
 *None*
 
 
-### Operation: `parentVersion`
+#### Operation: `parentVersion`
     Return the content of the parent version
 
 ***Parameters***
@@ -260,7 +349,7 @@
 *None*
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -268,7 +357,7 @@
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -279,29 +368,7 @@
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `projectDirectDependencyGroupId`
-    Return the value of a direct dependency's groupId as specified by artifactId
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to inspect* |
-
-
-### Operation: `projectDirectDependencyScope`
-    Return the value of a direct dependency's scope as specified by artifactId
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***artifactId*** | `class java.lang.String` | *The artifactId of the dependency you are looking to inspect* |
-
-
-### Operation: `projectProperty`
+#### Operation: `property`
     Return the value of a project property
 
 ***Parameters***
@@ -312,20 +379,54 @@
 | ***projectPropertyName*** | `class java.lang.String` | *The project property you are looking to inspect* |
 
 
-### Operation: `replaceNode`
-    Replaces the xpath-selected node
+#### Operation: `removeDependency`
+    Removes a dependency
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
-| ***newNode*** | `class java.lang.String` | *The node to be replaced* |
-| ***nodeContent*** | `class java.lang.String` | *XML document to be substituted for the node* |
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
 
 
-### Operation: `replaceParent`
+#### Operation: `removeDependencyScope`
+    Remove a dependency's scope
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+
+
+#### Operation: `removeDependencyVersion`
+    Remove a dependency's version
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+
+
+#### Operation: `removeProperty`
+    Remove a property
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***propertyName*** | `class java.lang.String` | *The name of the project property being deleted* |
+
+
+#### Operation: `replaceParent`
     Set the content of the parent block
 
 ***Parameters***
@@ -336,7 +437,7 @@
 | ***newParentBlock*** | `class java.lang.String` | *The parent block that you are trying to set* |
 
 
-### Operation: `setArtifactId`
+#### Operation: `setArtifactId`
     Set the content of the artifactId element
 
 ***Parameters***
@@ -347,7 +448,7 @@
 | ***newArtifactId*** | `class java.lang.String` | *The artifactId that you are trying to set* |
 
 
-### Operation: `setDescription`
+#### Operation: `setDescription`
     Set the content of the description element
 
 ***Parameters***
@@ -358,7 +459,7 @@
 | ***newDescription*** | `class java.lang.String` | *The description that you are trying to set* |
 
 
-### Operation: `setGroupId`
+#### Operation: `setGroupId`
     Set the content of the groupId element
 
 ***Parameters***
@@ -369,7 +470,7 @@
 | ***newGroupId*** | `class java.lang.String` | *The groupId that you are trying to set* |
 
 
-### Operation: `setPackaging`
+#### Operation: `setPackaging`
     Set the content of the packaging element
 
 ***Parameters***
@@ -380,7 +481,7 @@
 | ***newPackaging*** | `class java.lang.String` | *The packaging that you are trying to set* |
 
 
-### Operation: `setParentArtifactId`
+#### Operation: `setParentArtifactId`
     Set the content of the parent artifactId element
 
 ***Parameters***
@@ -391,7 +492,7 @@
 | ***newParentArtifactId*** | `class java.lang.String` | *The parent artifactId that you are trying to set* |
 
 
-### Operation: `setParentGroupId`
+#### Operation: `setParentGroupId`
     Set the content of the parent groupId element
 
 ***Parameters***
@@ -402,7 +503,7 @@
 | ***newParentGroupId*** | `class java.lang.String` | *The parent groupId that you are trying to set* |
 
 
-### Operation: `setParentVersion`
+#### Operation: `setParentVersion`
     Set the content of the parent version element
 
 ***Parameters***
@@ -413,19 +514,18 @@
 | ***newParentVersion*** | `class java.lang.String` | *The parent version that you are trying to set* |
 
 
-### Operation: `setSimpleNode`
-    Update the content of this simple node
+#### Operation: `setProjectName`
+    Add or replace project name
 
 ***Parameters***
 
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The node to select* |
-| ***newValue*** | `class java.lang.String` | *The new content for that node* |
+| ***newName*** | `class java.lang.String` | *The name being set* |
 
 
-### Operation: `setTextContentFor`
+#### Operation: `setTextContentFor`
     Set the text content for a specific xpath expression
 
 ***Parameters***
@@ -437,7 +537,7 @@
 | ***arg1*** | `class java.lang.String` | ** |
 
 
-### Operation: `setVersion`
+#### Operation: `setVersion`
     Set the content of the version element
 
 ***Parameters***
@@ -448,18 +548,7 @@
 | ***newVersion*** | `class java.lang.String` | *The version that you are trying to set* |
 
 
-### Operation: `simpleNode`
-    Return the content of this simple node
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The name of the simple node* |
-
-
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -470,7 +559,7 @@
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
 
-### Operation: `version`
+#### Operation: `version`
     Return the content of the version element
 
 ***Parameters***
@@ -482,8 +571,10 @@
 Type for services. Used in executors.
     **
 
+### `services` Operations
 
-### Operation: `addDirectory`
+
+#### Operation: `addDirectory`
     Create a directory
 
 ***Parameters***
@@ -495,7 +586,18 @@ Type for services. Used in executors.
 | ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
 
 
-### Operation: `addFile`
+#### Operation: `addDirectoryAndIntermediates`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***directoryPath*** | `class java.lang.String` | *The path under which the directory and any missing intermediate directories will be created* |
+
+
+#### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
 ***Parameters***
@@ -507,7 +609,7 @@ Type for services. Used in executors.
 | ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -519,7 +621,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `deleteDirectory`
+#### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
 ***Parameters***
@@ -530,7 +632,7 @@ Type for services. Used in executors.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `deleteFile`
+#### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
 ***Parameters***
@@ -541,7 +643,7 @@ Type for services. Used in executors.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `directoryExists`
+#### Operation: `directoryExists`
     Does a directory with the given path exist?
 
 ***Parameters***
@@ -552,7 +654,18 @@ Type for services. Used in executors.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -563,7 +676,7 @@ Type for services. Used in executors.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `fileContains`
+#### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -575,7 +688,7 @@ Type for services. Used in executors.
 | ***content*** | `class java.lang.String` | *The content to check* |
 
 
-### Operation: `fileCount`
+#### Operation: `fileCount`
     Return the number of files in this project
 
 ***Parameters***
@@ -583,7 +696,7 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `fileExists`
+#### Operation: `fileExists`
     Does a file with the given path exist?
 
 ***Parameters***
@@ -594,7 +707,7 @@ Type for services. Used in executors.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fileHasContent`
+#### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -606,7 +719,7 @@ Type for services. Used in executors.
 | ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
 
-### Operation: `majorProblem`
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -618,7 +731,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `merge`
+#### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
@@ -634,7 +747,7 @@ Type for services. Used in executors.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `mergeTemplates`
+#### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
@@ -651,7 +764,29 @@ Type for services. Used in executors.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `minorProblem`
+#### Operation: `messageChannel`
+    Send a message to the service channel
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
+
+
+#### Operation: `messageUser`
+    Send a message to the current user
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
+
+
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -663,7 +798,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `moveUnder`
+#### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
 ***Parameters***
@@ -674,7 +809,7 @@ Type for services. Used in executors.
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
 
 ***Parameters***
@@ -682,7 +817,7 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -693,7 +828,7 @@ Type for services. Used in executors.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `raiseIssue`
+#### Operation: `raiseIssue`
     Raise issue in this service's issue tracker
 
 ***Parameters***
@@ -704,7 +839,7 @@ Type for services. Used in executors.
 | ***arg0*** | `class java.lang.String` | ** |
 
 
-### Operation: `regexpReplace`
+#### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
 ***Parameters***
@@ -716,7 +851,7 @@ Type for services. Used in executors.
 | ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replace`
+#### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
 ***Parameters***
@@ -728,7 +863,7 @@ Type for services. Used in executors.
 | ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replaceInPath`
+#### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
 ***Parameters***
@@ -742,8 +877,10 @@ Type for services. Used in executors.
 ## Type: `packageJSON`
 **package.json configuration file**
 
+### `packageJSON` Operations
 
-### Operation: `append`
+
+#### Operation: `append`
     Append the given content to the file
 
 ***Parameters***
@@ -754,7 +891,7 @@ Type for services. Used in executors.
 | ***literal*** | `class java.lang.String` | *The string to append* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -766,7 +903,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `contains`
+#### Operation: `contains`
     Does the file content contain the given string?
 
 ***Parameters***
@@ -777,7 +914,7 @@ Type for services. Used in executors.
 | ***what*** | `class java.lang.String` | *The string to use when looking for it in the file* |
 
 
-### Operation: `containsMatch`
+#### Operation: `containsMatch`
     Does the file content contain a match for the given regex
 
 ***Parameters***
@@ -788,7 +925,7 @@ Type for services. Used in executors.
 | ***regexp*** | `class java.lang.String` | *The regular expression to look for in the file's content* |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -796,7 +933,18 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -807,7 +955,7 @@ Type for services. Used in executors.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -815,7 +963,7 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `findMatches`
+#### Operation: `findMatches`
     Return all matches for the given regexp in this file
 
 ***Parameters***
@@ -826,7 +974,7 @@ Type for services. Used in executors.
 | ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
 
-### Operation: `firstMatch`
+#### Operation: `firstMatch`
     Return the first match for the given regex, or the empty string if not found. Call containsMatch first to check presence.
 
 ***Parameters***
@@ -837,7 +985,7 @@ Type for services. Used in executors.
 | ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
 
-### Operation: `isJava`
+#### Operation: `isJava`
     Is this a Java file?
 
 ***Parameters***
@@ -845,7 +993,15 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -857,7 +1013,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -869,7 +1025,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `name`
+#### Operation: `name`
     Name of the file, excluding path
 
 ***Parameters***
@@ -877,7 +1033,7 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `nameContains`
+#### Operation: `nameContains`
     Does the file name (not path) contain the given string?
 
 ***Parameters***
@@ -888,7 +1044,7 @@ Type for services. Used in executors.
 | ***what*** | `class java.lang.String` | *The string to use when looking for it in the file name or path* |
 
 
-### Operation: `packageName`
+#### Operation: `packageName`
     Return package name
 
 ***Parameters***
@@ -899,7 +1055,7 @@ Type for services. Used in executors.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -907,7 +1063,7 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `prepend`
+#### Operation: `prepend`
     Prepend the given content to the file
 
 ***Parameters***
@@ -918,7 +1074,7 @@ Type for services. Used in executors.
 | ***literal*** | `class java.lang.String` | *The string to prepend to the file* |
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -929,7 +1085,7 @@ Type for services. Used in executors.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `regexpReplace`
+#### Operation: `regexpReplace`
     Replace all occurrences of the given regexp in this file
 
 ***Parameters***
@@ -941,7 +1097,7 @@ Type for services. Used in executors.
 | ***replaceWith*** | `class java.lang.String` | *The string to replace matching expressions with* |
 
 
-### Operation: `replace`
+#### Operation: `replace`
     Replace all instances of the given literal string in this file
 
 ***Parameters***
@@ -953,7 +1109,7 @@ Type for services. Used in executors.
 | ***replaceWith*** | `class java.lang.String` | *The string to replace the matches with* |
 
 
-### Operation: `setContent`
+#### Operation: `setContent`
     Set entire file content to new string
 
 ***Parameters***
@@ -964,7 +1120,7 @@ Type for services. Used in executors.
 | ***newContent*** | `class java.lang.String` | *The content to set the file to* |
 
 
-### Operation: `setName`
+#### Operation: `setName`
     Set the file name, not path, to the given value
 
 ***Parameters***
@@ -975,7 +1131,7 @@ Type for services. Used in executors.
 | ***name*** | `class java.lang.String` | *The name to set the file to* |
 
 
-### Operation: `setPackageName`
+#### Operation: `setPackageName`
     Change the package name
 
 ***Parameters***
@@ -987,7 +1143,7 @@ Type for services. Used in executors.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `setPath`
+#### Operation: `setPath`
     Change the path to the given value. Path should use forward slashes to denote directories
 
 ***Parameters***
@@ -998,7 +1154,7 @@ Type for services. Used in executors.
 | ***newPath*** | `class java.lang.String` | *The path to change the file to* |
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -1011,8 +1167,10 @@ Type for services. Used in executors.
 ## Type: `line`
 **Represents a line within a text file**
 
+### `line` Operations
 
-### Operation: `blockingProblem`
+
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -1024,7 +1182,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return this line's content
 
 ***Parameters***
@@ -1032,7 +1190,18 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -1043,7 +1212,7 @@ Type for services. Used in executors.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `majorProblem`
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -1055,7 +1224,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -1067,7 +1236,7 @@ Type for services. Used in executors.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `number`
+#### Operation: `number`
     Line number
 
 ***Parameters***
@@ -1075,7 +1244,7 @@ Type for services. Used in executors.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -1086,7 +1255,7 @@ Type for services. Used in executors.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `update`
+#### Operation: `update`
     Update this line's content
 
 ***Parameters***
@@ -1103,8 +1272,10 @@ Consider using file and other lower types by preference as project
 operations can be inefficient.
     **
 
+### `project` Operations
 
-### Operation: `addDirectory`
+
+#### Operation: `addDirectory`
     Create a directory
 
 ***Parameters***
@@ -1116,7 +1287,18 @@ operations can be inefficient.
 | ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
 
 
-### Operation: `addFile`
+#### Operation: `addDirectoryAndIntermediates`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***directoryPath*** | `class java.lang.String` | *The path under which the directory and any missing intermediate directories will be created* |
+
+
+#### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
 ***Parameters***
@@ -1128,7 +1310,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -1140,7 +1322,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `deleteDirectory`
+#### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
 ***Parameters***
@@ -1151,7 +1333,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `deleteFile`
+#### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
 ***Parameters***
@@ -1162,7 +1344,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `directoryExists`
+#### Operation: `directoryExists`
     Does a directory with the given path exist?
 
 ***Parameters***
@@ -1173,7 +1355,18 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -1184,7 +1377,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `fileContains`
+#### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -1196,7 +1389,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to check* |
 
 
-### Operation: `fileCount`
+#### Operation: `fileCount`
     Return the number of files in this project
 
 ***Parameters***
@@ -1204,7 +1397,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fileExists`
+#### Operation: `fileExists`
     Does a file with the given path exist?
 
 ***Parameters***
@@ -1215,7 +1408,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fileHasContent`
+#### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -1227,7 +1420,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
 
-### Operation: `majorProblem`
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -1239,7 +1432,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `merge`
+#### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
@@ -1255,7 +1448,7 @@ operations can be inefficient.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `mergeTemplates`
+#### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
@@ -1272,7 +1465,7 @@ operations can be inefficient.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -1284,7 +1477,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `moveUnder`
+#### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
 ***Parameters***
@@ -1295,7 +1488,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
 
 ***Parameters***
@@ -1303,7 +1496,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -1314,7 +1507,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `regexpReplace`
+#### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
 ***Parameters***
@@ -1326,7 +1519,7 @@ operations can be inefficient.
 | ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replace`
+#### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
 ***Parameters***
@@ -1338,7 +1531,7 @@ operations can be inefficient.
 | ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replaceInPath`
+#### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
 ***Parameters***
@@ -1352,8 +1545,10 @@ operations can be inefficient.
 ## Type: `java.source`
 **Java source file**
 
+### `java.source` Operations
 
-### Operation: `blockingProblem`
+
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -1365,7 +1560,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -1373,7 +1568,18 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -1384,7 +1590,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -1392,7 +1598,15 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -1404,7 +1618,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -1416,7 +1630,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `movePackage`
+#### Operation: `movePackage`
     Move the source file to the given package
 
 ***Parameters***
@@ -1427,7 +1641,7 @@ operations can be inefficient.
 | ***newPackage*** | `class java.lang.String` | *The package to move the source file to* |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -1435,7 +1649,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `pkg`
+#### Operation: `pkg`
     Return the package name
 
 ***Parameters***
@@ -1443,7 +1657,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -1454,7 +1668,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `typeCount`
+#### Operation: `typeCount`
     Count the types in this source file
 
 ***Parameters***
@@ -1462,7 +1676,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -1475,8 +1689,21 @@ operations can be inefficient.
 ## Type: `elm.module`
 **Elm module**
 
+### `elm.module` Operations
 
-### Operation: `blockingProblem`
+
+#### Operation: `addImport`
+    Update the given module import
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newName*** | `class java.lang.String` | *The module name to import* |
+
+
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -1488,7 +1715,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -1496,7 +1723,18 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -1507,7 +1745,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -1515,7 +1753,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `imports`
+#### Operation: `imports`
     Does the module import the given module?
 
 ***Parameters***
@@ -1526,7 +1764,15 @@ operations can be inefficient.
 | ***moduleName*** | `class java.lang.String` | *The module name to check* |
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -1538,7 +1784,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -1550,7 +1796,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the name of the module
 
 ***Parameters***
@@ -1558,7 +1804,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -1566,7 +1812,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -1577,7 +1823,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `setName`
+#### Operation: `setName`
     Change the name of the module
 
 ***Parameters***
@@ -1588,7 +1834,7 @@ operations can be inefficient.
 | ***newName*** | `class java.lang.String` | *The module name to change to* |
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -1599,7 +1845,7 @@ operations can be inefficient.
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
 
-### Operation: `updateImport`
+#### Operation: `updateImport`
     Update the given module import
 
 ***Parameters***
@@ -1613,8 +1859,10 @@ operations can be inefficient.
 ## Type: `java.project`
 **Java project**
 
+### `java.project` Operations
 
-### Operation: `addDirectory`
+
+#### Operation: `addDirectory`
     Create a directory
 
 ***Parameters***
@@ -1626,7 +1874,18 @@ operations can be inefficient.
 | ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
 
 
-### Operation: `addFile`
+#### Operation: `addDirectoryAndIntermediates`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***directoryPath*** | `class java.lang.String` | *The path under which the directory and any missing intermediate directories will be created* |
+
+
+#### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
 ***Parameters***
@@ -1638,7 +1897,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -1650,7 +1909,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `deleteDirectory`
+#### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
 ***Parameters***
@@ -1661,7 +1920,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `deleteFile`
+#### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
 ***Parameters***
@@ -1672,7 +1931,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `directoryExists`
+#### Operation: `directoryExists`
     Does a directory with the given path exist?
 
 ***Parameters***
@@ -1683,7 +1942,18 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -1694,7 +1964,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `fileContains`
+#### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -1706,7 +1976,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to check* |
 
 
-### Operation: `fileCount`
+#### Operation: `fileCount`
     Return the number of files in this project
 
 ***Parameters***
@@ -1714,7 +1984,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fileExists`
+#### Operation: `fileExists`
     Does a file with the given path exist?
 
 ***Parameters***
@@ -1725,7 +1995,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fileHasContent`
+#### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -1737,7 +2007,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
 
-### Operation: `isMaven`
+#### Operation: `isMaven`
     Is this a Maven project?
 
 ***Parameters***
@@ -1745,7 +2015,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `isSpring`
+#### Operation: `isSpring`
     Is this a Spring project?
 
 ***Parameters***
@@ -1753,7 +2023,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `isSpringBoot`
+#### Operation: `isSpringBoot`
     Is this a Spring Boot project?
 
 ***Parameters***
@@ -1761,7 +2031,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `javaFileCount`
+#### Operation: `javaFileCount`
     Return the number of Java files in this module
 
 ***Parameters***
@@ -1769,7 +2039,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -1781,7 +2051,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `merge`
+#### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
@@ -1797,7 +2067,7 @@ operations can be inefficient.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `mergeTemplates`
+#### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
@@ -1814,7 +2084,7 @@ operations can be inefficient.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -1826,7 +2096,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `moveUnder`
+#### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
 ***Parameters***
@@ -1837,7 +2107,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
 
 ***Parameters***
@@ -1845,7 +2115,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `packages`
+#### Operation: `packages`
     List the packages in this project
 
 ***Parameters***
@@ -1853,7 +2123,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -1864,7 +2134,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `regexpReplace`
+#### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
 ***Parameters***
@@ -1876,7 +2146,7 @@ operations can be inefficient.
 | ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replace`
+#### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
 ***Parameters***
@@ -1888,7 +2158,7 @@ operations can be inefficient.
 | ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replaceInPath`
+#### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
 ***Parameters***
@@ -1902,8 +2172,10 @@ operations can be inefficient.
 ## Type: `spring.bootProject`
 **Spring Boot project**
 
+### `spring.bootProject` Operations
 
-### Operation: `addDirectory`
+
+#### Operation: `addDirectory`
     Create a directory
 
 ***Parameters***
@@ -1915,7 +2187,18 @@ operations can be inefficient.
 | ***parentPath*** | `class java.lang.String` | *The path under which the directory should be created* |
 
 
-### Operation: `addFile`
+#### Operation: `addDirectoryAndIntermediates`
+    Create a directory
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***directoryPath*** | `class java.lang.String` | *The path under which the directory and any missing intermediate directories will be created* |
+
+
+#### Operation: `addFile`
     Add the given file to the project. Path can contain /s. Content is a literal string
 
 ***Parameters***
@@ -1927,7 +2210,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
 
 
-### Operation: `annotateBootApplication`
+#### Operation: `annotateBootApplication`
     Add the given annotation to the Spring Boot application class
 
 ***Parameters***
@@ -1939,7 +2222,7 @@ operations can be inefficient.
 | ***annotationName*** | `class java.lang.String` | *The annotation to add* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -1951,7 +2234,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `deleteDirectory`
+#### Operation: `deleteDirectory`
     Deletes a directory with the given path
 
 ***Parameters***
@@ -1962,7 +2245,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `deleteFile`
+#### Operation: `deleteFile`
     Delete the given file from the project. Path can contain /s.
 
 ***Parameters***
@@ -1973,7 +2256,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `directoryExists`
+#### Operation: `directoryExists`
     Does a directory with the given path exist?
 
 ***Parameters***
@@ -1984,7 +2267,18 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -1995,7 +2289,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `fileContains`
+#### Operation: `fileContains`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -2007,7 +2301,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to check* |
 
 
-### Operation: `fileCount`
+#### Operation: `fileCount`
     Return the number of files in this project
 
 ***Parameters***
@@ -2015,7 +2309,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fileExists`
+#### Operation: `fileExists`
     Does a file with the given path exist?
 
 ***Parameters***
@@ -2026,7 +2320,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The path to use* |
 
 
-### Operation: `fileHasContent`
+#### Operation: `fileHasContent`
     Does a file with the given path exist and have the expected content?
 
 ***Parameters***
@@ -2038,7 +2332,7 @@ operations can be inefficient.
 | ***content*** | `class java.lang.String` | *The content to check against the given file* |
 
 
-### Operation: `isMaven`
+#### Operation: `isMaven`
     Is this a Maven project?
 
 ***Parameters***
@@ -2046,7 +2340,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `isSpring`
+#### Operation: `isSpring`
     Is this a Spring project?
 
 ***Parameters***
@@ -2054,7 +2348,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `isSpringBoot`
+#### Operation: `isSpringBoot`
     Is this a Spring Boot project?
 
 ***Parameters***
@@ -2062,7 +2356,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `javaFileCount`
+#### Operation: `javaFileCount`
     Return the number of Java files in this module
 
 ***Parameters***
@@ -2070,7 +2364,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -2082,7 +2376,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `merge`
+#### Operation: `merge`
     
         |Merge the given template to the given output path.
         |
@@ -2098,7 +2392,7 @@ operations can be inefficient.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `mergeTemplates`
+#### Operation: `mergeTemplates`
     
         |Merge templates from the specified directory in the backing archive,
         |under /.atomist/templates, to the given output path in the project being
@@ -2115,7 +2409,7 @@ operations can be inefficient.
 | ***ic*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | *The project identifier to use* |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -2127,7 +2421,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `moveUnder`
+#### Operation: `moveUnder`
     Move this file under the given path, preserving its present path under that
 
 ***Parameters***
@@ -2138,7 +2432,7 @@ operations can be inefficient.
 | ***path*** | `class java.lang.String` | *The root path to move the file to* |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
 
 ***Parameters***
@@ -2146,7 +2440,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `packages`
+#### Operation: `packages`
     List the packages in this project
 
 ***Parameters***
@@ -2154,7 +2448,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -2165,7 +2459,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `regexpReplace`
+#### Operation: `regexpReplace`
     Replace all occurrences of the given regular expression in this project
 
 ***Parameters***
@@ -2177,7 +2471,7 @@ operations can be inefficient.
 | ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replace`
+#### Operation: `replace`
     Replace all occurrences of the given string literal in this project. Use with care!
 
 ***Parameters***
@@ -2189,7 +2483,7 @@ operations can be inefficient.
 | ***replaceWith*** | `class java.lang.String` | *The string to replace matches with* |
 
 
-### Operation: `replaceInPath`
+#### Operation: `replaceInPath`
     Globally replace all occurrences of the given string literal in file paths in this project
 
 ***Parameters***
@@ -2203,8 +2497,10 @@ operations can be inefficient.
 ## Type: `yml`
 **YML file**
 
+### `yml` Operations
 
-### Operation: `blockingProblem`
+
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -2216,7 +2512,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -2224,7 +2520,18 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -2235,7 +2542,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -2243,7 +2550,15 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -2255,7 +2570,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -2267,7 +2582,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -2275,7 +2590,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -2286,7 +2601,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -2297,7 +2612,7 @@ operations can be inefficient.
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
 
 
-### Operation: `valueOf`
+#### Operation: `valueOf`
     Return the value of the given key
 
 ***Parameters***
@@ -2310,8 +2625,10 @@ operations can be inefficient.
 ## Type: `docker`
 **Docker file type**
 
+### `docker` Operations
 
-### Operation: `addAdd`
+
+#### Operation: `addAdd`
     Add ADD directive
 
 ***Parameters***
@@ -2322,7 +2639,7 @@ operations can be inefficient.
 | ***addContents*** | `class java.lang.String` | *The contents of the ADD directive* |
 
 
-### Operation: `addCopy`
+#### Operation: `addCopy`
     Add COPY directive
 
 ***Parameters***
@@ -2333,7 +2650,7 @@ operations can be inefficient.
 | ***copyContents*** | `class java.lang.String` | *The contents of the COPY directive* |
 
 
-### Operation: `addEnv`
+#### Operation: `addEnv`
     Add Env directive
 
 ***Parameters***
@@ -2344,7 +2661,7 @@ operations can be inefficient.
 | ***envContents*** | `class java.lang.String` | *The contents of the Env directive* |
 
 
-### Operation: `addExpose`
+#### Operation: `addExpose`
     Add EXPOSE directive
 
 ***Parameters***
@@ -2355,7 +2672,7 @@ operations can be inefficient.
 | ***exposeContents*** | `class java.lang.String` | *The contents of the EXPOSE directive* |
 
 
-### Operation: `addLabel`
+#### Operation: `addLabel`
     Add LABEL directive
 
 ***Parameters***
@@ -2366,7 +2683,7 @@ operations can be inefficient.
 | ***labelContents*** | `class java.lang.String` | *The contents of the LABEL directive* |
 
 
-### Operation: `addMaintainer`
+#### Operation: `addMaintainer`
     Add MAINTAINER directive
 
 ***Parameters***
@@ -2377,7 +2694,7 @@ operations can be inefficient.
 | ***maintainerContents*** | `class java.lang.String` | *The contents of the MAINTAINER directive* |
 
 
-### Operation: `addOrUpdateCmd`
+#### Operation: `addOrUpdateCmd`
     Add or update CMD directive
 
 ***Parameters***
@@ -2388,7 +2705,7 @@ operations can be inefficient.
 | ***cmdContents*** | `class java.lang.String` | *The contents of the CMD directive* |
 
 
-### Operation: `addOrUpdateEntryPoint`
+#### Operation: `addOrUpdateEntryPoint`
     Add or update ENTRYPOINT directive
 
 ***Parameters***
@@ -2399,7 +2716,7 @@ operations can be inefficient.
 | ***entrypointContent*** | `class java.lang.String` | *The contents of the ENTRYPOINT directive* |
 
 
-### Operation: `addOrUpdateExpose`
+#### Operation: `addOrUpdateExpose`
     Add or update EXPOSE directive
 
 ***Parameters***
@@ -2410,7 +2727,7 @@ operations can be inefficient.
 | ***exposeContents*** | `class java.lang.String` | *The contents of the EXPOSE directive* |
 
 
-### Operation: `addOrUpdateFrom`
+#### Operation: `addOrUpdateFrom`
     Add or update FROM directive
 
 ***Parameters***
@@ -2421,7 +2738,7 @@ operations can be inefficient.
 | ***fromContents*** | `class java.lang.String` | *The contents of the FROM directive* |
 
 
-### Operation: `addOrUpdateLabel`
+#### Operation: `addOrUpdateLabel`
     Add or update LABEL directive
 
 ***Parameters***
@@ -2432,7 +2749,7 @@ operations can be inefficient.
 | ***labelContents*** | `class java.lang.String` | *The contents of the LABEL directive* |
 
 
-### Operation: `addOrUpdateMaintainer`
+#### Operation: `addOrUpdateMaintainer`
     Add or update MAINTAINER directive
 
 ***Parameters***
@@ -2443,7 +2760,7 @@ operations can be inefficient.
 | ***maintainerContents*** | `class java.lang.String` | *The contents of the MAINTAINER directive* |
 
 
-### Operation: `addOrUpdateWorkdir`
+#### Operation: `addOrUpdateWorkdir`
     Add or update WORKDIR directive
 
 ***Parameters***
@@ -2454,7 +2771,7 @@ operations can be inefficient.
 | ***workdirContents*** | `class java.lang.String` | *The contents of the WORKDIR directive* |
 
 
-### Operation: `addRun`
+#### Operation: `addRun`
     Add RUN directive
 
 ***Parameters***
@@ -2465,7 +2782,7 @@ operations can be inefficient.
 | ***runContents*** | `class java.lang.String` | *The contents of the RUN directive* |
 
 
-### Operation: `addVolume`
+#### Operation: `addVolume`
     Add VOLUME directive
 
 ***Parameters***
@@ -2476,7 +2793,7 @@ operations can be inefficient.
 | ***volumeContents*** | `class java.lang.String` | *The contents of the VOLUME directive* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -2488,7 +2805,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -2496,7 +2813,18 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -2507,7 +2835,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -2515,7 +2843,15 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -2527,7 +2863,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -2539,7 +2875,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -2547,7 +2883,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -2558,7 +2894,135 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
+    Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
+
+## Type: `clj.project`
+**Clojure project**
+
+### `clj.project` Operations
+
+
+#### Operation: `blockingProblem`
+    Report a severe, blocking problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+#### Operation: `content`
+    Return file content
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
+    Cause the operation to fail with a fatal error
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+#### Operation: `filename`
+    Return file name, excluding path
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
+    Report a major problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+#### Operation: `minorProblem`
+    Report a minor problem
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+
+
+#### Operation: `path`
+    Return file path, with forward slashes
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `println`
+    Cause the editor to print to the console. Useful for debugging if running editors locally.
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+
+#### Operation: `setProjectName`
+    Set the project name to the given value
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
+
+
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -2571,8 +3035,10 @@ operations can be inefficient.
 ## Type: `properties`
 **Properties file**
 
+### `properties` Operations
 
-### Operation: `blockingProblem`
+
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -2584,7 +3050,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `containsKey`
+#### Operation: `containsKey`
     Return whether a property key exists in this file or not
 
 ***Parameters***
@@ -2595,7 +3061,7 @@ operations can be inefficient.
 | ***key*** | `class java.lang.String` | *The key of the property being searched for* |
 
 
-### Operation: `containsValue`
+#### Operation: `containsValue`
     Return whether a property value exists in this file or not
 
 ***Parameters***
@@ -2606,7 +3072,7 @@ operations can be inefficient.
 | ***value*** | `class java.lang.String` | *The value being searched for* |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -2614,7 +3080,18 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -2625,7 +3102,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -2633,7 +3110,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `getValue`
+#### Operation: `getValue`
     Return the content of this property
 
 ***Parameters***
@@ -2644,7 +3121,7 @@ operations can be inefficient.
 | ***key*** | `class java.lang.String` | *The name of the simple node* |
 
 
-### Operation: `keys`
+#### Operation: `keys`
     Return a list of the supported keys
 
 ***Parameters***
@@ -2652,7 +3129,15 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -2664,7 +3149,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -2676,7 +3161,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -2684,7 +3169,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -2695,7 +3180,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `setProperty`
+#### Operation: `setProperty`
     Set the value of the specified property, creating a property if not present
 
 ***Parameters***
@@ -2707,7 +3192,7 @@ operations can be inefficient.
 | ***value*** | `class java.lang.String` | *The value of the property* |
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -2720,8 +3205,10 @@ operations can be inefficient.
 ## Type: `xml`
 **XML file**
 
+### `xml` Operations
 
-### Operation: `addChildNode`
+
+#### Operation: `addChildNode`
     Add the specified content under the indicated xpath-selected node
 
 ***Parameters***
@@ -2734,7 +3221,7 @@ operations can be inefficient.
 | ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
 
 
-### Operation: `addOrReplaceNode`
+#### Operation: `addOrReplaceNode`
     Adds or replaces a node
 
 ***Parameters***
@@ -2743,11 +3230,12 @@ operations can be inefficient.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***parentNodeXPath*** | `class java.lang.String` | *The XPath selector for the parent node* |
-| ***node*** | `class java.lang.String` | *The name of the node to be added or replaced* |
-| ***nodeContent*** | `class java.lang.String` | *The XML content to be used to add or replace the node* |
+| ***xPathOfNodeToReplace*** | `class java.lang.String` | *The XPath selector for the node to replace* |
+| ***newNode*** | `class java.lang.String` | *The name of the node being placed* |
+| ***nodeContent*** | `class java.lang.String` | *The content of the node being placed* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -2759,7 +3247,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `contains`
+#### Operation: `contains`
     Tests whether a node matching the given xpath expression is present
 
 ***Parameters***
@@ -2770,7 +3258,7 @@ operations can be inefficient.
 | ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -2778,7 +3266,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `deleteNode`
+#### Operation: `deleteNode`
     Deletes the specified node
 
 ***Parameters***
@@ -2789,7 +3277,18 @@ operations can be inefficient.
 | ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -2800,7 +3299,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -2808,7 +3307,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `getTextContentFor`
+#### Operation: `getTextContentFor`
     Get the text content for a specific xpath expression
 
 ***Parameters***
@@ -2819,7 +3318,15 @@ operations can be inefficient.
 | ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -2831,7 +3338,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -2843,7 +3350,7 @@ operations can be inefficient.
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -2851,7 +3358,7 @@ operations can be inefficient.
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -2862,32 +3369,7 @@ operations can be inefficient.
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `replaceNode`
-    Replaces the xpath-selected node
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
-| ***newNode*** | `class java.lang.String` | *The node to be replaced* |
-| ***nodeContent*** | `class java.lang.String` | *XML document to be substituted for the node* |
-
-
-### Operation: `setSimpleNode`
-    Update the content of this simple node
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The node to select* |
-| ***newValue*** | `class java.lang.String` | *The new content for that node* |
-
-
-### Operation: `setTextContentFor`
+#### Operation: `setTextContentFor`
     Set the text content for a specific xpath expression
 
 ***Parameters***
@@ -2899,18 +3381,7 @@ operations can be inefficient.
 | ***arg1*** | `class java.lang.String` | ** |
 
 
-### Operation: `simpleNode`
-    Return the content of this simple node
-
-***Parameters***
-
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The name of the simple node* |
-
-
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -2925,8 +3396,10 @@ operations can be inefficient.
 Type for a file within a project. Supports generic options such as find and replace.
     **
 
+### `file` Operations
 
-### Operation: `append`
+
+#### Operation: `append`
     Append the given content to the file
 
 ***Parameters***
@@ -2937,7 +3410,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***literal*** | `class java.lang.String` | *The string to append* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -2949,7 +3422,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `contains`
+#### Operation: `contains`
     Does the file content contain the given string?
 
 ***Parameters***
@@ -2960,7 +3433,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***what*** | `class java.lang.String` | *The string to use when looking for it in the file* |
 
 
-### Operation: `containsMatch`
+#### Operation: `containsMatch`
     Does the file content contain a match for the given regex
 
 ***Parameters***
@@ -2971,7 +3444,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***regexp*** | `class java.lang.String` | *The regular expression to look for in the file's content* |
 
 
-### Operation: `content`
+#### Operation: `content`
     Return file content
 
 ***Parameters***
@@ -2979,7 +3452,18 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -2990,7 +3474,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `filename`
+#### Operation: `filename`
     Return file name, excluding path
 
 ***Parameters***
@@ -2998,7 +3482,7 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `findMatches`
+#### Operation: `findMatches`
     Return all matches for the given regexp in this file
 
 ***Parameters***
@@ -3009,7 +3493,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
 
-### Operation: `firstMatch`
+#### Operation: `firstMatch`
     Return the first match for the given regex, or the empty string if not found. Call containsMatch first to check presence.
 
 ***Parameters***
@@ -3020,7 +3504,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 
 
-### Operation: `isJava`
+#### Operation: `isJava`
     Is this a Java file?
 
 ***Parameters***
@@ -3028,7 +3512,15 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Return the number of lines in the file
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -3040,7 +3532,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -3052,7 +3544,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `name`
+#### Operation: `name`
     Name of the file, excluding path
 
 ***Parameters***
@@ -3060,7 +3552,7 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `nameContains`
+#### Operation: `nameContains`
     Does the file name (not path) contain the given string?
 
 ***Parameters***
@@ -3071,7 +3563,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***what*** | `class java.lang.String` | *The string to use when looking for it in the file name or path* |
 
 
-### Operation: `path`
+#### Operation: `path`
     Return file path, with forward slashes
 
 ***Parameters***
@@ -3079,7 +3571,7 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `prepend`
+#### Operation: `prepend`
     Prepend the given content to the file
 
 ***Parameters***
@@ -3090,7 +3582,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***literal*** | `class java.lang.String` | *The string to prepend to the file* |
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -3101,7 +3593,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `regexpReplace`
+#### Operation: `regexpReplace`
     Replace all occurrences of the given regexp in this file
 
 ***Parameters***
@@ -3113,7 +3605,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***replaceWith*** | `class java.lang.String` | *The string to replace matching expressions with* |
 
 
-### Operation: `replace`
+#### Operation: `replace`
     Replace all instances of the given literal string in this file
 
 ***Parameters***
@@ -3125,7 +3617,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***replaceWith*** | `class java.lang.String` | *The string to replace the matches with* |
 
 
-### Operation: `setContent`
+#### Operation: `setContent`
     Set entire file content to new string
 
 ***Parameters***
@@ -3136,7 +3628,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***newContent*** | `class java.lang.String` | *The content to set the file to* |
 
 
-### Operation: `setName`
+#### Operation: `setName`
     Set the file name, not path, to the given value
 
 ***Parameters***
@@ -3147,7 +3639,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***name*** | `class java.lang.String` | *The name to set the file to* |
 
 
-### Operation: `setPath`
+#### Operation: `setPath`
     Change the path to the given value. Path should use forward slashes to denote directories
 
 ***Parameters***
@@ -3158,7 +3650,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***newPath*** | `class java.lang.String` | *The path to change the file to* |
 
 
-### Operation: `underPath`
+#### Operation: `underPath`
     Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
 ***Parameters***
@@ -3171,8 +3663,10 @@ Type for a file within a project. Supports generic options such as find and repl
 ## Type: `java.class`
 **Java class**
 
+### `java.class` Operations
 
-### Operation: `addAnnotation`
+
+#### Operation: `addAnnotation`
     Annotate the element with the given annotation
 
 ***Parameters***
@@ -3184,7 +3678,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***annotation*** | `class java.lang.String` | *The annotation to add* |
 
 
-### Operation: `addImport`
+#### Operation: `addImport`
     Add an import to the containing Java source
 
 ***Parameters***
@@ -3195,7 +3689,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***fqn*** | `class java.lang.String` | *The fully qualified name of the import* |
 
 
-### Operation: `blockingProblem`
+#### Operation: `blockingProblem`
     Report a severe, blocking problem
 
 ***Parameters***
@@ -3207,7 +3701,18 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `fail`
+#### Operation: `eval`
+    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
+
+***Parameters***
+
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.Object` | ** |
+
+
+#### Operation: `fail`
     Cause the operation to fail with a fatal error
 
 ***Parameters***
@@ -3218,7 +3723,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `hasAnnotation`
+#### Operation: `hasAnnotation`
     Does the element have the given annotation?
 
 ***Parameters***
@@ -3229,7 +3734,15 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***annotation*** | `class java.lang.String` | *The string name of the annotation to look for* |
 
 
-### Operation: `majorProblem`
+#### Operation: `lineCount`
+    Line count
+
+***Parameters***
+
+*None*
+
+
+#### Operation: `majorProblem`
     Report a major problem
 
 ***Parameters***
@@ -3241,7 +3754,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `minorProblem`
+#### Operation: `minorProblem`
     Report a minor problem
 
 ***Parameters***
@@ -3253,7 +3766,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
 
 
-### Operation: `movePackage`
+#### Operation: `movePackage`
     Move the type to the given package
 
 ***Parameters***
@@ -3264,7 +3777,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***newPackage*** | `class java.lang.String` | *The package to move the type to* |
 
 
-### Operation: `name`
+#### Operation: `name`
     Return the name of the type
 
 ***Parameters***
@@ -3272,7 +3785,7 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `pkg`
+#### Operation: `pkg`
     Return the package
 
 ***Parameters***
@@ -3280,7 +3793,7 @@ Type for a file within a project. Supports generic options such as find and repl
 *None*
 
 
-### Operation: `println`
+#### Operation: `println`
     Cause the editor to print to the console. Useful for debugging if running editors locally.
 
 ***Parameters***
@@ -3291,7 +3804,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
 
-### Operation: `rename`
+#### Operation: `rename`
     Rename the type
 
 ***Parameters***
@@ -3302,7 +3815,7 @@ Type for a file within a project. Supports generic options such as find and repl
 | ***newName*** | `class java.lang.String` | *The new name of the type* |
 
 
-### Operation: `renameByReplace`
+#### Operation: `renameByReplace`
     Rename the type by replacing a pattern in the name
 
 ***Parameters***

@@ -1,8 +1,5 @@
 @tag "docs"
-@description """
-	Produce a new TypeDocs documentation file on the latest
-  rug types.
-"""
+@description """Produce a new TypeDocs documentation file on the latestrug types."""
 editor UpdateRugTypeDocumentation
 
 uses core.TypeDoc
