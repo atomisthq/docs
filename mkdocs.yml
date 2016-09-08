@@ -1,6 +1,7 @@
 site_name: The Atomist Documentation
 copyright: 2016, Atomist
 theme_dir: atomist
+site_favicon: images/favicon.png
 extra_css:
   - "css/brandon-grotesque.css"
 pages:
