@@ -9,7 +9,7 @@ Your journey with Atomist begins with enrolling Atomist in your Slack and Github
 First make sure you have a Slack team and a GitHub organisation that you want to use. Then once you have your organisations set up on those systems, execute the following steps to enroll Atomist:
 
 * Start the process using [this link](https://slack.com/oauth/authorize?scope=channels:read,channels:write,channels:history,im:read,im:write,chat:write:user,team:read,bot&client_id=9196525393.17722124420).
-* When promoted, authorise Atomist for your Slack team
+* When prompted, authorise Atomist for your Slack team
 
 ## Adding Permissions for GitHub
 

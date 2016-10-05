@@ -13,7 +13,7 @@ First ask Atomist to create a new microservice for you:
 
 > ***NOTE:*** You can cancel the project creation process at any time by simply telling the bot to `cancel`.
 
-Next you should be promoted for what Atomist Project Template to use as a starting point:
+Next you should be prompted for what Atomist Project Template to use as a starting point:
 
 ---
 > `<your username>`, I can help you create a new service. 
