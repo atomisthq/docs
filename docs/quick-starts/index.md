@@ -6,17 +6,8 @@ Quick Starts get you up and rolling with Atomist as fast as possible.
 
 ### Getting Started
 
-* [Enrolling your organisation with Atomist](enrollment.md)
+First step to getting rolling with Atomist is to signup to our community:
 
-### Atomist Project Templates
+* [Join the Atomist Community](https://join.atomist.com)
 
-* [Finding out what Atomist Project Templates are Available](project-templates/list-project-templates.md)
-* [Ways to Create a new Atomist Project Template](project-templates/new-project-template.md)
-* ***Coming Soon*** Creating a new Service-Contract-Aware Atomist Project Template
-
-### Operating on Your Projects
-
-* [Creating a new project based on an Atomist Project Template](create-new-project.md)
-* [Extracting a REST microservice from a Java Interface using a Contract-Aware Atomist Project Template](extract-microservice.md)
-* [Deleting and Tidying Up a Microservice](delete-microservice.md)
-* ***Coming Soon*** Creating a custom Java Feign Client from [Swagger](http://swagger.io/) definition
+From there you'll get announcements on new features as we release them and also get to chat to the core Atomist team about your experience with our tools.
