@@ -5,7 +5,7 @@ end-users.
 
 When a push is made to this repository, the entire documentation
 is built again via a [Travis](https://travis-ci.com/atomisthq/end-user-documentation)
-job whoich pushes the generated HTML files to
+job which pushes the generated HTML files to
 https://github.com/atomisthq/atomisthq.github.io and served by
 github at http://atomisthq.github.io.
 
@@ -56,7 +56,7 @@ Now that the virtual environment is created, we can
 install the dependencies into it:
 
 ```
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 You can now serve the documentation locally by running:
@@ -64,4 +64,3 @@ You can now serve the documentation locally by running:
 ```
 $ mkdocs serve
 ```
-
