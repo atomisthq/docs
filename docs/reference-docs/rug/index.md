@@ -1,8 +1,6 @@
 ## The Atomist `Rug` Domain Specific Language
 
-The Rug DSL was designed to work unintrusively alongside your existing projects to automate all the slow, annoying tasks of working in a modern software development environment.
 
-A key design goal was to respect your own tooling as much as possible so that ***every project should be a working Atomist project, and every Atomist project a working project***.
 
 ## Rug Artifacts in the `.atomist` directory
 
