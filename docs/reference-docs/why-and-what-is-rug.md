@@ -20,9 +20,11 @@ And then there was the ***microservices architectural style*** that ***took thes
 
 We worked our way through these annoyances, examining them every step, created tools where we needed, created languages as well, and the result so far is ***Rug.***
 
+> ***Rug ties your software development room together.***
+
 ### What Rug is, and is not
 
-* Rug is a simple, English-like, DSL that provides a way to...
+* Rug is a **simple**, English-like, **DSL** that provides a way to...
 * **Select and manipulate** files, projects and even multiple-projects.
 * **Compose** operations to maximize reuse.
 * **Declare parameters** to allow automated gathering of valid user input to drive operations.
@@ -62,7 +64,7 @@ There is already a *lot* of power in the [Core Rug Types](rug-core-types.md) tha
 
 Rug itself can be extended with new types for new languages, frameworks or even systems.
 
-> NOTE: More complete documentation on how to extend Rug with custom types is coming soon.
+> NOTE: More complete documentation on how to extend, package and distribute Rug with custom types is coming soon.
 
 ### Some Use Cases for Rug
 
