@@ -1,5 +1,7 @@
 site_name: The Atomist Documentation
-copyright: 2016, Atomist
+copyright: '&copy; 2016 Atomist, Inc.'
+extra:
+  main_site_url: 'https://www.atomist.com/'
 theme_dir: atomist
 site_favicon: images/favicon.png
 extra_css:
