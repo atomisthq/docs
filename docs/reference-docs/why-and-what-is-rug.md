@@ -1,6 +1,6 @@
 ## Why and What is Rug?
 
-In a nutshell, Rug is an External Domain Specific Language. (TBD link to definition of this)
+In a nutshell, Rug is an [External Domain Specific Language](http://martinfowler.com/books/dsl.html).
 
 The Rug DSL was designed to work alongside your existing projects in as unintrusive a fashion as possible to automate all the slow, annoying tasks of working in a modern software development environment.
 
