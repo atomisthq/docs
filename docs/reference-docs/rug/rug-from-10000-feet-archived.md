@@ -147,9 +147,9 @@ x = "This is a value"
 
 with file f
  when name contains ".txt"
-do begin
- prepend x
- append to_append
+begin
+ do prepend x
+ do append to_append
 end
 ```
 
