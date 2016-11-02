@@ -1,20 +1,21 @@
-sudo: false
 language: python
-
 python:
- - 3.5
-
-before_install:
-  - chmod a+x ./deploy.sh
-
+- 3.5
 install:
- - pip install -r requirements.txt
-
+- pip install -r requirements.txt
 script:
- - mkdocs build
- - ./deploy.sh
-
+- mkdocs build
 env:
   global:
-    - GITHUB_REPO: atomisthq/atomisthq.github.io
-    - secure: "SdRhR2SQhH9qWxIRep+omqmAjeZEUZFInKZQRr3XELK/kbcwJMgc6lBLg+2onZfCWPzKt7P6rJGEo/8MSk1xZxA2BGNDTlCCZRqyjAxN9P/YnIUlFAJCuU7+12KJ8AyeRo2okVPsxSMFzGDxks67AvHRX2gO6OmWw4HimIEWrzIOFB6xobhYerj27y5gjNvwKRj9PBbIGT7JAK2bP2sZSZrw1wGxaCmw1iY4bkIgBo1cdv05yU5UC0m5SbjAViNGdEDPSz0LMLmi7S9ouZmosHRQoO4rfJyFRvO57yxX6G69gg4lX4+vg7dSFb/fPF9oqXSSHQHDBUEcEa6SDMG5f3XDwZwpZkpDy1AK2zb7OB8rQl3nce+att45gzvOLcDQEfrfHmSG8SN5gj7dMNm1jIVDxm7LBJKPyxyRowU7m7mv/dkxVdSTsCQUmobMUPvyyyc1JRTsi3sC96c2kPJZNCQM1aX6jAptWCOtVKOOcZ1MTcwBsb7mM2YrPWaIZQxbB1K0/UgigUkUoKPIDW8QUYhusyVldbbz/vz59muBaSJ31eHwYeyucNVnZyfBsExW+b8WfPXIWXSPud4Bzskesu6B0d3fSeZlQG9CmOs4OmIVazVElpO5f4BRUjJUMvLv2TQL0gAdYsqT6HWK9AZrC5hwue0K2mxXPriBSdrmz80="
+  - GITHUB_REPO: atomisthq/atomisthq.github.io
+  - secure: SdRhR2SQhH9qWxIRep+omqmAjeZEUZFInKZQRr3XELK/kbcwJMgc6lBLg+2onZfCWPzKt7P6rJGEo/8MSk1xZxA2BGNDTlCCZRqyjAxN9P/YnIUlFAJCuU7+12KJ8AyeRo2okVPsxSMFzGDxks67AvHRX2gO6OmWw4HimIEWrzIOFB6xobhYerj27y5gjNvwKRj9PBbIGT7JAK2bP2sZSZrw1wGxaCmw1iY4bkIgBo1cdv05yU5UC0m5SbjAViNGdEDPSz0LMLmi7S9ouZmosHRQoO4rfJyFRvO57yxX6G69gg4lX4+vg7dSFb/fPF9oqXSSHQHDBUEcEa6SDMG5f3XDwZwpZkpDy1AK2zb7OB8rQl3nce+att45gzvOLcDQEfrfHmSG8SN5gj7dMNm1jIVDxm7LBJKPyxyRowU7m7mv/dkxVdSTsCQUmobMUPvyyyc1JRTsi3sC96c2kPJZNCQM1aX6jAptWCOtVKOOcZ1MTcwBsb7mM2YrPWaIZQxbB1K0/UgigUkUoKPIDW8QUYhusyVldbbz/vz59muBaSJ31eHwYeyucNVnZyfBsExW+b8WfPXIWXSPud4Bzskesu6B0d3fSeZlQG9CmOs4OmIVazVElpO5f4BRUjJUMvLv2TQL0gAdYsqT6HWK9AZrC5hwue0K2mxXPriBSdrmz80=
+deploy:
+  provider: releases
+  api_key:
+    secure: qZKtJq7jY+G5nsz8iZudnjkmcBZ5CcU//L0Vy+J8iBQhpC/bw8YCixWEQYK6Bkdgn+zymM9BIs9rltNGm81y55H1V5xsAjatSAy3p2f8sTcerB+1jWGl0ppbBMXWqM4YHOcJ3n+/B+1O3lLXazuVOF7hPqt2MgHOyKlc74Io8ydXy8S0bN5FKOxKEgvmJAka2kY8Js2X4R4Ole5+BoNOR3Wqw0k2A2fUOvbZrmLebLKwfdY2YBMsacjwVRrRaB2HXkWfM7J+9YtkGFkrbEVmSkoIDZRQ8DRsVTg5WFBob4z3/Nv5XpH5tISl5sGwurxSWD4qtTxKMKDDNIj5X2EZMtSM/PQMpZF353D2utM/75x5WeHU4Ql0U1cdczMW80vQsX6+uP+ZW8lIJ5eScjyNq/AqlN+8TmleEmcfjv6ozESCxAlwAnmHv2jy75f61481tVnA72YTHF8v4rflhBaT5ui8nwlFxe+TeaLAHvFW6KJlHrnR8bccd2FTXlt4Y8Ip8ST5DFGcbICysLdIxMRp3v4K+45kyeuQBH2wljZVg0C+s2xiuUEDq+ljz5wEFHgsi/d7+arij43H6kFamoYUuMG0pPeZLbwp7EEri3afavQw8ib5vhUWrVYUb3Q+fx2ZkC3iTQkQCyv2FVd8w9au0PkEc8R5WL/OUmXuG+1KdXM=
+  skip_cleanup: true
+  on:
+    tags: true
+    condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$"
+after_deploy:
+- bash deploy.sh
