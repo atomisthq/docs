@@ -39,5 +39,5 @@ pages:
       - Core Rug Type - java.class: 'reference-docs/rug-core-types-java-class.md'
       - Core Rug Type - elm.module: 'reference-docs/rug-core-types-elm-module.md'
       - Core Rug Type - docker: 'reference-docs/rug-core-types-docker.md'
-      - Conventions: 'reference-docs/rug-conventions.md'
+    - Conventions: 'reference-docs/rug-conventions.md'
   - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'
