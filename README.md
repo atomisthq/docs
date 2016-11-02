@@ -3,15 +3,20 @@
 This repository will contain the markdown sources for our
 end-users.
 
-When a push is made to this repository, the entire documentation
-is built again via a [Travis](https://travis-ci.com/atomisthq/end-user-documentation)
-job which pushes the generated HTML files to
-https://github.com/atomisthq/atomisthq.github.io and served by
-github at http://atomisthq.github.io.
+## Releasing
 
-The documentation is generated from markdown using
-[mkdocs](http://www.mkdocs.org/).
+When a push is made to this repository, the entire documentation is
+built again via a [Travis][travis] job.  The documentation is
+generated from markdown using [mkdocs][].
 
+[travis]: https://travis-ci.com/atomisthq/end-user-documentation
+[mkdocs]: http://www.mkdocs.org/
+
+If the build is triggered by a tag of the form `M.N.P`, the site will
+be pushed to the [Atomist GitHub Pages][pages] repository and served
+by GitHub at http://atomisthq.github.io and https://docs.atomist.com .
+
+[pages]: https://github.com/atomisthq/atomisthq.github.io
 
 ## Build and serve the documentation locally
 
