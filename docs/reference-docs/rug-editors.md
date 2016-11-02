@@ -257,7 +257,7 @@ The permitted values are consistent with parameter definitions used extensively 
 | `@description` | editor, reviewer or parameter | String | Describes the parameter
 | `@optional` | parameter | None | Whether the parameter is required. Default is required.
 | `@validInput` | parameter | String | Description of valid input, such as "A valid email address" or "3-10 alphanumeric characters"
-| `@hide | parameter | None | Indicates that this parameter is only for use by programs and should not be displayed to users.
+| `@hide` | parameter | None | Indicates that this parameter is only for use by programs and should not be displayed to users.
 | `@displayName` | parameter | String | UI friendly name for parameter.
 | `@maxLength` | parameter | Integer | Maximum length of a parameter's string value.
 | `@minLength` | parameter | Integer | Minimum length of a parameter's string value.
