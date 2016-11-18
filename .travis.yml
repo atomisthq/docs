@@ -14,16 +14,16 @@ deploy:
   api_key:
     secure: qZKtJq7jY+G5nsz8iZudnjkmcBZ5CcU//L0Vy+J8iBQhpC/bw8YCixWEQYK6Bkdgn+zymM9BIs9rltNGm81y55H1V5xsAjatSAy3p2f8sTcerB+1jWGl0ppbBMXWqM4YHOcJ3n+/B+1O3lLXazuVOF7hPqt2MgHOyKlc74Io8ydXy8S0bN5FKOxKEgvmJAka2kY8Js2X4R4Ole5+BoNOR3Wqw0k2A2fUOvbZrmLebLKwfdY2YBMsacjwVRrRaB2HXkWfM7J+9YtkGFkrbEVmSkoIDZRQ8DRsVTg5WFBob4z3/Nv5XpH5tISl5sGwurxSWD4qtTxKMKDDNIj5X2EZMtSM/PQMpZF353D2utM/75x5WeHU4Ql0U1cdczMW80vQsX6+uP+ZW8lIJ5eScjyNq/AqlN+8TmleEmcfjv6ozESCxAlwAnmHv2jy75f61481tVnA72YTHF8v4rflhBaT5ui8nwlFxe+TeaLAHvFW6KJlHrnR8bccd2FTXlt4Y8Ip8ST5DFGcbICysLdIxMRp3v4K+45kyeuQBH2wljZVg0C+s2xiuUEDq+ljz5wEFHgsi/d7+arij43H6kFamoYUuMG0pPeZLbwp7EEri3afavQw8ib5vhUWrVYUb3Q+fx2ZkC3iTQkQCyv2FVd8w9au0PkEc8R5WL/OUmXuG+1KdXM=
   skip_cleanup: true
-  on:
+  true:
     tags: true
-    condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    condition: $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+$
 after_deploy:
 - bash deploy.sh
 notifications:
   email: false
-  slack:
-    rooms:
-    - secure: mZtB5m84TEovyP1PWka1NDMI/F/Tk1EFPDAsPlozNNUfcGihXcjuPWM7gtQ20WsJwlxQf39/RECPu1T6vkkDfyLgJsYeUIet7MzCSsglIEAL1vpGiLNodIA10qboSM6KzOrkz9rXi4rv+676bmOzkGT/q+6KJRgWfo2z3OlOk3y+AfBn1EeAPFizpqVCZERrwb8nOxWhucSOnTyYHG/art4UKshPze8jzXa/tr/ExQppHhxbrS6SkKBK/hVMgBCNQIDJa+OMFQ/LM9uKeZ/hERkCZGDawgQufwIUN/rCLSXbO+AharysIn6/HP99sbX4I+APqt7+9f0LEca1KeGYCFSk1y6NAsLBdMj+0mfQaVZX3Y4vZ/hXGcFllMXKW8Cq3rcHAIYfvbI+6bFeffp4zpRyHXqIoLJ1XDnVg2vJ38UmRDO4tjUOz1LhMEgu0FF4bhtDvw0gIs/8pTF0m9rZ7S2J1TDKpI5CYiD93uTjVOH79I/WZfsFp5Ce5rv5+VUZ8wTBEn++LlA/1cQobJqWF6A5kkViuJbLikPckQm1dHpFB7EL2G2CpZTGekTYCRikCvZPES1bsmWV1uy9H5aSDuzJMJaomOKyhMLZhbSeQZ0DZpj1MUFjf49F0eYFD6c/iMtFEgPryYcfisI/fOz+WAIGg5+Um9DR2LHUarzOjdA=
-    - secure: d7jKGSmjmzdgmhN1taGCck6Vzvu6xVxhVIgkVJpk91WrssuG2qz01ub57Luwq01nHGQV2Ns1IA5Y9Szt5lU0CVSDzHu5PS2wiLMaxteWB5s4o4EhoxdoM4c8mlK7yHmcQ4sxfhcMuNqvzBlmkBBZAuKgJl/n17fcnwPYngu6cHPxSyZ9ODtKkCtP6btY2vTqNwGv3lpH+aSzFXTZFxt8GIhz3bUTfxyL19nJU3TO217KBRVnmdP3gFREfVfsoFFYp0Msj/4Dla1RumBZ6a34ibb7aahQ+h32Q067aN1Af6eft67wnreea8HNwZMggYVtQGEvJSUMO79RLcERTvGFPjSfXFFDy1FCuWvWJIOyqDRRcifTB0lGg/MIrUuT75YsEGwCalzmjxox3qXWyaO8gBpuFCCBDJuqy6VSTQLxJc6FXfZAhBiD49Fcp5OM4SSbnM3mxMxc5e/ij8LLPfHwmqSzeWX9C7GinsP5UHjMZzPFLi7Uj+LpToMe4lLnYkmXjQrAyecfsx0AHwZ/Guk7DybwV+VSPHx9TqxJ9KogHfRTfk9XTvujvoBDmRFzAWim16fDZvVABBJkqL4XcxHvZM0j18w0lpth+7uFHZZoZscD9/J5d0ysDjYF4ZskbsRIOBLfSEnoem67mC3Z1ThXthApCd39yrKs5QYzGsHbrgY=
   webhooks:
-  - https://webhook.atomist.com/travis
+    on_success: always
+    on_failure: always
+    on_start: always
+    urls:
+    - https://webhook.atomist.com/travis
