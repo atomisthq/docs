@@ -1,6 +1,6 @@
 ## Rug Editors
 
-Rug editors ***work at the level of a specific project***, for example this is typically a particular ***repository on GutHub***.
+Rug editors ***work at the level of a specific project***, for example this is typically a particular ***repository on GitHub***.
 
 Rug Editors can be found in the `/.atomist/editors` directory of a [Rug Archive](rug-archive.md).
 
