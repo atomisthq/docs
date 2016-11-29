@@ -1,0 +1,31 @@
+@tag "docs"
+@description """Produce a new TypeDocs documentation file on the latestrug types."""
+editor UpdateRugTypeDocumentation
+
+uses core.TypeDoc
+
+@description """
+  File and path to output the rug type documentation to
+"""
+@default "docs/reference-docs/rug-kinds.md"
+@optional
+param output_filepath: .*
+
+
+@description """
+  Entry for mkdocs.yml file to index the type documentation file
+"""
+@default "  - Current Rug DSL Type Reference: 'reference-docs/rug-kinds.md'"
+@optional
+param mkdocs_entry: .*
+
+with project p
+  do deleteFile output_filepath
+
+TypeDoc
+
+with file f when { f.name().contains("rugKinds.md") }
+  do setPath output_filepath
+
+with file f when { f.name().contains("mkdocs.yml") && !f.content().contains(mkdocs_entry) }
+    do append mkdocs_entry

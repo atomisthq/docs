@@ -1,0 +1,43 @@
+site_name: The Atomist Documentation
+copyright: '&copy; 2016 Atomist, Inc.'
+extra:
+  main_site_url: 'https://www.atomist.com/'
+theme_dir: atomist
+site_favicon: images/favicon.png
+extra_css:
+  - "css/brandon-grotesque.css"
+pages:
+- Welcome to Atomist: 'index.md'
+- Quick Starts:
+  - Introduction: 'quick-starts/index.md'
+- Reference Documentation:
+  - Introduction: 'reference-docs/index.md'
+  - Rug:
+    - Why and What is Rug? : 'reference-docs/why-and-what-is-rug.md'
+    - What goes in a Rug Archive?: 'reference-docs/rug-archive.md'
+    - Rug Tests: 'reference-docs/rug-tests.md'
+    - Rug Editors: 'reference-docs/rug-editors.md'
+    - Rug Generators: 'reference-docs/rug-generators.md'
+    - Rug Templates: 'reference-docs/rug-templates.md'
+    - Rug Predicates: 'reference-docs/rug-predicates.md'
+    - Escaping Rug into Code:
+      - Escaping Rug into JavaScript: 'reference-docs/rug-javascript.md'
+      - Escaping Rug into Clojure: 'reference-docs/rug-clojure.md'
+    - Core Rug Types:
+      - Introduction: 'reference-docs/rug-core-types.md'
+      - Core Rug Type - project: 'reference-docs/rug-core-types-project.md'
+      - Core Rug Type - java.project: 'reference-docs/rug-core-types-java-project.md'
+      - Core Rug Type - spring.bootProject: 'reference-docs/rug-core-types-spring-boot-project.md'
+      - Core Rug Type - clj.project: 'reference-docs/rug-core-types-clj-project.md'
+      - Core Rug Type - line: 'reference-docs/rug-core-types-line.md'
+      - Core Rug Type - file: 'reference-docs/rug-core-types-file.md'
+      - Core Rug Type - POM: 'reference-docs/rug-core-types-pom.md'
+      - Core Rug Type - YML: 'reference-docs/rug-core-types-yml.md'
+      - Core Rug Type - Properties: 'reference-docs/rug-core-types-properties.md'
+      - Core Rug Type - package.json: 'reference-docs/rug-core-types-package-json.md'
+      - Core Rug Type - java.source: 'reference-docs/rug-core-types-java-source.md'
+      - Core Rug Type - java.class: 'reference-docs/rug-core-types-java-class.md'
+      - Core Rug Type - elm.module: 'reference-docs/rug-core-types-elm-module.md'
+      - Core Rug Type - docker: 'reference-docs/rug-core-types-docker.md'
+    - Rug Conventions: 'reference-docs/rug-conventions.md'
+  - Current Systems Atomist integrates with: 'reference-docs/current-system-integrations.md'

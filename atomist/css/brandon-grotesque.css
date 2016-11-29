@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../fonts/brandongrotesque-regular.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../fonts/brandongrotesque-medium.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../fonts/brandongrotesque-bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../fonts/brandongrotesque-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
