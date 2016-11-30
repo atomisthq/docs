@@ -4,7 +4,13 @@ Rug is its own [Domain Specific Language](https://en.wikipedia.org/wiki/Domain-s
 
 As with any language and environment there is a set of idioms and common practices that will turn your Rug from `nice` to `great` (and in some contexts from ***not working*** to ***working****). Collectively these are the _Rug Conventions_.
 
-### Rug and TypeScript Files
+### Avoid Mixing Rug DSL and Rug TypeScript files in the same Rug Archive
+
+While it *is* possible to package Rug DSL files and Rug TypeScript files in the same Rug Archive project, i.e. under the same `.atomist` directory within a project, it can be confusing as the Rug DSL `manifest.yml` will effectively override the `package.json`.
+
+It is recommended to choose between either Rug DSL or Rug TypeScript for a given Rug Archive rather than mix the two.
+
+### Rug DSL and TypeScript Files
 
 Rug files should have the `.rug` extension and be found in the following locations within a _Rug Archive_.
 
