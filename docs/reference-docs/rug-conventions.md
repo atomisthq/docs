@@ -121,6 +121,25 @@ If a parameter is optionally provided on invocation, using the `@optional` annot
 
 `let` declarations can be used to initialise some label with a corresponding value. It is recommended that these labels should be formatted according to [snake_case](https://en.wikipedia.org/wiki/Snake_case) rules similarly to Rug parameters.
 
+### Avoiding `Begin` and `End` when there is only a Single `do` Action
+
+If your `with` statement only has a single corresponding `do` action then you should omit the `begin` and `end` block demarcations.
+
+For example the following is legal but the `begin` and `end` statements are not required:
+
+```
+with file when path = "README.md" begin
+  do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
+end
+```
+
+It is preferable to omit the `begin` and `end` statements entirely when there is only a single associated `do` action:
+
+```
+with file when path = "README.md"
+  do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
+```
+
 ### Indenting Blocks with `Begin` and `End`
 
 When multiple actions are being applied it is important to nest those `do` actions within a `begin` and `end` block. It is conventional to place the `begin` hanging on the end of the selecting statement and then to indent the `do` statements before a closing `end` statement:
