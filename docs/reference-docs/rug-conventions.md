@@ -135,6 +135,24 @@ with pom p when path = "pom.xml" begin
 end
 ```
 
+### Labelling Selections Only When They Are Used
+
+Sometimes when selecting a particular Rug Type, such as `pom` or `file`, it is important to expose what has been selected using a label, such as `p`. For example:
+
+```
+with file f when path = "README.md"
+  do replace "{{creation_date}}" { f.name() + " created on " + new Date().toISOString().split('T')[0] }
+```
+
+However if the selected type is not being used then the label should be omitted as it will not be used, for example:
+
+```
+with file when path = "README.md"
+  do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
+```
+
+In the above example you can see that the `f` label for the selected file is not required as it is never used.s
+
 ### Comments
 
 Comments should be used only when they add something that the Rug code itself doesn't state. Self-documenting code is preferable over separate documentation if the code can be better made to express what would have been put in the documentation anyway.
