@@ -39,7 +39,8 @@ If you choose to write your editors, reviewers or executors using
 TypeScript then they should have the standard TypeScript `.ts` file
 extension.
 
-You can safely intermix Rug and TypeScript Rugs in the same archive.
+You can safely intermix Rug DSL and TypeScript Rugs in the same
+archive.
 
 ### Rug Naming
 
@@ -100,19 +101,22 @@ conditions to be considered a Maven project.
 
 ### Rug Archives
 
-Rug Archives that contain any Rug DSL files are named in their
-`manifest.yml` file or `package.json` file if using TypeScript, which
-are located in the `.atomist` directory.
+Rug Archive configuration is stored in a file in the `.atomist`
+directory.  Rug Archives that contain Rug DSL Rugs have their
+configuration stored in `.atomist/manifest.yml`.  Rug Archives using
+TypeScript store their configuration in `.atomist/package.json`.  If
+your archive has both Rug DSL and TypeScript Rugs, you must use the
+`package.json` format.
 
-If using the Rug DSL `manifest.yml` then it should name Rug archives according to the following rules:
+If using the Rug DSL `manifest.yml` then it should name Rug archives
+according to the following rules:
 
 *   `group`: The organisation behind this Rug Archive. Most commonly
-    the GitHub organisation that they reside in.
+    the GitHub organisation in which they reside.
 
 *   `artifact`: Name of the Rug Archive (see next section)
 
-*   `version`: [Semantic version](http://semver.org/) of this Rug
-    Archive
+*   `version`: [Semantic version][semver] of this Rug Archive
 
 *   `requires`: Specify the exact, or bounded, version of the Rug
     language that your Rug Archive has been tested against.
