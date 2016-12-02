@@ -18,8 +18,8 @@ pages:
   - What Goes in a Rug Archive?: 'rug/rug-archive.md'
   - A Day in the Life of a Rug Archive: 'rug/rug-lifecycle.md'
 - Rug CLI:
-  - Installing Rug CLI on macOS: 'rug-cli/install-macos.md'
-  - Installing Rug CLI on GNU/Linux: 'rug-cli/install-linux.md'
+  - Introduction: 'rug-cli/index.md'
+  - Rug CLI Installation: 'rug-cli/rug-cli-install.md'
 - Reference Documentation:
   - Introduction: 'reference-docs/index.md'
   - Rug:

@@ -13,33 +13,8 @@ possible.
 
 You can install the Rug command-line interface using standard
 packaging tools for your operating system.
-
-*   [Mac OS X / macOS](/rug-cli/install-macos.md)
-*   [GNU/Linux](/rug-cli/install-linux.md)
-*   [MS Windows](https://github.com/atomist/rug-cli/issues/6) (work in progress)
-
-### Configure the Rug CLI
-
-Create a file named `~/.atomist/cli.yml` with the following contents:
-
-```yaml
-# Set up the path to the local repository
-local-repository:
-  path: "${user.home}/.atomist/repository"
-
-# Set up remote repositories to query for Rug archives. Additionally one of the
-# repositories can also be enabled for publication (publish: true).
-remote-repositories:
-  maven-central:
-    publish: false
-    url: "http://repo.maven.apache.org/maven2/"
-  rug-types:
-    publish: false
-    url: "https://atomist.jfrog.io/atomist/libs-release"
-  rugs:
-    publish: false
-    url: "https://atomist.jfrog.io/atomist/rugs-release"
-```
+See [Rug CLI Installation](/rug-cli/rug-cli-install.md) for
+instructions.
 
 ### 'Git' Some Examples
 
