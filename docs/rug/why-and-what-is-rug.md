@@ -37,10 +37,10 @@ Rug is not a full-blown language with a complete set of control structures as th
 
 To keep Rug focussed and simple, there are only 6 concepts in Rug itself:
 
-* [Tests](rug-tests.md) (and a simple but powerful test-driven environment so that you can have real confidence in your Rug scripts)
-* [Generators](rug-generators.md)
-* [Editors](rug-editors.md)
-* Templates (these work in collaboration with [Generators](rug-generators.md) and [Editors](rug-editors.md))
+* [Tests](/reference-docs/rug-tests.md) (and a simple but powerful test-driven environment so that you can have real confidence in your Rug scripts)
+* [Generators](/reference-docs/rug-generators.md)
+* [Editors](/reference-docs/rug-editors.md)
+* Templates (these work in collaboration with [Generators](/reference-docs/rug-generators.md) and [Editors](/reference-docs/rug-editors.md))
 * Reviewers (coming soon)
 * Executors (coming soon)
 
@@ -60,7 +60,7 @@ You also of course have the power to decide when you upgrade to a newer version 
 
 ### Rug can be Extended with Custom Types
 
-There is already a *lot* of power in the [Core Rug Types](rug-core-types.md) that are built into the Rug language, but the intention is not for this to be the only, exhaustive set of types you can use.
+There is already a *lot* of power in the [Core Rug Types](/reference-docs/rug-core-types.md) that are built into the Rug language, but the intention is not for this to be the only, exhaustive set of types you can use.
 
 Rug itself can be extended with new types for new languages, frameworks or even systems.
 
@@ -76,7 +76,3 @@ We are constantly finding new uses for Rug and here are a sample of the cases th
 * Helping to apply best-practice tools and techniques from the microservices toolbox
 
 Want to share how *you* are using Rug? Join up to the [Atomist Community slack](https://join.atomist.com).
-
-### Next
-
-* [Explore the contents of a Rug Archive](rug-archive.md)

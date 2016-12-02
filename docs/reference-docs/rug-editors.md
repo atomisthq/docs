@@ -2,7 +2,7 @@
 
 Rug editors ***work at the level of a specific project***, for example this is typically a particular ***repository on GitHub***.
 
-Rug Editors can be found in the `/.atomist/editors` directory of a [Rug Archive](rug-archive.md).
+Rug Editors can be found in the `/.atomist/editors` directory of a [Rug Archive](/rug/rug-archive.md).
 
 Editors also have access to template content in the same archive, packaged under `/.atomist/templates`.
 
@@ -15,7 +15,7 @@ Rug Editor files must have a `.rug` extension. A `.rug` file can contain one or 
 
 For reference, this convention is analogous to Java public class packaging.
 
-Any number of Rug editors can be bundled together in a [Rug Archive](rug-archive.md). A good example of this is the open source [Spring Boot Common Editors]() Rug Archive.
+Any number of Rug editors can be bundled together in a [Rug Archive](/rug/rug-archive.md). A good example of this is the open source [Spring Boot Editors](https://github.com/atomist-rugs/spring-boot-editors) Rug Archive.
 
 ### Parameters and Templates
 
@@ -185,7 +185,7 @@ editor Bar
 with file f
 do replaceAll "foo" "bar"
 ```
-In this case, `Foo` and `Bar` are in the same file, but they could be in separate files within the same archive where we would use the `use` statement to bring in the editor in a different file. We can also refer to editors outside the current archive by introducing a dependency on the [Rug Archive](rug-archive.md) that those editors that we want to import are located in to the `.atomist/pom.xml` file.
+In this case, `Foo` and `Bar` are in the same file, but they could be in separate files within the same archive where we would use the `use` statement to bring in the editor in a different file. We can also refer to editors outside the current archive by introducing a dependency on the [Rug Archive](/rug/rug-archive.md) that those editors that we want to import are located in to the `.atomist/pom.xml` file.
 
 ## Syntax Guide
 

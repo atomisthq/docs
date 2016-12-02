@@ -52,6 +52,6 @@ mvnw.cmd <-- Packaged Maven script for those working on Windows
 
 ### Next steps
 
-* [Explore the syntax of Rug tests](rug-tests.md)
-* [Explore the syntax of Rug editors](rug-editors.md)
-* [Explore the syntax of Rug generators](rug-generators.md)
+* [Explore the syntax of Rug tests](/reference-docs/rug-tests.md)
+* [Explore the syntax of Rug editors](/reference-docs/rug-editors.md)
+* [Explore the syntax of Rug generators](/reference-docs/rug-generators.md)

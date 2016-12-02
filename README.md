@@ -69,8 +69,15 @@ You can now serve the documentation locally by running:
 $ mkdocs serve
 ```
 
+If all goes well, you can browse the documentation at
+http://127.0.0.1:8000 .
+
 ## Conditions of use
 
-This documentation build process is provided to the public purely for the purpose of testing documentation changes before submitting pull requests to the appropriate Atomist repository.
+This documentation build process is provided to the public purely for
+the purpose of testing documentation changes before submitting pull
+requests to the appropriate Atomist repository.
 
-The documents produced by this build process may be published only on http://docs.atomist.com. They may not be published in any other form or on any other website without explicit permission.
+The documents produced by this build process may be published only on
+http://docs.atomist.com. They may not be published in any other form
+or on any other website without explicit permission.

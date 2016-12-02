@@ -1,6 +1,6 @@
 ## Rug Conventions
 
-Rug is its own [Domain Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) that is currently used to define project [generators](rug-generators.md), [editors](rug-editors.md), [reviewers](rug-reviewers.md), [predicates](rug-predicates.md), executors and [tests](rug-tests.md). In addition the Rug runtime exposes these concepts so that they can can be used in a fuller language, when the Rug DSL is too constraining, such as [TypeScript](https://www.typescriptlang.org/).
+Rug is its own [Domain Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) that is currently used to define project [generators](rug-generators.md), [editors](rug-editors.md), reviewers (coming soon), [predicates](rug-predicates.md), executors and [tests](rug-tests.md). In addition the Rug runtime exposes these concepts so that they can can be used in a fuller language, when the Rug DSL is too constraining, such as [TypeScript](https://www.typescriptlang.org/).
 
 As with any language and environment there is a set of idioms and common practices that will turn your Rug from `nice` to `great` (and in some contexts from ***not working*** to ***working****). Collectively these are the _Rug Conventions_.
 

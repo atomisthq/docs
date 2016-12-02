@@ -67,11 +67,11 @@ In this case the `precondition` expressions are naming the predicates that shoul
 
 ### Predicates in `.rug` Files for Reuse
 
-In the `editor` `precondition` example shown above the actual predicates themselves are expressed in their own `.rug` files. If you want to reuse a predicate then it *must* be declared separated in its own file. TYpically this is a `.rug` file located in the `.atomist/editors` directory in the [Rug Archive](rug-archive.md).
+In the `editor` `precondition` example shown above the actual predicates themselves are expressed in their own `.rug` files. If you want to reuse a predicate then it *must* be declared separated in its own file. TYpically this is a `.rug` file located in the `.atomist/editors` directory in the [Rug Archive](/rug/rug-archive.md).
 
 Similar to how the first editor in a `.rug` file must have the same name as the file, the `.rug` file that contains a predicate must have the same name as the declared predicate.
 
-So the following sample, taken from [spring-boot-common-editors](https://github.com/atomist-project-templates/spring-boot-common-editors/blob/master/.atomist/editors/IsMaven.rug), is declared in a `.atomist/editors/IsMaven.rug` file:
+So the following sample, taken from [spring-boot-editors](https://github.com/atomist-rugs/spring-boot-editors/blob/master/.atomist/editors/IsMaven.rug), is declared in a `.atomist/editors/IsMaven.rug` file:
 
 ```
 predicate IsMaven
