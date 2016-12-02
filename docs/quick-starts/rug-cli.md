@@ -1,13 +1,8 @@
 ## Rug CLI Quick Start
 
-The Rug CLI is a great way to better understand how Atomist works.
-Like Atomist Buttons and the Atomist Bot, the Rug CLI allows you to
-run Generators and Editors, but that is just the beginning.  The Rug
-CLI is a necessary tool when developing and testing your own Rugs.
-This means this quick start guide is a bit more involved that those
-for Buttons and the Bot, but don't fret!  We are working diligently to
-make interacting with the Rug CLI and simple and intuitive as
-possible.
+The Rug CLI runs Generators and Editors against your local source code. You can run published Rugs and your local Rugs, and see the results in your project directory. This is essential when you're developing your own Generators and Editors.
+
+This quick start guide is more involved that those for Buttons and the Bot, but don't fret! We are working diligently to make interacting with the Rug CLI as simple and intuitive as possible.
 
 ### Installing the Rug CLI
 
