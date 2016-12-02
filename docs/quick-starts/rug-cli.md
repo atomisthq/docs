@@ -25,7 +25,7 @@ Create a file named `~/.atomist/cli.yml` with the following contents:
 ```yaml
 # Set up the path to the local repository
 local-repository:
-  path: "${HOME}/.atomist/repository"
+  path: "${user.home}/.atomist/repository"
 
 # Set up remote repositories to query for Rug archives. Additionally one of the
 # repositories can also be enabled for publication (publish: true).
