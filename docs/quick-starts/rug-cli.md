@@ -13,7 +13,7 @@ instructions.
 
 ### 'Git' Some Examples
 
-If you are interested in using the Rug CLI, you should become familiar
+To generate and edit code with Rug automation, you will become familiar
 with Rug Editors, Generators, and Reviewers.  The best way to do that
 is to look at some examples.  Some simple examples of Rug Editors can
 be found in the [common-editors][common] repo.  You can clone that
