@@ -49,6 +49,8 @@ is to look at some examples.  Some simple examples of Rug Editors can
 be found in the [common-editors][common] repo.  You can clone that
 repo with the following command.
 
+[common]: https://github.com/atomist-rugs/common-editors
+
 ```
 $ git clone https://github.com/atomist-rugs/common-editors.git
 $ cd common-editors
