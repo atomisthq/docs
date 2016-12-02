@@ -16,16 +16,6 @@ common practices that will turn your Rug from `nice` to `great` (and
 in some contexts from ***not working*** to
 ***working***). Collectively these are the _Rug Conventions_.
 
-### Avoid Mixing Rug DSL and Rug TypeScript files in the same Rug Archive
-
-While it *is* possible to package Rug DSL files and Rug TypeScript
-files in the same Rug Archive project, i.e. under the same `.atomist`
-directory within a project, it can be confusing as the Rug DSL
-`manifest.yml` will effectively override the `package.json`.
-
-It is recommended to choose between either Rug DSL or Rug TypeScript
-for a given Rug Archive rather than mix the two.
-
 ### Rug DSL and TypeScript Files
 
 Rug files should have the `.rug` extension and be found in the
@@ -46,7 +36,10 @@ and should be located within a `.atomist/tests` directory and have the
 `.rt` extension.
 
 If you choose to write your editors, reviewers or executors using
-TypeScript then they should have the `.ts` file extension.
+TypeScript then they should have the standard TypeScript `.ts` file
+extension.
+
+You can safely intermix Rug and TypeScript Rugs in the same archive.
 
 ### Rug Naming
 
