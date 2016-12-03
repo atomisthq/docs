@@ -6,6 +6,8 @@ support installing the Rug CLI on GNU/Linux Deb and RPM distributions,
 Mac OS X/macOS using [Homebrew][brew], and MS Windows
 using [Chocolatey][choco].
 
+Once you have it installed, continue with the [Rug CLI Quick Start](http://docs.atomist.com/quick-starts/rug-cli/).
+
 [brew]: http://brew.sh/
 [choco]: https://chocolatey.org/
 
