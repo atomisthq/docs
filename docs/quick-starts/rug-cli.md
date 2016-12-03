@@ -8,7 +8,7 @@ This quick start guide is more involved that those for Buttons and the Bot, but 
 
 You can install the Rug command-line interface using standard
 packaging tools for your operating system.
-See [Rug CLI Installation](/rug-cli/rug-cli-install.md) for
+See [Rug CLI Installation](/rug/rug-cli-install.md) for
 instructions.
 
 ### 'Git' Some Examples

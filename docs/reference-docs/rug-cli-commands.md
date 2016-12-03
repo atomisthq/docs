@@ -57,10 +57,10 @@ $ rug edit atomist:common-editors:AddReadme parameter1=foo parameter2=bar
 
 ```sh
 $ rug generate "atomist-project-templates:spring-rest-service:Spring Boot Microservice" \
-  --artifact-version 1.0.0 MyNewProjectName parameter1=foo parameter2=bar
+    --artifact-version 1.0.0 MyNewProjectName parameter1=foo parameter2=bar
 
 $ rug generate "atomist-project-templates:spring-rest-service:Spring Boot Microservice" \
-  MyNew Project parameter1=foo parameter2=bar
+    MyNew Project parameter1=foo parameter2=bar
 ```
 
 `artifact-version` is optional and defaults to `latest` semantics.

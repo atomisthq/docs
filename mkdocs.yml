@@ -18,9 +18,9 @@ pages:
   - Why and What is Rug? : 'rug/why-and-what-is-rug.md'
   - What Goes in a Rug Archive?: 'rug/rug-archive.md'
   - A Day in the Life of a Rug Archive: 'rug/rug-lifecycle.md'
-- Rug CLI:
-  - Introduction: 'rug-cli/index.md'
-  - Rug CLI Installation: 'rug-cli/rug-cli-install.md'
+  - Rug CLI:
+    - Introduction: 'rug/rug-cli.md'
+    - Rug CLI Installation: 'rug/rug-cli-install.md'
 - Reference Documentation:
   - Introduction: 'reference-docs/index.md'
   - Rug:
