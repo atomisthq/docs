@@ -168,11 +168,16 @@ following `tag` annotations would be applicable.
 or in TypeScript:
 
 ```
+import { tag } from '@atomist/rug/support/Metadata'
+...
 @tag("readme")
 @tag("documentation")
 class AddReadme implements ProjectEditor<ContentInfo> {
 ...
 ```
+
+Tag values should consist of only lower case letters, numbers, and
+dashes (`-`).
 
 Please try to make sure at least one of the tags on your Rug maps to
 an image.  The following tags currently have images: `docker`,
