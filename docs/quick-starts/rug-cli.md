@@ -275,7 +275,8 @@ Run the following command for usage help:
 
 Hmm, looks like something went wrong.  Fortunately the error tells us
 we either need to define a default artifact or run in local mode.  How
-do we run in local mode?
+do we run in local mode?  The above output tells us to run `rug
+describe --help` for usage help.  Let's do it.
 
 ```
 $ rug describe --help
@@ -303,7 +304,14 @@ artifact has spaces in it, you need to put quotes around it.
 Please report issues at https://github.com/atomist/rug-cli
 ```
 
-The `-l` command-line option looks promising.
+The help output provides two pieces of useful information.  First, it
+says the `ARTIFACT` should be the full name of the artifact.  We only
+provided the editor name.  Perhaps we needed to prepend the archive
+name.  Second, the `-l` or `--local` command-line option tells the CLI
+to use the current directory as an archive.  In other words, it tries
+to find an `.atomist` directory and use the Rugs in it.  Since we are
+in a directory that has the `.atomist` directory with the Editor we
+want to run, that seems promising.
 
 ```
 $ rug describe -l editor AddApacheSoftwareLicense20
@@ -325,17 +333,35 @@ To invoke the AddApacheSoftwareLicense20 editor, run:
   rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.1.0 -l
 ```
 
-So it looks like if we run this Editor, it will add "the Apache
-Software License version 2.0 file" to the project.  The last line of
-the output once again gives us the information we need: how to run
-this Editor.  Let's try it.
+Success!  The output from that command also tells us what the full
+name of the Editor is,
+`atomist-rugs:common-editors:AddApacheSoftwareLicense20`.  We could
+have guessed that.  Since we previously installed the editor, we could
+have run the following command and gotten the same result.
+
+```
+$ rug describe editor atomist-rugs:common-editors:AddApacheSoftwareLicense20
+```
+
+The `describe editor` output includes several pieces of useful
+information.  The description, "adds the Apache Software License
+version 2.0 file", provides a slightly more verbose description than
+the already descriptive Editor name.  We can see that this Editor has
+three tags, `license`, `apache`, and `documentation`, and it takes no
+parameters.
+
+Adding the Apache license seems like a good thing to do.  The last
+line of the output once again gives us the information we need: how to
+run this Editor.  Let's try it.
 
 ### Run an Editor
 
-We will just run the command we were provided above.
+We will just run the command we were provided above.  We remove the
+`-l` since, having installed the archive, we do not need to run it
+from the local directory, we can run it from the installed archive.
 
 ```
-$ rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.1.0 -l
+$ rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.1.0
 Resolving dependencies for atomist-rugs:common-editors:0.1.0 ← local completed
 Loading atomist-rugs:common-editors:0.1.0 ← local into runtime completed
 Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.1.0 ← local completed
@@ -392,95 +418,16 @@ Looks like it is a record of what we have done, nice!
 
 I suppose we should have guessed the editor would act on the local
 directory, but we don't really want to edit the current project.
-Let's create another project to edit.
+Let's create another project to edit.  We run the same command as
+above, except we remove the archive version command-line option.  If
+you do not provide the `-a` option, the CLI will use the latest
+installed version, 0.1.0 in our case.
 
 ```
 $ cd ..
 $ mkdir atomist-test
 $ cd !$
 $ git init
-$ rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.1.0 -l
-
-Current directory is not a valid archive directory. Couldn't find .atomist folder.
-```
-
-While the local mode helped us when we wanted to run the Editor in the
-`.atomist` directory, it is not helping us now that we are in a
-different directory.  Let's try the other option, setting a default
-artifact.
-
-```
-$ rug --help
-Usage: rug [OPTION]... [COMMAND]...
-Work with Rugs like editors or generators.
-
-Options:
-  -?,-h,--help  Print help information
-  -q,--quiet    Don't display progress messages
-  -v,--version  Print version information
-
-Available commands:
-  list       List locally installed archives
-  describe   Print details about an archive or Rug
-  generate   Run a generator to create a new project
-  edit       Run an editor to modify an existing project
-  test       Run test scenarios
-  install    Create and install an archive into the local repository
-  publish    Create and publish an archive into a remote repository
-  default    Set default archive
-  extension  Manage command line extensions
-
-Run 'rug COMMAND --help' for more detailed information on COMMAND.
-
-Please report issues at https://github.com/atomist/rug-cli
-```
-
-The `default` command looks promising.
-
-```
-$ rug default --help
-Usage: rug default [OPTION]... [ARCHIVE]
-Set default archive.
-
-Options:
-  -?,-h,--help          Print help information
-  -X,--error            Print verbose error messages
-  -o,--offline          Use only downloaded archives
-  -q,--quiet            Don't display progress messages
-  -r,--resolver-report  Print dependency tree
-  -s,--settings FILE    Use settings file FILE
-  -t,--timer            Print timing information
-
-Command Options:
-  -a,--archive-version AV  Set default archive version to AV
-  -d,--delete              Delete global or project default archive
-  -g,--global              Set global or project default archive
-
-ARCHIVE should be a valid archive identifier of form GROUP:ARTIFACT or
-just GROUP.  At any time those defaults can be overriden by specifying
-GROUP:ARTIFACT and -a from the command line.
-
-Please report issues at https://github.com/atomist/rug-cli
-```
-
-Seems simple enough.
-
-```
-$ rug default atomist-rugs:common-editors -a 0.1.0
-Resolving dependencies for com.atomist:rug:0.4.0 completed
-Loading com.atomist:rug:0.4.0 into runtime completed
-
-→ Default (project)
-  group: atomist-rugs
-  artifact: common-editors
-  version: 0.1.0
-
-Successfully configured project default archive configuration
-```
-
-Now let's try again.
-
-```
 $ rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20"
 Resolving dependencies for atomist-rugs:common-editors:0.1.0 completed
 Loading atomist-rugs:common-editors:0.1.0 into runtime completed
@@ -536,6 +483,35 @@ Untracked files:
 	.provenance.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
+```
+
+We see the `LICENSE` file is gone.  If we inspect the contents of the
+`.provenance.txt` file, we see a complete record of what Rug has done.
+
+```
+---
+editor:
+  name: "atomist-rugs.common-editors.AddApacheSoftwareLicense20"
+  group: "atomist-rugs"
+  artifact: "common-editors"
+  version: "0.1.0"
+  origin:
+    repo: "atomist-rugs/common-editors.git"
+    branch: "master"
+    sha: "d6e5e54"
+  parameters:
+
+---
+editor:
+  name: "atomist-rugs.common-editors.RemoveApacheSoftwareLicense20"
+  group: "atomist-rugs"
+  artifact: "common-editors"
+  version: "0.1.0"
+  origin:
+    repo: "atomist-rugs/common-editors.git"
+    branch: "master"
+    sha: "d6e5e54"
+  parameters:
 ```
 
 ### More Information
