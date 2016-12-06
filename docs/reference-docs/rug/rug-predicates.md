@@ -41,9 +41,9 @@ predicate IsNotRugArchive
     when { ! p.directoryExists(".atomist") }
 ```
 
-> ***NOTE:*** This sample is taken from the
-> existing
-> [Rug Archive project](https://github.com/atomist-project-templates/rug-archive).
+> ***NOTE:*** This sample is taken from the [rug-editors][] project.
+
+[rug-editors]: https://github.com/atomist-rugs/rug-editors
 
 ### Rug Predicates in Rug Test Assertions
 
