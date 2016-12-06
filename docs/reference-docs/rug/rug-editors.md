@@ -278,7 +278,7 @@ reserved words:
 `precondition` | Predicate that should hold for the editor be applicable or run
 `postcondition` | Predicate that should hold after the editor has run. Including this makes an editor more robust, as it will fail rather than make any updates if the postcondition does not hold.
 `with`  |  Specifies a with block |      |
-|`do`   |   Begins an action within a with block|   
+|`do`   |   Begins an action within a with block|
 | `run` | Specifies an action within a with block that executes another project operation.
 | `begin` - `end`  | Group a sequence of actions within a with block. Actions can include `do`, a nested `with` block, or `run`. Each action will see the context in the state it was left in by the last action.
 
@@ -327,6 +327,7 @@ extensively in Atomist components.
 |---|---|---|---|
 | `@description` | editor, reviewer or parameter | String | Describes the parameter
 | `@optional` | parameter | None | Whether the parameter is required. Default is required.
+| `@default` | parameter | String | Default value for parameter.
 | `@validInput` | parameter | String | Description of valid input, such as "A valid email address" or "3-10 alphanumeric characters"
 | `@hide` | parameter | None | Indicates that this parameter is only for use by programs and should not be displayed to users.
 | `@displayName` | parameter | String | UI friendly name for parameter.
