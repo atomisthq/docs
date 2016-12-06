@@ -1,57 +1,81 @@
 ## What goes in an Atomist Archive?
 
-A key design goal was to respect your own tooling as much as possible so that ***every project should be a working Atomist project, and every Atomist project is a working project***.
+A key design goal was to respect your own tooling as much as possible
+so that ***every project should be a working Atomist project, and
+every Atomist project is a working project***.
 
-The Atomist Rug DSL was designed to work unintrusively alongside your existing projects to automate all the slow, annoying tasks of working in a modern software development environment.
+The Atomist Rug DSL was designed to work unintrusively alongside your
+existing projects to automate all the slow, annoying tasks of working
+in a modern software development environment.
 
-Atomist's Rug DSL can be expressed and packaged alongside your existing projects. A project that has a `.atomist` directory, along with some other artifacts that we'll explain here, is referred to as a `Rug Archive`.
+Atomist's Rug DSL can be expressed and packaged alongside your
+existing projects. A project that has a `.atomist` directory, along
+with some other artifacts that we'll explain here, is referred to as a
+*Rug Archive*.
 
 ### Exploring a very basic Rug Archive
 
-A very basic `Rug Archive`, along with some example `Rug` scripts and other bits and pieces, is provided by creating a new project based on the Rug Archive project template.
+A very basic Rug Archive, along with some example Rug scripts and
+other bits and pieces, is provided by creating a new project using
+the [Rug Archive project generator][rug-generator].  You can run this
+generator using the Atomist Button below.
 
-<!-- You can use the following link to create your own Rug-based project with Atomist: -->
+[rug-generator]: https://github.com/atomist-rugs/rug-editors
 
-<!--After using the previous button to create a new project based on the `[Rug Archive project template]`(https://github.com/atomist-project-templates/rug-archive) and you should see something like the following in your own new project:-->
+[<img src="https://images.atomist.com/button/create-project.png" width="267" alt="Get Started with Atomist"/>](https://api.atomist.com/v1/projects/generators/99515d85-80ad-4e97-bf26-ed5a5406da05)
 
-To save time we've already used this project template to create a basic [Rug Archive sample project](https://github.com/atomist-project-templates/rug-archive-sample) with the following contents:
+The resulting project will have the following contents:
 
 ```
-mvnw
 README.md
-mvnw.cmd
-  /.atomist
-    pom.xml
-    assembly.xml
-    /tests
-    /editors
-    /reviewers
-    /executors
-    /templates
- /.mvn
+.atomist/
+  pom.xml
+  assembly.xml
+  tests/
+  editors/
+  reviewers/
+  executors/
+  templates/
+.provenance.txt
 ```
+
+The `README.md` is a standard project README file.  The
+`provenance.txt` file provides information on what Rugs have operated
+on the repo.  The contents of the `.atomist` directory are described
+in the next section.
 
 ### The `.atomist` directory
 
-Atomist Rug artifacts need to work happily alongside whatever languages, frameworks or other artifacts may be present in your project. For this reason, Rug artifacts are safely contained in a `.atomist` directory that has the following general structure:
+Atomist Rug artifacts need to work happily alongside whatever
+languages, frameworks or other artifacts may be present in your
+project. For this reason, Rug artifacts are safely contained in a
+`.atomist` directory that has the following general structure:
 
 ```
-mvnw <-- Packaged Maven script
-README.md <-- README for your
-mvnw.cmd <-- Packaged Maven script for those working on Windows
-  /.atomist
-    pom.xml <-- Pom that describes dependencies for the scripts in the Rug Archive itself, including the version of the Rug language itself!
-    assembly.xml
-    /tests <-- Contains BDD-style tests for your Rug Scripts, with extensions of `rt`
-    /editors  <-- Contains Rug scripts and associated conditional Predicates that will edit projects, or generate new ones
-    /reviewers < Contains Rug scripts that will provide feedback on existing projects
-    /executors <-- Contains Rug scripts that will work across multiple repositories
-    /templates <-- Velocity or Mustache (TBD links) templates that are used by editors
- /.mvn <-- More packaged maven infrastructure (TBD maven link)
+.atomist/
+  manifest.yml <= Metadata for the Rug archive
+  editors/     <= Rugs providing Editors, Generators, and conditional Predicates
+  executors/   <= Rugs that will work across multiple repositories
+  reviewers/   <= Rugs that will provide feedback
+  templates/   <= Templates  used by Rugs
+  tests/       <= BDD-style tests for your Rugs
 ```
+
+Files in the `editors`, `executors`, and `reviewers` directory use the
+`.rug` extension if they are using the Rug DSL or the `.ts` extension
+if they are written in TypeScript.
+
+The templates in the `templates` directory can be
+either [Velocity][velocity] templates with a `.vm` extension
+or [Mustache][mustache] templates with a `.mustache` extension.
+
+[velocity]: http://velocity.apache.org/
+[mustache]: https://mustache.github.io/
+
+Rug tests use the `.rt` extension.
 
 ### Next steps
 
-* [Explore the syntax of Rug tests](/reference-docs/rug-tests.md)
-* [Explore the syntax of Rug editors](/reference-docs/rug-editors.md)
-* [Explore the syntax of Rug generators](/reference-docs/rug-generators.md)
+*   [Explore the syntax of Rug tests](/reference-docs/rug/rug-tests.md)
+*   [Explore the syntax of Rug editors](/reference-docs/rug/rug-editors.md)
+*   [Explore the syntax of Rug generators](/reference-docs/rug/rug-generators.md)

@@ -1,14 +1,19 @@
 ## Rug CLI Quick Start
 
-The Rug CLI runs Generators and Editors against your local source code. You can run published Rugs and your local Rugs, and see the results in your project directory. This is essential when you're developing your own Generators and Editors.
+The Rug CLI runs Generators and Editors against your local source
+code. You can run published Rugs and your local Rugs, and see the
+results in your project directory. This is essential when you're
+developing your own Generators and Editors.
 
-This quick start guide is more involved that those for Buttons and the Bot, but don't fret! We are working diligently to make interacting with the Rug CLI as simple and intuitive as possible.
+This quick start guide is more involved that those for Buttons and the
+Bot, but don't fret! We are working diligently to make interacting
+with the Rug CLI as simple and intuitive as possible.
 
 ### Installing the Rug CLI
 
 You can install the Rug command-line interface using standard
 packaging tools for your operating system.
-See [Rug CLI Installation](/rug/rug-cli-install.md) for
+See [Rug CLI Installation](/rug/rug-cli/rug-cli-install.md) for
 instructions.
 
 ### 'Git' Some Examples
@@ -542,4 +547,4 @@ questions, get help, and discuss all things Rug.
 [slack]: https://join.atomist.com/
 
 More detailed documentation can be found in the
-[Rug CLI reference documentation](/reference-docs/rug-cli-commands.md).
+[Rug CLI reference documentation](/reference-docs/rug/rug-cli-commands.md).
