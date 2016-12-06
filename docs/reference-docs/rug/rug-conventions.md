@@ -269,9 +269,10 @@ For example the following is legal but the `begin` and `end`
 statements are not required:
 
 ```
-with file when path = "README.md" begin
-  do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
-end
+with file when path = "README.md"
+  begin
+    do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
+  end
 ```
 
 It is preferable to omit the `begin` and `end` statements entirely
@@ -285,18 +286,20 @@ with file when path = "README.md"
 ### Rug DSL: Indenting Blocks with `Begin` and `End`
 
 When multiple actions are being applied it is important to nest those
-`do` actions within a `begin` and `end` block. It is conventional to
-place the `begin` hanging on the end of the selecting statement and
-then to indent the `do` statements before a closing `end` statement:
+`do` actions within a `begin` and `end` block.  It is conventional to
+place the `begin` indented two spaces on the next line and then to
+indent the `do` statements two more spaces before a closing `end`
+statement indented at the same level as the `begin`:
 
 ```
-with pom p when path = "pom.xml" begin
-  do setArtifactId  artifact_id
-  do setGroupId group_id
-  do setVersion version
-  do setProjectName name
-  do setDescription description
-end
+with pom p when path = "pom.xml"
+  begin
+    do setArtifactId  artifact_id
+    do setGroupId group_id
+    do setVersion version
+    do setProjectName name
+    do setDescription description
+  end
 ```
 
 ### Rug DSL: Labelling Selections Only When They Are Used
