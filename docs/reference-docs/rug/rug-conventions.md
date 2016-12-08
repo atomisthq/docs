@@ -77,7 +77,8 @@ Here is the Markdown text to add the Slack badge:
 
 [travis]: https://travis-ci.org/
 
-Rug Archive repositories should have a [`CHANGELOG.md`][changelog].
+Rug Archive repositories should have a change log in
+the [`CHANGELOG.md` format][changelog].
 
 [changelog]: http://keepachangelog.com/
 
