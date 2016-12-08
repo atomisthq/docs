@@ -4,9 +4,10 @@ Rug is its own [Domain Specific Language (DSL)][dsl] that is currently
 used to define
 project [generators](rug-generators.md), [editors](rug-editors.md),
 reviewers (coming soon), [predicates](rug-predicates.md), executors
-and [tests](rug-tests.md). In addition the Rug runtime exposes these
-concepts so that they can can be used in a fuller language, when the
-Rug DSL is too constraining, such as [TypeScript][ts].
+(coming soon), and [tests](rug-tests.md). In addition the Rug runtime
+exposes these concepts so that they can can be used in a fuller
+language, when the Rug DSL is too constraining, such
+as [TypeScript][ts].
 
 [dsl]: https://en.wikipedia.org/wiki/Domain-specific_language
 [ts]: https://www.typescriptlang.org/
@@ -16,31 +17,69 @@ common practices that will turn your Rug from `nice` to `great` (and
 in some contexts from ***not working*** to
 ***working***). Collectively these are the _Rug Conventions_.
 
-### Rug DSL and TypeScript Files
+### Exemplar
 
-Rug files should have the `.rug` extension and be found in the
-following locations within a _Rug Archive_.
+The [atomist/travis-editors][travis-editors] Rug Archive repository is
+a good example repository with good documentation and examples of both
+a Rug DSL and TypeScript Editors.  When going through the conventions
+below, we encourage you to reference that repository for concrete
+examples.
+
+[travis-editors]: https://github.com/atomist-rugs/travis-editors
+
+### Rug Archive
+
+A _Rug Archive_ is simply any project that contains a conforming
+`.atomist` directory and its subdirectories.  The standard directory
+layout is:
 
 ```
 .atomist/
-  /editors
-  /reviewers
-  /executors
+  editors/
+  executors/
+  reviewers/
+  templates/
+  tests/
 ```
 
-A _Rug Archive_ is simply any project that contains a conforming
-`.atomist` directory and subdirectories.
+### Rug Archive Repositories
 
-In addition, BDD-style tests for your Rugs are strongly recommended
-and should be located within a `.atomist/tests` directory and have the
-`.rt` extension.
+Rug Archive source code repositories should have a good `README.md`
+containing the following information at minimum:
 
-If you choose to write your editors, reviewers or executors using
-TypeScript then they should have the standard TypeScript `.ts` file
+-   A general description of the intent of the Rugs in the archive,
+    i.e., what ties them all together, at the top of the README.
+-   A section named **Rugs** that has a subsection for each Rug.
+-   A section for each Rug in the archive with
+    -   An explanation of what the Rug does, e.g., how will the
+        source code be changed after running the Editor
+    -   A subsection named *Prerequisites* describing what must be in
+        place before running the Rug.
+    -   A subsection named *Parameters* describing the Rug's input
+        parameters, including examples of valid input values.
+    -   A subsection named *Running* describing how to run the Rug and
+        providing examples of how to run the Rug.
+-   A **Support** section providing information on how to get help
+    with the Rugs in the archive repository.
+-   A **Development** section providing information on how one would
+    modify and test the Rugs.
+
+### Rug DSL and TypeScript Files
+
+Rug files should have the `.rug` extension when written using the Rug
+DSL and the standard TypeScript `.ts` extension when written in
+TypeScript.  You can safely intermix Rug DSL and TypeScript Rugs in
+the same archive.  Rug files should placed in the following locations
+within a _Rug Archive_.  Rug Editors should be in `.atomist/editors`,
+Rug Executors should be in `.atomist/executors`, and Rug Reviewers
+should be in `.atomist/reviewers`.
+
+BDD-style tests for your Rugs are strongly recommended and should be
+located within a `.atomist/tests` directory and have the `.rt`
 extension.
 
-You can safely intermix Rug DSL and TypeScript Rugs in the same
-archive.
+If your Rugs, typically Editors, use any templates, they are placed in
+the `.atomist/templates` directory.
 
 ### Rug Naming
 
@@ -59,7 +98,7 @@ anything, but `AddDockerToMavenProjects` is better if the intention of
 the Rug is to only work with projects that follow Maven conventions.
 
 While a Rug `.rug` file can contain many different editors, reviewers,
-executors and predicates the Rug runtime enforces that the first Rug
+executors and predicates, the Rug runtime enforces that the first Rug
 definition in a `.rug` file should match the name of the file
 itself. Therefore Rug files should be formatted using UpperCamelCase
 to match the name of the first Rug definition in the file.
@@ -81,7 +120,7 @@ generator after the `@generator` annotation, for example:
 @generator "NewSpringBootRestMicroservice"
 ```
 
-While there is no restriction on the whitespace or other characters
+While there is no restriction on the white-space or other characters
 that can be used within these generator names, it is also recommended
 that these human-readable names should be UpperCamelCase and not
 include spaces to simplify usage from the Rug CLI.
