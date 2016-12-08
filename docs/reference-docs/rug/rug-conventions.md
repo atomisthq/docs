@@ -64,6 +64,22 @@ containing the following information at minimum:
 -   A **Development** section providing information on how one would
     modify and test the Rugs.
 
+Public Rug Archive repositories should be automatically built, tested
+and deployed using [Travis CI][travis].  The Travis CI build status
+badge and the Slack badge for the Atomist Community should be placed
+in the `README.md` between the page title and the general description.
+Here is the Markdown text to add the Slack badge:
+
+```
+[![Slack Status](https://join.atomist.com/badge.svg)](https://join.atomist.com)
+```
+
+[travis]: https://travis-ci.org/
+
+Rug Archive repositories should have a [`CHANGELOG.md`][changelog].
+
+[changelog]: http://keepachangelog.com/
+
 ### Rug DSL and TypeScript Files
 
 Rug files should have the `.rug` extension when written using the Rug
