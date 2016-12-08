@@ -20,10 +20,11 @@ in some contexts from ***not working*** to
 ### Exemplar
 
 The [atomist/travis-editors][travis-editors] Rug Archive repository is
-a good example repository with good documentation and examples of both
-a Rug DSL and TypeScript Editors.  When going through the conventions
-below, we encourage you to reference that repository for concrete
-examples.
+a good example repository.  We strive to keep that repository up to
+date with these conventions.  It has good documentation and examples
+of both a Rug DSL and TypeScript Editors.  When going through the
+conventions below, we encourage you to reference that repository for
+concrete examples.
 
 [travis-editors]: https://github.com/atomist-rugs/travis-editors
 
