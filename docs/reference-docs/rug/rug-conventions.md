@@ -243,8 +243,8 @@ an image.  The following tags currently have images: `docker`,
 
 ### Rug `description` Annotations
 
-Rug editors, reviewers, predicates and executors can have an
-accompanying `description` annotation such as:
+Rug editors, reviewers, predicates, executors, and parameters can have
+an accompanying `description` annotation such as:
 
 ```
 @description "adds a project specific README"
@@ -262,10 +262,8 @@ A good description states exactly what the purpose of the Rug is
 ***without capitalisation on the sentence*** and ***without a closing
 period***. The reason for avoiding sentence punctuation is that the
 description is often used by the Atomist Bot and the grammar of its
-usage is context-driven at that point.
-
-Ideally the `description` should be as short as possible and limited
-to one sentence.
+usage is context-driven at that point.  Ideally the `description`
+should be a sentence fragment and as short as possible.
 
 ### Parameters
 
@@ -292,6 +290,11 @@ As Rug parameters are part of the public contract to the editor,
 reviewers, executor or predicate it is recommended that a
 human-readable description and display name always be applied using
 the `@description` and `@displayName` annotations.
+
+See the [description annotation](#rug-description-annotations) section
+above for information on the content of the parameter `@description`
+annotation.  The `@displayName` annotation value should be three words
+or less and use Title Case.
 
 #### Parameter Validation
 
