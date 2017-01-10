@@ -44,7 +44,7 @@ The CLI will assume the current working directory to be the root for execution.
 
 Run an editor as follows:
 
-```sh
+```
 $ rug edit atomist-rugs:common-editors:AddReadme --artifact-version 1.0.0 parameter1=foo parameter2=bar
 
 $ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
@@ -55,7 +55,7 @@ $ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
 
 ##### Invoking Generators
 
-```sh
+```
 $ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
     --artifact-version 1.0.0 my-new-project parameter1=foo parameter2=bar
 
@@ -68,10 +68,10 @@ $ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
 
 ##### Describing Rug Artifacts
 
-In order to list all parameters, describing an artifact is available in the
-following form:
+To get information about a Rug and list all its parameters, run the
+`rug describe` command.
 
-```sh
+```
 $ rug describe archive atomist-rugs:spring-rest-service
 
 $ rug describe editor atomist-rugs:spring-rest-service:SpringBootThing \
@@ -83,37 +83,39 @@ $ rug describe generator atomist-rugs:spring-rest-service:NewSpringBootThing \
 
 ##### Listing Local Archives
 
-To list all locally available Rug archives, the following command can be used:
+To list all locally available Rug archives, run the `rug list`
+command:
 
-```sh
+```
 $ rug list -f version="[1.2,2.0)" -f group=*atomist* -f artifact=*sp?ing*
 ```
 
-The local listing can be filtered by using `-f` filter expressions on `group`,
-`artifact` and `version`. `group` and `artifact` support wildcards of `*` and `?`.
-`version` takes any version constraint.
+The local listing can be filtered by using `-f` filter expressions on
+`group`, `artifact` and `version`. `group` and `artifact` support
+wildcards of `*` and `?`.  `version` takes any version constraint.
 
 #### Using the CLI as Rug developer
 
-All the following commands need to executed from within the Rug project directory.
+All the following commands need to executed from within the Rug
+project directory.
 
 ##### Running Tests
 
 To run all tests:
 
-```sh
+```
 $ rug test
 ```
 
 To run a specific named test:
 
-```sh
+```
 $ rug test "Whatever Test Secanrio"
 ```
 
 To run all scenarios from a .rt file:
 
-```sh
+```
 $ rug test MyRugTestFilename
 ```
 
@@ -122,7 +124,7 @@ $ rug test MyRugTestFilename
 Creating a Rug zip archive and installing it into the local repository
 can be done with the following command:
 
-```sh
+```
 $ rug install
 ```
 
@@ -154,6 +156,6 @@ If you want a more verbose output that includes any exceptions that
 Rug command may have encountered, please add `-X` to your command.
 For example:
 
-```sh
+```
 $ rug test -X
 ```
