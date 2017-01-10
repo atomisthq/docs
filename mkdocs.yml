@@ -49,9 +49,7 @@ pages:
       - Core Rug Type - java.class: 'reference-docs/rug/types/rug-core-types-java-class.md'
       - Core Rug Type - elm.module: 'reference-docs/rug/types/rug-core-types-elm-module.md'
       - Core Rug Type - docker: 'reference-docs/rug/types/rug-core-types-docker.md'
-    - Escaping Rug into Code:
-      - Escaping Rug into JavaScript: 'reference-docs/rug/escape/rug-javascript.md'
-      - Escaping Rug into Clojure: 'reference-docs/rug/escape/rug-clojure.md'
+    - Escaping Rug into JavaScript: 'reference-docs/rug/escape/rug-javascript.md'
     - Rug CLI Command Reference: 'reference-docs/rug/rug-cli-commands.md'
     - Rug Conventions: 'reference-docs/rug/rug-conventions.md'
   - Atomist Integrations: 'reference-docs/system-integrations.md'

@@ -399,5 +399,4 @@ editor Sample ...
 *   [Rug Generators](rug-generators.md)
 *   [Rug Templates](rug-templates.md)
 *   [Escaping Rug into JavaScript](escape/rug-javascript.md)
-*   [Escaping Rug into Clojure](escape/rug-clojure.md)
 *   [Core Rug Types](types/index.md)
