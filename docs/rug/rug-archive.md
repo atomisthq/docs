@@ -36,11 +36,11 @@ README.md
   reviewers/
   executors/
   templates/
-.provenance.txt
+.atomist.yml
 ```
 
 The `README.md` is a standard project README file.  The
-`provenance.txt` file provides information on what Rugs have operated
+`atomist.yml` file provides information on what Rugs have operated
 on the repo.  The contents of the `.atomist` directory are described
 in the next section.
 

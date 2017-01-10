@@ -1,27 +1,27 @@
 ## Rug Generators
 
-There is a special kind of Rug Editor that is used to bootstrap an
-entirely new project. This is the Rug Generator.
+There is a special kind of Rug editor that is used to bootstrap an
+entirely new project. This is the Rug generator.
 
 ### Generators from Editors
 
-A Rug Generator is simply a Rug Editor annotated with the `@generator`
-annotation add.
+A Rug generator is simply a Rug editor annotated with the `@generator`
+annotation.
 
 It works with, and transfers over the the new project that it is being
 used to generator, the content of the repo it is located in, excluding
-the `.atomist` directly.
+the `.atomist` directory.
 
 A single repo can contain multiple project generator editors.
 
-Typically Rug Generators do not contain logic of their own, but invoke
+Typically Rug generators do not contain logic of their own, but invoke
 a number of other editors in order to manipulate the files brought
 across from outside the `.atomist` directory.
 
 For example, here is a complete [Spring Rest Service][spring]
 generator:
 
-[spring]: https://github.com/atomist-project-templates/spring-rest-service
+[spring]: https://github.com/atomist-rugs/spring-boot-rest-service
 
 ```
 @tag "java"

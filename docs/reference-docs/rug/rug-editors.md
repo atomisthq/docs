@@ -3,7 +3,7 @@
 Rug editors ***work at the level of a specific project***, for example
 this is typically a particular ***repository on GitHub***.
 
-Rug Editors can be found in the `/.atomist/editors` directory of
+Rug editors can be found in the `/.atomist/editors` directory of
 a [Rug Archive](/rug/rug-archive.md).
 
 Editors also have access to template content in the same archive,
@@ -11,17 +11,17 @@ packaged under `/.atomist/templates`.
 
 >**NOTE: All Atomist files should be under the `.atomist` directory in the root of a project.**
 
-Rug Editor files must have a `.rug` extension.  A `.rug` file can
+Rug editor files must have a `.rug` extension.  A `.rug` file can
 contain one or more editors and reviewers.  A `.rug` file must contain
 either:
 
-*   A single Editor with the same name as the project file, excluding
+*   A single editor with the same name as the project file, excluding
     the `.rug` extension. This corresponds to Java's enforcement of
     the packaging of public classes.
 *or*
-*   A single Editor with the same name as the project file, excluding
-    the `.rug` extension, plus any number of other Editors that are
-    used only by that Editor.
+*   A single editor with the same name as the project file, excluding
+    the `.rug` extension, plus any number of other editors that are
+    used only by that editor.
 
 For reference, this convention is analogous to Java public class
 packaging.
@@ -34,7 +34,7 @@ open source [Spring Boot Editors][boot-editors] Rug Archive.
 
 ### Parameters and Templates
 
-Rug Editors are built on the same underpinnings as your usual non-Rug
+Rug editors are built on the same underpinnings as your usual non-Rug
 editors. They share familiar concepts:
 
 *   **Parameters**: Editors and reviewers can specify (mandatory or
@@ -47,7 +47,7 @@ editors. They share familiar concepts:
 
 ## A Quick Tour of Rug Editor Syntax
 
-The Rug Editor syntax can be summarised as a collection of
+The Rug editor syntax can be summarised as a collection of
 ***Selectors*** and then ***Actions*** on what is selected.
 
 White space is not significant. However we encourage sensible
@@ -60,10 +60,8 @@ to a file:
 ```
 editor AppendToFile
 
-with file f
- when name contains ".txt"
-do
- append "\nAnd this is a new line"
+with File f when name contains ".txt"
+  do append "\nAnd this is a new line"
 ```
 
 The `with` statement simply says *for each file in the project if name
@@ -86,10 +84,8 @@ editor AppendToFile
 
 param to_append: .*
 
-with file f
- when name contains ".txt"
-do
- append to_append
+with File f when name contains ".txt"
+  do append to_append
 ```
 
 Now we will append the value of the parameter to the end of the
@@ -113,10 +109,8 @@ editor AppendToFile
 @description "Text to append to the file"
 param to_append: .*
 
-with file f
- when name contains ".txt"
-do
- append to_append
+with File f when name contains ".txt"
+  do append to_append
 ```
 
 Note the use of a triple-quoted string here. As in Scala,
@@ -131,15 +125,11 @@ editor AppendToFile
 
 param to_append: .*
 
-with file f
- when name contains ".txt"
-do
- append to_append
+with File f when name contains ".txt"
+  do append to_append
 
-with file f
- when name contains ".java"
-do
- prepend "// Ha ha! This is a sneaky comment.\n"
+with File f when name contains ".java"
+  do prepend "// Ha ha! This is a sneaky comment.\n"
 ```
 
 Sometimes we need to compute additional values. We do this with the
@@ -152,12 +142,11 @@ param to_append: .*
 
 let x = "This is a value"
 
-with file f
- when name contains ".txt"
-begin
- do prepend x
- do append to_append
-end
+with File f when name contains ".txt"
+  begin
+    do prepend x
+    do append to_append
+  end
 ```
 
 Such computed values will be exposed to templates as well as the
@@ -172,10 +161,9 @@ editor AppendToFile
 
 param to_append: .*
 
-with file f
- when name contains ".txt" and under "/src/main/resources"
-do
- append to_append
+with File f
+  when name contains ".txt" and under "/src/main/resources"
+  do append to_append
 ```
 
 We can also perform multiple `do` steps as follows, enclosing them in
@@ -186,12 +174,11 @@ editor AppendToFile
 
 param to_append: .*
 
-with file f
- when name contains ".txt"
- begin
-	do append to_append
-	do append "And now for something completely different"
-end
+with File f when name contains ".txt"
+  begin
+    do append to_append
+    do append "And now for something completely different"
+  end
 ```
 
 We can escape to JavaScript to compute the value of any expression, or
@@ -204,10 +191,8 @@ editor AppendToFile
 
 param to_append: .*
 
-with file f
- when name contains ".txt"
-do
- append { to_append + " plus this from JavaScript" }
+with File f when name contains ".txt"
+  do append { to_append + " plus this from JavaScript" }
 ```
 
 We can also use JavaScript expressions in predicates, like this:
@@ -215,10 +200,9 @@ We can also use JavaScript expressions in predicates, like this:
 ```
 editor AppendToFile
 
-with file f
- when name contains ".txt" and { 13 < 27 }
-do
- append "42"
+with File f
+  when name contains ".txt" and { 13 < 27 }
+  do append "42"
 ```
 
 # Editor Composition
@@ -230,16 +214,15 @@ and then by `bar`, as the `Foo` editor invokes the `Bar` editor.
 ```
 editor Foo
 
-with file f
-do
-  replaceAll "some" "foo"
+with File f
+  do replaceAll "some" "foo"
 Bar
 
 # ------
 editor Bar
 
 with file f
-do replaceAll "foo" "bar"
+  do replaceAll "foo" "bar"
 ```
 
 In this case, `Foo` and `Bar` are in the same file, but they could be
@@ -314,10 +297,8 @@ editor RemoveEJB
 @validInput 'Valid input looks like this: Foo'
 param name: .*
 
-with file f
- when isJava and imports "javax.ejb"
-do
- setContent "Now this won't compile, will it!"
+with File f when isJava and imports "javax.ejb"
+  do setContent "Now this won't compile, will it!"
 ```
 
 The permitted values are consistent with parameter definitions used
@@ -376,11 +357,12 @@ Any content on a line after `#` is a comment. For example:
 ```
 editor Foo
 
-with file f # Do something with this file
-do
-   # This is not something we'd want to do in real life
-   setContent "Something else"
+with File f # Do something with this file
+  do
+    # This is not something we'd want to do in real life
+    setContent "Something else"
 ```
+
 C style multi-line comments are supported:
 
 ```

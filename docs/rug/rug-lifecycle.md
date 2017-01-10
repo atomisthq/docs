@@ -1,217 +1,238 @@
 # A Day in the Life of a Rug Archive
 
-This page describes the nature, structure and lifecycle of a Rug archive.
+This page describes the nature, structure and lifecycle of a Rug
+archive.
 
-If you haven't done so and you want to follow along, please install the CLI from
-[atomisthq/homebrew-tap](https://github.com/atomisthq/homebrew-tap/blob/master/README.md).
+If you haven't done so and you want to follow along, please [install
+the Rug CLI][install].
+
+[install]: http://docs.atomist.com/rug/rug-cli/rug-cli-install/
 
 ## Inception
 
-The easiest way to create a new Rug Archive is by using the `Rug Archive` generator
-via the bot or CLI. Here, we'll show how to do it with the CLI
+The easiest way to create a new Rug archive is by using the
+`NewRugArchiveProject` generator via the bot or CLI. Here, we'll show
+how to do it with the CLI.
 
 ```
-git clone git@github.com:atomist-project-templates/rug-archive.git
-cd rug-archive
+$ rug generate atomist-rugs:rug-archive:NewRugArchiveProject \
+    my-rug-archive \
+    group_id=atomist-rugs \
+    version=0.1.0 \
+    description="My first Rug Archive project"
+Processing dependencies
+  Downloading atomist-rugs/rug-archive/0.2.1/rug-archive-0.2.1.pom ← rugs (806 bytes) succeeded
+  Downloading atomist-rugs/rug-archive/0.2.1/rug-archive-0.2.1.zip ← rugs (18 kb) succeeded
+Resolving dependencies for atomist-rugs:rug-archive:0.2.1 completed
+Loading atomist-rugs:rug-archive:0.2.1 into runtime completed
+Running generator NewRugArchiveProject of atomist-rugs:rug-archive:0.2.1 completed
 
-rug generate "Rug Archive Project" -l my-new-template group_id=atomist-project-templates version=0.0.1 \
-  description="My first Rug Archive project" editor_name=MyFirstEditor -C /Users/cdupuis/Desktop/generate
+→ Project
+  ~/develop/my-rug-archive/ (5 kb in 7 files)
+
+→ Changes
+  ├─┬ .atomist
+  | ├─┬ editors
+  | | └── AddReadme.rug
+  | ├── manifest.yml
+  | ├─┬ templates
+  | | └── readme.vm
+  | └─┬ tests
+  |   └── AddReadme.rt
+  ├── .atomist.yml
+  ├── .gitignore
+  └── README.md
+
+Successfully generated new project my-rug-archive
 ```
 
-That command created a new `my-new-template` project at `/Users/cdupuis/Desktop/generate`.
+That command created a new directory named `my-rug-archive` in the
+current directory, `~/develop` in this case.
 
 ## Structure
 
-Each Rug Archive should have the following directory structure:
+The created Rug archive has the following directory structure:
 
 ```
-my-new-template
+$ tree -a my-rug-archive
+my-rug-archive
 ├── .atomist
 │   ├── editors
-│   │   └── MyFirstEditor.rug
+│   │   └── AddReadme.rug
 │   ├── manifest.yml
 │   ├── templates
-│   │   └── MyFirstEditorTemplate.vm
+│   │   └── readme.vm
 │   └── tests
-│       └── MyFirstEditor.rt
+│       └── AddReadme.rt
+├── .atomist.yml
+├── .gitignore
+└── README.md
+
+4 directories, 7 files
 ```
 
-The editor `MyFirstEditor.rug` and corresponding test `MyFirstEditor.rt` have
+The editor `AddReadme.rug` and corresponding test `AddReadme.rt` have
 been generated when running the generate command.
 
 Let's take a look at the `manifest.yml`:
 
 ```
-group: atomist-project-templates
-artifact: my-new-template
-version: "0.0.1"
-
-requires: "[1.1.3,1.2)"
-
+$ cd my-rug-archive/.atomist
+$ cat manifest.yml
+group: atomist-rugs
+artifact: my-rug-archive
+version: "0.1.0"
+requires: "[0.8.0,1.0.0)"
 dependencies:
-  - "atomist-project-templates:common-editors:2.5.0"
-
 extensions:
-  - "com.atomist:clj-rug:[1.2,1.3)"
 ```
 
-The `manifest.yml` specifies the unique coordinates of the Rug Archive as well
-as its version. Dependencies and extensions can also be declared
+The `manifest.yml` specifies the unique coordinates of the Rug archive
+as well as its version.  Dependencies and extensions can also be
+declared
 
 | Key | Description |
 | --- | --- |
-| `group` | The group of the Rug Archive. Should be the GitHub org |
-| `artifact` | A unique identifier within the `group` |
-| `version` | Version of the Rug Archive |
-| `requires` | The rug-lib version this archive is being developed with. Version range is allowed|
+| `group` | The group of the Rug archive, should be the GitHub org |
+| `artifact` | A unique identifier within the `group`, should be the GitHub repository name |
+| `version` | Version of the Rug archive |
+| `requires` | The rug-lib version this archive is being developed with. Version range is allowed |
 | `dependencies` | List of archive dependencies in form group:artifact:version. Version ranges are allowed |
-| `extensions` | List of binary dependencies to Rug Extension types etc. Version ranges are allowed |
+| `extensions` | List of binary dependencies, e.g., Rug Extension types. Version ranges are allowed |
 
 ## Running Tests
 
-After making some changes to your Rug code, you should run the tests.
+After making changes to your Rug code, you should run the tests.  The
+generated Rug archive already has some tests.
 
 ```
-✘-1 ~/Desktop/generate/my-new-template [master|✚ 19…4]
-15:44 $ rug test
-Resolving dependencies for atomist-project-templates:my-new-template:0.0.1 completed
-Loading atomist-project-templates:my-new-template:0.0.1 into runtime completed
-Executing scenario MyFirstEditor should do something amazing for developers......              
-   Testing assertion fileExists(IdentifierFunctionArg(sample_output_file,None))                
-   Testing assertion fileContains(IdentifierFunctionArg(sample_output_file,None),IdentifierFunctionArg(my_value,None))
-Running test scenarios in atomist-project-templates:my-new-template:0.0.1 completed
-Test report: 1 of 1 tests passed
+$ rug test
+Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
+Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
+Executing scenario AddReadme should add README.md...
+  Testing assertion fileExists(IdentifierFunctionArg(readme,None))
+  Testing assertion fileContains(IdentifierFunctionArg(readme,None),IdentifierFunctionArg(newName,None))
+  Testing assertion fileContains(IdentifierFunctionArg(readme,None),IdentifierFunctionArg(newDescription,None))
+Executing scenario AddReadme should reject invalid value name parameter...
+Executing scenario AddReadme should reject missing parameter...
+Running test scenarios in atomist-rugs:my-rug-archive:0.1.0 ← local completed
 
-Test SUCCESS
+Successfully executed 3 of 3 scenarios: Test SUCCESS
 ```
 
 ## Installing
 
-To package the Rug Archive up and make it available system-wide from your local
-repository, run the following command:
+To package the Rug archive up and make it available to the Rug CLI to
+run from any directory, you must install it:
 
 ```
-✘-1 ~/Desktop/generate/my-new-template [master|✚ 19…4]
-15:47 $ rug install
-Resolving dependencies for atomist-project-templates:my-new-template:0.0.1 completed
-Loading atomist-project-templates:my-new-template:0.0.1 into runtime completed
-Installed atomist-project-templates/my-new-template/0.0.1/my-new-template-0.0.1.zip -> /Users/cdupuis/.atomist/repository
-Installed atomist-project-templates/my-new-template/0.0.1/my-new-template-0.0.1.pom -> /Users/cdupuis/.atomist/repository
+$ rug install
+Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
+Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
+  Created META-INF/maven/atomist-rugs/my-rug-archive/pom.xml
+  Created .atomist/manifest.yml
+  Created .atomist/metadata.json
+Generating archive metadata completed
+  Installed atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip → /Users/dd/.atomist/repository
+  Installed atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.pom → /Users/dd/.atomist/repository
+  Installed atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0-metadata.json → /Users/dd/.atomist/repository
 Installing archive into local repository completed
-/Users/cdupuis/Desktop/generate/my-new-template/.atomist/target/my-new-template-0.0.1.zip
-==> Contents
-├─ .atomist
-|  ├─ editors
-|  |  └─ MyFirstEditor.rug
-|  ├─ manifest.yml
-|  ├─ templates
-|  |  └─ MyFirstEditorTemplate.vm
-|  └─ tests
-|     └─ MyFirstEditor.rt
-├─ .gitignore
-├─ .provenance.txt
-├─ META-INF/maven/atomist-project-templates/my-new-template
-|  └─ pom.xml
-└─ README.md
-Successfully installed archive for atomist-project-templates:my-new-template:0.0.1
+
+→ Archive
+  ~/develop/my-rug-archive/.atomist/target/my-rug-archive-0.1.0.zip (4 kb in 9 files)
+
+→ Contents
+  ├─┬ .atomist
+  | ├─┬ editors
+  | | └── AddReadme.rug
+  | ├── manifest.yml
+  | ├── metadata.json
+  | ├─┬ templates
+  | | └── readme.vm
+  | └─┬ tests
+  |   └── AddReadme.rt
+  ├── .atomist.yml
+  ├── .gitignore
+  ├─┬ META-INF/maven/atomist-rugs/my-rug-archive
+  | └── pom.xml
+  └── README.md
+
+Successfully installed archive for atomist-rugs:my-rug-archive:0.1.0
 ```
 
-The `install` command takes the project, creates a Maven-compatible `pom.xml` in
-`.atomist/target` as well as zip archive of your project.
+The `install` command takes the project, packages it up for
+distribution, and installs it under `~/.atomist/repository`.
 
-The contents of the archive can be further tuned by adding entries to `.gitignore`
-which the packaging step considers when packing the archive.
+The contents of the archive can be further tuned by adding entries to
+`.gitignore` and `.atomist/ignore`, the packaging step considers the
+contents of these files when creating the archive.
 
 ## Publishing
 
-Publishing is the process of uploading an archive to `private-templates-dev` from
-where it can only be used by users of a slack team that is enrolled to the same
-GitHub org the project was published from.
+Publishing is the process of uploading an archive to a Maven
+repository so it can only be used by others.  Before publishing a Rug
+archive, you first need to configure a publishing repository in your
+`~/.atomst/cli.yml`.  You must have write permission to this
+repository, set the `publish` field to `true`, and you will typically
+have to supply authentication information.  For example, if you have
+the environment variables `MAVEN_BASE_URL`, `MAVEN_USER`, and
+`MAVEN_TOKEN` set appropriate for your Maven repository, you would use
+the following configuration in your `~/.atomist/cli.yml`:
 
-Open source CLI users will not have access to the `private-templates-dev`.
-
-There are two ways for publishing a Rug Archive:
-
-### Publishing via the CLI (Pre-Release Only)
-
-Publishing into our Artifactory is only possible if you have write access to it.
-
-```
-✘-1 ~/Desktop/generate/my-new-template [master|✚ 19…4]
-rug publish
-Resolving dependencies for atomist-project-templates:my-new-template:0.0.1 completed
-Loading atomist-project-templates:my-new-template:0.0.1 into runtime completed
-Uploaded atomist-project-templates/my-new-template/0.0.1/my-new-template-0.0.1.zip -> https://sforzando.artifactoryonline.com/sforzando/private-templates-dev/ (3kb) succeeded
-Uploaded atomist-project-templates/my-new-template/0.0.1/my-new-template-0.0.1.pom -> https://sforzando.artifactoryonline.com/sforzando/private-templates-dev/ (0kb) succeeded
-Downloaded atomist-project-templates/my-new-template/maven-metadata.xml <- https://sforzando.artifactoryonline.com/sforzando/private-templates-dev/ (0kb) succeeded
-Uploaded atomist-project-templates/my-new-template/maven-metadata.xml -> https://sforzando.artifactoryonline.com/sforzando/private-templates-dev/ (0kb) succeeded
-Publishing archive into remote repository completed
-```
-
-Users of CLI can configure any Maven compatible repository for publishing into.
-This can be configured in the CLI's config file at `~/.atomist/cli.yml`. There
-should be only one `repository` marked with `publish: true`.
-
-```
-# Set up remote repositories to query for Rug archives. Additionally one of the
-# repositories can also be enabled for publication (publish: true).
+```yaml
 remote-repositories:
-  maven-central:
-    publish: false
-    url: "http://repo.maven.apache.org/maven2/"
-  public-templates:
-    publish: false
-    url: "https://sforzando.artifactoryonline.com/sforzando/public-templates-dev"
-    authentication:
-      username: "${CI_DEPLOY_USERNAME}"
-      password: "${CI_DEPLOY_PASSWORD}"
-  private-templates:
+  rugs-release:
     publish: true
-    url: "https://sforzando.artifactoryonline.com/sforzando/private-templates-dev"
+    url: "${MAVEN_BASE_URL}/rugs-release"
     authentication:
-      username: "${CI_DEPLOY_USERNAME}"
-      password: "${CI_DEPLOY_PASSWORD}"
-  rug-types:
-    publish: false
-    url: "https://sforzando.artifactoryonline.com/sforzando/rug-deps-dev"
-    authentication:
-      username: "${CI_DEPLOY_USERNAME}"
-      password: "${CI_DEPLOY_PASSWORD}"
+      username: "${MAVEN_USER}"
+      password: "${MAVEN_TOKEN}"
 ```
 
-### Publishing via the Bot
-
-The following bot command can be used to publish a Rug Archive straight out of GitHub.
-
-```
-@atomist publish archive --repo my-new-template --version 1.0.0
-```
-
-The GitHub org will be inferred from the enrolled GitHub org of the user running
-the command. `repo` is optional and defaults for the name of the service channel
-the command is invoked from.
-
-`version` can be used to overwrite the version specified in the `manifest.yml`.
-
-### Publishing as part of a CI build
-
-We provide template `.travis.yml` and scripts to run a CI build on your Rug archive.
-The script installs the CLI, runs the Rug tests and installs and publishes the
-archive.
-
-## Releasing
-
-Releasing describes the process of making a Rug Archive visible to users of other
-orgs and teams. Generally speaking by releasing an Archive it becomes visible to
-the rest of world.
-
-Releasing is supported via the bot only.
+Once you have your publishing repository configured, you simply run
+`rug publish`.
 
 ```
-@atomist release archive --repo my-new-template --version 1.0.0
+$ rug publish
+Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
+Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
+  Created META-INF/maven/atomist-rugs/my-rug-archive/pom.xml
+  Created .atomist/manifest.yml
+  Created .atomist/metadata.json
+Generating archive metadata completed
+  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip → rugs-dev (4 kb) succeeded
+  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.pom → rugs-dev (639 bytes) succeeded
+  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0-metadata.json → rugs-dev (1 kb) succeeded
+  Downloading atomist-rugs/my-rug-archive/maven-metadata.xml ← rugs-dev (381 bytes) succeeded
+  Uploading atomist-rugs/my-rug-archive/maven-metadata.xml → rugs-dev (333 bytes) succeeded
+Publishing archive into remote repository completed
+
+→ Archive
+  ~/develop/my-rug-archive/.atomist/target/my-rug-archive-0.1.0.zip (4 kb in 9 files)
+
+→ Contents
+  ├─┬ .atomist
+  | ├─┬ editors
+  | | └── AddReadme.rug
+  | ├── manifest.yml
+  | ├── metadata.json
+  | ├─┬ templates
+  | | └── readme.vm
+  | └─┬ tests
+  |   └── AddReadme.rt
+  ├── .atomist.yml
+  ├── .gitignore
+  ├─┬ META-INF/maven/atomist-rugs/my-rug-archive
+  | └── pom.xml
+  └── README.md
+
+Successfully published archive for atomist-rugs:my-rug-archive:0.1.0 to
+  https://atomist.jfrog.io/atomist/rugs-dev/atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip
 ```
 
-This command will promote or copy the archive from `private-templates-dev` to
-`public-templates-dev`. The GitHub org will be inferred from the enrolled GitHub
-org of the user running the command. `repo` is optional and defaults for the
-name of the service channel the command is invoked from.
+The `atomist-rugs:travis-editors:EnableTravisForRugArchiveTS` editor
+configures testing, installing, and publishing archives as part of a
+Travis CI build.  See the [build][] directory of the `travis-editors`
+archive for more detail.
+
+[build]: https://github.com/atomist-rugs/travis-editors/tree/master/.atomist/build

@@ -29,8 +29,9 @@ $ brew install rug-cli
 If you'd like to stay on the latest, possible unstable and un-released, version of the CLI you can install HEAD from:
 
 ```
-brew upgrade --HEAD rug-cli --fetch-HEAD
+$ brew upgrade --HEAD rug-cli --fetch-HEAD
 ```
+
 ### Install the RUG CLI on Linux
 
 We support installing via packages on Debian- and RPM-based GNU/Linux

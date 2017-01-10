@@ -45,9 +45,9 @@ The CLI will assume the current working directory to be the root for execution.
 Run an editor as follows:
 
 ```sh
-$ rug edit atomist:common-editors:AddReadme --artifact-version 1.0.0 parameter1=foo parameter2=bar
+$ rug edit atomist-rugs:common-editors:AddReadme --artifact-version 1.0.0 parameter1=foo parameter2=bar
 
-$ rug edit atomist:common-editors:AddReadme parameter1=foo parameter2=bar
+$ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
 ```
 
 `artifact-version` is optional and defaults to `latest` semantics.
@@ -56,11 +56,11 @@ $ rug edit atomist:common-editors:AddReadme parameter1=foo parameter2=bar
 ##### Invoking Generators
 
 ```sh
-$ rug generate "atomist-project-templates:spring-rest-service:Spring Boot Microservice" \
-    --artifact-version 1.0.0 MyNewProjectName parameter1=foo parameter2=bar
+$ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
+    --artifact-version 1.0.0 my-new-project parameter1=foo parameter2=bar
 
-$ rug generate "atomist-project-templates:spring-rest-service:Spring Boot Microservice" \
-    MyNew Project parameter1=foo parameter2=bar
+$ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
+    my-new-project parameter1=foo parameter2=bar
 ```
 
 `artifact-version` is optional and defaults to `latest` semantics.
@@ -72,12 +72,12 @@ In order to list all parameters, describing an artifact is available in the
 following form:
 
 ```sh
-$ rug describe archive atomist-project-templates:spring-rest-service
+$ rug describe archive atomist-rugs:spring-rest-service
 
-$ rug describe editor "atomist-project-templates:spring-rest-service:Spring Boot Microservice" \
+$ rug describe editor atomist-rugs:spring-rest-service:SpringBootThing \
   --artifact-version 1.0.0
 
-$ rug describe generator "atomist-project-templates:spring-rest-service:Spring Boot Microservice" \
+$ rug describe generator atomist-rugs:spring-rest-service:NewSpringBootThing \
   --artifact-version 1.0.0
 ```
 
@@ -135,14 +135,14 @@ and installs both into the local repository under, usually
 The Rug CLI will automatically resolve and download the dependencies
 of the given Rug archive when `edit` or `generate` is invoked. The
 archives along with their dependencies will be downloaded to a local
-repo (not the one in the user's home directory) via Aether and
-resolved from there.
+repository under `~/.atomist` via Aether and resolved from there.
 
 Therefore running above commands is a two step process:
 
 1.  Search and resolve (eventually download) the archive referenced in
-    the command. The result of a resolution is cached for 60mins or
-    until the `manifest.yml` is changed
+    the command.  The result of a resolution is cached for 60
+    minutes. You can force re-resolution with the `-r` command-line
+    option.
 2.  Start up `rug-lib` passing parameters over to run the editor or
     generator
 

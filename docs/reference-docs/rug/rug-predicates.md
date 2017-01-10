@@ -3,9 +3,9 @@
 When writing test assertions or when specifying that a Rug editor
 should not be applied with a precondition it is often useful, and more
 readable, to be able to specify and even reuse this logic by defining
-a Rug Predicate.
+a Rug predicate.
 
-A Rug Predicate is an expression that returns a `Boolean` `true` or
+A Rug predicate is an expression that returns a `Boolean` `true` or
 `false` value.
 
 ### A Simple Rug Predicate based on a [Rug Type][types] being supported
@@ -30,8 +30,8 @@ supports.
 
 ### Flexible Rug Predicates based Javascript
 
-If you need more power then a you can declare a Rug Predicate that
-begins by selecting the project itself and then can execute Javascript
+If you need more power then a you can declare a Rug predicate that
+begins by selecting the project itself and then can execute JavaScript
 logic to indicate whether the predicate should pass:
 
 ```
@@ -92,11 +92,10 @@ from...
 
 ### Predicates in `.rug` Files for Reuse
 
-In the `editor` `precondition` example shown above the actual
-predicates themselves are expressed in their own `.rug` files. If you
-want to reuse a predicate then it *must* be declared separated in its
-own file. TYpically this is a `.rug` file located in the
-`.atomist/editors` directory in
+In the editor `precondition` example shown above the actual predicates
+themselves are expressed in their own `.rug` files. If you want to
+reuse a predicate then it *must* be defined in its own file. Typically
+this is a `.rug` file located in the `.atomist/editors` directory in
 the [Rug Archive](/rug/rug-archive.md).
 
 Similar to how the first editor in a `.rug` file must have the same

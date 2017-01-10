@@ -18,23 +18,23 @@ instructions.
 
 ### 'Git' Some Examples
 
-To generate and edit code with Rug automation, you will become familiar
-with Rug Editors, Generators, and Reviewers.  The best way to do that
-is to look at some examples.  Some simple examples of Rug Editors can
-be found in the [common-editors][common] repo.  You can clone that
-repo with the following command.
+To generate and edit code with Rug automation, you should become
+familiar with Rug Editors, Generators, and Reviewers.  The best way to
+do that is to look at some examples.  Some simple examples of Rug
+Editors can be found in the [common-editors][common] repo.  You can
+clone that repo with the following command.
 
 [common]: https://github.com/atomist-rugs/common-editors
 
 ```
 $ git clone https://github.com/atomist-rugs/common-editors.git
 $ cd common-editors
-$ ls -1
+$ ls -1F
+CHANGELOG.md
 CODE_OF_CONDUCT.md
 LICENSE
 README.md
 src/
-travis-build.bash
 ```
 
 You cloned the repo, but where are the Rugs?  Rugs are always located
@@ -43,8 +43,10 @@ same directory that has the `.git` directory.
 
 ```
 $ ls -1F .atomist/
+build/
 editors/
 manifest.yml
+target/
 templates/
 tests/
 ```
@@ -54,19 +56,24 @@ Here you can see the standard layout for a Rug directory.  It has a
 a the metadata for your Rugs, i.e., the name, version, dependencies,
 etc.  The Editors and Generators are in the `editors` directory.  Any
 templates are in the `templates` directory.  Testing is integral to
-Rug, so we also use a `tests` directory to hold all our tests.
+Rug, so we also use a `tests` directory to hold all our tests.  There
+is also a `build` directory that contains the repository's CI scripts
+and configurations.
 
 Let's see what Editors we have available.
 
 ```
 $ awk '$1 == "editor" { print $2 }' .atomist/editors/*.rug
 AddApacheSoftwareLicense20
+AddChangeLog
 AddReadme
 AddScalaMavenGitIgnore
 ClassRenamer
 PackageMove
 PomParameterizer
 RemoveApacheSoftwareLicense20
+RemoveChangeLog
+RemoveCodeOfConduct
 ```
 
 Feel free to look around in the `.atomist` directory to see what is
@@ -80,23 +87,37 @@ common-editors repo.
 
 ```
 $ rug test
-Downloading com/atomist/rug-cli-root/1.0.0/rug-cli-root-1.0.0.pom ← rug-types (0kb) succeeded
-Downloading com/atomist/rug/maven-metadata.xml ← rug-types (2kb) succeeded
-Downloading com/atomist/rug/0.4.0/rug-0.4.0.pom ← rug-types (13kb) succeeded
-... (more downloads)
-Downloading com/atomist/rug-cli-root/1.0.0/rug-cli-root-1.0.0.jar ← rug-types (1kb) succeeded
-Downloading org/scala-lang/scala-reflect/2.11.8/scala-reflect-2.11.8.jar ← maven-central (4466kb) succeeded
-Resolving dependencies for atomist-rugs:common-editors:0.1.0 ← local completed
-Loading atomist-rugs:common-editors:0.1.0 ← local into runtime completed
+Processing dependencies
+  Downloading com/atomist/rug/maven-metadata.xml ← rug-types (0kb) succeeded
+  Downloading com/atomist/rug-cli-root/1.0.0/rug-cli-root-1.0.0.pom ← rug-types (0kb) succeeded
+  Downloading com/atomist/rug/maven-metadata.xml ← rug-types (2kb) succeeded
+  Downloading com/atomist/rug/0.8.0/rug-0.8.0.pom ← rug-types (13kb) succeeded
+  ... (more downloads)
+  Downloading com/atomist/rug-cli-root/1.0.0/rug-cli-root-1.0.0.jar ← rug-types (1kb) succeeded
+  Downloading org/scala-lang/scala-reflect/2.11.8/scala-reflect-2.11.8.jar ← maven-central (4466kb) succeeded
+Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
+Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
 Executing scenario AddApacheSoftwareLicense20 should add a new LICENSE file according to a provided template...
   Testing assertion fileExists(SimpleLiteral(LICENSE))
   Testing assertion fileContains(SimpleLiteral(LICENSE),SimpleLiteral(Version 2.0, January 2004))
+Executing scenario AddChangeLog should add CHANGELOG.md...
+  Testing assertion fileExists(IdentifierFunctionArg(changelog,None))
+  Testing assertion fileContains(IdentifierFunctionArg(changelog,None),IdentifierFunctionArg(repo_slug,None))
+Executing scenario AddChangeLog should overwrite CHANGELOG.md...
+  Testing assertion fileExists(IdentifierFunctionArg(changelog,None))
+  Testing assertion fileContains(IdentifierFunctionArg(changelog,None),IdentifierFunctionArg(repo_slug,None))
+  Testing assertion ParsedJavaScriptFunction(JavaScriptBlock( !result.fileContains(changelog, "common-editor") ))
+Executing scenario AddChangeLog should reject invalid repo_slug...
+Executing scenario AddChangeLog should reject missing parameter...
 Executing scenario AddScalaMavenGitIgnore should add a new .gitignore file according to a provided template...
   Testing assertion fileExists(SimpleLiteral(.gitignore))
   Testing assertion fileContains(SimpleLiteral(.gitignore),SimpleLiteral(# Created by Atomist))
 Executing scenario AddScalaMavenGitIgnore should overwrite an existing .gitignore file according to a provided template...
   Testing assertion fileExists(SimpleLiteral(.gitignore))
   Testing assertion fileContains(SimpleLiteral(.gitignore),SimpleLiteral(# Created by Atomist))
+Executing scenario AddScalaMavenGitIgnore should add a new .gitignore to a subdirectory...
+  Testing assertion fileExists(SimpleLiteral(other/.gitignore))
+  Testing assertion fileContains(SimpleLiteral(other/.gitignore),SimpleLiteral(# Created by Atomist))
 Executing scenario AddReadme should add README.md...
   Testing assertion fileExists(IdentifierFunctionArg(readme,None))
   Testing assertion fileContains(IdentifierFunctionArg(readme,None),IdentifierFunctionArg(newName,None))
@@ -125,11 +146,18 @@ Executing scenario PomParameterizer should establish a new project's valid pom.x
   Testing assertion fileContains(SimpleLiteral(pom.xml),SimpleLiteral(<groupId>mygroup</groupId>))
   Testing assertion fileContains(SimpleLiteral(pom.xml),SimpleLiteral(<version>0.0.1-SNAPSHOT</version>))
   Testing assertion fileContains(SimpleLiteral(pom.xml),SimpleLiteral(<description>My project description</description>))
-Executing scenario RemoveApacheSoftwareLicense20 should remove a LICENSE file...
+Executing scenario RemoveApacheSoftwareLicense20 should remove Apache license...
   Testing assertion ParsedJavaScriptFunction(JavaScriptBlock( !result.fileExists("LICENSE") ))
-Running test scenarios in atomist-rugs:common-editors:0.1.0 ← local completed
+Executing scenario RemoveApacheSoftwareLicense20 should not remove other license...
+Executing scenario RemoveChangeLog should remove CHANGELOG...
+  Testing assertion ParsedJavaScriptFunction(JavaScriptBlock( !result.fileExists("CHANGELOG.md") ))
+Executing scenario RemoveApacheSoftwareLicense20 silently do nothing if no CHANGELOG present...
+Executing scenario RemoveCodeOfConduct should remove CODE_OF_CONDUCT...
+  Testing assertion ParsedJavaScriptFunction(JavaScriptBlock( !result.fileExists("CODE_OF_CONDUCT.md") ))
+Executing scenario RemoveCodeOfConduct silently do nothing if no CODE_OF_CONDUCT present...
+Running test scenarios in atomist-rugs:common-editors:0.7.0 ← local completed
 
-Successfully executed 12 of 12 scenarios: Test SUCCESS
+Successfully executed 22 of 22 scenarios: Test SUCCESS
 ```
 
 The above command will download all the dependencies needed to run the
@@ -149,58 +177,75 @@ command.
 
 ```
 $ rug install
-Resolving dependencies for atomist-rugs:common-editors:0.1.0 ← local completed
-Loading atomist-rugs:common-editors:0.1.0 ← local into runtime completed
-Installed atomist-rugs/common-editors/0.1.0/common-editors-0.1.0.zip → /Users/dd/.atomist/repository
-Installed atomist-rugs/common-editors/0.1.0/common-editors-0.1.0.pom → /Users/dd/.atomist/repository
+Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
+Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
+  Generated META-INF/maven/atomist-rugs/common-editors/pom.xml
+  Generated .atomist/manifest.yml
+  Generated .atomist/metadata.json
+Generating archive metadata completed
+  Installed atomist-rugs/common-editors/0.7.0/common-editors-0.7.0.zip → /Users/dd/.atomist/repository
+  Installed atomist-rugs/common-editors/0.7.0/common-editors-0.7.0.pom → /Users/dd/.atomist/repository
+  Installed atomist-rugs/common-editors/0.7.0/common-editors-0.7.0-metadata.json → /Users/dd/.atomist/repository
 Installing archive into local repository completed
 
 → Archive
-  ~/develop/atomist-rugs/common-editors/.atomist/target/common-editors-0.1.0.zip (27kb in 32 files)
+  ~/develop/atomist-rugs/common-editors/.atomist/target/common-editors-0.7.0.zip (39kb in 43 files)
 
 → Contents
-  ├─ .atomist
-  |  ├─ editors
-  |  |  ├─ AddApacheSoftwareLicense20.rug
-  |  |  ├─ AddReadme.rug
-  |  |  ├─ AddScalaMavenGitIgnore.rug
-  |  |  ├─ ClassRenamer.rug
-  |  |  ├─ PackageMove.rug
-  |  |  ├─ PomParameterizer.rug
-  |  |  └─ RemoveApacheSoftwareLicense20.rug
-  |  ├─ manifest.yml
-  |  ├─ templates
-  |  |  ├─ ApacheSoftwareLicenseV20.vm
-  |  |  ├─ ExampleEditor.vm
-  |  |  ├─ ExampleEditorTest.vm
-  |  |  ├─ gitignore.vm
-  |  |  └─ readme.vm
-  |  └─ tests
-  |     ├─ AddApacheSoftwareLicense20.rt
-  |     ├─ AddGitIgnore.rt
-  |     ├─ AddReadme.rt
-  |     ├─ ClassRenamer.rt
-  |     ├─ PackageMove.rt
-  |     ├─ PomParameterizer.rt
-  |     └─ RemoveApacheSoftwareLicense20.rt
-  ├─ .gitignore
-  ├─ CODE_OF_CONDUCT.md
-  ├─ LICENSE
-  ├─ META-INF/maven/atomist-rugs/common-editors
-  |  └─ pom.xml
-  ├─ README.md
-  ├─ src/main/java/com/atomist/springrest
-  |  ├─ SpringRestApplication.java
-  |  └─ SpringRestConfiguration.java
-  ├─ src/main/resources
-  |  ├─ application.properties
-  |  └─ logback.xml
-  └─ src/test/java/com/atomist/springrest
-     ├─ SpringRestApplicationTests.java
-     ├─ SpringRestOutOfContainerIntegrationTests.java
-     └─ SpringRestWebIntegrationTests.java
+  ├─┬ .atomist
+  | ├─┬ build
+  | | ├── cli-build.yml
+  | | ├── cli-dev.yml
+  | | └── cli-release.yml
+  | ├─┬ editors
+  | | ├── AddApacheSoftwareLicense20.rug
+  | | ├── AddChangeLog.rug
+  | | ├── AddReadme.rug
+  | | ├── AddScalaMavenGitIgnore.rug
+  | | ├── ClassRenamer.rug
+  | | ├── PackageMove.rug
+  | | ├── PomParameterizer.rug
+  | | ├── RemoveApacheSoftwareLicense20.rug
+  | | ├── RemoveChangeLog.rug
+  | | └── RemoveCodeOfConduct.rug
+  | ├── manifest.yml
+  | ├── metadata.json
+  | ├─┬ templates
+  | | ├── ApacheSoftwareLicenseV20.vm
+  | | ├── CHANGELOG.md.mustache
+  | | ├── gitignore.vm
+  | | └── readme.vm
+  | └─┬ tests
+  |   ├── AddApacheSoftwareLicense20.rt
+  |   ├── AddChangeLog.rt
+  |   ├── AddGitIgnore.rt
+  |   ├── AddReadme.rt
+  |   ├── ClassRenamer.rt
+  |   ├── PackageMove.rt
+  |   ├── PomParameterizer.rt
+  |   ├── RemoveApacheSoftwareLicense20.rt
+  |   ├── RemoveChangeLog.rt
+  |   └── RemoveCodeOfConduct.rt
+  ├── .atomist.yml
+  ├── .gitignore
+  ├── CHANGELOG.md
+  ├── CODE_OF_CONDUCT.md
+  ├── LICENSE
+  ├─┬ META-INF/maven/atomist-rugs/common-editors
+  | └── pom.xml
+  ├── README.md
+  ├─┬ src/main/java/com/atomist/springrest
+  | ├── SpringRestApplication.java
+  | └── SpringRestConfiguration.java
+  ├─┬ src/main/resources
+  | ├── application.properties
+  | └── logback.xml
+  └─┬ src/test/java/com/atomist/springrest
+    ├── SpringRestApplicationTests.java
+    ├── SpringRestOutOfContainerIntegrationTests.java
+    └── SpringRestWebIntegrationTests.java
 
-Successfully installed archive for atomist-rugs:common-editors:0.1.0
+Successfully installed archive for atomist-rugs:common-editors:0.7.0
 ```
 
 This command packages up all of the Rugs in the `.atomist` directory
@@ -215,12 +260,11 @@ locally, we can list our local Editors.
 
 ```
 $ rug list
-Resolving dependencies for com.atomist:rug:0.4.0 completed
-Loading com.atomist:rug:0.4.0 into runtime completed
+Resolving dependencies for com.atomist:rug:0.8.0 completed
 Listing local archives completed
 
 → Local Archives
-  atomist-rugs:common-editors (0.1.0)
+  atomist-rugs:common-editors (0.7.0)
 
 For more information on specific archive version, run:
   rug describe archive ARCHIVE -a VERSION
@@ -234,27 +278,32 @@ latest version is used.
 
 ```
 $ rug describe archive atomist-rugs:common-editors
+Processing dependencies
+  Downloading atomist-rugs/common-editors/maven-metadata.xml ← rugs (0kb) succeeded
 Resolving dependencies for atomist-rugs:common-editors:latest completed
-Loading atomist-rugs:common-editors:0.1.0 into runtime completed
+Loading atomist-rugs:common-editors:0.7.0 into runtime completed
 
-atomist-rugs:common-editors:0.1.0
+atomist-rugs:common-editors:0.7.0
 
 → Origin
-  atomist-rugs/common-editors.git#master (5c8ec50)
+  atomist-rugs/common-editors.git#master (622ed10)
 → Archive
-  ~/.atomist/repository/atomist-rugs/common-editors/0.1.0/common-editors-0.1.0.zip (27kb in 32 files)
+  ~/.atomist/repository/atomist-rugs/common-editors/0.7.0/common-editors-0.7.0.zip (39kb in 43 files)
 
 → Editors
-  AddApacheSoftwareLicense20 (adds the Apache Software License version 2.0 file)
+  AddApacheSoftwareLicense20 (add the Apache Software License version 2.0 file)
+  AddChangeLog (adds a new CHANGELOG)
   AddReadme (adds a project specific README)
   AddScalaMavenGitIgnore (adds a .gitignore suitable for Scala Maven projects)
   ClassRenamer (renames a Java class, replacing one literal pattern with another)
   PackageMove (renames a Java package)
   PomParameterizer (updates a Maven pom to a new group, artifact, version and description)
   RemoveApacheSoftwareLicense20 (removes an Apache Software License version 2.0 file if present)
+  RemoveChangeLog (removes CHANGELOG file if present)
+  RemoveCodeOfConduct (removes CODE_OF_CONDUCT file if present)
 
 → Requires
-  [0.4.0,1.0.0)
+  [0.8.0,1.0.0)
 
 To get more information on any of the Rugs listed above, run:
   rug describe editor|generator|executor|reviewer ARTIFACT
@@ -287,10 +336,11 @@ Options:
   -?,-h,--help          Print help information
   -X,--error            Print verbose error messages
   -o,--offline          Use only downloaded archives
-  -q,--quiet            Don't display progress messages
+  -q,--quiet            Do not display progress messages
   -r,--resolver-report  Print dependency tree
   -s,--settings FILE    Use settings file FILE
   -t,--timer            Print timing information
+  -u,--update           Update dependency resolution
 
 Command Options:
   -a,--archive-version AV  Use archive version AV
@@ -315,22 +365,22 @@ want to run, that seems promising.
 
 ```
 $ rug describe -l editor AddApacheSoftwareLicense20
-Resolving dependencies for atomist-rugs:common-editors:0.1.0 ← local completed
-Loading atomist-rugs:common-editors:0.1.0 ← local into runtime completed
+Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
+Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
 
 AddApacheSoftwareLicense20
-atomist-rugs:common-editors:0.1.0
-adds the Apache Software License version 2.0 file
+atomist-rugs:common-editors:0.7.0
+add the Apache Software License version 2.0 file
 
 → Tags
-  license (license)
   apache (apache)
+  license (license)
   documentation (documentation)
 → Parameters
   no parameters needed
 
 To invoke the AddApacheSoftwareLicense20 editor, run:
-  rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.1.0 -l
+  rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.7.0 -l
 ```
 
 Success!  The output from that command also tells us what the full
@@ -361,17 +411,17 @@ We will just run the command we were provided above.  We remove the
 from the local directory, we can run it from the installed archive.
 
 ```
-$ rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.1.0
-Resolving dependencies for atomist-rugs:common-editors:0.1.0 ← local completed
-Loading atomist-rugs:common-editors:0.1.0 ← local into runtime completed
-Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.1.0 ← local completed
+$ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20 -a 0.7.0
+Resolving dependencies for atomist-rugs:common-editors:latest completed
+Loading atomist-rugs:common-editors:0.7.0 into runtime completed
+Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.7.0 completed
 
 → Project
-  ~/develop/atomist-rugs/common-editors/ (127kb in 34 files)
+  ~/develop/atomist-rugs/common-editors/ (282kb in 302 files)
 
 → Changes
-  ├─ LICENSE created 11kb
-  └─ .provenance.txt created 213bytes
+  ├── LICENSE created 11kb
+  └── .atomist.yml created 3kb
 
 Successfully edited project common-editors
 ```
@@ -382,63 +432,63 @@ Looks like two files were edited in the local repository.
 $ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
 
-	.provenance.txt
+	modified:   .atomist.yml
 
-nothing added to commit but untracked files present (use "git add" to track)
+no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 Hmm, git shows only one file has been modified.  Why?  Well, the
 contents of the `LICENSE` file were set to be the Apache Software
 License, but that is what the contents already were.  Git is smart.
-What is that `provenance.txt` file?
+What is that `atomist.yml` file?
 
 ```
-$ cat .provenance.txt
-####
-
-# editor info
-name: atomist-rugs.common-editors.AddApacheSoftwareLicense20
-group: atomist-rugs
-artifact: common-editors
-version: 0.1.0
-
-# backing git repo
-repo: n/a
-branch: n/a
-sha: n/a
-
-# parameter values
+$ cat .atomist.yml
+---
+kind: "operation"
+client: "rug-cli 0.20.0"
+editor:
+  name: "atomist-rugs.common-editors.AddApacheSoftwareLicense20"
+  group: "atomist-rugs"
+  artifact: "common-editors"
+  version: "0.7.0"
+  origin:
+    repo: "atomist-rugs/common-editors.git"
+    branch: "master"
+    sha: "622ed10"
 
 ```
 
 Looks like it is a record of what we have done, nice!
 
-I suppose we should have guessed the editor would act on the local
+I suppose we should have guessed the Editor would act on the local
 directory, but we don't really want to edit the current project.
 Let's create another project to edit.  We run the same command as
-above, except we remove the archive version command-line option.  If
-you do not provide the `-a` option, the CLI will use the latest
-installed version, 0.1.0 in our case.
+above, except we'll remove the archive version command-line option.
+If you do not provide the `-a` option, the CLI will use the latest
+installed version, 0.7.0 in our case.
 
 ```
 $ cd ..
 $ mkdir atomist-test
 $ cd !$
 $ git init
-$ rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20"
-Resolving dependencies for atomist-rugs:common-editors:0.1.0 completed
-Loading atomist-rugs:common-editors:0.1.0 into runtime completed
-Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.1.0 completed
+$ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20
+$ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20
+Resolving dependencies for atomist-rugs:common-editors:latest completed
+Loading atomist-rugs:common-editors:0.7.0 into runtime completed
+Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.7.0 completed
 
 → Project
-  ~/develop/atomist-rugs/atomist-test/ (15kb in 2 files)
+  ~/develop/atomist-rugs/atomist-test/ (15 kb in 16 files)
 
 → Changes
-  ├─ LICENSE created 11kb
-  └─ .provenance.txt created 248bytes
+  ├── LICENSE created 11 kb
+  └── .atomist.yml created 287 bytes
 
 Successfully edited project atomist-test
 $ git status
@@ -449,7 +499,7 @@ Initial commit
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	.provenance.txt
+	.atomist.yml
 	LICENSE
 
 nothing added to commit but untracked files present (use "git add" to track)
@@ -459,17 +509,17 @@ That's more like it!  What if we decide we do not want the Apache
 Software License?  There's an Editor for that!
 
 ```
-$ rug edit "atomist-rugs:common-editors:RemoveApacheSoftwareLicense20"
-Resolving dependencies for atomist-rugs:common-editors:0.1.0 completed
-Loading atomist-rugs:common-editors:0.1.0 into runtime completed
-Running editor RemoveApacheSoftwareLicense20 of atomist-rugs:common-editors:0.1.0 completed
+$ rug edit atomist-rugs:common-editors:RemoveApacheSoftwareLicense20
+Resolving dependencies for atomist-rugs:common-editors:latest completed
+Loading atomist-rugs:common-editors:0.7.0 into runtime completed
+Running editor RemoveApacheSoftwareLicense20 of atomist-rugs:common-editors:0.7.0 completed
 
 → Project
-  ~/develop/atomist-rugs/atomist-test/ (26kb in 1 files)
+  ~/develop/atomist-rugs/atomist-test/ (26 kb in 15 files)
 
 → Changes
-  ├─ LICENSE deleted 15kb
-  └─ .provenance.txt created 499bytes
+  ├── LICENSE deleted 15 kb
+  └── .atomist.yml created 577 bytes
 
 Successfully edited project atomist-test
 $ git status
@@ -480,38 +530,42 @@ Initial commit
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	.provenance.txt
+	.atomist.yml
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 We see the `LICENSE` file is gone.  If we inspect the contents of the
-`.provenance.txt` file, we see a complete record of what Rug has done.
+`.atomist.yml` file, we see a complete record of what Rug has done.
 
 ```
+$ cat .atomist.yml
 ---
+kind: "operation"
+client: "rug-cli 0.20.0"
 editor:
   name: "atomist-rugs.common-editors.AddApacheSoftwareLicense20"
   group: "atomist-rugs"
   artifact: "common-editors"
-  version: "0.1.0"
+  version: "0.7.0"
   origin:
     repo: "atomist-rugs/common-editors.git"
     branch: "master"
-    sha: "d6e5e54"
-  parameters:
+    sha: "622ed10"
 
 ---
+kind: "operation"
+client: "rug-cli 0.20.0"
 editor:
   name: "atomist-rugs.common-editors.RemoveApacheSoftwareLicense20"
   group: "atomist-rugs"
   artifact: "common-editors"
-  version: "0.1.0"
+  version: "0.7.0"
   origin:
     repo: "atomist-rugs/common-editors.git"
     branch: "master"
-    sha: "d6e5e54"
-  parameters:
+    sha: "622ed10"
+
 ```
 
 ### More Information

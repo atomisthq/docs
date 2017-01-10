@@ -30,8 +30,7 @@ When writing Rugs using the Rug DSL, you can escape into other
 languages if the Rug Core Types do not provide the functionality you
 need.
 
--   [Javascript](escape/rug-javascript.md)
--   [Clojure](escape/rug-clojure.md)
+-   [JavaScript](escape/rug-javascript.md)
 
 ### Rug CLI
 

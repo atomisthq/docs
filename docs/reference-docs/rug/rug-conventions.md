@@ -45,7 +45,7 @@ layout is:
 
 ### Rug Archive Repositories
 
-Rug Archive source code repositories should have a good `README.md`
+Rug archive source code repositories should have a good `README.md`
 containing the following information at minimum:
 
 -   A general description of the intent of the Rugs in the archive,
@@ -65,7 +65,7 @@ containing the following information at minimum:
 -   A **Development** section providing information on how one would
     modify and test the Rugs.
 
-Public Rug Archive repositories should be automatically built, tested
+Public Rug archive repositories should be automatically built, tested
 and deployed using [Travis CI][travis].  The Travis CI build status
 badge and the Slack badge for the Atomist Community should be placed
 in the `README.md` between the page title and the general description.
@@ -96,7 +96,7 @@ BDD-style tests for your Rugs are strongly recommended and should be
 located within a `.atomist/tests` directory and have the `.rt`
 extension.
 
-If your Rugs, typically Editors, use any templates, they are placed in
+If your Rugs, typically editors, use any templates, they are placed in
 the `.atomist/templates` directory.
 
 ### Rug Naming
@@ -126,22 +126,17 @@ in support of the main and initial Rug in the file.
 
 #### Rug Generator Naming
 
-To indicate that an editor is also a Rug `generator` in Rug DSL or
+To indicate that an editor is also a Rug generator in Rug DSL or
 TypeScript it is conventional to name the editor with `New` at the
 beginning of the editor's name to indicate that it is used to
 construct a project from scratch.
 
-In Rug DSL you can also specify a human-readable name for the
-generator after the `@generator` annotation, for example:
+You declare that an editor is a generator using the `@generator`
+annotation.
 
 ```
-@generator "NewSpringBootRestMicroservice"
+@generator
 ```
-
-While there is no restriction on the white-space or other characters
-that can be used within these generator names, it is also recommended
-that these human-readable names should be UpperCamelCase and not
-include spaces to simplify usage from the Rug CLI.
 
 #### Rug Predicate Naming
 
@@ -161,9 +156,8 @@ conditions to be considered a Maven project.
 Rug Archive configuration is stored in a file in the `.atomist`
 directory.  Rug Archives that contain Rug DSL Rugs have their
 configuration stored in `.atomist/manifest.yml`.  Rug Archives using
-TypeScript store their configuration in `.atomist/package.json`.  If
-your archive has both Rug DSL and TypeScript Rugs, you must use the
-`package.json` format.
+TypeScript must also include a `.atomist/package.json` defining their
+JavaScript metadata and annotation.
 
 If using the Rug DSL `manifest.yml` then it should name Rug archives
 according to the following rules:
@@ -178,9 +172,9 @@ according to the following rules:
 *   `requires`: Specify the exact, or bounded, version of the Rug
     language that your Rug Archive has been tested against.
 
-If alternatively you are using the Rug TypeScript approach, then the
-corresponding `package.json` in the `.atomist` directory should name
-the Rug Archive according to the following rules:
+If you are using the Rug TypeScript approach, then the corresponding
+`package.json` in the `.atomist` directory should name the Rug Archive
+according to the following rules:
 
 *   `name`: Contains the org and name of the archive in the form
     `@<org>/<rug-archive-name>`
@@ -202,13 +196,12 @@ or executors.
 
 If the main purpose of a Rug Archive is to be a generator then ending
 the name of the type of project it will generate would be most
+appropriate.  For example if your Rug Archive's main purpose was to be
+a generator for a Spring Boot Rest Service then
+`spring-boot-rest-service` or even `java-spring-boot-rest-service`
+would be appropriate. If your Rug Archive's main purpose was simply to
+generate a valid Maven project then `maven-project` would be
 appropriate.
-
-For example if your Rug Archive's main purpose was to be a generator
-for a Spring Boot Rest Service then `spring-boot-rest-service` or even
-`java-spring-boot-rest-service` would be appropriate. If your Rug
-Archive's main purpose was simply to generate a valid Maven project
-then `maven-project` would be appropriate.
 
 
 ### Rug `tag` Annotations
@@ -273,7 +266,7 @@ explicitly as possible, what the parameter is to contain.
 
 [snake]: https://en.wikipedia.org/wiki/Snake_case
 
-#### The "mandatory" `project_name` parameter in Rug Generators
+#### The Mandatory `project_name` Parameter in Rug Generators
 
 The `project_name` parameter is special when declared inside a
 `generator` and so must be included otherwise your Rug will likely
@@ -387,6 +380,6 @@ file is not required as it is never used.s
 ### Rug DSL: Comments
 
 Comments should be used only when they add something that the Rug code
-itself doesn't state. Self-documenting code is preferable over
+itself doesn't state.  Self-documenting code is preferable over
 separate documentation if the code can be better made to express what
 would have been put in the documentation anyway.
