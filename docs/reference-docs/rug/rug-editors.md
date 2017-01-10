@@ -221,7 +221,7 @@ Bar
 # ------
 editor Bar
 
-with file f
+with File f
   do replaceAll "foo" "bar"
 ```
 
@@ -232,6 +232,27 @@ refer to editors outside the current archive by introducing a
 dependency on the [Rug Archive](/rug/rug-archive.md) that those
 editors that we want to import are located in to the
 `.atomist/pom.xml` file.
+
+When composing by calling an editor that accepts parameters, the
+parameters are provided as a comma-separate list of
+`param_name=param_value` tokens.
+
+```
+editor CallerEditor
+
+CalledEditor first="some", second="thing"
+
+editor CalledEditor
+
+param first: .*
+param second: .*
+
+with File f
+  begin
+    do append first
+    do append second
+  end
+```
 
 ## Syntax Guide
 
