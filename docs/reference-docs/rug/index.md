@@ -10,6 +10,7 @@ Each different kind of Rug provides a different way for you to
 interact with a repository.  Rugs can be written using the Rug DSL and
 TypeScript.
 
+-   [Rug Tests](rug-tests.md): BDD test framework for Rugs
 -   [Rug Editors](rug-editors.md): Add, remove, and edit files
 -   [Rug Generators](rug-generators.md): Create new repositories
 -   [Rug Predicates](rug-predicates.md): Determine whether a feature exists in a repository

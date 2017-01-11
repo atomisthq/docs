@@ -1,8 +1,8 @@
-## Type: `Yml`
+## Type: `Json`
 
-**YML file**
+**package.json configuration file**
 
-### `Yml` Operations
+### `Json` Operations
 
 #### Operation: `blockingProblem`
 
@@ -140,25 +140,4 @@ Does this path begin with the given pattern? Pattern should contain slashes but 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
-
-#### Operation: `updateKey`
-
-Update the value of a given key
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *Name of the key to update* |
-| ***value*** | `class java.lang.String` | *New value for the key* |
-
-#### Operation: `valueOf`
-
-Return the value of the given key
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *The YAML key whose content you want* |
 

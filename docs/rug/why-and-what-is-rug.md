@@ -68,8 +68,8 @@ itself:
 *   [Generators](/reference-docs/rug/rug-generators.md)
 *   [Editors](/reference-docs/rug/rug-editors.md)
 *   Templates (these work in collaboration
-    with [Generators](/reference-docs/rug/rug-generators.md)
-    and [Editors](/reference-docs/rug/rug-editors.md))
+    with [generators](/reference-docs/rug/rug-generators.md)
+    and [editors](/reference-docs/rug/rug-editors.md))
 *   Reviewers (coming soon)
 *   Executors (coming soon)
 
@@ -89,9 +89,10 @@ you to run Rug in a number of different useful settings.
 We're rapidly developing the Rug language to be as powerful, simple
 and consistent as possible. Normally languages cannot evolve
 particularly quickly as they need to be updated in lock-step with the
-community that is using them. When you create a Rug Archive and write
-your Rug Generators, Editors etc within it you tie the version of the
-langauge to the archive you're creating.
+community that is using them. When you create
+a [Rug archive](rug-archive.md) and write your Rug generators, editors
+etc. within it you tie the version of the langauge to the archive
+you're creating.
 
 This gives you the power to select the version of the Rug language you
 depend upon, safe in the knowledge that if you can run your Rug build
@@ -100,7 +101,7 @@ they can be run anywhere Rug can be.
 
 You also of course have the power to decide when you upgrade to a
 newer version of Rug for particular language features that may have
-come to light after you originally created your Rug Archive.
+come to light after you originally created your Rug archive.
 
 ### Rug can be Extended with Custom Types
 

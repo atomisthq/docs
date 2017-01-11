@@ -1,9 +1,9 @@
 ## Rug CLI Quick Start
 
-The Rug CLI runs Generators and Editors against your local source
+The Rug CLI runs generators and editors against your local source
 code. You can run published Rugs and your local Rugs, and see the
 results in your project directory. This is essential when you're
-developing your own Generators and Editors.
+developing your own generators and editors.
 
 This quick start guide is more involved that those for Buttons and the
 Bot, but don't fret! We are working diligently to make interacting
@@ -19,9 +19,9 @@ instructions.
 ### 'Git' Some Examples
 
 To generate and edit code with Rug automation, you should become
-familiar with Rug Editors, Generators, and Reviewers.  The best way to
+familiar with Rug editors, generators, and reviewers.  The best way to
 do that is to look at some examples.  Some simple examples of Rug
-Editors can be found in the [common-editors][common] repo.  You can
+editors can be found in the [common-editors][common] repo.  You can
 clone that repo with the following command.
 
 [common]: https://github.com/atomist-rugs/common-editors
@@ -54,13 +54,13 @@ tests/
 Here you can see the standard layout for a Rug directory.  It has a
 `manifest.yml` describing the contents of the archive.  Think of this
 a the metadata for your Rugs, i.e., the name, version, dependencies,
-etc.  The Editors and Generators are in the `editors` directory.  Any
+etc.  The editors and generators are in the `editors` directory.  Any
 templates are in the `templates` directory.  Testing is integral to
 Rug, so we also use a `tests` directory to hold all our tests.  There
 is also a `build` directory that contains the repository's CI scripts
 and configurations.
 
-Let's see what Editors we have available.
+Let's see what editors we have available.
 
 ```
 $ awk '$1 == "editor" { print $2 }' .atomist/editors/*.rug
@@ -255,8 +255,8 @@ and installs them in your local repository, typically
 ### List Editors
 
 Remember above when we ran that arcane `awk` command to list the
-Editors?  There is a better way!  Now that we some Editors installed
-locally, we can list our local Editors.
+editors?  There is a better way!  Now that we some editors installed
+locally, we can list our local editors.
 
 ```
 $ rug list
@@ -309,7 +309,7 @@ To get more information on any of the Rugs listed above, run:
   rug describe editor|generator|executor|reviewer ARTIFACT
 ```
 
-That list of Editors looks familiar, we must be doing something right!
+That list of editors looks familiar, we must be doing something right!
 Again, the last line of the output tells us how we can get more
 information.  Let's try it.
 
@@ -354,14 +354,14 @@ artifact has spaces in it, you need to put quotes around it.
 Please report issues at https://github.com/atomist/rug-cli
 ```
 
-The help output provides two pieces of useful information.  First, it
-says the `ARTIFACT` should be the full name of the artifact.  We only
-provided the editor name.  Perhaps we needed to prepend the archive
-name.  Second, the `-l` or `--local` command-line option tells the CLI
-to use the current directory as an archive.  In other words, it tries
-to find an `.atomist` directory and use the Rugs in it.  Since we are
-in a directory that has the `.atomist` directory with the Editor we
-want to run, that seems promising.
+The help output provides two pieces of information useful to us.
+First, it says the `ARTIFACT` should be the full name of the artifact.
+We only provided the editor name.  Perhaps we needed to prepend the
+archive name.  Second, the `-l` or `--local` command-line option tells
+the CLI to use the current directory as an archive.  In other words,
+it tries to find an `.atomist` directory and use the Rugs in it.
+Since we are in a directory that has the `.atomist` directory with the
+editor we want to run, that seems promising.
 
 ```
 $ rug describe -l editor AddApacheSoftwareLicense20
@@ -384,7 +384,7 @@ To invoke the AddApacheSoftwareLicense20 editor, run:
 ```
 
 Success!  The output from that command also tells us what the full
-name of the Editor is,
+name of the editor is,
 `atomist-rugs:common-editors:AddApacheSoftwareLicense20`.  We could
 have guessed that.  Since we previously installed the editor, we could
 have run the following command and gotten the same result.
@@ -396,13 +396,13 @@ $ rug describe editor atomist-rugs:common-editors:AddApacheSoftwareLicense20
 The `describe editor` output includes several pieces of useful
 information.  The description, "adds the Apache Software License
 version 2.0 file", provides a slightly more verbose description than
-the already descriptive Editor name.  We can see that this Editor has
+the already descriptive editor name.  We can see that this editor has
 three tags, `license`, `apache`, and `documentation`, and it takes no
 parameters.
 
 Adding the Apache license seems like a good thing to do.  The last
 line of the output once again gives us the information we need: how to
-run this Editor.  Let's try it.
+run this editor.  Let's try it.
 
 ### Run an Editor
 
@@ -465,7 +465,7 @@ editor:
 
 Looks like it is a record of what we have done, nice!
 
-I suppose we should have guessed the Editor would act on the local
+I suppose we should have guessed the editor would act on the local
 directory, but we don't really want to edit the current project.
 Let's create another project to edit.  We run the same command as
 above, except we'll remove the archive version command-line option.
@@ -506,7 +506,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 That's more like it!  What if we decide we do not want the Apache
-Software License?  There's an Editor for that!
+Software License?  There's an editor for that!
 
 ```
 $ rug edit atomist-rugs:common-editors:RemoveApacheSoftwareLicense20

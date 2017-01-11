@@ -17,7 +17,7 @@ The Bot awaits your instructions in our Atomist Community Slack.
 ### Rug CLI
 
 Now you can try automated code changes with Rug on your local file
-system. Run any publicly published Generator or Editor. Make your own
+system. Run any publicly published generator or editor. Make your own
 Rugs and try them out!
 
 [Rug CLI Quick Start](http://docs.atomist.com/quick-starts/rug-cli/)

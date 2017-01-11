@@ -1,7 +1,7 @@
 ## Buttons Quick Start
 
 Buttons are image links that when clicked trigger the execution of an
-Atomist project Generator or Editor.  Clicking on existing Atomist
+Atomist project generator or editor.  Clicking on existing Atomist
 Buttons are the easiest way to get started with Atomist, all you do is
 click a link!
 
@@ -19,7 +19,7 @@ bottom of the page.
 ### Create New Projects Based on Atomist Generators
 
 There is a continually growing, public collection of Atomist
-Generators that can be used to create new projects on GitHub.  Click
+generators that can be used to create new projects on GitHub.  Click
 the link below to create a new public repository under your GitHub
 account containing a working [Spring Boot][boot] REST microservice.
 

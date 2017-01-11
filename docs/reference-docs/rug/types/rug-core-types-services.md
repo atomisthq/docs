@@ -1,8 +1,8 @@
-## Type: `Yml`
+## Type: `Services`
 
-**YML file**
+**Type for services. Used in executors**
 
-### `Yml` Operations
+### `Services` Operations
 
 #### Operation: `blockingProblem`
 
@@ -14,14 +14,6 @@ Report a severe, blocking problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
-
-#### Operation: `content`
-
-Return file content
-
-##### Parameters
-
-*None*
 
 #### Operation: `eval`
 
@@ -43,30 +35,6 @@ Cause the operation to fail with a fatal error
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-#### Operation: `filename`
-
-Return file name, excluding path
-
-##### Parameters
-
-*None*
-
-#### Operation: `isWellFormed`
-
-Is this file well-formed?
-
-##### Parameters
-
-*None*
-
-#### Operation: `lineCount`
-
-Return the number of lines in the file
-
-##### Parameters
-
-*None*
-
 #### Operation: `majorProblem`
 
 Report a major problem
@@ -77,14 +45,6 @@ Report a major problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
-
-#### Operation: `makeExecutable`
-
-Make the file executable
-
-##### Parameters
-
-*None*
 
 #### Operation: `minorProblem`
 
@@ -105,17 +65,9 @@ Type of the node
 
 *None*
 
-#### Operation: `path`
+#### Operation: `pathExpressionEngine`
 
-Return file path, with forward slashes
-
-##### Parameters
-
-*None*
-
-#### Operation: `permissions`
-
-Return the file's permissions
+Use to execute path expression
 
 ##### Parameters
 
@@ -131,34 +83,11 @@ Cause the editor to print to the console. Useful for debugging if running editor
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-#### Operation: `underPath`
+#### Operation: `services`
 
-Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
-
-#### Operation: `updateKey`
-
-Update the value of a given key
+Services
 
 ##### Parameters
 
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *Name of the key to update* |
-| ***value*** | `class java.lang.String` | *New value for the key* |
-
-#### Operation: `valueOf`
-
-Return the value of the given key
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *The YAML key whose content you want* |
+*None*
 

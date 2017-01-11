@@ -19,10 +19,10 @@ in some contexts from ***not working*** to
 
 ### Exemplar
 
-The [atomist/travis-editors][travis-editors] Rug Archive repository is
+The [atomist/travis-editors][travis-editors] Rug archive repository is
 a good example repository.  We strive to keep that repository up to
 date with these conventions.  It has good documentation and examples
-of both a Rug DSL and TypeScript Editors.  When going through the
+of both a Rug DSL and TypeScript editors.  When going through the
 conventions below, we encourage you to reference that repository for
 concrete examples.
 
@@ -30,7 +30,7 @@ concrete examples.
 
 ### Rug Archive
 
-A _Rug Archive_ is simply any project that contains a conforming
+A _Rug archive_ is simply any project that contains a conforming
 `.atomist` directory and its subdirectories.  The standard directory
 layout is:
 
@@ -53,7 +53,7 @@ containing the following information at minimum:
 -   A section named **Rugs** that has a subsection for each Rug.
 -   A section for each Rug in the archive with
     -   An explanation of what the Rug does, e.g., how will the
-        source code be changed after running the Editor
+        source code be changed after running the editor
     -   A subsection named *Prerequisites* describing what must be in
         place before running the Rug.
     -   A subsection named *Parameters* describing the Rug's input
@@ -77,7 +77,7 @@ Here is the Markdown text to add the Slack badge:
 
 [travis]: https://travis-ci.org/
 
-Rug Archive repositories should have a change log in
+Rug archive repositories should have a change log in
 the [`CHANGELOG.md` format][changelog].
 
 [changelog]: http://keepachangelog.com/
@@ -88,8 +88,8 @@ Rug files should have the `.rug` extension when written using the Rug
 DSL and the standard TypeScript `.ts` extension when written in
 TypeScript.  You can safely intermix Rug DSL and TypeScript Rugs in
 the same archive.  Rug files should placed in the following locations
-within a _Rug Archive_.  Rug Editors should be in `.atomist/editors`,
-Rug Executors should be in `.atomist/executors`, and Rug Reviewers
+within a _Rug archive_.  Rug editors should be in `.atomist/editors`,
+Rug executors should be in `.atomist/executors`, and Rug reviewers
 should be in `.atomist/reviewers`.
 
 BDD-style tests for your Rugs are strongly recommended and should be
@@ -101,9 +101,8 @@ the `.atomist/templates` directory.
 
 ### Rug Naming
 
-Rug editors, reviewers, executors and predicates in Rug DSL or
-TypeScript should have their names formatted
-using [UpperCamelCase][ucc].
+Rug editors, reviewers, executors and predicates should have their
+names formatted using [UpperCamelCase][ucc].
 
 [ucc]: http://wiki.c2.com/?UpperCamelCase
 
@@ -126,10 +125,9 @@ in support of the main and initial Rug in the file.
 
 #### Rug Generator Naming
 
-To indicate that an editor is also a Rug generator in Rug DSL or
-TypeScript it is conventional to name the editor with `New` at the
-beginning of the editor's name to indicate that it is used to
-construct a project from scratch.
+To indicate that an editor is also a Rug generator it is conventional
+to name the editor with `New` at the beginning of the editor's name to
+indicate that it is used to construct a project from scratch.
 
 You declare that an editor is a generator using the `@generator`
 annotation.
@@ -141,7 +139,7 @@ annotation.
 #### Rug Predicate Naming
 
 Rug predicates in Rug DSL need to be in their own `.rug` file if they
-are to be reused by other Rugs or even external Rug Archives and are
+are to be reused by other Rugs or even external Rug archives and are
 formatted according to the same UpperCamelCase rules as editors,
 reviewers and executors.
 
@@ -153,53 +151,53 @@ conditions to be considered a Maven project.
 
 ### Rug Archives
 
-Rug Archive configuration is stored in a file in the `.atomist`
-directory.  Rug Archives that contain Rug DSL Rugs have their
-configuration stored in `.atomist/manifest.yml`.  Rug Archives using
+Rug archive configuration is stored in a file in the `.atomist`
+directory.  Rug archives that contain Rug DSL Rugs have their
+configuration stored in `.atomist/manifest.yml`.  Rug archives using
 TypeScript must also include a `.atomist/package.json` defining their
 JavaScript metadata and annotation.
 
 If using the Rug DSL `manifest.yml` then it should name Rug archives
 according to the following rules:
 
-*   `group`: The organisation behind this Rug Archive. Most commonly
+*   `group`: The organisation behind this Rug archive. Most commonly
     the GitHub organisation in which they reside.
 
-*   `artifact`: Name of the Rug Archive (see next section)
+*   `artifact`: Name of the Rug archive (see next section)
 
-*   `version`: [Semantic version][semver] of this Rug Archive
+*   `version`: [Semantic version][semver] of this Rug archive
 
 *   `requires`: Specify the exact, or bounded, version of the Rug
-    language that your Rug Archive has been tested against.
+    language that your Rug archive has been tested against.
 
 If you are using the Rug TypeScript approach, then the corresponding
-`package.json` in the `.atomist` directory should name the Rug Archive
+`package.json` in the `.atomist` directory should name the Rug archive
 according to the following rules:
 
 *   `name`: Contains the org and name of the archive in the form
     `@<org>/<rug-archive-name>`
 
-*   `version`: [Semantic version][semver] of this Rug Archive
+*   `version`: [Semantic version][semver] of this Rug archive
 
 *   `dependencies`: At a minimum specifies the version of the Rug
-    language that your Rug Archive has been tested against in the form
+    language that your Rug archive has been tested against in the form
     `{ "@atomist/rug": "<rug-version>" }`
 
 [semver]: http://semver.org/
 
 #### Rug Archive Naming
 
-A Rug Archive name should be hyphenated and start with the technology
+A Rug archive name should be hyphenated and start with the technology
 stack being targeted, such as `spring-boot`, followed by `-editors` if
-this is a Rug Archive with a collection of useful editors, reviewers
+this is a Rug archive with a collection of useful editors, reviewers
 or executors.
 
-If the main purpose of a Rug Archive is to be a generator then ending
+If the main purpose of a Rug archive is to be a generator then ending
 the name of the type of project it will generate would be most
-appropriate.  For example if your Rug Archive's main purpose was to be
+appropriate.  For example if your Rug archive's main purpose was to be
 a generator for a Spring Boot Rest Service then
 `spring-boot-rest-service` or even `java-spring-boot-rest-service`
-would be appropriate. If your Rug Archive's main purpose was simply to
+would be appropriate. If your Rug archive's main purpose was simply to
 generate a valid Maven project then `maven-project` would be
 appropriate.
 
@@ -214,16 +212,6 @@ following `tag` annotations would be applicable.
 ```
 @tag "readme"
 @tag "documentation"
-```
-or in TypeScript:
-
-```
-import { tag } from '@atomist/rug/support/Metadata'
-...
-@tag("readme")
-@tag("documentation")
-class AddReadme implements ProjectEditor<ContentInfo> {
-...
 ```
 
 Tag values should consist of only lower case letters, numbers, and
@@ -241,14 +229,6 @@ an accompanying `description` annotation such as:
 
 ```
 @description "adds a project specific README"
-```
-
-or in TypeScript:
-
-```
-@description("adds a project specific README")
-class AddReadme implements ProjectEditor<ContentInfo> {
-...
 ```
 
 A good description states exactly what the purpose of the Rug is

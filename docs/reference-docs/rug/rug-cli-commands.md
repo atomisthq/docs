@@ -45,7 +45,8 @@ The CLI will assume the current working directory to be the root for execution.
 Run an editor as follows:
 
 ```
-$ rug edit atomist-rugs:common-editors:AddReadme --artifact-version 1.0.0 parameter1=foo parameter2=bar
+$ rug edit atomist-rugs:common-editors:AddReadme --artifact-version 1.0.0 \
+    parameter1=foo parameter2=bar
 
 $ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
 ```
@@ -74,11 +75,11 @@ To get information about a Rug and list all its parameters, run the
 ```
 $ rug describe archive atomist-rugs:spring-rest-service
 
-$ rug describe editor atomist-rugs:spring-rest-service:SpringBootThing \
-  --artifact-version 1.0.0
+$ rug describe editor atomist-rugs:spring-boot-rest-service:SpringBootThing \
+    --artifact-version 1.0.0
 
-$ rug describe generator atomist-rugs:spring-rest-service:NewSpringBootThing \
-  --artifact-version 1.0.0
+$ rug describe generator atomist-rugs:spring-boot-rest-service:NewSpringBootThing \
+    --artifact-version 1.0.0
 ```
 
 ##### Listing Local Archives
@@ -87,7 +88,7 @@ To list all locally available Rug archives, run the `rug list`
 command:
 
 ```
-$ rug list -f version="[1.2,2.0)" -f group=*atomist* -f artifact=*sp?ing*
+$ rug list -f 'version=[1.2,2.0)' -f 'group=*atomist*' -f 'artifact=*sp?ing*'
 ```
 
 The local listing can be filtered by using `-f` filter expressions on

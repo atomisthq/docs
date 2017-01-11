@@ -62,7 +62,7 @@ In this example `fileCount = 1` is an ***in-place Rug Predicate***
 interpreted to examine the output from the editor-under-test to then
 return a `Boolean` `true` or `false` value for the assertion.
 
- <!-- Include predicates as they are used in Reviewer syntax -->
+ <!-- Include predicates as they are used in reviewer syntax -->
 
 ### Rug Predicates as Preconditions in Editors
 
@@ -96,7 +96,7 @@ In the editor `precondition` example shown above the actual predicates
 themselves are expressed in their own `.rug` files. If you want to
 reuse a predicate then it *must* be defined in its own file. Typically
 this is a `.rug` file located in the `.atomist/editors` directory in
-the [Rug Archive](/rug/rug-archive.md).
+the [Rug archive](/rug/rug-archive.md).
 
 Similar to how the first editor in a `.rug` file must have the same
 name as the file, the `.rug` file that contains a predicate must have

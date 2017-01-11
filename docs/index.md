@@ -12,12 +12,12 @@ takes several forms:
 
 -   Creating a RESTful microservice with a single click using an
     Atomist Button.
--   Using Atomist Editors to perform common tasks on your source code
+-   Using Rug editors to perform common tasks on your source code
     repository, e.g., configuring and enabling a [Travis CI][travis]
     build or updating a [Docker][docker] base image to the desired
     version.
--   Ensuring a project conforms with your standards using an Atomist
-    Reviewer.
+-   Ensuring a project conforms with your standards using an Rug
+    reviewer.
 -   Managing a service life cycle, from commits to CI builds to
     deployments and releases to alerts and corrective action with the
     Atomist bot.
@@ -42,7 +42,7 @@ detail on how our approach can greatly increase a team's productivity.
 While often our Atomist bot can guide you through the proper workflow,
 perhaps you are interested in working with the Rug CLI, looking for a
 little more help to get started with Atomist, or doing something more
-advanced like writing your own Editor.  If that is what you're looking
+advanced like writing your own editor.  If that is what you're looking
 for, you're in the right place.
 
 ## Just get me going *right now*: Quick Starts

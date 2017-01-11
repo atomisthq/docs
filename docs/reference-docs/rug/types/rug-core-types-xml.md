@@ -1,15 +1,14 @@
+## Type: `Xml`
 
-## Type: `xml`
 **XML file**
 
-### `xml` Operations
-
+### `Xml` Operations
 
 #### Operation: `addChildNode`
-    Add the specified content under the indicated xpath-selected node
 
-***Parameters***
+Add the specified content under the indicated xpath-selected node
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
@@ -17,12 +16,11 @@
 | ***newNode*** | `class java.lang.String` | *The new node name to be added as a child* |
 | ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
 
-
 #### Operation: `addOrReplaceNode`
-    Adds or replaces a node
 
-***Parameters***
+Adds or replaces a node
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
@@ -31,159 +29,181 @@
 | ***newNode*** | `class java.lang.String` | *The name of the node being placed* |
 | ***nodeContent*** | `class java.lang.String` | *The content of the node being placed* |
 
-
 #### Operation: `blockingProblem`
-    Report a severe, blocking problem
 
-***Parameters***
+Report a severe, blocking problem
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
+| ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
 #### Operation: `contains`
-    Tests whether a node matching the given xpath expression is present
 
-***Parameters***
+Tests whether a node matching the given xpath expression is present
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
 
-
 #### Operation: `content`
-    Return file content
 
-***Parameters***
+Return file content
+
+##### Parameters
 
 *None*
 
-
 #### Operation: `deleteNode`
-    Deletes the specified node
 
-***Parameters***
+Deletes the specified node
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
 
-
 #### Operation: `eval`
-    Operate on this. Use when you want to operate on an object in an embedded language such as JavaScript or Clojure
 
-***Parameters***
+Evaluate, i.e., compile and execute, JavaScript code.
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***arg0*** | `class java.lang.Object` | ** |
 
-
 #### Operation: `fail`
-    Cause the operation to fail with a fatal error
 
-***Parameters***
+Cause the operation to fail with a fatal error
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-
 #### Operation: `filename`
-    Return file name, excluding path
 
-***Parameters***
+Return file name, excluding path
+
+##### Parameters
 
 *None*
 
-
 #### Operation: `getTextContentFor`
-    Get the text content for a specific xpath expression
 
-***Parameters***
+Get the text content for a specific xpath expression
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
 
+#### Operation: `isWellFormed`
+
+Is this file well-formed?
+
+##### Parameters
+
+*None*
 
 #### Operation: `lineCount`
-    Return the number of lines in the file
 
-***Parameters***
+Return the number of lines in the file
+
+##### Parameters
 
 *None*
-
 
 #### Operation: `majorProblem`
-    Report a major problem
 
-***Parameters***
+Report a major problem
 
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
-
-
-#### Operation: `minorProblem`
-    Report a minor problem
-
-***Parameters***
-
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
-| ***arg1*** | `interface com.atomist.rug.runtime.FunctionInvocationContext` | ** |
+| ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `makeExecutable`
 
-#### Operation: `path`
-    Return file path, with forward slashes
+Make the file executable
 
-***Parameters***
+##### Parameters
 
 *None*
 
+#### Operation: `minorProblem`
+
+Report a minor problem
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***msg*** | `class java.lang.String` | *The message to be displayed* |
+| ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
+
+#### Operation: `nodeType`
+
+Type of the node
+
+##### Parameters
+
+*None*
+
+#### Operation: `path`
+
+Return file path, with forward slashes
+
+##### Parameters
+
+*None*
+
+#### Operation: `permissions`
+
+Return the file's permissions
+
+##### Parameters
+
+*None*
 
 #### Operation: `println`
-    Cause the editor to print to the console. Useful for debugging if running editors locally.
 
-***Parameters***
+Cause the editor to print to the console. Useful for debugging if running editors locally.
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-
 #### Operation: `setTextContentFor`
-    Set the text content for a specific xpath expression
 
-***Parameters***
+Set the text content for a specific xpath expression
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***xpath*** | `class java.lang.String` | *The XPath to use to set the test content* |
-| ***arg1*** | `class java.lang.String` | ** |
-
+| ***newContent*** | `class java.lang.String` | *New text content for the XPath* |
 
 #### Operation: `underPath`
-    Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
-***Parameters***
+Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
 
+##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
+

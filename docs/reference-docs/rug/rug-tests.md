@@ -103,9 +103,10 @@ The full grammar of Rug tests is defined as:
 
 ```
 
-## Advanced Usage
+### Advanced Usage
 
-### No Change
+#### No Change
+
 When there's no change
 
 ```
@@ -120,4 +121,5 @@ when
 then
   NoChange
 ```
+
 This scenario will pass only if there's no change in the input artifact source.
