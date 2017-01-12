@@ -200,11 +200,11 @@ Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
   Created .atomist/manifest.yml
   Created .atomist/metadata.json
 Generating archive metadata completed
-  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip → rugs-dev (4 kb) succeeded
-  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.pom → rugs-dev (639 bytes) succeeded
-  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0-metadata.json → rugs-dev (1 kb) succeeded
-  Downloading atomist-rugs/my-rug-archive/maven-metadata.xml ← rugs-dev (381 bytes) succeeded
-  Uploading atomist-rugs/my-rug-archive/maven-metadata.xml → rugs-dev (333 bytes) succeeded
+  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip → rugs-release (4 kb) succeeded
+  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.pom → rugs-release (639 bytes) succeeded
+  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0-metadata.json → rugs-release (1 kb) succeeded
+  Downloading atomist-rugs/my-rug-archive/maven-metadata.xml ← rugs-release (381 bytes) succeeded
+  Uploading atomist-rugs/my-rug-archive/maven-metadata.xml → rugs-release (333 bytes) succeeded
 Publishing archive into remote repository completed
 
 → Archive
@@ -227,7 +227,7 @@ Publishing archive into remote repository completed
   └── README.md
 
 Successfully published archive for atomist-rugs:my-rug-archive:0.1.0 to
-  https://atomist.jfrog.io/atomist/rugs-dev/atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip
+  https://atomist.jfrog.io/atomist/rugs-release/atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip
 ```
 
 The `atomist-rugs:travis-editors:EnableTravisForRugArchiveTS` editor
