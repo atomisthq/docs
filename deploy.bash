@@ -18,7 +18,7 @@ function err() {
     msg "$*" 1>&2
 }
 
-# push site to github pages branch
+# push site to github pages branch, default branch=gh-pages
 # usage: main [REPO_SLUG [BRANCH]]
 function main() {
     local repo_slug=$1
@@ -27,24 +27,22 @@ function main() {
     local repository
     if [[ $repo_slug ]]; then
         if [[ ! $GITHUB_TOKEN ]]; then
-            err "repo_slug given but GITHUB_TOKEN environment variable is not defined"
+            err "repo slug given but GITHUB_TOKEN environment variable is not set"
             return 1
         fi
         repository=https://$GITHUB_TOKEN@github.com/$repo_slug.git
     else
         repository=$(git remote get-url origin)
         if [[ $? -ne 0 || ! $repository ]]; then
-           err "failed to get URL for origin"
-           return 1
+            err "failed to get URL for origin"
+            return 1
         fi
     fi
 
-    local refspec
-    if [[ $branch ]]; then
-        refspec=master:$branch
-    else
-        refspec=master:gh-pages
+    if [[ ! $branch ]]; then
+        branch=gh-pages
     fi
+    local refspec=master:$branch
 
     if ! cd site; then
         err "failed to change to site directory"
@@ -57,7 +55,7 @@ function main() {
         return 1
     fi
 
-    local commit_msg="Local test commit"
+    local commit_msg="Local site push"
     if [[ $TRAVIS == true ]]; then
         if ! git config user.email "travis-ci@atomist.com"; then
             err "failed to set git user email"
