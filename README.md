@@ -29,8 +29,9 @@ omitting the files that document test types (`Replacer*`), internal
 ## Releasing
 
 When a push is made to this repository, the entire documentation is
-built again via a [Travis][travis] job.  The documentation is
-generated from markdown using [mkdocs][].
+built again via a [Travis][travis] job and published to
+http://atomist.github.io/end-user-documentation/ .  The documentation
+is generated from markdown using [mkdocs][].
 
 [travis]: https://travis-ci.com/atomisthq/end-user-documentation
 [mkdocs]: http://www.mkdocs.org/
