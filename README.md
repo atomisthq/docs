@@ -97,6 +97,13 @@ $ mkdocs serve
 If all goes well, you can browse the documentation at
 http://127.0.0.1:8000 .
 
+You can publish the docs manually from your local repository with the
+following command:
+
+```
+$ rm docs/CNAME && mkdocs gh-deploy && git checkout docs/CNAME
+```
+
 ## Conditions of use
 
 This documentation build process is provided to the public purely for
