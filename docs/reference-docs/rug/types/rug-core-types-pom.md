@@ -73,7 +73,7 @@ Add or replace a dependency's scope
 | ------------|:---------------|:-------------|
 | ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
 | ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
-| ***newVersion*** | `class java.lang.String` | *The value of the dependency's scope to be set* |
+| ***newScope*** | `class java.lang.String` | *The new value of the dependency's scope to be set* |
 
 #### Operation: `addOrReplaceDependencyVersion`
 

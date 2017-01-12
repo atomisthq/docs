@@ -100,6 +100,16 @@ Provides access additional context, such as the PathExpressionEngine
 
 #### Operation: `copyEditorBackingFileOrFail`
 
+Copy the given file from the editor's backing archive to the same path in project being edited. Fail the editor if it isn't found or if the destination already exists
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***sourcePath*** | `class java.lang.String` | *Source path* |
+
+#### Operation: `copyEditorBackingFileOrFail`
+
 Copy the given file from the editor's backing archive. Fail the editor if it isn't found or if the destination already exists
 
 ##### Parameters
@@ -108,16 +118,6 @@ Copy the given file from the editor's backing archive. Fail the editor if it isn
 | ------------|:---------------|:-------------|
 | ***sourcePath*** | `class java.lang.String` | *Source path* |
 | ***destinationPath*** | `class java.lang.String` | *Destination path* |
-
-#### Operation: `copyEditorBackingFileOrFail`
-
-Copy the given file from the editor's backing archive to the same path in project being edited. Fail the editor if it isn't found or if the destination already exists
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***sourcePath*** | `class java.lang.String` | *Source path* |
 
 #### Operation: `copyEditorBackingFilesOrFail`
 
