@@ -86,5 +86,5 @@ function main() {
     msg "published site"
 }
 
-main "$@" | exit 1
+main "$@" || exit 1
 exit 0
