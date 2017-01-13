@@ -9,7 +9,7 @@ env:
 install:
 - pip install -r requirements.txt
 script:
-- mkdocs build && bash verify.bash && rm site/CNAME && bash deploy.bash $TRAVIS_REPO_SLUG && cp docs/CNAME site/CNAME
+- mkdocs build && bash verify.bash $TRAVIS_TAG && rm site/CNAME && bash deploy.bash $TRAVIS_REPO_SLUG && cp docs/CNAME site/CNAME
 deploy:
   provider: releases
   api_key:
