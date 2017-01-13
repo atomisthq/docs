@@ -37,6 +37,7 @@ function main() {
             err "failed to get URL for origin"
             return 1
         fi
+        repo_slug=origin
     fi
 
     if [[ ! $branch ]]; then
@@ -69,6 +70,10 @@ function main() {
         commit_msg="Generated from ${TRAVIS_REPO_SLUG} ${TRAVIS_COMMIT}"
     fi
 
+    if ! touch .nojekyll; then
+        err "failed to create nojekyll file, continuing"
+    fi
+
     if ! git add .; then
         err "failed to add files for commit"
         return 1
@@ -83,7 +88,7 @@ function main() {
         err "failed to push site"
         return 1
     fi
-    msg "published site"
+    msg "published site to $repo_slug"
 }
 
 main "$@" || exit 1
