@@ -9,6 +9,8 @@ site_favicon: images/favicon.png
 extra_css:
 - "css/brandon-grotesque.css"
 google_analytics: ['UA-74966852-1', 'auto']
+repo_url: 'https://github.com/atomist/end-user-documentation'
+edit_uri: 'blob/master/docs'
 pages:
 - Welcome to Atomist: 'index.md'
 - Quick Starts:
