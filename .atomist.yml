@@ -17,3 +17,16 @@ editor:
     - "description": "Editors for this user doc repo"
     - "editor_name": "UpdateCopyright"
 
+---
+kind: "operation"
+client: "rug-cli 0.20.0"
+editor:
+  name: "atomist.end-user-documentation.UpdateCopyright"
+  group: "atomist"
+  artifact: "end-user-documentation"
+  version: "0.1.0"
+  origin:
+    repo: "atomist/end-user-documentation.git"
+    branch: "jessitron/own-editors"
+    sha: "e61994c"
+
