@@ -5,4 +5,4 @@ editor UpdateCopyright
 let newCopyright = { return "&copy; " + new Date().getFullYear() + " " }
 
 with File f
-  do regexpReplace "&copy; \d\d\d\d " newCopyright
+  do regexpReplace { return "\&copy; \d\d\d\d " } newCopyright
