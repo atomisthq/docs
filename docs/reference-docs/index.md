@@ -15,4 +15,4 @@ Rug.  The Rug ecosystem includes a DSL and a CLI.
 Atomist integrates with various other development systems to provide
 the best possible developer experience.
 
-[Atomist Integrations Reference Documetation](system-integrations.md)
+[Atomist Integrations Reference Documentation](system-integrations.md)
