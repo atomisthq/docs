@@ -1,14 +1,8 @@
-@description "uses a template to create samplefile.txt"
+@description "update &copy; YYYY to the current year"
 @tag "documentation"
 editor UpdateCopyright
 
-@displayName "My Value"
-@description "a single parameter to this editor"
-@validInput "free text"
-param my_value: @any
+let newCopyright = { return "&copy; " + new Date().getFullYear() + " " }
 
-let sampleTemplateTemplate = "UpdateCopyrightTemplate.vm"
-
-/* Example showing applying a simple template being applied */
-with project p
-  do merge sampleTemplateTemplate to "samplefile.txt"
+with File f
+  do regexpReplace "&copy; \d\d\d\d " newCopyright
