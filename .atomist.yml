@@ -1,0 +1,19 @@
+---
+kind: "operation"
+client: "rug-cli 0.20.0"
+editor:
+  name: "atomist-rugs.rug-editors.ConvertExistingProjectToRugArchiveWithEditor"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.4.0"
+  origin:
+    repo: "atomist-rugs/rug-editors"
+    branch: "master"
+    sha: "202eace*"
+  parameters:
+    - "rug_archive_name": "end-user-documentation"
+    - "rug_archive_group_id": "atomist"
+    - "version": "0.1.0"
+    - "description": "Editors for this user doc repo"
+    - "editor_name": "UpdateCopyright"
+
