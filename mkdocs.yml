@@ -1,7 +1,7 @@
 site_name: The Atomist Documentation
 site_description: Documentation for the Atomist Developer Platform
 site_author: The Atomist Team
-copyright: '&copy; 2016 Atomist, Inc.'
+copyright: '&copy; 2017 Atomist, Inc.'
 extra:
   main_site_url: 'https://www.atomist.com/'
 theme_dir: atomist
