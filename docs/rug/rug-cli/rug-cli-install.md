@@ -147,7 +147,7 @@ simply put it its `bin` directory in your `PATH`.
     or [Installing OpenJDK][openjdk].
 
 1.  Download either the `.tar.gz` or `.zip` archive from the
-    latest [Rug CLI release][releases].
+    [latest Rug CLI release][latest].
 
 2.  Unpack the archive in an appropriate location.  Replace `VERSION`
     with the version you downloaded.
@@ -178,5 +178,5 @@ simply put it its `bin` directory in your `PATH`.
 
 [java]: https://java.com/en/download/help/index_installing.xml?os=All+Platforms&j=8&n=20
 [openjdk]: http://openjdk.java.net/install/
-[releases]: https://github.com/atomist/rug-cli/releases
+[latest]: https://github.com/atomist/rug-cli/releases/latest
 [winpath]: http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/
