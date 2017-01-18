@@ -166,6 +166,27 @@ Cause the editor to print to the console. Useful for debugging if running editor
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
+#### Operation: `removeAnnotation`
+
+Remove annotation from the element
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***pkg*** | `class java.lang.String` | *Package where the annotation is sourced* |
+| ***annotation*** | `class java.lang.String` | *The annotation to remove* |
+
+#### Operation: `removeImport`
+
+Remove an import from the containing Java source
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***fqn*** | `class java.lang.String` | *The fully qualified name of the import* |
+
 #### Operation: `rename`
 
 Rename the type
