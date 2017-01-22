@@ -34,7 +34,7 @@ $ brew upgrade --HEAD rug-cli --fetch-HEAD
 
 ### Install the RUG CLI on Linux
 
-We support installing via packages on Debian- and RPM-based GNU/Linux
+We support installing via packages on Debian and RPM-based GNU/Linux
 distributions.
 
 #### Debian/Ubuntu
@@ -57,7 +57,30 @@ To install on a Debian-based distributions, follow the next instructions:
 
         $ sudo apt-get install rug-cli
 
-The only required dependency is the OpenJDK version 8 or later.
+**Note about the JDK 8 requirement:**
+
+Rug and the CLI require Java 8. Until Rug CLI 0.22, the package would try
+to automatically install the appropriate JDK but different people install Java
+differently on their machine. Therefore, starting with Rug CLI 0.22, the package 
+only suggests to install the dependency and emits the following message when 
+running the CLI without a proper Java 8 found:
+
+```
+$ rug
+JAVA_HOME not set and cannot find javac to deduce location, please set JAVA_HOME.
+```
+
+In that case, you must ensure you set the `JAVA_HOME` variable for your system 
+so that it points to a valid Java 8 JDK directory. On recent, Debian/Ubuntu
+distributions, you can simply run `sudo apt-get install openjdk-8-jdk`. On older
+distributions, either install Java 8 manually and set the according variable,
+or try the following instructions:
+
+```
+$ sudo add-apt-repository ppa:openjdk-r/ppa
+$ sudo apt-get update
+$ sudo apt-get install openjdk-8-jdk
+```
 
 #### RedHat/CentOS
 
