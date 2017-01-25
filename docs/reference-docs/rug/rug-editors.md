@@ -231,7 +231,7 @@ statement to bring in the editor in a different file. We can also
 refer to editors outside the current archive by introducing a
 dependency on the [Rug archive](/rug/rug-archive.md) that those
 editors that we want to import are located in to the
-`.atomist/pom.xml` file.
+`.atomist/manifest.yml` file.
 
 When composing by calling an editor that accepts parameters, the
 parameters are provided as a comma-separate list of
