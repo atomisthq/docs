@@ -44,6 +44,7 @@ pages:
       - Core Rug Type - File: 'reference-docs/rug/types/rug-core-types-file.md'
       - Core Rug Type - Xml: 'reference-docs/rug/types/rug-core-types-xml.md'
       - Core Rug Type - Pom: 'reference-docs/rug/types/rug-core-types-pom.md'
+      - Core Rug Type - EveryPom: 'reference-docs/rug/types/rug-core-types-every-pom.md'
       - Core Rug Type - Yml: 'reference-docs/rug/types/rug-core-types-yml.md'
       - Core Rug Type - Properties: 'reference-docs/rug/types/rug-core-types-properties.md'
       - Core Rug Type - Json: 'reference-docs/rug/types/rug-core-types-json.md'
