@@ -21,35 +21,13 @@ As a starting point, simply add a [standard `package.json` file](https://docs.np
 
 ```
 {
-  "name": "@atomist/scattered-rugs",
-  "version": "0.1.0",
-  "description": "Scattered Rugs",
-  "keywords": [
-    "Atomist",
-    "Rug"
-  ],
-  "author": "Atomist",
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/russmiles/scattered-rugs.git"
-  },
-  "bugs": {
-    "url": "https://github.com/russmiles/scattered-rugs/issues"
-  },
-  "homepage": "https://github.com/russmiles/scattered-rugs#readme",
   "dependencies": {
     "@atomist/rug": "0.10.0"
-  },
-  "scripts": {
-    "rug-install": "rug install -urX",
-    "rug-test": "rug test -urX",
-    "rug-publish": "rug publish -urX"
   }
 }
 ```
 
-Amend the following in this `package.json` file according to your own Rug archive project's settings in your `.atomist/manifest.yml` file.
+All you need as a minimum in the `package.json` file is the dependency on the version of Rug that matches what is specified in your `.atomist/manifest.yml` file.
 
 #### Install Node and NPM and run `npm install`
 
