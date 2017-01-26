@@ -41,7 +41,6 @@ As a starting point, simply add a [standard `package.json` file](https://docs.np
   },
   "homepage": "https://github.com/atomist-rugs/travis-editors#readme",
   "dependencies": {
-    "@atomist/travis": "0.5.1",
     "@atomist/rug": "0.10.0"
   },
   "scripts": {
