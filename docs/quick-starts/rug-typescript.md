@@ -1,6 +1,6 @@
 ## Rug TypeScript Quick Start
 
-Rugs can be written in [TypeScript](https://www.typescriptlang.org/) or the [Rug DSL](../refence-docs/rug/index.md). The TypeScript approach is usually preferable over the [Rug DSL](../refence-docs/rug/index.md) when you have some real programmatic work to do in your Rugs where the DSL is too constraining.
+Rugs can be written in [TypeScript](https://www.typescriptlang.org/) or the [Rug DSL](../refence-docs/rug/index.md). The TypeScript approach is usually preferable over the [Rug DSL](../refence-docs/rug/index.md) when you have some real programmatic work to do in your Rugs where the DSL is too constraining. Also using TypeScript has the significant added bonuses of being type-safe and having great existing tooling support for features like code-completion.
 
 In this Quick Start you're going to set up your Rug archive for writing and testing Rugs written in TypeScript and using the [Rug CLI](rug-cli.md).
 
