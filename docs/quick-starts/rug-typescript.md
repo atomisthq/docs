@@ -1,6 +1,6 @@
 ## Rug TypeScript Quick Start
 
-Rugs can be written in TypeScript (TBD link) or the [Rug DSL](../refence-docs/rug/index.md). The TypeScript approach is usually preferable over the [Rug DSL](../refence-docs/rug/index.md) when you have some real programmatic work to do in your Rugs where the DSL is too constraining.
+Rugs can be written in [TypeScript](https://www.typescriptlang.org/) or the [Rug DSL](../refence-docs/rug/index.md). The TypeScript approach is usually preferable over the [Rug DSL](../refence-docs/rug/index.md) when you have some real programmatic work to do in your Rugs where the DSL is too constraining.
 
 In this Quick Start you're going to set up your Rug archive for writing and testing Rugs written in TypeScript and using the [Rug CLI](rug-cli.md).
 
@@ -8,8 +8,8 @@ In this Quick Start you're going to set up your Rug archive for writing and test
 
 To enable your Rug archive for TypeScript all you need to do is:
 
--   Add a `package.json` file into the `.atomist` directory, amending for your own Rug archive's project settings
--   Add a `tsconfig.json` file into your `.atomist` directory
+-   Add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) into the `.atomist` directory, amending for your own Rug archive's project settings
+-   Add a [standard `tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) into your `.atomist` directory
 -   Install `node` and `npm` for local TypeScript development and, specifically, to install any dependencies your Rug TypeScript sources may have.
 
 You can have both Rug DSL and Rug TypeScript files in the *same* Rug archive. A good example of this is available in the [`travis-editors` Rug archive](https://github.com/atomist-rugs/travis-editors).
@@ -18,7 +18,7 @@ You can have both Rug DSL and Rug TypeScript files in the *same* Rug archive. A 
 
 #### Adding a `package.json` file
 
-As a starting point, simply add a `package.json` file to your `.atomist` directory that contains the following:
+As a starting point, simply add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) to your `.atomist` directory that contains the following:
 
 ```
 {
@@ -56,7 +56,7 @@ Amend the following in this `package.json` file according to your own Rug archiv
 
 #### Adding a `tsconfig.json` file
 
-The `tsconfig.json` (TBD link) file contains the settings for the TypeScript transpiler (TBD link). A generally suitable starting point is to add a `tsconfig.json` to your `.atomist` directory that contains the following:
+The [standard `tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) contains the settings for the TypeScript transpiler. A generally suitable starting point is to add a `tsconfig.json` to your `.atomist` directory that contains the following:
 
 ```
 {
@@ -103,7 +103,7 @@ $ npm install
 
 This will create a `node_modules` directory which can be ignored, using something like `.gitignore` if you're using [git](https://git-scm.com/), and not checked into source control as it is only needed for local development.
 
-### Writing your first TypeScript Rug Editor
+### Writing your first TypeScript Rug editor
 
 Now you are set up for working with Rug in TypeScript, let's write a simple editor. As usual, we start by constructing a test for our future editor and we can do this using the convenience of a Rug DSL BDD test:
 
@@ -176,7 +176,23 @@ export let editor: ProjectEditor = {
 
 Walking through this editor the contents are:
 
--   TBD
+-   Importing the TypeScript types for working with Rug.
+-   Describing a single, mandatory parameter `description` to this editor.
+-   Tagging and exporting a `ProjectEditor` implementation that contains the `edit` function implementation for the project-editing logic.
+
+You should now be able to execute `rug test` from your project's root directory and get a similar output to the following:
+
+```
+$ rug test
+Resolving dependencies for russmiles:scattered-rugs:0.1.0 ← local completed
+Loading russmiles:scattered-rugs:0.1.0 ← local into runtime completed
+Executing scenario SimpleSampleEditor should just add a file called "README.md" to the target project...      
+  Testing assertion fileExists(SimpleLiteral(README.md))                                                      
+  Testing assertion fileContains(SimpleLiteral(README.md),SimpleLiteral(Hello, Rug TypeScript World!))        
+Running test scenarios in russmiles:scattered-rugs:0.1.0 ← local completed
+
+Successfully executed 1 of 1 scenarios: Test SUCCESS
+```
 
 ### More Information
 
