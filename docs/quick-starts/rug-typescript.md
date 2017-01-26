@@ -8,13 +8,12 @@ In this Quick Start you're going to set up your Rug archive for writing and test
 
 To enable your Rug archive for TypeScript all you need to do is:
 
--   Add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) into the `.atomist` directory, amending for your own Rug archive's project settings
--   Add a [standard `tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) into your `.atomist` directory
+-   Add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) into the `.atomist` directory, amending for your own Rug archive's project settings.
 -   Install `node` and `npm` for local TypeScript development and, specifically, to install any dependencies your Rug TypeScript sources may have.
 
 You can have both Rug DSL and Rug TypeScript files in the *same* Rug archive. A good example of this is available in the [`travis-editors` Rug archive](https://github.com/atomist-rugs/travis-editors).
 
-> ***NOTE:*** A Rug editor and generator for this work is being produced and will reside in the `rug-editors` Rug archive.
+> ***NOTE:*** A Rug editor and generator for this work is being produced and will reside in the [`rug-editors` Rug archive](https://github.com/atomist-rugs/rug-editors).
 
 #### Adding a `package.json` file
 
@@ -22,24 +21,23 @@ As a starting point, simply add a [standard `package.json` file](https://docs.np
 
 ```
 {
-  "name": "@atomist-rugs/travis-editors",
-  "version": "0.8.0",
-  "description": "Editors for enabling Travis CI",
+  "name": "@atomist/scattered-rugs",
+  "version": "0.1.0",
+  "description": "Scattered Rugs",
   "keywords": [
     "Atomist",
-    "Rug",
-    "Travis"
+    "Rug"
   ],
-  "author": "Atomist, Inc",
+  "author": "Atomist",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atomist-rugs/travis-editors.git"
+    "url": "https://github.com/russmiles/scattered-rugs.git"
   },
   "bugs": {
-    "url": "https://github.com/atomist-rugs/travis-editors/issues"
+    "url": "https://github.com/russmiles/scattered-rugs/issues"
   },
-  "homepage": "https://github.com/atomist-rugs/travis-editors#readme",
+  "homepage": "https://github.com/russmiles/scattered-rugs#readme",
   "dependencies": {
     "@atomist/rug": "0.10.0"
   },
@@ -48,45 +46,10 @@ As a starting point, simply add a [standard `package.json` file](https://docs.np
     "rug-test": "rug test -urX",
     "rug-publish": "rug publish -urX"
   }
-
+}
 ```
 
 Amend the following in this `package.json` file according to your own Rug archive project's settings in your `.atomist/manifest.yml` file.
-
-#### Adding a `tsconfig.json` file
-
-The [standard `tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) contains the settings for the TypeScript transpiler. A generally suitable starting point is to add a `tsconfig.json` to your `.atomist` directory that contains the following:
-
-```
-{
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "isolatedModules": false,
-        "jsx": "react",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "declaration": false,
-        "noImplicitAny": false,
-        "noImplicitUseStrict": false,
-        "removeComments": true,
-        "noLib": false,
-        "preserveConstEnums": true,
-        "suppressImplicitAnyIndexErrors": true
-    },
-    "exclude": [
-        "node_modules",
-        "typings/browser",
-        "typings/browser.d.ts"
-    ],
-    "compileOnSave": true,
-    "buildOnSave": false,
-    "atom": {
-        "rewriteTsconfig": false
-    }
-}
-```
 
 #### Install Node and NPM and run `npm install`
 
@@ -141,8 +104,6 @@ With our test *happily* failing you can now write the following Rug TypeScript e
 import { ProjectEditor } from "@atomist/rug/operations/ProjectEditor"
 import { Status, Result, Parameter } from "@atomist/rug/operations/RugOperation"
 import { Project, Pair, File } from '@atomist/rug/model/Core'
-import { PathExpression, PathExpressionEngine, TreeNode, Match } from '@atomist/rug/tree/PathExpression'
-
 
 let params: Parameter[] = [
     {
@@ -155,18 +116,14 @@ let params: Parameter[] = [
     }
 ]
 
-interface Parameters {
-    description: string
-}
-
 export let editor: ProjectEditor = {
     tags: ["simple"],
     name: "SimpleSampleEditor",
-    description: "A simple sample TypeScript editor",
+    description: "A simple sample Rug TypeScript editor",
     parameters: params,
-    edit(project: Project, p: Parameters): Result {
+    edit(project: Project, {description } : {description: string}) {
 
-        project.addFile("README.md", p.description);
+        project.addFile("README.md", description);
 
         return new Result(Status.Success, "README.md added to project")
     }
@@ -176,7 +133,7 @@ export let editor: ProjectEditor = {
 Walking through this editor the contents are:
 
 -   Importing the TypeScript types for working with Rug.
--   Describing a single, mandatory parameter `description` to this editor.
+-   Declaring a single, mandatory parameter `description` to this editor.
 -   Tagging and exporting a `ProjectEditor` implementation that contains the `edit` function implementation for the project-editing logic.
 
 You should now be able to execute `rug test` from your project's root directory and get a similar output to the following:
