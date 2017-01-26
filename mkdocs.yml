@@ -16,6 +16,7 @@ pages:
   - Buttons: 'quick-starts/buttons.md'
   - Atomist Bot: 'quick-starts/bot.md'
   - Rug CLI: 'quick-starts/rug-cli.md'
+  - Rug TypeScript: 'quick-starts/rug-typescript.md'
 - Rug:
   - Why and What is Rug? : 'rug/why-and-what-is-rug.md'
   - Rug Language: 'rug/rug-dsl.md'

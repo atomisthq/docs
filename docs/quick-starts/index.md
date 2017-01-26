@@ -6,13 +6,13 @@ Quick Starts get you up and rolling with Atomist as fast as possible.
 
 Atomist Buttons let you start a project super-quick: one click to get started!
 
-[Buttons Quick Start](http://docs.atomist.com/quick-starts/buttons/)
+[Buttons Quick Start](buttons/)
 
 ### Atomist Bot
 
 The Bot awaits your instructions in our Atomist Community Slack.
 
-[Bot Quick Start](http://docs.atomist.com/quick-starts/bot/)
+[Bot Quick Start](bot/)
 
 ### Rug CLI
 
@@ -20,7 +20,13 @@ Now you can try automated code changes with Rug on your local file
 system. Run any publicly published generator or editor. Make your own
 Rugs and try them out!
 
-[Rug CLI Quick Start](http://docs.atomist.com/quick-starts/rug-cli/)
+[Rug CLI Quick Start](rug-cli/)
+
+### Rug TypeScript
+
+You can use TypeScript to create your Rugs. This Quick Start will show you how:
+
+[Rug TypeScript Quick Start](rug-typescript/)
 
 ### More
 
