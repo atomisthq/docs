@@ -172,3 +172,8 @@ div.source-links {
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
+
+.dropdown-menu>.dropdown-submenu>.dropdown-menu>.dropdown-submenu>.dropdown-menu {
+  overflow: auto;
+  max-height: 50vh;
+}
