@@ -37,8 +37,14 @@ div.source-links {
  */
 
 /* By default it's not affixed in mobile views, so undo that */
+.bs-sidebar {
+    overflow-y: auto;
+    max-height: 100%;
+}
+
 .bs-sidebar.affix {
     position: static;
+    bottom: 10px;
 }
 
 .bs-sidebar.well {
