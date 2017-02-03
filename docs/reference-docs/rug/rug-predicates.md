@@ -28,7 +28,7 @@ In this case the predicate simple states that it will only return true
 for projects that the [POM Rug Type](types/rug-core-types-pom.md)
 supports.
 
-### Flexible Rug Predicates based Javascript
+### Flexible Rug Predicates based on Javascript
 
 If you need more power then a you can declare a Rug predicate that
 begins by selecting the project itself and then can execute JavaScript
@@ -61,6 +61,8 @@ then
 In this example `fileCount = 1` is an ***in-place Rug Predicate***
 interpreted to examine the output from the editor-under-test to then
 return a `Boolean` `true` or `false` value for the assertion.
+
+The functions on [Project](types/rug-core-types-project.md) are available for use here.
 
  <!-- Include predicates as they are used in reviewer syntax -->
 
