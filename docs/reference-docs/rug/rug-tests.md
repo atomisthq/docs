@@ -135,3 +135,13 @@ debug=true
 
 given...
 ```
+
+To see the contents of a file in the output, use `dump <filename>` as an assertion predicate, like
+
+```
+then
+  dump outputFile
+	and fileContains outputFile "should be in there"
+```
+
+For more on debugging rugs, there's a walkthrough on [The Composition](https://medium.com/the-composition/dumping-your-rug-with-rug-tests-7ec191aa713e#.ccndpk66i).
