@@ -123,3 +123,15 @@ then
 ```
 
 This scenario will pass only if there's no change in the input artifact source.
+
+#### More debug information
+
+For help debugging a failing test, set debug=true to get a little tree of the directory structure after the editor runs.
+
+```
+scenario Foobar
+
+debug=true
+
+given...
+```
