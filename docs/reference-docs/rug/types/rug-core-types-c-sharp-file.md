@@ -1,8 +1,18 @@
-## Type: `PythonFile`
+## Type: `CSharpFile`
 
-**Python file**
+**C# file**
 
-### `PythonFile` Operations
+### `CSharpFile` Operations
+
+#### Operation: `addUsing`
+
+Add a using if it isn't already present
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newUsing*** | `class java.lang.String` | *New using (just the package)* |
 
 #### Operation: `append`
 

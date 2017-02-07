@@ -195,9 +195,17 @@ Does the file name (not path) contain the given string?
 | ------------|:---------------|:-------------|
 | ***what*** | `class java.lang.String` | *The string to use when looking for it in the file name or path* |
 
+#### Operation: `nodeTags`
+
+Tags attached to the node
+
+##### Parameters
+
+*None*
+
 #### Operation: `nodeType`
 
-Type of the node
+Tags attached to the node
 
 ##### Parameters
 

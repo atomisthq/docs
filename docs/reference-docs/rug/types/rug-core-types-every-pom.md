@@ -321,9 +321,17 @@ Return the content of the name element
 
 *None*
 
+#### Operation: `nodeTags`
+
+Tags attached to the node
+
+##### Parameters
+
+*None*
+
 #### Operation: `nodeType`
 
-Type of the node
+Tags attached to the node
 
 ##### Parameters
 

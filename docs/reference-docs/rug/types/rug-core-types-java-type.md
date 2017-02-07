@@ -140,9 +140,17 @@ Return the name of the type
 
 *None*
 
+#### Operation: `nodeTags`
+
+Tags attached to the node
+
+##### Parameters
+
+*None*
+
 #### Operation: `nodeType`
 
-Type of the node
+Tags attached to the node
 
 ##### Parameters
 

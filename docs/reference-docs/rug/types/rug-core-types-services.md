@@ -57,9 +57,17 @@ Report a minor problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `nodeTags`
+
+Tags attached to the node
+
+##### Parameters
+
+*None*
+
 #### Operation: `nodeType`
 
-Type of the node
+Tags attached to the node
 
 ##### Parameters
 

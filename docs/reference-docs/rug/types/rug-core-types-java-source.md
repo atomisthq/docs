@@ -107,9 +107,17 @@ Move the source file to the given package
 | ------------|:---------------|:-------------|
 | ***newPackage*** | `class java.lang.String` | *The package to move the source file to* |
 
+#### Operation: `nodeTags`
+
+Tags attached to the node
+
+##### Parameters
+
+*None*
+
 #### Operation: `nodeType`
 
-Type of the node
+Tags attached to the node
 
 ##### Parameters
 

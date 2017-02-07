@@ -25,6 +25,17 @@ Create a directory
 | ------------|:---------------|:-------------|
 | ***directoryPath*** | `class java.lang.String` | *The path under which the directory and any missing intermediate directories will be created* |
 
+#### Operation: `addExecutableFile`
+
+Add the given executable file to the project. Path can contain /s. Content is a literal string
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***path*** | `class java.lang.String` | *The path to use* |
+| ***content*** | `class java.lang.String` | *The content to be placed in the new file* |
+
 #### Operation: `addFile`
 
 Add the given file to the project. Path can contain /s. Content is a literal string
@@ -65,16 +76,6 @@ Provides access additional context, such as the PathExpressionEngine
 
 #### Operation: `copyEditorBackingFileOrFail`
 
-Copy the given file from the editor's backing archive to the same path in project being edited. Fail the editor if it isn't found or if the destination already exists
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***sourcePath*** | `class java.lang.String` | *Source path* |
-
-#### Operation: `copyEditorBackingFileOrFail`
-
 Copy the given file from the editor's backing archive. Fail the editor if it isn't found or if the destination already exists
 
 ##### Parameters
@@ -83,6 +84,16 @@ Copy the given file from the editor's backing archive. Fail the editor if it isn
 | ------------|:---------------|:-------------|
 | ***sourcePath*** | `class java.lang.String` | *Source path* |
 | ***destinationPath*** | `class java.lang.String` | *Destination path* |
+
+#### Operation: `copyEditorBackingFileOrFail`
+
+Copy the given file from the editor's backing archive to the same path in project being edited. Fail the editor if it isn't found or if the destination already exists
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***sourcePath*** | `class java.lang.String` | *Source path* |
 
 #### Operation: `copyEditorBackingFilesOrFail`
 
@@ -167,6 +178,16 @@ Delete the given file from the project. Path can contain /s.
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***path*** | `class java.lang.String` | *The path to use* |
+
+#### Operation: `describeChange`
+
+Describe a change we made to this object
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
 
 #### Operation: `directoryExists`
 
@@ -365,9 +386,17 @@ Return the name of the project. If it's in GitHub, it will be the repo name.If i
 
 *None*
 
+#### Operation: `nodeTags`
+
+Tags attached to the node
+
+##### Parameters
+
+*None*
+
 #### Operation: `nodeType`
 
-Type of the node
+Tags attached to the node
 
 ##### Parameters
 
