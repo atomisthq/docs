@@ -1,8 +1,18 @@
 ## Rug TypeScript Quick Start
 
-Rugs can be written in [TypeScript](https://www.typescriptlang.org/) or the [Rug DSL](../refence-docs/rug/index.md). The TypeScript approach is usually preferable over the [Rug DSL](../refence-docs/rug/index.md) when you have some real programmatic work to do in your Rugs where the DSL is too constraining. Also using TypeScript has the significant added bonuses of being type-safe and having great existing tooling support for features like code-completion.
+Rugs can be written in [TypeScript](https://www.typescriptlang.org/)
+or the [Rug DSL][dsl]. The TypeScript approach is usually preferable
+over the [Rug DSL][dsl] when you have some real programmatic work to
+do in your Rugs where the DSL is too constraining. Also using
+TypeScript has the significant added bonuses of being type-safe and
+having great existing tooling support for features like
+code-completion.
 
-In this Quick Start you're going to set up your Rug archive for writing and testing Rugs written in TypeScript and using the [Rug CLI](rug-cli.md).
+[dsl]: ../reference-docs/rug/index.md
+
+In this Quick Start you're going to set up your Rug archive for
+writing and testing Rugs written in TypeScript and using
+the [Rug CLI](rug-cli.md).
 
 ### Getting set up for TypeScript Rugs
 
@@ -120,9 +130,9 @@ You should now be able to execute `rug test` from your project's root directory 
 $ rug test
 Resolving dependencies for russmiles:scattered-rugs:0.1.0 ← local completed
 Loading russmiles:scattered-rugs:0.1.0 ← local into runtime completed
-Executing scenario SimpleSampleEditor should just add a file called "README.md" to the target project...      
-  Testing assertion fileExists(SimpleLiteral(README.md))                                                      
-  Testing assertion fileContains(SimpleLiteral(README.md),SimpleLiteral(Hello, Rug TypeScript World!))        
+Executing scenario SimpleSampleEditor should just add a file called "README.md" to the target project...
+  Testing assertion fileExists(SimpleLiteral(README.md))
+  Testing assertion fileContains(SimpleLiteral(README.md),SimpleLiteral(Hello, Rug TypeScript World!))
 Running test scenarios in russmiles:scattered-rugs:0.1.0 ← local completed
 
 Successfully executed 1 of 1 scenarios: Test SUCCESS
