@@ -52,6 +52,7 @@ pages:
       - Core Rug Type - PackageJson: 'reference-docs/rug/types/rug-core-types-package-json.md'
       - Core Rug Type - JavaSource: 'reference-docs/rug/types/rug-core-types-java-source.md'
       - Core Rug Type - JavaType: 'reference-docs/rug/types/rug-core-types-java-type.md'
+      - Core Rug Type - CSharpFile: 'reference-docs/rug/types/rug-core-types-c-sharp-file.md'
       - Core Rug Type - ElmModule: 'reference-docs/rug/types/rug-core-types-elm-module.md'
       - Core Rug Type - DockerFile: 'reference-docs/rug/types/rug-core-types-docker-file.md'
       - Core Rug Type - PythonFile: 'reference-docs/rug/types/rug-core-types-python-file.md'
