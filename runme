@@ -1,0 +1,6 @@
+# this is stuff that is supposed to run every time according to the README
+# It does not do setup
+
+export PIP_REQUIRE_VIRTUALENV=true
+source ~/.venvs/userdocs/bin/activate
+mkdocs serve
