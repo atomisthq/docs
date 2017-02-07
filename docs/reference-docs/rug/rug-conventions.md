@@ -88,9 +88,9 @@ Rug files should have the `.rug` extension when written using the Rug
 DSL and the standard TypeScript `.ts` extension when written in
 TypeScript.  You can safely intermix Rug DSL and TypeScript Rugs in
 the same archive.  Rug files should placed in the following locations
-within a _Rug archive_.  Rug editors should be in `.atomist/editors`,
-Rug executors should be in `.atomist/executors`, and Rug reviewers
-should be in `.atomist/reviewers`.
+within a _Rug archive_.  Rug editors and generators should be in
+`.atomist/editors`, Rug executors should be in `.atomist/executors`,
+and Rug reviewers should be in `.atomist/reviewers`.
 
 BDD-style tests for your Rugs are strongly recommended and should be
 located within a `.atomist/tests` directory and have the `.rt`
@@ -101,8 +101,8 @@ the `.atomist/templates` directory.
 
 ### Rug Naming
 
-Rug editors, reviewers, executors and predicates should have their
-names formatted using [UpperCamelCase][ucc].
+Rug editors, generators, reviewers, executors and predicates should
+have their names formatted using [UpperCamelCase][ucc].
 
 [ucc]: http://wiki.c2.com/?UpperCamelCase
 
@@ -114,34 +114,22 @@ For example, `AddDocker` is a good name if the Rug adds Docker to
 anything, but `AddDockerToMavenProjects` is better if the intention of
 the Rug is to only work with projects that follow Maven conventions.
 
-While a Rug `.rug` file can contain many different editors, reviewers,
-executors and predicates, the Rug runtime enforces that the first Rug
-definition in a `.rug` file should match the name of the file
-itself. Therefore Rug files should be formatted using UpperCamelCase
-to match the name of the first Rug definition in the file.
+While a Rug `.rug` file can contain many different editors,
+generators, reviewers, executors and predicates, the Rug runtime
+enforces that the first Rug definition in a `.rug` file should match
+the name of the file itself. Therefore Rug files should be formatted
+using UpperCamelCase to match the name of the first Rug definition in
+the file.
 
 Further Rugs within the same file are conventionally understood to be
 in support of the main and initial Rug in the file.
-
-#### Rug Generator Naming
-
-To indicate that an editor is also a Rug generator it is conventional
-to name the editor with `New` at the beginning of the editor's name to
-indicate that it is used to construct a project from scratch.
-
-You declare that an editor is a generator using the `@generator`
-annotation.
-
-```
-@generator
-```
 
 #### Rug Predicate Naming
 
 Rug predicates in Rug DSL need to be in their own `.rug` file if they
 are to be reused by other Rugs or even external Rug archives and are
 formatted according to the same UpperCamelCase rules as editors,
-reviewers and executors.
+generators, reviewers and executors.
 
 In addition a Rug predicate should be named according to what it
 includes. For example, `IsMavenProject` would be a good name for a
@@ -224,8 +212,8 @@ an image.  The following tags currently have images: `docker`,
 
 ### Rug `description` Annotations
 
-Rug editors, reviewers, predicates, executors, and parameters can have
-an accompanying `description` annotation such as:
+Rug editors, generators, reviewers, predicates, executors, and
+parameters can have an accompanying `description` annotation such as:
 
 ```
 @description "adds a project specific README"
@@ -260,7 +248,7 @@ name is longer than 21 characters then some character-loss will occur.
 #### Parameter Descriptions and Display Names
 
 As Rug parameters are part of the public contract to the editor,
-reviewers, executor or predicate it is recommended that a
+generator, reviewers, executor or predicate it is recommended that a
 human-readable description and display name always be applied using
 the `@description` and `@displayName` annotations.
 

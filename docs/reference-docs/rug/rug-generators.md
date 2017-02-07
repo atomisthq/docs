@@ -1,22 +1,15 @@
 ## Rug Generators
 
-There is a special kind of Rug editor that is used to bootstrap an
-entirely new project. This is the Rug generator.
+Rug generators are used to create new projects from an existing model
+project.  Generators are created using the `generator` keyword.
 
-### Generators from Editors
-
-A Rug generator is simply a Rug editor annotated with the `@generator`
-annotation.
-
-It works with, and transfers over the the new project that it is being
-used to generator, the content of the repo it is located in, excluding
-the `.atomist` directory.
-
-A single repo can contain multiple project generator editors.
+When a generator creates a new project, it starts by copying all the
+files in the project in which it resides, excluding the `.atomist`
+directory, to the new project being created.
 
 Typically Rug generators do not contain logic of their own, but invoke
-a number of other editors in order to manipulate the files brought
-across from outside the `.atomist` directory.
+a number of other editors in order to manipulate the files copied from
+the generator project.
 
 For example, here is a complete [Spring Rest Service][spring]
 generator:
@@ -28,8 +21,7 @@ generator:
 @tag "spring"
 @tag "spring-boot"
 @description "Creates a new Spring Rest project"
-@generator "Spring Rest"
-editor NewSpringProject
+generator NewSpringProject
 
 # Pattern to replace in old class name.
 old_class = "SpringRest"
@@ -45,13 +37,10 @@ ClassRenamer
 
 ```
 
-This generator uses four other editors. The parameters from these
-editors propagate to the calling context--typically an interaction
-with a user--except for `old_class` and `old_package` which are
-explicitly set.
+This generator uses four editors. The parameters from these editors
+propagate to the calling context--typically an interaction with a
+user--except for `old_class` and `old_package` which are explicitly
+set.
 
-This modular approach enables multiple project generator editors to
-share common functionality.
-
-Project generator editors can also be used as regular editors and be
-invoked by other editors.
+This modular approach enables multiple project generators to share
+common functionality.
