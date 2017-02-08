@@ -1,0 +1,28 @@
+.md-header {
+    background: -webkit-linear-gradient(left, #1c344a 0%, #2d7d7c 50%, #93c26f 100%);
+    background: -o-linear-gradient(left, #1c344a 0%, #2d7d7c 50%, #93c26f 100%);
+    background: linear-gradient(to right, #1c344a 0%, #2d7d7c 50%, #93c26f 100%);
+}
+
+.md-footer-nav {
+    background-color: #1a344c;
+}
+
+.md-footer-meta {
+    background-color: #14283B;
+}
+
+@media only screen and (min-width: 60em) {
+    [data-md-color-primary=green] .md-nav--secondary {
+        border-left: .4rem solid #5BC399;
+    }
+    [data-md-color-primary=green] .md-nav__link--active, [data-md-color-primary=green] .md-nav__link:active {
+        color: #5BC399;
+    }
+    [data-md-color-primary=green] .md-typeset a {
+        color: #5BC399;
+    }
+    [data-md-color-primary=green] .md-typeset a:hover {
+        color: #247f7e;
+    }
+}

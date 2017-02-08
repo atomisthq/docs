@@ -4,11 +4,49 @@ site_author: The Atomist Team
 copyright: '&copy; 2017 Atomist, Inc.'
 extra:
   main_site_url: 'https://www.atomist.com/'
-theme_dir: atomist
-site_favicon: images/favicon.png
+theme: material
+#theme_dir: atomist
+site_favicon: images/favicon.ico
+extra:
+  logo: 'images/atomist-logo-horiz-reversed.svg'
+  palette:
+    primary: 'green'
+    accent: 'green'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  social:
+    - type: 'github'
+      link: 'https://github.com/atomist'
+    - type: 'twitter'
+      link: 'https://twitter.com/atomist'
+    - type: 'slack'
+      link: 'https://join.atomist.com/'
 extra_css:
-- "css/brandon-grotesque.css"
-google_analytics: ['UA-74966852-1', 'auto']
+  - 'stylesheets/extra.css'
+google_analytics: 
+  - 'UA-74966852-1'
+  - 'auto'
+markdown_extensions:
+  - admonition
+  - codehilite(guess_lang=false, linenums=true)
+  - footnotes
+  - meta
+  - toc(permalink=true)
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tilde
+repo_name: 'Rug'
+repo_url: 'https://github.com/atomist/rug'
 pages:
 - Welcome to Atomist: 'index.md'
 - Quick Starts:
