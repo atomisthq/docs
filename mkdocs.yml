@@ -24,7 +24,7 @@ extra:
       link: 'https://join.atomist.com/'
 extra_css:
   - 'stylesheets/extra.css'
-google_analytics: 
+google_analytics:
   - 'UA-74966852-1'
   - 'auto'
 markdown_extensions:
@@ -49,6 +49,7 @@ repo_name: 'Rug'
 repo_url: 'https://github.com/atomist/rug'
 pages:
 - Welcome to Atomist: 'index.md'
+- Getting Started: 'getting-started/index.md'
 - Quick Starts:
   - Introduction: 'quick-starts/index.md'
   - Buttons: 'quick-starts/buttons.md'
