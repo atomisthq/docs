@@ -8,16 +8,16 @@ a Rug predicate.
 A Rug predicate is an expression that returns a `Boolean` `true` or
 `false` value.
 
-### A Simple Rug Predicate based on a [Rug Type][types] being supported
+### A Simple Rug Predicate based on a [Core Rug Language Extension][extensions] being supported
 
 The simplest form of predicate is one that uses Rug to ask if the
 project supports the assertions of a
-particular [Rug Type][types]. Every [Rug Type][types] is packaged with
+particular [Core Rug Language Extension][extensions]. Every [Rug Language Extension][extensions] is packaged with
 a statement that declares whether it can be applied to a given project
 (usually in the form of detecting if certain files are present or
 not), and the following example piggy-backs on that:
 
-[types]: types/index.md
+[extensions]: extensions/index.md
 
 ```
 predicate IsMaven
@@ -25,7 +25,7 @@ predicate IsMaven
 ```
 
 In this case the predicate simple states that it will only return true
-for projects that the [POM Rug Type](types/rug-core-types-pom.md)
+for projects that the [POM Rug Language Extension](extensions/rug-core-types-pom.md)
 supports.
 
 ### Flexible Rug Predicates based Javascript

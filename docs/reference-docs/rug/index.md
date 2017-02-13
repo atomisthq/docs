@@ -17,18 +17,18 @@ TypeScript.
 -   Rug Reviewers (coming soon): Examine a repository for conformance to standards
 -   Rug Executors (coming soon): Apply any of the above Rugs to multiple repositories at once
 
-### Rug Core Types
+### Rug Language Extensions
 
-[Rug Core Types](types/index.md) define a set of core file types that
+[Core Rug Language Extensions](extensions/index.md) define a set of core concepts that
 Rug understands.  This understanding provides you with an API for
 accessing and manipulating these files rather than having to do raw
-file manipulation.  See the documentation for each of the core types
+file manipulation.  See the documentation for each of the [Core Rug Language Extensions][extensions/index.md]
 for details on what each API allows you to do.
 
 ### Beyond the Rug DSL
 
-When writing Rugs using the Rug DSL, you can escape into other
-languages if the Rug Core Types do not provide the functionality you
+When writing Rugs using the Rug DSL you can escape into other
+languages if the Core Rug Language Extensions do not provide the functionality you
 need.
 
 -   [JavaScript](escape/rug-javascript.md)

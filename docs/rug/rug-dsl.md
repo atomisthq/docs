@@ -104,19 +104,17 @@ newer version of Rug for particular language features that may have
 come to light after you originally created your Rug archive. As we
  evolve the languages, we'll create Rug editors to do this upgrade programatically!
 
-### Rug can be Extended with Custom Types
+### Rug can be Extended with Rug Language Extensions
 
 There is already a *lot* of power in
-the [Core Rug Types](/reference-docs/rug/types/index.md) that are built
-into the Rug language, but the intention is not for this to be the
+the [Core Rug Language Extensions](/reference-docs/rug/extensions/index.md) that are built
+into the Rug language but the intention is not for this to be the
 only, exhaustive set of types you can use.
 
-Rug itself can be extended with new types for new languages,
+Rug itself can be extended with new language extensions for new languages,
 frameworks or even systems.
 
 > NOTE: More complete documentation on how to extend, package and
-> distribute Rug with custom types is coming soon.
+> distribute Rug Language Extensions is coming soon.
 
 If you want to see some Rugs, check out the archives in [atomist-rugs](https://github.com/atomist-rugs).
-
-

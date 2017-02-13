@@ -67,9 +67,9 @@ with File f when name contains ".txt"
 The `with` statement simply says *for each file in the project if name
 contains ".txt" append the given string to the end of the file.* . The
 `with` statement declared what we ***select*** and what type it is
-expected to be. The type in the example above is
-the [Core Rug Type](types/index.md)
-of [file](types/rug-core-types-file.md) and this dictates what
+expected to be. The Rug language extension in the example above is
+the [Core Rug Language Extension](extensions/index.md)
+of [File](extensions/rug-core-types-file.md) and this dictates what
 functions are exposed what has been selected.
 
 The code between `when` and `do` is
@@ -399,4 +399,4 @@ editor Sample ...
 *   [Rug Generators](rug-generators.md)
 *   [Rug Templates](rug-templates.md)
 *   [Escaping Rug into JavaScript](escape/rug-javascript.md)
-*   [Core Rug Types](types/index.md)
+*   [Core Rug Language Extensions](extensions/index.md)
