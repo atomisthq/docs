@@ -32,7 +32,7 @@ As a starting point, simply add a [standard `package.json` file](https://docs.np
 ```json
 {
   "dependencies": {
-    "@atomist/rug": "0.10.0"
+    "@atomist/rug": "0.12.0"
   }
 }
 ```
@@ -47,8 +47,8 @@ Once you have these two installed on your machine you should be able to successf
 
 ```shell
 $ npm install
-@russmiles/scattered-rugs@0.8.0 ...scattered-rugs/.atomist
-└── @atomist/rug@0.10.0
+@yourusername/scattered-rugs@0.1.0 ...scattered-rugs/.atomist
+└── @atomist/rug@0.12.0
 ```
 
 This will create a `node_modules` directory which can be ignored, using something like `.gitignore` if you're using [git](https://git-scm.com/), and not checked into source control as it is only needed for local development.
@@ -75,9 +75,9 @@ Drop this test into a file called `.atomist/tests/MyFirstEditor.rt` and then exe
 
 ```shell
 $ rug test
-Resolving dependencies for russmiles:scattered-rugs:0.1.0 ← local completed
-Loading russmiles:scattered-rugs:0.1.0 ← local into runtime completed
-Running test scenarios in russmiles:scattered-rugs:0.1.0 ← local completed
+Resolving dependencies for yourusername:scattered-rugs:0.1.0 ← local completed
+Loading yourusername:scattered-rugs:0.1.0 ← local into runtime completed
+Running test scenarios in yourusername:scattered-rugs:0.1.0 ← local completed
 
 → Failed Scenarios
   SimpleSampleEditor should just add a file called "README.md" to the target project (1 of 1 assertions failed)
@@ -89,51 +89,46 @@ Known operations are []
 With our test *happily* failing you can now write the following Rug TypeScript editor to meet the assertions of the test. Create a file called `SimpleSampleEditor.ts` in the `.atomist/editors` directory that contains the following:
 
 ```typescript
-import { ProjectEditor } from "@atomist/rug/operations/ProjectEditor"
-import { Status, Result, Parameter } from "@atomist/rug/operations/RugOperation"
-import { Project, Pair, File } from '@atomist/rug/model/Core'
+import { EditProject } from "@atomist/rug/operations/ProjectEditor"
+import { Editor, Tags, Parameter } from "@atomist/rug/operations/Decorators"
+import { Project } from '@atomist/rug/model/Core'
 
-let params: Parameter[] = [
-    {
-        name: "description",
-        displayName: "Description",
-        description: "Text to be added to the README.md",
-        validInput: "Any valid text",
-        minLength: 1,
-        pattern: "@any",
-    }
-]
+@Editor("SimpleSampleEditor","A simple sample Rug TypeScript editor")
+@Tags("simple")
+class MySimpleEditor implements EditProject{
 
-export let editor: ProjectEditor = {
-    tags: ["simple"],
-    name: "SimpleSampleEditor",
-    description: "A simple sample Rug TypeScript editor",
-    parameters: params,
-    edit(project: Project, {description } : {description: string}) {
+    @Parameter({description: "Does fun things!", pattern: "@any"})
+    description: string = "Hello, Rug TypeScript World!"
 
-        project.addFile("README.md", description);
-
-        return new Result(Status.Success, "README.md added to project")
+    edit(project: Project) {
+        project.addFile("README.md", this.description);
     }
 }
+
+export let simple = new MySimpleEditor()
 ```
 
 Walking through this editor the contents are:
 
--   Importing the TypeScript types for working with Rug.
--   Declaring a single, mandatory parameter `description` to this editor.
--   Tagging and exporting a `ProjectEditor` implementation that contains the `edit` function implementation for the project-editing logic.
+-   Importing the TypeScript typings for working with Rug.
+-   Declaring the editor using the `@Editor` decorator, passing in its name and description
+-   Tagging the editor using the `@Tag` decorator to aid discoverability
+-   Implementing the `EditProject` interface to enforce the `edit` function signature
+-   Declaring any require parameters using the `@Parameter` decorator
+   - The value of the field is used as the default value if no value is supplied during invocation
+-   Finally, exporting an instance your editor that will be used as a prototype for creating one for each request (for thread safety)
 
 You should now be able to execute `rug test` from your project's root directory and get a similar output to the following:
 
+
 ```shell
 $ rug test
-Resolving dependencies for russmiles:scattered-rugs:0.1.0 ← local completed
-Loading russmiles:scattered-rugs:0.1.0 ← local into runtime completed
+Resolving dependencies for yourusername:scattered-rugs:0.1.0 ← local completed
+Loading yourusername:scattered-rugs:0.1.0 ← local into runtime completed
 Executing scenario SimpleSampleEditor should just add a file called "README.md" to the target project...
   Testing assertion fileExists(SimpleLiteral(README.md))
   Testing assertion fileContains(SimpleLiteral(README.md),SimpleLiteral(Hello, Rug TypeScript World!))
-Running test scenarios in russmiles:scattered-rugs:0.1.0 ← local completed
+Running test scenarios in yourusername:scattered-rugs:0.1.0 ← local completed
 
 Successfully executed 1 of 1 scenarios: Test SUCCESS
 ```
