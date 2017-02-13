@@ -1,6 +1,6 @@
-## Rug Conventions
+## Rug Conventions & Best Practices
 
-Rug is its own [Domain Specific Language (DSL)][dsl] that is currently
+Rug *is* the Atomist API and is implemented in its own [Domain Specific Language (DSL)][dsl] as well as TypeScript variants. Rug is currently
 used to define
 project [generators](rug-generators.md), [editors](rug-editors.md),
 reviewers (coming soon), [predicates](rug-predicates.md), executors
@@ -31,17 +31,38 @@ concrete examples.
 ### Rug Archive
 
 A _Rug archive_ is simply any project that contains a conforming
-`.atomist` directory and its subdirectories.  The standard directory
-layout is:
+`.atomist` directory and a `manifest.yml` description of the archive. A minimal directory layout would only contain:
+
+```
+.atomist/
+  manifest.yml
+```
+
+A fuller examples directory layout for a larger collection of Rug artifacts would be:
 
 ```
 .atomist/
   editors/
   executors/
+  handlers/
   reviewers/
   templates/
   tests/
+  manifest.yml
 ```
+
+The `manifest.yml` file should contain the following general information and formatting:
+
+```
+group: atomist-rugs
+artifact: travis-editors
+version: "0.12.2"
+requires: "[0.11.0,1.0.0)"
+dependencies:
+extensions:
+```
+
+There is a [Rug generator available](https://github.com/atomist-rugs/rug-archive) that will create a minimal Rug archive for you.
 
 ### Rug Archive Repositories
 
