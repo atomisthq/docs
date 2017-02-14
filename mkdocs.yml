@@ -72,6 +72,8 @@ pages:
     - Rug Generators: 'reference-docs/rug/rug-generators.md'
     - Rug Templates: 'reference-docs/rug/rug-templates.md'
     - Rug Predicates: 'reference-docs/rug/rug-predicates.md'
+    - Rug Path Expressions: 'reference-docs/rug/rug-path-expressions.md'
+    - Rug Microgrammars: 'reference-docs/rug/rug-microgrammars.md'
     - Rug Language Extensions:
       - Introduction: 'reference-docs/rug/extensions/index.md'
       - Project: 'reference-docs/rug/extensions/rug-core-types-project.md'
