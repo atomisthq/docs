@@ -53,7 +53,7 @@ A fuller examples directory layout for a larger collection of Rug artifacts woul
 
 The `manifest.yml` file should contain the following general information and formatting:
 
-```
+```yaml
 group: atomist-rugs
 artifact: travis-editors
 version: "0.12.2"
