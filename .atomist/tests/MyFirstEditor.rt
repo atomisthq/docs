@@ -1,0 +1,11 @@
+scenario SimpleSampleEditor should just add a file called "README.md" to the target project
+
+given
+  Empty
+
+when
+  SimpleSampleEditor
+
+then
+  fileExists "README.md"
+    and fileContains "README.md" "Hello, Rug TypeScript World!"

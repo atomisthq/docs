@@ -1,0 +1,23 @@
+{
+  "name": "@atomist-rugs/end-user-documentation",
+  "version": "0.1.0",
+  "description": "Samples and other useful things for documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atomist/end-user-documentation.git"
+  },
+  "keywords": [
+    "Atomist",
+    "Rug",
+    "Documentation"
+  ],
+  "author": "Atomist, Inc",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/atomist/end-user-documentation/issues"
+  },
+  "homepage": "https://github.com/atomist/end-user-documentation#readme",
+  "dependencies": {
+    "@atomist/rug": "0.11.0"
+  }
+}
