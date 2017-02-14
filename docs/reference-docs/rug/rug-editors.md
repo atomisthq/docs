@@ -57,7 +57,7 @@ Before we go into a more systematic presentation of Rug syntax, let's
 start by building up a simple program: a project editor that appends
 to a file:
 
-```
+```rug
 editor AppendToFile
 
 with File f when name contains ".txt"
@@ -79,7 +79,7 @@ Let's make this a little more sophisticated. Perhaps we'd like to
 decide what content we should append. This would be a natural
 parameter:
 
-```
+```rug
 editor AppendToFile
 
 param to_append: .*
@@ -101,7 +101,7 @@ It would be good to describe this editor so that users see information
 beyond its name. We can do this with the `description` annotation. We
 can also describe the parameter:
 
-```
+```rug
 @description """Appends value of to_append parameter to
      the end of files with a .txt extension"""
 editor AppendToFile
@@ -120,7 +120,7 @@ escaping.
 We can add multiple `with` blocks. So we could process another type of
 file as follows:
 
-```
+```rug
 editor AppendToFile
 
 param to_append: .*
@@ -135,7 +135,7 @@ with File f when name contains ".java"
 Sometimes we need to compute additional values. We do this with the
 `let` keyword as shown to populate the `x` value below:
 
-```
+```rug
 editor AppendToFile
 
 param to_append: .*
@@ -156,7 +156,7 @@ We can compose [predicates](rug-predicates.md) used with `with`. In
 the following example, we `and` two tests on a file to narrow
 matching:
 
-```
+```rug
 editor AppendToFile
 
 param to_append: .*
@@ -169,7 +169,7 @@ with File f
 We can also perform multiple `do` steps as follows, enclosing them in
 a `begin/end` block:
 
-```
+```rug
 editor AppendToFile
 
 param to_append: .*
@@ -186,7 +186,7 @@ perform a do manipulation. A JavaScript expression is enclosed in
 curly braces. The following example builds the string to be appended
 using JavaScript:
 
-```
+```rug
 editor AppendToFile
 
 param to_append: .*
@@ -197,7 +197,7 @@ with File f when name contains ".txt"
 
 We can also use JavaScript expressions in predicates, like this:
 
-```
+```rug
 editor AppendToFile
 
 with File f
@@ -211,7 +211,7 @@ Editors can be composed. For example, executing the `Foo` editor in
 the following Rug script will result in `some` being replaced by `foo`
 and then by `bar`, as the `Foo` editor invokes the `Bar` editor.
 
-```
+```rug
 editor Foo
 
 with File f
@@ -237,7 +237,7 @@ When composing by calling an editor that accepts parameters, the
 parameters are provided as a comma-separate list of
 `param_name=param_value` tokens.
 
-```
+```rug
 editor CallerEditor
 
 CalledEditor first="some", second="thing"
@@ -309,7 +309,7 @@ Rug supports three types of string literals:
 *Annotations* are used to describe the following program elements:
 editors, reviewers and parameters. For example:
 
-```
+```rug
 @description "Takes EJBs and delivers a roundhouse kick to them"
 editor RemoveEJB
 
@@ -344,7 +344,7 @@ double-quoted strings can include special characters like newlines.
 are supplied to your script for use when declaring editor parameter
 patterns, for example:
 
-```
+```rug
 editor ClassRenamer
 
 param old_class: @java_class
@@ -375,7 +375,7 @@ for parameter pattern declarations specifically include the following:
 
 Any content on a line after `#` is a comment. For example:
 
-```
+```rug
 editor Foo
 
 with File f # Do something with this file
@@ -386,7 +386,7 @@ with File f # Do something with this file
 
 C style multi-line comments are supported:
 
-```
+```rug
 /*
 	This is a comment that goes on so long
 	that we need line breaks.

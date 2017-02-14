@@ -105,7 +105,7 @@ the same name as the declared predicate.
 So the following sample, taken from [spring-boot-editors][is-maven],
 is declared in a `.atomist/editors/IsMaven.rug` file:
 
-```
+```rug
 predicate IsMaven
   with pom
 ```

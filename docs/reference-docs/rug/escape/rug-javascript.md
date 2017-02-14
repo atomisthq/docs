@@ -26,7 +26,7 @@ Where a return value isn't required--for example, when a JavaScript
 block manipulates the currently scoped variable--the special `eval`
 function can be used, as follows:
 
-```
+```rug
 with File f when name = "thing.txt"
   do eval { f.setContent(f.content() + "\nAppend stuff") }
 ```
@@ -34,7 +34,7 @@ with File f when name = "thing.txt"
 JavaScript expressions are also commonly used in predicates, like
 this:
 
-```
+```rug
 with File f when { f.name().toLowerCase().contains("xyz") }
   do eval { f.setContent(f.content() + "\nAppend stuff") }
 ```
@@ -68,7 +68,7 @@ Finally a JavaScript expression can be used to compute a Rug computed
 value, like this:
 
 
-```
+```rug
 editor Test
 
 param name: ^.*$
