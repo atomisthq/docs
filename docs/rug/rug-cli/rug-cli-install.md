@@ -21,14 +21,14 @@ our [Homebrew][brew] [tap][] repository.
 
 Once you have Homebrew installed, it is just two easy steps:
 
-```
+```shell
 $ brew tap atomist/tap
 $ brew install rug-cli
 ```
 
 If you'd like to stay on the latest, possible unstable and un-released, version of the CLI you can install HEAD from:
 
-```
+```shell
 $ brew upgrade --HEAD rug-cli --fetch-HEAD
 ```
 
@@ -43,19 +43,24 @@ To install on a Debian-based distributions, follow the next instructions:
 
 1.  Grab the public GPG key for the repository:
 
-        $ wget -qO - 'https://atomist.jfrog.io/atomist/api/gpg/key/public' | sudo apt-key add -
-
+    ```shell
+    $ wget -qO - 'https://atomist.jfrog.io/atomist/api/gpg/key/public' | sudo apt-key add -
+    ```
 2.  Add a new apt source entry:
 
-        $ echo "deb https://atomist.jfrog.io/atomist/debian $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/atomist.list
-
+    ```shell
+    $ echo "deb https://atomist.jfrog.io/atomist/debian $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/atomist.list
+    ```
 3.  Update the metadata:
 
-        $ sudo apt-get update
-
+    ```shell
+    $ sudo apt-get update
+    ```
 4.  Install the CLI:
 
-        $ sudo apt-get install rug-cli
+    ```shell
+    $ sudo apt-get install rug-cli
+    ```
 
 **Note about the JDK 8 requirement:**
 
@@ -65,7 +70,7 @@ differently on their machine. Therefore, starting with Rug CLI 0.22, the package
 only suggests to install the dependency and emits the following message when 
 running the CLI without a proper Java 8 found:
 
-```
+```shell
 $ rug
 JAVA_HOME not set and cannot find javac to deduce location, please set JAVA_HOME.
 ```
@@ -76,7 +81,7 @@ distributions, you can simply run `sudo apt-get install openjdk-8-jdk`. On older
 distributions, either install Java 8 manually and set the according variable,
 or try the following instructions:
 
-```
+```shell
 $ sudo add-apt-repository ppa:openjdk-r/ppa
 $ sudo apt-get update
 $ sudo apt-get install openjdk-8-jdk
@@ -88,17 +93,21 @@ To install on a RedHat-based distributions, follow the next instructions:
 
 1.  Add a new yum repository:
 
-        $ cat <<EOF | sudo tee /etc/yum.repos.d/atomist.repo
-        [Atomist]
-        name=Atomist
-        baseurl=https://atomist.jfrog.io/atomist/yum/
-        enabled=1
-        gpgcheck=0
-        EOF
+    ```shell
+    $ cat <<EOF | sudo tee /etc/yum.repos.d/atomist.repo
+    [Atomist]
+    name=Atomist
+    baseurl=https://atomist.jfrog.io/atomist/yum/
+    enabled=1
+    gpgcheck=0
+    EOF
+    ```
 
 2.  Install the CLI:
 
-        $ sudo yum install rug-cli
+    ```shell
+    $ sudo yum install rug-cli
+    ```
 
 The only required dependency is the JDK version 8 or later.
 
@@ -117,33 +126,38 @@ The following steps have been tested on Windows 10, your mileage may vary.
 
 2.  Install the [jdk8](https://chocolatey.org/packages/jdk8)
     dependency using chocolatey as an Administrator:
-
-        (admin) C:\ > choco install jdk8
+    ```shell
+    (admin) C:\ > choco install jdk8
+    ```
 
 3.  Then, install the CLI using Chocolatey as an administrator:
 
-        (admin) C:\ > choco install rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
+    ```shell
+    (admin) C:\ > choco install rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
+    ```
 
     The CLI will be installed in
     `%programdata%\Chocolatey\lib\rug-cli` and available to your
     `%PATH%`. You can now run as a normal user:
 
-        (user) C:\ > rug --version
-        rug 0.13.0
-        atomist/rug-cli.git (git revision 2cde8f5: last commit 2016-12-01)
+    ```shell
+    (user) C:\ > rug --version
+    rug 0.13.0
+    atomist/rug-cli.git (git revision 2cde8f5: last commit 2016-12-01)
+    ```
 
     Notice, you will find the `.atomist` directory for settings and
     artifacts in `%USERPROFILE%\.atomist`
 
 You can keep your Rug CLI up to dat by regularly upgrading:
 
-```
+```shell
 (admin) C:\ > choco upgrade rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
 ```
 
 You can remove the Rug CLI if you no longer want it installed:
 
-```
+```shell
 (admin) C:\ > choco uninstall rug-cli
 ```
 
@@ -161,10 +175,12 @@ simply put it its `bin` directory in your `PATH`.
     command in a terminal and make sure you get an output something
     like that shown.
 
-        $ java -version
-        java version "1.8.0_66"
-        Java(TM) SE Runtime Environment (build 1.8.0_66-b17)
-        Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
+    ```shell
+    $ java -version
+    java version "1.8.0_66"
+    Java(TM) SE Runtime Environment (build 1.8.0_66-b17)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.66-b17, mixed mode)
+    ```
 
     If that command is unsuccessful, see [Installing Java][java]
     or [Installing OpenJDK][openjdk].
@@ -175,24 +191,30 @@ simply put it its `bin` directory in your `PATH`.
 2.  Unpack the archive in an appropriate location.  Replace `VERSION`
     with the version you downloaded.
 
-        $ mkdir $HOME/opt
-        $ cd $HOME/opt
-        $ tar -x -z -f rug-cli-VERSION-bin.tar.gz
-        $ ln -s rug-cli-VERSION rug-cli
+    ```shell
+    $ mkdir $HOME/opt
+    $ cd $HOME/opt
+    $ tar -x -z -f rug-cli-VERSION-bin.tar.gz
+    $ ln -s rug-cli-VERSION rug-cli
+    ```
 
     or
 
-        $ mkdir $HOME/opt
-        $ cd $HOME/opt
-        $ unzip rug-cli-VERSION-bin.zip
-        $ ln -s rug-cli-VERSION rug-cli
+    ```shell
+    $ mkdir $HOME/opt
+    $ cd $HOME/opt
+    $ unzip rug-cli-VERSION-bin.zip
+    $ ln -s rug-cli-VERSION rug-cli
+    ```
 
     On MS Windows, download the `.zip` and double-click it to extract
     its contents.
 
 3.  Add the Rug CLI `bin` directory to your `PATH`.
 
-        $ export PATH=$PATH:$HOME/opt/rug-cli/bin
+    ```shell
+    $ export PATH=$PATH:$HOME/opt/rug-cli/bin
+    ```
 
     Add the above command to your shell startup script to ensure you
     always will have access to the Rug CLI.  On MS Windows,

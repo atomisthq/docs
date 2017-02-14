@@ -16,7 +16,7 @@ generator:
 
 [spring]: https://github.com/atomist-rugs/spring-boot-rest-service
 
-```
+```rug
 @tag "java"
 @tag "spring"
 @tag "spring-boot"

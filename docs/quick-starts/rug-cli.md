@@ -26,7 +26,7 @@ clone that repo with the following command.
 
 [common]: https://github.com/atomist-rugs/common-editors
 
-```
+```shell
 $ git clone https://github.com/atomist-rugs/common-editors.git
 $ cd common-editors
 $ ls -1F
@@ -41,7 +41,7 @@ You cloned the repo, but where are the Rugs?  Rugs are always located
 in the `.atomist` directory at the top level of the project, i.e., the
 same directory that has the `.git` directory.
 
-```
+```shell
 $ ls -1F .atomist/
 build/
 editors/
@@ -62,7 +62,7 @@ and configurations.
 
 Let's see what editors we have available.
 
-```
+```shell
 $ awk '$1 == "editor" { print $2 }' .atomist/editors/*.rug
 AddApacheSoftwareLicense20
 AddChangeLog
@@ -85,7 +85,7 @@ It is a best practice to provide tests for your Rugs.  The first Rug
 command we are going to try will run all of the tests available in the
 common-editors repo.
 
-```
+```shell
 $ rug test
 Processing dependencies
   Downloading com/atomist/rug/maven-metadata.xml ← rug-types (0kb) succeeded
@@ -175,7 +175,7 @@ The next step is to create a Rug archive and install it locally so you
 can use it on local projects.  This is accomplished with the `install`
 command.
 
-```
+```shell
 $ rug install
 Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
 Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
@@ -258,7 +258,7 @@ Remember above when we ran that arcane `awk` command to list the
 editors?  There is a better way!  Now that we some editors installed
 locally, we can list our local editors.
 
-```
+```shell
 $ rug list
 Resolving dependencies for com.atomist:rug:0.8.0 completed
 Listing local archives completed
@@ -276,7 +276,7 @@ Let's try that command.  Since we only have one version available, we
 can omit the `-a` command-line option.  When it is not provided, the
 latest version is used.
 
-```
+```shell
 $ rug describe archive atomist-rugs:common-editors
 Processing dependencies
   Downloading atomist-rugs/common-editors/maven-metadata.xml ← rugs (0kb) succeeded
@@ -313,7 +313,7 @@ That list of editors looks familiar, we must be doing something right!
 Again, the last line of the output tells us how we can get more
 information.  Let's try it.
 
-```
+```shell
 $ rug describe editor AddApacheSoftwareLicense20
 
 No valid ARTIFACT provided, no default artifact defined and not in local mode.
@@ -327,7 +327,7 @@ we either need to define a default artifact or run in local mode.  How
 do we run in local mode?  The above output tells us to run `rug
 describe --help` for usage help.  Let's do it.
 
-```
+```shell
 $ rug describe --help
 Usage: rug describe [OPTION]... TYPE ARTIFACT
 Print details about an archive or Rug.
@@ -363,7 +363,7 @@ it tries to find an `.atomist` directory and use the Rugs in it.
 Since we are in a directory that has the `.atomist` directory with the
 editor we want to run, that seems promising.
 
-```
+```shell
 $ rug describe -l editor AddApacheSoftwareLicense20
 Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
 Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
@@ -389,7 +389,7 @@ name of the editor is,
 have guessed that.  Since we previously installed the editor, we could
 have run the following command and gotten the same result.
 
-```
+```shell
 $ rug describe editor atomist-rugs:common-editors:AddApacheSoftwareLicense20
 ```
 
@@ -410,7 +410,7 @@ We will just run the command we were provided above.  We remove the
 `-l` since, having installed the archive, we do not need to run it
 from the local directory, we can run it from the installed archive.
 
-```
+```shell
 $ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20 -a 0.7.0
 Resolving dependencies for atomist-rugs:common-editors:latest completed
 Loading atomist-rugs:common-editors:0.7.0 into runtime completed
@@ -428,7 +428,7 @@ Successfully edited project common-editors
 
 Looks like two files were edited in the local repository.
 
-```
+```shell
 $ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -446,7 +446,7 @@ contents of the `LICENSE` file were set to be the Apache Software
 License, but that is what the contents already were.  Git is smart.
 What is that `atomist.yml` file?
 
-```
+```shell
 $ cat .atomist.yml
 ---
 kind: "operation"
@@ -472,7 +472,7 @@ above, except we'll remove the archive version command-line option.
 If you do not provide the `-a` option, the CLI will use the latest
 installed version, 0.7.0 in our case.
 
-```
+```shell
 $ cd ..
 $ mkdir atomist-test
 $ cd !$
@@ -508,7 +508,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 That's more like it!  What if we decide we do not want the Apache
 Software License?  There's an editor for that!
 
-```
+```shell
 $ rug edit atomist-rugs:common-editors:RemoveApacheSoftwareLicense20
 Resolving dependencies for atomist-rugs:common-editors:latest completed
 Loading atomist-rugs:common-editors:0.7.0 into runtime completed
@@ -538,7 +538,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 We see the `LICENSE` file is gone.  If we inspect the contents of the
 `.atomist.yml` file, we see a complete record of what Rug has done.
 
-```
+```shell
 $ cat .atomist.yml
 ---
 kind: "operation"

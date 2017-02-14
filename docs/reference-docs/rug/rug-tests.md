@@ -12,7 +12,7 @@ Before taking a deeper dive into the all the syntax of Rug tests presentation of
 
 Let's consider the following simple editor that will rename a Java file:
 
-```
+```rug
 editor Rename
 with java.class c when name = "Dog"
 	do rename "Cat"
@@ -21,7 +21,7 @@ We want to test that the editor works as intended:
 
 <!--TBD How do we display this with line numbers? Or even better can we link to this sample as a Koan and embed the code from there? -->
 
-```
+```rug
 scenario Dogs can be turned into cats
 
 given
@@ -109,7 +109,7 @@ The full grammar of Rug tests is defined as:
 
 When there's no change
 
-```
+```rug
 scenario Foobar
 
 given
@@ -128,7 +128,7 @@ This scenario will pass only if there's no change in the input artifact source.
 
 For help debugging a failing test, set debug=true to get a little tree of the directory structure after the editor runs.
 
-```
+```rug
 scenario Foobar
 
 debug=true
@@ -138,7 +138,7 @@ given...
 
 To see the contents of a file in the output, use `dump <filename>` as an assertion predicate, like
 
-```
+```rug
 then
   dump outputFile
 	and fileContains outputFile "should be in there"

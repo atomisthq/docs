@@ -29,7 +29,7 @@ You can have both Rug DSL and Rug TypeScript files in the *same* Rug archive. A 
 
 As a starting point, simply add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) to your `.atomist` directory that contains the following:
 
-```
+```json
 {
   "dependencies": {
     "@atomist/rug": "0.10.0"
@@ -45,7 +45,7 @@ To get any dependencies that your Rug TypeScript code may need you should now in
 
 Once you have these two installed on your machine you should be able to successfully execute `npm install` in your `.atomist` directory to see the following:
 
-```
+```shell
 $ npm install
 @russmiles/scattered-rugs@0.8.0 ...scattered-rugs/.atomist
 └── @atomist/rug@0.10.0
@@ -73,7 +73,7 @@ then
 
 Drop this test into a file called `.atomist/tests/MyFirstEditor.rt` and then execute `rug test` using the Rug CLI (link) and you should see something like the following:
 
-```
+```shell
 $ rug test
 Resolving dependencies for russmiles:scattered-rugs:0.1.0 ← local completed
 Loading russmiles:scattered-rugs:0.1.0 ← local into runtime completed
@@ -88,7 +88,7 @@ Known operations are []
 
 With our test *happily* failing you can now write the following Rug TypeScript editor to meet the assertions of the test. Create a file called `SimpleSampleEditor.ts` in the `.atomist/editors` directory that contains the following:
 
-```
+```typescript
 import { ProjectEditor } from "@atomist/rug/operations/ProjectEditor"
 import { Status, Result, Parameter } from "@atomist/rug/operations/RugOperation"
 import { Project, Pair, File } from '@atomist/rug/model/Core'
@@ -126,7 +126,7 @@ Walking through this editor the contents are:
 
 You should now be able to execute `rug test` from your project's root directory and get a similar output to the following:
 
-```
+```shell
 $ rug test
 Resolving dependencies for russmiles:scattered-rugs:0.1.0 ← local completed
 Loading russmiles:scattered-rugs:0.1.0 ← local into runtime completed

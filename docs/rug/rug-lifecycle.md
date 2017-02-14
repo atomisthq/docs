@@ -14,7 +14,7 @@ The easiest way to create a new Rug archive is by using the
 `NewRugArchiveProject` generator via the bot or CLI. Here, we'll show
 how to do it with the CLI.
 
-```
+```shell
 $ rug generate atomist-rugs:rug-archive:NewRugArchiveProject \
     my-rug-archive \
     group_id=atomist-rugs \
@@ -53,7 +53,7 @@ current directory, `~/develop` in this case.
 
 The created Rug archive has the following directory structure:
 
-```
+```shell
 $ tree -a my-rug-archive
 my-rug-archive
 ├── .atomist
@@ -76,7 +76,7 @@ been generated when running the generate command.
 
 Let's take a look at the `manifest.yml`:
 
-```
+```shell
 $ cd my-rug-archive/.atomist
 $ cat manifest.yml
 group: atomist-rugs
@@ -105,7 +105,7 @@ declared
 After making changes to your Rug code, you should run the tests.  The
 generated Rug archive already has some tests.
 
-```
+```shell
 $ rug test
 Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
 Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
@@ -125,7 +125,7 @@ Successfully executed 3 of 3 scenarios: Test SUCCESS
 To package the Rug archive up and make it available to the Rug CLI to
 run from any directory, you must install it:
 
-```
+```shell
 $ rug install
 Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
 Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
@@ -192,7 +192,7 @@ remote-repositories:
 Once you have your publishing repository configured, you simply run
 `rug publish`.
 
-```
+```shell
 $ rug publish
 Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
 Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed

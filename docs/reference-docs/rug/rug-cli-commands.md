@@ -44,7 +44,7 @@ The CLI will assume the current working directory to be the root for execution.
 
 Run an editor as follows:
 
-```
+```shell
 $ rug edit atomist-rugs:common-editors:AddReadme --artifact-version 1.0.0 \
     parameter1=foo parameter2=bar
 
@@ -56,7 +56,7 @@ $ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
 
 ##### Invoking Generators
 
-```
+```shell
 $ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
     --artifact-version 1.0.0 my-new-project parameter1=foo parameter2=bar
 
@@ -72,7 +72,7 @@ $ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
 To get information about a Rug and list all its parameters, run the
 `rug describe` command.
 
-```
+```shell
 $ rug describe archive atomist-rugs:spring-rest-service
 
 $ rug describe editor atomist-rugs:spring-boot-rest-service:SpringBootThing \
@@ -87,7 +87,7 @@ $ rug describe generator atomist-rugs:spring-boot-rest-service:NewSpringBootThin
 To list all locally available Rug archives, run the `rug list`
 command:
 
-```
+```shell
 $ rug list -f 'version=[1.2,2.0)' -f 'group=*atomist*' -f 'artifact=*sp?ing*'
 ```
 
@@ -104,19 +104,19 @@ project directory.
 
 To run all tests:
 
-```
+```shell
 $ rug test
 ```
 
 To run a specific named test:
 
-```
+```shell
 $ rug test "Whatever Test Secanrio"
 ```
 
 To run all scenarios from a .rt file:
 
-```
+```shell
 $ rug test MyRugTestFilename
 ```
 
@@ -125,7 +125,7 @@ $ rug test MyRugTestFilename
 Creating a Rug zip archive and installing it into the local repository
 can be done with the following command:
 
-```
+```shell
 $ rug install
 ```
 
@@ -157,6 +157,6 @@ If you want a more verbose output that includes any exceptions that
 Rug command may have encountered, please add `-X` to your command.
 For example:
 
-```
+```shell
 $ rug test -X
 ```

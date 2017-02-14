@@ -53,7 +53,7 @@ A fuller examples directory layout for a larger collection of Rug artifacts woul
 
 The `manifest.yml` file should contain the following general information and formatting:
 
-```
+```yaml
 group: atomist-rugs
 artifact: travis-editors
 version: "0.12.2"
@@ -218,7 +218,7 @@ to optimise their search-ability relevance. For example if you were to
 create an editor that affected the `readme` `documentation` then the
 following `tag` annotations would be applicable.
 
-```
+```rug
 @tag "readme"
 @tag "documentation"
 ```
@@ -236,7 +236,7 @@ an image.  The following tags currently have images: `docker`,
 Rug editors, generators, reviewers, predicates, executors, and
 parameters can have an accompanying `description` annotation such as:
 
-```
+```rug
 @description "adds a project specific README"
 ```
 
@@ -310,7 +310,7 @@ then you should omit the `begin` and `end` block demarcations.
 For example the following is legal but the `begin` and `end`
 statements are not required:
 
-```
+```rug
 with file when path = "README.md"
   begin
     do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
@@ -333,7 +333,7 @@ place the `begin` indented two spaces on the next line and then to
 indent the `do` statements two more spaces before a closing `end`
 statement indented at the same level as the `begin`:
 
-```
+```rug
 with pom p when path = "pom.xml"
   begin
     do setArtifactId  artifact_id
@@ -350,7 +350,7 @@ Sometimes when selecting a particular Rug Type, such as `pom` or
 `file`, it is important to expose what has been selected using a
 label, such as `p`. For example:
 
-```
+```rug
 with file f when path = "README.md"
   do replace "{{creation_date}}" { f.name() + " created on " + new Date().toISOString().split('T')[0] }
 ```
@@ -358,7 +358,7 @@ with file f when path = "README.md"
 However if the selected type is not being used then the label should
 be omitted as it will not be used, for example:
 
-```
+```rug
 with file when path = "README.md"
   do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
 ```
