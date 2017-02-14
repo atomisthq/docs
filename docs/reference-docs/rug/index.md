@@ -14,6 +14,7 @@ TypeScript.
 -   [Rug Editors](rug-editors.md): Add, remove, and edit files
 -   [Rug Generators](rug-generators.md): Create new repositories
 -   [Rug Predicates](rug-predicates.md): Determine whether a feature exists in a repository
+-   [Rug Microgrammars](rug-microgrammars.md): Specify and work with a custom microgrammar to work effectively with files
 -   Rug Reviewers (coming soon): Examine a repository for conformance to standards
 -   Rug Executors (coming soon): Apply any of the above Rugs to multiple repositories at once
 
