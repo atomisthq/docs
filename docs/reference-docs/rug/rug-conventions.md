@@ -17,7 +17,7 @@ in some contexts from ***not working*** to
 
 ### Exemplar
 
-The [atomist/travis-editors][travis-editors] Rug archive repository is
+The [atomist/travis-editors][travis-editors] Rug repository is
 a good example repository.  We strive to keep that repository up to
 date with these conventions.  It has good documentation and examples
 of both a Rug DSL and TypeScript editors.  When going through the
@@ -60,7 +60,7 @@ dependencies:
 extensions:
 ```
 
-There is a [Rug generator available](https://github.com/atomist-rugs/rug-archive) that will create a minimal Rug archive for you.
+There is a [Rug generator available](https://github.com/atomist-rugs/rug-archive) that will create a minimal Rug project for you.
 
 ### Rug Project Repositories
 
@@ -159,7 +159,7 @@ conditions to be considered a Maven project.
 
 Rug project configuration is stored in a file in the `.atomist`
 directory.  Rug projects that contain Rug DSL Rugs have their
-configuration stored in `.atomist/manifest.yml`.  Rug archives using
+configuration stored in `.atomist/manifest.yml`.  Rug projects using
 TypeScript should also include a `.atomist/package.json` describing
 any dependencies
 
@@ -193,7 +193,7 @@ follows:
 
 A Rug project name should be hyphenated and start with the technology
 stack being targeted, such as `spring-boot`, followed by `-editors` if
-this is a Rug archive with a collection of useful editors or reviewers.
+this is a Rug project with a collection of useful editors or reviewers.
 
 If the main purpose of a Rug project is to be a generator, then ending
 the name of the type of project it will generate would be most

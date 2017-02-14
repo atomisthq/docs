@@ -96,7 +96,7 @@ In the editor `precondition` example shown above the actual predicates
 themselves are expressed in their own `.rug` files. If you want to
 reuse a predicate then it *must* be defined in its own file. Typically
 this is a `.rug` file located in the `.atomist/editors` directory in
-the [Rug archive](/rug/rug-archive.md).
+the [Rug project](/rug/rug-archive.md).
 
 Similar to how the first editor in a `.rug` file must have the same
 name as the file, the `.rug` file that contains a predicate must have

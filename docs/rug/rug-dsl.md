@@ -90,8 +90,8 @@ We're developing the Rug language to be as powerful, simple
 and consistent as possible. Normally languages cannot evolve
 particularly quickly as they need to be updated in lock-step with the
 community that is using them. When you create
-a [Rug archive](rug-archive.md) and write your Rug generators, editors
-etc. within it you tie the version of the language to the archive
+a [Rug project](rug-archive.md) and write your Rug generators, editors
+etc. within it you tie the version of the language to the project
 you're creating.
 
 This gives you the power to select the version of the Rug language you
@@ -101,7 +101,7 @@ they can be run anywhere Rug can be.
 
 You also of course have the power to decide when you upgrade to a
 newer version of Rug for particular language features that may have
-come to light after you originally created your Rug archive. As we
+come to light after you originally created your Rug project. As we
  evolve the languages, we'll create Rug editors to do this upgrade programatically!
 
 ### Rug can be Extended with Rug Language Extensions
@@ -117,4 +117,4 @@ frameworks or even systems.
 > NOTE: More complete documentation on how to extend, package and
 > distribute Rug Language Extensions is coming soon.
 
-If you want to see some Rugs, check out the archives in [atomist-rugs](https://github.com/atomist-rugs).
+If you want to see some Rugs, check out the rug projects in [atomist-rugs](https://github.com/atomist-rugs).

@@ -1,7 +1,7 @@
-# A Day in the Life of a Rug Archive
+# A Day in the Life of a Rug Project
 
 This page describes the nature, structure and lifecycle of a Rug
-archive.
+project.
 
 If you haven't done so and you want to follow along, please [install
 the Rug CLI][install].
@@ -10,16 +10,16 @@ the Rug CLI][install].
 
 ## Inception
 
-The easiest way to create a new Rug archive is by using the
+The easiest way to create a new Rug project is by using the
 `NewRugArchiveProject` generator via the bot or CLI. Here, we'll show
 how to do it with the CLI.
 
 ```shell
 $ rug generate atomist-rugs:rug-archive:NewRugArchiveProject \
-    my-rug-archive \
+    my-rug-project \
     group_id=atomist-rugs \
     version=0.1.0 \
-    description="My first Rug Archive project"
+    description="My first Rug project"
 Processing dependencies
   Downloading atomist-rugs/rug-archive/0.2.1/rug-archive-0.2.1.pom ← rugs (806 bytes) succeeded
   Downloading atomist-rugs/rug-archive/0.2.1/rug-archive-0.2.1.zip ← rugs (18 kb) succeeded
@@ -28,7 +28,7 @@ Loading atomist-rugs:rug-archive:0.2.1 into runtime completed
 Running generator NewRugArchiveProject of atomist-rugs:rug-archive:0.2.1 completed
 
 → Project
-  ~/develop/my-rug-archive/ (5 kb in 7 files)
+  ~/develop/my-rug-project/ (5 kb in 7 files)
 
 → Changes
   ├─┬ .atomist
@@ -43,19 +43,19 @@ Running generator NewRugArchiveProject of atomist-rugs:rug-archive:0.2.1 complet
   ├── .gitignore
   └── README.md
 
-Successfully generated new project my-rug-archive
+Successfully generated new project my-rug-project
 ```
 
-That command created a new directory named `my-rug-archive` in the
+That command created a new directory named `my-rug-project` in the
 current directory, `~/develop` in this case.
 
 ## Structure
 
-The created Rug archive has the following directory structure:
+The created Rug project has the following directory structure:
 
 ```shell
-$ tree -a my-rug-archive
-my-rug-archive
+$ tree -a my-rug-project
+my-rug-project
 ├── .atomist
 │   ├── editors
 │   │   └── AddReadme.rug
@@ -77,10 +77,10 @@ been generated when running the generate command.
 Let's take a look at the `manifest.yml`:
 
 ```shell
-$ cd my-rug-archive/.atomist
+$ cd my-rug-project/.atomist
 $ cat manifest.yml
 group: atomist-rugs
-artifact: my-rug-archive
+artifact: my-rug-project
 version: "0.1.0"
 requires: "[0.8.0,1.0.0)"
 dependencies:
@@ -96,50 +96,50 @@ declared
 | `group` | The group of the Rug archive, should be the GitHub org |
 | `artifact` | A unique identifier within the `group`, should be the GitHub repository name |
 | `version` | Version of the Rug archive |
-| `requires` | The rug-lib version this archive is being developed with. Version range is allowed |
-| `dependencies` | List of archive dependencies in form group:artifact:version. Version ranges are allowed |
+| `requires` | The rug-lib version this project is being developed with. Version range is allowed |
+| `dependencies` | List of project dependencies in form group:artifact:version. Version ranges are allowed |
 | `extensions` | List of binary dependencies, e.g., Rug Extension types. Version ranges are allowed |
 
 ## Running Tests
 
 After making changes to your Rug code, you should run the tests.  The
-generated Rug archive already has some tests.
+generated Rug project already has some tests.
 
 ```shell
 $ rug test
-Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
-Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
+Resolving dependencies for atomist-rugs:my-rug-project:0.1.0 ← local completed
+Loading atomist-rugs:my-rug-project:0.1.0 ← local into runtime completed
 Executing scenario AddReadme should add README.md...
   Testing assertion fileExists(IdentifierFunctionArg(readme,None))
   Testing assertion fileContains(IdentifierFunctionArg(readme,None),IdentifierFunctionArg(newName,None))
   Testing assertion fileContains(IdentifierFunctionArg(readme,None),IdentifierFunctionArg(newDescription,None))
 Executing scenario AddReadme should reject invalid value name parameter...
 Executing scenario AddReadme should reject missing parameter...
-Running test scenarios in atomist-rugs:my-rug-archive:0.1.0 ← local completed
+Running test scenarios in atomist-rugs:my-rug-project:0.1.0 ← local completed
 
 Successfully executed 3 of 3 scenarios: Test SUCCESS
 ```
 
 ## Installing
 
-To package the Rug archive up and make it available to the Rug CLI to
+To package the Rug project up and make it available to the Rug CLI to
 run from any directory, you must install it:
 
 ```shell
 $ rug install
-Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
-Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
-  Created META-INF/maven/atomist-rugs/my-rug-archive/pom.xml
+Resolving dependencies for atomist-rugs:my-rug-project:0.1.0 ← local completed
+Loading atomist-rugs:my-rug-project:0.1.0 ← local into runtime completed
+  Created META-INF/maven/atomist-rugs/my-rug-project/pom.xml
   Created .atomist/manifest.yml
   Created .atomist/metadata.json
 Generating archive metadata completed
-  Installed atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip → /Users/dd/.atomist/repository
-  Installed atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.pom → /Users/dd/.atomist/repository
-  Installed atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0-metadata.json → /Users/dd/.atomist/repository
+  Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.zip → /Users/dd/.atomist/repository
+  Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.pom → /Users/dd/.atomist/repository
+  Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0-metadata.json → /Users/dd/.atomist/repository
 Installing archive into local repository completed
 
 → Archive
-  ~/develop/my-rug-archive/.atomist/target/my-rug-archive-0.1.0.zip (4 kb in 9 files)
+  ~/develop/my-rug-project/.atomist/target/my-rug-project-0.1.0.zip (4 kb in 9 files)
 
 → Contents
   ├─┬ .atomist
@@ -153,11 +153,11 @@ Installing archive into local repository completed
   |   └── AddReadme.rt
   ├── .atomist.yml
   ├── .gitignore
-  ├─┬ META-INF/maven/atomist-rugs/my-rug-archive
+  ├─┬ META-INF/maven/atomist-rugs/my-rug-project
   | └── pom.xml
   └── README.md
 
-Successfully installed archive for atomist-rugs:my-rug-archive:0.1.0
+Successfully installed archive for atomist-rugs:my-rug-project:0.1.0
 ```
 
 The `install` command takes the project, packages it up for
@@ -194,21 +194,21 @@ Once you have your publishing repository configured, you simply run
 
 ```shell
 $ rug publish
-Resolving dependencies for atomist-rugs:my-rug-archive:0.1.0 ← local completed
-Loading atomist-rugs:my-rug-archive:0.1.0 ← local into runtime completed
-  Created META-INF/maven/atomist-rugs/my-rug-archive/pom.xml
+Resolving dependencies for atomist-rugs:my-rug-project:0.1.0 ← local completed
+Loading atomist-rugs:my-rug-project:0.1.0 ← local into runtime completed
+  Created META-INF/maven/atomist-rugs/my-rug-project/pom.xml
   Created .atomist/manifest.yml
   Created .atomist/metadata.json
 Generating archive metadata completed
-  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip → rugs-release (4 kb) succeeded
-  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.pom → rugs-release (639 bytes) succeeded
-  Uploading atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0-metadata.json → rugs-release (1 kb) succeeded
-  Downloading atomist-rugs/my-rug-archive/maven-metadata.xml ← rugs-release (381 bytes) succeeded
-  Uploading atomist-rugs/my-rug-archive/maven-metadata.xml → rugs-release (333 bytes) succeeded
+  Uploading atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.zip → rugs-release (4 kb) succeeded
+  Uploading atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.pom → rugs-release (639 bytes) succeeded
+  Uploading atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0-metadata.json → rugs-release (1 kb) succeeded
+  Downloading atomist-rugs/my-rug-project/maven-metadata.xml ← rugs-release (381 bytes) succeeded
+  Uploading atomist-rugs/my-rug-project/maven-metadata.xml → rugs-release (333 bytes) succeeded
 Publishing archive into remote repository completed
 
 → Archive
-  ~/develop/my-rug-archive/.atomist/target/my-rug-archive-0.1.0.zip (4 kb in 9 files)
+  ~/develop/my-rug-project/.atomist/target/my-rug-project-0.1.0.zip (4 kb in 9 files)
 
 → Contents
   ├─┬ .atomist
@@ -222,17 +222,17 @@ Publishing archive into remote repository completed
   |   └── AddReadme.rt
   ├── .atomist.yml
   ├── .gitignore
-  ├─┬ META-INF/maven/atomist-rugs/my-rug-archive
+  ├─┬ META-INF/maven/atomist-rugs/my-rug-project
   | └── pom.xml
   └── README.md
 
-Successfully published archive for atomist-rugs:my-rug-archive:0.1.0 to
-  https://atomist.jfrog.io/atomist/rugs-release/atomist-rugs/my-rug-archive/0.1.0/my-rug-archive-0.1.0.zip
+Successfully published archive for atomist-rugs:my-rug-project:0.1.0 to
+  https://atomist.jfrog.io/atomist/rugs-release/atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.zip
 ```
 
 The `atomist-rugs:travis-editors:EnableTravisForRugArchiveTS` editor
 configures testing, installing, and publishing archives as part of a
 Travis CI build.  See the [build][] directory of the `travis-editors`
-archive for more detail.
+project for more detail.
 
 [build]: https://github.com/atomist-rugs/travis-editors/tree/master/.atomist/build
