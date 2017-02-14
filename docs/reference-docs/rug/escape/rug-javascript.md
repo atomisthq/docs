@@ -56,7 +56,7 @@ runtime creating a synthetic function to enclose the block.
 In the case of multiple statements, a `return` statement should be
 used for the last expression:
 
-```
+```javascript
 do myFunction {
    var x = "y"
    var y = x

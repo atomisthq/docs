@@ -29,7 +29,7 @@ You can have both Rug DSL and Rug TypeScript files in the *same* Rug archive. A 
 
 As a starting point, simply add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) to your `.atomist` directory that contains the following:
 
-```
+```json
 {
   "dependencies": {
     "@atomist/rug": "0.10.0"
@@ -88,7 +88,7 @@ Known operations are []
 
 With our test *happily* failing you can now write the following Rug TypeScript editor to meet the assertions of the test. Create a file called `SimpleSampleEditor.ts` in the `.atomist/editors` directory that contains the following:
 
-```
+```typescript
 import { ProjectEditor } from "@atomist/rug/operations/ProjectEditor"
 import { Status, Result, Parameter } from "@atomist/rug/operations/RugOperation"
 import { Project, Pair, File } from '@atomist/rug/model/Core'
