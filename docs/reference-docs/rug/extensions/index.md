@@ -27,7 +27,7 @@ A number of Rug Language Extensions are currently shipped out of the box includi
 *   [JavaProject](rug-core-types-java-project.md) - work with Java projects.
 *   [SpringBootProject](rug-core-types-spring-boot-project.md) - work with Spring Boot projects.
 *   [CljProject](rug-core-types-clj-project.md) - work with Clojure projects.
-*   [RugArchiveProject](rug-core-types-rug-archive-project.md) - work with Rug archive projects.
+*   [RugArchiveProject](rug-core-types-rug-archive-project.md) - work with Rug projects.
 *   [Line](rug-core-types-line.md) - manipulate specific lines in a project's files.
 *   [File](rug-core-types-file.md) - manipulate simple text files.
 *   [Xml](rug-core-types-xml.md) - manipulate XML files.

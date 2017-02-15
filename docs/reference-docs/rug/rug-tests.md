@@ -41,7 +41,7 @@ Walking through this test:
 * Every test is then typically broken down into three blocks of `given`, `when`, `then`, following the BDD style. a `given` and `then` blocks are mandatory, but the `when` block is not (you could execute when-related code as part of the `given` block), however for readability it is a best-practice to use the `when`.
 * This example only has one test scenario, but it is quite common to have more than one scenario in one file.
 
-Rug test scenarios are written in `.rt` files (`.rt` naturally stands for Rug Test) and are located within an [Rug Archive](/rug/rug-archive.md) in the `.atomist/tests` directory.
+Rug test scenarios are written in `.rt` files (`.rt` naturally stands for Rug Test) and are located within a [Rug project](/rug/rug-archive.md) in the `.atomist/tests` directory.
 
 > NOTE: `#` is one comment approach in Rug. You can also use C-style `/* */` multi-line comments as well.
 

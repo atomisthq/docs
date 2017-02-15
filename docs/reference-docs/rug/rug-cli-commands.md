@@ -3,7 +3,7 @@
 This page documents syntax and functionality of the Rug CLI.
 
 *Note:* All commands listed below are provided only as examples of the
-syntax.  They may refer to Rugs and Rug archives that do not exist and
+syntax.  They may refer to Rugs and Rug archives or projects that do not exist and
 therefore may not work.
 
 ### Configuring

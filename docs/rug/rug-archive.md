@@ -1,4 +1,4 @@
-## What goes in an Atomist Archive?
+## What goes in a Rug Archive?
 
 A key design goal was to respect your own tooling as much as possible
 so that ***every project should be a working Atomist project, and
@@ -11,13 +11,15 @@ in a modern software development environment.
 Atomist's Rug DSL can be expressed and packaged alongside your
 existing projects. A project that has a `.atomist` directory, along
 with some other artifacts that we'll explain here, is referred to as a
-*Rug archive*.
+*Rug project*.
 
-### Exploring a very basic Rug Archive
+A packaged (zipped) Rug Project is referred to as a *Rug project*.
 
-A very basic Rug archive, along with some example Rug scripts and
+### Exploring a very basic Rug Project
+
+A very basic Rug project, along with some example Rug scripts and
 other bits and pieces, is provided by creating a new project using
-the [Rug archive project generator][rug-generator].  You can run this
+the [Rug project generator][rug-generator].  You can run this
 generator using the Atomist Button below.
 
 [rug-generator]: https://github.com/atomist-rugs/rug-editors
@@ -34,7 +36,6 @@ README.md
   tests/
   editors/
   reviewers/
-  executors/
   templates/
 .atomist.yml
 ```
@@ -53,7 +54,7 @@ project. For this reason, Rug artifacts are safely contained in a
 
 ```
 .atomist/
-  manifest.yml <= Metadata for the Rug archive
+  manifest.yml <= Metadata for the Rug project
   editors/     <= Rugs providing editors, generators, and conditional predicates
   executors/   <= Rugs that will work across multiple repositories
   reviewers/   <= Rugs that will provide feedback

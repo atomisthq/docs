@@ -4,9 +4,9 @@ Rug editors ***work at the level of a specific project***, for example
 this is typically a particular ***repository on GitHub***.
 
 Rug editors can be found in the `/.atomist/editors` directory of
-a [Rug archive](/rug/rug-archive.md).
+a [Rug project](/rug/rug-archive.md).
 
-Editors also have access to template content in the same archive,
+Editors also have access to template content in the same project,
 packaged under `/.atomist/templates`.
 
 >**NOTE: All Atomist files should be under the `.atomist` directory in the root of a project.**
@@ -27,8 +27,8 @@ For reference, this convention is analogous to Java public class
 packaging.
 
 Any number of Rug editors can be bundled together in
-a [Rug archive](/rug/rug-archive.md). A good example of this is the
-open source [Spring Boot Editors][boot-editors] Rug archive.
+a [Rug project](/rug/rug-archive.md). A good example of this is the
+open source [Spring Boot Editors][boot-editors] Rug project.
 
 [boot-editors]: https://github.com/atomist-rugs/spring-boot-editors
 
@@ -226,10 +226,10 @@ with File f
 ```
 
 In this case, `Foo` and `Bar` are in the same file, but they could be
-in separate files within the same archive where we would use the `use`
+in separate files within the same project where we would use the `use`
 statement to bring in the editor in a different file. We can also
-refer to editors outside the current archive by introducing a
-dependency on the [Rug archive](/rug/rug-archive.md) that those
+refer to editors outside the current project by introducing a
+dependency on the [Rug project](/rug/rug-archive.md) that those
 editors that we want to import are located in to the
 `.atomist/manifest.yml` file.
 

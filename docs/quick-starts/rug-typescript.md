@@ -10,20 +10,20 @@ code-completion.
 
 [dsl]: ../reference-docs/rug/index.md
 
-In this Quick Start you're going to set up your Rug archive for
+In this Quick Start you're going to set up your Rug project for
 writing and testing Rugs written in TypeScript and using
 the [Rug CLI](rug-cli.md).
 
 ### Getting set up for TypeScript Rugs
 
-To enable your Rug archive for TypeScript all you need to do is:
+To enable your Rug project for TypeScript all you need to do is:
 
--   Add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) into the `.atomist` directory, amending for your own Rug archive's project settings.
+-   Add a [standard `package.json` file](https://docs.npmjs.com/files/package.json) into the `.atomist` directory, amending for your own Rug project's settings.
 -   Install `node` and `npm` for local TypeScript development and, specifically, to install any dependencies your Rug TypeScript sources may have.
 
-You can have both Rug DSL and Rug TypeScript files in the *same* Rug archive. A good example of this is available in the [`travis-editors` Rug archive](https://github.com/atomist-rugs/travis-editors).
+You can have both Rug DSL and Rug TypeScript files in the *same* Rug project. A good example of this is available in the [`travis-editors` Rug project](https://github.com/atomist-rugs/travis-editors).
 
-> ***NOTE:*** A Rug editor and generator for this work is being produced and will reside in the [`rug-editors` Rug archive](https://github.com/atomist-rugs/rug-editors).
+> ***NOTE:*** A Rug editor and generator for this work is being produced and will reside in the [`rug-editors` Rug project](https://github.com/atomist-rugs/rug-editors).
 
 #### Adding a `package.json` file
 
@@ -114,8 +114,7 @@ Walking through this editor the contents are:
 -   Declaring the editor using the `@Editor` decorator, passing in its name and description
 -   Tagging the editor using the `@Tag` decorator to aid discoverability
 -   Implementing the `EditProject` interface to enforce the `edit` function signature
--   Declaring any require parameters using the `@Parameter` decorator
-   - The value of the field is used as the default value if no value is supplied during invocation
+-   Declaring any required parameters using the `@Parameter` decorator. The value of the field is used as the default value if no value is supplied during invocation
 -   Finally, exporting an instance your editor that will be used as a prototype for creating one for each request (for thread safety)
 
 You should now be able to execute `rug test` from your project's root directory and get a similar output to the following:
