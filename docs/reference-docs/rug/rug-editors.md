@@ -82,7 +82,7 @@ parameter:
 ```rug
 editor AppendToFile
 
-param to_append: .*
+param to_append: ^.*$
 
 with File f when name contains ".txt"
   do append to_append
@@ -107,7 +107,7 @@ can also describe the parameter:
 editor AppendToFile
 
 @description "Text to append to the file"
-param to_append: .*
+param to_append: ^.*$
 
 with File f when name contains ".txt"
   do append to_append
@@ -123,7 +123,7 @@ file as follows:
 ```rug
 editor AppendToFile
 
-param to_append: .*
+param to_append: ^.*$
 
 with File f when name contains ".txt"
   do append to_append
@@ -138,7 +138,7 @@ Sometimes we need to compute additional values. We do this with the
 ```rug
 editor AppendToFile
 
-param to_append: .*
+param to_append: ^.*$
 
 let x = "This is a value"
 
@@ -159,7 +159,7 @@ matching:
 ```rug
 editor AppendToFile
 
-param to_append: .*
+param to_append: ^.*$
 
 with File f
   when name contains ".txt" and under "/src/main/resources"
@@ -172,7 +172,7 @@ a `begin/end` block:
 ```rug
 editor AppendToFile
 
-param to_append: .*
+param to_append: ^.*$
 
 with File f when name contains ".txt"
   begin
@@ -189,7 +189,7 @@ using JavaScript:
 ```rug
 editor AppendToFile
 
-param to_append: .*
+param to_append: ^.*$
 
 with File f when name contains ".txt"
   do append { to_append + " plus this from JavaScript" }
@@ -244,8 +244,8 @@ CalledEditor first="some", second="thing"
 
 editor CalledEditor
 
-param first: .*
-param second: .*
+param first: ^.*$
+param second: ^.*$
 
 with File f
   begin
@@ -316,7 +316,7 @@ editor RemoveEJB
 @default 'This is a default value'
 @description 'A magical parameter'
 @validInput 'Valid input looks like this: Foo'
-param name: .*
+param name: ^.*$
 
 with File f when isJava and imports "javax.ejb"
   do setContent "Now this won't compile, will it!"
