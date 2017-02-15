@@ -1,8 +1,8 @@
-## Type: `JavaSource`
+## Type: `Yml`
 
-**Java source file**
+**YAML file.  If the file contains multiple YAML documents, only the first is parsed and addressable.**
 
-### `JavaSource` Operations
+### `Yml` Operations
 
 #### Operation: `blockingProblem`
 
@@ -14,6 +14,14 @@ Report a severe, blocking problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
+
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
 
 #### Operation: `content`
 
@@ -97,16 +105,6 @@ Report a minor problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
-#### Operation: `movePackage`
-
-Move the source file to the given package
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***newPackage*** | `class java.lang.String` | *The package to move the source file to* |
-
 #### Operation: `nodeTags`
 
 Tags attached to the node
@@ -139,14 +137,6 @@ Return the file's permissions
 
 *None*
 
-#### Operation: `pkg`
-
-Return the package name
-
-##### Parameters
-
-*None*
-
 #### Operation: `println`
 
 Cause the editor to print to the console. Useful for debugging if running editors locally.
@@ -157,14 +147,6 @@ Cause the editor to print to the console. Useful for debugging if running editor
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-#### Operation: `typeCount`
-
-Count the types in this source file
-
-##### Parameters
-
-*None*
-
 #### Operation: `underPath`
 
 Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
@@ -174,4 +156,25 @@ Does this path begin with the given pattern? Pattern should contain slashes but 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
+
+#### Operation: `updateKey`
+
+Update the value of a given key
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *Name of the key to update* |
+| ***value*** | `class java.lang.String` | *New value for the key* |
+
+#### Operation: `valueOf`
+
+Return the value of the given key
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The YAML key whose content you want* |
 

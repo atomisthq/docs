@@ -177,6 +177,14 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
+
 #### Operation: `content`
 
 Return file content

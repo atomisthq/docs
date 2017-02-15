@@ -1,33 +1,8 @@
-## Type: `Xml`
+## Type: `JavaSource`
 
-**XML file**
+**Java source file**
 
-### `Xml` Operations
-
-#### Operation: `addChildNode`
-
-Add the specified content under the indicated xpath-selected node
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
-| ***newNode*** | `class java.lang.String` | *The new node name to be added as a child* |
-| ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
-
-#### Operation: `addOrReplaceNode`
-
-Adds or replaces a node
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***parentNodeXPath*** | `class java.lang.String` | *The XPath selector for the parent node* |
-| ***xPathOfNodeToReplace*** | `class java.lang.String` | *The XPath selector for the node to replace* |
-| ***newNode*** | `class java.lang.String` | *The name of the node being placed* |
-| ***nodeContent*** | `class java.lang.String` | *The content of the node being placed* |
+### `JavaSource` Operations
 
 #### Operation: `blockingProblem`
 
@@ -40,15 +15,13 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
-#### Operation: `contains`
+#### Operation: `children`
 
-Tests whether a node matching the given xpath expression is present
+Children
 
 ##### Parameters
 
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
+*None*
 
 #### Operation: `content`
 
@@ -57,16 +30,6 @@ Return file content
 ##### Parameters
 
 *None*
-
-#### Operation: `deleteNode`
-
-Deletes the specified node
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
 
 #### Operation: `eval`
 
@@ -95,16 +58,6 @@ Return file name, excluding path
 ##### Parameters
 
 *None*
-
-#### Operation: `getTextContentFor`
-
-Get the text content for a specific xpath expression
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
 
 #### Operation: `isWellFormed`
 
@@ -152,6 +105,16 @@ Report a minor problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `movePackage`
+
+Move the source file to the given package
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***newPackage*** | `class java.lang.String` | *The package to move the source file to* |
+
 #### Operation: `nodeTags`
 
 Tags attached to the node
@@ -184,6 +147,14 @@ Return the file's permissions
 
 *None*
 
+#### Operation: `pkg`
+
+Return the package name
+
+##### Parameters
+
+*None*
+
 #### Operation: `println`
 
 Cause the editor to print to the console. Useful for debugging if running editors locally.
@@ -194,16 +165,13 @@ Cause the editor to print to the console. Useful for debugging if running editor
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-#### Operation: `setTextContentFor`
+#### Operation: `typeCount`
 
-Set the text content for a specific xpath expression
+Count the types in this source file
 
 ##### Parameters
 
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***xpath*** | `class java.lang.String` | *The XPath to use to set the test content* |
-| ***newContent*** | `class java.lang.String` | *New text content for the XPath* |
+*None*
 
 #### Operation: `underPath`
 
