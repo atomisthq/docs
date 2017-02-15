@@ -1,6 +1,6 @@
 ## Getting Started with Atomist
 
-If you've just encountered Atomist for the first time then you're in the right place! In fact, even if you're an experienced Atomist Rug user, then you might also be in the right place to discover more about what Atomist can do for you.
+If you've just encountered Atomist for the first time then you're in the right place! If you're looking to jump right in, get Atomist into your Slack team and get going, then see the [Atomist Quick Start](atomist-quick-start).
 
 In this documentation you're going to take a thorough tour of all the Atomist features, including our API which is the Rug language, so that you can go from 0 to 10 as quickly as possible.
 
