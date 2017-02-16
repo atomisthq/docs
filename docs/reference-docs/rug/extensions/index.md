@@ -11,7 +11,7 @@ soon).
 
 Consider the following line:
 
-```
+```rug
 with File f
 ```
 
