@@ -1,4 +1,4 @@
-## Core Rug Languge Extensions
+## Core Rug Language Extensions
 
 Rug has a number of in-built language extensions that understand
 project concepts and make it *much* simpler to write your
