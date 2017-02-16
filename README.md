@@ -89,6 +89,7 @@ install the dependencies into it:
 
 ```
 $ pip3 install -r requirements.txt
+$ cd rug_pygments; python setup.py install; cd ..
 ```
 
 You can now serve the documentation locally by running:
