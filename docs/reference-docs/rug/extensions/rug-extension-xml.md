@@ -1,10 +1,33 @@
-## Type: `Yml`
+## Type: `Xml`
 
-**
-YAML file.  If the file contains multiple YAML documents, only the first is parsed and addressable.
-    **
+**XML**
 
-### `Yml` Operations
+### `Xml` Operations
+
+#### Operation: `addChildNode`
+
+Add the specified content under the indicated xpath-selected node
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath selector for the node to add the content under* |
+| ***newNode*** | `class java.lang.String` | *The new node name to be added as a child* |
+| ***nodeContent*** | `class java.lang.String` | *XML document to be added under the indicated node* |
+
+#### Operation: `addOrReplaceNode`
+
+Adds or replaces a node
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***parentNodeXPath*** | `class java.lang.String` | *The XPath selector for the parent node* |
+| ***xPathOfNodeToReplace*** | `class java.lang.String` | *The XPath selector for the node to replace* |
+| ***newNode*** | `class java.lang.String` | *The name of the node being placed* |
+| ***nodeContent*** | `class java.lang.String` | *The content of the node being placed* |
 
 #### Operation: `blockingProblem`
 
@@ -17,6 +40,24 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
+
+#### Operation: `contains`
+
+Tests whether a node matching the given xpath expression is present
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to test against for the presence of a node* |
+
 #### Operation: `content`
 
 Return file content
@@ -24,6 +65,16 @@ Return file content
 ##### Parameters
 
 *None*
+
+#### Operation: `deleteNode`
+
+Deletes the specified node
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to the node to delete* |
 
 #### Operation: `eval`
 
@@ -52,6 +103,16 @@ Return file name, excluding path
 ##### Parameters
 
 *None*
+
+#### Operation: `getTextContentFor`
+
+Get the text content for a specific xpath expression
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to use to retrieve the test content* |
 
 #### Operation: `isWellFormed`
 
@@ -141,6 +202,17 @@ Cause the editor to print to the console. Useful for debugging if running editor
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
+#### Operation: `setTextContentFor`
+
+Set the text content for a specific xpath expression
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***xpath*** | `class java.lang.String` | *The XPath to use to set the test content* |
+| ***newContent*** | `class java.lang.String` | *New text content for the XPath* |
+
 #### Operation: `underPath`
 
 Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
@@ -150,25 +222,4 @@ Does this path begin with the given pattern? Pattern should contain slashes but 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***root*** | `class java.lang.String` | *The root path to begin searching from* |
-
-#### Operation: `updateKey`
-
-Update the value of a given key
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *Name of the key to update* |
-| ***value*** | `class java.lang.String` | *New value for the key* |
-
-#### Operation: `valueOf`
-
-Return the value of the given key
-
-##### Parameters
-
-| Name        | Type           | Description  |
-| ------------|:---------------|:-------------|
-| ***name*** | `class java.lang.String` | *The YAML key whose content you want* |
 

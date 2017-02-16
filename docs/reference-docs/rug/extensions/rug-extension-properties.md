@@ -15,6 +15,14 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
+
 #### Operation: `containsKey`
 
 Return whether a property key exists in this file or not

@@ -37,6 +37,14 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
+
 #### Operation: `contains`
 
 Does the file content contain the given string?

@@ -1,8 +1,18 @@
-## Type: `Json`
+## Type: `PythonFile`
 
-**JSON file**
+**Python file**
 
-### `Json` Operations
+### `PythonFile` Operations
+
+#### Operation: `append`
+
+Append
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
 
 #### Operation: `blockingProblem`
 
@@ -15,9 +25,9 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
-#### Operation: `content`
+#### Operation: `children`
 
-Return file content
+Children
 
 ##### Parameters
 
@@ -43,25 +53,9 @@ Cause the operation to fail with a fatal error
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-#### Operation: `filename`
+#### Operation: `formatInfo`
 
-Return file name, excluding path
-
-##### Parameters
-
-*None*
-
-#### Operation: `isWellFormed`
-
-Is this file well-formed?
-
-##### Parameters
-
-*None*
-
-#### Operation: `lineCount`
-
-Return the number of lines in the file
+Return the format info for the start of this structure in the file or null if not available
 
 ##### Parameters
 
@@ -77,14 +71,6 @@ Report a major problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
-
-#### Operation: `makeExecutable`
-
-Make the file executable
-
-##### Parameters
-
-*None*
 
 #### Operation: `minorProblem`
 
@@ -113,22 +99,6 @@ Tags attached to the node
 
 *None*
 
-#### Operation: `path`
-
-Return file path, with forward slashes
-
-##### Parameters
-
-*None*
-
-#### Operation: `permissions`
-
-Return the file's permissions
-
-##### Parameters
-
-*None*
-
 #### Operation: `println`
 
 Cause the editor to print to the console. Useful for debugging if running editors locally.
@@ -139,13 +109,42 @@ Cause the editor to print to the console. Useful for debugging if running editor
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 
-#### Operation: `underPath`
+#### Operation: `set`
 
-Does this path begin with the given pattern? Pattern should contain slashes but not begin with a /
+Set the value of the given key
 
 ##### Parameters
 
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
-| ***root*** | `class java.lang.String` | *The root path to begin searching from* |
+| ***key*** | `class java.lang.String` | *The match key whose content you want* |
+| ***value*** | `class java.lang.String` | *The new value* |
+
+#### Operation: `update`
+
+Update the whole value
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***arg0*** | `class java.lang.String` | ** |
+
+#### Operation: `value`
+
+Value
+
+##### Parameters
+
+*None*
+
+#### Operation: `valueOf`
+
+Return the value of the given key
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***name*** | `class java.lang.String` | *The match key whose content you want* |
 
