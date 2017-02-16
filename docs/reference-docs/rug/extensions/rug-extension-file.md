@@ -1,6 +1,6 @@
 ## Type: `File`
 
-**Type for a file within a project. Supports generic options such as find and replace**
+**Type for a file within a project.**
 
 ### `File` Operations
 
@@ -24,6 +24,14 @@ Report a severe, blocking problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
+
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
 
 #### Operation: `contains`
 

@@ -1,8 +1,8 @@
-## Type: `Project`
+## Type: `RugArchiveProject`
 
-**Type for a project. Supports global operations. Consider using file and other lower types by preference as projectoperations can be inefficient.**
+**Rug archive**
 
-### `Project` Operations
+### `RugArchiveProject` Operations
 
 #### Operation: `addDirectory`
 
@@ -65,6 +65,14 @@ Report a severe, blocking problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
+
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
 
 #### Operation: `context`
 
@@ -313,9 +321,7 @@ Merge the given template to the given output path.
 
 #### Operation: `mergeTemplates`
 
-Merge templates from the specified directory in the backing archive,
-under /.atomist/templates, to the given output path in the project being
-edited.
+Merge templates from the specified directory in the backing archive, under /.atomist/templates, to the given output path in the project being edited.
 
 ##### Parameters
 
@@ -348,7 +354,7 @@ Move the contents of this project under the given path, preserving its present p
 
 #### Operation: `name`
 
-Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
+Return the name of the project. If it's in GitHub, it will be the repo name. If it's on the local filesystem it will be the directory name
 
 ##### Parameters
 

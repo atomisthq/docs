@@ -25,7 +25,7 @@ predicate IsMaven
 ```
 
 In this case the predicate simple states that it will only return true
-for projects that the [POM Rug Language Extension](extensions/rug-core-types-pom.md)
+for projects that the [POM Rug Language Extension](extensions/rug-extension-pom.md)
 supports.
 
 ### Flexible Rug Predicates based Javascript

@@ -19,12 +19,13 @@ can use the following commands to split file files up by type:
 
 ```
 $ cd target
-$ perl -lane 'if (/^## Type: /) { $t = $F[2]; $t =~ s/\`//g; $t =~ s/([A-Z])/-\L$1/g; $out = "rug-core-types$t.md"; open FH, ">$out" } if (FH) { print FH }' RugTypes.md
+$ perl -lane 'if (/^## Type: /) { $t = $F[2]; $t =~ s/\`//g; $t =~ s/([A-Z])/-\L$1/g; $out = "rug-extension$t.md"; open FH, ">$out" } if (FH) { print FH }' RugTypes.md
 ```
 
 You can then copy the files under `docs/reference-docs/rug/types`,
 omitting the files that document test types (`Replacer*`), internal
-(`Pair`, `Service`), and base (`Mutable*`) types.
+(`Pair`, `Service`), base `JavaClassOrInterfaceView`, and base
+(`Mutable*`) types.
 
 [rug]: https://github.com/atomist/rug
 

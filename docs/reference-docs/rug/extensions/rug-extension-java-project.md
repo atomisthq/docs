@@ -1,8 +1,8 @@
-## Type: `RugArchiveProject`
+## Type: `JavaProject`
 
-**Rug archive**
+**Java project**
 
-### `RugArchiveProject` Operations
+### `JavaProject` Operations
 
 #### Operation: `addDirectory`
 
@@ -65,6 +65,14 @@ Report a severe, blocking problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
+
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
 
 #### Operation: `context`
 
@@ -288,6 +296,38 @@ Find file with the given path. Return null if not found.
 | ------------|:---------------|:-------------|
 | ***path*** | `class java.lang.String` | *Path of the file we want* |
 
+#### Operation: `isMaven`
+
+Is this a Maven project?
+
+##### Parameters
+
+*None*
+
+#### Operation: `isSpring`
+
+Is this a Spring project?
+
+##### Parameters
+
+*None*
+
+#### Operation: `isSpringBoot`
+
+Is this a Spring Boot project?
+
+##### Parameters
+
+*None*
+
+#### Operation: `javaFileCount`
+
+Return the number of Java files in this module
+
+##### Parameters
+
+*None*
+
 #### Operation: `majorProblem`
 
 Report a major problem
@@ -313,9 +353,7 @@ Merge the given template to the given output path.
 
 #### Operation: `mergeTemplates`
 
-Merge templates from the specified directory in the backing archive,
-under /.atomist/templates, to the given output path in the project being
-edited.
+Merge templates from the specified directory in the backing archive, under /.atomist/templates, to the given output path in the project being edited.
 
 ##### Parameters
 
@@ -348,7 +386,7 @@ Move the contents of this project under the given path, preserving its present p
 
 #### Operation: `name`
 
-Return the name of the project. If it's in GitHub, it will be the repo name.If it's on the local filesystem it will be the directory name
+Return the name of the project. If it's in GitHub, it will be the repo name. If it's on the local filesystem it will be the directory name
 
 ##### Parameters
 
@@ -365,6 +403,14 @@ Tags attached to the node
 #### Operation: `nodeType`
 
 Tags attached to the node
+
+##### Parameters
+
+*None*
+
+#### Operation: `packages`
+
+List the packages in this project
 
 ##### Parameters
 
@@ -398,6 +444,17 @@ Replace all occurrences of the given regular expression in this project
 | ------------|:---------------|:-------------|
 | ***regexp*** | `class java.lang.String` | *The regular expression to search for* |
 | ***replacement*** | `class java.lang.String` | *The string to replace matches with* |
+
+#### Operation: `renamePackage`
+
+Rename the given package. All package under it will also be renamed
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***oldPackage*** | `class java.lang.String` | *Old package name* |
+| ***newPackage*** | `class java.lang.String` | *The new package name* |
 
 #### Operation: `replace`
 

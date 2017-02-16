@@ -38,6 +38,18 @@ Add or replace a dependency
 | ------------|:---------------|:-------------|
 | ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
 | ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+| ***scope*** | `class java.lang.String` | *The value of the dependency's scope* |
+
+#### Operation: `addOrReplaceDependency`
+
+Add or replace a dependency
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
 
 #### Operation: `addOrReplaceDependencyManagementDependency`
 
@@ -53,7 +65,20 @@ Adds or replaces a dependency management dependency
 
 #### Operation: `addOrReplaceDependencyOfVersion`
 
-Add or replace a dependency, providing version
+Add or replace a dependency, providing version and scope
+
+##### Parameters
+
+| Name        | Type           | Description  |
+| ------------|:---------------|:-------------|
+| ***groupId*** | `class java.lang.String` | *The value of the dependency's groupId* |
+| ***artifactId*** | `class java.lang.String` | *The value of the dependency's artifactId* |
+| ***newVersion*** | `class java.lang.String` | *The value of the dependency's version to be set* |
+| ***scope*** | `class java.lang.String` | *The value of the dependency's scope to be set* |
+
+#### Operation: `addOrReplaceDependencyOfVersion`
+
+Add or replace a dependency, providing version and scope
 
 ##### Parameters
 
@@ -129,6 +154,14 @@ Report a severe, blocking problem
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
+
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
 
 #### Operation: `contains`
 

@@ -69,7 +69,7 @@ contains ".txt" append the given string to the end of the file.* . The
 `with` statement declared what we ***select*** and what type it is
 expected to be. The Rug language extension in the example above is
 the [Core Rug Language Extension](extensions/index.md)
-of [File](extensions/rug-core-types-file.md) and this dictates what
+of [File](extensions/rug-extension-file.md) and this dictates what
 functions are exposed what has been selected.
 
 The code between `when` and `do` is

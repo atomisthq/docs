@@ -1,8 +1,8 @@
-## Type: `PythonRequirementsTxt`
+## Type: `ScalaFile`
 
-**Python requirements text file**
+**Scala file**
 
-### `PythonRequirementsTxt` Operations
+### `ScalaFile` Operations
 
 #### Operation: `append`
 
@@ -25,6 +25,14 @@ Report a severe, blocking problem
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
 | ***arg1*** | `com.atomist.rug.runtime.rugdsl.FunctionInvocationContext<?>` | ** |
 
+#### Operation: `children`
+
+Children
+
+##### Parameters
+
+*None*
+
 #### Operation: `eval`
 
 Evaluate, i.e., compile and execute, JavaScript code.
@@ -44,6 +52,14 @@ Cause the operation to fail with a fatal error
 | Name        | Type           | Description  |
 | ------------|:---------------|:-------------|
 | ***msg*** | `class java.lang.String` | *The message to be displayed* |
+
+#### Operation: `formatInfo`
+
+Return the format info for the start of this structure in the file or null if not available
+
+##### Parameters
+
+*None*
 
 #### Operation: `majorProblem`
 
