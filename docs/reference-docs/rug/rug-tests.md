@@ -4,13 +4,13 @@ Rug provides a testing framework based on [BDD](https://en.wikipedia.org/wiki/Be
 
 This takes the form of a test DSL that reuses features and types from Rug to ensure it is easy for Rug authors to adopt.
 
-> Rug is designed to support Test Driven Development using the BDD style, and we've seen the greatest productivity in its early use from those that create test scenarios and then to follow the `red` -> `green` -> `refactor` approach.
+> Rug is designed to support Test Driven Development using the BDD style, and we've seen the greatest productivity in its early use from those that create test scenarios and then follow the `red` -> `green` -> `refactor` approach.
 
 ### A Quick Overview of a Rug Test
 
-Before taking a deeper dive into the all the syntax of Rug tests presentation of Rug Test, let's look at some samples.
+Before taking a deeper dive into the all the syntax of Rug tests, let's look at some examples.
 
-Let's consider the following simple editor that will rename a Java file:
+Consider the following simple editor that will rename a Java file:
 
 ```rug
 editor Rename
@@ -54,7 +54,7 @@ The `given` block specifies the input to the editor-under-test in the form of mu
 |---|---|---|---|
 | inline file | `dir/foo.txt = "bar"` | Populates the file |
 loaded file | `dir/foo.txt from "/some/path/file.txt"` | Load the file content from the archive.
-| archive root | `ArchiveRoot` | With all the files in the archive this editor is in, excluding the content of the `.atomist` directory. This is useful and convenient when building templates, as it enables verification that the contents of the template are a valid starting point for the editor being tested.
+| archive root | `ArchiveRoot` | Loads all the files in the archive this editor is in, excluding the content of the `.atomist` directory. This is useful and convenient when building templates, as it enables verification that the contents of the template are a valid starting point for the editor being tested.
 
 ### `When` You Run Your tests
 

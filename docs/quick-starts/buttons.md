@@ -2,7 +2,7 @@
 
 Buttons are image links that when clicked trigger the execution of an
 Atomist project generator or editor.  Clicking on existing Atomist
-Buttons are the easiest way to get started with Atomist, all you do is
+Buttons is the easiest way to get started with Atomist, all you do is
 click a link!
 
 You will need a [GitHub][gh] account to use buttons.  The first time

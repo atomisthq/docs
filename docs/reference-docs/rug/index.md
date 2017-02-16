@@ -23,7 +23,7 @@ TypeScript.
 [Core Rug Language Extensions](extensions/index.md) define a set of core concepts that
 Rug understands.  This understanding provides you with an API for
 accessing and manipulating these files rather than having to do raw
-file manipulation.  See the documentation for each of the [Core Rug Language Extensions][extensions/index.md]
+file manipulation.  See the documentation for each of the [Core Rug Language Extensions](extensions/index.md)
 for details on what each API allows you to do.
 
 ### Beyond the Rug DSL
