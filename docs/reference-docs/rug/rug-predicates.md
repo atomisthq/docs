@@ -19,7 +19,7 @@ not), and the following example piggy-backs on that:
 
 [extensions]: extensions/index.md
 
-```
+```rug
 predicate IsMaven
   with pom
 ```
@@ -34,7 +34,7 @@ If you need more power then a you can declare a Rug predicate that
 begins by selecting the project itself and then can execute JavaScript
 logic to indicate whether the predicate should pass:
 
-```
+```rug
 @description "Only work on projects that do not have a .atomist directory already"
 predicate IsNotRugArchive
   with project p
@@ -50,7 +50,7 @@ predicate IsNotRugArchive
 The most common place that you will see a predicate being used in is a
 Rug Test `then` block as shown below:
 
-```
+```rug
 ...
 
 then
@@ -70,7 +70,7 @@ Predicates can also be used as preconditions to protect an editor from
 being executed against a project it should not be applied to as shown
 below:
 
-```
+```rug
 editor AddHystrix
 
 precondition IsSpringBoot
