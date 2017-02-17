@@ -20,7 +20,13 @@ You'll want these in place before we get going:
 
 With Slack and GitHub in place, you can now [authorize  Atomist](https://slack.com/oauth/authorize?scope=channels:read,channels:write,channels:history,im:read,im:write,chat:write:user,team:read,bot&client_id=9196525393.17722124420) for your Slack team.
 
-At this point you'll be asked to sign into your team if you're not already signed in and to give Atomist permissions to TBD
+At this point you'll be asked to sign into your team if you're not already signed in and to give Atomist permissions to:
+
+* Access and modify information about your direct messages
+* Access and modify information about your public channels
+* Access information about your team
+* Access content in your public channels
+* Send messages as you (this is important so Atomist can do and report work on your behalf)
 
 ![Authorize](images/authorize.png)
 
@@ -30,7 +36,7 @@ Once you have completed the authorization, you will be redirected to your Slack 
 
 ### Connect Atomist to GitHub
 
-To get started helping streamline your development process, we start with GitHub. Specifically, you'll want to authorize the Atomist OAuth app.
+To get started helping streamline your development process you need to make Atomist aware of your code, and this means at the moment that you need to give Atomist credentials to connect to GitHub. Specifically you'll want to authorize the Atomist OAuth app.
 
 In a direct message with `@atomist`, just ask to authorize GitHub like so:
 
@@ -60,7 +66,7 @@ To be really useful, `@atomist` needs to be invited to the channels where you wa
 
 > `/invite @atomist`
 
->[screen shot this ^ and - @atomist joined channel]
+>[screen shot this ^ and - @atomist joined channel] - TBD got here to do screenshot.
 
 `@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to, it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
 
@@ -95,7 +101,11 @@ To enable this, we need to connect Atomist to the CI system. Atomist currently w
 
 #### Travis CI
 
-* Travis uses your GH user access token, so no need for a separate auth
+Once you have set up Travis for your organisation you should have permissions ready to go as Travis uses your GH user access token; there's usually no need for a separate authorization.
+
+What you do need to do is enable your projects to be built using Travis. To do this you can take advantage of Atomist for a first little bit of development automation.
+
+From Slack
 * Need to configure projects by adding travis.yml to them
   - either ask for a repo with travis.yml
   - or run an editor to create one
