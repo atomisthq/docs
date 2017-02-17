@@ -58,14 +58,14 @@ start by building up a simple program: a project editor that appends
 to a file:
 
 ```rug
-editor AppendToFile
+editor AppendToSpecificFile
 
-with File f when name contains ".txt"
+with File f when name = "myfile.txt"
   do append "\nAnd this is a new line"
 ```
 
 The `with` statement simply says *for each file in the project if name
-contains ".txt" append the given string to the end of the file.* . The
+is "myfile.txt" append the given string to the end of the file.* . The
 `with` statement declared what we ***select*** and what type it is
 expected to be. The Rug language extension in the example above is
 the [Core Rug Language Extension](extensions/index.md)
@@ -84,7 +84,7 @@ editor AppendToFile
 
 param to_append: ^.*$
 
-with File f when name contains ".txt"
+with File f when name = "myfile.txt"
   do append to_append
 ```
 
@@ -103,13 +103,13 @@ can also describe the parameter:
 
 ```rug
 @description """Appends value of to_append parameter to
-     the end of files with a .txt extension"""
+     the end of files called myfile.txt"""
 editor AppendToFile
 
 @description "Text to append to the file"
 param to_append: ^.*$
 
-with File f when name contains ".txt"
+with File f when name = "myfile.txt"
   do append to_append
 ```
 
@@ -125,10 +125,10 @@ editor AppendToFile
 
 param to_append: ^.*$
 
-with File f when name contains ".txt"
+with File f when name = "myfile.txt"
   do append to_append
 
-with File f when name contains ".java"
+with File f when name = "MyClass.java"
   do prepend "// Ha ha! This is a sneaky comment.\n"
 ```
 
@@ -142,7 +142,7 @@ param to_append: ^.*$
 
 let x = "This is a value"
 
-with File f when name contains ".txt"
+with File f when name = "myfile.txt"
   begin
     do prepend x
     do append to_append
@@ -151,20 +151,6 @@ with File f when name contains ".txt"
 
 Such computed values will be exposed to templates as well as the
 remainder of the Rug program itself.
-
-We can compose [predicates](rug-predicates.md) used with `with`. In
-the following example, we `and` two tests on a file to narrow
-matching:
-
-```rug
-editor AppendToFile
-
-param to_append: ^.*$
-
-with File f
-  when name contains ".txt" and under "/src/main/resources"
-  do append to_append
-```
 
 We can also perform multiple `do` steps as follows, enclosing them in
 a `begin/end` block:
@@ -191,7 +177,7 @@ editor AppendToFile
 
 param to_append: ^.*$
 
-with File f when name contains ".txt"
+with File f when name = "myfile.txt"
   do append { to_append + " plus this from JavaScript" }
 ```
 
@@ -200,9 +186,9 @@ We can also use JavaScript expressions in predicates, like this:
 ```rug
 editor AppendToFile
 
-with File f
+with File
   when name contains ".txt" and { 13 < 27 }
-  do append "42"
+    do append "42"
 ```
 
 ### Editor Composition
