@@ -12,16 +12,10 @@ packaged under `/.atomist/templates`.
 >**NOTE: All Atomist files should be under the `.atomist` directory in the root of a project.**
 
 Rug editor files must have a `.rug` extension.  A `.rug` file can
-contain one or more editors and reviewers.  A `.rug` file must contain
-either:
-
-*   A single editor with the same name as the project file, excluding
-    the `.rug` extension. This corresponds to Java's enforcement of
-    the packaging of public classes.
-*or*
-*   A single editor with the same name as the project file, excluding
-    the `.rug` extension, plus any number of other editors that are
-    used only by that editor.
+contain one or more editors and reviewers.  A `.rug` file must always contain
+an editor with the same name as the source file (excluding the `.rug`
+extension), and may contain additional editors that are visible only within
+the scope of the source file.
 
 For reference, this convention is analogous to Java public class
 packaging.
@@ -37,8 +31,8 @@ open source [Spring Boot Editors][boot-editors] Rug project.
 Rug editors are built on the same underpinnings as your usual non-Rug
 editors. They share familiar concepts:
 
-*   **Parameters**: Editors and reviewers can specify (mandatory or
-    optional) any number of parameters with an accompanying validation
+*   **Parameters**: Editors and reviewers can specify any number of
+    mandatory or optional parameters with an accompanying validation
     pattern.
 *   **Templates**: Editors can be packaged in archives including
     templates that are written

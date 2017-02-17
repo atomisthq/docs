@@ -16,7 +16,7 @@ takes several forms:
     repository, e.g., configuring and enabling a [Travis CI][travis]
     build or updating a [Docker][docker] base image to the desired
     version.
--   Ensuring a project conforms with your standards using an Rug
+-   Ensuring a project conforms with your standards using a Rug
     reviewer.
 -   Managing a service life cycle, from commits to CI builds to
     deployments and releases to alerts and corrective action with the

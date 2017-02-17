@@ -53,7 +53,7 @@ tests/
 
 Here you can see the standard layout for a Rug directory.  It has a
 `manifest.yml` describing the contents of the project.  Think of this
-a the metadata for your Rugs, i.e., the name, version, dependencies,
+as the metadata for your Rugs, i.e., the name, version, dependencies,
 etc.  The editors and generators are in the `editors` directory.  Any
 templates are in the `templates` directory.  Testing is integral to
 Rug, so we also use a `tests` directory to hold all our tests.  There
