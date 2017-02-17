@@ -28,7 +28,9 @@ At this point you'll be asked to sign into your team if you're not already signe
 * Access content in your public channels
 * Send messages as you (this is important so Atomist can do and report work on your behalf)
 
-![Authorize](images/authorize.png)
+<div style="text-align:center">
+<img src="images/authorize.png" alt="Slack Authorization" style="width:320px;">
+</div>
 
 Once you have completed the authorization, you will be redirected to your Slack team where you should see a direct message from `@atomist` saying hello.
 
