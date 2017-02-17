@@ -1,22 +1,135 @@
-## Getting Started with Atomist
+Welcome! So you want to get started streamlining your development with Atomist. You're in the right place. This is a companion to guide you through enrolling and getting started.
 
-If you've just encountered Atomist for the first time then you're in the right place! If you're looking to jump right in, get Atomist into your Slack team and get going, then see the [Atomist Quick Start](atomist-quick-start).
+Here are the steps you're going to carry out in this guide:
 
-In this documentation you're going to take a thorough tour of all the Atomist features, including our API which is the Rug language, so that you can go from 0 to 10 as quickly as possible.
+- **Set up the `@atomist` bot** in your Slack team.
+- **Connect Atomist to GitHub** – organization and user authorization, configuration.
+- **Use Atomist notifications and actions for GitHub**.
+- **Connect Atomist to Continuous Integration** - currently Travis CI or Jenkins are supported.
+- **Get started with automated event handling** for common development flow activities.
+- **Create your first custom Development Automation**
 
-This tour is broken into the following stages that you may choose read from start-to-finish or jump around to just those subjects that interest you:
+### **Before you get started...**
 
-- *Why and What is Atomist*: The 1000ft view.
-- *The Atomist API* : Introducing Rug
-- *Signing up to Atomist*: Getting the Bot in *your* Slack and GitHub organisation
-- *What's out of the box*: Exploring the default handlers
-- *Getting set to automate your software development*: Creating your first Rug archive
-- *Generating new projects*: Creating your first Rug generator
-- *Evolving codebases*: Creating your first Rug editor
-- *Pro Rug*: Best practices and conventions for working with Rug
+You'll want these in place before we get going:
 
-### Where to go to next?
+* A Slack team where you can authorize the `@atomist` bot
+* A GitHub org or user account to authorize the Atomist OAuth app
 
-For more specific, in-depth starters on particular features of Atomist then consider heading over to our [Quick Starts][../quick-starts].
+### **Set up Atomist in Slack**
 
-To dive deep into the details of the Atomist API through Rug, head on over to our [reference documentation][../reference-docs].
+With Slack and GitHub in place, you can now [authorize  Atomist](https://slack.com/oauth/authorize?scope=channels:read,channels:write,channels:history,im:read,im:write,chat:write:user,team:read,bot&client_id=9196525393.17722124420) for your Slack team.
+
+At this point you'll be asked to sign into your team if you're not already signed in and to give Atomist permissions to TBD
+
+![Authorize](images/authorize.png)
+
+Once you have completed the authorization, you will be redirected to your Slack team where you should see a direct message from `@atomist` saying hello.
+
+![Hello](images/bot-hello-message.png)
+
+### Connect Atomist to GitHub
+
+To get started helping streamline your development process, we start with GitHub. Specifically, you'll want to authorize the Atomist OAuth app.
+
+In a direct message with `@atomist`, just ask to authorize GitHub like so:
+
+![GitHub Org Auth](images/github-org-auth.png)
+
+First, if there is no GitHub organization associated with this Slack team, `@atomist` will show a message requesting you to authorize as shown above. Click on the "Authorize Atomist on GitHub" link.
+
+In your default web browser, you will be taken to the GitHub authorization page for Atomist.
+
+![GitHub Org OAuth](images/github-org-oauth.png)
+
+Click the "Authorize" button to authorize Atomist. You will be redirected to your Slack team in the browser.
+
+Next, it's time to authorize your GitHub user with Atomist so that Atomist can automate actions on behalf of your GitHub user. Click on the "Authorize GitHub" link.
+
+In your default browser, you will once again be taken to the GitHub authorization page. This time you are authorizing Atomist with your GitHub user.
+
+![GitHub User OAuth](images/github-user-oauth.png)
+
+Once again, click the "Authorize" button to authorize Atomist. You will be redirected to your Slack team in the browser.
+
+Whew! Now that's done!
+
+To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist` to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
+
+> [In `#sprockets` channel]:
+
+> `/invite @atomist`
+
+>[screen shot this ^ and - @atomist joined channel]
+
+`@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to, it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
+
+> screen shot
+
+> @atomist: which repo ?
+
+> @jryanday: sprockets
+
+> @atomist: Sweet! All set to go now.
+
+Now Atomist can talk to GitHub, listen for activity in a specific repo, and notify in the Slack channel we just invited it to.
+
+Now, let's do something with GitHub. Let's create a new issue.
+
+> screen shot of  `@atomist create issue` sequence
+> my first atomist issue ...
+
+And because `@atomist` is also listening for GitHub activity, it gets the new issue event, and notifies in the channel.
+
+> screen shot of bot message on issue creation, showing buttons
+
+Notice that the notification about the new issue comes with some buttons to take actions, like `Assign` or `Bug` to label as a bug. Go ahead and label it as a bug by clicking on the bug button.
+
+> screen shot of bot message attachment update that reflects a label was added
+
+### Configure CI
+
+Atomist can also listen for CI events, correlate them with the commits that triggered the build, and show contextualized notifications in the Slack channel.
+
+To enable this, we need to connect Atomist to the CI system. Atomist currently works with Travis CI and Jenkins.
+
+#### Travis CI
+
+* Travis uses your GH user access token, so no need for a separate auth
+* Need to configure projects by adding travis.yml to them
+  - either ask for a repo with travis.yml
+  - or run an editor to create one
+* Create a simple commit, commit, watch notifications
+* buttons in notification?
+
+#### Jenkins
+
+* pre-req: notifications plugin
+* the setup steps
+* make a commit to trigger a build, see notifications (make sure its working)
+* buttons in notification?
+
+#### Notifications
+
+Now that CI is also configured, let's take a look at how Atomist handles CI events.
+
+Make some change that will cause your CI to initiate a build. For example, if your CI is configured to build on commit to a branch, make a commit to that branch.
+
+> screen shot example of editing sprockets/README.md
+
+> commit it
+
+> show bot notification message
+
+### Build your first Development Automation
+
+Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box. Now, let's automate an action. In Atomist, that means writing a `handler` to be triggered by a certain type of activity. For example, perhaps you want to notify the team when an issue labeled 'bug' gets fixed.
+
+* Run generator to create handler, or provide the code example
+* Highlights:
+  - Path expression to match issue labeled as bug that gets closed
+  - message builder code and send
+
+There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation. Well done!
+
+###s Takeaways / Where to go from here
