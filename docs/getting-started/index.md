@@ -1,40 +1,86 @@
-Welcome! So you want to get started streamlining your development with Atomist. You're in the right place. This is a companion to guide you through enrolling and getting started.
+<style type="text/css">
+  a span.button {
+    text-decoration: none;
+  }
 
-Here are the steps you're going to carry out in this guide:
+  .button {
+    background-color: #5BC399;
+    border: none;
+    color: white;
+    height: 40px;
+    font-family: "brandon-grotesque", sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    line-height: 1;
+    padding: 10px 20px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+  }
 
-- **Set up the `@atomist` bot** in your Slack team.
-- **Connect Atomist to GitHub** – organization and user authorization, configuration.
-- **Use Atomist notifications and actions for GitHub**.
-- **Connect Atomist to Continuous Integration** - currently Travis CI or Jenkins are supported.
-- **Get started with automated event handling** for common development flow activities.
-- **Create your first custom Development Automation**
+  .ss {
+    width: 60%;
+  }
 
-### **Before you get started...**
+  div.button-container, div.ss-container {
+    display: block;
+    text-align: center;
+    padding: 20px;
+  }
+</style>
 
-You'll want these in place before we get going:
+Welcome! So you want to get started with Atomist. You're in the right place. This is a companion to guide you through setup and getting started.
 
-* A Slack team where you can authorize the `@atomist` bot
-* A GitHub org or user account to authorize the Atomist OAuth app
+### **What this guide covers**
+
+- **Set up the `@atomist` Slack bot**
+- **Connect Atomist to GitHub**
+- **Use Atomist notifications and actions for GitHub**
+- **Connect Atomist to Continuous Integration**
+- **Get started with development automation**
+- **Create your first custom automation**
+
+### **Before you get started**
+
+You'll need these in place before we get going:
+
+> * A Slack team where you can authorize the `@atomist` bot
+
+> * A GitHub org or user account to authorize Atomist
 
 ### **Set up Atomist in Slack**
 
-With Slack and GitHub in place, you can now [authorize  Atomist](https://slack.com/oauth/authorize?scope=channels:read,channels:write,channels:history,im:read,im:write,chat:write:user,team:read,bot&client_id=9196525393.17722124420) for your Slack team.
+With Slack and GitHub in place, you can now add the Atomist bot for your Slack team. Click the button to do that now.
 
-At this point you'll be asked to sign into your team if you're not already signed in and to give Atomist permissions to:
-
-* Access and modify information about your direct messages
-* Access and modify information about your public channels
-* Access information about your team
-* Access content in your public channels
-* Send messages as you (this is important so Atomist can do and report work on your behalf)
-
-<div style="text-align:center">
-<img src="images/authorize.png" alt="Slack Authorization" style="width:320px;">
+<div class="button-container">
+  <a href="/">
+    <span class="button">Install Atomist Bot in Slack</span>
+  </a>
 </div>
 
-Once you have completed the authorization, you will be redirected to your Slack team where you should see a direct message from `@atomist` saying hello.
+You'll be asked to sign into your Slack team if you're not already signed in. Provide your Slack domain and then your email address and password. If you have trouble signing in, see [Slack help](https://get.slack.help/hc/en-us/articles/212681477-Sign-in-to-Slack) on the topic.
 
-![Hello](images/bot-hello-message.png)
+<div class="ss-container">
+  <img src="images/slack-sign-in.png" alt="Slack Sign In" class="ss">
+</div>
+
+<div class="ss-container">
+  <img src="images/slack-sign-in2.png" alt="Slack Sign In" class="ss">
+</div>
+
+Next, you will see the authorization page for the Atomist app, including the Slack permissions requested. Confirm that the correct Slack team is selected and click "Authorize".
+
+<div class="ss-container">
+  <img src="images/slack-auth.png" alt="Slack Authorization" class="ss">
+</div>
+
+Once you have successfully authorized the Atomist bot in your Slack team, you will be redirected to a confirmation page.
+
+
+
+<div class="ss-container">
+  <img src="images/bot-success.png" alt="Success" class="ss">
+</div>
 
 ### Connect Atomist to GitHub
 
@@ -144,4 +190,4 @@ Right! You've seen some of the automation between issues, commits, builds that w
 
 There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation. Well done!
 
-###s Takeaways / Where to go from here
+### Takeaways / Where to go from here

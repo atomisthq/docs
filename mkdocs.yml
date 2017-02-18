@@ -49,7 +49,7 @@ repo_name: 'Rug'
 repo_url: 'https://github.com/atomist/rug'
 pages:
 - Welcome to Atomist: 'index.md'
-- Getting Started!: 'getting-started/index.md'
+- Getting Started: 'getting-started/index.md'
 - Quick Starts:
   - Introduction: 'quick-starts/index.md'
   - Buttons: 'quick-starts/buttons.md'
