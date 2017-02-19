@@ -1,33 +1,4 @@
-<style type="text/css">
-  a span.button {
-    text-decoration: none;
-  }
-
-  .button {
-    background-color: #5BC399;
-    border: none;
-    color: white;
-    height: 40px;
-    font-family: "brandon-grotesque", sans-serif;
-    font-size: medium;
-    font-weight: 400;
-    line-height: 1;
-    padding: 10px 20px;
-    position: relative;
-    top: 5px;
-    right: 5px;
-  }
-
-  .ss {
-    width: 60%;
-  }
-
-  div.button-container, div.ss-container {
-    display: block;
-    text-align: center;
-    padding: 20px;
-  }
-</style>
+<!-- styles used here are from /stylesheets/extra.css -->
 
 Welcome! So you want to get started with Atomist. You're in the right place. This is a companion to guide you through setup and getting started.
 
@@ -39,6 +10,7 @@ Welcome! So you want to get started with Atomist. You're in the right place. Thi
 - **Connect Atomist to Continuous Integration**
 - **Get started with development automation**
 - **Create your first custom automation**
+- **Where to get help**
 
 ### **Before you get started**
 
@@ -50,41 +22,39 @@ You'll need these in place before we get going:
 
 ### **Set up Atomist in Slack**
 
-With Slack and GitHub in place, you can now add the Atomist bot for your Slack team. Click the button to do that now.
+With Slack and GitHub in place, you can now add the Atomist bot for your Slack team. When you are invited to the Private Alpha, you will receive an email invitation. Click the button in the email invitation to install the Atomist bot.
 
-<div class="button-container">
-  <a href="/">
-    <span class="button">Install Atomist Bot in Slack</span>
-  </a>
+<div class="ss-container">
+  <img src="images/alpha-welcome-email.png" alt="Welcome Email" class="ss-medium">
 </div>
 
 You'll be asked to sign into your Slack team if you're not already signed in. Provide your Slack domain and then your email address and password. If you have trouble signing in, see [Slack help](https://get.slack.help/hc/en-us/articles/212681477-Sign-in-to-Slack) on the topic.
 
 <div class="ss-container">
-  <img src="images/slack-sign-in.png" alt="Slack Sign In" class="ss">
+  <img src="images/slack-sign-in.png" alt="Slack Sign In" class="ss-small">
 </div>
 
 <div class="ss-container">
-  <img src="images/slack-sign-in2.png" alt="Slack Sign In" class="ss">
+  <img src="images/slack-sign-in2.png" alt="Slack Sign In" class="ss-small">
 </div>
 
 Next, you will see the authorization page for the Atomist app, including the Slack permissions requested. Confirm that the correct Slack team is selected and click "Authorize".
 
 <div class="ss-container">
-  <img src="images/slack-auth.png" alt="Slack Authorization" class="ss">
+  <img src="images/slack-auth.png" alt="Slack Authorization" class="ss-small">
 </div>
 
-Once you have successfully authorized the Atomist bot in your Slack team, you will be redirected to a confirmation page.
+Once you have successfully authorized the Atomist bot in your Slack team, you will be redirected to a confirmation page. You can close this page and go back to Slack to continue this guide.
 
 
 
 <div class="ss-container">
-  <img src="images/bot-success.png" alt="Success" class="ss">
+  <img src="images/bot-success.png" alt="Success" class="ss-small">
 </div>
 
 ### Connect Atomist to GitHub
 
-To get started helping streamline your development process you need to make Atomist aware of your code, and this means at the moment that you need to give Atomist credentials to connect to GitHub. Specifically you'll want to authorize the Atomist OAuth app.
+To get started helping streamline your development flow, Atomist needs access to your GitHub account. Specifically you'll want to authorize the Atomist OAuth app.
 
 In a direct message with `@atomist`, just ask to authorize GitHub like so:
 
@@ -143,13 +113,13 @@ Notice that the notification about the new issue comes with some buttons to take
 
 ### Configure CI
 
-Atomist can also listen for CI events, correlate them with the commits that triggered the build, and show contextualized notifications in the Slack channel.
+Atomist can listen for CI events, correlate them with the commits that triggered the build, and show contextualized notifications in the Slack channel.
 
-To enable this, we need to connect Atomist to the CI system. Atomist currently works with Travis CI and Jenkins.
+To enable this, we need to connect Atomist to your CI system. Atomist currently works with Travis CI and Jenkins. Use the either the [Travis CI](#travis-ci) or [Jenkins](#jenkins) section to help you configure Atomist to connect with you CI.
 
 #### Travis CI
 
-Once you have set up Travis for your organisation you should have permissions ready to go as Travis uses your GH user access token; there's usually no need for a separate authorization.
+Once you have set up Travis for your organization you should have permissions ready to go as Travis uses your GH user access token; there's usually no need for a separate authorization.
 
 What you do need to do is enable your projects to be built using Travis. To do this you can take advantage of Atomist for a first little bit of development automation.
 
@@ -162,12 +132,43 @@ From Slack
 
 #### Jenkins
 
-* pre-req: notifications plugin
-* the setup steps
+> **Note:** Atomist works with the [Notification plugin](https://plugins.jenkins.io/notification) for Jenkins, which is a requisite. The Notification plugin is what will send events to Atomist, so that we can notify and take action based on build events.
+
+If you don't already have the Notification plugin installed, go to the Plugin Manager in the Jenkins admin interface, select it and complete the installation.
+
+<div class="ss-container">
+  <img src="images/jenkins-install-notification.png" alt="Install Notification Plugin" class="ss-medium">
+</div>
+
+To enable the plugin, be sure to restart Jenkins after installation.
+
+<div class="ss-container">
+  <img src="images/jenkins-install-notification-status-reboot.png" alt="Notification Plugin Installation Status" class="ss-medium">
+</div>
+
+Now that the Notification plugin is installed and enabled, it's time to configure project Notifications settings. Select a project that you would like Atomist to get events from. Next, select "Configure".
+
+<div class="ss-container">
+  <img src="images/jenkins-configure-project.png" alt="Configure Project" class="ss-small">
+</div>
+
+We're going to walk through setting up a webhook. In the Job Notifications section of the project configuration, click the "Add Notification" button.
+
+<div class="ss-container">
+  <img src="images/jenkins-add-notification.png" alt="Add Notification" class="ss-medium">
+</div>
+
+In the Notification configuration section, configure the endpoint URL as `https://webhook.atomist.com/jenkins` and check that the other parameters match the information shown below.
+
+<div class="ss-container">
+  <img src="images/jenkins-webhook.png" alt="Configure Webhook" class="ss-medium">
+</div>
+
+
 * make a commit to trigger a build, see notifications (make sure its working)
 * buttons in notification?
 
-#### Notifications
+### **In Action:** Notifications
 
 Now that CI is also configured, let's take a look at how Atomist handles CI events.
 

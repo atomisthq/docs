@@ -26,3 +26,43 @@
         color: #247f7e;
     }
 }
+
+# Styles for additional elements in the documentation
+# These styles are separate from the underlying mkdocs theme
+
+a span.button {
+    text-decoration: none;
+}
+
+.button {
+    background-color: #5BC399;
+    border: none;
+    color: white;
+    height: 40px;
+    font-family: "brandon-grotesque", sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    line-height: 1;
+    padding: 10px 20px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.ss-small {
+    width: 60%;
+}
+
+.ss-medium {
+    width: 80%;
+}
+
+.ss-large {
+    width: 100%;
+}
+
+div.button-container, div.ss-container {
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
