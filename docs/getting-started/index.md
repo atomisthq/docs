@@ -56,27 +56,44 @@ Once you have successfully authorized the Atomist bot in your Slack team, you wi
 
 To get started helping streamline your development flow, Atomist needs access to your GitHub account. Specifically you'll want to authorize the Atomist OAuth app.
 
-In a direct message with `@atomist`, just ask to authorize GitHub like so:
+#### Authorize Atomist for your GitHub Organization
+
+In a direct message with `@atomist` just ask to authorize GitHub by entering `github`:
 
 ![GitHub Org Auth](images/github-org-auth.png)
 
-First, if there is no GitHub organization associated with this Slack team, `@atomist` will show a message requesting you to authorize as shown above. Click on the "Authorize Atomist on GitHub" link.
-
-In your default web browser, you will be taken to the GitHub authorization page for Atomist.
+If there is no GitHub organization associated with this Slack team `@atomist` will show a message requesting you to authorize as shown above. Click on the "Authorize Atomist on GitHub" link and, in your default web browser, you will be taken to the GitHub authorization page for Atomist.
 
 ![GitHub Org OAuth](images/github-org-oauth.png)
 
-Click the "Authorize" button to authorize Atomist. You will be redirected to your Slack team in the browser.
+Click the "Authorize" button to authorize Atomist and you will then be redirected to your Slack team in the browser.
 
-Next, it's time to authorize your GitHub user with Atomist so that Atomist can automate actions on behalf of your GitHub user. Click on the "Authorize GitHub" link.
+> ***NOTE***: If you have more than one GitHub organisation you will receive a Direct Message from Atomist to you at this point asking "In which GitHub org would you like to authorize @atomist?". The first 5 GitHub organisations you are a member of will be shown as buttons and you can either click on one of those to select the organisation to authorise Atomist with, or type in the name of the organisation if it is not shown.
 
-In your default browser, you will once again be taken to the GitHub authorization page. This time you are authorizing Atomist with your GitHub user.
+#### Authorize Atomist to do work in GitHub on your behalf
 
-![GitHub User OAuth](images/github-user-oauth.png)
+With Atomist authorized for your organization it's time to authorize your own GitHub user with Atomist so that Atomist can automate actions on your behalf. In the Direct Message channel with Atomist you should see another message that is asking you to "Authorize GitHub":
 
-Once again, click the "Authorize" button to authorize Atomist. You will be redirected to your Slack team in the browser.
+![Authorize GitHub on Your Behalf](images/authorize-github-on-your-behalf.png)
 
-Whew! Now that's done!
+
+Click on the "Authorize GitHub" link and again, in your default browser, you will once be taken to the GitHub authorization page so that this time you can authorize Atomist with your GitHub user.
+
+Click the "Authorize" button to authorize Atomist. You will be redirected to your Slack team in the browser and a new direct message from `@atomist` will be waiting:
+
+![Atomist Authorized to do work on Your Behalf](images/authorized-message-on-your-behalf.png)
+
+Whew! Authorizations all done we can now get Atomist doing some work!
+
+### Putting Atomist to Work
+
+Atomist can now be put to work to create a new project to work upon, or to work on an existing project.
+
+### Use Atomist to Create a New Project
+
+TBD.
+
+### Use Atomist on an Existing Project by inviting it to an Existing Channel
 
 To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist` to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
 
@@ -86,7 +103,7 @@ To be really useful, `@atomist` needs to be invited to the channels where you wa
 
 >[screen shot this ^ and - @atomist joined channel] - TBD got here to do screenshot.
 
-`@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to, it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
+`@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
 
 > screen shot
 
@@ -111,13 +128,13 @@ Notice that the notification about the new issue comes with some buttons to take
 
 > screen shot of bot message attachment update that reflects a label was added
 
-### Configure CI
+### Configure Atomist with your CI
 
 Atomist can listen for CI events, correlate them with the commits that triggered the build, and show contextualized notifications in the Slack channel.
 
 To enable this, we need to connect Atomist to your CI system. Atomist currently works with Travis CI and Jenkins. Use the either the [Travis CI](#travis-ci) or [Jenkins](#jenkins) section to help you configure Atomist to connect with you CI.
 
-#### Travis CI
+#### Configuring Atomist with Travis CI
 
 Once you have set up Travis for your organization you should have permissions ready to go as Travis uses your GH user access token; there's usually no need for a separate authorization.
 
@@ -130,7 +147,7 @@ From Slack
 * Create a simple commit, commit, watch notifications
 * buttons in notification?
 
-#### Jenkins
+#### Configuring Atomist with Jenkins
 
 > **Note:** Atomist works with the [Notification plugin](https://plugins.jenkins.io/notification) for Jenkins, which is a requisite. The Notification plugin is what will send events to Atomist, so that we can notify and take action based on build events.
 
@@ -168,7 +185,7 @@ In the Notification configuration section, configure the endpoint URL as `https:
 * make a commit to trigger a build, see notifications (make sure its working)
 * buttons in notification?
 
-### **In Action:** Notifications
+### **In Action:** CI Notifications
 
 Now that CI is also configured, let's take a look at how Atomist handles CI events.
 
@@ -191,4 +208,4 @@ Right! You've seen some of the automation between issues, commits, builds that w
 
 There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation. Well done!
 
-### Takeaways / Where to go from here
+### Where to go from here...
