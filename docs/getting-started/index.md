@@ -125,6 +125,20 @@ The response from `@atomist` is to create a new [Slack thread](https://get.slack
   <img src="images/project-creation-thread-start.png" alt="Project creation thread with Atomist" class="ss-small">
 </div>
 
+Now run through the questions from Atomist until you see a submission panel with a `Generate project` button. This the case of `NewSpringBootRestService` this should only be entering the `project_name` parameter for your new project:
+
+<div class="ss-container">
+  <img src="images/create-project-parameters.png" alt="Project parameters all set" class="ss-small">
+</div>
+
+You can set any of the default parameters by typing in `set <parameter> <value>` before you click on `Generate project`.
+
+Now click on `Generate project` and you'll see several things happen:
+
+- TBD
+
+
+
 ### Use Atomist on an Existing Project by inviting it to an Existing Channel
 
 To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist` to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
