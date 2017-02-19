@@ -148,9 +148,6 @@ Click on the project link to see your project in GitHub:
 
 Clone from GitHub and you will have a working starting project, courtesy of Atomist.
 
-
-
-
 ### Use Atomist on an Existing Project by inviting it to an Existing Channel
 
 To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist` to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
@@ -185,6 +182,35 @@ And because `@atomist` is also listening for GitHub activity, it gets the new is
 Notice that the notification about the new issue comes with some buttons to take actions, like `Assign` or `Bug` to label as a bug. Go ahead and label it as a bug by clicking on the bug button.
 
 > screen shot of bot message attachment update that reflects a label was added
+
+### Plugging Atomist into events from your Project Repository
+
+With `@atomist` now successfully authorized you can use the bot to manipulate your repositories on GitHub. However another responsibility of Atomist is to be able to react to events that occur on your repositories as well.
+
+To enable those repository events to promulgate into Atomist you need to configure a webhook from your GitHub organisation. Navigate to your organisations GitHub page and then click on `Settings` and, from the menu, `Webhooks`:
+
+<div class="ss-container">
+  <img src="images/gh-org-settings-for-atomist-webhook.png" alt="Settings page for GitHub webhooks" class="ss-small">
+</div>
+
+Click on `Add webhook` and then fill in the details shown below:
+
+<div class="ss-container">
+  <img src="images/add-atomist-gh-webhook.png" alt="Filled form for adding the Atomist webhook to your organisation" class="ss-small">
+</div>
+
+When you're done click on `Add webhook` and you should see the webhook added to the list for your organisation:
+
+<div class="ss-container">
+  <img src="images/atomist-webhook-added.png" alt="Atomist Webhook successfully added!" class="ss-small">
+</div>
+
+To see you new webhook in action, and how those events get interpreted in `@atomist`, make a small edit to one of the files in your repository (the `README.md` is usually a good candidate to make a small, inconseqential edit) either through the GitHub user interface or through a commit/push from a local edit.
+
+When you have done the commit/push to master you should see those events happily appearing in your project's channel, `#sprockets` in our example here:
+
+TBD.
+
 
 ### Configure Atomist with your CI
 
