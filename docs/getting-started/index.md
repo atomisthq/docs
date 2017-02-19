@@ -6,7 +6,7 @@ Welcome! So you want to get started with Atomist. You're in the right place. Thi
 
 - **Set up the `@atomist` Slack bot**
 - **Connect Atomist to GitHub**
-- **Use Atomist notifications and actions for GitHub**
+- **Enable and Use Atomist notifications and actions for GitHub**
 - **Connect Atomist to Continuous Integration**
 - **Get started with development automation**
 - **Create your first custom automation**
@@ -64,7 +64,9 @@ In a direct message with `@atomist` just ask to authorize GitHub by entering `gi
 
 If there is no GitHub organization associated with this Slack team `@atomist` will show a message requesting you to authorize as shown above. Click on the "Authorize Atomist on GitHub" link and, in your default web browser, you will be taken to the GitHub authorization page for Atomist.
 
-![GitHub Org OAuth](images/github-org-oauth.png)
+<div class="ss-container">
+  <img src="images/github-org-oauth.png" alt="GitHub Org OAuth" class="ss-small">
+</div>
 
 Click the "Authorize" button to authorize Atomist and you will then be redirected to your Slack team in the browser.
 
@@ -74,14 +76,17 @@ Click the "Authorize" button to authorize Atomist and you will then be redirecte
 
 With Atomist authorized for your organization it's time to authorize your own GitHub user with Atomist so that Atomist can automate actions on your behalf. In the Direct Message channel with Atomist you should see another message that is asking you to "Authorize GitHub":
 
-![Authorize GitHub on Your Behalf](images/authorize-github-on-your-behalf.png)
-
+<div class="ss-container">
+  <img src="images/authorize-github-on-your-behalf.png" alt="Authorize GitHub on Your Behalf" class="ss-small">
+</div>
 
 Click on the "Authorize GitHub" link and again, in your default browser, you will once be taken to the GitHub authorization page so that this time you can authorize Atomist with your GitHub user.
 
 Click the "Authorize" button to authorize Atomist. You will be redirected to your Slack team in the browser and a new direct message from `@atomist` will be waiting:
 
-![Atomist Authorized to do work on Your Behalf](images/authorized-message-on-your-behalf.png)
+<div class="ss-container">
+  <img src="images/authorized-message-on-your-behalf.png" alt="Atomist Authorized to do work on Your Behalf" class="ss-small">
+</div>
 
 Whew! Authorizations all done we can now get Atomist doing some work!
 
@@ -101,7 +106,9 @@ In the `#general` channel type:
 
 This will result in a list of project generators that `@atomist` can use on your behalf to create a new project in GitHub:
 
-![List of project generators](images/project-generators-list.png)
+<div class="ss-container">
+  <img src="images/project-generators-list.png" alt="List of project generators" class="ss-small">
+</div>
 
 > ***NOTE***: You can create your own generators, amongst other customisations to Atomist using our Rug language and support. Creating and publishing your own generators will be a [Quick Start](../quick-starts) of its own soon.
 
@@ -113,11 +120,15 @@ While the full list *can* be useful if you're just browsing, for our purposes he
 
 This time you should see an entry for the `NewSpringBootRestService` generator:
 
-![Entry for the NewSpringBootRestService](images/spring-boot-rest-service-generator-button.png)
+<div class="ss-container">
+  <img src="images/spring-boot-rest-service-generator-button.png" alt="Entry for the NewSpringBootRestService" class="ss-small">
+</div>
 
 Click on the `Generate project` button and you'll begin the process of interacting with `@atomist` to create your new project.
 
-![Starting a dialogue with Atomist to create a new project](images/creating-a-new-project-start.png)
+<div class="ss-container">
+  <img src="images/creating-a-new-project-start.png" alt="Starting a dialogue with Atomist to create a new project" class="ss-small">
+</div>
 
 The response from `@atomist` is to create a new [Slack thread](https://get.slack.help/hc/en-us/articles/115000769927-Message-threads) for this conversation. Click now on the `1 reply` link to open up the thread in Slack:
 
