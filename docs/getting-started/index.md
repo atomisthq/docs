@@ -135,7 +135,19 @@ You can set any of the default parameters by typing in `set <parameter> <value>`
 
 Now click on `Generate project` and you'll see several things happen:
 
-- TBD
+- In the thread `@atomist` will announce `One moment while I run the generator`.
+- `@atomist` will go and create the repository for you in your GitHub organisation.
+- `@atomist` will announce that it has `Successfully generated your project` in the main channel that the project creation thread was started in, in our case that would be `#general`. The announcement will also contain a link to the newly created project.
+- `@atomist` will create a new channel in your Slack team for the new project, that will also be associated with the project's repository so when you want to work on that project, you do it in that channel.
+
+Click on the project link to see your project in GitHub:
+
+<div class="ss-container">
+  <img src="images/project-creation-response.png" alt="Project creation response from Atomist" class="ss-small">
+</div>
+
+Clone from GitHub and you will have a working starting project, courtesy of Atomist.
+
 
 
 
