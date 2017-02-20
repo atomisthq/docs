@@ -163,41 +163,6 @@ Click on the project link to see your project in GitHub:
 
 Clone from GitHub and you will have a working starting project, courtesy of Atomist.
 
-### Use Atomist on an Existing Project by inviting it to an Existing Channel
-
-To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist` to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
-
-> [In `#sprockets` channel]:
-
-> `/invite @atomist`
-
->[screen shot this ^ and - @atomist joined channel] - TBD got here to do screenshot.
-
-`@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
-
-> screen shot
-
-> @atomist: which repo ?
-
-> @jryanday: sprockets
-
-> @atomist: Sweet! All set to go now.
-
-Now Atomist can talk to GitHub, listen for activity in a specific repo, and notify in the Slack channel we just invited it to.
-
-Now, let's do something with GitHub. Let's create a new issue.
-
-> screen shot of  `@atomist create issue` sequence
-> my first atomist issue ...
-
-And because `@atomist` is also listening for GitHub activity, it gets the new issue event, and notifies in the channel.
-
-> screen shot of bot message on issue creation, showing buttons
-
-Notice that the notification about the new issue comes with some buttons to take actions, like `Assign` or `Bug` to label as a bug. Go ahead and label it as a bug by clicking on the bug button.
-
-> screen shot of bot message attachment update that reflects a label was added
-
 ### Plugging Atomist into events from your Project Repository
 
 With `@atomist` now successfully authorized you can use the bot to manipulate your repositories on GitHub. However another responsibility of Atomist is to be able to react to events that occur on your repositories as well.
@@ -224,8 +189,52 @@ To see you new webhook in action, and how those events get interpreted in `@atom
 
 When you have done the commit/push to master you should see those events happily appearing in your project's channel, `#sprockets` in our example here:
 
-TBD.
+<div class="ss-container">
+  <img src="images/push-event-appearing-in-repo-channel.png" alt="Push event appearing in your project's channel" class="ss-large">
+</div>
 
+Now let's do something else with GitHub. Let's create a new issue using `@atomist`. First we need to teach the Bot a new skill by registering a new `command`. Execute the following in your project's channel:
+
+```shell
+
+@atomist register command
+```
+TBD here.
+
+Once you've completed this :
+
+> screen shot of  `@atomist create issue` sequence
+> my first atomist issue ...
+
+And because `@atomist` is also listening for GitHub activity, it gets the new issue event, and notifies in the channel.
+
+> screen shot of bot message on issue creation, showing buttons
+
+Notice that the notification about the new issue comes with some buttons to take actions, like `Assign` or `Bug` to label as a bug. Go ahead and label it as a bug by clicking on the bug button.
+
+> screen shot of bot message attachment update that reflects a label was added
+
+### Use Atomist on an Existing Project by inviting it to an Existing Channel
+
+To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist`, using `/invite @atomist`, to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
+
+> [In `#sprockets` channel]:
+
+> `/invite @atomist`
+
+>[screen shot this ^ and - @atomist joined channel] - TBD got here to do screenshot.
+
+`@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
+
+> screen shot
+
+> @atomist: which repo ?
+
+> @jryanday: sprockets
+
+> @atomist: Sweet! All set to go now.
+
+Now Atomist can talk to GitHub, listen for activity in a specific repo, and notify in the Slack channel we just invited it to.
 
 ### Configure Atomist with your CI
 
