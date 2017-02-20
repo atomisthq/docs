@@ -165,6 +165,64 @@ Files and directories in `%USERPROFILE%\.atomist` will not be
 removed. You can safely delete that directory manually if you don't
 intend to use the CLI any longer.
 
+### Docker installation
+
+If you cannot install using a system-wide approach, you can rely also on 
+downloading the CLI through a Docker image we provide.
+
+```shell
+$ docker pull atomist-docker.jfrog.io/rug
+```
+
+Running the image as will give you the Rug shell:
+
+```shell
+$ docker run --rm -it atomist-docker.jfrog.io/rug-cli
+Resolving dependencies for com.atomist:rug:0.12.0 completed
+Initializing shell for com.atomist:rug:0.12.0 completed
+Press 'Tab' to complete. Type 'help' and hit 'Return' for help, and 'exit' to quit.
+rug → 
+```
+
+If you want to run the CLI, the image expects you to call `rug` as its first 
+argument. For instance:
+
+```shell
+$ docker run --rm -it atomist-docker.jfrog.io/rug-cli rug --version
+rug 0.23.0
+https://github.com/atomist/rug-cli.git (git revision e77cf5f; last commit 2017-02-14)
+```
+
+Notice how the CLI stores its settings **inside the container** under
+`/home/atomist/.atomist/cli.yml`. All the dependencies will be downloaded into
+the `/home/atomist/.atomist/repository` directory.
+
+You can persist those on your host by providing the following argument to the
+docker run command: `-v $HOME/.atomist:/home/atomist/.atomist`. 
+
+To use the CLI against a project on your host, you will also need to share your 
+project's directory with the container `/home/atomist/project` container's 
+working directory. For example, assuming you are currently in a Rug project:
+
+```shell
+$ docker run --rm -it \
+    --user $UID:`id -g` \
+    -v $HOME/.atomist:/home/atomist/.atomist \ 
+    -v $PWD:/home/atomist/project \
+    atomist-docker.jfrog.io/rug-cli \
+    rug
+```
+
+The constraint here is the limit imposed by the management of permissions
+between your host's user and the user defined in the container.
+
+In the container, the CLI is not run as `root` but as a regular user that 
+hopefully does not map any UID on your system. A possible workaround is 
+to switch to a different user at runtime, hence the rather ugly command line 
+above. Another approach is to switch to [user namespace][dockerun] on your host.
+
+[dockerun]: https://success.docker.com/KBase/Introduction_to_User_Namespaces_in_Docker_Engine
+
 ### Manual installation
 
 If you are not on a supported platform, or just prefer to install the
