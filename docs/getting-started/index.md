@@ -52,11 +52,15 @@ Once you have successfully authorized the Atomist bot in your Slack team, you wi
   <img src="images/bot-success.png" alt="Success" class="ss-small">
 </div>
 
-### Connect Atomist to GitHub
+### **Connect Atomist to GitHub**
 
-To get started helping streamline your development flow, Atomist needs access to your GitHub account. Specifically you'll want to authorize the Atomist OAuth app.
+To get started helping streamline your development flow, Atomist needs access to GitHub. To use Atomist with projects in a GitHub Organization that you are a member of, follow the [GitHub Organization Authorization](#github-organization-authorization) steps.
 
-#### Authorize Atomist for your GitHub Organization
+> **Note:** if you do not authorize a GitHub Organization now, you can do so at any point by following [these steps](#github-organization-authorization).
+
+Whether you would like to use Atomist with projects in your own GitHub user account,
+
+**GitHub Organization Authorization**
 
 In a direct message with `@atomist` just ask to authorize GitHub by entering `github`:
 
@@ -70,9 +74,9 @@ If there is no GitHub organization associated with this Slack team `@atomist` wi
 
 Click the "Authorize" button to authorize Atomist and you will then be redirected to your Slack team in the browser.
 
-> ***NOTE***: If you have more than one GitHub organisation you will receive a Direct Message from Atomist to you at this point asking "In which GitHub org would you like to authorize @atomist?". The first 5 GitHub organisations you are a member of will be shown as buttons and you can either click on one of those to select the organisation to authorise Atomist with, or type in the name of the organisation if it is not shown.
+> ***NOTE***: If you have more than one GitHub organization you will receive a Direct Message from Atomist to you at this point asking "In which GitHub org would you like to authorize @atomist?". The first 5 GitHub organizations you are a member of will be shown as buttons and you can either click on one of those to select the organization to authorise Atomist with, or type in the name of the organization if it is not shown.
 
-#### Authorize Atomist to do work in GitHub on your behalf
+#### GitHub User Authorization
 
 With Atomist authorized for your organization it's time to authorize your own GitHub user with Atomist so that Atomist can automate actions on your behalf. In the Direct Message channel with Atomist you should see another message that is asking you to "Authorize GitHub":
 
@@ -147,7 +151,7 @@ You can set any of the default parameters by typing in `set <parameter> <value>`
 Now click on `Generate project` and you'll see several things happen:
 
 - In the thread `@atomist` will announce `One moment while I run the generator`.
-- `@atomist` will go and create the repository for you in your GitHub organisation.
+- `@atomist` will go and create the repository for you in your GitHub organization.
 - `@atomist` will announce that it has `Successfully generated your project` in the main channel that the project creation thread was started in, in our case that would be `#general`. The announcement will also contain a link to the newly created project.
 - `@atomist` will create a new channel in your Slack team for the new project, that will also be associated with the project's repository so when you want to work on that project, you do it in that channel.
 
@@ -198,7 +202,7 @@ Notice that the notification about the new issue comes with some buttons to take
 
 With `@atomist` now successfully authorized you can use the bot to manipulate your repositories on GitHub. However another responsibility of Atomist is to be able to react to events that occur on your repositories as well.
 
-To enable those repository events to promulgate into Atomist you need to configure a webhook from your GitHub organisation. Navigate to your organisations GitHub page and then click on `Settings` and, from the menu, `Webhooks`:
+To enable those repository events to promulgate into Atomist you need to configure a webhook from your GitHub organization. Navigate to your organizations GitHub page and then click on `Settings` and, from the menu, `Webhooks`:
 
 <div class="ss-container">
   <img src="images/gh-org-settings-for-atomist-webhook.png" alt="Settings page for GitHub webhooks" class="ss-small">
@@ -207,10 +211,10 @@ To enable those repository events to promulgate into Atomist you need to configu
 Click on `Add webhook` and then fill in the details shown below:
 
 <div class="ss-container">
-  <img src="images/add-atomist-gh-webhook.png" alt="Filled form for adding the Atomist webhook to your organisation" class="ss-small">
+  <img src="images/add-atomist-gh-webhook.png" alt="Filled form for adding the Atomist webhook to your organization" class="ss-small">
 </div>
 
-When you're done click on `Add webhook` and you should see the webhook added to the list for your organisation:
+When you're done click on `Add webhook` and you should see the webhook added to the list for your organization:
 
 <div class="ss-container">
   <img src="images/atomist-webhook-added.png" alt="Atomist Webhook successfully added!" class="ss-small">
@@ -229,7 +233,7 @@ Atomist can listen for CI events, correlate them with the commits that triggered
 
 To enable this, we need to connect Atomist to your CI system. Atomist currently works with Travis CI and Jenkins. Use the either the [Travis CI](#travis-ci) or [Jenkins](#jenkins) section to help you configure Atomist to connect with you CI.
 
-#### Configuring Atomist with Travis CI
+#### Travis CI Setup
 
 Once you have set up Travis for your organization you should have permissions ready to go as Travis uses your GH user access token; there's usually no need for a separate authorization.
 
@@ -242,9 +246,9 @@ From Slack
 * Create a simple commit, commit, watch notifications
 * buttons in notification?
 
-#### Configuring Atomist with Jenkins
+#### Jenkins Setup
 
-> **Note:** Atomist works with the [Notification plugin](https://plugins.jenkins.io/notification) for Jenkins, which is a requisite. The Notification plugin is what will send events to Atomist, so that we can notify and take action based on build events.
+> **Note:** Atomist works with the [Notification plugin](https://plugins.jenkins.io/notification) for Jenkins, which is a pre-requisite. The Notification plugin is what will send events to Atomist, so that we can notify and take action based on build events.
 
 If you don't already have the Notification plugin installed, go to the Plugin Manager in the Jenkins admin interface, select it and complete the installation.
 
