@@ -8,9 +8,7 @@ Welcome! So you want to get started with Atomist. You're in the right place. Thi
 - **Connect Atomist to GitHub**
 - **Enable and Use Atomist notifications and actions for GitHub**
 - **Connect Atomist to Continuous Integration**
-- **Get started with development automation**
-- **Create your first custom automation**
-- **Where to get help**
+- **Building and Deploying your first Development Automation**
 
 ### **Before you get started**
 
@@ -98,7 +96,7 @@ Whew! Authorizations all done we can now get Atomist doing some work!
 
 Atomist can now be put to work to create a new project to work upon, or to work on an existing project.
 
-### Use Atomist to Create a New Project
+#### Use Atomist to Create a New Project
 
 You can ask `@atomist` to create a new project for you either through a direct message or by addressing the bot on a channel it has been invited to. For our purposes here we'll assume you're starting the conversation in your Slack team's `#general` channel.
 
@@ -163,7 +161,7 @@ Click on the project link to see your project in GitHub:
 
 Clone from GitHub and you will have a working starting project, courtesy of Atomist.
 
-### Plugging Atomist into events from your Project Repository
+#### Plugging Atomist into events from your Project Repository
 
 With `@atomist` now successfully authorized you can use the bot to manipulate your repositories on GitHub. However another responsibility of Atomist is to be able to react to events that occur on your repositories as well.
 
@@ -193,15 +191,16 @@ When you have done the commit/push to master you should see those events happily
   <img src="images/push-event-appearing-in-repo-channel.png" alt="Push event appearing in your project's channel" class="ss-large">
 </div>
 
+#### Teaching Atomist a new Skill and Interacting with GitHub
+
 Now let's do something else with GitHub. Let's create a new issue using `@atomist`. First we need to teach the Bot a new skill by registering a new `command`. Execute the following in your project's channel:
 
 ```shell
 
 @atomist register command
 ```
-TBD here.
 
-Once you've completed this :
+Once you've completed this you have taught the Bot a new skill:
 
 > screen shot of  `@atomist create issue` sequence
 > my first atomist issue ...
@@ -214,7 +213,7 @@ Notice that the notification about the new issue comes with some buttons to take
 
 > screen shot of bot message attachment update that reflects a label was added
 
-### Use Atomist on an Existing Project by inviting it to an Existing Channel
+#### Use Atomist on an Existing Project by inviting it to an Existing Channel
 
 To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist`, using `/invite @atomist`, to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
 
@@ -305,15 +304,50 @@ Make some change that will cause your CI to initiate a build. For example, if yo
 
 > show bot notification message
 
-### Build your first Development Automation
+### Build and Deploy your first Development Automation
 
-Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box. Now, let's automate an action. In Atomist, that means writing a `handler` to be triggered by a certain type of activity. For example, perhaps you want to notify the team when an issue labeled 'bug' gets fixed.
+Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box and now let's automate an action.
 
-* Run generator to create handler, or provide the code example
-* Highlights:
+In Atomist that means writing a `handler` written in TypeScript using the Atomist's [Rug](../reference-docs/rug) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
+
+#### Create a new Rug archive project for your new automation
+
+The first thing you need is a project for your code. Although you can add Atomist Rug code to any existing project by simply adding a `.atomist` directory, under which your Rug code will live, in this case we'll create a publish a new project for your first Atomist Rug development automation.
+
+Ask the Bot to list out the project generator that you need by typing `@atomist generator rug` and select the `NewRugArchive` generator:
+
+TBD Image showing this in the bot.
+
+Run through the questions to create the new project called `my-custom-handlers` in the Slack thread as you did before to create a new Rug archive project in GitHub.
+
+TBD Image of thread of interactions for this generator.
+
+#### Add a new `handler` to your Rug archive project
+
+Atomist `handlers` are written in Rug's support for TypeScript and so the next thing we need to do is edit your `my-custom-handlers` project to introduce TypeScript support to it. Luckily, Atomist has an `editor` for that so we can do this directly in Slack also.
+
+Change channel to the new `#my-custom-handlers` channel created by `@atomist` when you ran the `NewRugArchive` generator. Inside that channel ask `@atomist` to list the editors that you might want to apply to a Rug archive by typing `@atomist editor rug`.
+
+TBD show output of @atomist editor command.
+
+Select the `AddRugHandler` editor and click on the `Edit my project` button to start a new thread as `@atomist` will walk you through the information needed to run this editor.
+
+TBD Image of thread showing this editor being run.
+
+* Highlights to pull out of the code:
   - Path expression to match issue labeled as bug that gets closed
   - message builder code and send
+
+Now that you've got a working `handler` in a Rug archive it's time to publish it into Atomist so it can be invoked.
+
+#### Publish your new `handler`
 
 There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation. Well done!
 
 ### Where to go from here...
+
+You've only just begun your development automation journey with Atomist. Suggested next steps include:
+
+- Checking out the [Quick Starts](../quick-starts) for short introductions to a number of Atomist features.
+- Get comfortable with writing and editing your development automation Rugs with the [Rug CLI](../reference-docs/rug/rug-cli).
+- Take a deep-dive through Rug using `@atomist` in with the [Rug Koans]().
