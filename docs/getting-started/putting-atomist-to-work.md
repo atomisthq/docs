@@ -100,11 +100,33 @@ When you have done the commit/push to master you should see those events happily
 Now let's do something else with GitHub. Let's create a new issue using `@atomist`. First we need to teach the Bot a new skill by registering a new `command`. Execute the following in your project's channel:
 
 ```shell
-
 @atomist register command
 ```
 
-Once you've completed this you have taught the Bot a new skill:
+You'll then be walked through an interaction with `@atomist` in a new thread to add a new command to Atomist's repertoire:
+
+<div class="ss-container">
+  <img src="../images/start-to-register-a-command.png" alt="Registering a Command with Atomist" class="ss-small">
+</div>
+
+When you complete this set of interactions you'll see a summary of the new command registration:
+
+<div class="ss-container">
+  <img src="../images/command-registration-summary.png" alt="Summary of new Command registration" class="ss-small">
+</div>
+
+Once you click the `Submit` button you will receive a message back in the original channel that `@atomist` has successfully registered a new command:
+
+<div class="ss-container">
+  <img src="../images/command-registered-successfully.png" alt="Registering a Command with Atomist" class="ss-small">
+</div>
+
+Registering a new command is like teaching `@atomist` a new skill. You've now enabled `@atomist` to be able to create a new issue for you on a repository in your GitHub organization, so let's give that a spin by entering the following in the `sprocket` channel that's associated with the `sprocket` project on GitHub:
+
+```
+@atomist create issue
+```
+
 
 > screen shot of  `@atomist create issue` sequence
 > my first atomist issue ...
