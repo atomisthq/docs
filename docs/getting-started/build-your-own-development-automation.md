@@ -38,6 +38,8 @@ Also `@atomist` will have created a new `#handlers` channel in Slack that's tied
 
 Clone the new `handlers` project locally and, because we're using TypeScript, change directory into the `.atomist` directory of the local `handlers` project and enter `npm install` to get the TypeScript library dependencies installed:
 
+> ***NOTE***: To develop your rugs in TypeScript you will need [`node.js` and `npm`](https://nodejs.org) installed locally.
+
 ```shell
 > npm install
 /.../handlers/.atomist
@@ -47,8 +49,6 @@ Clone the new `handlers` project locally and, because we're using TypeScript, ch
 └─┬ @atomist/travis@0.6.1
   └── @atomist/rug@0.10.0
 ```
-
-> ***NOTE***: To develop your rugs in TypeScript you will need [`node.js` and `npm`](https://nodejs.org) installed locally.
 
 Now it's time to write your new handler.
 
