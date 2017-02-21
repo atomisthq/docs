@@ -181,6 +181,54 @@ You'll get a notification from the `#sprocket` channel in Slack that looks somet
 
 Atomist has been watching that repository and when something important, such as a new comment, occurs Atomist detects that this has happened and knows to notify people interested in that project in the associated `#sprocket` channel.
 
+Let's teach `@atomist` one last thing. It is often useful to be reminded what issues you've closed off and opened in the last day or so, and Atomist can do that for you once we register the new `ListIssues` command:
+
+<div class="ss-container">
+  <img src="../images/registering-list-issues-command.png" alt="Registering new List Issues command" class="ss-small">
+</div>
+
+Once you have entered the information shown above you will be prompted to submit it to register your new command:
+
+<div class="ss-container">
+  <img src="../images/list-issues-registration-summary.png" alt="List Issues command registration summary" class="ss-small">
+</div>
+
+Click on `Submit` and you should see the following in the main channel that you registered the command from:
+
+<div class="ss-container">
+  <img src="../images/list-issues-command-registered.png" alt="List Issues command registered" class="ss-small">
+</div>
+
+Now you can enter `@atomist list issues` from any channel that `@atomist` has been invited to and you'll see what issues have been assigned to you and are open and/or recently closed:
+
+<div class="ss-container">
+  <img src="../images/list-issues-working-before.png" alt="List Issues in Action" class="ss-small">
+</div>
+
+Now go ahead and assign the issue you created earlier to yourself. You can do this by clicking on the `Assign` button on the issue panel in the `#sprocket` channel and entering your GitHub username in the resulting thread with `@atomist`:
+
+<div class="ss-container">
+  <img src="../images/assigning-new-issue.png" alt="Assigning an issue" class="ss-small">
+</div>
+
+With your information entered in the thread you'll be asked to `Submit` it:
+
+<div class="ss-container">
+  <img src="../images/assign-issue-summary.png" alt="Assign issue summary" class="ss-small">
+</div>
+
+Click on `Submit` and you'll get a short response from `@atomist` in the `#sprocket` channel to indicate that the issue has been successfully assigned:
+
+<div class="ss-container">
+  <img src="../images/successfully-assigned-issue-response.png" alt="Successfully assigned the issue" class="ss-small">
+</div>
+
+Now when you do `@atomist list issues` you will see the new issue assigned to you:
+
+<div class="ss-container">
+  <img src="../images/list-issues-working-after.png" alt="List issues with newly assigned issue" class="ss-small">
+</div>
+
 ### Use Atomist on an Existing Project by inviting it to an Existing Channel
 
 To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist`, using `/invite @atomist`, to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
