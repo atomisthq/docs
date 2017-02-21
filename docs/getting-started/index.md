@@ -4,19 +4,16 @@ Welcome! So you want to get started with Atomist. You're in the right place. Thi
 
 ### **What this guide covers**
 
-- [**Set up the `@atomist` Slack bot**](set-up-atomist-in-slack.md)
-- [**Connect Atomist to GitHub**](connect-atomist-to-github.md)
-- [**Putting Atomist to work on your projects**](putting-atomist-to-work.md)
-- [**Connect Atomist to Continuous Integration**](configure-atomist-with-ci.md)
-- [**Building and Deploying your first Development Automation**](build-your-own-development-automation.md)
+- [x] [**Set up the Atomist Slack bot**](set-up-atomist-in-slack.md)
+- [x] [**Connect Atomist to GitHub**](connect-atomist-to-github.md)
+- [x] [**Putting Atomist to work on your projects**](putting-atomist-to-work.md)
+- [x] [**Connect Atomist to Continuous Integration**](configure-atomist-with-ci.md)
+- [x] [**Building and Deploying your first Development Automation**](build-your-own-development-automation.md)
 
-### **Before you get started**
 
-You'll need these in place before we get going:
-
-> * A Slack team where you can authorize the `@atomist` bot
-
-> * A GitHub org or user account to authorize Atomist
+!!! hint "Before you get started, you'll need these"
+      * A Slack team where you can authorize Atomist
+      * A GitHub org or user account to authorize Atomist
 
 ### Next Step...
 

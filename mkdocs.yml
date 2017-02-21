@@ -29,7 +29,7 @@ google_analytics:
   - 'auto'
 markdown_extensions:
   - admonition
-  - codehilite(guess_lang=false, linenums=true)
+  - codehilite(guess_lang=false, linenums=false)
   - footnotes
   - meta
   - toc(permalink=true)
