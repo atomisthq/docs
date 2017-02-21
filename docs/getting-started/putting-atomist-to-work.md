@@ -127,9 +127,40 @@ Registering a new command is like teaching `@atomist` a new skill. You've now en
 @atomist create issue
 ```
 
+As usual, `@atomist` will now start a thread to collate all the information necessary to create a new issue on the `sprocket` project:
 
-> screen shot of  `@atomist create issue` sequence
-> my first atomist issue ...
+<div class="ss-container">
+  <img src="../images/create-issue-flow.png" alt="Creating an Issue" class="ss-small">
+</div>
+
+Once you have entered all the new issue's information you will see a summary such as:
+
+<div class="ss-container">
+  <img src="../images/create-issue-dialog.png" alt="Issue Summary" class="ss-small">
+</div>
+
+Click on `Submit` and `@atomist` will respond with the following in the main `#sprocket` channel:
+
+<div class="ss-container">
+  <img src="../images/successfully-created-issue-response.png" alt="Issue Created" class="ss-small">
+</div>
+
+But that's not where the possible interaction stops. `@atomist` will also post a panel to the `#sprocket` channel that contains more information about your newly created issue *and* some buttons to indicate some things you might want to do next:
+
+<div class="ss-container">
+  <img src="../images/new-issue-follow-on-buttons.png" alt="Issue Created" class="ss-small">
+</div>
+
+Go ahead and click on the link to see your issue currently on GitHub. Now head back to the `#sprocket` channel in Slack and click on the `Bug` button and you will label the issue as a bug:
+
+<div class="ss-container">
+  <img src="../images/issue-labelled-as-bug-response.png" alt="Issue labelled as a Bug" class="ss-small">
+</div>
+
+Remember that we plugged Atomist into the events coming from your `sprocket` project earlier? We can now see that in action. Click on the link to open up the new issue in GitHub and add a new comment:
+
+
+## TBD
 
 And because `@atomist` is also listening for GitHub activity, it gets the new issue event, and notifies in the channel.
 
