@@ -171,7 +171,7 @@ If you cannot install using a system-wide approach, you can rely also on
 downloading the CLI through a Docker image we provide.
 
 ```shell
-$ docker pull atomist-docker.jfrog.io/rug
+$ docker pull atomist-docker.jfrog.io/rug-cli
 ```
 
 Running the image as will give you the Rug shell:
