@@ -157,18 +157,29 @@ Go ahead and click on the link to see your issue currently on GitHub. Now head b
   <img src="../images/issue-labelled-as-bug-response.png" alt="Issue labelled as a Bug" class="ss-small">
 </div>
 
-Remember that we plugged Atomist into the events coming from your `sprocket` project earlier? We can now see that in action. Click on the link to open up the new issue in GitHub and add a new comment:
+The issue panel in Slack will then refresh with the set of buttons that you can next choose to work with.
 
+Now, remember that we plugged Atomist into the events coming from your `sprocket` project earlier? We can now see that in action. Click on the link to open up the new issue in GitHub:
 
-## TBD
+<div class="ss-container">
+  <img src="../images/issue-in-github.png" alt="Issue in GitHub" class="ss-small">
+</div>
 
-And because `@atomist` is also listening for GitHub activity, it gets the new issue event, and notifies in the channel.
+Notice how `@atomist` has labelled the issue a bug, just as you instructed it.
 
-> screen shot of bot message on issue creation, showing buttons
+Now imagine that you're another team member who has noticed this new issue and wants to add a comment from inside GitHub. Add a new comment and click on `Submit`:
 
-Notice that the notification about the new issue comes with some buttons to take actions, like `Assign` or `Bug` to label as a bug. Go ahead and label it as a bug by clicking on the bug button.
+<div class="ss-container">
+  <img src="../images/new-issue-comment-in-github.png" alt="New comment on issue in GitHub" class="ss-small">
+</div>
 
-> screen shot of bot message attachment update that reflects a label was added
+You'll get a notification from the `#sprocket` channel in Slack that looks something like:
+
+<div class="ss-container">
+  <img src="../images/new-comment-notification-in-slack.png" alt="New comment notification in Slack" class="ss-small">
+</div>
+
+Atomist has been watching that repository and when something important, such as a new comment, occurs Atomist detects that this has happened and knows to notify people interested in that project in the associated `#sprocket` channel.
 
 ### Use Atomist on an Existing Project by inviting it to an Existing Channel
 
