@@ -2,39 +2,64 @@ Right! You've seen some of the automation between issues, commits, builds that w
 
 In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](../reference-docs/rug) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
 
-### Create a new Rug archive project for your new automation
+### Create a new Rug Handlers project for your new automation
 
-The first thing you need is a project for your code. Although you can add Atomist Rug code to any existing project by simply adding a `.atomist` directory, under which your Rug code will live, in this case we'll create a publish a new project for your first Atomist Rug development automation.
+The first thing you need is a project for your code. Although you can add Atomist Rug code to any existing project by simply adding a `.atomist` directory along with a few support files in this case we'll create and publish a new project for your first Atomist Rug development automation.
 
-Ask the Bot to list out the project generator that you need by typing `@atomist generator rug` and select the `NewRugArchive` generator:
+Ask the Bot to list out the project generator that you need by typing `@atomist generator rug` and select the `NewHandlersProject` generator:
 
-TBD Image showing this in the bot.
+<div class="ss-container">
+  <img src="../images/new-rug-handlers-project-button.png" alt="NewHandlersProject generator" class="ss-small">
+</div>
 
-Run through the questions to create the new project called `my-custom-handlers` in the Slack thread as you did before to create a new Rug archive project in GitHub.
+Click on the `Create project` button and enter the following information to create your new project:
 
-TBD Image of thread of interactions for this generator.
+<div class="ss-container">
+  <img src="../images/create-handlers-project-flow.png" alt="Creating the handlers project" class="ss-small">
+</div>
 
-### Add a new `handler` to your Rug archive project
+Once done you can click on `Generate project` in the project generation summary:
 
-Atomist `handlers` are written in Rug's support for TypeScript and so the next thing we need to do is edit your `my-custom-handlers` project to introduce TypeScript support to it. Luckily, Atomist has an `editor` for that so we can do this directly in Slack also.
+<div class="ss-container">
+  <img src="../images/create-handlers-project-summary.png" alt="New handlers project summary" class="ss-small">
+</div>
 
-Change channel to the new `#my-custom-handlers` channel created by `@atomist` when you ran the `NewRugArchive` generator. Inside that channel ask `@atomist` to list the editors that you might want to apply to a Rug archive by typing `@atomist editor rug`.
+Then `@atomist` will create the new project in your GitHub organization:
 
-TBD show output of @atomist editor command.
+<div class="ss-container">
+  <img src="../images/new-handlers-project-created.png" alt="New handlers project created message" class="ss-small">
+</div>
 
-Select the `AddRugHandler` editor and click on the `Edit my project` button to start a new thread as `@atomist` will walk you through the information needed to run this editor.
+Also `@atomist` will have created a new `#handlers` channel in Slack that's tied to that project that shows some initial setup commits made by the project generator:
 
-TBD Image of thread showing this editor being run.
+<div class="ss-container">
+  <img src="../images/handlers-slack-channel-created.png" alt="Handlers slack channel initialised" class="ss-small">
+</div>
 
-* Highlights to pull out of the code:
-  - Path expression to match issue labeled as bug that gets closed
-  - message builder code and send
+Clone the new `handlers` project locally and then it's time to write your new handler.
 
-Now that you've got a working `handler` in a Rug archive it's time to publish it into Atomist so it can be invoked.
+### Writing your new `handler`
+
+The `handlers` project you have just generated contains a number of pre-existing handlers that you can take inspiration from. For our purposes we only want one new handler and the closest example in the `handlers` project is the TBD.
 
 ### Publish your new `handler`
 
-There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation. Well done!
+To make Atomist aware of your new `handler` you need to publish the project. This can be done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/rug-cli).
+
+#### Installing and Configuring the Rug CLI
+
+Highlights:
+- repositories configure - login first
+- repositories login
+- Use GitHub user and password
+- Generate and use GitHub token for CLI with read/org scope
+- run repositories configure again to see what's been set up.
+
+#### Publishing your `handlers` project using the Rug CLI
+
+### Seeing your new `handler` in action
+
+There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation!
 
 ### Congratulations, you've completed the Getting Started guide for Atomist!
 
