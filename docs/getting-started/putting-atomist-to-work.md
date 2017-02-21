@@ -233,11 +233,11 @@ Now when you do `@atomist list issues` you will see the new issue assigned to yo
 
 To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist`, using `/invite @atomist`, to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
 
-> [In `#sprockets` channel]:
+For our purposes here simply create a new channel in Slack, we're going to use `#sprockets` here. Then invite `@atomist` to that channel by entering the following in `#sprockets`:
 
-> `/invite @atomist`
-
->[screen shot this ^ and - @atomist joined channel] - TBD got here to do screenshot.
+```shell
+/invite @atomist
+```
 
 `@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
 
