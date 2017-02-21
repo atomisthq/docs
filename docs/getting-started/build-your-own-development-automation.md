@@ -1,6 +1,6 @@
 Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box and now let's automate an action.
 
-In Atomist that means writing a `handler` written in TypeScript using the Atomist's [Rug](../reference-docs/rug) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
+In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](../reference-docs/rug) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
 
 ### Create a new Rug archive project for your new automation
 
