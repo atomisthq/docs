@@ -241,17 +241,3 @@ For our purposes here simply create a new channel in Slack, we're going to use `
 ```
 
 `@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
-
-> screen shot
-
-> @atomist: which repo ?
-
-> @jryanday: sprockets
-
-> @atomist: Sweet! All set to go now.
-
-Now Atomist can talk to GitHub, listen for activity in a specific repo, and notify in the Slack channel we just invited it to.
-
-### Next Step...
-
-That's a rapid tour of using Atomist to work with your projects done, now it's time to enable Atomist to be able to [work with your Continuous Integration and Delivery pipelines...](configure-atomist-with-ci.md).

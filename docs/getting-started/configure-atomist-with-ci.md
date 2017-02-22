@@ -83,7 +83,3 @@ This project is configured so that the commit triggers a Travis build. Atomist i
 <div class="ss-container">
   <img src="../images/sprockets-commit-notification.png" alt="Commit Notification" class="ss-small">
 </div>
-
-### Next Step...
-
-With Atomist now aware and working with your project's code and CI systems, it's about time we looked at how to [build your own software development automation...](build-your-own-development-automation.md)

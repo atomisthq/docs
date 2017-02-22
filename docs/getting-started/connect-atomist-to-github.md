@@ -61,8 +61,3 @@ Click the "Authorize application" button to authorize Atomist and you will then 
 <div class="ss-container">
   <img src="../images/github-user-authorized.png" alt="GitHub User Authorized" class="ss-medium">
 </div>
-
-### Next Step...
-
-Whew! That's authorizations all done. :tada:
-Now it's time do something more interesting by [putting Atomist to work...](putting-atomist-to-work.md)
