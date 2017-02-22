@@ -29,7 +29,7 @@ google_analytics:
   - 'auto'
 markdown_extensions:
   - admonition
-  - codehilite(guess_lang=false, linenums=true)
+  - codehilite(guess_lang=false, linenums=false)
   - footnotes
   - meta
   - toc(permalink=true)
@@ -49,6 +49,14 @@ repo_name: 'Rug'
 repo_url: 'https://github.com/atomist/rug'
 pages:
 - Welcome to Atomist: 'index.md'
+- Getting Started:
+  - Introduction: 'getting-started/index.md'
+  - Before You Get Started: 'getting-started/before-you-get-started.md'
+  - Invite Atomist to Slack: 'getting-started/invite-atomist-to-slack.md'
+  - Connect Atomist to GitHub: 'getting-started/connect-atomist-to-github.md'
+  - Putting Atomist to work on Your Projects: 'getting-started/putting-atomist-to-work.md'
+  - Configure Atomist with CI: 'getting-started/configure-atomist-with-ci.md'
+  - Build your own Development Automation: 'getting-started/build-your-own-development-automation.md'
 - Quick Starts:
   - Introduction: 'quick-starts/index.md'
   - Buttons: 'quick-starts/buttons.md'

@@ -12,6 +12,16 @@
     background-color: #14283B;
 }
 
+/*
+.md-footer-nav__link--next {
+  animation: blinker 3s linear;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+*/
+
 @media only screen and (min-width: 60em) {
     [data-md-color-primary=green] .md-nav--secondary {
         border-left: .4rem solid #5BC399;
@@ -25,4 +35,59 @@
     [data-md-color-primary=green] .md-typeset a:hover {
         color: #247f7e;
     }
+}
+
+/* Styles for additional elements in the documentation
+ * These styles are separate from the underlying mkdocs theme */
+.admonition.hint, .admonition.important, .admonition.tip {
+    border-color: #5BC399;
+    background-color: #6BC9A3;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+.admonition.hint ul li, .admonition.important ul li, .admonition.tip ul li {
+    margin-bottom: 0em;
+}
+.admonition.hint a {
+    color: #1c344a;
+}
+.admonition.hint a:hover {
+    color: #247f7e;
+}
+
+a span.button {
+    text-decoration: none;
+}
+
+.button {
+    background-color: #5BC399;
+    border: none;
+    color: white;
+    height: 40px;
+    font-family: "brandon-grotesque", sans-serif;
+    font-size: medium;
+    font-weight: 400;
+    line-height: 1;
+    padding: 10px 20px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.ss-small {
+    width: 60%;
+}
+
+.ss-medium {
+    width: 80%;
+}
+
+.ss-large {
+    width: 100%;
+}
+
+div.button-container, div.ss-container {
+    display: block;
+    text-align: center;
+    padding: 20px;
 }
