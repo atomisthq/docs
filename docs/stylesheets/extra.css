@@ -22,16 +22,6 @@
 }
 */
 
-.admonition.hint, .admonition.important, .admonition.tip {
-    border-color: #5BC399;
-    background-color: #6BC9A3;
-    color: #FFFFFF;
-}
-
-.admonition.hint ul li, .admonition.important ul li, .admonition.tip ul li {
-    margin-bottom: 0em;
-}
-
 @media only screen and (min-width: 60em) {
     [data-md-color-primary=green] .md-nav--secondary {
         border-left: .4rem solid #5BC399;
@@ -47,8 +37,23 @@
     }
 }
 
-# Styles for additional elements in the documentation
-# These styles are separate from the underlying mkdocs theme
+/* Styles for additional elements in the documentation
+ * These styles are separate from the underlying mkdocs theme */
+.admonition.hint, .admonition.important, .admonition.tip {
+    border-color: #5BC399;
+    background-color: #6BC9A3;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+.admonition.hint ul li, .admonition.important ul li, .admonition.tip ul li {
+    margin-bottom: 0em;
+}
+.admonition.hint a {
+    color: #1c344a;
+}
+.admonition.hint a:hover {
+    color: #247f7e;
+}
 
 a span.button {
     text-decoration: none;
