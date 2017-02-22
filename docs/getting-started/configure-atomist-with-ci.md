@@ -11,8 +11,15 @@ You will need to enable your projects to be built using Travis, if they aren't a
 Next, configure your Travis builds to send notifications to Atomist. In the `.travis.yml` configuration file in the project repo, add the following webhook configuration.
 
 ```json
-  notifications:
-    webhooks: https://webhook.atomist.com/travis
+notifications:
+  webhooks:
+    urls:
+      - http://webhook.atomist.com/travis
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
 ```
 
 Atomist can automate configuring Travis builds ... because yoru specific builds will vary, we recommend create an editro ...
