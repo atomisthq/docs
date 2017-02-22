@@ -16,7 +16,8 @@ This will result in a list of project generators that `@atomist` can use on your
   <img src="../images/project-generators-list.png" alt="List of project generators" class="ss-small">
 </div>
 
-> ***NOTE***: You can create your own generators, amongst other customisations to Atomist using our Rug language and support. Creating and publishing your own generators will be a [Quick Start](../quick-starts) of its own soon.
+!!! note ""
+    You can create your own generators, amongst other customisations to Atomist using our Rug language and support. Creating and publishing your own generators will be a [Quick Start](../quick-starts) of its own soon.
 
 While the full list *can* be useful if you're just browsing, for our purposes here we know we want to create a Spring Boot REST service and so we can narrow down the list by specifying some criteria:
 

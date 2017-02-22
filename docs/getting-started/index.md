@@ -12,5 +12,6 @@ Welcome! So you want to get started with Atomist. You're in the right place. Thi
 
 
 !!! hint "Before you get started, you'll need these"
+      * And invite to the [Atomist Alpha Programme](https://atomist.typeform.com/to/MseQBs)
       * A Slack team where you can authorize Atomist
       * A GitHub org or user account to authorize Atomist
