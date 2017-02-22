@@ -9,7 +9,7 @@ Travis uses your GitHub user access token. Once you have set up Travis for your 
 !!! note ""
     Atomist works with Travis-CI.org and Travis-CI.com. Travis Enterprise is not currently supported.
 
-You will need to enable your projects to be built using Travis, if they aren't already set up. See the [Travis documentation](https://docs.travis-ci.com/user/for-beginners) to set up Travis builds.
+You will need to enable your projects to be built using Travis if they aren't already set up. See the [Travis documentation](https://docs.travis-ci.com/user/for-beginners) to set up Travis builds.
 
 Next, configure your Travis builds to send notifications to Atomist. In the `.travis.yml` configuration file in the project repo, add the following webhook configuration.
 
