@@ -54,22 +54,126 @@ Now it's time to write your new handler.
 
 ### Writing your new `handler`
 
-The `handlers` project you have just generated contains a number of pre-existing handlers that you can take inspiration from. For our purposes we only want one new handler and the closest example in the `handlers` project is the TBD.
+The `handlers` project you just generated contains a number of pre-existing handlers that you can take inspiration from. For our purposes we only want one new handler and the closest example in the `handlers` project is `.atomist/handlers/IssueHandler.ts`.
+
+The generated `handlers` project contains a whole host of sample handlers and executors. Delete all the `.atomist/executors` directory and the rest of the handlers in the `.atomist/handlers` directory to tidy things up and to avoid adding duplicate handlers that you already have in your Atomist environment.
+
+Rename the `.atomist/handlers/IssueHandler.ts` to `.atomist/handlers/CloseIssueThanks.ts` handler. You're now going to edit this handler so that it simply says thanks to the right person when an issue is closed.
+
+In the `.atomist/handlers/CloseIssueThanks.ts` file replace the contents with the following:
+
+```typescript
+import {Atomist} from '@atomist/rug/operations/Handler'
+import {TreeNode} from '@atomist/rug/tree/PathExpression'
+declare var atomist: Atomist
+
+atomist.on<TreeNode, TreeNode>("/Issue()[/resolvedBy::Commit()/author::GitHubId()[/hasGithubIdentity::Person()/hasChatIdentity::ChatId()]?]?[/by::GitHubId()[/hasGithubIdentity::Person()/hasChatIdentity::ChatId()]?][/belongsTo::Repo()/channel::ChatChannel()]", m => {
+   let issue = m.root() as any
+
+   if (issue.state() != "closed") {
+     return
+   }
+
+   let message = atomist.messageBuilder().regarding(issue)
+   message.say("Thanks " + issue.resolvedBy() + " for closing this issue!")
+
+   let cid = "issue/" + issue.belongsTo().owner() + "/" + issue.belongsTo().name() + "/" + issue.number()
+
+   message.withCorrelationId(cid).send()
+})
+```
+
+Now it's time to publish and test your new handler.
+
+> ***NOTE***: At the moment you can't test handlers locally and instead you need to publish and test your handler is invoked from it's results in Atomist.
 
 ### Publish your new `handler`
 
-To make Atomist aware of your new `handler` you need to publish the project. This can be done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/rug-cli).
+To make Atomist aware of your new `handler` you need to publish the `handler` project. This is often done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/rug-cli).
 
 #### Installing and Configuring the Rug CLI
 
-Highlights:
-- repositories configure - login first
-- repositories login
-- Use GitHub user and password
-- Generate and use GitHub token for CLI with read/org scope
-- run repositories configure again to see what's been set up.
+Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI](../rug/rug-cli) with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
+
+```shell
+> rug repositories configure
+
+No token configured. Please run repositories login before running this command.
+
+Run the following command for usage help:
+  rug repositories configure --help
+```
+
+To configure the Rug CLI you need to execute the `rug repositories login` command providing your GitHub credentials:
+
+```shell
+> rug repositories login
+
+
+The Rug CLI needs your GitHub login to identify you.
+
+The command will create a GitHub Personal Access Token with scope 'read:org'
+which you can revoke any time on https://github.com/settings/tokens.  Your
+password will not be displayed or stored. Your sensitive information will not
+be sent to Atomist; only to api.github.com.
+
+  → Username : .....
+  → Password : .....
+
+  Please provide a MFA code
+  → MFA code : .....
+
+Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
+
+```
+
+> ***NOTE***: No passwords are stored, only a unique personal access token with org/read scope. Also if you are using 2 Factor Authentication with GitHub you will be prompted for the `MFA code` as shown above.
+
+Now when you execute `rug repositories configure` you should see the Rug CLI configured with your team's unique repository:
+
+```
+> rug repositories configure
+
+→ Repositories
+  <unique identifier of your team's repository>
+    <your unique team's repository url here>
+```
+
+You're now all set to publish your `handlers` project.
 
 #### Publishing your `handlers` project using the Rug CLI
+
+The Rug CLI has the `publish` command to publish a Rug archive from your local copy. Execute the `rug publish` command from inside your `handlers` project directory:
+
+```shell
+> rug publish
+Resolving dependencies for antifragilesoftware:handlers:0.1.0 ← local completed
+Invoking TypeScript Compiler on ts script sources                                                                   
+  Created .atomist/handlers/CloseIssueThanksHandler.js.map                                                          
+  Created .atomist/handlers/CloseIssueThanksHandler.js                                                              
+Processing script sources completed
+Loading antifragilesoftware:handlers:0.1.0 ← local into runtime completed
+  Created META-INF/maven/antifragilesoftware/handlers/pom.xml                                                       
+  Created .atomist/manifest.yml                                                                                     
+  Created .atomist/metadata.json                                                                                    
+Generating archive metadata completed
+  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0.zip → t3v0s7ss2 (186 kb) succeeded          
+  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0.pom → t3v0s7ss2 (927 bytes) succeeded       
+  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0-metadata.json → t3v0s7ss2 (762 bytes) succeeded
+  Downloading antifragilesoftware/handlers/maven-metadata.xml ← t3v0s7ss2 (382 bytes) succeeded           
+  Uploading antifragilesoftware/handlers/maven-metadata.xml → t3v0s7ss2 (334 bytes) succeeded             
+Publishing archive into remote repository completed
+
+→ Archive
+  ~/code/src/github.com/antifragilesoftware/handlers/.atomist/target/handlers-0.1.0.zip (186 kb in 165 files)
+
+→ URL
+  https://atomist.jfrog.io/atomist/T3V0S7SS2/antifragilesoftware/handlers/0.1.0/handlers-0.1.0.zip
+
+Successfully published archive for antifragilesoftware:handlers:0.1.0
+```
+
+Your new `handlers` rugs are now ready for action in your Atomist environment.
 
 ### Seeing your new `handler` in action
 
