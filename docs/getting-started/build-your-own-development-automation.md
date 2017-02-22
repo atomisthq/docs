@@ -56,30 +56,26 @@ Now it's time to write your new handler.
 
 The `handlers` project you just generated contains a number of pre-existing handlers that you can take inspiration from. For our purposes we only want one new handler and the closest example in the `handlers` project is `.atomist/handlers/IssueHandler.ts`.
 
-The generated `handlers` project contains a whole host of sample handlers and executors. Delete all the `.atomist/executors` directory and the rest of the handlers in the `.atomist/handlers` directory to tidy things up and to avoid adding duplicate handlers that you already have in your Atomist environment.
+The generated `handlers` project contains a whole host of sample handlers and executors, including all the default handlers that you've seen in action already. You need to keep those handlers in this project as when you publish this Rug archive you will effectively override the default handlers, and we don't want to lose that functionality we've already seen.
 
-Rename the `.atomist/handlers/IssueHandler.ts` to `.atomist/handlers/CloseIssueThanks.ts` handler. You're now going to edit this handler so that it simply says thanks to the right person when an issue is closed.
-
-In the `.atomist/handlers/CloseIssueThanks.ts` file replace the contents with the following:
+In a new `.atomist/handlers/CloseIssueThanks.ts` file enter the following handler code:
 
 ```typescript
 import {Atomist} from '@atomist/rug/operations/Handler'
 import {TreeNode} from '@atomist/rug/tree/PathExpression'
 declare var atomist: Atomist
 
-atomist.on<TreeNode, TreeNode>("/Issue()[/resolvedBy::Commit()/author::GitHubId()[/hasGithubIdentity::Person()/hasChatIdentity::ChatId()]?]?[/by::GitHubId()[/hasGithubIdentity::Person()/hasChatIdentity::ChatId()]?][/belongsTo::Repo()/channel::ChatChannel()]", m => {
+atomist.on<TreeNode, TreeNode>("/Issue()/belongsTo::Repo()/channel::ChatChannel()", m => {
    let issue = m.root() as any
 
    if (issue.state() != "closed") {
      return
    }
 
-   let message = atomist.messageBuilder().regarding(issue)
-   message.say("Thanks " + issue.resolvedBy() + " for closing this issue!")
-
-   let cid = "issue/" + issue.belongsTo().owner() + "/" + issue.belongsTo().name() + "/" + issue.number()
-
-   message.withCorrelationId(cid).send()
+   atomist.messageBuilder()
+    .say("Thanks for closing this issue on " +
+         issue.belongsTo().name())
+    .on(issue.belongsTo().channel().id()).send()
 })
 ```
 
@@ -173,9 +169,43 @@ Publishing archive into remote repository completed
 Successfully published archive for antifragilesoftware:handlers:0.1.0
 ```
 
-Your new `handlers` rugs are now ready for action in your Atomist environment.
+Your new `handlers` rugs are now ready for action in your Atomist environment. To test that everything has published correctly you can execute `rug search` and you should see your Rug archive listed just for you:
+
+```shell
+> rug search
+Searching https://api.atomist.com/catalog                                                                         
+Searching catalogs completed
+
+→ Remote Archives (38 archives found)
+yourorg:handlers [private] (0.1.0)
+...
+```
 
 ### Seeing your new `handler` in action
+
+Now you can give your new `CloseIssueThanksHandler` handler a spin! Head back to the `#sprocket` channel and you should see a button to `Close` the issue we created earlier:
+
+<div class="ss-container">
+  <img src="../images/close-button-on-issue.png" alt="Issue ready to be closed" class="ss-small">
+</div>
+
+Click on `Close` (you could also close the issue in GitHub if you prefer) and several things will happen. Firstly `@atomist` will indicate with a message that the issue has been edited...
+
+<div class="ss-container">
+  <img src="../images/close-issue-edited-response.png" alt="Issue edited response" class="ss-small">
+</div>
+
+... then the panel for the issue in Slack will be updated with a `Reopen` button ...
+
+<div class="ss-container">
+  <img src="../images/reopen-button-displayed.png" alt="Reopen issue displayed" class="ss-small">
+</div>
+
+... and finally your new handler will be invoked and the "thanks" message will be displayed!
+
+<div class="ss-container">
+  <img src="../images/new-handler-message-displayed.png" alt="New handler thank-you message displayed" class="ss-small">
+</div>
 
 There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation!
 
