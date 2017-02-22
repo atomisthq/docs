@@ -4,9 +4,18 @@ To enable this, we need to connect Atomist to your CI system. Atomist currently 
 
 ### Travis CI Setup
 
-Once you have set up Travis for your organization you should have permissions ready to go as Travis uses your GH user access token; there's usually no need for a separate authorization.
+Travis uses your GitHub user access token. Once you have set up Travis for your GitHub account, you are ready to go. No additional authorization required. If you have not yet setup Travis and want to as part of getting started with Atomist, please see the [Travis getting started](https://docs.travis-ci.com/user/for-beginners) documentation.
 
-What you do need to do is enable your projects to be built using Travis. To do this you can take advantage of Atomist for a first little bit of development automation.
+You will need to enable your projects to be built using Travis, if they aren't already set up. See the [Travis documentation](https://docs.travis-ci.com/user/for-beginners) to set up Travis builds.
+
+Next, configure your Travis builds to send notifications to Atomist. In the `.travis.yml` configuration file in the project repo, add the following webhook configuration.
+
+```json
+  notifications:
+    webhooks: https://webhook.atomist.com/travis
+```
+
+Atomist can automate configuring Travis builds ... because yoru specific builds will vary, we recommend create an editro ...
 
 From Slack
 * Need to configure projects by adding travis.yml to them

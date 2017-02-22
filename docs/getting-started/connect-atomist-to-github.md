@@ -26,7 +26,8 @@ You will see messages for both _GitHub Account Authorization_ and _GitHub User A
 
 Click the **"Authorize application"** button to authorize Atomist and you will then be redirected back to your Slack team in the browser.
 
-> ***Note:*** If you are not a member of any GitHub organizations, your GitHub user account will be automatically selected, and you will not see any organizations listed. If you are a member of one or more GitHub organizations, after authorizing Atomist, you will receive a direct message in Slack from `@atomist` asking whether to use your GitHub user account or one of the organizations you a member of as the GitHub Account to associate with Atomist.
+!!! Note ""
+    If you are not a member of any GitHub organizations, your GitHub user account will be automatically selected, and you will not see any organizations listed. If you are a member of one or more GitHub organizations, after authorizing Atomist, you will receive a direct message in Slack from `@atomist` asking whether to use your GitHub user account or one of the organizations you a member of as the GitHub Account to associate with Atomist.
 
 <div class="ss-container">
   <img src="../images/github-account-select.png" alt="Select GitHub Account" class="ss-medium">
@@ -60,4 +61,5 @@ Click the **"Authorize application"** button to authorize Atomist and you will t
 
 ### Next Step...
 
-Whew! That's authorizations all done. Now it's time do something more interesting by [putting Atomist to work...](putting-atomist-to-work.md)
+Whew! That's authorizations all done. :tada:
+Now it's time do something more interesting by [putting Atomist to work...](putting-atomist-to-work.md)
