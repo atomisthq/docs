@@ -14,7 +14,3 @@ Welcome! So you want to get started with Atomist. You're in the right place. Thi
 !!! hint "Before you get started, you'll need these"
       * A Slack team where you can authorize Atomist
       * A GitHub org or user account to authorize Atomist
-
-### Next Step...
-
-With your Slack team and GitHub organization to hand you can now proceed to [set up Atomist with Slack...](set-up-atomist-in-slack.md)

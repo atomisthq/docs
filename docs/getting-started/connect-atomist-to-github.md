@@ -4,6 +4,9 @@ To get started helping streamline your development flow, Atomist needs access to
 
 - **GitHub User Authorization** - this authorization is done so that commands and actions you run as a user in Slack are carried out as your GitHub user. Every person in your Slack team who takes any action via that bot that is carried out on GitHub will need to authorize their GitHub user with Atomist. For example, if you ask `@atomist` to create a GitHub issue, it needs to be authorized to create the issue as you.
 
+!!! note ""
+    Atomist works with GitHub.com. GitHub Enterprise is not currently supported.
+
 ### GitHub Account Authorization
 
 You can perform these steps in any channel that `@atomist` has been invited to, or in a direct message with `@atomist`. Ask `@atomist` about your GitHub authorizations.
@@ -24,7 +27,7 @@ You will see messages for both _GitHub Account Authorization_ and _GitHub User A
   <img src="../images/github-account-oauth.png" alt="GitHub Account OAuth" class="ss-medium">
 </div>
 
-Click the **"Authorize application"** button to authorize Atomist and you will then be redirected back to your Slack team in the browser.
+Click the "Authorize application" button to authorize Atomist and you will then be redirected back to your Slack team in the browser.
 
 !!! Note ""
     If you are not a member of any GitHub organizations, your GitHub user account will be automatically selected, and you will not see any organizations listed. If you are a member of one or more GitHub organizations, after authorizing Atomist, you will receive a direct message in Slack from `@atomist` asking whether to use your GitHub user account or one of the organizations you a member of as the GitHub Account to associate with Atomist.
@@ -53,10 +56,10 @@ Click on the "Authorize GitHub User" link in the message. You will be redirected
   <img src="../images/github-user-oauth.png" alt="GitHub User OAuth" class="ss-medium">
 </div>
 
-Click the **"Authorize application"** button to authorize Atomist and you will then be redirected back to your Slack team in the browser, where you will see a confirmation message.
+Click the "Authorize application" button to authorize Atomist and you will then be redirected back to your Slack team in the browser, where you will see a confirmation message.
 
 <div class="ss-container">
-  <img src="../images/authorized-message-on-your-behalf.png" alt="Atomist Authorized to do work on Your Behalf" class="ss-small">
+  <img src="../images/github-user-authorized.png" alt="GitHub User Authorized" class="ss-medium">
 </div>
 
 ### Next Step...

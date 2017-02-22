@@ -17,7 +17,7 @@ You'll be asked to sign into your Slack team if you're not already signed in. Pr
 Next, you will see the authorization page for the Atomist app, including the Slack permissions requested. Confirm that the correct Slack team is selected and click "Authorize".
 
 <div class="ss-container">
-  <img src="images/slack-auth.png" alt="Slack Authorization" class="ss-small">
+  <img src="../images/slack-auth.png" alt="Slack Authorization" class="ss-small">
 </div>
 
 Once you have successfully authorized the Atomist bot in your Slack team, you will be redirected to a confirmation page. You can close this page and go back to Slack to continue this guide.
@@ -25,3 +25,7 @@ Once you have successfully authorized the Atomist bot in your Slack team, you wi
 <div class="ss-container">
   <img src="../images/bot-success.png" alt="Success" class="ss-small">
 </div>
+
+### Next Step...
+
+With Atomist now introduced to your Slack team it's time to [connect Atomist to your code on GitHub...](connect-atomist-to-github.md)

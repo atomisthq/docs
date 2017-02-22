@@ -12,6 +12,26 @@
     background-color: #14283B;
 }
 
+/*
+.md-footer-nav__link--next {
+  animation: blinker 3s linear;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+*/
+
+.admonition.hint, .admonition.important, .admonition.tip {
+    border-color: #5BC399;
+    background-color: #6BC9A3;
+    color: #FFFFFF;
+}
+
+.admonition.hint ul li, .admonition.important ul li, .admonition.tip ul li {
+    margin-bottom: 0em;
+}
+
 @media only screen and (min-width: 60em) {
     [data-md-color-primary=green] .md-nav--secondary {
         border-left: .4rem solid #5BC399;
