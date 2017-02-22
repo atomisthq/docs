@@ -1,70 +1,113 @@
-Atomist can now be put to work to create a new project to work upon, or to work on an existing project.
+Atomist can now be put to work, creating projects, editing code,
+managing issues, and generally tying your whole development process
+together.  Let's kick things off by having the Atomist bot create a
+new project for us.
 
 ### Use Atomist to Create a New Project
 
-You can ask `@atomist` to create a new project for you either through a direct message or by addressing the bot on a channel it has been invited to. For our purposes here we'll assume you're starting the conversation in your Slack team's `#general` channel.
-
-In the `#general` channel type:
+You can ask the Atomist bot to create a new project for you either
+through a direct message or by addressing the bot in a channel it has
+been invited to.  For our purposes, we will assume you are starting
+the conversation in your Slack team's `#general` channel.  In the
+`#general` channel, type the following message.
 
 ```shell
 @atomist generators
 ```
 
-This will result in a list of project generators that `@atomist` can use on your behalf to create a new project in GitHub:
+This will result in a list of project generators that the Atomist bot
+can use on your behalf to create a new project in GitHub.  The Atomist
+bot will respond with a list of project generators something like the
+following.
 
 <div class="ss-container">
-  <img src="../images/project-generators-list.png" alt="List of project generators" class="ss-small">
+  <img src="../images/project-generators-list.png" alt="List of project generators" class="ss-medium">
 </div>
 
 !!! note ""
-    You can create your own generators, amongst other customisations to Atomist using our Rug language and support. Creating and publishing your own generators will be a [Quick Start](../quick-starts) of its own soon.
+    You can create your own generators.  Creating your own generators
+    will soon be added as a [Quick Start](../quick-starts/).
 
-While the full list *can* be useful if you're just browsing, for our purposes here we know we want to create a Spring Boot REST service and so we can narrow down the list by specifying some criteria:
+While the full list of project generators *can* be useful if you are
+just browsing, we want to create a [Spring Boot][boot] REST service, so we can
+narrow down the list by providing a search term, `spring` in this
+case.
+
+[boot]: https://projects.spring.io/spring-boot/
 
 ```shell
 @atomist generators spring
 ```
 
-This time you should see an entry for the `NewSpringBootRestService` generator:
+This time the Atomist bot should respond with a list of project
+generators that includes the *NewSpringBootRestService* generator.
 
 <div class="ss-container">
-  <img src="../images/spring-boot-rest-service-generator-button.png" alt="Entry for the NewSpringBootRestService" class="ss-small">
+  <img src="../images/spring-boot-rest-service-generator-button.png" alt="Entry for the NewSpringBootRestService" class="ss-medium">
 </div>
 
-Click on the `Generate project` button and you'll begin the process of interacting with `@atomist` to create your new project.
+Click on the "Generate project" button to begin the process of
+creating your new project.
 
 <div class="ss-container">
-  <img src="../images/creating-a-new-project-start.png" alt="Starting a dialogue with Atomist to create a new project" class="ss-small">
+  <img src="../images/creating-a-new-project-start.png" alt="Starting a dialogue with Atomist to create a new project" class="ss-medium">
 </div>
 
-The response from `@atomist` is to create a new [Slack thread](https://get.slack.help/hc/en-us/articles/115000769927-Message-threads) for this conversation. Click now on the `1 reply` link to open up the thread in Slack:
+The Atomist bot will respond with a message telling you what project
+generator you created and then create a [thread][] off that message to
+gather the information it needs to create the project.  Click now on
+the "1 reply" link below the message to open up the thread in Slack.
+You will see that the Atomist bot has asked you a question in the
+thread.
+
+[thread]: https://get.slack.help/hc/en-us/articles/115000769927-Message-threads
 
 <div class="ss-container">
   <img src="../images/project-creation-thread-start.png" alt="Project creation thread with Atomist" class="ss-small">
 </div>
 
-Now run through the questions from Atomist until you see a submission panel with a `Generate project` button. This the case of `NewSpringBootRestService` this should only be entering the `project_name` parameter for your new project:
+Type in a name for your new project and press <Enter>.  The project
+name must be a valid GitHub repository name, containing only letters,
+numbers, dashes (`-`), and underscores (`_`).  Since the project name
+is the only required input parameter for the
+*NewSpringBootRestService* generator, the Atomist bot will respond
+with a message showing the project name you entered and the default
+values for all the other input parameters.
 
 <div class="ss-container">
   <img src="../images/create-project-parameters.png" alt="Project parameters all set" class="ss-small">
 </div>
 
-You can set any of the default parameters by typing in `set <parameter> <value>` before you click on `Generate project`.
+You can change the value for any of the parameters by typing in `set
+<parameter> <value>` before you click on `Generate project`.
 
 Now click on `Generate project` and you'll see several things happen:
 
-- In the thread `@atomist` will announce `One moment while I run the generator`.
-- `@atomist` will go and create the repository for you in your GitHub organization.
-- `@atomist` will announce that it has `Successfully generated your project` in the main channel that the project creation thread was started in, in our case that would be `#general`. The announcement will also contain a link to the newly created project.
-- `@atomist` will create a new channel in your Slack team for the new project, that will also be associated with the project's repository so when you want to work on that project, you do it in that channel.
-
-Click on the project link to see your project in GitHub:
+-   In the thread, the Atomist bot will announce "One moment while I
+    run the generator."
+-   Atomist will go and create the repository for you in the GitHub
+    account you previously authorized.
+-   The Atomist bot will announce that it has "Successfully generated
+    your project" back in the main channel where the project creation
+    thread was started in, in our case that would be `#general`.  The
+    announcement will contain a link to the newly created project.
+-   Atomist will create a new channel in your Slack team for the new
+    project, that will also be associated with the project's
+    repository so when you want to work on that project, you do it in
+    that channel.
 
 <div class="ss-container">
-  <img src="../images/project-creation-response.png" alt="Project creation response from Atomist" class="ss-small">
+  <img src="../images/project-creation-response.png" alt="Project creation response from Atomist" class="ss-medium">
 </div>
 
-Clone from GitHub and you will have a working starting project, courtesy of Atomist.
+Click on the project link to see your project in GitHub.
+
+<div class="ss-container">
+  <img src="../images/github-project.png" alt="GitHub Project page" class="ss-medium">
+</div>
+
+Clone your new repository from GitHub and you will have a new, working
+project courtesy of Atomist.
 
 ### Plugging Atomist into events from your Project Repository
 

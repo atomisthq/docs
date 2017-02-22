@@ -9,7 +9,7 @@ place. This guide will walk you through setup and getting started.
 - [x] [**Set up the Atomist Slack bot**](invite-atomist-to-slack.md)
 - [x] [**Connect Atomist to GitHub**](connect-atomist-to-github.md)
 - [x] [**Putting Atomist to work on your projects**](putting-atomist-to-work.md)
-- [x] [**Connect Atomist to Continuous Integration**](configure-atomist-with-ci.md)
+- [x] [**Connect Atomist to Continuous Integration**](connect-atomist-to-ci.md)
 - [x] [**Building and Deploying your first Development Automation**](build-your-own-development-automation.md)
 
 Click on any of the steps above to go directly to that step, or click

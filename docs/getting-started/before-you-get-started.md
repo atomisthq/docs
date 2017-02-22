@@ -4,9 +4,10 @@ Before you get started with Atomist, you'll need three things:
 -   A [Slack][slack] team
 -   A [GitHub.com][github] user
 
-If you already have your Atomist Alpha Program invitation, Slack team,
-and GitHub.com account, you can proceed to the next step by clicking
-Next at the bottom-right of this page.
+!!! note ""
+    If you already have your Atomist Alpha Program invitation, Slack team,
+    and GitHub.com account, you can proceed to the next step by clicking
+    Next at the bottom-right of this page.
 
 [alpha]: https://atomist.typeform.com/to/MseQBs (Atomist Alpha Program)
 [slack]: https://slack.com/
@@ -14,10 +15,15 @@ Next at the bottom-right of this page.
 
 ## Atomist Alpha Program
 
-To get invited to the Atomist Alpha Program, please fill out
-the [request form][alpha].  Using the information provided in the
-form, we will reach out to you with further instructions for
-completing your enrollment.
+If you have not yet requested access to the Atomist Alpha Program,
+please fill out the [request form][alpha].  Using the information
+provided in the form, we will reach out to you with further
+instructions for completing your enrollment.  If you have filled out
+the form and have yet to receive the email with further instructions,
+please reach out to us in the [Atomist Community Slack][community]
+`#support` channel.
+
+[community]: https://join.atomist.com/
 
 ## Slack
 
