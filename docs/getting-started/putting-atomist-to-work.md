@@ -3,7 +3,7 @@ managing issues, and generally tying your whole development process
 together.  Let's kick things off by having the Atomist Bot create a
 new project for us.
 
-### Use Atomist to Create a New Project
+### Use Atomist to create a new project
 
 You can ask the Atomist Bot to create a new project for you either
 through a direct message or by addressing the Bot in a channel it has
@@ -11,11 +11,11 @@ been invited to.  For our purposes, we will assume you are starting
 the conversation in your Slack team's `#general` channel.  In the
 `#general` channel, type the following message.
 
-```shell
+```
 @atomist generators
 ```
 
-This will result in a list of project generators that the Atomist bot
+The Atomist Bot will reply with a list of project generators that it
 can use on your behalf to create a new project in GitHub.  The Atomist
 Bot will respond with a list of project generators something like the
 following.
@@ -35,7 +35,7 @@ case.
 
 [boot]: https://projects.spring.io/spring-boot/
 
-```shell
+```
 @atomist generators spring
 ```
 
@@ -109,7 +109,7 @@ Click on the project link to see your project in GitHub.
 Clone your new repository from GitHub and you will have a new, working
 project courtesy of Atomist.
 
-### Plugging Atomist into events from your Project Repository
+### Connecting Atomist to GitHub
 
 In addition to creating and editing projects, Atomist can react to
 events that occur on your repositories as well.  For example, Atomist
@@ -155,7 +155,7 @@ webhook has been added to the list of webhooks for your organization.
   <img src="../images/atomist-webhook-added.png" alt="Atomist Webhook successfully added!" class="ss-medium">
 </div>
 
-#### Add the Atomist webhook to your account repositories
+#### Add the Atomist webhook to your individual repositories
 
 If you added Atomist to an individual account when you performed the
 account authorization, adding webhooks is not as convenient.  GitHub
@@ -198,148 +198,137 @@ our example here:
   <img src="../images/push-event-appearing-in-repo-channel.png" alt="Push event appearing in your project's channel" class="ss-large">
 </div>
 
-### Teaching Atomist a new Skill and Interacting with GitHub
+### Using GitHub in Slack
 
-Now let's do something else with GitHub. Let's create a new issue using `@atomist`. First we need to teach the Bot a new skill by registering a new `command`. Execute the following in your project's channel:
+Getting well-formatted message in Slack about what is happening to
+your project on GitHub is nice, but it only scratches the surface of
+what Atomist can do.  In addition to passively receiving and then
+displaying GitHub events, Atomist can create and modify code, issues,
+and PRs on GitHub, all without you ever having to leave Slack.  Let's
+use the Atomist Bot to create a GitHub Issues for us.
 
-```shell
+Before we can create GitHub issues in Slack, we have to enable the
+functionality in the Atomist Bot.  We do this by registering the
+appropriate command, `CreateIssue` in this case, with the Atomist Bot
+in your Slack.  In other words, we are going to teach *your* Atomist
+Bot a new trick.  Send the following message to your Atomist Bot.
+
+```
 @atomist register command
 ```
 
-You'll then be walked through an interaction with `@atomist` in a new thread to add a new command to Atomist's repertoire:
+Your Atomist Bot will respond by creating a thread and ask you some
+questions about the command you want to register.
 
 <div class="ss-container">
   <img src="../images/start-to-register-a-command.png" alt="Registering a Command with Atomist" class="ss-small">
 </div>
 
-When you complete this set of interactions you'll see a summary of the new command registration:
+After you answer all the questions, you will see a summary of the
+command registration information.
 
 <div class="ss-container">
   <img src="../images/command-registration-summary.png" alt="Summary of new Command registration" class="ss-small">
 </div>
 
-Once you click the `Submit` button you will receive a message back in the original channel that `@atomist` has successfully registered a new command:
+Click the "Submit" button and your Atomist Bot will respond back in
+the original channel, saying it has successfully registered a new
+command.
 
 <div class="ss-container">
-  <img src="../images/command-registered-successfully.png" alt="Registering a Command with Atomist" class="ss-small">
+  <img src="../images/command-registered-successfully.png" alt="Registering a Command with Atomist" class="ss-medium">
 </div>
 
-Registering a new command is like teaching `@atomist` a new skill. You've now enabled `@atomist` to be able to create a new issue for you on a repository in your GitHub organization, so let's give that a spin by entering the following in the `sprocket` channel that's associated with the `sprocket` project on GitHub:
+Your Atomist Bot will now be able to create new issues for you in
+GitHub.  Let's try it out.  Send the following message in the
+`#sprocket` channel that's associated with the `sprocket` project on
+GitHub.
 
 ```
 @atomist create issue
 ```
 
-As usual, `@atomist` will now start a thread to collate all the information necessary to create a new issue on the `sprocket` project:
+As usual, your Atomist Bot will start a thread to collect all the
+information necessary it needs to complete the request, creating a new
+issue on the `sprocket` project.
 
 <div class="ss-container">
   <img src="../images/create-issue-flow.png" alt="Creating an Issue" class="ss-small">
 </div>
 
-Once you have entered all the new issue's information you will see a summary such as:
+Once you have entered all the needed information, your Atomist Bot
+will respond with a summary and the option to submit or cancel.
 
 <div class="ss-container">
   <img src="../images/create-issue-dialog.png" alt="Issue Summary" class="ss-small">
 </div>
 
-Click on `Submit` and `@atomist` will respond with the following in the main `#sprocket` channel:
+Click the "Submit" button and Atomist will create the issue and then
+respond back in the main `#sprocket` channel.
 
 <div class="ss-container">
-  <img src="../images/successfully-created-issue-response.png" alt="Issue Created" class="ss-small">
+  <img src="../images/successfully-created-issue-response.png" alt="Issue Created" class="ss-medium">
 </div>
 
-But that's not where the possible interaction stops. `@atomist` will also post a panel to the `#sprocket` channel that contains more information about your newly created issue *and* some buttons to indicate some things you might want to do next:
+But that's not where the interaction stops. You Atomist Bot will also
+post a message in the `#sprocket` channel containing a summary of the
+newly created issue *and* some buttons for common actions taken on
+issues: assign it someone, add a label, add a comment, etc.
 
 <div class="ss-container">
-  <img src="../images/new-issue-follow-on-buttons.png" alt="Issue Created" class="ss-small">
+  <img src="../images/new-issue-follow-on-buttons.png" alt="Issue Created" class="ss-medium">
 </div>
 
-Go ahead and click on the link to see your issue currently on GitHub. Now head back to the `#sprocket` channel in Slack and click on the `Bug` button and you will label the issue as a bug:
+Go ahead and click on the link to see the issue on GitHub.
 
 <div class="ss-container">
-  <img src="../images/issue-labelled-as-bug-response.png" alt="Issue labelled as a Bug" class="ss-small">
+  <img src="../images/new-issue-in-github.png" alt="Issue in GitHub" class="ss-large">
 </div>
 
-The issue panel in Slack will then refresh with the set of buttons that you can next choose to work with.
-
-Now, remember that we plugged Atomist into the events coming from your `sprocket` project earlier? We can now see that in action. Click on the link to open up the new issue in GitHub:
+Now head back to the `#sprocket` channel in Slack and click on the
+"Bug" button to add the "bug" label to the issue:
 
 <div class="ss-container">
-  <img src="../images/issue-in-github.png" alt="Issue in GitHub" class="ss-small">
+  <img src="../images/issue-labelled-as-bug-response.png" alt="Issue labelled as a Bug" class="ss-medium">
 </div>
 
-Notice how `@atomist` has labelled the issue a bug, just as you instructed it.
-
-Now imagine that you're another team member who has noticed this new issue and wants to add a comment from inside GitHub. Add a new comment and click on `Submit`:
+We see the Atomist Bot responding that it has successfully edited the
+issue.  Let's make sure.  Click on the link to open up the issue in
+GitHub.
 
 <div class="ss-container">
-  <img src="../images/new-issue-comment-in-github.png" alt="New comment on issue in GitHub" class="ss-small">
+  <img src="../images/issue-in-github.png" alt="Issue in GitHub" class="ss-large">
 </div>
 
-You'll get a notification from the `#sprocket` channel in Slack that looks something like:
+We can see that Atomist, as us, has labeled the issue a bug, just as
+we asked.
+
+Now imagine that you are another team member who has noticed this new
+issue and wants to add a comment from inside GitHub.  Using the GitHub
+web interface, add a comment and click the "Comment" button.
 
 <div class="ss-container">
-  <img src="../images/new-comment-notification-in-slack.png" alt="New comment notification in Slack" class="ss-small">
+  <img src="../images/new-issue-comment-in-github.png" alt="New comment on issue in GitHub" class="ss-large">
 </div>
 
-Atomist has been watching that repository and when something important, such as a new comment, occurs Atomist detects that this has happened and knows to notify people interested in that project in the associated `#sprocket` channel.
-
-Let's teach `@atomist` one last thing. It is often useful to be reminded what issues you've closed off and opened in the last day or so, and Atomist can do that for you once we register the new `ListIssues` command:
+You will see a new message in the `#sprocket` channel from your
+Atomist Bot notifying you that the issue has been updated.
 
 <div class="ss-container">
-  <img src="../images/registering-list-issues-command.png" alt="Registering new List Issues command" class="ss-small">
+  <img src="../images/new-comment-notification-in-slack.png" alt="New comment notification in Slack" class="ss-medium">
 </div>
 
-Once you have entered the information shown above you will be prompted to submit it to register your new command:
+The circle is complete!  After connecting Atomist and GitHub, we can
+see GitHub events in Slack, take action on them, and see the result in
+GitHub and Slack.
 
-<div class="ss-container">
-  <img src="../images/list-issues-registration-summary.png" alt="List Issues command registration summary" class="ss-small">
-</div>
+### Using Atomist on an existing project
 
-Click on `Submit` and you should see the following in the main channel that you registered the command from:
-
-<div class="ss-container">
-  <img src="../images/list-issues-command-registered.png" alt="List Issues command registered" class="ss-small">
-</div>
-
-Now you can enter `@atomist list issues` from any channel that `@atomist` has been invited to and you'll see what issues have been assigned to you and are open and/or recently closed:
-
-<div class="ss-container">
-  <img src="../images/list-issues-working-before.png" alt="List Issues in Action" class="ss-small">
-</div>
-
-Now go ahead and assign the issue you created earlier to yourself. You can do this by clicking on the `Assign` button on the issue panel in the `#sprocket` channel and entering your GitHub username in the resulting thread with `@atomist`:
-
-<div class="ss-container">
-  <img src="../images/assigning-new-issue.png" alt="Assigning an issue" class="ss-small">
-</div>
-
-With your information entered in the thread you'll be asked to `Submit` it:
-
-<div class="ss-container">
-  <img src="../images/assign-issue-summary.png" alt="Assign issue summary" class="ss-small">
-</div>
-
-Click on `Submit` and you'll get a short response from `@atomist` in the `#sprocket` channel to indicate that the issue has been successfully assigned:
-
-<div class="ss-container">
-  <img src="../images/successfully-assigned-issue-response.png" alt="Successfully assigned the issue" class="ss-small">
-</div>
-
-Now when you do `@atomist list issues` you will see the new issue assigned to you:
-
-<div class="ss-container">
-  <img src="../images/list-issues-working-after.png" alt="List issues with newly assigned issue" class="ss-small">
-</div>
-
-### Use Atomist on an Existing Project by inviting it to an Existing Channel
-
-To be really useful, `@atomist` needs to be invited to the channels where you want it. Try inviting `@atomist`, using `/invite @atomist`, to a channel of your choosing. We suggest choosing a channel where you would like to receive notifications from a specific GitHub repo.
-
-For our purposes here simply create a new channel in Slack, we're going to use `#sprockets` here. Then invite `@atomist` to that channel by entering the following in `#sprockets`:
-
-```shell
-/invite @atomist
-```
-
-`@atomist` listens for GitHub activity on a particular repo and notifies in its associated slack channel. In order to have `@atomist` listen to a specific repo and notify in the channel you just invited it to it needs to know which repo to listen to. If one is not already set when you invite `@atomist` to the channel, it will ask you for a repo name.
+You almost certainly have many existing projects that you would like
+Atomist's help keeping track of.  To get Atomist's help with existing
+GitHub repositories, simply invite the Atomist Bot to a new channel,
+just as you would invite any other user (e.g., using the `/invite
+@atomist` command).  In each channel, the Atomist bot listens for
+GitHub activity for a particular repository.  If the Atomist Bot
+cannot figure out which repository to listen for in a given channel,
+it will ask you for a repository name after it joins the channel.

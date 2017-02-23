@@ -48,7 +48,7 @@ this page and go back to Slack to continue this guide.
 </div>
 
 By default, the Atomist Bot will be named `@atomist` and will join the
-`#general` channel in your Slack team.  You can invite the Atomist bot
+`#general` channel in your Slack team.  You can invite the Atomist Bot
 into any other channel in the same way you would invite any other
 user: an `@` mention and invite, the `/invite @atomist` command, or
 via the channel settings > "Invite team members to join ...".
