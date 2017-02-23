@@ -4,7 +4,7 @@
 
 set -o pipefail
 declare Pkg=gh-pages-deploy
-declare Version=0.1.0
+declare Version=0.2.0
 
 # print message to stdout
 # usage: msg MESSAGE
@@ -23,6 +23,10 @@ function err() {
 function main() {
     local repo_slug=$1
     local branch=$2
+
+    if [[ $TRAVIS_PULL_REQUEST && $TRAVIS_PULL_REQUEST != false ]]; then
+        return 0
+    fi
 
     local repository
     if [[ $repo_slug ]]; then
