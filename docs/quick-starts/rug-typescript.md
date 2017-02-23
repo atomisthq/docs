@@ -53,7 +53,7 @@ $ npm install
 
 This will create a `node_modules` directory which can be ignored, using something like `.gitignore` if you're using [git](https://git-scm.com/), and not checked into source control as it is only needed for local development.
 
-### Add a `tsconfig.json` file
+#### Add a `tsconfig.json` file
 
 Add a [tsconfig.json file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to your project to specify the Typescript compiler options required for your Rug TypeScript files. This contains everything required for the editor described in this quickstart:
 
