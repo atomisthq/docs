@@ -4,28 +4,27 @@
 
 Atomist enables you to ship software in less time and respond to
 operational events more quickly.  By automating tasks, integrating
-tools, and putting timely, correlated, and actionable information in
-front of your team, Atomist makes software development and operational
-response faster, more standardized, and more fun.
+tools, and providing timely, correlated, and actionable information,
+Atomist makes software delivery faster, more standardized, and more
+fun.
 
 Timely, correlated, and actionable information results from capturing
 your processes and operations in code.  Atomist knows the platforms
-and tools you already use: from GitHub to BitBucket, from Trello to
-Jira, from Travis CI to Jenkins, from Kubernetes to Spinnaker.
-Atomist understands your code: Java, C#, JavaScript, Scala, Python,
-Clojure, even Dockerfiles and POMs.  Most importantly, Atomist
+and tools you already use: GitHub, Slack, Travis CI.  Atomist
+understands your code: Java, C#, JavaScript, Scala, Python, Clojure,
+even Dockerfiles and Maven POMs.  Most importantly, Atomist
 understands the relationship between your code, your tools, your
 environments, and your running services and brings this information to
-your team members where they live: chat.
+where you live: chat.
 
-If your team spends time upgrading dependencies across multiple
-repositories, integrating code repositories and CI, configuring and
-managing deployment platforms, figuring out who to ask about an error
-in a log, or switching from IDE to chat to web browser ad infinitum,
-let Atomist remove the drudgery and reduce the context switching so
-your team can focus on what matters: shipping great software.
+If you spend time upgrading dependencies across multiple repositories,
+integrating code repositories and CI, configuring and managing
+deployment platforms, figuring out who to ask about an error in a log,
+or switching from IDE to chat to web browser ad infinitum, let Atomist
+remove the drudgery and reduce the context switching so your team can
+focus on what matters: shipping great software.
 
-## Atomist Is SaaS
+## Atomist is SaaS
 
 The Atomist managed service consumes events from your systems: source
 code repositories, continuous integration servers, deployment
@@ -35,14 +34,14 @@ with commits.  The correlation of these events is then used to
 automatically respond: retry a build, start an integration test,
 message a committer.
 
-***The Atomist managed service provides:***
+***The Atomist service provides:***
 
 -   *the SaaS platform to ingest and correlate events*
 -   *a core set of integrations and event responses*
 -   *the ability for teams to customize the events, correlation, and
     actions for their existing processes*
 
-## Atomist Is Events
+## Atomist is events
 
 Within Atomist, all events are captured and actionable.  As events are
 consumed from your systems, event handlers are triggered.  These
@@ -58,7 +57,7 @@ in production to modify code directly to fix errors.
 -   *capture best practices in code*
 -   *reduce incident time-to-resolution*
 
-## Atomist Is Code
+## Atomist is code
 
 We've all heard that [software is eating the world][eating].  Atomist
 eats software.  Atomist consumes your code, understanding your files,
@@ -91,9 +90,8 @@ tools to automate them away, once and for all.
     development processes, IT operations, and infrastructure-as-code
     together with a deep understanding of the code itself, **Atomist**
     is able to surface the right information to the right person at
-    the right time in the right place to increase the reliability of
-    your software and reduce the frequency and duration of service
-    interruptions.</span>
+    the right time in the right place to speed software delivery and
+    stabilize IT operations.</span>
 
 To help you learn more about Atomist, this documentation contains
 
@@ -108,7 +106,7 @@ To help you learn more about Atomist, this documentation contains
 You can also stay up to date with Atomist by following our
 blog, [The Composition][composition].
 
-[composition]: https://medium.com/the-composition
+[composition]: https://the-composition.com/
 
 <!--
 ## Rug is the runtime
