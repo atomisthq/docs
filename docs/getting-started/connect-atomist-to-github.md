@@ -82,7 +82,7 @@ to associate with Atomist by clicking its button.  Once selected, the
 Atomist Bot will show a confirmation message in Slack.
 
 <div class="ss-container">
-  <img src="../images/github-account-authorized.png" alt="GitHub Account Authorized Message" class="ss-large">
+  <img src="../images/github-account-authorized.png" alt="GitHub Account Authorized Message" class="ss-medium">
 </div>
 
 Congratulations, your GitHub account is now authorized.
