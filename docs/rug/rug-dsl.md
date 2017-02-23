@@ -68,7 +68,7 @@ itself:
     principled changes to a single project
 3.   Templates, content used by
     [generators](/reference-docs/rug/rug-generators.md)
-    and [editors](/reference-docs/rug/rug-editors.md))
+    and [editors](/reference-docs/rug/rug-editors.md)
 4.   Reviewers (coming soon), which can inspect projects and match on
     patterns, but can't change them
 5.   Executors (coming soon), which enable you to take coordinated actions
