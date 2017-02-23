@@ -103,7 +103,7 @@ Now click on `Generate project` and you'll see several things happen:
 Click on the project link to see your project in GitHub.
 
 <div class="ss-container">
-  <img src="../images/github-project.png" alt="GitHub Project page" class="ss-medium">
+  <img src="../images/github-project.png" alt="GitHub Project page" class="ss-small">
 </div>
 
 Clone your new repository from GitHub and you will have a new, working
@@ -111,29 +111,88 @@ project courtesy of Atomist.
 
 ### Plugging Atomist into events from your Project Repository
 
-With `@atomist` now successfully authorized you can use the bot to manipulate your repositories on GitHub. However another responsibility of Atomist is to be able to react to events that occur on your repositories as well.
+In addition to creating and editing projects, Atomist can react to
+events that occur on your repositories as well.  For example, Atomist
+can send messages when [pull requests][pr] are created or assign
+someone to an [issue][].
 
-To enable those repository events to promulgate into Atomist you need to configure a webhook from your GitHub organization. Navigate to your organizations GitHub page and then click on `Settings` and, from the menu, `Webhooks`:
+[issue]: https://help.github.com/articles/about-issues/
+[pr]: https://help.github.com/articles/about-pull-requests/
+
+GitHub notifies external systems like Atomist about repository and
+organization events using [webhooks][].  To enable GitHub events to
+promulgate into Atomist you need to add the Atomist webhook URL in the
+settings of
+the [GitHub account you previously authorized][account-auth].  The
+next two sections provide instructions for each of the GitHub account
+authorization options: organization and individual.  You should only
+work through the instructions for the account authorization option
+
+[webhooks]: https://help.github.com/articles/about-webhooks/
+[account-auth]: connect-atomist-to-github.md#github-account-authorization
+
+#### Add the Atomist webhook to your GitHub organization
+
+If you added Atomist to a GitHub organization when you performed the
+account authorization, navigate to that GitHub organization's page,
+click on "Settings", and select "Webhooks" from the left menu.
 
 <div class="ss-container">
-  <img src="../images/gh-org-settings-for-atomist-webhook.png" alt="Settings page for GitHub webhooks" class="ss-small">
+  <img src="../images/gh-org-settings-for-atomist-webhook.png" alt="Settings page for GitHub organization webhooks" class="ss-large">
 </div>
 
-Click on `Add webhook` and then fill in the details shown below:
+Click the "Add webhook" button and fill in the details as shown below.
 
 <div class="ss-container">
-  <img src="../images/add-atomist-gh-webhook.png" alt="Filled form for adding the Atomist webhook to your organization" class="ss-small">
+  <img src="../images/add-atomist-gh-webhook.png" alt="Filled form for adding the Atomist webhook to your organization" class="ss-medium">
 </div>
 
-When you're done click on `Add webhook` and you should see the webhook added to the list for your organization:
+When you have filled in the webhook form, click the "Add webhook"
+button at the bottom of the form.  You should then see that the
+webhook has been added to the list of webhooks for your organization.
 
 <div class="ss-container">
-  <img src="../images/atomist-webhook-added.png" alt="Atomist Webhook successfully added!" class="ss-small">
+  <img src="../images/atomist-webhook-added.png" alt="Atomist Webhook successfully added!" class="ss-medium">
 </div>
 
-To see you new webhook in action, and how those events get interpreted in `@atomist`, make a small edit to one of the files in your repository (the `README.md` is usually a good candidate to make a small, inconseqential edit) either through the GitHub user interface or through a commit/push from a local edit.
+#### Add the Atomist webhook to your account repositories
 
-When you have done the commit/push to master you should see those events happily appearing in your project's channel, `#sprockets` in our example here:
+If you added Atomist to an individual account when you performed the
+account authorization, adding webhooks is not as convenient.  GitHub
+does not support webhooks on an individual account.  Therefore, you
+need to add the Atomist webhook to every repository you want Atomist
+to receive events from.  Fortunately, the process of adding the
+webhook is the same for each repository.  For each repository, go to
+the repository's GitHub page, click on "Settings", and select
+"Webhooks" from the left menu.
+
+<div class="ss-container">
+  <img src="../images/gh-repo-settings-webhooks.png" alt="Settings page for GitHub repository webhooks" class="ss-large">
+</div>
+
+From here, the process for adding each repository webhook is identical
+to adding an organization webhook.  Fill out the webhook form just as
+we showed above and click the "Add webhook" button at the bottom of
+the form.
+
+<div class="ss-container">
+  <img src="../images/add-atomist-gh-webhook.png" alt="Filled form for adding the Atomist webhook to your organization" class="ss-medium">
+</div>
+
+### Seeing GitHub events in Slack
+
+Now that you have added the Atomist webhook to your GitHub
+configuration and events are flowing from GitHub into Atomist, these
+events will begin to show up in Slack.  To see your new webhook in
+action, and how those events get interpreted in `@atomist`, make a
+small edit to one of the files in your repository (the `README.md` is
+usually a good candidate to make a small, inconseqential edit) either
+through the GitHub user interface or through a commit/push from a
+local edit.
+
+When you have done the commit/push to master you should see those
+events happily appearing in your project's channel, `#sprockets` in
+our example here:
 
 <div class="ss-container">
   <img src="../images/push-event-appearing-in-repo-channel.png" alt="Push event appearing in your project's channel" class="ss-large">
