@@ -5,7 +5,6 @@ copyright: '&copy; 2017 Atomist, Inc.'
 extra:
   main_site_url: 'https://www.atomist.com/'
 theme: material
-#theme_dir: atomist
 site_favicon: images/favicon.ico
 extra:
   logo: 'images/atomist-logo-horiz-reversed.svg'
