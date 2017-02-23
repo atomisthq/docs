@@ -20,11 +20,11 @@ GitHub:
     !!! hint "Depending on the third-party application access policy in a GitHub organization, you may need to be an Owner of the organization or have to request access to authorize Atomist."
 
 -   **GitHub User Authorization:** this authorization is done so that
-    commands and actions you ask the Atomist bot to perform on your
+    commands and actions you ask the Atomist Bot to perform on your
     behalf are carried out as your GitHub user.  For example, if you
-    ask the Atomist bot to create a GitHub issue, it needs to be
+    ask the Atomist Bot to create a GitHub issue, it needs to be
     authorized to create the issue as you.  Every person in your Slack
-    team who wants to ask the Atomist bot to perform actions against
+    team who wants to ask the Atomist Bot to perform actions against
     GitHub will need to authorize their GitHub user in this way.
 
 [github]: https://github.com
@@ -33,20 +33,20 @@ GitHub:
 
 This section will walk you through the GitHub account authorization
 process.  You can perform these steps in any Slack channel that the
-Atomist bot has been invited to, or you can directly message the
-Atomist bot.  By default the Atomist bot is named `@atomist` and these
+Atomist Bot has been invited to, or you can directly message the
+Atomist Bot.  By default the Atomist Bot is named `@atomist` and these
 instructions assume that is its name in your Slack team.  If the
-Atomist bot has a different user name in your Slack team, address
+Atomist Bot has a different user name in your Slack team, address
 messages to that user.
 
-First, ask the Atomist bot about your GitHub authorizations.
+First, ask the Atomist Bot about your GitHub authorizations.
 
 ```
 @atomist github
 ```
 
 If this Slack team does not have a GitHub Account authorized, the
-Atomist bot will show a message requesting you to authorize.
+Atomist Bot will show a message requesting you to authorize.
 
 <div class="ss-container">
   <img src="../images/github-account-auth.png" alt="GitHub Account Auth Message" class="ss-medium">
@@ -69,7 +69,7 @@ If you are not a member of any GitHub organizations, your individual
 GitHub account will be automatically selected, and you will not see
 any organizations listed.  If you are a member of one or more GitHub
 organizations, after authorizing Atomist, you will receive a direct
-message in Slack from the Atomist bot asking whether to use your
+message in Slack from the Atomist Bot asking whether to use your
 individual GitHub account or one of your organizations as the GitHub
 account to associate with Atomist.
 
@@ -79,10 +79,10 @@ account to associate with Atomist.
 
 Select the GitHub account (your individual account or an organization)
 to associate with Atomist by clicking its button.  Once selected, the
-Atomist bot will show a confirmation message in Slack.
+Atomist Bot will show a confirmation message in Slack.
 
 <div class="ss-container">
-  <img src="../images/github-account-authorized.png" alt="GitHub Account Authorized Message" class="ss-large">
+  <img src="../images/github-account-authorized.png" alt="GitHub Account Authorized Message" class="ss-medium">
 </div>
 
 Congratulations, your GitHub account is now authorized.
