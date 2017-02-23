@@ -53,6 +53,23 @@ $ npm install
 
 This will create a `node_modules` directory which can be ignored, using something like `.gitignore` if you're using [git](https://git-scm.com/), and not checked into source control as it is only needed for local development.
 
+### Add a `tsconfig.json` file
+
+Add a [tsconfig.json file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to your project to specify the Typescript compiler options required for your Rug TypeScript files. This contains everything required for the editor described in this quickstart:
+
+```
+{
+    "version": "2.2.1",
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "experimentalDecorators": true,
+        "sourceMap": true
+    }
+}
+```
+
 ### Writing your first TypeScript Rug editor
 
 Now you are set up for working with Rug in TypeScript, let's write a simple editor. As usual, we start by constructing a test for our future editor and we can do this using the convenience of a Rug DSL BDD test:
@@ -105,7 +122,7 @@ class MySimpleEditor implements EditProject{
     }
 }
 
-export let simple = new MySimpleEditor()
+export const simple = new MySimpleEditor()
 ```
 
 Walking through this editor the contents are:
