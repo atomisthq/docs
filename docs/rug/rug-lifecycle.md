@@ -11,7 +11,7 @@ the Rug CLI][install].
 ## Inception
 
 The easiest way to create a new Rug project is by using the
-`NewRugArchiveProject` generator via the bot or CLI. Here, we'll show
+`NewRugArchiveProject` generator via the Bot or CLI. Here, we'll show
 how to do it with the CLI.
 
 ```shell

@@ -7,7 +7,7 @@ When a coding task is common, tedious, nitpicky, or hard to remember how to do c
 The Rug ecosystem includes a language, runtime, test runner, and package manager.
 The Rug language is optional; there's also a [TypeScript module](https://medium.com/the-composition/atomist-meet-typescript-2f2e16251d4f#.nmxmjfg6q),
 so you can combine a general-purpose language with the tooling of Rug.
-The Rug runtime runs as a service, accessible from any Slack that has invited the Atomist bot (try it in [Atomist Community slack](https://join.atomist.com)).
+The Rug runtime runs as a service, accessible from any Slack that has invited the Atomist Bot (try it in [Atomist Community slack](https://join.atomist.com)).
 There's also the [Rug CLI](rug-cli/index.md) for local use, essential for Rug development.
 
 ### Some Use Cases for Rug

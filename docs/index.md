@@ -20,7 +20,7 @@ takes several forms:
     reviewer.
 -   Managing a service life cycle, from commits to CI builds to
     deployments and releases to alerts and corrective action with the
-    Atomist bot.
+    Atomist Bot.
 
 [travis]: https://travis-ci.org/
 [docker]: https://www.docker.com/
@@ -39,7 +39,7 @@ detail on how our approach can greatly increase a team's productivity.
 [elm]: http://elm-lang.org/
 [collab]: https://medium.com/the-composition/understand-automate-collaborate-1b5695ecb724#.u3df7vvjc
 
-While often our Atomist bot can guide you through the proper workflow,
+While often our Atomist Bot can guide you through the proper workflow,
 perhaps you are interested in working with the Rug CLI, looking for a
 little more help to get started with Atomist, or doing something more
 advanced like writing your own editor.  If that is what you're looking

@@ -211,7 +211,7 @@ Click on `Close` (you could also close the issue in GitHub if you prefer) and se
   <img src="../images/new-handler-message-displayed.png" alt="New handler thank-you message displayed" class="ss-small">
 </div>
 
-There, you did it! You just created a new automation, and taught the bot to listen for events and run that automation!
+There, you did it! You just created a new automation, and taught the Bot to listen for events and run that automation!
 
 ### Congratulations, you've completed the Getting Started guide for Atomist!
 

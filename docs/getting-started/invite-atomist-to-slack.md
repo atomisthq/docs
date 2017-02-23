@@ -1,5 +1,5 @@
 With everything in place to get started with Atomist, you can now
-invite the Atomist bot to your Slack team.  After you filled out
+invite the Atomist Bot to your Slack team.  After you filled out
 the [Atomist Alpha Program][alpha] form, you should have received an
 email invitation that looks something like the following:
 
@@ -9,7 +9,7 @@ email invitation that looks something like the following:
   <img src="../images/alpha-welcome-email.png" alt="Welcome Email" class="ss-medium">
 </div>
 
-To invite the Atomist bot into your Slack team, simply click the
+To invite the Atomist Bot into your Slack team, simply click the
 "Install Atomist Bot in Slack" button in the Atomist Alpha Program
 invitation email.
 
@@ -39,7 +39,7 @@ that the correct Slack team is selected and click "Authorize".
   <img src="../images/slack-auth.png" alt="Slack Authorization" class="ss-small">
 </div>
 
-Once you have successfully authorized the Atomist bot in your Slack
+Once you have successfully authorized the Atomist Bot in your Slack
 team, you will be redirected to a confirmation page.  You can close
 this page and go back to Slack to continue this guide.
 
@@ -47,7 +47,7 @@ this page and go back to Slack to continue this guide.
   <img src="../images/bot-success.png" alt="Success" class="ss-small">
 </div>
 
-By default, the Atomist bot will be named `@atomist` and will join the
+By default, the Atomist Bot will be named `@atomist` and will join the
 `#general` channel in your Slack team.  You can invite the Atomist bot
 into any other channel in the same way you would invite any other
 user: an `@` mention and invite, the `/invite @atomist` command, or

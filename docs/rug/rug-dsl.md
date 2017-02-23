@@ -62,20 +62,20 @@ structures as this is not its purpose.
 To keep Rug focussed and simple, there are only 7 concepts in Rug
 itself:
 
-*   [Generators](/reference-docs/rug/rug-generators.md), which can be used to
+1.   [Generators](/reference-docs/rug/rug-generators.md), which can be used to
     create new projects from an existing model project.
-*   [Editors](/reference-docs/rug/rug-editors.md), which are used to make
+2.   [Editors](/reference-docs/rug/rug-editors.md), which are used to make
     principled changes to a single project
-*   Templates, content used by
+3.   Templates, content used by
     [generators](/reference-docs/rug/rug-generators.md)
     and [editors](/reference-docs/rug/rug-editors.md))
-*   Reviewers (coming soon), which can inspect projects and match on
+4.   Reviewers (coming soon), which can inspect projects and match on
     patterns, but can't change them
-*   Executors (coming soon), which enable you to take coordinated actions
+5.   Executors (coming soon), which enable you to take coordinated actions
     across multiple projects
-*   Handlers (coming soon), which are triggered by events in your software
+6.   Handlers (coming soon), which are triggered by events in your software
     development lifecycle
-*   [Tests](/reference-docs/rug/rug-tests.md) (and a simple but powerful
+7.  [Tests](/reference-docs/rug/rug-tests.md) (and a simple but powerful
     test-driven environment so that you can have real confidence in
     your Rug scripts)
 
