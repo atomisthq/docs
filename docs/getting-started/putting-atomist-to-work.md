@@ -326,9 +326,28 @@ GitHub and Slack.
 
 You almost certainly have many existing projects that you would like
 Atomist's help keeping track of.  To get Atomist's help with existing
-GitHub repositories, simply invite the Atomist Bot to a new channel,
-just as you would invite any other user (e.g., using the `/invite
-@atomist` command).  In each channel, the Atomist bot listens for
-GitHub activity for a particular repository.  If the Atomist Bot
-cannot figure out which repository to listen for in a given channel,
-it will ask you for a repository name after it joins the channel.
+GitHub repositories, simply invite the Atomist Bot to a channel with
+the same name as the repository.  You can invite the Atomist Bot to a
+channel just as you would invite any other user, e.g., by using the
+`/invite @atomist` command.  Once the Atomist Bot is in the channel,
+it will begin reporting on activity in the associated repository and
+you can interact with the repository, creating and assigning issues,
+etc., just as you do with channels the Atomist Bot creates when it
+creates the repositories.
+
+<!--
+
+If you prefer not to have the channel and repository have the same
+name, you can tell the Atomist Bot what repository to associate with a
+channel by sending the message `repo` to the Atomist Bot in that
+channel.
+
+```
+@atomist repo REPOSITORY_NAME
+```
+
+Replace `REPOSITORY_NAME` in the above command with the name of the
+repository you want the Atomist Bot to associate with the current
+channel.
+
+-->
