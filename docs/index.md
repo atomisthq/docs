@@ -26,11 +26,11 @@ focus on what matters: shipping great software.
 
 ## Atomist is SaaS
 
-The Atomist managed service consumes events from your systems: source
-code repositories, continuous integration servers, deployment
-platforms, and chat.  The information from these systems is correlated
-together: pushes with builds, artifacts with deployments, stack traces
-with commits.  The correlation of these events is then used to
+The Atomist service consumes events from your systems: source code
+repositories, continuous integration servers, deployment platforms,
+and chat.  The information from these systems is correlated together:
+pushes with builds, artifacts with deployments, stack traces with
+commits.  The correlation of these events is then used to
 automatically respond: retry a build, start an integration test,
 message a committer.
 
@@ -65,14 +65,6 @@ classes, variables, exceptions and more.  This understanding is used
 to modify code directly and to connect code changes to runtime
 changes.
 
-Atomist is the next step in the evolution of software.
-Infrastructure-as-code captures infrastructure architecture and
-configuration in software.  DevOps automates IT operations with
-software.  Atomist goes further, capturing how we develop and operate
-software *in software*.  Atomist lets you say goodbye to the boring,
-repetitive tasks surrounding software development by giving you the
-tools to automate them away, once and for all.
-
 [eating]: https://a16z.com/2016/08/20/why-software-is-eating-the-world/
 
 ***Atomist is code that:***
@@ -82,7 +74,15 @@ tools to automate them away, once and for all.
 -   *understands your operations*
 -   *can <span class="highlight">modify</span> your code*
 
-----
+## Atomist ties everything together
+
+Atomist is the next phase in the evolution of software.
+Infrastructure-as-code captures infrastructure architecture and
+configuration in software.  DevOps automates IT operations with
+software.  Atomist goes further, capturing how we develop and operate
+software *in software*.  Atomist lets you say goodbye to the boring,
+repetitive tasks surrounding software development by giving you the
+tools to automate them away, once and for all.
 
 !!! important ""
     <span class="major-point">In a world where everything is code,
@@ -103,81 +103,15 @@ To help you learn more about Atomist, this documentation contains
 [quick]: quick-starts/index.md
 [refdoc]: reference-docs/index.md
 
-You can also stay up to date with Atomist by following our
-blog, [The Composition][composition].
+To stay up to date with Atomist, get announcements on new features,
+and interact with the Atomist team, please
 
+-   Join the [Atomist Community Slack][slack]
+-   Following our blog, [The Composition][composition]
+-   Follow [@atomist][twitter] on Twitter
+
+[slack]: https://join.atomist.com/
 [composition]: https://the-composition.com/
+[twitter]: https://twitter.com/atomist
 
-<!--
-## Rug is the runtime
-### Events flow in and out
-### Operations respond to events
-#### Alerting developers
-#### Releasing software
-#### Modifying code
-#### Testing integrations
-## Integrations (get events, call APIs/commands)
-## Cortex
-## Bot, button and CLI interfaces - but the real power is when no interface is needed, i.e., full automation of responses to events
-## CLI for building and testing Rugs
-
-
-Atomist is all about high quality productivity for your software.
-Whether it be working with large legacy codebases, your own "majestic
-monoliths" or aiming for "zero overhead microservices", Atomist
-provides the tools that allow you to turn your development speed up as
-high as it can go.
-
-Atomist helps you develop better software more quickly by automating
-common tasks in software development and operation.  This automation
-takes several forms:
-
--   Creating a RESTful microservice with a single click using an
-    Atomist Button.
--   Using Rug editors to perform common tasks on your source code
-    repository, e.g., configuring and enabling a [Travis CI][travis]
-    build or updating a [Docker][docker] base image to the desired
-    version.
--   Ensuring a project conforms with your standards using a Rug
-    reviewer.
--   Managing a service life cycle, from commits to CI builds to
-    deployments and releases to alerts and corrective action with the
-    Atomist Bot.
-
-[travis]: https://travis-ci.org/
-[docker]: https://www.docker.com/
-
-You can find more detail on what Atomist can do by following our
-Medium Publication: [The Composition][composition].  In
-particular, [Software That Writes And Evolves Software][evolve]
-provides a more detailed introduction to our thinking around
-development automation and a video showing an application of the
-approach to the [Elm][elm]
-language.  [Understand, Automate, Collaborate][collab] provides more
-detail on how our approach can greatly increase a team's productivity.
-
-[evolve]: https://medium.com/the-composition/software-that-writes-and-evolves-software-953578a6fc36#.yw7mkg6sy
-[elm]: http://elm-lang.org/
-[collab]: https://medium.com/the-composition/understand-automate-collaborate-1b5695ecb724#.u3df7vvjc
-
-While often our Atomist Bot can guide you through the proper workflow,
-perhaps you are interested in working with the Rug CLI, looking for a
-little more help to get started with Atomist, or doing something more
-advanced like writing your own editor.  If that is what you're looking
-for, you're in the right place.
-
-## Just get me going *right now*: Quick Starts
-
-The following are quick recipes that you can use to navigate the most
-common activites through Atomist.
-
-[Go to the Quick Starts...](quick-starts/index.md)
-
-## I want to know more: Reference Documentation
-
-The reference documentation aims to help you get a deeper dive through
-the tools, techniques and stucture of Atomist:
-
-[Go to the Reference Documentation...](reference-docs/index.md)
-
--->
+We sincerely hope you enjoy using Atomist!

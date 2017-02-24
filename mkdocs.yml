@@ -53,7 +53,7 @@ pages:
   - Before You Get Started: 'getting-started/before-you-get-started.md'
   - Invite Atomist to Slack: 'getting-started/invite-atomist-to-slack.md'
   - Connect Atomist to GitHub: 'getting-started/connect-atomist-to-github.md'
-  - Putting Atomist to Work on Your Projects: 'getting-started/putting-atomist-to-work.md'
+  - Putting Atomist to Work: 'getting-started/putting-atomist-to-work.md'
   - Connect Atomist to CI: 'getting-started/connect-atomist-to-ci.md'
   - Build Your Own Development Automation: 'getting-started/build-your-own-development-automation.md'
 - Quick Starts:
