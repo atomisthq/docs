@@ -88,8 +88,8 @@ Now that the virtual environment is created, we can
 install the dependencies into it:
 
 ```
-$ pip3 install -r requirements.txt
-$ cd rug_pygments; python setup.py install; cd ..
+$ pip install -r requirements.txt
+$ ( cd rug_pygments && python setup.py install )
 ```
 
 You can now serve the documentation locally by running:
