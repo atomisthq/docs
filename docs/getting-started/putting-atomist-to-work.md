@@ -26,7 +26,7 @@ following.
 
 !!! note ""
     You can create your own generators.  Creating your own generators
-    will soon be added as a [Quick Start](../quick-starts/).
+    will soon be added as a [Quick Start](../guides/).
 
 While the full list of project generators *can* be useful if you are
 just browsing, we want to create a [Spring Boot][boot] REST service, so we can

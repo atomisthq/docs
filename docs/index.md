@@ -95,13 +95,24 @@ tools to automate them away, once and for all.
 
 To help you learn more about Atomist, this documentation contains
 
--   A [Getting Started guide][getting-started]
--   Several [Quick Start guides][quick]
+-   [Getting Started][getting-started] instructions
+-   Several [Guides][guides] introducing key parts of Atomist
+-   An in-depth explanation of [Atomist][depth]
 -   Detailed [Reference Documentation][refdoc]
 
+If you are new to Atomist, we recommend working through
+the [Getting Started][getting-started] instructions to get Atomist set
+up and then the [Guides][guides] to learn how you can use Atomist.  If
+you are looking for more detailed information about Atomist, we
+recommend the [Atomist in Depth][depth] section.  If you are
+developing new Atomist functionality and need to answer a technical
+question, the [Reference Documentation][refdoc] is probably the best
+place to look.
+
 [getting-started]: getting-started/index.md
-[quick]: quick-starts/index.md
-[refdoc]: reference-docs/index.md
+[guides]: guides/index.md
+[depth]: atomist/index.md
+[refdoc]: reference/index.md
 
 To stay up to date with Atomist, get announcements on new features,
 and interact with the Atomist team, please

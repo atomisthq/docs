@@ -1,6 +1,6 @@
 Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box and now let's automate an action.
 
-In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](../reference-docs/rug) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
+In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](/atomist/rug/index.md) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
 
 ### Create a new Rug Handlers project for your new automation
 
@@ -89,11 +89,11 @@ Now it's time to publish and test your new handler.
 
 ### Publish your new `handler`
 
-To make Atomist aware of your new `handler` you need to publish the `handler` project. This is often done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/rug-cli).
+To make Atomist aware of your new `handler` you need to publish the `handler` project. This is often done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/cli).
 
 #### Installing and Configuring the Rug CLI
 
-Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI](../rug/rug-cli) with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
+Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI](../rug/cli) with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
 
 ```shell
 > rug repositories configure
@@ -148,20 +148,20 @@ The Rug CLI has the `publish` command to publish a Rug archive from your local c
 ```shell
 > rug publish
 Resolving dependencies for antifragilesoftware:handlers:0.1.0 ← local completed
-Invoking TypeScript Compiler on ts script sources                                                                   
-  Created .atomist/handlers/CloseIssueThanksHandler.js.map                                                          
-  Created .atomist/handlers/CloseIssueThanksHandler.js                                                              
+Invoking TypeScript Compiler on ts script sources
+  Created .atomist/handlers/CloseIssueThanksHandler.js.map
+  Created .atomist/handlers/CloseIssueThanksHandler.js
 Processing script sources completed
 Loading antifragilesoftware:handlers:0.1.0 ← local into runtime completed
-  Created META-INF/maven/antifragilesoftware/handlers/pom.xml                                                       
-  Created .atomist/manifest.yml                                                                                     
-  Created .atomist/metadata.json                                                                                    
+  Created META-INF/maven/antifragilesoftware/handlers/pom.xml
+  Created .atomist/manifest.yml
+  Created .atomist/metadata.json
 Generating archive metadata completed
-  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0.zip → t3v0s7ss2 (186 kb) succeeded          
-  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0.pom → t3v0s7ss2 (927 bytes) succeeded       
+  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0.zip → t3v0s7ss2 (186 kb) succeeded
+  Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0.pom → t3v0s7ss2 (927 bytes) succeeded
   Uploading antifragilesoftware/handlers/0.1.0/handlers-0.1.0-metadata.json → t3v0s7ss2 (762 bytes) succeeded
-  Downloading antifragilesoftware/handlers/maven-metadata.xml ← t3v0s7ss2 (382 bytes) succeeded           
-  Uploading antifragilesoftware/handlers/maven-metadata.xml → t3v0s7ss2 (334 bytes) succeeded             
+  Downloading antifragilesoftware/handlers/maven-metadata.xml ← t3v0s7ss2 (382 bytes) succeeded
+  Uploading antifragilesoftware/handlers/maven-metadata.xml → t3v0s7ss2 (334 bytes) succeeded
 Publishing archive into remote repository completed
 
 → Archive
@@ -177,7 +177,7 @@ Your new `handlers` rugs are now ready for action in your Atomist environment. T
 
 ```shell
 > rug search
-Searching https://api.atomist.com/catalog                                                                         
+Searching https://api.atomist.com/catalog
 Searching catalogs completed
 
 → Remote Archives (38 archives found)
@@ -217,6 +217,6 @@ There, you did it! You just created a new automation, and taught the Bot to list
 
 You've come a long way but to get even *more* out of your development automation here are some suggested next steps...
 
-- Checking out the [Quick Starts](../quick-starts) for short introductions to a number of Atomist features.
-- Get comfortable with writing and editing your development automation Rugs with the [Rug CLI](../reference-docs/rug/rug-cli).
-- Take a deep-dive through Rug using `@atomist` in with the [Rug Koans]().
+- Checking out the [Quick Starts](/guides/index.md) for short introductions to a number of Atomist features.
+- Get comfortable with writing and editing your development automation Rugs with the [Rug CLI](../atomist/interfaces/cli/index.md).
+- Take a deep-dive through Rug using `@atomist` in with the [Rug Koans](https://github.com/atomist-rugs/rug-koans-project).
