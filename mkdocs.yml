@@ -50,7 +50,7 @@ pages:
 - Welcome to Atomist: 'index.md'
 - Getting Started:
   - Introduction: 'getting-started/index.md'
-  - Before You Get Started: 'getting-started/before-you-get-started.md'
+  - Pre-Requisites: 'getting-started/pre-requisites.md'
   - Invite Atomist to Slack: 'getting-started/invite-atomist-to-slack.md'
   - Connect Atomist to GitHub: 'getting-started/connect-atomist-to-github.md'
   - Putting Atomist to Work: 'getting-started/putting-atomist-to-work.md'

@@ -1,11 +1,9 @@
-<!-- styles used here are from /stylesheets/extra.css -->
-
 Welcome! So you want to get started with Atomist. You're in the right
 place. This guide will walk you through setup and getting started.
 
 ### **What this guide covers**
 
-- [x] [**Before you get started**](before-you-get-started.md)
+- [x] [**Pre-Requisites**](pre-requisites.md)
 - [x] [**Set up the Atomist Slack bot**](invite-atomist-to-slack.md)
 - [x] [**Connect Atomist to GitHub**](connect-atomist-to-github.md)
 - [x] [**Putting Atomist to work on your projects**](putting-atomist-to-work.md)

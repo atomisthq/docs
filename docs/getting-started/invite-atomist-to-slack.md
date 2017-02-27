@@ -1,16 +1,16 @@
 With everything in place to get started with Atomist, you can now
 invite the Atomist Bot to your Slack team.  After you filled out
-the [Atomist Alpha Program][alpha] form, you should have received an
+the [Atomist Alpha][alpha] form, you should have received an
 email invitation that looks something like the following:
 
-[alpha]: https://atomist.typeform.com/to/MseQBs (Atomist Alpha Program)
+[alpha]: https://atomist.typeform.com/to/MseQBs (Atomist Alpha)
 
 <div class="ss-container">
   <img src="../images/alpha-welcome-email.png" alt="Welcome Email" class="ss-medium">
 </div>
 
 To invite the Atomist Bot into your Slack team, simply click the
-"Install Atomist Bot in Slack" button in the Atomist Alpha Program
+"Install Atomist Bot in Slack" button in the Atomist Alpha 
 invitation email.
 
 Clicking the button will send you to a web page where you will be
