@@ -19,7 +19,7 @@ A number of [Rug Language Extensions](globals.html) are currently shipped out of
 *   [EveryPom](interfaces/everypom.html) - all Maven POM files in a project
 *   [File](interfaces/file.html) - manipulate simple text files
 *   [JavaProject](interfaces/javaproject.html) - Java projects
-*   [JavaSource](rinterfaces/javasource.html) - Java source files
+*   [JavaSource](iinterfaces/javasource.html) - Java source files
 *   [JavaType](interfaces/javaptype.html) - Java classes
 *   [Json](interfaces/pair.html) - JSON files
 *   [Line](interfaces/line.html) - manipulate specific lines in a project's files
