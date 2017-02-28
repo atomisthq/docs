@@ -12,20 +12,10 @@ documentation at [http://docs.atomist.com/](http://docs.atomist.com/).
 Much of the documentation is hand-generated, so you can feel free to
 edit.  The exception is the documentation for
 the [Rug core types](docs/reference-docs/rug/types/).  Other than the
-index, it is generated every time tests are run in
-the [Rug repository][rug].  When the tests are complete, all of the
-type docs will be in a single file named `target/RugTypes.md`.  You
-can use the following commands to split file files up by type:
-
-```
-$ cd target
-$ perl -lane 'if (/^## Type: /) { $t = $F[2]; $t =~ s/\`//g; $t =~ s/([A-Z])/-\L$1/g; $out = "rug-extension$t.md"; open FH, ">$out" } if (FH) { print FH }' RugTypes.md
-```
-
-You can then copy the files under `docs/reference-docs/rug/types`,
-omitting the files that document test types (`Replacer*`), internal
-(`Pair`, `Service`), base `JavaClassOrInterfaceView`, and base
-(`Mutable*`) types.
+index, it is generated every time a Maven build is run with the `npm-release` profile
+in the [Rug repository][rug].  When the build is complete, all of the
+type docs will be in a directory named `target/.atomist/node_modules/@atomist/rug/typedoc`.
+You can then copy these files under `docs/reference-docs/rug/types`.
 
 [rug]: https://github.com/atomist/rug
 
