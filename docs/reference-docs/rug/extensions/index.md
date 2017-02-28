@@ -12,7 +12,7 @@ soon).
 Rug Language Extensions are an important part point of Rug, enabling it to
 expose a wide range of functionality in a native-seeming way. 
 
-A number of [Rug Language Extensions](globals.html)  are currently shipped out of the box including:
+A number of [Rug Language Extensions](globals.html) are currently shipped out of the box including:
 
 *   [CSharpFile](interfaces/csharpfile.html) - C# files
 *   [DockerFile](interfaces/dockerfile.html) - Dockerfiles
