@@ -13,7 +13,7 @@ with the Rug CLI as simple and intuitive as possible.
 
 You can install the Rug command-line interface using standard
 packaging tools for your operating system.
-See [Rug CLI Installation](../atomist/interfaces/cli/install.md) for
+See [Rug CLI Installation](/user-guide/interfaces/cli/install.md) for
 instructions.
 
 ### 'Git' Some Examples

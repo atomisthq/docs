@@ -13,7 +13,7 @@ for local use, essential for Rug development.
 
 [ts]: https://the-composition.com/atomist-meet-typescript-2f2e16251d4f#.nmxmjfg6q
 [slack]: https://join.atomist.com/
-[cli]: /atomist/interfaces/cli/index.md
+[cli]: /user-guide/interfaces/cli/index.md
 
 ### Some Use Cases for Rug
 

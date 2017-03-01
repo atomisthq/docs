@@ -13,3 +13,23 @@ started.
 
 Click on any of the steps above to go directly to that step, or click
 Next at the bottom right of this page to continue this guide.
+
+### Atomist Bot
+
+The Atomist Bot awaits your instructions in our Atomist Community Slack.
+
+[Atomist Bot Quick Start](bot.md)
+
+### Rug CLI
+
+Now you can try automated code changes with Rug on your local file
+system. Run any publicly published generator or editor. Make your own
+Rugs and try them out!
+
+[Rug CLI Quick Start](rug-cli.md)
+
+### Rug TypeScript
+
+You can use TypeScript to create your Rugs. This Quick Start will show you how:
+
+[Rug TypeScript Quick Start](rug-typescript.md)

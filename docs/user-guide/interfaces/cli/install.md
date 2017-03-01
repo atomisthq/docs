@@ -66,8 +66,8 @@ To install on a Debian-based distributions, follow the next instructions:
 
 Rug and the CLI require Java 8. Until Rug CLI 0.22, the package would try
 to automatically install the appropriate JDK but different people install Java
-differently on their machine. Therefore, starting with Rug CLI 0.22, the package 
-only suggests to install the dependency and emits the following message when 
+differently on their machine. Therefore, starting with Rug CLI 0.22, the package
+only suggests to install the dependency and emits the following message when
 running the CLI without a proper Java 8 found:
 
 ```shell
@@ -75,7 +75,7 @@ $ rug
 JAVA_HOME not set and cannot find javac to deduce location, please set JAVA_HOME.
 ```
 
-In that case, you must ensure you set the `JAVA_HOME` variable for your system 
+In that case, you must ensure you set the `JAVA_HOME` variable for your system
 so that it points to a valid Java 8 JDK directory. On recent, Debian/Ubuntu
 distributions, you can simply run `sudo apt-get install openjdk-8-jdk`. On older
 distributions, either install Java 8 manually and set the according variable,
@@ -167,7 +167,7 @@ intend to use the CLI any longer.
 
 ### Docker installation
 
-If you cannot install using a system-wide approach, you can rely also on 
+If you cannot install using a system-wide approach, you can rely also on
 downloading the CLI through a Docker image we provide.
 
 ```shell
@@ -181,10 +181,10 @@ $ docker run --rm -it atomist-docker.jfrog.io/rug-cli
 Resolving dependencies for com.atomist:rug:0.12.0 completed
 Initializing shell for com.atomist:rug:0.12.0 completed
 Press 'Tab' to complete. Type 'help' and hit 'Return' for help, and 'exit' to quit.
-rug → 
+rug →
 ```
 
-If you want to run the CLI, the image expects you to call `rug` as its first 
+If you want to run the CLI, the image expects you to call `rug` as its first
 argument. For instance:
 
 ```shell
@@ -198,16 +198,16 @@ Notice how the CLI stores its settings **inside the container** under
 the `/home/atomist/.atomist/repository` directory.
 
 You can persist those on your host by providing the following argument to the
-docker run command: `-v $HOME/.atomist:/home/atomist/.atomist`. 
+docker run command: `-v $HOME/.atomist:/home/atomist/.atomist`.
 
-To use the CLI against a project on your host, you will also need to share your 
-project's directory with the container `/home/atomist/project` container's 
+To use the CLI against a project on your host, you will also need to share your
+project's directory with the container `/home/atomist/project` container's
 working directory. For example, assuming you are currently in a Rug project:
 
 ```shell
 $ docker run --rm -it \
     --user $UID:`id -g` \
-    -v $HOME/.atomist:/home/atomist/.atomist \ 
+    -v $HOME/.atomist:/home/atomist/.atomist \
     -v $PWD:/home/atomist/project \
     atomist-docker.jfrog.io/rug-cli \
     rug
@@ -216,9 +216,9 @@ $ docker run --rm -it \
 The constraint here is the limit imposed by the management of permissions
 between your host's user and the user defined in the container.
 
-In the container, the CLI is not run as `root` but as a regular user that 
-hopefully does not map any UID on your system. A possible workaround is 
-to switch to a different user at runtime, hence the rather ugly command line 
+In the container, the CLI is not run as `root` but as a regular user that
+hopefully does not map any UID on your system. A possible workaround is
+to switch to a different user at runtime, hence the rather ugly command line
 above. Another approach is to switch to [user namespace][dockerun] on your host.
 
 [dockerun]: https://success.docker.com/KBase/Introduction_to_User_Namespaces_in_Docker_Engine

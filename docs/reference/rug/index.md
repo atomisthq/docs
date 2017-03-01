@@ -10,12 +10,14 @@ Each different kind of Rug provides a different way for you to
 interact with a repository.  Rugs can be written using the Rug DSL and
 TypeScript.
 
--   [Rug Tests](tests.md): BDD test framework for Rugs
--   [Rug Editors](editors.md): Add, remove, and edit files
--   [Rug Generators](generators.md): Create new repositories
--   [Rug Microgrammars](microgrammars.md): Specify and work with a custom microgrammar to work effectively with files
--   [Rug Reviewers](reviewers.md): Examine a repository for conformance to standards
--   [Rug Executors](executors.md): Apply any of the above Rugs to multiple repositories at once
+-   [Handlers](handlers.md): Respond to events
+-   [Commands](commands.md): Take action
+-   [Editors](editors.md): Add, remove, and edit files
+-   [Generators](generators.md): Create new repositories
+-   [Reviewers](reviewers.md): Examine a repository for conformance to standards
+-   [Path Expressions](path-expressions.md): Select specific elements of projects, files, and code
+-   [Microgrammars](microgrammars.md): Specify and work with a custom microgrammar to work effectively with files
+-   [Tests](tests.md): BDD test framework for Rugs
 
 ### Rug Language Extensions
 
@@ -47,4 +49,4 @@ information on each `rug` command.
 The [Rug Conventions][conventions] provide a set of best practices
 when developing Rugs.
 
-[conventions]: ../../atomist/rug/conventions.md
+[conventions]: /user-guide/rug/conventions.md

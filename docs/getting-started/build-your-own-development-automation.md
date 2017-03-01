@@ -1,6 +1,6 @@
 Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box and now let's automate an action.
 
-In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](/atomist/rug/index.md) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
+In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](/user-guide/rug/index.md) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
 
 ### Create a new Rug Handlers project for your new automation
 
@@ -217,6 +217,6 @@ There, you did it! You just created a new automation, and taught the Bot to list
 
 You've come a long way but to get even *more* out of your development automation here are some suggested next steps...
 
-- Checking out the [Quick Starts](/guides/index.md) for short introductions to a number of Atomist features.
-- Get comfortable with writing and editing your development automation Rugs with the [Rug CLI](../atomist/interfaces/cli/index.md).
+- Checking out the [User Guide](/user-guide/index.md) to learn more about Atomist.
+- Get comfortable with writing and editing your development automation Rugs with the [Rug CLI](/user-guide/interfaces/cli/index.md).
 - Take a deep-dive through Rug using `@atomist` in with the [Rug Koans](https://github.com/atomist-rugs/rug-koans-project).
