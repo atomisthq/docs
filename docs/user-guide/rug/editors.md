@@ -1,153 +1,56 @@
-Rug editors ***work at the level of a specific project***, for example
-this is typically a particular ***repository on GitHub***.
+# Rug Editors: Updating Projects
 
-Rug editors can be found in the `.atomist/editors` directory of
-a [Rug project][archive]. They also have access to template content in
-the same project, bundled under `/.atomist/templates`.
+The most common task performed on a daily basis is to change the code of a
+project. Those updates can target a single file but can also refer to many
+resources.
 
-[archive]: archives.md
+Rug editors automate updates, from the simplest to most complex. 
 
-Rug editor files are [TypeScript][ts] files with a `.ts` extension.  A `.ts`
-file can contain one or more editors but it's good practice to keep them
-separated for modularity.
-
-!!! tip "It's all TypeScript afterall"
-    Rugs are TypeScript files and you can therefore benefit from the richness
-    of that language as much as you need as long as you are respecting the
-    Rug programming model.
-
-
-Any number of Rug editors can be bundled together in
-a [Rug project][archive]. A good example of this is the
-open source [Spring Boot Editors][boot-editors] Rug project.
-
-[ts]: https://www.typescriptlang.org/
-[boot-editors]: https://github.com/atomist-rugs/spring-boot-editors
+!!! note "See also"
+    Please see the [reference documentation][rugedref] for detailed information 
+    about the editor programming model.
 
 ## A Basic Editor
 
-Let's start by building up a simple program: a project editor that appends
-to a specific file in a project:
+The following editor adds a Markdown document at the given path inside your 
+project.
 
 ```typescript
 import { EditProject } from "@atomist/rug/operations/ProjectEditor"
 import { Editor, Tags } from "@atomist/rug/operations/Decorators"
-import { Project, File } from '@atomist/rug/model/Core'
+import { Pattern } from '@atomist/rug/operations/RugOperations'
+import { Project } from '@atomist/rug/model/Core'
 
-@Editor("AppendToSpecificFile", "Append content to a text file")
-@Tags("simple")
-class AppendToSpecificFile implements EditProject {
+@Editor("AddMarkdownDocument", "adds a Markdown document with default content")
+@Tags("markdown", "documentation")
+class AddMarkdownDocument implements EditProject {
 
-    edit(project: Project) {
-        let file: File = project.findFile("myfile.txt");
-        if (file != null ) {
-            file.append("\nAnd this is a new line")
-        }
-    }
-}
+    @Parameter({description: "path of the new document in the project", pattern: Pattern.any})
+    filepath: string
 
-export let simple = new AppendToSpecificFile()
-```
+    @Parameter({description: "document's top-level title", pattern: Pattern.any})
+    title: string
 
-This editor shows the general programming model for an editor. Initial import
-statements for the TypeScript compiler (and a nicer experience in your IDE) of
-the Rug programming model entities.
-
-The `@Editor` [TypeScript decorator][tsdecorator] prepares the
-`AppendToSpecificFile` for the Rug runtime as an editor.
-
-[tsdecorator]: https://www.typescriptlang.org/docs/handbook/decorators.html
-
-This decorator takes two values, the editor's name and its description which
-should follow the [Rug convention in usage][rugconv].
-
-[rugconv]: conventions.md
-
-An editor is a class that implements the `EditProject`, meaning it must
-implement the `edit(project: Project)` method. The project interface is
-defined in the `@atomist/rug/operations/ProjectEditor` TypeScript module.
-
-Notice the `export` line at the end of the editor definition. The name of the
-variable doesn't matter and should only follow your conventions.
-
-## Make Your Editor Discoverable
-
-It is good manner to tag an editor so that it can be searched and discovered
-more easily.
-
-This is achieved through the `@Tags` [TypeScript decorator][tsdecorator] which
-takes a variable amount of strings, each one being a tag for your editor.
-
-## Parameterize Your Editor
-
-Let's make the previous editor a little more sophisticated. Perhaps we'd like to
-decide what content we should append. This would be a natural parameter:
-
-```typescript
-import { EditProject } from "@atomist/rug/operations/ProjectEditor"
-import { Editor, Tags, Parameter } from "@atomist/rug/operations/Decorators"
-import { Project, File } from '@atomist/rug/model/Core'
-
-@Editor("AppendToFile", "Appends value of to_append parameter to the end of files called myfile.txt")
-@Tags("simple")
-class AppendToFile implements EditProject {
-
-    @Parameter({pattern: "^.*$", description: "Text to append to the file"})
-    to_append: string = ""
+    @Parameter({description: "document's default content", pattern: Pattern.any})
+    content: string
 
     edit(project: Project) {
-        let file: File = project.findFile("myfile.txt");
-        if (file != null ) {
-            file.append(this.to_append)
-        }
+        let data = `#${this.title}\n\n${this.content}`
+        project.addFile(this.filepath, data)
     }
 }
-
-export let simple = new AppendToFile()
+export let editor = new AddMarkdownDocument()
 ```
 
-This is achieved through the `@Parameter` [TypeScript decorator][tsdecorator]
-on class attributes. The parameter's name and default values are infered from
-the attribute's name and value's.
+# Run Editors
 
-The decorator allows for the following fields, notice that `pattern` is
-the only mandatory field:
+Editors work in the given context of a project, starting at its top-level
+directory. Usually, an editor looks for one or many resources to perform 
+changes. 
 
-```typescript
-interface Parameter {
-  pattern: string
-  required?: boolean
-  description?: string
-  displayName?: string
-  validInput?: string
-  displayable?: boolean
-  maxLength?: number
-  minLength?: number
-  tags?: string[]
-}
-```
+!!! warning
+    Editors are applied on a project without a confirmation from the operator.
+    If your project is not tracked in a VCS, you may lose data. 
 
-!!! note
-    The parameter definition specifies a regular expression that will be used to
-    validate it before it's passed to the editor. So the editor's implementation
-    can assume that it's valid upon execution.
 
-## Composing Editors
-
-Editors can be composed. You simply call them from another editor by their name
-as follows:
-
-```typescript
-    edit(project: Project) {
-        project.editWith("OtherEditor", {somekey: "some value"})
-    }
-```
-
-Composed editors don't need to live in the same Rug file as their callers. The
-given parameters must match the other editor's parameters signature.
-
-## Next
-
-*   [Rug Generators](generators.md)
-*   [Rug Templates](templates.md)
-*   [Core Rug Language Extensions](/reference/rug/extensions/index.md)
+[rugedref]: /reference/rug/editors.md

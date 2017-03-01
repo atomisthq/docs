@@ -42,7 +42,7 @@ Clone the new `handlers` project locally and, because we're using TypeScript, ch
     To develop your rugs in TypeScript you will need [`node.js` and `npm`](https://nodejs.org) installed locally.
 
 ```shell
-> npm install
+$ npm install
 /.../handlers/.atomist
 ├─┬ @atomist/github@0.2.0
 │ └── @atomist/rug@0.10.0
@@ -82,8 +82,6 @@ atomist.on<TreeNode, TreeNode>("/Issue()/belongsTo::Repo()/channel::ChatChannel(
 
 Now it's time to publish and test your new handler.
 
-> ***NOTE***:
-
 !!! note ""
     At the moment you can't test handlers locally and instead you need to publish and test your handler is invoked from it's results in Atomist.
 
@@ -93,10 +91,10 @@ To make Atomist aware of your new `handler` you need to publish the `handler` pr
 
 #### Installing and Configuring the Rug CLI
 
-Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI](../rug/cli) with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
+Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI](setup-dev-env.md) with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
 
 ```shell
-> rug repositories configure
+$ rug repositories configure
 
 No token configured. Please run repositories login before running this command.
 
@@ -107,7 +105,7 @@ Run the following command for usage help:
 To configure the Rug CLI you need to execute the `rug repositories login` command providing your GitHub credentials:
 
 ```shell
-> rug repositories login
+$ rug repositories login
 
 
 The Rug CLI needs your GitHub login to identify you.
@@ -131,8 +129,8 @@ Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
 
 Now when you execute `rug repositories configure` you should see the Rug CLI configured with your team's unique repository:
 
-```
-> rug repositories configure
+```shell
+$ rug repositories configure
 
 → Repositories
   <unique identifier of your team's repository>
@@ -146,7 +144,7 @@ You're now all set to publish your `handlers` project.
 The Rug CLI has the `publish` command to publish a Rug archive from your local copy. Execute the `rug publish` command from inside your `handlers` project directory:
 
 ```shell
-> rug publish
+$ rug publish
 Resolving dependencies for antifragilesoftware:handlers:0.1.0 ← local completed
 Invoking TypeScript Compiler on ts script sources
   Created .atomist/handlers/CloseIssueThanksHandler.js.map
@@ -176,7 +174,7 @@ Successfully published archive for antifragilesoftware:handlers:0.1.0
 Your new `handlers` rugs are now ready for action in your Atomist environment. To test that everything has published correctly you can execute `rug search` and you should see your Rug archive listed just for you:
 
 ```shell
-> rug search
+$ rug search
 Searching https://api.atomist.com/catalog
 Searching catalogs completed
 
@@ -217,6 +215,6 @@ There, you did it! You just created a new automation, and taught the Bot to list
 
 You've come a long way but to get even *more* out of your development automation here are some suggested next steps...
 
+- [Setup your local environment](setup-dev-env.md) to develop your own Rugs.
 - Checking out the [User Guide](/user-guide/index.md) to learn more about Atomist.
-- Get comfortable with writing and editing your development automation Rugs with the [Rug CLI](/user-guide/interfaces/cli/index.md).
 - Take a deep-dive through Rug using `@atomist` in with the [Rug Koans](https://github.com/atomist-rugs/rug-koans-project).

@@ -1,22 +1,35 @@
-## Rug CLI Quick Start
+# Setup Your Local Environment
 
-The Rug CLI runs generators and editors against your local source
-code. You can run published Rugs and your local Rugs, and see the
-results in your project directory. This is essential when you're
-developing your own generators and editors.
+Behind Atomist unique features is Rug, a programming model for 
+development lifecycle automation. 
 
-This quick start guide is more involved that those for Buttons and the
-Bot, but don't fret! We are working diligently to make interacting
-with the Rug CLI as simple and intuitive as possible.
+The Rug CLI gives you the tooling to search, install, run public and private 
+Rugs on your local machine. It is also the tool to develop/test and publish
+your own Rugs.
 
-### Installing the Rug CLI
+!!! note
+    If you only plan on benefiting from Atomist capabilities through its
+    integrations, you do not need to install the CLI.
+
+## Installing the Rug CLI
 
 You can install the Rug command-line interface using standard
 packaging tools for your operating system.
 See [Rug CLI Installation](/user-guide/interfaces/cli/install.md) for
 instructions.
 
-### 'Git' Some Examples
+## Additional third-parties
+
+Rugs are implemented in [TypeScript][ts] and it is recommended you install
+[npm][npm]. You should also get an IDE that has good support for that 
+language.
+
+[ts]: https://www.typescriptlang.org/
+[npm]: https://docs.npmjs.com/getting-started/installing-node
+
+## Quick CLI Tour
+
+### Get some Rugs
 
 To generate and edit code with Rug automation, you should become
 familiar with Rug editors, generators, and reviewers.  The best way to
@@ -79,7 +92,7 @@ RemoveCodeOfConduct
 Feel free to look around in the `.atomist` directory to see what is
 there, investigate the Rug syntax, and see what the tests look like.
 
-### Test Rugs
+### Test those Rugs
 
 It is a best practice to provide tests for your Rugs.  The first Rug
 command we are going to try will run all of the tests available in the
@@ -169,7 +182,7 @@ be faster.
 As you can see from the last line of output, all of the test scenarios
 passed.
 
-### Install a Rug Archive
+### Make your Rugs Available
 
 The next step is to create a Rug archive and install it locally so you
 can use it on local projects.  This is accomplished with the `install`
@@ -252,7 +265,7 @@ This command packages up all of the Rugs in the `.atomist` directory
 and installs them in your local repository, typically
 `~/.atomist/repository`.
 
-### List Editors
+### List the installed Editors
 
 Remember above when we ran that arcane `awk` command to list the
 editors?  There is a better way!  Now that we some editors installed
