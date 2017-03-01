@@ -74,12 +74,6 @@ Certain well-known assertions can be used alone. These are indicated in the foll
 * `MissingParameters`: The scenario passes if the editor fails due to missing parameters. Used to test parameter validation.
 * `InvalidParameters`: The scenario passes if the editor fails due to invalid parameters. Used to test parameter validation.
 
-#### Going further with `Predicate` Assertions
-
-Most often, assertions are [Rug predicates](predicates.md), chained with `and`.
-
-Unlike in Rug programs, using `and` does not create a single composed predicate, but chains separate predicates, allowing the test runtime to produce more informative error messages.
-
 ### The Rug Test Grammar
 
 The full grammar of Rug tests is defined as:

@@ -72,9 +72,6 @@ functions are exposed what has been selected.
 
 [extensions]: /reference/rug/extensions/index.md
 
-The code between `when` and `do` is
-a [Rug Predicate](predicates.md), specifying which files to match.
-
 Let's make this a little more sophisticated. Perhaps we'd like to
 decide what content we should append. This would be a natural
 parameter:

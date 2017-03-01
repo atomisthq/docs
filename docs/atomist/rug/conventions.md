@@ -2,7 +2,7 @@
 
 Rug *is* the Atomist API and is implemented in its own [Domain Specific Language (DSL)][dsl] as well as TypeScript variants. Rug is currently used to define
 project [generators](generators.md), [editors](editors.md),
-reviewers (coming soon), [predicates](predicates.md) and [tests](tests.md).
+reviewers (coming soon) and [tests](tests.md).
 In addition, the Rug runtime exposes these concepts to JavaScript
 (with first class support for [TypeScript][ts]) for those classes of problems
 for which the DLS is too constraining.
@@ -119,7 +119,7 @@ the `.atomist/templates` directory.
 
 ### Rug Naming
 
-Rug editors, generators, reviewers, predicates should have their names
+Rug editors, generators, reviewers should have their names
 formatted using [UpperCamelCase][ucc].
 
 [ucc]: http://wiki.c2.com/?UpperCamelCase
@@ -133,7 +133,7 @@ anything, but `AddDockerToMavenProjects` is better if the intention of
 the Rug is to only work with projects that follow Maven conventions.
 
 While a Rug `.rug` file can contain many different editors,
-generators, reviewers and predicates, the Rug runtime
+generators and reviewers, the Rug runtime
 enforces that the first Rug definition in a `.rug` file should match
 the name of the file itself. Therefore Rug files should be formatted
 using UpperCamelCase to match the name of the first Rug definition in
@@ -141,19 +141,6 @@ the file.
 
 Further, Rugs within the same file are conventionally understood to be
 in support of the main and initial Rug in the file.
-
-#### Rug Predicate Naming
-
-Rug predicates in Rug DSL need to be in their own `.rug` file if they
-are to be reused by other Rugs or even external Rug projects and are
-formatted according to the same UpperCamelCase rules as editors,
-generators and reviewers.
-
-In addition, a Rug predicate should be named according to what it
-includes. For example, `IsMavenProject` would be a good name for a
-predicate that will ensure, if applied to an editor, that the
-corresponding editor could only be applied if the target met the
-conditions to be considered a Maven project.
 
 ### Rug Project Configuration
 
@@ -226,7 +213,7 @@ an image.  The following tags currently have images: `docker`,
 
 ### Rug DSL `description` Annotations
 
-Rug editors, generators, reviewers, predicates, and parameters can have an
+Rug editors, generators, reviewers and parameters can have an
 accompanying `description` annotation such as:
 
 ```rug

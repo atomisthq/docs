@@ -54,7 +54,7 @@ project. For this reason, Rug artifacts are safely contained in a
 ```
 .atomist/
   manifest.yml <= Metadata for the Rug project
-  editors/     <= Rugs providing editors, generators, and conditional predicates
+  editors/     <= Rugs providing editors, generators
   executors/   <= Rugs that will work across multiple repositories
   reviewers/   <= Rugs that will provide feedback
   templates/   <= Templates  used by Rugs

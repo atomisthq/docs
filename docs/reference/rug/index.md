@@ -13,7 +13,6 @@ TypeScript.
 -   [Rug Tests](tests.md): BDD test framework for Rugs
 -   [Rug Editors](editors.md): Add, remove, and edit files
 -   [Rug Generators](generators.md): Create new repositories
--   [Rug Predicates](predicates.md): Determine whether a feature exists in a repository
 -   [Rug Microgrammars](microgrammars.md): Specify and work with a custom microgrammar to work effectively with files
 -   [Rug Reviewers](reviewers.md): Examine a repository for conformance to standards
 -   [Rug Executors](executors.md): Apply any of the above Rugs to multiple repositories at once
