@@ -80,6 +80,8 @@ Most often, assertions are [Rug predicates](rug-predicates.md), chained with `an
 
 Unlike in Rug programs, using `and` does not create a single composed predicate, but chains separate predicates, allowing the test runtime to produce more informative error messages.
 
+The functions available for use here are the ones on the [Project](types/rug-core-types-project.md).
+
 ### The Rug Test Grammar
 
 The full grammar of Rug tests is defined as:
