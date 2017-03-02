@@ -1,8 +1,8 @@
 Right! You've seen some of the automation between issues, commits, builds that we provide out-of-the-box and now let's automate an action.
 
-In Atomist that means writing a `handler` in TypeScript using the Atomist's [Rug](/user-guide/rug/index.md) support. The `handler` will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
+In Atomist that means writing a handler in TypeScript using the Atomist's [Rug](/user-guide/rug/index.md) support. The handler will be triggered by a certain type of activity that Atomist can detect, in this example case you want to notify the team when an issue labeled 'bug' gets fixed.
 
-### Create a new Rug Handlers project for your new automation
+### Create a Rug Handlers Project
 
 The first thing you need is a project for your code. Although you can add Atomist Rug code to any existing project by simply adding a `.atomist` directory along with a few support files in this case we'll create and publish a new project for your first Atomist Rug development automation.
 
@@ -36,7 +36,7 @@ Also `@atomist` will have created a new `#handlers` channel in Slack that's tied
   <img src="../images/handlers-slack-channel-created.png" alt="Handlers slack channel initialised" class="ss-small">
 </div>
 
-Clone the new `handlers` project locally and, because we're using TypeScript, change directory into the `.atomist` directory of the local `handlers` project and enter `npm install` to get the TypeScript library dependencies installed:
+Clone the new handlers project locally and, because we're using TypeScript, change directory into the `.atomist` directory of the local handlers project and enter `npm install` to get the TypeScript library dependencies installed:
 
 !!! note ""
     To develop your rugs in TypeScript you will need [`node.js` and `npm`](https://nodejs.org) installed locally.
@@ -53,11 +53,11 @@ $ npm install
 
 Now it's time to write your new handler.
 
-### Writing your new `handler`
+### Writing Your Handler
 
-The `handlers` project you just generated contains a number of pre-existing handlers that you can take inspiration from. For our purposes we only want one new handler and the closest example in the `handlers` project is `.atomist/handlers/IssueHandler.ts`.
+The handlers project you just generated contains a number of pre-existing handlers that you can take inspiration from. For our purposes we only want one new handler and the closest example in the handlers project is `.atomist/handlers/IssueHandler.ts`.
 
-The generated `handlers` project contains a whole host of sample handlers and executors, including all the default handlers that you've seen in action already. You need to keep those handlers in this project as when you publish this Rug archive you will effectively override the default handlers, and we don't want to lose that functionality we've already seen.
+The generated handlers project contains a whole host of sample handlers and executors, including all the default handlers that you've seen in action already. You need to keep those handlers in this project as when you publish this Rug archive you will effectively override the default handlers, and we don't want to lose that functionality we've already seen.
 
 In a new `.atomist/handlers/CloseIssueThanks.ts` file enter the following handler code:
 
@@ -85,15 +85,19 @@ Now it's time to publish and test your new handler.
 !!! note ""
     At the moment you can't test handlers locally and instead you need to publish and test your handler is invoked from it's results in Atomist.
 
-### Publish your new `handler`
+### Publish Your Handler
 
-To make Atomist aware of your new `handler` you need to publish the `handler` project. This is often done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/cli).
+To make Atomist aware of your new handler you need to publish the handler project. This is often done via continuous integration but for our purposes here you're going to see how it's done manually using the [Rug CLI](../rug/cli).
 
-#### Installing and Configuring the Rug CLI
+#### Install and Configure the Rug CLI
 
-Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI][rug-dev] with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
+Firstly make sure you've [installed the latest Rug CLI][cli-install]
+for your platform.  To publish new Rugs you need to
+configure the Rug CLI with the credentials it needs to push
+your rugs to Atomists.  To see this problem you can try to run the
+command `rug repositories configure` and you should see:
 
-[rug-dev]: developing-rugs.md
+[rug-dev]: /user-guide/interfaces/cli/install.md
 
 ```console
 $ rug repositories configure
@@ -139,11 +143,11 @@ $ rug repositories configure
     <your unique team's repository url here>
 ```
 
-You're now all set to publish your `handlers` project.
+You're now all set to publish your handlers project.
 
-#### Publishing your `handlers` project using the Rug CLI
+#### Publishing
 
-The Rug CLI has the `publish` command to publish a Rug archive from your local copy. Execute the `rug publish` command from inside your `handlers` project directory:
+The Rug CLI has the `publish` command to publish a Rug archive from your local copy. Execute the `rug publish` command from inside your handlers project directory:
 
 ```console
 $ rug publish
@@ -173,7 +177,7 @@ Publishing archive into remote repository completed
 Successfully published archive for antifragilesoftware:handlers:0.1.0
 ```
 
-Your new `handlers` rugs are now ready for action in your Atomist environment. To test that everything has published correctly you can execute `rug search` and you should see your Rug archive listed just for you:
+Your new handlers rugs are now ready for action in your Atomist environment. To test that everything has published correctly you can execute `rug search` and you should see your Rug archive listed just for you:
 
 ```console
 $ rug search
@@ -185,7 +189,7 @@ yourorg:handlers [private] (0.1.0)
 ...
 ```
 
-### Seeing your new `handler` in action
+### Your Handler in Action
 
 Now you can give your new `CloseIssueThanksHandler` handler a spin! Head back to the `#sprocket` channel and you should see a button to `Close` the issue we created earlier:
 
@@ -213,10 +217,20 @@ Click on `Close` (you could also close the issue in GitHub if you prefer) and se
 
 There, you did it! You just created a new automation, and taught the Bot to listen for events and run that automation!
 
-### Congratulations, you've completed the Getting Started guide for Atomist!
+## What Next
 
-You've come a long way but to get even *more* out of your development automation here are some suggested next steps...
+Congratulations, you've made it through the Atomist Getting Started
+guide.  Now that you're up and running with Atomist, please be sure
+to
 
-- [Developing Rugs][rug-dev].
-- Checking out the [User Guide](/user-guide/index.md) to learn more about Atomist.
-- Take a deep-dive through Rug using `@atomist` in with the [Rug Koans](https://github.com/atomist-rugs/rug-koans-project).
+-   Join the [Atomist Community Slack][slack]
+-   Following our blog, [The Composition][composition]
+-   Follow [@atomist][twitter] on Twitter
+
+[slack]: https://join.atomist.com/
+[composition]: https://the-composition.com/
+[twitter]: https://twitter.com/atomist
+
+If you want more detailed documentation on all aspects of Atomist,
+just click Next at the bottom-right of this page to move into the
+Atomist User Guide.

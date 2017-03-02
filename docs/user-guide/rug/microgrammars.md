@@ -1,20 +1,17 @@
-## Rug Microgrammars
-
 Microgrammars are *"partial grammars designed to extract checker-specific features only"* (see [this post by Adrian Colyer](https://blog.acolyer.org/2016/05/31/how-to-build-static-checking-systems-using-orders-of-magnitude-less-code/) for an introduction to the concept of Micro-grammars).
 
 When there is no existing [Rug Language Extension][extensions] and plain file manipulation is too clumsy and random, the microgrammar support in Rug provides an effective way of declaring a way to safely select and extract a portion of a file so that it can be inspected and manipulated by your Rugs.
 
 [extensions]: /reference/rug/extensions/index.md
 
-> For more on micro-grammars we strongly recommend you check out this [post by Adrian Colyer](https://blog.acolyer.org/2016/05/31/how-to-build-static-checking-systems-using-orders-of-magnitude-less-code/).
-
-***Please Note:*** Currently Rug microgrammar support only works inside TypeScript Rugs.
+!!! note ""
+    For more on microgrammars we strongly recommend you check out this [post by Adrian Colyer](https://blog.acolyer.org/2016/05/31/how-to-build-static-checking-systems-using-orders-of-magnitude-less-code/).
 
 ### A Rug micro-grammar in Action
 
 The following code shows a microgrammar being declared in a Rug TypeScript editor:
 
-```typescript
+```typescript linenums="1"
 class MicrogrammarSampleEditor implements ProjectEditor {
   name: string = "MicrogrammarSampleEditor"
   description: string = "Demonstrates using a microgrammar"

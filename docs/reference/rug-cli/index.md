@@ -1,12 +1,11 @@
-## Rug CLI Commands and Syntax
-
 This page documents syntax and functionality of the Rug CLI.
 
-*Note:* All commands listed below are provided only as examples of the
-syntax.  They may refer to Rugs and Rug archives or projects that do not exist and
-therefore may not work.
+!!! note ""
+    All commands listed below are provided only as examples of the
+    syntax.  They may refer to Rugs and Rug archives or projects that
+    do not exist and therefore may not work.
 
-### Configuring
+## Configuring
 
 In order to use the CLI the following file named `cli.yml` needs to be
 placed in `~/.atomist`.  The contents of the simplest possible
@@ -34,13 +33,13 @@ remote-repositories:
 The Rug CLI will create the above `cli.yml` if you do not already have
 one.
 
-### Commands
+## Commands
 
 The CLI will assume the current working directory to be the root for execution.
 
-#### Using the CLI as Rug users
+### Using the CLI as Rug users
 
-##### Invoking Editors
+#### Invoking Editors
 
 Run an editor as follows:
 
@@ -54,7 +53,7 @@ $ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
 `artifact-version` is optional and defaults to `latest` semantics.
 `--change-dir` or `-C` for giving a generator a target directory.
 
-##### Invoking Generators
+#### Invoking Generators
 
 ```console
 $ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
@@ -67,7 +66,7 @@ $ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
 `artifact-version` is optional and defaults to `latest` semantics.
 `--change-dir` or `-C` for giving a generator a target directory.
 
-##### Describing Rug Artifacts
+#### Describing Rug Artifacts
 
 To get information about a Rug and list all its parameters, run the
 `rug describe` command.
@@ -82,7 +81,7 @@ $ rug describe generator atomist-rugs:spring-boot-rest-service:NewSpringBootThin
     --artifact-version 1.0.0
 ```
 
-##### Listing Local Archives
+#### Listing Local Archives
 
 To list all locally available Rug archives, run the `rug list`
 command:
@@ -95,12 +94,12 @@ The local listing can be filtered by using `-f` filter expressions on
 `group`, `artifact` and `version`. `group` and `artifact` support
 wildcards of `*` and `?`.  `version` takes any version constraint.
 
-#### Using the CLI as Rug developer
+### Using the CLI as Rug developer
 
 All the following commands need to executed from within the Rug
 project directory.
 
-##### Running Tests
+#### Running Tests
 
 To run all tests:
 
@@ -120,7 +119,7 @@ To run all scenarios from a .rt file:
 $ rug test MyRugTestFilename
 ```
 
-##### Installing a Rug archive
+#### Installing a Rug archive
 
 Creating a Rug zip archive and installing it into the local repository
 can be done with the following command:
@@ -133,7 +132,7 @@ This command packages the project into a zip archive, creates a Pom
 and installs both into the local repository under, usually
 `.atomist/repository`.
 
-### Dependency Resolution
+## Dependency Resolution
 
 The Rug CLI will automatically resolve and download the dependencies
 of the given Rug archive when `edit` or `generate` is invoked. The
@@ -149,9 +148,9 @@ Therefore running above commands is a two step process:
 2.  Start up `rug-lib` passing parameters over to run the editor or
     generator
 
-### Advanced Topics
+## Advanced Topics
 
-#### Turning on Verbose output for Debugging
+### Turning on Verbose output for Debugging
 
 If you want a more verbose output that includes any exceptions that
 Rug command may have encountered, please add `-X` to your command.

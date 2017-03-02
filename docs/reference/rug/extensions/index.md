@@ -1,21 +1,12 @@
-## Core Rug Language Extensions
+Rug extensions represent different types of source code, events, and
+systems which Rug can understand and interact with.  Each Rug
+extension defines a set of operations you can use to get and
+modify the system or language it represents.
 
 Rug has a number of in-built language extensions that understand
 project concepts and make it *much* simpler to write your Rugs.
 
-Consider the following line:
-
-```rug
-with File f
-```
-
-`File` here is not a function or a reserved word in Rug, but a `Rug
-Language Extension`. Rug Language Extensions are an important part point of Rug, enabling it to
-expose a wide range of functionality in a native-seeming way. Language Extensions
-support a range of methods that can be used in `with` predicates or
-`do` statements.
-
-A number of Rug Language Extensions are currently shipped out of the box including:
+The following core Rug extensions are natively supported by Rug:
 
 *   [CljProject](clj-project.md) - Clojure projects
 *   [CSharpFile](c-sharp-file.md) - C# files
@@ -40,3 +31,5 @@ A number of Rug Language Extensions are currently shipped out of the box includi
 *   [SpringBootProject](spring-boot-project.md) - Spring Boot projects
 *   [Xml](xml.md) - XML files
 *   [Yml](yml.md) - YAML files
+
+You can also write your own Rug extensions.

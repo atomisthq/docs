@@ -1,12 +1,10 @@
-# Rug Reviewers: Projects Compliance
-
 In the last few years, code review has become a strong asset for any team
 looking at producing high quality software and reducing bugs. However, with the
 sheer size of projects, it can become highly tedious to track all changes
 properly and a balance must be found between thorough code reviews and the time
 they consume.
 
-Rug reviewers allievate some of that burden by letting your team codifying 
+Rug reviewers allievate some of that burden by letting your team codifying
 some of your peer reviews into automatable operations.
 
 ## A Basic Reviewer
@@ -34,9 +32,3 @@ class MarkdownHeaderStyle implements ReviewProject {
 }
 export let reviewer = new MarkdownHeaderStyle()
 ```
-
-!!! note
-    Please see the [reference documentation][rugrewref] for detailed information 
-    about the reviewer programming model.
-
-[rugrewref]: /reference/rug/reviewers.md

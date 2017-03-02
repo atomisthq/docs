@@ -1,4 +1,5 @@
-TypeScript generator stuff
+Below is information on writing Rug generators using the Rug DSL,
+which is now deprecated.
 
 ## Rug DSL Generators (Deprecated)
 
@@ -18,7 +19,7 @@ generator:
 
 [spring]: https://github.com/atomist-rugs/spring-boot-rest-service
 
-```rug  linenums="1"
+```rug
 @tag "java"
 @tag "spring"
 @tag "spring-boot"

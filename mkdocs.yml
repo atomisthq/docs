@@ -22,7 +22,7 @@ extra:
     - type: 'slack'
       link: 'https://join.atomist.com/'
 extra_css:
-  - 'stylesheets/extra.css'
+  - stylesheets/extra.css
 google_analytics:
   - 'UA-74966852-1'
   - 'auto'
@@ -44,93 +44,97 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist(custom_checkbox=true)
   - pymdownx.tilde
-repo_name: 'Rug'
-repo_url: 'https://github.com/atomist/rug'
+repo_name: Rug
+repo_url: https://github.com/atomist/rug
 pages:
 - Overview:
   - Introduction: index.md
   - Concepts: concepts.md
-  - Capabilities: capabilities.md
+#  - Capabilities: capabilities.md
 - Getting Started:
-  - Overview: 'getting-started/index.md'
-  - Prerequisites: 'getting-started/prerequisites.md'
-  - Invite Atomist to Slack: 'getting-started/invite-atomist-to-slack.md'
-  - Connect Atomist to GitHub: 'getting-started/connect-atomist-to-github.md'
-  - Putting Atomist to Work: 'getting-started/putting-atomist-to-work.md'
-  - Connect Atomist to CI: 'getting-started/connect-atomist-to-ci.md'
-  - Build Your Own Development Automation: 'getting-started/build-your-own-development-automation.md'
-  - Developing Rugs: getting-started/developing-rugs.md
-  - Bot: getting-started/bot.md
-  - TypeScript: getting-started/typescript.md
+  - Overview: getting-started/index.md
+  - Prerequisites: getting-started/prerequisites.md
+  - Invite Atomist to Slack: getting-started/invite-atomist-to-slack.md
+  - Connect Atomist to GitHub: getting-started/connect-atomist-to-github.md
+  - Putting Atomist to Work: getting-started/putting-atomist-to-work.md
+  - Connect Atomist to CI: getting-started/connect-atomist-to-ci.md
+  - Build Your Own Development Automation: getting-started/build-your-own-development-automation.md
 - User Guide:
-  - Introduction: 'user-guide/index.md'
+  - Introduction: user-guide/index.md
   - Rug:
-    - Introduction : 'user-guide/rug/index.md'
-    - Handlers: 'user-guide/rug/handlers.md'
-    - Commands: 'user-guide/rug/commands.md'
-    - Editors: 'user-guide/rug/editors.md'
-    - Generators: 'user-guide/rug/generators.md'
-    - Reviewers: 'user-guide/rug/reviewers.md'
-    - Path Expressions: 'user-guide/rug/path-expressions.md'
-    - Microgrammars: 'user-guide/rug/microgrammars.md'
-    - Templates: 'user-guide/rug/templates.md'
-    - Tests: 'user-guide/rug/tests.md'
-    - Archives: 'user-guide/rug/archives.md'
-    - Lifecycle: 'user-guide/rug/lifecycle.md'
-    - Conventions: 'user-guide/rug/conventions.md'
+    - Introduction : user-guide/rug/index.md
+    - Runtime: user-guide/rug/runtime.md
+    - TypeScript: user-guide/rug/typescript.md
+    - Handlers: user-guide/rug/handlers.md
+#    - Commands: user-guide/rug/commands.md
+    - Editors: user-guide/rug/editors.md
+    - Generators: user-guide/rug/generators.md
+    - Reviewers: user-guide/rug/reviewers.md
+    - Extensions: user-guide/rug/extensions.md
+    - Path Expressions: user-guide/rug/path-expressions.md
+    - Microgrammars: user-guide/rug/microgrammars.md
+    - Templates: user-guide/rug/templates.md
+    - Tests: user-guide/rug/tests.md
+    - Projects: user-guide/rug/projects.md
+    - Archives: user-guide/rug/archives.md
+    - Lifecycle: user-guide/rug/lifecycle.md
+    - Conventions: user-guide/rug/conventions.md
   - Integrations:
-    - Overview: 'user-guide/integrations/index.md'
-    - GitHub.com: 'user-guide/integrations/github.md'
-    - Travis CI: 'user-guide/integrations/travis-ci.md'
+    - Overview: user-guide/integrations/index.md
+    - Slack: user-guide/integrations/slack.md
+    - GitHub.com: user-guide/integrations/github.md
+    - Travis CI: user-guide/integrations/travis-ci.md
+    - Jenkins: user-guide/integrations/jenkins.md
   - Interfaces:
-    - Introduction: 'user-guide/interfaces/index.md'
-    - Chat: 'user-guide/interfaces/chat.md'
-    - Rug CLI:
-      - Overview: 'user-guide/interfaces/cli/index.md'
-      - Installation: 'user-guide/interfaces/cli/install.md'
-    - Button: 'user-guide/interfaces/button.md'
+    - Introduction: user-guide/interfaces/index.md
+    - Bot: user-guide/interfaces/bot.md
+    - CLI:
+      - Overview: user-guide/interfaces/cli/index.md
+      - Installation: user-guide/interfaces/cli/install.md
+      - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
 - Reference Documentation:
-  - Overview: 'reference/index.md'
+  - Overview: reference/index.md
   - Rug:
-    - Introduction: 'reference/rug/index.md'
-    - Handlers: 'reference/rug/handlers.md'
-    - Commands: 'reference/rug/commands.md'
-    - Editors: 'reference/rug/editors.md'
-    - Generators: 'reference/rug/generators.md'
-    - Reviewers: 'reference/rug/reviewers.md'
-    - Path Expressions: 'reference/rug/path-expressions.md'
-    - Microgrammars: 'reference/rug/microgrammars.md'
-    - Templates: 'reference/rug/templates.md'
-    - Tests: 'reference/rug/tests.md'
-    - Archives: 'reference/rug/archives.md'
+    - Overview: reference/rug/index.md
+    - Rugs:
+      - Overview: reference/rug/rugs.md
+#      - Handlers: reference/rug/handlers.md
+#      - Commands: reference/rug/commands.md
+      - Editors: reference/rug/editors.md
+      - Generators: reference/rug/generators.md
+#      - Reviewers: reference/rug/reviewers.md
+      - Path Expressions: reference/rug/path-expressions.md
+#      - Microgrammars: reference/rug/microgrammars.md
+#      - Templates: reference/rug/templates.md
+#      - Tests: reference/rug/tests.md
+#      - Archives: reference/rug/archives.md
     - Language Extensions:
-      - Introduction: 'reference/rug/extensions/index.md'
-      - CljProject: 'reference/rug/extensions/clj-project.md'
-      - CSharpFile: 'reference/rug/extensions/c-sharp-file.md'
-      - DockerFile: 'reference/rug/extensions/docker-file.md'
-      - ElmModule: 'reference/rug/extensions/elm-module.md'
-      - EveryPom: 'reference/rug/extensions/every-pom.md'
-      - File: 'reference/rug/extensions/file.md'
-      - JavaProject: 'reference/rug/extensions/java-project.md'
-      - JavaSource: 'reference/rug/extensions/java-source.md'
-      - JavaType: 'reference/rug/extensions/java-type.md'
-      - Json: 'reference/rug/extensions/json.md'
-      - Line: 'reference/rug/extensions/line.md'
-      - Pom: 'reference/rug/extensions/pom.md'
-      - Project: 'reference/rug/extensions/project.md'
-      - Properties: 'reference/rug/extensions/properties.md'
-      - PythonFile: 'reference/rug/extensions/python-file.md'
-      - PythonRequirementsTxt: 'reference/rug/extensions/python-requirements-txt.md'
-      - RugArchiveProject: 'reference/rug/extensions/rug-archive-project.md'
-      - RugFile: 'reference/rug/extensions/rug-file.md'
-      - ScalaFile: 'reference/rug/extensions/scala-file.md'
-      - Services: 'reference/rug/extensions/services.md'
-      - SpringBootProject: 'reference/rug/extensions/spring-boot-project.md'
-      - Xml: 'reference/rug/extensions/xml.md'
-      - Yml: 'reference/rug/extensions/yml.md'
+      - Overview: reference/rug/extensions/index.md
+      - CljProject: reference/rug/extensions/clj-project.md
+      - CSharpFile: reference/rug/extensions/c-sharp-file.md
+      - DockerFile: reference/rug/extensions/docker-file.md
+      - ElmModule: reference/rug/extensions/elm-module.md
+      - EveryPom: reference/rug/extensions/every-pom.md
+      - File: reference/rug/extensions/file.md
+      - JavaProject: reference/rug/extensions/java-project.md
+      - JavaSource: reference/rug/extensions/java-source.md
+      - JavaType: reference/rug/extensions/java-type.md
+      - Json: reference/rug/extensions/json.md
+      - Line: reference/rug/extensions/line.md
+      - Pom: reference/rug/extensions/pom.md
+      - Project: reference/rug/extensions/project.md
+      - Properties: reference/rug/extensions/properties.md
+      - PythonFile: reference/rug/extensions/python-file.md
+      - PythonRequirementsTxt: reference/rug/extensions/python-requirements-txt.md
+      - RugArchiveProject: reference/rug/extensions/rug-archive-project.md
+      - RugFile: reference/rug/extensions/rug-file.md
+      - ScalaFile: reference/rug/extensions/scala-file.md
+      - Services: reference/rug/extensions/services.md
+      - SpringBootProject: reference/rug/extensions/spring-boot-project.md
+      - Xml: reference/rug/extensions/xml.md
+      - Yml: reference/rug/extensions/yml.md
     - DSL:
-      - Introduction: 'reference/rug/dsl/index.md'
-      - Syntax: 'reference/rug/dsl/syntax.md'
-      - Escaping Rug into JavaScript: 'reference/rug/dsl/javascript.md'
-  - Integrations: 'reference/integrations.md'
-  - Rug CLI Command Reference: 'reference/rug-cli/index.md'
+      - Overview: reference/rug/dsl/index.md
+      - Syntax: reference/rug/dsl/syntax.md
+      - Using JavaScript: reference/rug/dsl/javascript.md
+  - Rug CLI: reference/rug-cli/index.md

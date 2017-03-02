@@ -1,4 +1,5 @@
-## Escaping Rug into JavaScript
+!!! caution "The Rug DSL is deprecated"
+    The primary supported language for developing Rugs is now TypeScript.
 
 Rug is intentionally limited, aiming for readability and focus rather
 than general-purpose effectiveness. However, it makes it easy to

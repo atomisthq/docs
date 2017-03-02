@@ -1,18 +1,6 @@
-## Atomist Reference Documentation
-
 The Atomist Reference Documentation contains detailed information on
-various aspects of the Atomist development system.
+various aspects of the Atomist development system.  This is the home
+of auto-generated Atomist documentation.
 
-### Rug Reference Documentation
-
-Atomist's features for creating and evolving projects are provided by
-Rug.  The Rug ecosystem includes a DSL and a CLI.
-
-[Rug Reference Documentation](rug/index.md)
-
-### Atomist Integrations
-
-Atomist integrates with various other development systems to provide
-the best possible developer experience.
-
-[Atomist Integrations Reference Documentation](integrations.md)
+-   [Rug Reference Documentation](rug/index.md)
+-   [Rug CLI Reference Documentation](rug-cli/index.md)

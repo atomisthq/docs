@@ -1,5 +1,3 @@
-# Rug Command Handlers: ChatOps and ChatDev
-
 Controlling communication and information flows is paramount to effective teams.
 Open-Source projects have long been relying on chat venues to operating and
 performing well. Recent modern chat solutions, which can integrate deeply
@@ -42,9 +40,3 @@ class AddMarkdownDocument implements HandleCommand {
 }
 export let command = new AddMarkdownDocument();
 ```
-
-!!! note
-    Please see the [reference documentation][rugcmdhdlref] for detailed information
-    about the command handler programming model.
-
-[rugcmdhdlref]: /reference/rug/commands.md

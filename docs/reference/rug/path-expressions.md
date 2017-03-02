@@ -1,8 +1,8 @@
-# Rug Tree Expression Version 0.1
+# Rug Path Expression Version 0.1
 
 ## Introduction
 
-Rug Tree Expressions are used to obtain tree nodes from structured
+Rug Path Expressions are used to obtain tree nodes from structured
 data, including:
 
 -   Projects
@@ -30,7 +30,7 @@ core ideas can be applied to non XML data structures).
 [xpath]: https://en.wikipedia.org/wiki/XPath#Syntax_and_semantics_.28XPath_1.0.29
 [jsonpath]: http://goessner.net/articles/JsonPath/index.html#e2)
 
-A tree expression navigates a series of nodes and relationships in a
+A path expression navigates a series of nodes and relationships in a
 graph.  Each path element in a path element acts on results returned
 by the previous path element.  Think of it as a "[flatMap][flatmap]"
 operation on a collection in a functional language: it returns a new
@@ -48,7 +48,7 @@ An [ANTLR grammar][antlr] for XPath 1.0 is available.
 
 ## Location Paths
 
-Rug Tree Expressions are location paths consisting of one or more
+Rug Path Expressions are location paths consisting of one or more
 sequential **Location Steps**.  A location path is one or
 more [location steps](#location-steps) separated by forward slashes,
 (`/`).
@@ -250,7 +250,7 @@ Expressions are used in predicates.  Expressions can be:
 -   logically `and`ed and `or`ed
 -   grouped together by parentheses
 
-Rug tree expressions do not support variables and variable references.
+Rug path expressions do not support variables and variable references.
 
 ### Function Calls
 
@@ -300,7 +300,7 @@ evaluates to false.
 
 Equality operators, `=`, `!=`, `<=`, `<`, `>=`, and `>`, are only
 supported for string and number types.  `=` and `!=` are supported on
-boolean types.  Rug tree expressions do not support comparing
+boolean types.  Rug path expressions do not support comparing
 node-sets to each other or other types.
 
 ### Numbers
@@ -320,7 +320,7 @@ explicitly allowed by the grammar
 
 ## Core Function Library
 
-This section describes functions that Rug tree expression
+This section describes functions that Rug path expression
 implementations must always include in the function library that is
 used to evaluate expressions.
 
@@ -502,14 +502,14 @@ node as its only member.
 Certain object types will provide functions that can be called on them
 that are type dependent.  Those functions that return values that can
 be converted to boolean values can be used.  The implementation of
-each object type should document functions valid to use in Rug tree
+each object type should document functions valid to use in Rug path
 expressions.  These functions can be called in predicates and must be
 preceded with a dot (`.`).
 
 ## Data Model
 
-Rug tree expressions operate on objects as a tree. This section
-describes how Rug tree expressions model objects as a tree. This model is
+Rug path expressions operate on objects as a tree. This section
+describes how Rug path expressions model objects as a tree. This model is
 conceptual only and does not mandate any particular
 implementation.
 
@@ -534,7 +534,7 @@ implementation-dependent.  Reverse object order is the reverse of
 object order.
 
 Root nodes and object nodes have an ordered list of child nodes.
-Since Rug tree expressions navigate a graph of relationships, it is
+Since Rug path expressions navigate a graph of relationships, it is
 possible to visit a node on the graph multiple times and therefore
 receives the same objects at multiple depths.
 
@@ -542,7 +542,7 @@ receives the same objects at multiple depths.
 
 The root node is the root of the tree. A root node does not occur
 except as the root of the tree.  The type of a root node is dependent
-on the context in which the tree expression is evaluated.
+on the context in which the path expression is evaluated.
 
 ### Object Nodes
 
@@ -591,23 +591,23 @@ No conformance information.
 
 ### Differences with XPath
 
-Below is a brief summary of differences between Rug tree expressions
+Below is a brief summary of differences between Rug path expressions
 and XPath aimed at getting those who know XPath a fast track to using
-Rug tree expressions.
+Rug path expressions.
 
--   Rug tree expressions distinguish between a node type, which are
+-   Rug path expressions distinguish between a node type, which are
     analogous to XPath node types (e.g., root, element, and
     attribute), and the node's object type, which map to the types of
     objects in the model being traversed (e.g., Project, File, Issue,
     and Repo).
 
--   Rug tree expressions have a different set of axis specifiers,
+-   Rug path expressions have a different set of axis specifiers,
     eschewing ancestor-related axes, simplifying self/descendant axes,
     and introducing relationship axes between nodes in the graph.
 
 -   String indices start with zero (0).
 
--   Rug tree expressions do not support comparison of node sets.
+-   Rug path expressions do not support comparison of node sets.
 
 -   Tree nodes have an expanded set of type-specific functions that
     can be called in predicates.

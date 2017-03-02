@@ -1,12 +1,12 @@
-# Rug Generators: Creating Projects
-
 Rug generators create new projects from an existing source project. This means
 that the source project itself is a working project in its own right. The phases
 of a generator are as follows:
 
-* copy the sources from the Rug generator project into a target directory
-* run the Rug generator against that target directory to tune the final content
-  (change some directory names, add the name of the project to the README...)
+*   copy the sources from the Rug generator project into a target
+    directory
+*   run the Rug generator against that target directory to tune the
+    final content (change some directory names, add the name of the
+    project to the README...)
 
 The interesting aspect here is that any project your team may be already cloning
 manually could be turned into a Rug generator in itself.
@@ -15,16 +15,12 @@ As a convention, Rug generators often do not contain logic of their own,
 but invoke a number of other editors in order to manipulate the files copied
 from the generator project.
 
-!!! note "See also"
-    Please see the [reference documentation][ruggenref] for detailed information
-    about the generator programming model.
-
 ## A Basic Generator
 
 The following generator creates a MkDocs (a documentation builder tool) project
 initialized with default content and title, through an editor.
 
-```typescript
+```typescript linenums="1"
 import { PopulateProject } from "@atomist/rug/operations/ProjectGenerator"
 import { Generator, Tags } from '@atomist/rug/operations/Decorators'
 import { Pattern } from '@atomist/rug/operations/RugOperations'
@@ -49,23 +45,24 @@ class NewMkDocsDocumentationProject implements PopulateProject {
         })
     }
 }
-export let generator = new NewMkDocsDocumentationProject()
+export const generator = new NewMkDocsDocumentationProject()
 ```
 
 ## Run Generators
 
 When applied, a generator follows the next steps:
 
-1. Copy the content of the [Rug project][rugproj] into a target directory
-2. Applies the generator's function against the filled target directory to
-   tune its content
+1.  Copy the content of the Rug project, excluding the `.atomist`
+    directory, into a target directory
+2.  Applies the generator's function against the filled target
+    directory to tune its content
 
 Let's assume the following Rug generator project which
 
 ```
-mkdocs-generator \
-    .atomist \
-        generators \
+mkdocs-generator
+    .atomist
+        generators
             NewMkDocsDocumentationProject.ts
         tests
     docs
@@ -88,8 +85,8 @@ $ rug generate NewMkDocsDocumentationProject my-project-doc
 This results in the following directory structure:
 
 ```
-my-project-doc \
-    docs\
+my-project-doc
+    docs
         index.md
     mkdocs.yml
     requirements.txt
@@ -112,8 +109,8 @@ start from scratch.
 
 ### Convert your template project into a Rug generator project
 
-If you have an existing template project, you can convert it by using
-[Rug editors][rugeditors].
+If you have an existing template project, you can convert it to a Rug
+generator using a few editors in [Rug editors][rugeditors].
 
 First, turn your project into a Rug project:
 
@@ -152,20 +149,6 @@ $ rug generate atomist-rugs:rug-archive:NewStarterRugProject my-new-generator
 This will provide you with a sane default to start from. Add now your own
 project content and start editing the default generator.
 
-## Test Generators
-
-Rug generators are project like any other and they should be tested accordingly.
-Rug supports a BDD approach to validate Rugs themselves.
-
-### TODO when the Gherkin support is completed
-
-## Release and Distribute Generators
-
-Generators are released and distributed as any other Rug projects, please
-refer to the dedicated documentation on this topic.
-
-[ruggenref]: /reference/rug/generators.md
-[rugproj]: /reference/rug/archives.md
 [cli]: /user-guide/interfaces/cli/index.md
 [rugeditors]: https://github.com/atomist-rugs/rug-editors
 [rugproj]: https://github.com/atomist-rugs/rug-project

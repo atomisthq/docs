@@ -5,14 +5,12 @@ and syntax checking.
 
 [ts]: https://www.typescriptlang.org/
 
-In this Quick Start you will set up your Rug project for writing and
-testing Rugs written in TypeScript.
-
 ## Prerequisites
 
-Before you begin this quick start, please go through
-the [Rug CLI Quick Start](developing-rugs.md) so you have the CLI installed
-and are familiar with running basic commands.
+Before you begin writing Rugs in TypeScript,
+please [install the Rug CLI][install-cli].
+
+[install-cli]: /user-guide/interfaces/cli/install.md
 
 ## Getting set up for TypeScript Rugs
 
@@ -247,11 +245,3 @@ Successfully executed 1 of 1 scenarios: Test SUCCESS
 ```
 
 Success!  Congratulations, you have created your first TypeScript Rug!
-
-## More Information
-
-That's it for our brief introduction to writing Rugs in TypeScript.
-Please join our [Atomist Community Slack][slack] to ask questions, get
-help, and discuss all things Rug.
-
-[slack]: https://join.atomist.com/

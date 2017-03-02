@@ -1,5 +1,3 @@
-## Rug CLI Installation
-
 You can install the Rug command-line interface (CLI) using the
 standard developer packaging tools for your platform.  We currently
 support installing the Rug CLI on GNU/Linux Deb and RPM distributions,
@@ -62,13 +60,12 @@ To install on a Debian-based distributions, follow the next instructions:
     $ sudo apt-get install rug-cli
     ```
 
-**Note about the JDK 8 requirement:**
-
-Rug and the CLI require Java 8. Until Rug CLI 0.22, the package would try
-to automatically install the appropriate JDK but different people install Java
-differently on their machine. Therefore, starting with Rug CLI 0.22, the package
-only suggests to install the dependency and emits the following message when
-running the CLI without a proper Java 8 found:
+!!! note "JDK 8 Requirement"
+    Rug and the CLI require Java 8. Until Rug CLI 0.22, the package would try
+    to automatically install the appropriate JDK but different people install Java
+    differently on their machine. Therefore, starting with Rug CLI 0.22, the package
+    only suggests to install the dependency and emits the following message when
+    running the CLI without a proper Java 8 found:
 
 ```console
 $ rug

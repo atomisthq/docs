@@ -1,10 +1,9 @@
-## Rug Tests
-
 Rug provides a testing framework based on [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) concepts.
 
 This takes the form of a test DSL that reuses features and types from Rug to ensure it is easy for Rug authors to adopt.
 
-> Rug is designed to support Test Driven Development using the BDD style, and we've seen the greatest productivity in its early use from those that create test scenarios and then follow the `red` -> `green` -> `refactor` approach.
+!!! note ""
+    Rug is designed to support Test Driven Development using the BDD style, and we've seen the greatest productivity in its early use from those that create test scenarios and then follow the `red` -> `green` -> `refactor` approach.
 
 ### A Quick Overview of a Rug Test
 
@@ -12,16 +11,14 @@ Before taking a deeper dive into the all the syntax of Rug tests, let's look at 
 
 Consider the following simple editor that will rename a Java file:
 
-```rug
+```rug linenums="1"
 editor Rename
 with java.class c when name = "Dog"
 	do rename "Cat"
 ```
 We want to test that the editor works as intended:
 
-<!--TBD How do we display this with line numbers? Or even better can we link to this sample as a Koan and embed the code from there? -->
-
-```rug
+```rug linenums="1"
 scenario Dogs can be turned into cats
 
 given
@@ -102,7 +99,7 @@ The full grammar of Rug tests is defined as:
 
 When there's no change
 
-```rug
+```rug linenums="1"
 scenario Foobar
 
 given

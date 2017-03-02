@@ -1,21 +1,15 @@
-# Rug Editors: Updating Projects
-
 The most common task performed on a daily basis is to change the code of a
 project. Those updates can target a single file but can also refer to many
 resources.
 
-Rug editors automate updates, from the simplest to most complex. 
-
-!!! note "See also"
-    Please see the [reference documentation][rugedref] for detailed information 
-    about the editor programming model.
+Rug editors automate updates, from the simplest to most complex.
 
 ## A Basic Editor
 
-The following editor adds a Markdown document at the given path inside your 
+The following editor adds a Markdown document at the given path inside your
 project.
 
-```typescript
+```typescript linenums="1"
 import { EditProject } from "@atomist/rug/operations/ProjectEditor"
 import { Editor, Tags } from "@atomist/rug/operations/Decorators"
 import { Pattern } from '@atomist/rug/operations/RugOperations'
@@ -39,18 +33,15 @@ class AddMarkdownDocument implements EditProject {
         project.addFile(this.filepath, data)
     }
 }
-export let editor = new AddMarkdownDocument()
+export const editor = new AddMarkdownDocument()
 ```
 
-# Run Editors
+## Running Editors
 
 Editors work in the given context of a project, starting at its top-level
-directory. Usually, an editor looks for one or many resources to perform 
-changes. 
+directory. Usually, an editor looks for one or many resources to perform
+changes.
 
 !!! warning
     Editors are applied on a project without a confirmation from the operator.
-    If your project is not tracked in a VCS, you may lose data. 
-
-
-[rugedref]: /reference/rug/editors.md
+    If your project is not tracked in a VCS, you may lose data.

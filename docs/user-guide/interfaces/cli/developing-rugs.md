@@ -1,24 +1,20 @@
-# Developing Rugs
+# Developing Rugs with the CLI
 
-Behind Atomist unique features is Rug, a programming model for
-development lifecycle automation.
-
-The Rug CLI gives you the tooling to search, install, run public and private
-Rugs on your local machine. It is also the tool to develop/test and publish
-your own Rugs.
+The Rug CLI gives you the tooling to search, install, and run public
+and private Rugs on your local machine. It is also the tool to
+develop, test and publish your own Rugs.
 
 !!! note
-    If you only plan on benefiting from Atomist capabilities through its
-    integrations, you do not need to install the CLI.
+    If you only plan on benefiting from Atomist capabilities through
+    its standard integrations in chat, you do not need the CLI.
 
 ## Installing the Rug CLI
 
 You can install the Rug command-line interface using standard
 packaging tools for your operating system.
-See [Rug CLI Installation](/user-guide/interfaces/cli/install.md) for
-instructions.
+See [Rug CLI Installation](install.md) for instructions.
 
-## Additional third-parties
+## Additional Dependencies
 
 Rugs are implemented in [TypeScript][ts] and it is recommended you install
 [npm][npm]. You should also get an IDE that has good support for that
@@ -580,14 +576,3 @@ editor:
     sha: "622ed10"
 
 ```
-
-### More Information
-
-You made it!  That's it for our quick(-ish) introduction to the Rug
-CLI.  Please join our [Atomist Community Slack][slack] to ask
-questions, get help, and discuss all things Rug.
-
-[slack]: https://join.atomist.com/
-
-More detailed documentation can be found in the
-[Rug CLI reference documentation](../reference/rug-cli/index.md).

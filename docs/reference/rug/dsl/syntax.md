@@ -1,126 +1,140 @@
-## Rug Language
+!!! caution "The Rug DSL is deprecated"
+    The primary supported language for developing Rugs is now TypeScript.
 
-In a nutshell, Rug is an
-[External Domain Specific Language](http://martinfowler.com/books/dsl.html).
+Below is a detailed tour of Rug syntax.
 
-The Rug DSL was designed to work alongside your existing projects in
-as unintrusive a fashion as possible to automate all the slow,
-annoying tasks of working in a modern software development
-environment.
+#### Case conventions
 
-A key design goal was to respect your own tooling as much as possible
-so that ***every project should be a working Atomist project, and
-every Atomist project a working project***.
+Rug identifiers must observe the following case conventions.
 
-### Why a New Language?
+*   *Type names*, such as editors and reviewer names: Same convention
+    as for valid Java identifiers, except that they must begin with a
+    capital letter.
+*   *Function names*, such as `append` in the earlier examples: Same
+    convention as for valid Java identifiers, except that they must
+    begin with a lower case letter.
 
-Writing a language is hard, and there are already a *lot* of languages
-out there! So why do we need yet another one? Well the fact is that
-originally we didn't actually start out to create one. At Atomist we
-had a simple mission to:
+#### Reserved words
 
-> ***Simplify*** your Software Development Life by ***removing the
-> annoyances*** of ***Creating***, ***Maintaining*** and ***Running***
-> your software.
+Reserved words may not be used as identifiers. The following are Rug
+reserved words:
 
-It turns out there are a ***lot of annoyances***, which was great as
-there was so much we could help with!
+|  Reserved word |  Purpose
+|---|---|---|---|
+| `editor`, `reviewer` | Identify program
+`param` | Parameter declaration
+`uses` | Identify imported editor or reviewer
+`precondition` | Predicate that should hold for the editor be applicable or run
+`postcondition` | Predicate that should hold after the editor has run. Including this makes an editor more robust, as it will fail rather than make any updates if the postcondition does not hold.
+`with`  |  Specifies a with block |      |
+|`do`   |   Begins an action within a with block|
+| `run` | Specifies an action within a with block that executes another project operation.
+| `begin` - `end`  | Group a sequence of actions within a with block. Actions can include `do`, a nested `with` block, or `run`. Each action will see the context in the state it was left in by the last action.
 
-From the delay between deciding to create a project and getting
-everything all set up so you can get creating, through to helping
-teams adopt best practices. It became very obvious to us that
-***nothing so far had hit these full-development-cycle problems*** and
-so that's what we wanted to do.
+#### Rug Symbols
 
-And then there was the ***microservices architectural style*** that
-***took these annoyances and turned them up to 11!***
+|  Symbol |  Purpose
+|---|---|---|---|
+| `@` | Prefixes an *annotation* or a pre-packaged Rug variable lookup when using on declared parameters. Annotations are used to describe program elements.
+| `{}`  | Surrounds a JavaScript block. The JavaScript expression(s) in the block are evaluated, and the return value can be used as a function argument.
+`=` | Equality test
 
-We worked our way through these annoyances, examining them every step,
-created tools where we needed, created languages as well, and the
-result so far is ***Rug.***
+#### String Literals
 
-> ***Rug ties your software development room together.***
+Rug supports three types of string literals:
 
-### What Rug is, and is not
+| String type | Notes | Examples
+|---|---|---
+| Double quoted | As supported in Java, including escaping via `\` | `"Donny" "Walter\n" "Jeff Bridges is the \"Dude\""`
+| Single quoted | As in Python or JavaScript. However, does not support escaping | `'This is a test'`
+| Triple quoted | Can span linebreaks, as in Python or Scala. Unlike in Python, only double quotes are allowed | `"""This content could span many lines"""`
 
-Rug is a **simple**, English-like, **DSL** that provides a way to...
+#### Annotations
 
-*   **Select and manipulate** files, projects and even
-    multiple-projects.
-*   **Compose** operations to maximize reuse.
-*   **Declare parameters** to allow automated gathering of valid user
-    input to drive operations.
+*Annotations* are used to describe the following program elements:
+editors, reviewers and parameters. For example:
 
-Quite simply, Rug and its supporting systems are ***"Software that
-Writes and Evolves Software".***
+```rug
+@description "Takes EJBs and delivers a roundhouse kick to them"
+editor RemoveEJB
 
-Rug is not a full-blown language with a complete set of control
-structures as this is not its purpose.
+@default 'This is a default value'
+@description 'A magical parameter'
+@validInput 'Valid input looks like this: Foo'
+param name: ^.*$
 
-### Key Rug Concepts
+with File f when isJava and imports "javax.ejb"
+  do setContent "Now this won't compile, will it!"
+```
 
-To keep Rug focussed and simple, there are only 7 concepts in Rug
-itself:
+The permitted values are consistent with parameter definitions used
+extensively in Atomist components.
 
-1.   [Generators](/user-guide/rug/generators.md), which can be used to
-    create new projects from an existing model project.
-2.   [Editors](/user-guide/rug/editors.md), which are used to make
-    principled changes to a single project
-3.   Templates, content used by
-    [generators](/user-guide/rug/generators.md)
-    and [editors](/user-guide/rug/editors.md)
-4.   Reviewers (coming soon), which can inspect projects and match on
-    patterns, but can't change them
-5.   Executors (coming soon), which enable you to take coordinated actions
-    across multiple projects
-6.   Handlers (coming soon), which are triggered by events in your software
-    development lifecycle
-7.  [Tests](/user-guide/rug/tests.md) (and a simple but powerful
-    test-driven environment so that you can have real confidence in
-    your Rug scripts)
+|  Annotation |  Applies to | Argument Type | Meaning |
+|---|---|---|---|
+| `@description` | editor, reviewer or parameter | String | Describes the parameter
+| `@optional` | parameter | None | Whether the parameter is required. Default is required.
+| `@default` | parameter | String | Default value for parameter.
+| `@validInput` | parameter | String | Description of valid input, such as "A valid email address" or "3-10 alphanumeric characters"
+| `@hide` | parameter | None | Indicates that this parameter is only for use by programs and should not be displayed to users.
+| `@displayName` | parameter | String | UI friendly name for parameter.
+| `@maxLength` | parameter | Integer | Maximum length of a parameter's string value.
+| `@minLength` | parameter | Integer | Minimum length of a parameter's string value.
 
-### Rug and the Atomist (Ro)Bot
+String arguments to annotations, like other strings in Rug, are either
+double-quoted strings or triple double-quoted strings.  Triple
+double-quoted strings can include special characters like newlines.
 
-With Rug we wanted a way to create a system that actually helped you
-create and evolve your software projects as quickly, and as correctly
-as possible. We assumed from the get-go that you were developing in a
-polyglot environment, and so anything we created had to be open to
-working with whatever artifacts you needed to create.
+`@` Annotations are also used to look up pre-packaged variables that
+are supplied to your script for use when declaring editor parameter
+patterns, for example:
 
-To this end we created a Bot and a collection of services that allow
-you to run Rug in a number of different useful settings.
+```rug
+editor ClassRenamer
 
-### Rug is Evolving *Fast*, but that's *OK*
+param old_class: @java_class
+param new_class: @java_class
+```
 
-We're developing the Rug language to be as powerful, simple
-and consistent as possible. Normally languages cannot evolve
-particularly quickly as they need to be updated in lock-step with the
-community that is using them. When you create
-a [Rug project](../archives.md) and write your Rug generators, editors
-etc. within it you tie the version of the language to the project
-you're creating.
+Currently pre-packaged variables that can be looked up in this manner
+for parameter pattern declarations specifically include the following:
 
-This gives you the power to select the version of the Rug language you
-depend upon, safe in the knowledge that if you can run your Rug build
-your Rug scripts locally with the version of Rug you wrote them to,
-they can be run anywhere Rug can be.
+| Annotation | Type | Description |
+|---|---|---|
+| `@artifact_id`      | Regular Expression | Maven artifact identifier
+| `@group_name`       | Regular Expression | Maven group name
+| `@java_class`       | Regular Expression | Java class name
+| `@java_identifier`  | Regular Expression | Java identifier
+| `@java_package`     | Regular Expression | Java package name
+| `@project_name`     | Regular Expression | GitHub repository name
+| `@port`             | Regular Expression | IP port
+| `@ruby_class`       | Regular Expression | Ruby class name
+| `@ruby_identifier`  | Regular Expression | Ruby identifier
+| `@semantic_version` | Regular Expression | [Semantic version][semver]
+| `@url`              | Regular Expression | URL
+| `@uuid`             | Regular Expression | UUID
 
-You also of course have the power to decide when you upgrade to a
-newer version of Rug for particular language features that may have
-come to light after you originally created your Rug project. As we
- evolve the languages, we'll create Rug editors to do this upgrade programatically!
+[semver]: http://semver.org
 
-### Rug can be Extended with Rug Language Extensions
+#### Comments in Rug
 
-There is already a *lot* of power in
-the [Core Rug Language Extensions](../extensions/index.md) that are built
-into the Rug language but the intention is not for this to be the
-only, exhaustive set of types you can use.
+Any content on a line after `#` is a comment. For example:
 
-Rug itself can be extended with new language extensions for new languages,
-frameworks or even systems.
+```rug
+editor Foo
 
-> NOTE: More complete documentation on how to extend, package and
-> distribute Rug Language Extensions is coming soon.
+with File f # Do something with this file
+  do
+    # This is not something we'd want to do in real life
+    setContent "Something else"
+```
 
-If you want to see some Rugs, check out the rug projects in [atomist-rugs](https://github.com/atomist-rugs).
+C style multi-line comments are supported:
+
+```rug
+/*
+	This is a comment that goes on so long
+	that we need line breaks.
+*/
+editor Sample ...
+```
