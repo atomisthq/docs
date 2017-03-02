@@ -41,7 +41,7 @@ Clone the new `handlers` project locally and, because we're using TypeScript, ch
 !!! note ""
     To develop your rugs in TypeScript you will need [`node.js` and `npm`](https://nodejs.org) installed locally.
 
-```shell
+```console
 $ npm install
 /.../handlers/.atomist
 ├─┬ @atomist/github@0.2.0
@@ -95,7 +95,7 @@ Firstly make sure you've installed the latest Rug CLI for your platform. Then in
 
 [rug-dev]: developing-rugs.md
 
-```shell
+```console
 $ rug repositories configure
 
 No token configured. Please run repositories login before running this command.
@@ -106,7 +106,7 @@ Run the following command for usage help:
 
 To configure the Rug CLI you need to execute the `rug repositories login` command providing your GitHub credentials:
 
-```shell
+```console
 $ rug repositories login
 
 
@@ -131,7 +131,7 @@ Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
 
 Now when you execute `rug repositories configure` you should see the Rug CLI configured with your team's unique repository:
 
-```shell
+```console
 $ rug repositories configure
 
 → Repositories
@@ -145,7 +145,7 @@ You're now all set to publish your `handlers` project.
 
 The Rug CLI has the `publish` command to publish a Rug archive from your local copy. Execute the `rug publish` command from inside your `handlers` project directory:
 
-```shell
+```console
 $ rug publish
 Resolving dependencies for antifragilesoftware:handlers:0.1.0 ← local completed
 Invoking TypeScript Compiler on ts script sources
@@ -175,7 +175,7 @@ Successfully published archive for antifragilesoftware:handlers:0.1.0
 
 Your new `handlers` rugs are now ready for action in your Atomist environment. To test that everything has published correctly you can execute `rug search` and you should see your Rug archive listed just for you:
 
-```shell
+```console
 $ rug search
 Searching https://api.atomist.com/catalog
 Searching catalogs completed

@@ -21,14 +21,14 @@ our [Homebrew][brew] [tap][] repository.
 
 Once you have Homebrew installed, it is just two easy steps:
 
-```shell
+```console
 $ brew tap atomist/tap
 $ brew install rug-cli
 ```
 
 If you'd like to stay on the latest, possible unstable and un-released, version of the CLI you can install HEAD from:
 
-```shell
+```console
 $ brew upgrade --HEAD rug-cli --fetch-HEAD
 ```
 
@@ -43,22 +43,22 @@ To install on a Debian-based distributions, follow the next instructions:
 
 1.  Grab the public GPG key for the repository:
 
-    ```shell
+    ```console
     $ wget -qO - 'https://atomist.jfrog.io/atomist/api/gpg/key/public' | sudo apt-key add -
     ```
 2.  Add a new apt source entry:
 
-    ```shell
+    ```console
     $ echo "deb https://atomist.jfrog.io/atomist/debian $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/atomist.list
     ```
 3.  Update the metadata:
 
-    ```shell
+    ```console
     $ sudo apt-get update
     ```
 4.  Install the CLI:
 
-    ```shell
+    ```console
     $ sudo apt-get install rug-cli
     ```
 
@@ -70,7 +70,7 @@ differently on their machine. Therefore, starting with Rug CLI 0.22, the package
 only suggests to install the dependency and emits the following message when
 running the CLI without a proper Java 8 found:
 
-```shell
+```console
 $ rug
 JAVA_HOME not set and cannot find javac to deduce location, please set JAVA_HOME.
 ```
@@ -81,7 +81,7 @@ distributions, you can simply run `sudo apt-get install openjdk-8-jdk`. On older
 distributions, either install Java 8 manually and set the according variable,
 or try the following instructions:
 
-```shell
+```console
 $ sudo add-apt-repository ppa:openjdk-r/ppa
 $ sudo apt-get update
 $ sudo apt-get install openjdk-8-jdk
@@ -93,7 +93,7 @@ To install on a RedHat-based distributions, follow the next instructions:
 
 1.  Add a new yum repository:
 
-    ```shell
+    ```console
     $ cat <<EOF | sudo tee /etc/yum.repos.d/atomist.repo
     [Atomist]
     name=Atomist
@@ -105,7 +105,7 @@ To install on a RedHat-based distributions, follow the next instructions:
 
 2.  Install the CLI:
 
-    ```shell
+    ```console
     $ sudo yum install rug-cli
     ```
 
@@ -126,13 +126,13 @@ The following steps have been tested on Windows 10, your mileage may vary.
 
 2.  Install the [jdk8](https://chocolatey.org/packages/jdk8)
     dependency using chocolatey as an Administrator:
-    ```shell
+    ```console
     (admin) C:\ > choco install jdk8
     ```
 
 3.  Then, install the CLI using Chocolatey as an administrator:
 
-    ```shell
+    ```console
     (admin) C:\ > choco install rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
     ```
 
@@ -140,7 +140,7 @@ The following steps have been tested on Windows 10, your mileage may vary.
     `%programdata%\Chocolatey\lib\rug-cli` and available to your
     `%PATH%`. You can now run as a normal user:
 
-    ```shell
+    ```console
     (user) C:\ > rug --version
     rug 0.13.0
     atomist/rug-cli.git (git revision 2cde8f5: last commit 2016-12-01)
@@ -151,13 +151,13 @@ The following steps have been tested on Windows 10, your mileage may vary.
 
 You can keep your Rug CLI up to dat by regularly upgrading:
 
-```shell
+```console
 (admin) C:\ > choco upgrade rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
 ```
 
 You can remove the Rug CLI if you no longer want it installed:
 
-```shell
+```console
 (admin) C:\ > choco uninstall rug-cli
 ```
 
@@ -170,13 +170,13 @@ intend to use the CLI any longer.
 If you cannot install using a system-wide approach, you can rely also on
 downloading the CLI through a Docker image we provide.
 
-```shell
+```console
 $ docker pull atomist-docker.jfrog.io/rug-cli
 ```
 
 Running the image as will give you the Rug shell:
 
-```shell
+```console
 $ docker run --rm -it atomist-docker.jfrog.io/rug-cli
 Resolving dependencies for com.atomist:rug:0.12.0 completed
 Initializing shell for com.atomist:rug:0.12.0 completed
@@ -187,7 +187,7 @@ rug →
 If you want to run the CLI, the image expects you to call `rug` as its first
 argument. For instance:
 
-```shell
+```console
 $ docker run --rm -it atomist-docker.jfrog.io/rug-cli rug --version
 rug 0.23.0
 https://github.com/atomist/rug-cli.git (git revision e77cf5f; last commit 2017-02-14)
@@ -204,7 +204,7 @@ To use the CLI against a project on your host, you will also need to share your
 project's directory with the container `/home/atomist/project` container's
 working directory. For example, assuming you are currently in a Rug project:
 
-```shell
+```console
 $ docker run --rm -it \
     --user $UID:`id -g` \
     -v $HOME/.atomist:/home/atomist/.atomist \
@@ -233,7 +233,7 @@ simply put it its `bin` directory in your `PATH`.
     command in a terminal and make sure you get an output something
     like that shown.
 
-    ```shell
+    ```console
     $ java -version
     java version "1.8.0_66"
     Java(TM) SE Runtime Environment (build 1.8.0_66-b17)
@@ -249,7 +249,7 @@ simply put it its `bin` directory in your `PATH`.
 2.  Unpack the archive in an appropriate location.  Replace `VERSION`
     with the version you downloaded.
 
-    ```shell
+    ```console
     $ mkdir $HOME/opt
     $ cd $HOME/opt
     $ tar -x -z -f rug-cli-VERSION-bin.tar.gz
@@ -258,7 +258,7 @@ simply put it its `bin` directory in your `PATH`.
 
     or
 
-    ```shell
+    ```console
     $ mkdir $HOME/opt
     $ cd $HOME/opt
     $ unzip rug-cli-VERSION-bin.zip
@@ -270,7 +270,7 @@ simply put it its `bin` directory in your `PATH`.
 
 3.  Add the Rug CLI `bin` directory to your `PATH`.
 
-    ```shell
+    ```console
     $ export PATH=$PATH:$HOME/opt/rug-cli/bin
     ```
 

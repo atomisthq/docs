@@ -80,7 +80,7 @@ project that can be run in its own right.
 To create a project from this Rug generator, you could run the following
 [rug][cli] command:
 
-```shell
+```console
 $ cd ~/workspace
 $ rug generate NewMkDocsDocumentationProject my-project-doc
 ```
@@ -117,7 +117,7 @@ If you have an existing template project, you can convert it by using
 
 First, turn your project into a Rug project:
 
-```shell
+```console
 $ cd ~/workspace
 $ rug edit atomist-rugs:rug-editors:ConvertExistingProjectToRugArchive \
     archive_name=my-new-generator \
@@ -127,13 +127,13 @@ $ rug edit atomist-rugs:rug-editors:ConvertExistingProjectToRugArchive \
 
 Next, make it support TypeScript, which is the language used to develop Rugs:
 
-```shell
+```console
 $ rug edit atomist-rugs:rug-editors:AddTypeScript
 ```
 
 Finally, add a generator stub:
 
-```shell
+```console
 $ rug edit atomist-rugs:rug-editors:AddTypeScriptGenerator \
     generator_name=MyNewGenerator \
     description="This is my newest generator."
@@ -144,7 +144,7 @@ $ rug edit atomist-rugs:rug-editors:AddTypeScriptGenerator \
 You can start a new Rug generator project from nothing using the
 [rug-project][rugproj] Rug editors. For instance:
 
-```shell
+```console
 $ cd parent/directory
 $ rug generate atomist-rugs:rug-archive:NewStarterRugProject my-new-generator
 ```

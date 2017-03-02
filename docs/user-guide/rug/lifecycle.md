@@ -14,7 +14,7 @@ The easiest way to create a new Rug project is by using the
 `NewRugArchiveProject` generator via the Bot or CLI. Here, we'll show
 how to do it with the CLI.
 
-```shell
+```console
 $ rug generate atomist-rugs:rug-archive:NewRugArchiveProject \
     my-rug-project \
     group_id=atomist-rugs \
@@ -53,7 +53,7 @@ current directory, `~/develop` in this case.
 
 The created Rug project has the following directory structure:
 
-```shell
+```console
 $ tree -a my-rug-project
 my-rug-project
 ├── .atomist
@@ -76,7 +76,7 @@ been generated when running the generate command.
 
 Let's take a look at the `manifest.yml`:
 
-```shell
+```console
 $ cd my-rug-project/.atomist
 $ cat manifest.yml
 group: atomist-rugs
@@ -105,7 +105,7 @@ declared
 After making changes to your Rug code, you should run the tests.  The
 generated Rug project already has some tests.
 
-```shell
+```console
 $ rug test
 Resolving dependencies for atomist-rugs:my-rug-project:0.1.0 ← local completed
 Loading atomist-rugs:my-rug-project:0.1.0 ← local into runtime completed
@@ -125,7 +125,7 @@ Successfully executed 3 of 3 scenarios: Test SUCCESS
 To package the Rug project up and make it available to the Rug CLI to
 run from any directory, you must install it:
 
-```shell
+```console
 $ rug install
 Resolving dependencies for atomist-rugs:my-rug-project:0.1.0 ← local completed
 Loading atomist-rugs:my-rug-project:0.1.0 ← local into runtime completed
@@ -192,7 +192,7 @@ remote-repositories:
 Once you have your publishing repository configured, you simply run
 `rug publish`.
 
-```shell
+```console
 $ rug publish
 Resolving dependencies for atomist-rugs:my-rug-project:0.1.0 ← local completed
 Loading atomist-rugs:my-rug-project:0.1.0 ← local into runtime completed
