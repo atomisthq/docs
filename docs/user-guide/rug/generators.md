@@ -8,15 +8,15 @@ of a generator are as follows:
 * run the Rug generator against that target directory to tune the final content
   (change some directory names, add the name of the project to the README...)
 
-The interesting aspect here is that any project your team may be already cloning 
+The interesting aspect here is that any project your team may be already cloning
 manually could be turned into a Rug generator in itself.
- 
-As a convention, Rug generators often do not contain logic of their own, 
-but invoke a number of other editors in order to manipulate the files copied 
-from the generator project. 
+
+As a convention, Rug generators often do not contain logic of their own,
+but invoke a number of other editors in order to manipulate the files copied
+from the generator project.
 
 !!! note "See also"
-    Please see the [reference documentation][ruggenref] for detailed information 
+    Please see the [reference documentation][ruggenref] for detailed information
     about the generator programming model.
 
 ## A Basic Generator
@@ -57,10 +57,10 @@ export let generator = new NewMkDocsDocumentationProject()
 When applied, a generator follows the next steps:
 
 1. Copy the content of the [Rug project][rugproj] into a target directory
-2. Applies the generator's function against the filled target directory to 
+2. Applies the generator's function against the filled target directory to
    tune its content
 
-Let's assume the following Rug generator project which 
+Let's assume the following Rug generator project which
 
 ```
 mkdocs-generator \
@@ -74,10 +74,10 @@ mkdocs-generator \
     README.md
 ```
 
-That project itself is a valid [MkDocs][mkdocs] (a documentation builder tool) 
+That project itself is a valid [MkDocs][mkdocs] (a documentation builder tool)
 project that can be run in its own right.
 
-To create a project from this Rug generator, you could run the following 
+To create a project from this Rug generator, you could run the following
 [rug][cli] command:
 
 ```shell
@@ -96,18 +96,18 @@ my-project-doc \
     README.md
 ```
 
-The generator copied the whole content of its source and then added an 
+The generator copied the whole content of its source and then added an
 `index.md` file as per its `populate(project)` function. It also amended the
 file `mkdocs.yml` with the generated project's name.
 
 ## Develop Generators
 
-As said previously, generators are actual running projects with the addition of 
+As said previously, generators are actual running projects with the addition of
 the `.atomist` directory. Once that directory is added, we call those projects
 Rug Generator projects.
 
 There are two paths to bootstrap a generator. Either you have an existing
-template project your team usually clones and manually updates or you want to 
+template project your team usually clones and manually updates or you want to
 start from scratch.
 
 ### Convert your template project into a Rug generator project
@@ -141,7 +141,7 @@ $ rug edit atomist-rugs:rug-editors:AddTypeScriptGenerator \
 
 ### Create a generator from scratch
 
-You can start a new Rug generator project from nothing using the 
+You can start a new Rug generator project from nothing using the
 [rug-project][rugproj] Rug editors. For instance:
 
 ```shell
@@ -157,16 +157,16 @@ project content and start editing the default generator.
 Rug generators are project like any other and they should be tested accordingly.
 Rug supports a BDD approach to validate Rugs themselves.
 
-### TODO when the Gherkin support is completed 
+### TODO when the Gherkin support is completed
 
-## Release and Distribute Generators 
+## Release and Distribute Generators
 
-Generators are released and distributed as any other Rug projects, please 
+Generators are released and distributed as any other Rug projects, please
 refer to the dedicated documentation on this topic.
 
 [ruggenref]: /reference/rug/generators.md
 [rugproj]: /reference/rug/archives.md
-[cli]: /guides/rug-cli.md
+[cli]: /user-guide/interfaces/cli/index.md
 [rugeditors]: https://github.com/atomist-rugs/rug-editors
 [rugproj]: https://github.com/atomist-rugs/rug-project
 [mkdocs]: http://www.mkdocs.org/

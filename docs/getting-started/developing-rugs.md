@@ -1,9 +1,9 @@
-# Setup Your Local Environment
+# Developing Rugs
 
-Behind Atomist unique features is Rug, a programming model for 
-development lifecycle automation. 
+Behind Atomist unique features is Rug, a programming model for
+development lifecycle automation.
 
-The Rug CLI gives you the tooling to search, install, run public and private 
+The Rug CLI gives you the tooling to search, install, run public and private
 Rugs on your local machine. It is also the tool to develop/test and publish
 your own Rugs.
 
@@ -21,7 +21,7 @@ instructions.
 ## Additional third-parties
 
 Rugs are implemented in [TypeScript][ts] and it is recommended you install
-[npm][npm]. You should also get an IDE that has good support for that 
+[npm][npm]. You should also get an IDE that has good support for that
 language.
 
 [ts]: https://www.typescriptlang.org/

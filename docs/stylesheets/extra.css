@@ -11,6 +11,9 @@
 }
 /* Styles for additional elements in the documentation
  * These styles are separate from the underlying mkdocs theme */
+.admonition {
+    font-size: 1.4rem;
+}
 .admonition.hint, .admonition.important, .admonition.tip {
     border-color: #5BC399;
     background-color: #6BC9A3;
@@ -71,6 +74,6 @@ div.button-container, div.ss-container {
     color: #208696;
 }
 .major-point {
-    font-size: 133%;
+    font-size: 1.6rem;
     font-style: oblique;
 }

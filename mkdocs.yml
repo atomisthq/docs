@@ -59,7 +59,9 @@ pages:
   - Putting Atomist to Work: 'getting-started/putting-atomist-to-work.md'
   - Connect Atomist to CI: 'getting-started/connect-atomist-to-ci.md'
   - Build Your Own Development Automation: 'getting-started/build-your-own-development-automation.md'
-  - Setup Your Local Environment: 'getting-started/setup-dev-env.md'
+  - Developing Rugs: getting-started/developing-rugs.md
+  - Bot: getting-started/bot.md
+  - TypeScript: getting-started/typescript.md
 - User Guide:
   - Introduction: 'user-guide/index.md'
   - Rug:

@@ -1,18 +1,18 @@
 # Rug Command Handlers: ChatOps and ChatDev
 
 Controlling communication and information flows is paramount to effective teams.
-Open-Source projects have long been relying on chat venues to operating and 
+Open-Source projects have long been relying on chat venues to operating and
 performing well. Recent modern chat solutions, which can integrate deeply
-in your ecosystem, have proven to be fantastic central venues for your teams to 
+in your ecosystem, have proven to be fantastic central venues for your teams to
 drive their project flows.
 
-Rug Command Handlers provide a simple interface to add new skills to the 
+Rug Command Handlers provide a simple interface to add new skills to the
 Atomist bot that you invited to your team.
 
 ## A Basic Command Handler
 
 The following command handler responds to commands passed to the Atomist bot,
-`@atomist add markdown document`. The handler calls our [editor](editors.md), 
+`@atomist add markdown document`. The handler calls our [editor](editors.md),
 but could also make externals calls, and responds with a message.
 
 ```typescript
@@ -44,7 +44,7 @@ export let command = new AddMarkdownDocument();
 ```
 
 !!! note
-    Please see the [reference documentation][rugcmdhdlref] for detailed information 
+    Please see the [reference documentation][rugcmdhdlref] for detailed information
     about the command handler programming model.
 
-[rugcmdhdlref]: /reference/rug/command.md
+[rugcmdhdlref]: /reference/rug/commands.md

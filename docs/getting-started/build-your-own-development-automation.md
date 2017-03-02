@@ -91,7 +91,9 @@ To make Atomist aware of your new `handler` you need to publish the `handler` pr
 
 #### Installing and Configuring the Rug CLI
 
-Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI](setup-dev-env.md) with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
+Firstly make sure you've installed the latest Rug CLI for your platform. Then in order to publish new rugs you need to configure the [Rug CLI][rug-dev] with the credentials it needs to push your rugs to Atomists. To see this problem you can try to run the command `rug repositories configure` and you should see:
+
+[rug-dev]: developing-rugs.md
 
 ```shell
 $ rug repositories configure
@@ -215,6 +217,6 @@ There, you did it! You just created a new automation, and taught the Bot to list
 
 You've come a long way but to get even *more* out of your development automation here are some suggested next steps...
 
-- [Setup your local environment](setup-dev-env.md) to develop your own Rugs.
+- [Developing Rugs][rug-dev].
 - Checking out the [User Guide](/user-guide/index.md) to learn more about Atomist.
 - Take a deep-dive through Rug using `@atomist` in with the [Rug Koans](https://github.com/atomist-rugs/rug-koans-project).

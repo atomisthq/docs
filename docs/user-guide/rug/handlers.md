@@ -52,7 +52,7 @@ export let event = new MarkdownDocumentChanged();
 ```
 
 !!! note
-    Please see the [reference documentation][rugevhdlref] for detailed 
+    Please see the [reference documentation][rugevhdlref] for detailed
     information about the event handler programming model.
 
-[rugevhdlref]: /reference/rug/handler.md
+[rugevhdlref]: /reference/rug/handlers.md
