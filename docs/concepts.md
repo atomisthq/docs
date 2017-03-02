@@ -5,11 +5,6 @@ well-known concepts and introduces some new ideas.  In this section,
 we present overarching concepts integral to Atomist and how it
 helps you ship better software faster.
 
-!!! note "From Jess"
-    I want to take this "extends some
-    well-known concepts and introduces some new ideas. " sentence (I like it) and
-    apply it to each section. Start from a well-known concept, extend it, point out what's new
-
 ## Events
 
 Atomist takes event-driven programming (link?) and applies it to
@@ -23,11 +18,6 @@ For instance, a commit event teaches Atomist who changed code on a branch; a fai
 Recognizing each crucial event lets Atomist orchestrate a delivery flow across multiple projects and systems; implement workflow that CI can't model; replace manual pieces of your development process; and send in-context, actionable notifications to the right people.
 
 ## Event graph
-
-!!! note "From Jess"
-    I think there is a concept missing here, which is the model
-    it's Atomist's knowledge of the content of events. What do you think?
-    should this one be explicit or implicit? and what is it called?
 
 Atomist remembers key contextual information about the events it sees,
 and bases future responses on this.
