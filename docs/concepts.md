@@ -125,7 +125,7 @@ Rugs, but also a provides immediate feedback when developing and
 testing Rugs.
 
 **None** - The real power of Atomist is achieved when no interface is
-necessary.  Put another way, Atomist is about driving to complete
+necessary.  Put another way, Atomist is about driving to *complete*
 automation.  When every aspect of your workflow has been fully
 automated, both its "happy path" and remediations for all possible
 error modes, you can focus on what matters: writing great code.
