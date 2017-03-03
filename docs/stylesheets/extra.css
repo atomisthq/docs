@@ -23,10 +23,10 @@
 .admonition.hint ul li, .admonition.important ul li, .admonition.tip ul li {
     margin-bottom: 0em;
 }
-.admonition.hint a {
+.admonition.hint a, .admonition.important a, .admonition.tip a {
     color: #1c344a;
 }
-.admonition.hint a:hover {
+.admonition.hint a:hover, .admonition.important a:hover, .admonition.tip a:hover {
     color: #247f7e;
 }
 

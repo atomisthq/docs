@@ -1,12 +1,6 @@
-# Developing Rugs with the CLI
-
 The Rug CLI gives you the tooling to search, install, and run public
 and private Rugs on your local machine. It is also the tool to
 develop, test and publish your own Rugs.
-
-!!! note
-    If you only plan on benefiting from Atomist capabilities through
-    its standard integrations in chat, you do not need the CLI.
 
 ## Installing the Rug CLI
 

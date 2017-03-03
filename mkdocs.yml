@@ -77,6 +77,7 @@ pages:
     - Tests: user-guide/rug/tests.md
     - Projects: user-guide/rug/projects.md
     - Archives: user-guide/rug/archives.md
+#    - Development: user-guide/rug/development.md
     - Lifecycle: user-guide/rug/lifecycle.md
     - Conventions: user-guide/rug/conventions.md
   - Integrations:
@@ -91,6 +92,7 @@ pages:
     - CLI:
       - Overview: user-guide/interfaces/cli/index.md
       - Installation: user-guide/interfaces/cli/install.md
+      - Using Rugs: user-guide/interfaces/cli/using-rugs.md
       - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
 - Reference Documentation:
   - Overview: reference/index.md
