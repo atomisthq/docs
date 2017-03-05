@@ -6,7 +6,7 @@ operations, and close the code/runtime feedback loop.
 
 ## Bringing everything together
 
-Atomist consumes events from the platforms and tools you use everyday.
+Atomist consumes events from the platforms and tools you use every day.
 By linking related events from source code repositories, continuous
 integration, testing, and runtime environments, Atomist can present
 them in a unified manner to appropriate team members via direct or
