@@ -6,6 +6,9 @@ events to operate on.
 
 [xpath]: https://www.w3.org/TR/xpath/
 
+<!-- Everything is a tree, path expressions enable precise navigation
+of trees of information. -->
+
 ## Surgical selections
 
 When running a Rug against a `Project`, you can locate a file with a
@@ -23,7 +26,7 @@ select just a part of a file?  To allow users to select elements with
 such flexibility and specificity, Atomist provides a powerful tool
 called *path expressions*.
 
-### Query the File System
+### Query the file system
 
 The above code selecting a file by path can be written as a path
 expression.  First, we must import the `#!typescript
@@ -58,7 +61,7 @@ each match in turn.  Here we call the `#!typescript replace()` method
 just as we did before.  For this simple case, using path expressions
 may is a bit more involved, but it demonstrates the concepts well.
 
-### Query the Code
+### Query the code
 
 
 While querying a project for files using path expressions allow for

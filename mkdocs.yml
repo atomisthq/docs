@@ -50,7 +50,7 @@ pages:
 - Overview:
   - Introduction: index.md
   - Concepts: concepts.md
-#  - Capabilities: capabilities.md
+  - Capabilities: capabilities.md
 - Getting Started:
   - Overview: getting-started/index.md
   - Prerequisites: getting-started/prerequisites.md
@@ -66,7 +66,7 @@ pages:
     - Runtime: user-guide/rug/runtime.md
     - TypeScript: user-guide/rug/typescript.md
     - Handlers: user-guide/rug/handlers.md
-#    - Commands: user-guide/rug/commands.md
+    - Commands: user-guide/rug/commands.md
     - Editors: user-guide/rug/editors.md
     - Generators: user-guide/rug/generators.md
     - Reviewers: user-guide/rug/reviewers.md
