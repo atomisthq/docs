@@ -1,3 +1,0 @@
-## Rug Path expressions
-
-Reference documentation coming soon...

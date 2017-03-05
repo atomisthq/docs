@@ -17,7 +17,7 @@ Next, configure your Travis builds to send notifications to Atomist. In the `.tr
 notifications:
   webhooks:
     urls:
-      - https://webhook.atomist.com/travis
+    - https://webhook.atomist.com/travis
     on_success: always
     on_failure: always
     on_start: always
@@ -25,7 +25,7 @@ notifications:
     on_error: always
 ```
 
-That's all that you need to do. Now, Travis will send all notifications to Atomist. To test it out, see the [In Action: CI Notifications](#in-action-ci-notifications) section.
+That's all that you need to do. Now, Travis will send all notifications to Atomist. To test it out, see the [CI Notifications](#in-action-ci-notifications) section.
 
 ### Jenkins Setup
 
@@ -64,7 +64,7 @@ In the Notification configuration section, configure the endpoint URL as `https:
 
 Now, Jenkins is set up to send all notifications to Atomist. To test it out, see the next section, [In Action: CI Notifications](#in-action-ci-notifications).
 
-### **In Action:** CI Notifications
+### CI Notifications
 
 Now that CI is also configured, let's take a look at how Atomist handles CI events.
 

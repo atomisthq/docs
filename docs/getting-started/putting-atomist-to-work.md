@@ -26,7 +26,7 @@ following.
 
 !!! note ""
     You can create your own generators.  Creating your own generators
-    will soon be added as a [Quick Start](../quick-starts/).
+    will soon be added as a [Quick Start](../guides/).
 
 While the full list of project generators *can* be useful if you are
 just browsing, we want to create a [Spring Boot][boot] REST service, so we can
@@ -335,8 +335,6 @@ you can interact with the repository, creating and assigning issues,
 etc., just as you do with channels the Atomist Bot creates when it
 creates the repositories.
 
-<!--
-
 If you prefer not to have the channel and repository have the same
 name, you can tell the Atomist Bot what repository to associate with a
 channel by sending the message `repo` to the Atomist Bot in that
@@ -348,6 +346,12 @@ channel.
 
 Replace `REPOSITORY_NAME` in the above command with the name of the
 repository you want the Atomist Bot to associate with the current
-channel.
+channel.  At any time you can ask the Atomist Bot to tell you what
+repository is associated with the current channel by sending it the
+`repo` command without an argument.
 
--->
+```
+@atomist repo
+```
+
+Click Next at the bottom-right of this page to continue.
