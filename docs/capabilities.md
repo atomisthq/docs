@@ -16,8 +16,9 @@ costs and and shorter incident time-to-resolution.
 <!-- *That rug really tied the room together, did it not?* -->
 
 Rug is the eventing runtime that ties everything together.  Rug not
-only understands events, but can respond to events with appropriate,
-automated actions.
+only understands individual events, but can learn relationships
+between events and respond to events with appropriate, automated
+actions.
 
 ## Development lifecycle automation
 
@@ -47,9 +48,10 @@ tasks in software development and operation.  Want to release a new
 version of your service to production?  Do it right in chat with a
 command.
 
-**Project updates: <span class="rugs">[Editors][editors]</span>** - Rug editors
-modify code directly and consistently.  Need to add or update a
-dependency and boilerplate code?  Codify it in an editor.
+**Project updates: <span class="rugs">[Editors][editors]</span>** -
+Rug editors modify code directly and consistently.  Need to add or
+update a dependency and add some boilerplate code for it?  Codify it
+in an editor.
 
 **Project creation: <span class="rugs">[Generators][generators]</span>** - Rug
 generators create new projects from a model project.  More powerful
@@ -63,7 +65,8 @@ editor, without the editing.
 Individual Rugs can be composed.  For example, editors can be used by
 Rug handlers, commands, and generators to modify code in a consistent
 manner across many repositories.  Handlers can execute commands.
-Events can fire reviewers, e.g., check every PR for the required
+Events can fire reviewers, e.g., every PR can trigger a reviewer that
+ensures it complies with your standards.
 
 [handlers]: /user-guide/rug/handlers.md
 [commands]: /user-guide/rug/commands.md
@@ -77,12 +80,12 @@ How does a handler know what event it should act on?  How does an
 editor know what part of what file to edit?  Atomist provides a
 powerful mechanism for pinpoint selection of events and
 code: [path expressions][path].  Inspired by [XPath][xpath], path
-expressions provide a concise abstraction for navigating Rug entities.
-Path expressions select related events satisfying specific criteria,
-e.g., a Slack user whose GitHub user authored a commit that was in a
-push that triggered a CI build that failed.  Path expressions are also
-used to identify specific blocks of code in specific files to operate
-on.
+expressions provide a concise abstraction for navigating the various
+elements in your code and development environment.  Path expressions
+select related events satisfying specific criteria, e.g., a Slack user
+whose GitHub user authored a commit that was in a push that triggered
+a CI build that failed.  Path expressions are also used to identify
+specific blocks of code in specific files to operate on.
 
 [xpath]: https://en.wikipedia.org/wiki/XPath
 [path]: /user-guide/rug/path-expressions.md
@@ -97,7 +100,7 @@ that compiles to JavaScript can be used.  You can modify existing Rugs
 or create your own Rugs to match your processes and workflows.
 
 Atomist meets you where you are.  It doesn't make you change how your
-team develops and ships code, it improves and speeds shipping great
-software.
+team develops and ships code.  It improves your code and speeds the
+shipping of great software.
 
 [ts]: https://www.typescriptlang.org/

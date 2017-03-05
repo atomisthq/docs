@@ -1,12 +1,11 @@
 Controlling communication and information flows is paramount to
 effective teams.  Open Source projects have long been relying on chat
-venues to operating and performing well.  Recent modern chat
-solutions, which can integrate deeply in your ecosystem, have proven
-to be fantastic central venues for your teams to drive their project
-flows.
+to help them operate and coordinate.  Recent modern chat solutions,
+which can integrate deeply in your ecosystem, have proven to be
+fantastic hubs for teams to communicate and drive their workflows.
 
 Rug commands provide a simple interface to add new skills to the
-Atomist Bot that you invited to your team.
+Atomist Bot.
 
 ## A Basic Command
 
