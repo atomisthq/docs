@@ -102,7 +102,7 @@ class NewMkDocsDocumentationProject implements PopulateProject {
         project.findFile("mkdocs.yml").replace("mkdocs-project", project.name());
 
         project.editWith("AddMarkdownDocumentToMkDocsProject", {
-            "name": "docs/" + this.extraDoc,
+            "filepath": "docs/" + this.extraDoc,
             "title": "Extra Extra",
             "content": "Read all about it"
         });
