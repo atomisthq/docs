@@ -80,9 +80,9 @@ could look like this:
 
 ```typescript linenums="1"
 import { PopulateProject } from "@atomist/rug/operations/ProjectGenerator";
-import { Generator, Tags } from '@atomist/rug/operations/Decorators';
-import { Pattern } from '@atomist/rug/operations/RugOperations';
-import { Project } from '@atomist/rug/model/Project';
+import { Generator, Tags } from "@atomist/rug/operations/Decorators";
+import { Pattern } from "@atomist/rug/operations/RugOperations";
+import { Project } from "@atomist/rug/model/Project";
 
 @Generator("NewMkDocsDocumentationProject", "creates a MkDocs project")
 @Tags("markdown", "documentation", "mkdocs")
