@@ -36,9 +36,10 @@ to alert anyone.
 The Rug programming model was created to help you streamline and
 better manage your software delivery lifecycle.  By writing Rugs,
 i.e., programs that implement the Rug programming model, you are able
-to automate complex workflows and decision points.  There are several
-different types of Rugs, each providing a different way to help you
-improve your development and operations lifecycle.
+to automate code modifications and API calls up through complex
+workflows and decision points.  There are several different types of
+Rugs, each providing a different way to help you improve your
+development and operations lifecycle.
 
 Event-driven actions: <span class="rugs">[Handlers][handlers]</span>
 :   Rug <span class="mid-text">*handlers*</span> respond to events.

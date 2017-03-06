@@ -32,6 +32,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - meta
+  - smarty
   - toc(permalink=true)
   - pymdownx.betterem(smart_enable=all)
   - pymdownx.caret
