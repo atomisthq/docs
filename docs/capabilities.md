@@ -15,10 +15,12 @@ costs and and shorter incident time-to-resolution.
 
 <!-- *That rug really tied the room together, did it not?* -->
 
-Rug is the eventing runtime that ties everything together.  Rug not
-only understands individual events, but can learn relationships
-between events and respond to events with appropriate, automated
-actions.
+!!! important "Rug ties everything together"
+
+Rug is the programming model and runtime that ties everything
+together.  Rug not only understands individual events, but can learn
+relationships between events and respond to events with appropriate,
+automated actions.
 
 ## Development lifecycle automation
 
@@ -31,42 +33,55 @@ that information back, with its full context, back to the appropriate
 team member.  It can can even automate remediation, obviating the need
 to alert anyone.
 
-The Rug programming model provides several different types of Rugs to
-help you manage your development and operations lifecycle.
+The Rug programming model was created to help you streamline and
+better manage your software delivery lifecycle.  By writing Rugs,
+i.e., programs that implement the Rug programming model, you are able
+to automate complex workflows and decision points.  There are several
+different types of Rugs, each providing a different way to help you
+improve your development and operations lifecycle.
 
-<!-- can we improve the layout of the items below? -->
+Event-driven actions: <span class="rugs">[Handlers][handlers]</span>
+:   Rug <span class="mid-text">*handlers*</span> respond to events.
+    Handlers can use the information on an event and its related
+    events to message the right team members, take direct action,
+    and/or create new events, which can trigger other handlers.  Need
+    to notify someone when their commit causes a stack trace in
+    production?  Automate that with a handler.
 
-**Event-driven actions: <span class="rugs">[Handlers][handlers]</span>** - Rug
-handlers respond to events.  Handlers can use the information on an
-event and its related events to message the right team members, take
-direct action, and/or create new events, which can trigger other
-handlers.
+ChatDev and ChatOps: <span class="rugs">[Commands][commands]</span>
+:   Rug <span class="mid-text">*commands*</span> are tasks you can
+    execute within chat, automating common tasks in software
+    development and operation.  Want to release a new version of your
+    service to production?  Do it right in chat with a command.
 
-**ChatDev and ChatOps: <span class="rugs">[Commands][commands]</span>** - Rug
-commands are tasks you can execute within chat, automating common
-tasks in software development and operation.  Want to release a new
-version of your service to production?  Do it right in chat with a
-command.
+Project updates: <span class="rugs">[Editors][editors]</span>
+:   Rug <span class="mid-text">*editors*</span> modify code directly and
+    consistently.  They can modify any code, in any project,
+    regardless of whether the project was created by Atomist or not.
+    Need to add or update a dependency and add some boilerplate code
+    for it?  Codify it in an editor.
 
-**Project updates: <span class="rugs">[Editors][editors]</span>** -
-Rug editors modify code directly and consistently.  Need to add or
-update a dependency and add some boilerplate code for it?  Codify it
-in an editor.
+Project creation: <span class="rugs">[Generators][generators]</span>
+:   Rug <span class="mid-text">*generators*</span> create new projects
+    from a model project.  More powerful than templating approaches,
+    generators are real projects operating under native tooling.  Need
+    to stamp out a bunch of new microservice projects?  Stop the
+    copy/pasting and use a generator.
 
-**Project creation: <span class="rugs">[Generators][generators]</span>** - Rug
-generators create new projects from a model project.  More powerful
-than templating approaches, generators are real projects operating
-under native tooling.
-
-**Project compliance: <span class="rugs">[Reviewers][reviewers]</span>** - Rug
-reviewers ensure a project conforms with your standards.  Like an
-editor, without the editing.
+Project compliance: <span class="rugs">[Reviewers][reviewers]</span>
+:   Rug <span class="mid-text">*reviewers*</span> ensure a project
+    conforms with your standards.  Because Rug understands your code,
+    reviewers can check for conformance to coding standards,
+    documentation, testing, etc.  Think of a reviewer as an editor,
+    without the editing.  Want to check if every Java try/catch block
+    falls through to a `#!java catch Throwable`?  Write a reviewer for
+    that.
 
 Individual Rugs can be composed.  For example, editors can be used by
 Rug handlers, commands, and generators to modify code in a consistent
 manner across many repositories.  Handlers can execute commands.
 Events can fire reviewers, e.g., every PR can trigger a reviewer that
-ensures it complies with your standards.
+ensures it complies with your coding and submission standards.
 
 [handlers]: /user-guide/rug/handlers.md
 [commands]: /user-guide/rug/commands.md
@@ -84,8 +99,8 @@ expressions provide a concise abstraction for navigating the various
 elements in your code and development environment.  Path expressions
 select related events satisfying specific criteria, e.g., a Slack user
 whose GitHub user authored a commit that was in a push that triggered
-a CI build that failed.  Path expressions are also used to identify
-specific blocks of code in specific files to operate on.
+a CI build that failed, and specific blocks of code in specific files,
+e.g., all Scala methods that return `#!scala Boolean`.
 
 [xpath]: https://en.wikipedia.org/wiki/XPath
 [path]: /user-guide/rug/path-expressions.md

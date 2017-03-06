@@ -29,6 +29,7 @@ google_analytics:
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false, linenums=false)
+  - def_list
   - footnotes
   - meta
   - toc(permalink=true)
