@@ -5,7 +5,7 @@ project [generators](generators.md), [editors](editors.md),
 reviewers (coming soon) and [tests](tests.md).
 In addition, the Rug runtime exposes these concepts to JavaScript
 (with first class support for [TypeScript][ts]) for those classes of problems
-for which the DLS is too constraining.
+for which the DSL is too constraining.
 
 [dsl]: https://en.wikipedia.org/wiki/Domain-specific_language
 [ts]: https://www.typescriptlang.org/

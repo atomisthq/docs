@@ -8,14 +8,14 @@ Atomist helps you develop better software more quickly in several
 important ways:
 
 -   Linking related events from source code repositories, continuous
-    integration, testing, and runtime environments, presenting them in
-    a unified manner to appropriate team members to greatly reduce
+    integration, testing, and runtime environments. Presenting them in
+    a unified manner to appropriate team members for greatly reduced
     context-switching costs and incident time-to-resolution.
 -   Managing a service life cycle, from commits to CI builds to
     deployments to alerts to corrective action
 -   Automating common tasks in software development and operation,
     for example:
-    -   Using Rug editors to modify code in a consistent mannger
+    -   Using Rug editors to modify code in a consistent manner
         across many repositories
     -   Ensuring a project conforms with your standards using a Rug
         reviewer
