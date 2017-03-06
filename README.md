@@ -7,37 +7,73 @@ This repository contains the markdown sources for the documentation
 for Atomist.  You can find the current version of the Atomist
 documentation at [http://docs.atomist.com/](http://docs.atomist.com/).
 
-## Generating
+The documentation is generated from markdown using [mkdocs][].
+
+[mkdocs]: http://www.mkdocs.org/
+
+## Editing
 
 Much of the documentation is hand-generated, so you can feel free to
-edit.  The exception is the documentation for
-the [Rug core types](docs/reference-docs/rug/types/).  Other than the
-index, it is generated every time tests are run in
-the [Rug repository][rug].  When the tests are complete, all of the
-type docs will be in a single file named `target/RugTypes.md`.  You
-can use the following commands to split file files up by type:
+edit.
 
-```
-$ cd target
-$ perl -lane 'if (/^## Type: /) { $t = $F[2]; $t =~ s/\`//g; $t =~ s/([A-Z])/-\L$1/g; $out = "rug-extension$t.md"; open FH, ">$out" } if (FH) { print FH }' RugTypes.md
-```
-
-You can then copy the files under `docs/reference-docs/rug/types`,
-omitting the files that document test types (`Replacer*`), internal
-(`Pair`, `Service`), base `JavaClassOrInterfaceView`, and base
-(`Mutable*`) types.
+The exception is the
+auto-generated [reference documentation](docs/reference/).
+the [Rug repository][rug].  At present, only the Rug extension
+documents are auto-generated during the [rug][] build.  After the
+running tests using `npm-release` profile, the generated documentation
+will be under `target/.atomist/node_modules/@atomist/rug/typedoc`.
+You can then copy these files to `docs/reference/rug/extensions`.
 
 [rug]: https://github.com/atomist/rug
+
+## Styles
+
+We use the [Admonition][admonition] extension.  Here are the available
+admonition styles.
+
+![Admonition Classes](images/admonition-classes.png)
+
+Below are the default styles.
+
+![Admonition Classes](images/admonition-classes-default.png)
+
+[admonition]: https://pythonhosted.org/Markdown/extensions/admonition.html
+
+<!-- to recreate the above image
+!!! tldr "summary tldr"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! important "hint important tip"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! check "check done success"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! caution "attention caution warning"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! fail "fail failure missing"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! danger "danger error"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! bug "bug"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+!!! default "default (anything other than the above)"
+    Test copy to check visual of **bold**, *italic*, `code style`, and [link style][ts]
+
+[ts]: https://www.typescriptlang.org/
+-->
 
 ## Releasing
 
 When a push is made to this repository, the entire documentation is
 built again via a [Travis][travis] job and published to
-http://atomist.github.io/end-user-documentation/ .  The documentation
-is generated from markdown using [mkdocs][].
+http://atomist.github.io/end-user-documentation/ .
 
 [travis]: https://travis-ci.com/atomisthq/end-user-documentation
-[mkdocs]: http://www.mkdocs.org/
 
 If the build is triggered by a tag of the form `M.N.P`, the site will
 be pushed to the [Atomist GitHub Pages][pages] repository and served
