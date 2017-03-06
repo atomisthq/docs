@@ -9,27 +9,29 @@
 .md-footer-meta {
     background-color: #14283B;
 }
-/* Styles for additional elements in the documentation
- * These styles are separate from the underlying mkdocs theme */
 .admonition {
     font-size: 1.4rem;
+    border-left: 3.2rem solid rgba(45,125,124,.4);
+    background-color: rgba(45,125,124,.15);
+}
+.admonition.summary, .admonition.tldr {
+    border-color:rgba(28,52,74,.4);
+    background-color:rgba(28,52,74,.15);
 }
 .admonition.hint, .admonition.important, .admonition.tip {
-    border-color: #5BC399;
-    background-color: #6BC9A3;
-    color: #FFFFFF;
-    margin-bottom: 20px;
+    border-color: rgba(147,194,111,.4);
+    background-color: rgba(147,194,111,.15);
 }
-.admonition.hint ul li, .admonition.important ul li, .admonition.tip ul li {
-    margin-bottom: 0em;
+.admonition.check, .admonition.done, .admonition.success {
+    border-color:rgba(0,142,71,.4);
+    background-color:rgba(0,142,71,.15);
 }
-.admonition.hint a, .admonition.important a, .admonition.tip a {
-    color: #1c344a;
+.admonition.attention, .admonition.caution, .admonition.warning {
+    border-color:rgba(255,184,0,.4);
+    background-color:rgba(255,184,0,.15);
 }
-.admonition.hint a:hover, .admonition.important a:hover, .admonition.tip a:hover {
-    color: #247f7e;
-}
-
+/* Styles for additional elements in the documentation
+ * These styles are separate from the underlying mkdocs theme */
 a span.button {
     text-decoration: none;
 }
@@ -76,4 +78,13 @@ div.button-container, div.ss-container {
 .major-point {
     font-size: 1.6rem;
     font-style: oblique;
+}
+.rugs {
+    font-style: oblique;
+}
+dt {
+    font-weight: bold;
+}
+dd {
+    margin-bottom: 10px;
 }

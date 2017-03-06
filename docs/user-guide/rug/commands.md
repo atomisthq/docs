@@ -1,17 +1,18 @@
-Controlling communication and information flows is paramount to effective teams.
-Open-Source projects have long been relying on chat venues to operating and
-performing well. Recent modern chat solutions, which can integrate deeply
-in your ecosystem, have proven to be fantastic central venues for your teams to
-drive their project flows.
+Controlling communication and information flows is paramount to
+effective teams.  Open Source projects have long been relying on chat
+to help them operate and coordinate.  Recent modern chat solutions,
+which can integrate deeply in your ecosystem, have proven to be
+fantastic hubs for teams to communicate and drive their workflows.
 
-Rug Command Handlers provide a simple interface to add new skills to the
-Atomist bot that you invited to your team.
+Rug commands provide a simple interface to add new skills to the
+Atomist Bot.
 
-## A Basic Command Handler
+## A Basic Command
 
-The following command handler responds to commands passed to the Atomist bot,
-`@atomist add markdown document`. The handler calls our [editor](editors.md),
-but could also make externals calls, and responds with a message.
+The following command responds to commands passed to the Atomist bot,
+`@atomist add markdown-document`.  The handler calls
+our [editor](editors.md), but could also make externals calls, and
+responds with a message.
 
 ```typescript
 import { HandleCommand, Plan } from '@atomist/rug/operations/Handlers'
@@ -20,7 +21,7 @@ import { Project } from '@atomist/rug/model/Core'
 
 @CommandHandler("AddMarkdownDocument","Runs the SetLicense editor on a bunch of my repos")
 @Tags("markdown", "documentation")
-@Intent("add markdown document")
+@Intent("add markdown-document")
 class AddMarkdownDocument implements HandleCommand {
 
     @Parameter({description: "name of your new document", pattern: Pattern.any})
@@ -38,5 +39,5 @@ class AddMarkdownDocument implements HandleCommand {
         return result;
     }
 }
-export let command = new AddMarkdownDocument();
+export const addMarkdownDocument = new AddMarkdownDocument();
 ```

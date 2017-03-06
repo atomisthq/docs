@@ -39,12 +39,12 @@ Bot.
 ## Events
 
 Atomist takes [event-driven programming][edp] and applies it to
-programming.  Everything from commits to pushes to CI builds to
+programming itself.  Everything from commits to pushes to CI builds to
 deployments to stack traces in production logs&mdash;these are
 captured as events.  Atomist responds to events in two ways: it learns
 about relationships and takes automated action.  For instance, a
-commit event teaches Atomist who changed code on a branch; a failed
-build event for that branch results in the action of messaging that
+commit event *teaches* Atomist who changed code on a branch; a failed
+build event for that branch results in the *action* of messaging that
 committer.  Recognizing each crucial event lets Atomist
 
 -   Orchestrate a delivery flow across multiple projects and systems
