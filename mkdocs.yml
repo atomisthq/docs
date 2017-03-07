@@ -68,7 +68,6 @@ pages:
     - Rug:
         - Introduction : user-guide/rug/index.md
         - Runtime: user-guide/rug/runtime.md
-        - TypeScript: user-guide/rug/typescript.md
         - Handlers: user-guide/rug/handlers.md
         - Commands: user-guide/rug/commands.md
         - Editors: user-guide/rug/editors.md
