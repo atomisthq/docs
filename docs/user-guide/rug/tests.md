@@ -1,69 +1,97 @@
-Rug provides a testing framework based on [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) concepts.
+Rug provides a testing framework based on [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) concepts. This allows rapid, in-memory testing of Rug generators, reviewers and editors.
 
-This takes the form of a test DSL that reuses features and types from Rug to ensure it is easy for Rug authors to adopt.
+The framework is based on the well-known [Gherkin BDD DSL](https://cucumber.io/docs/reference) and inspired by solutions built on it, such as [cucumber-js](https://github.com/cucumber/cucumber-js). All logic is coded in TypeScript or JavaScript. If you are familiar with Cucumber (versions of which exist for many languages), you should find the Rug test framework particularly easy to learn; if not, it should still be intuitive.
 
 !!! note ""
     Rug is designed to support Test Driven Development using the BDD style, and we've seen the greatest productivity in its early use from those that create test scenarios and then follow the `red` -> `green` -> `refactor` approach.
 
 ### A Quick Overview of a Rug Test
 
-Before taking a deeper dive into the all the syntax of Rug tests, let's look at some examples.
+Before taking a deeper dive, let's look at an example.
 
-Consider the following simple editor that will rename a Java file:
+Consider the following simple editor that will rename a Java file (imports omitted):
 
-```rug linenums="1"
-editor Rename
-with java.class c when name = "Dog"
-	do rename "Cat"
 ```
-We want to test that the editor works as intended:
+@Editor("Renamer", "Renames Java class")
+export class Renamer {
 
-```rug linenums="1"
-scenario Dogs can be turned into cats
-
-given
-   src/main/java/Dog.java = "class Dog {}"
-
-when
-   Rename old_class="Dog", new_class = "Cat"
-
-then
-  fileCount = 1
-  and fileContains "src/main/java/Cat.java" "class Cat"
+    edit(project: Project) {
+    	let eng = project.context().pathExpressionEngine()
+        eng.with<JavaClass>(project, "//JavaClass()[@name='Dog']", jc => {
+        	jc.rename("Cat")
+    })
+}
 ```
 
-Walking through this test:
+We want to test that the editor works as intended. First, we write a Gherkin `.feature` file that is an easily readable description of the behaviors we expect. We'll call it `Renaming.feature` and place it under `.atomist/test`. 
 
-* Every test starts with the keyword `scenario` followed by a free text description whose only limitation is that it must not contain a `#` character, otherwise any text after the `#` will be treated as a comment.
-* Every test is then typically broken down into three blocks of `given`, `when`, `then`, following the BDD style. a `given` and `then` blocks are mandatory, but the `when` block is not (you could execute when-related code as part of the `given` block), however for readability it is a best-practice to use the `when`.
-* This example only has one test scenario, but it is quite common to have more than one scenario in one file.
+```
+Feature: Renaming a Java file
+ Three lines of indented content
+ to describe the meaning of this feature,
+ followed by one or more Scenario definitions.
+ 
+Scenario: Dogs can be turned into cats
+ Given a file named src/main/java/Dog.java 
+ When edit with Renamer
+ Then there should be one file
+ Then the file is now src/main/java/Cat.java
+```
 
-Rug test scenarios are written in `.rt` files (`.rt` naturally stands for Rug Test) and are located within a [Rug project](archives.md) in the `.atomist/tests` directory.
+Walking through this definition:
 
-> NOTE: `#` is one comment approach in Rug. You can also use C-style `/* */` multi-line comments as well.
+* The syntax is standard Gherkin. It is human-readable and contains a specification of the desired behavior, but not how that behavior is to be verified. 
+* A Gherkin **feature** can contain one or more **scenarios**. You can include as many feature files in the `.atomist/test` directory as you like.
+* Each **scenario** is typically broken down into three blocks of `given`, `when`, `then`, following the BDD style. Each of these is called a **step**. Typically there is a single `when` step--the execution of an editor. There are often multiple `given` and `then` steps. `then` steps are assertions, and it is good practice to break them up for clarity, so failures are specific.
 
+We now have a clear specification of the desired behavior. How does the test infrastructure know how to execute these steps?
 
-### Diving into the `Given` Block Syntax
+As in *cucumber-js*, we delegate to JavaScript or TypeScript to execute these steps. In keeping with our general preference for TypeScript, let's see the TypeScript steps corresponding to the above feature:
 
-The `given` block specifies the input to the editor-under-test in the form of multiple *file specifications*. There are several choices for expressing file specs:
+```
+import {Project} from "@atomist/rug/model/Core"
+import {ProjectEditor} from "@atomist/rug/operations/ProjectEditor"
+import {Given,When,Then,Result} from "@atomist/rug/test/Core"
 
-|  File spec |  Sample | Meaning
-|---|---|---|---|
-| inline file | `dir/foo.txt = "bar"` | Populates the file |
-loaded file | `dir/foo.txt from "/some/path/file.txt"` | Load the file content from the archive.
-| archive root | `ArchiveRoot` | Loads all the files in the archive this editor is in, excluding the content of the `.atomist` directory. This is useful and convenient when building templates, as it enables verification that the contents of the template are a valid starting point for the editor being tested.
+Given("a file named src/main/java/Dog.java", p => {
+ p.addFile("src/main/java/Dog.java", "public class Dog {}")
+})
+When("edit with Renamer", p => {
+ p.editWith("Renamer")
+})
+Then("there should be one file", p => 
+	p.totalFileCount() == 1)
+Then("the file is now src/main/java/Cat.java", 
+	p => p.fileExists("src/main/java/Cat.java"))
+
+```
+All steps are expressed in terms of the `Project` type. 
+
+We start by importing `Project`, and the core test module and its exported `Given`, `When` and `Then` functions.
+
+Step definitions are linked to the steps in the feature via strings, such as `"a file named src/main/java/Dog.java"`.
+
+Step definitions may be provided in any TypeScript or JavaScript file under `.atomist/test`. They will be loaded automatically by the test infrastructure.
+
+Different scenarios and even different features may share step definitions. This is particularly beneficial in the case of common definitions such as Given "an empty archive," which can be shared for all users, across an organization or team or across an archive.
+
+### Given Steps
+
+TODO archive root
 
 ### `When` You Run Your tests
 
-The `when` block is optional, but for clarity helps the test consumer to understand where the actual test is being run. Typically this is where the actual editor itself is invoked.
+Typically this is where the actual editor itself is invoked.
 
 ### `Then` Assertions
 
-The `then` block then consists of one or more assertions about the final state of the project.
+The `then` block then consists of one or more assertions about the final state of the project. It is good practice for these to be fine-grained so that reports are maximally informative about what succeeded and failed. The code of each failed assertion will be available in the test report.
 
 #### Some `Well-Known` Assertions
 
 Certain well-known assertions can be used alone. These are indicated in the following keywords:
+
+TODO NEED TO MIGRATE THE FOLLOWING FUNCTIONALITY ****
 
 * `NoChange`: The scenario passes if the editor does not change the input.
 * `NotApplicable`: The scenario passes if the editor is not applied due to a precondition not being met.
@@ -71,67 +99,75 @@ Certain well-known assertions can be used alone. These are indicated in the foll
 * `MissingParameters`: The scenario passes if the editor fails due to missing parameters. Used to test parameter validation.
 * `InvalidParameters`: The scenario passes if the editor fails due to invalid parameters. Used to test parameter validation.
 
-### The Rug Test Grammar
+### Passing Parameters to Operations
+TODO: cover editWith
 
-The full grammar of Rug tests is defined as:
+### Worlds
+Each scenario can have a "world" associated with it. A world is an isolated context for each scenario execution, which allows:
+
+- The binding and retrieval of arbitrary objects
+- Additional context-specific operations provided in the world's implementation
+
+Currently `rug` supports only BDD-based tests for generators, editors and reviewers. These use the `ProjectWorld` type, defined in `Core.ts`. `ProjectWorld` allows `then` blocks to query the number of modifications made, whether or not edit attempts succeeded, and the number of editors run.
+
+The scenario world is an optional second parameter in all step definitions. For example:
 
 ```
-<test> ::= <given> <run> <when> <then>
-
-<given> ::= <filespec> { <filespec> }
-
-<filespec> ::= <filename> = <filecontents>
-
-<when> ::= <editorname> <namedargs>
-
-<namedargs> :: = <namedarg> { namedarg }
-
-<namedarg> :: <argname> = <argvalue>
-
-<then> ::= <assertion> { <assertion> }
-
-<assertion> ::= <function> <arg>
+export function Given(s: string, f: (Project, ScenarioWorld?) => void)
 ```
 
-### Advanced Usage
+While our examples have used only the project, the world can be used as follows:
 
-#### No Change
-
-When there's no change
-
-```rug linenums="1"
-scenario Foobar
-
-given
-   "src/main/java/Squirrel" = "class Squirrel {}"
-
-when
- Rename old_class="Dog", new_class = "Cat"
-
-then
-  NoChange
+```
+Then("I'm happy with both project and world", (p, world) => {
+		// Assertion that may reference the world
+})
 ```
 
-This scenario will pass only if there's no change in the input artifact source.
+### Debugging Hints
 
-#### More debug information
+To see the contents of a file in the output, simply get hold of the file in the project and use `console.log`. For example:
 
-For help debugging a failing test, set debug=true to get a little tree of the directory structure after the editor runs.
-
-```rug
-scenario Foobar
-
-debug=true
-
-given...
+```
+Then("the file has the right stuff", p => {
+	let filename = "my/path/to/File.txt"
+	let f = p.findFile(filename)
+	if (f) {
+		console.log(`Contents of ${filename} are \n${f.content()}\n`)
+		return f.content().indexOf("stuff i care about") > -1
+	}
+	else {
+		console.log(`${filename} not found in archive`)
+		return false
+	}
+})
 ```
 
-To see the contents of a file in the output, use `dump <filename>` as an assertion predicate, like
+To dump the entire archive at any point, use the `Helpers` module as follows:
 
-```rug
-then
-  dump outputFile
-	and fileContains outputFile "should be in there"
+```
+import * as helpers from "@atomist/rug/test/Helpers"
+...
+helpers.prettyListFiles(project)
 ```
 
-For more on debugging rugs, there's a walkthrough on [The Composition](https://medium.com/the-composition/dumping-your-rug-with-rug-tests-7ec191aa713e#.ccndpk66i).
+To dump the tree in a particular file:
+
+TODO
+
+### Gaps
+Please note the following gaps from the full range of Gherkin functionality:
+
+- Doc strings
+- Data tables
+- Tags
+
+These may be supported in a future version of `rug`.
+
+### Future Directions
+
+- The need for more than one source file for each feature is both a strength and weakness of Gherkin. It's a strength because each file is in a single, logical, toolable language; it's a weakness because of the level of ceremony required and because of the brittle linkage by a string value. We intend to provide editors that helps with this, automatically creating feature files for editors, and TypeScript files implementing the steps in feature files.
+- In future release, BDD testing support should be extended beyond project operations to event handlers.
+
+
+
