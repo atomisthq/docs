@@ -7,9 +7,6 @@ using [Chocolatey][choco].
 [brew]: http://brew.sh/
 [choco]: https://chocolatey.org/
 
-Once you have it installed, continue with
-the [Rug CLI Quick Start](/guides/rug-cli/).
-
 ### Install the Rug CLI on Mac OS X / macOS
 
 The easiest way to get start on a Mac is to install the Rug CLI using
