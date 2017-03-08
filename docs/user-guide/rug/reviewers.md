@@ -49,3 +49,66 @@ class DoNotOverrideTopLevelHeaderInMkDocsProject implements ReviewProject {
 }
 export let reviewer = new DoNotOverrideTopLevelHeaderInMkDocsProject()
 ```
+The responsibility of a reviewer is to return a `ReviewResult` containing zero or more `ReviewComment` instances. Reviewers use the same object model as other project operations, but cannot modify projects. (Any attempt to update a project will be ignored.) Review comments may contain the file path, line and column, of the problem.
+## A Reviewer Focusing on AST Nodes
+When you are working with AST nodes within a file produced by Antlr or another technologies (and typically returned by path expressions), there is a convenient method of adding a review comment, automatically capturing full positional information. The comments in the following listing explain:
+
+```
+import {Project} from '@atomist/rug/model/Core'
+import {ProjectReviewer} from '@atomist/rug/operations/ProjectReviewer'
+import {PathExpression,PathExpressionEngine} from '@atomist/rug/tree/PathExpression'
+import {ReviewResult,ReviewComment,Severity} from '@atomist/rug/operations/RugOperation'
+
+// We can use this to get additional information from path expression matches
+import {DecoratingPathExpressionEngine} from '@atomist/rug/ast/DecoratingPathExpressionEngine'
+import {RichTextTreeNode} from '@atomist/rug/ast/TextTreeNodeOps'
+import {Parameter, Reviewer} from '@atomist/rug/operations/Decorators'
+
+// Import Java types and helpers
+import * as java from '@atomist/rug/ast/java/Types'
+
+export class CatchThrowable implements ProjectReviewer {
+
+    name = "CatchThrowable"
+    description = "Look for particular throwables"
+
+	// Note the use of the well-known validation pattern @java_identifier
+    @Parameter({description: "Exception to look for", pattern: "@java_identifier"})
+    exception: string
+
+    review(project: Project) {
+    	// Use a decorating PathExpressionEngine to get RichTextTreeNode
+    	// mixin returned from path expression evaluation
+      const eng = 
+      new DecoratingPathExpressionEngine(project.context().pathExpressionEngine())
+
+      const rr = ReviewResult.empty(this.name)
+
+		// Uses well-known path expression.
+		// Works with RichTextTreeNode
+      eng.withExpression<RichTextTreeNode>(project, new java.Catch(this.exception), n => {   
+      	// Because this comment concerns a node within the file's AST
+      	// the commentConcerning function automatically takes care of finding th location: file path, line and column 
+        rr.add(n.commentConcerning(
+                    this.name,
+                    Severity.Major)
+        )
+       })
+       return rr
+    }
+}
+
+export const editor = new CatchThrowable()
+```
+The well-known Java path expression `Catch` is as follows, and is a useful model for user-authored path expressions. It builds an interpolated string from its construtor parameters and passes the result to its superclass's constructor:
+
+```
+export class Catch extends PathExpression<Project,TextTreeNode> {
+
+    constructor(exception: string) {
+        super(`//JavaFile()//catchClause//catchType[@value='${exception}']`)
+    }
+}
+```
+
+
