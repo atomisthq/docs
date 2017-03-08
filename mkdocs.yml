@@ -100,8 +100,8 @@ pages:
             - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
     - Permissions:
         - Overview: user-guide/permissions/index.md
-        - Slack: user-guide/permissions/slack.md
-        - GitHub: user-guide/permissions/github.md
+        - Slack Scopes: user-guide/permissions/slack.md
+        - GitHub Scopes: user-guide/permissions/github.md
 - Reference Documentation:
     - Overview: reference/index.md
     - Rug:
