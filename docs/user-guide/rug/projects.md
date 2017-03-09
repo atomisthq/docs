@@ -3,7 +3,8 @@ possible so that *every project could be a working Atomist project,
 and every Atomist project remains a working project*.  Therefore,
 Atomist files reside unobtrusively within your existing projects.
 Specifically, Atomist files reside in a directory named `.atomist` at
-the root of your project's source code hierarchy.
+the root of your project's source code hierarchy.  Any project that
+has a `.atomist` directory at its root with a valid `manifest.yml`.
 
 ## The `.atomist` directory
 
@@ -26,7 +27,8 @@ something like the following.
 └── tsconfig.json
 ```
 
-The table below explains each entry.
+The only required file in the `.atomist` directory is the
+`manifest.yml`.  The table below explains each entry.
 
 Entry | Description
 ------|------------
@@ -34,7 +36,7 @@ Entry | Description
 `editors` | contains Rug editors
 `generators` | contains Rug generators
 `handlers` | contains Rug command and event handlers
-`manifest.yml` | Rug archive metadata and dependencies declarations
+`manifest.yml` | Rug archive metadata and dependencies declarations, *required*
 `node_modules` | contains source code for TypeScript typings and dependencies installed by [NPM][npm]
 `package.json` | standard NPM `package.json` file declaring the TypeScript dependencies
 `reviewers` | contains Rug reviewers
@@ -48,10 +50,135 @@ Entry | Description
 
 [npm]: https://www.npmjs.com/
 
+## Metadata
+
+The `.atomist/manifest.yml` file contains the Rug archive project
+metadata.  The `manifest.yml` file is a standard [YAML][yaml] file.
+Typical contents for the `manifest.yml` will look like:
+
+[yaml]: http://yaml.org/
+
+```yaml
+artifact: rug-editors
+group: atomist-rugs
+version: "0.15.0"
+requires: "[0.12.0,1.0.0)"
+dependencies:
+extensions:
+```
+
+Key | Value
+----|------
+`#!yaml artifact` | unqualified name of the Rug archive
+`#!yaml group` | group of the Rug archive, typically the same as the GitHub owner
+`#!yaml version` | [semantic version][semver] of the Rug archive
+`#!yaml requires` | version(s) of `rug` this Rug archive is compatible with
+`#!yaml dependencies` | a sequence of other, fully-qualified Rug archives on which this Rug archive depends
+`#!yaml extensions` | a sequence of Rug extensions (JVM JARs) on which this Rug archive depends
+
+[semver]: http://semver.org/
+
+## Dependencies
+
+A Rug project can have four different types of dependencies:
+
+1.  Rug runtime dependency
+2.  Other Rug archives
+3.  Rug extensions
+5.  TypeScript types
+
+### Runtime
+
+The Rug runtime dependency is specified using the `requires` key in
+the `manifest.yml`.  The value of the `requires` key is a string that
+specifies either an exact Rug runtime version or a version range using
+the Maven [version range][mvn-ver-range].  The following would cause
+the Rugs in the project to only executed by Rug runtime version
+0.13.0.
+
+[mvn-ver-range]: https://maven.apache.org/enforcer/enforcer-rules/versionRanges.htmlp
+
+```yaml
+requires: "0.13.0"
+```
+
+In contrast, the following specification could run under any version
+of the Rug runtime from 0.13.0, inclusive, up to, but not including,
+version 1.0.0.
+
+```yaml
+requires: "[0.13.0, 1.0.0)"
+```
+
+When deciding on which version to use, the highest available version
+satisfying the range constraints will be used.
+
+### Archives
+
+Rugs in one project can call Rugs in other archives as long as the
+calling Rug's project declares a dependency on the archive of the Rug
+being called.  Dependencies on other Rug archives are declared by
+listing the fully-qualified name of the Rug archive containing the Rug
+being called as an entry in the sequence value of the `dependencies`
+key.  The fully-qualified name of a Rug archive is archive group and
+artifact name joined by a colon (`:`).  You can optionally specify the
+version of the Rug archive dependency by appending a colon and the
+version to the full-qualified name.  Here is an example of a
+dependency on a specific Rug archive version.
+
+```yaml
+dependencies:
+  - atomist-rugs:rug-editors:0.14.0
+```
+
+### Extensions
+
+Rugs in a project can use Rug extensions not in the Rug core if they
+declare a dependency on the extension.  A dependency on a Rug
+extension is declared by listing the fully-qualified name of the Rug
+extension as an entry in the sequence value of the `extensions` key.
+The fully-qualified name of the extension is comprised of the group ID
+and artifact ID joined by a colon (`:`).  You can optionally specify
+the version of the Rug extension dependency by appending a colon and
+the version to the full-qualified name.  Here is an example of a
+specific-version extension dependency.
+
+```yaml
+extensions:
+  - com.atomist:travis-rug-extension:0.9.1
+```
+
+### TypeScript types
+
+While developing Rugs, and to fully benefit from the static typing
+support of the TypeScript language, your project should declare a
+dependency on an appropriate version of the Rug TypeScript typings in
+`.atomist/package.json`.  The `package.json` file is a
+standard [Node package file][npmpackage].  You only need to specify
+the `dependencies` section to the minimum released version of the Rug
+language your project targets.  Below are the complete contents of a
+valid `package.json` file.
+
+```json
+{
+  "dependencies": {
+    "@atomist/rug": "0.13.0"
+  }
+}
+```
+
+[npmpackage]: https://docs.npmjs.com/files/package.json
+
+!!! note ""
+    The `.atomist/package.json` file does not impact the runtime of
+    your Rug, which is driven by the value of the `requires` key in
+    `.atomist/manifest.yml`.  The former only exists to support a nice
+    development experience from your favorite IDE or editor.
+
 ## Basic Rug Project
 
 A very basic Rug project can be generated using
 the [Rug project generator][rug-generator].  Instructions running the
 generator using the Rug CLI can be found in the project's README.
 
-[rug-generator]: https://github.com/atomist-rugs/rug-project#readme
+[rug-generator]: https://github.com/atomist-rugs/rug-editors#newstarterrugproject

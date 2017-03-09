@@ -68,7 +68,6 @@ pages:
     - Rug:
         - Introduction : user-guide/rug/index.md
         - Runtime: user-guide/rug/runtime.md
-        - TypeScript: user-guide/rug/typescript.md
         - Handlers: user-guide/rug/handlers.md
         - Commands: user-guide/rug/commands.md
         - Editors: user-guide/rug/editors.md
@@ -114,7 +113,7 @@ pages:
 #            - Templates: reference/rug/templates.md
 #            - Tests: reference/rug/tests.md
 #            - Archives: reference/rug/archives.md
-        - Language Extensions:
+        - Extensions:
             - Overview: reference/rug/extensions/index.md
             - CljProject: reference/rug/extensions/clj-project.md
             - CSharpFile: reference/rug/extensions/c-sharp-file.md
