@@ -23,7 +23,7 @@ the following.
 [springrest]: https://spring.io/guides/gs/rest-service/
 
 ```console
-spring-boot-rest-basic
+~/workspace/spring-boot-rest-basic
     ├── .gitignore
     ├── pom.xml
     ├── README.md
@@ -45,11 +45,10 @@ spring-boot-rest-basic
     │                   ├── MyRestServiceApplicationTests.java
     │                   ├── MyRestServiceOutOfContainerIntegrationTests.java
     │                   └── MyRestServiceWebIntegrationTests.java
-    └── .travis.yml
 ```
 
-To turn our project into a [Rug project][rugproj], we can use the 
-`ConvertExistingProjectToGenerator` Rug generator in [rug-editors][convert] to 
+To convert out model project into a [Rug generator][rugproj], we can use the 
+`ConvertExistingProjectToGenerator` Rug editor in [rug-editors][convert] to 
 add all the necessary directories and files:
 
 [rugproj]: projects.md
@@ -58,10 +57,10 @@ add all the necessary directories and files:
 ```console
 $ rug edit atomist-rugs:rug-editors:ConvertExistingProjectToGenerator \
     archive_name=spring-boot-service \
-    group_id=com.company.rugs \
+    group_id=company-rugs \
     version=0.13.0 \
     generator_name=NewSpringBootService \
-    description="Rug project for Spring Rest Services"
+    description="Rug generator for a Spring Boot REST service"
 Processing dependencies                                                                                                                                                                                          
   Downloading atomist-rugs/rug-editors/maven-metadata.xml ← rugs (740 bytes) succeeded                                                                                                                 
   Downloading atomist-rugs/rug-editors/maven-metadata.xml ← global (740 bytes) succeeded                                                                                                               
@@ -75,7 +74,7 @@ Loading atomist-rugs:rug-editors:0.14.0 into runtime completed
 Running editor ConvertExistingProjectToGenerator of atomist-rugs:rug-editors:0.14.0 completed
 
 → Project
-  ~/dev/oss/atomist-docs-samples/ (14 kb in 20 files)
+  ~/workspace/spring-boot-rest-basic (14 kb in 20 files)
 
 → Changes
   ├── .atomist/manifest.yml created (223 bytes)
@@ -109,7 +108,7 @@ published package of a Rug).
 Once this is completed, the project should look like this:
 
 ```console hl_lines="2 3 4 5 6 7 8 9 10 11"
-spring-boot-rest-basic
+~/workspace/spring-boot-rest-basic
     ├── .atomist
     │   ├── editors
     │   │   └── NewSpringBootService.ts
@@ -117,8 +116,9 @@ spring-boot-rest-basic
     │   ├── manifest.yml
     │   ├── package.json
     │   ├── tests
-    │   │   ├── NewSpringBootService.feature
-    │   │   └── Steps.ts
+    │   │   ├── project
+    │   │   │   ├── NewSpringBootService.feature
+    │   │   └── └── Steps.ts
     │   └── tsconfig.json
     ├── .atomist.yml
     ├── .gitignore
@@ -143,7 +143,6 @@ spring-boot-rest-basic
     │                   ├── MyRestServiceApplicationTests.java
     │                   ├── MyRestServiceOutOfContainerIntegrationTests.java
     │                   └── MyRestServiceWebIntegrationTests.java
-    └── .travis.yml
 ```
 
 The `.atomist` directory contains a manifest file,
@@ -163,18 +162,18 @@ Let's take a close look at the Rug generator script.
 ## A Basic Generator Script
 
 The generator script's `#!typescript populate` method is invoked after
-the model project's files have been copied to the target project.  A
-possible generator script for the project discussed above could look like this:
+the model project's files have been copied to the target project.  The default 
+contents of the generator script we added above look like the following:
 
 ```typescript linenums="1"
-import { PopulateProject } from '@atomist/rug/operations/ProjectGenerator'
-import { Project } from '@atomist/rug/model/Project'
-import { Pattern } from '@atomist/rug/operations/RugOperation'
-import { Generator, Parameter, Tags } from '@atomist/rug/operations/Decorators'
+import { PopulateProject } from '@atomist/rug/operations/ProjectGenerator';
+import { Project } from '@atomist/rug/model/Project';
+import { Pattern } from '@atomist/rug/operations/RugOperation';
+import { Generator, Parameter, Tags } from '@atomist/rug/operations/Decorators';
 
 @Generator("NewSpringBootService", "Rug project for Spring Rest Services")
 @Tags("documentation")
-class NewSpringBootService implements PopulateProject {
+export class NewSpringBootService implements PopulateProject {
 
     populate(project: Project) {
         console.log(`Creating ${project.name()}`);
@@ -212,21 +211,23 @@ Like the generator class name, the name of the `#!typescript const`
 does not matter, but it is convention to use the generator/class name,
 lower-casing the first letter.
 
-At this stage, the generator does not do anything useful. As explained earlier,
-a generator copies the content of the project where it lives into a target 
-directory before applying changes. Let's now amend the generator to change the 
-name of the copied class. An action users would likely do manually.
+As explained earlier, a generator copies the content of the project where it 
+lives into a target directory before applying changes. The definition of our 
+generator currently performs only the copy (this is done automatically for us).
+Let's now amend the generator to modify the copied contents, for example to 
+change the name of the copied class. An action users would likely do manually.
 
-```typescript linenums="1"
-import { PopulateProject } from '@atomist/rug/operations/ProjectGenerator'
-import { Project } from '@atomist/rug/model/Project'
-import { File } from '@atomist/rug/model/File'
-import { Pattern } from '@atomist/rug/operations/RugOperation'
-import { Generator, Parameter, Tags } from '@atomist/rug/operations/Decorators'
+```typescript linenums="1" hl_lines="3 6 26 27 28 29 30"
+import { PopulateProject } from '@atomist/rug/operations/ProjectGenerator';
+import { Project } from '@atomist/rug/model/Project';
+import { File } from '@atomist/rug/model/File';
+import { Pattern } from '@atomist/rug/operations/RugOperation';
+import { Generator, Parameter, Tags } from '@atomist/rug/operations/Decorators';
+import { PathExpressionEngine } from '@atomist/rug/tree/PathExpression';
 
 @Generator("NewSpringBootService", "Rug project for Spring Rest Services")
 @Tags("documentation")
-class NewSpringBootService implements PopulateProject {
+export class NewSpringBootService implements PopulateProject {
 
     @Parameter({
         displayName: "Class Name",
@@ -242,18 +243,16 @@ class NewSpringBootService implements PopulateProject {
     populate(project: Project) {
         console.log(`Creating ${project.name()}`);
 
-        project.findFile("src/main/java/com/company/MyRestServiceApplication.java").replace("MyRestService", this.service_class_name)
-        project.findFile("src/main/java/com/company/MyRestServiceConfiguration.java").replace("MyRestService", this.service_class_name)
-        project.findFile("src/test/java/com/company/MyRestServiceApplicationTests.java").replace("MyRestService", this.service_class_name)
-        project.findFile("src/test/java/com/company/MyRestServiceOutOfContainerIntegrationTests.java").replace("MyRestService", this.service_class_name)
-        project.findFile("src/test/java/com/company/MyRestServiceWebIntegrationTests.java").replace("MyRestService", this.service_class_name)
-
-        project.replaceInPath("MyRestService", this.service_class_name)
+        let eng: PathExpressionEngine = project.context().pathExpressionEngine()
+        eng.with<File>(project, '/src//File()[contains(@name, "MyRestService")]', f => {
+            f.replace("MyRestService", this.service_class_name);
+            f.setPath(f.path().replace("MyRestService", this.service_class_name));
+        });
     }
 }
 
 export const newSpringBootService = new NewSpringBootService();
-```
+``` 
 
 Rugs, like typical methods, often take parameters to customize their
 behavior.  Generators have a required parameter: the name of the
@@ -284,53 +283,12 @@ programming model.
 
 In that regards, as Atomist comprehends filesystem and code structure, the Rug
 programming model offers a powerful mechanism to make the above example a lot
-less brittle through [path expression][pxe]. By using a path expression to 
-navigate the project structure, looking for files, we can tighten the example
-as follows:
+less brittle through [path expressions][pxe]. In this generator script, we query 
+the filesystem for all files containing a specific token in their names 
+(line 27). Then for each one of these files, we replace its content (line 28) 
+and move it to different path (line 29). 
 
 [pxe]: path-expressions.md
-
-```typescript linenums="1" hl_lines="3 6 26 27 28 29 30"
-import { PopulateProject } from '@atomist/rug/operations/ProjectGenerator'
-import { Project } from '@atomist/rug/model/Project'
-import { File } from '@atomist/rug/model/File'
-import { Pattern } from '@atomist/rug/operations/RugOperation'
-import { Generator, Parameter, Tags } from '@atomist/rug/operations/Decorators'
-import { PathExpressionEngine } from '@atomist/rug/tree/PathExpression'
-
-@Generator("NewSpringBootService", "Rug project for Spring Rest Services")
-@Tags("documentation")
-class NewSpringBootService implements PopulateProject {
-
-    @Parameter({
-        displayName: "Class Name",
-        description: "name for the service class",
-        pattern: Pattern.java_class,
-        validInput: "a valid Java class name, which contains only alphanumeric characters, $ and _ and does not start with a number",
-        minLength: 1,
-        maxLength: 50,
-        required: false
-    })
-    service_class_name: string;
-
-    populate(project: Project) {
-        console.log(`Creating ${project.name()}`);
-
-        let eng: PathExpressionEngine = project.context().pathExpressionEngine()
-        eng.with<File>(project, '/src//File()[contains(@name, "MyRestService")]', f => {
-            f.replace("MyRestService", this.service_class_name)
-            f.setPath(f.path().replace("MyRestService", this.service_class_name))
-        })
-    }
-}
-
-export const newSpringBootService = new NewSpringBootService();
-``` 
-
-In this example, rather than searching for files, we query the filesystem for
-all files containing a specific token in their names (line 27). Then for each 
-one of these files, we replace its content (line 28) and move it to different 
-path (line 29). 
 
 Rugs should be tested as any other pieces of software, Rug and its runtime 
 natively supports a [BDD-centric testing approach][rugtest], based on the 
@@ -365,7 +323,8 @@ Scenario: A default Spring Rest project structure should be generated
 Implemented by the steps in `.atomist/tests/Steps.ts` file:
 
 ```typescript linenums="1"
-import { Given, When, Then, Result, ProjectScenarioWorld } from "@atomist/rug/test/Core";
+import { Given, When, Then, ProjectScenarioWorld } from "@atomist/rug/test/project/Core";
+import { Result } from "@atomist/rug/test/Result";
 import { Project } from "@atomist/rug/model/Project";
 
 Given("an empty project", p => {})
@@ -410,14 +369,12 @@ Then("the name of the class in the web integration tests is changed", (p: Projec
 
 If you're not familiar with this approach, the 
 `.atomist/tests/NewSpringBootService.feature` describes our tests in a set of
-hypothesis and expectations. All those steps are implemented in the 
+hypotheses and expectations. All those steps are implemented in the 
 `.atomist/tests/Steps.ts` file which is executed when the test is run:
 
 ```console
 $ rug test
 Resolving dependencies for com.company.rugs:spring-boot-service:0.13.0:local completed
-OpenJDK 64-Bit Server VM warning: You have loaded library /home/sylvain/libj2v8_linux_x86_64.so which might have disabled stack guard. The VM will try to fix the stack guard now.
-It's highly recommended that you fix the library with 'execstack -c <libfile>', or link it with '-z noexecstack'.
 Invoking TypeScript Compiler on ts script sources                                                                                                                                                                
   Created .atomist/tests/Steps.js.map                                                                                                                                                                            
   Created .atomist/tests/Steps.js                                                                                                                                                                                
@@ -433,14 +390,12 @@ Running tests in com.company.rugs:spring-boot-service:0.13.0:local completed
 Successfully executed 1 of 1 test: Test SUCCESS
 ```
 
-Assuming we change one the hypothesis to make it fail, `rug` would notify us
+Assuming we change one of the hypotheses to make it fail, `rug` would notify us
 with a relevant error message:
 
 ```console
 $ rug test
 Resolving dependencies for com.company.rugs:spring-boot-service:0.13.0:local completed
-OpenJDK 64-Bit Server VM warning: You have loaded library /home/sylvain/libj2v8_linux_x86_64.so which might have disabled stack guard. The VM will try to fix the stack guard now.
-It's highly recommended that you fix the library with 'execstack -c <libfile>', or link it with '-z noexecstack'.
 Invoking TypeScript Compiler on ts script sources                                                                                                                                                                
   Created .atomist/tests/Steps.js.map                                                                                                                                                                            
   Created .atomist/tests/Steps.js                                                                                                                                                                                
