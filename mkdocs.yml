@@ -113,7 +113,7 @@ pages:
 #            - Templates: reference/rug/templates.md
 #            - Tests: reference/rug/tests.md
 #            - Archives: reference/rug/archives.md
-        - Language Extensions:
+        - Extensions:
             - Overview: reference/rug/extensions/index.md
             - CljProject: reference/rug/extensions/clj-project.md
             - CSharpFile: reference/rug/extensions/c-sharp-file.md

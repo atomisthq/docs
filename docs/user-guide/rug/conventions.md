@@ -1,18 +1,25 @@
-This document highlights the conventions of writing, testing and publishing Rugs. 
-These are best-practices for a smoother experience of writing, running and using
-Rugs. The Rug toolchain will not, in most cases, enforce any of those
-conventions.
+This document highlights the conventions of writing, testing and
+publishing Rugs.  These are best-practices for a smoother experience
+of writing, running, and using Rugs. The Rug toolchain will not, in
+most cases, enforce any of those conventions.
 
-## Rug Project Guidelines
+## Rug project guidelines
 
-### README
+Rug projects, i.e., projects containing Rugs in a `.atomist`
+directory, should conform to the standard layout described on
+[Rug project][project].
 
-Rug projects ought to have a good `README.md` file, written using the 
-[markdown][] format, containing the following information:
+[project]: projects.md
+
+### README
+
+Rug projects ought to have a good `README.md` file, written using
+the [Markdown][markdown] format, containing the following information:
 
 -   A general description of the intent of the Rugs in the project,
     i.e., what ties them all together, at the top of the README.
--   A section named **Rugs** that has a subsection for each Rug that contains:
+-   A section named **Rugs** that has a subsection for each Rug that
+    contains:
     -   An explanation of what the Rug does, e.g., how will the
         source code be changed after running the editor.
     -   A subsection named *Prerequisites* describing what must be in
@@ -28,11 +35,12 @@ Rug projects ought to have a good `README.md` file, written using the
 
 [markdown]: https://guides.github.com/features/mastering-markdown/
 
-Public Rug repositories should be automatically built, tested
-and deployed using a continuous integration service, like [Travis CI][travis].
-The CI build status badge and the Slack badge for the Atomist Community should 
-be placed in the `README.md` between the page title and the general description.
-Here is the markdown text to add the Slack badge:
+Public Rug repositories should be automatically built, tested and
+deployed using a continuous integration service,
+like [Travis CI][travis].  The CI build status badge and the Slack
+badge for the Atomist Community should be placed in the `README.md`
+between the page title and the general description.  Here is the
+markdown text to add the Slack badge:
 
 ```md
 [![Slack Status](https://join.atomist.com/badge.svg)](https://join.atomist.com)
@@ -40,16 +48,19 @@ Here is the markdown text to add the Slack badge:
 
 [travis]: https://travis-ci.org/
 
+### Change log
+
 Rug repositories should have a change log in
 the [`CHANGELOG.md` format][changelog].
 
 [changelog]: http://keepachangelog.com/
 
-### Project Naming
+### Project naming
 
 A Rug project name should be hyphenated and start with the technology
-stack being targeted, such as `spring-boot`, followed by `-editors` if
-this is a Rug project with a collection of useful editors or reviewers.
+stack being targeted, such as `spring-boot`, followed by what sort of
+Rugs the project contains, e.g., `-editors` if this is a Rug project
+with a collection of useful editors or reviewers.
 
 If the main purpose of a Rug project is to be a generator, then ending
 the name of the type of project it will generate would be most
@@ -61,115 +72,56 @@ generate a valid Maven project then `maven-project` would be appropriate.
 
 ### Metadata
 
-Rug project metadata are stored in the `.atomist/manifest.yml` file. It is a 
-YAML file describing the Rug project as follows:
+The Rug archive project metadata stored in the `.atomist/manifest.yml`
+file should conform to the following guidelines.
 
-*   `#!yaml group`: The organization providing this Rug project. Most commonly
-    the GitHub organisation in which they reside.
-
-*   `#!yaml artifact`: Name of the Rug archive (see next section)
-
-*   `#!yaml version`: [Semantic version][semver] of this Rug project
+-   `#!yaml group`: The group should be the same as the GitHub owner.
+-   `#!yaml artifact`: The artifact should be the same as the GitHub project name.
+-   `#!yaml version`: The version should be a valid [Semantic version][semver].
 
 [semver]: http://semver.org/
 
-### Dependencies
+<!-- Do we want to say something about appropriate version ranges to use for dependencies? -->
 
-A Rug project has two dependency management sources. First, in the
-`.atomist/manifest.yml` file, the `requires` section specifies the exact, or 
-bounded, version of the Rug language that your Rug project has been tested 
-against. For instance, for a strict version:
+## Rugs
 
-```yaml
-requires: "0.13.0"
-``` 
-
-For a range of versions:
-
-```yaml
-requires: "[0.13.0, 1.0.0)"
-``` 
-
-In that case, the runtime will search for the highest released version in that
-range.
-
-While developing Rugs, and to fully benefit from the static typing support of 
-the TypeScript language, your project should define its development dependency 
-in the `.atomist/package.json` [file][npmpackage]. Set the `dependencies`
-section to the minimum released version of the Rug language your project
-targets. For instance:
-
-```json
-{
-  "dependencies": {
-    "@atomist/rug": "0.13.0"
-  }
-}
-``` 
-[npmpackage]: https://docs.npmjs.com/files/package.json
-
-!!! note
-    The `.atomist/package.json` file does not impact the runtime of your Rug,
-    which is driven by the `.atomist/manifest.yml` file's content. The former
-    only exists to support a nice development experience from your favourite
-    IDE. 
-
-    In addition, your project may contain an `.atomist/tsconfig.json` file
-    describing the [options of the TypeScript compiler][tsconfig]. This file is
-    not used by the runtime either but may be useful in your development
-    environment.
-
-### Rug Files
-
-Rug files should have the `.ts` extension when written using the TypeScript
-language.  Rug files should placed in the following locations
-within a _Rug project_.  Rug editors and generators should be in
-`.atomist/editors` and Rug reviewers should be in `.atomist/reviewers`.
-
-BDD-style tests for your Rugs are strongly recommended and should be
-located within a `.atomist/tests` directory and have the `.ts`
-extension.
-
-If your Rugs, typically editors, use any [templates][], they are placed in
-the `.atomist/templates` directory.
-
-[templates]: templates.md
-
-## Rugs Guidelines
+Rugs are defined by the source code under the various subdirectories
+of the `.atomist` directory.
 
 ### Naming
 
-Rug editors, generators, reviewers should have their names formatted using 
-[UpperCamelCase][ucc].
-
-[ucc]: http://wiki.c2.com/?UpperCamelCase
-
+Rugs should have their names formatted using [UpperCamelCase][ucc].
 Following the rule of making implicit concepts explicit, the name of
 your Rug should correspond to a complete and specific description of
-the purpose of the Rug.
+the purpose of the Rug.  For example, `AddDocker` is a good name if
+the Rug adds Docker to anything, but `AddDockerToMavenProjects` is
+better if the intention of the Rug is to only work with projects that
+follow Maven conventions.
 
-For example, `AddDocker` is a good name if the Rug adds Docker to
-anything, but `AddDockerToMavenProjects` is better if the intention of
-the Rug is to only work with projects that follow Maven conventions.
+[ucc]: http://wiki.c2.com/?UpperCamelCase
 
 Rugs within the same file are conventionally understood to be
 in support of the main and initial Rug in the file.
 
-The name is set as the first argument of the [decorator][decorators] defining
-the Rug operation. For instance, for an editor:
+The name is set as the first argument of
+the [TypeScript decorator][decorators] defining the Rug operation.
+For instance, for an editor:
 
 ```typescript
 @Editor("AddDockerToMavenProjects", "adds the docker files to a Maven project")
 ```
 
+[decorators]: https://www.typescriptlang.org/docs/handbook/decorators.html
+
 ### Describing
 
 A good Rug description states exactly what the purpose of the Rug is
-***without capitalisation on the sentence*** and ***without a closing
-period***. The reason for avoiding sentence punctuation is that the
+*without capitalisation on the sentence* and *without a closing
+period*.  The reason for avoiding sentence punctuation is that the
 description is often used by the Atomist Bot and the grammar of its
-usage is context-driven at that point.  Ideally the description
-should be a sentence fragment and as short as possible.
+usage is context-driven.  Ideally the description should be a sentence
+fragment and as short as possible while still being uniquely
+descriptive.
 
 The description is set as the second argument of the [decorator][decorators]
 defining the Rug operation. For instance, for an editor:
@@ -178,12 +130,12 @@ defining the Rug operation. For instance, for an editor:
 @Editor("AddDockerToMavenProjects", "adds the docker files to a Maven project")
 ```
 
-### Discoverability 
+### Discoverability
 
-Your Rugs should be annotated with a collection of `#!typescript @Tags`
-TypeScript [decorators][] to optimise their discoverability. For example if you
-were to create an editor that affected the `readme` `documentation` then the
-following `@Tags` annotations would be applicable:
+Your Rugs should be annotated with a collection of `#!typescript
+@Tags` [TypeScript decorators][] to optimise their discoverability.
+For example if you were to create an editor that altered the README
+file then the following `@Tags` would be applicable:
 
 ```typescript
 @Tags("readme", "documentation")
@@ -192,93 +144,91 @@ following `@Tags` annotations would be applicable:
 Tag values should consist of only lower case letters, numbers, and
 dashes (`-`).
 
-You may want to make sure at least one of the tags on your Rug maps to
-an image for a nicer rendring by Atomist bot.  The following tags currently have
-images: `docker`,`github`, `travis-ci`, `apache`, `git`, `spring-boot`, `spring`, 
-`clojure`, `go`, `java`, `python`, `scala`, and `documentation`.
+Please make sure at least one of the tags on your Rug maps to an image
+for a nicer rendering.  The following tags currently have images:
+`docker`,`github`, `travis-ci`, `apache`, `git`, `spring-boot`,
+`spring`, `clojure`, `go`, `java`, `python`, `scala`, and
+`documentation`.
 
-### Code Style
+### Code style
 
-We suggest you rely on a [TypeScript linter][tslint] and 
-[TypeScript format checker][tsfmt] to catch common pitfalls in your code and 
-keep it readable.
+We suggest you rely on a [TypeScript linter][tslint] and
+[TypeScript format checker][tsfmt] to catch common pitfalls in your code and
+keep it readable and well-formatted.
+
+[tslint]: https://github.com/palantir/tslint
+[tsfmt]: https://github.com/vvakame/typescript-formatter
 
 ### Parameters
 
-Rug parameters are part of the public contract for invoking that Rug. They 
-should follow [lowerCamelCase][lowerCamelCase] rules and describe, as explicitly
-as possible, what the parameter is to contain.
+Rug parameters should follow [TypeScript naming guidelines][ts-gl],
+i.e., [lowerCamelCase][lowerCamelCase], and describe, as explicitly as
+possible, what the parameter represents.
 
-#### Declaration
+[ts-gl]: https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines
+[lowerCamelCase]: https://en.wikipedia.org/wiki/Camel_case
 
-Parameters are defined as instance variables of the class implementing your Rug.
-They are decorated with the `#!typescript @Parameter` [decorator][decorators] to
-declare their metadata. 
-
-That parameter takes a list of properties among the followings:
+Parameters are defined as instance variables of the class implementing
+your Rug.  They are decorated with the `#!typescript @Parameter`
+decorator to declare their metadata.  The `#!typescript @Parameter`
+decorator takes a single argument, a JavaScript object with the
+following properties:
 
 ```typescript
-displayName?: string
-description?: string
-pattern: string
-validInput?: string
-minLength?: number = -1
-maxLength?: number = -1
-required?: boolean = false
+{
+  displayName?: string
+  description?: string
+  pattern: string
+  validInput?: string
+  minLength?: number = -1
+  maxLength?: number = -1
+  required?: boolean = false
+}
 ```
 
-!!! note
-    Of the given properties, only the `#!typescript pattern` property is 
-    mandatory. 
+Only the `#!typescript pattern` property is required, but providing
+good values for all properties is highly recommended.  If a property
+has a default value, it is shown above to the right of the equal (`=`)
+sign.
 
-#### Descriptions and Display Names
+#### Description and display names
 
-As Rug parameters are part of the public contract of Rugs it is recommended that 
-a human-readable description and display name always be applied using
-the `#!typescript description` and `#!typescript displayName` properties. The
-rationale for human-readable name and description is to provide the user with
-information from the Atomist [interfaces][].
-
-[interfaces]: /user-guide/interfaces/index.md
-
-The `#!typescript displayName` field value should be three words or less and use 
-Title Case.
+As Rug parameters are part of the public contract of Rugs it is
+recommended that a human-readable description and display name always
+be applied using the `#!typescript description` and `#!typescript
+displayName` properties.  A good description and display name allows
+the Atomist user interfaces to provide the user with the information
+needed to provide proper values.  The `#!typescript displayName` field
+value should be three words or less and use Title Case.
 
 #### Validation
 
 It is recommended that all parameters should be restricted using the
 most explicit and constraining regular expression that is appropriate
-for the corresponding parameter, through the `#!typescript pattern` property. In
-addition, you should provide a meaningful value for the 
-`#!typescript validInput` field so, when people provide an invalid value, they 
-are provided with a useful error message.
+for the corresponding parameter via the `#!typescript pattern`
+property.  In addition, you should provide a meaningful value for the
+`#!typescript validInput` field so, when people provide an invalid
+value, they are provided with a useful error message.
 
-The value of the `#!typescript pattern` property must be an 
-[anchored regular expression][anchoredregex]. 
+The value of the `#!typescript pattern` property must be
+an [anchored regular expression][anchoredregex], i.e., it must begin
+with `^` and end with `$`.
 
-!!! tip
-    Atomist bundles a set of default anchored regular expression in the 
+[anchoredregex]: http://www.regular-expressions.info/anchors.html
+
+!!! tip ""
+    Atomist bundles a set of default anchored regular expression in the
     `#!typescript Pattern` object which can be imported as follows:
 
     ```typescript
     import { Pattern } from "@atomist/rug/operations/RugOperation";
     ```
 
-#### Mandatory and Optional
+#### Mandatory and optional
 
-If a parameter is not required on invocation, set
-`#!typescript required` property to `#!typescript false`. In that case, it is 
-recommended to supply a valid default value to the parameter variable so that 
-there is some predictability of how the Rug will function if no parameter is 
+If a parameter is not required, i.e., the Rug can execute sensibly
+without the user specifying it, set the `#!typescript required`
+property to `#!typescript false`.  In that case, it is recommended to
+supply a valid default value to the parameter variable so that there
+is some predictability of how the Rug will function if no parameter is
 supplied.
-
-
-[decorators]: https://www.typescriptlang.org/docs/handbook/decorators.html
-[interface]: https://www.typescriptlang.org/docs/handbook/interfaces.html
-[module]: https://www.typescriptlang.org/docs/handbook/modules.html
-[moduleres]: https://www.typescriptlang.org/docs/handbook/module-resolution.html
-[anchoredregex]: http://www.regular-expressions.info/anchors.html
-[tsconfig]: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
-[tslint]: https://github.com/palantir/tslint
-[tsfmt]: https://github.com/vvakame/typescript-formatter
-[lowerCamelCase]: https://en.wikipedia.org/wiki/Camel_case
