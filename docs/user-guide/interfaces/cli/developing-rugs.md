@@ -1,21 +1,15 @@
-The Rug CLI gives you the tooling to search, install, and run public
-and private Rugs on your local machine. It is also the tool to
-develop, test and publish your own Rugs.
-
-## Installing the Rug CLI
-
-You can install the Rug command-line interface using standard
-packaging tools for your operating system.
-See [Rug CLI Installation](install.md) for instructions.
+The Rug CLI gives you the tooling to develop, test, and publish your
+own Rugs.
 
 ## Additional Dependencies
 
-Rugs are implemented in [TypeScript][ts] and it is recommended you install
-[npm][npm]. You should also get an IDE that has good support for that
-language.
+Rugs are implemented in [TypeScript][ts] and it is recommended you
+install [npm][npm].  You should also get an [IDE/editor][editor] with
+good support for TypeScript language.
 
 [ts]: https://www.typescriptlang.org/
 [npm]: https://docs.npmjs.com/getting-started/installing-node
+[editor]: https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support
 
 ## Quick CLI Tour
 
@@ -171,6 +165,18 @@ be faster.
 
 As you can see from the last line of output, all of the test scenarios
 passed.
+
+To run a specific named test:
+
+```console
+$ rug test "Whatever Test Secanrio"
+```
+
+To run all scenarios from a .rt file:
+
+```console
+$ rug test MyRugTestFilename
+```
 
 ### Make your Rugs Available
 
