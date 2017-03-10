@@ -31,10 +31,6 @@ remote-repositories:
   rugs:
     publish: false
     url: "https://atomist.jfrog.io/atomist/rugs-release"
-
-# Set up Rug catalog endpoints for searching
-catalogs:
-- "https://api.atomist.com/catalog"
 ```
 
 You can configure a repository directory on your local file system
@@ -62,10 +58,6 @@ remote-repositories:
       password: "YOUR_PASSWORD_OR_TOKEN"
 ```
 
-You can specify any number of Rug catalogs to search using the
-`catalogs` key.  The value of the key should be a sequence where each
-element is a URL to a Rug catalog.
-
 ## Dependency Resolution
 
 The Rug CLI will automatically resolve and download all dependencies
@@ -76,6 +68,92 @@ by default, via [Aether][aether] and resolved from there.
 
 [jar]: https://docs.oracle.com/javase/8/docs/technotes/guides/jar/jarGuide.html
 [aether]: https://eclipse.org/aether/
+
+## Help
+
+The Rug CLI provides standard help output when the `--help`, `-h`, or
+`-?` command-line option is used.  All of these options provide the
+same output in the same context.  You can use the help command-line
+option on the `rug` command itself to receive general information
+about the Rug CLI, its options, and its subcommands.
+
+```console
+$ rug --help
+Usage: rug [OPTION]... [COMMAND]...
+Work with Rugs like editors or generators.
+
+Options:
+  -?,-h,--help  Print help information
+  -q,--quiet    Do not display progress messages
+  -v,--version  Print version information
+
+Available commands:
+  search        Search online catalog of available archives
+  list          List locally installed archives
+  describe      Print details about an archive or Rug
+
+  generate      Run a generator to create a new project
+  edit          Run an editor to modify an existing project
+  test          Run test scenarios
+  install       Create and install an archive into the local repository
+  publish       Create and publish an archive into a remote repository
+
+  tree          Evaluate a tree expression against a project
+
+  repositories  Login and configure team-scoped repositories
+  default       Set default archive
+  extension     Manage command line extensions
+
+  shell         Start a shell for the specified Rug archive
+  help          Print usage help
+
+Run 'rug COMMAND --help' for more detailed information on COMMAND.
+
+Please report issues at https://github.com/atomist/rug-cli
+```
+
+You can get help on any subcommand by supplying the help command-line
+option after the subcommand.
+
+```console
+$ rug search --help
+Usage: rug search [OPTION]... [SEARCH]
+Search online catalog of available archives.
+
+Options:
+  -X,--error            Print stacktraces
+  -?,-h,--help          Print help information
+  -o,--offline          Use only downloaded archives
+  -q,--quiet            Do not display progress messages
+  -r,--resolver-report  Print dependency tree
+  -s,--settings FILE    Use settings file FILE
+  -t,--timer            Print timing information
+  -u,--update           Update dependency resolution
+  -V,--verbose          Print verbose output
+
+Command Options:
+  --operations     Show operations in search output
+  -T,--tag TAG     Specify a TAG to filter search
+  --type TYPE      Specify a TYPE to filter search based on Rug type
+
+SEARCH could be any text used to search the catalog.  TAG can be any valid tag,
+eg. spring or elm.  TYPE can be either 'editor', 'generator', 'executor' or
+'reviewer'.
+
+Please report issues at https://github.com/atomist/rug-cli
+```
+
+## Version
+
+The Rug CLI supports the standard `--version` command-line option.  It
+will print the canonical version information on the first line of
+output.  The second line contains detailed information from Git.
+
+```console
+$ rug --version
+rug 0.24.0
+https://github.com/atomist/rug-cli.git (git revision f88e69c; last commit 2017-02-20)
+```
 
 ## Debugging
 
