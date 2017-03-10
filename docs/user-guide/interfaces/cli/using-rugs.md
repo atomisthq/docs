@@ -126,21 +126,7 @@ Loading atomist-rugs:rug-editors:0.14.0 into runtime completed
   → description *: an editor created interactively
 
 Running editor AddTypeScriptEditor of atomist-rugs:rug-editors:0.14.0 completed
-
-→ Project
-  ~/develop/atomist-rugs/rug-editors/ (1 mb in 476 files)
-
-→ Changes
-  ├── .atomist/editors/MyNewEditor.ts created (898 bytes)
-  ├── .atomist/tests/MyNewEditor.rt created (213 bytes)
-  ├── .atomist/editors/MyNewEditor.ts updated (877 bytes)
-  ├── .atomist/editors/MyNewEditor.ts updated (862 bytes)
-  ├── .atomist/editors/MyNewEditor.ts updated (857 bytes)
-  ├── .atomist/tests/MyNewEditor.rt updated (198 bytes)
-  ├── README.md updated (12 kb)
-  └── .atomist.yml created (5 kb)
-
-Successfully edited project rug-editors
+...
 ```
 
 ## Generators

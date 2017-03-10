@@ -172,7 +172,7 @@ To run a specific named test:
 $ rug test "Whatever Test Secanrio"
 ```
 
-To run all scenarios from a .rt file:
+To run all scenarios from a single test file:
 
 ```console
 $ rug test MyRugTestFilename
@@ -202,57 +202,7 @@ Installing archive into local repository completed
 
 → Contents
   ├─┬ .atomist
-  | ├─┬ build
-  | | ├── cli-build.yml
-  | | ├── cli-dev.yml
-  | | └── cli-release.yml
-  | ├─┬ editors
-  | | ├── AddApacheSoftwareLicense20.rug
-  | | ├── AddChangeLog.rug
-  | | ├── AddReadme.rug
-  | | ├── AddScalaMavenGitIgnore.rug
-  | | ├── ClassRenamer.rug
-  | | ├── PackageMove.rug
-  | | ├── PomParameterizer.rug
-  | | ├── RemoveApacheSoftwareLicense20.rug
-  | | ├── RemoveChangeLog.rug
-  | | └── RemoveCodeOfConduct.rug
-  | ├── manifest.yml
-  | ├── metadata.json
-  | ├─┬ templates
-  | | ├── ApacheSoftwareLicenseV20.vm
-  | | ├── CHANGELOG.md.mustache
-  | | ├── gitignore.vm
-  | | └── readme.vm
-  | └─┬ tests
-  |   ├── AddApacheSoftwareLicense20.rt
-  |   ├── AddChangeLog.rt
-  |   ├── AddGitIgnore.rt
-  |   ├── AddReadme.rt
-  |   ├── ClassRenamer.rt
-  |   ├── PackageMove.rt
-  |   ├── PomParameterizer.rt
-  |   ├── RemoveApacheSoftwareLicense20.rt
-  |   ├── RemoveChangeLog.rt
-  |   └── RemoveCodeOfConduct.rt
-  ├── .atomist.yml
-  ├── .gitignore
-  ├── CHANGELOG.md
-  ├── CODE_OF_CONDUCT.md
-  ├── LICENSE
-  ├─┬ META-INF/maven/atomist-rugs/common-editors
-  | └── pom.xml
-  ├── README.md
-  ├─┬ src/main/java/com/atomist/springrest
-  | ├── SpringRestApplication.java
-  | └── SpringRestConfiguration.java
-  ├─┬ src/main/resources
-  | ├── application.properties
-  | └── logback.xml
-  └─┬ src/test/java/com/atomist/springrest
-    ├── SpringRestApplicationTests.java
-    ├── SpringRestOutOfContainerIntegrationTests.java
-    └── SpringRestWebIntegrationTests.java
+...
 
 Successfully installed archive for atomist-rugs:common-editors:0.7.0
 ```

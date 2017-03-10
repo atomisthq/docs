@@ -22,15 +22,12 @@ local-repository:
 # Set up remote repositories to query for Rug archives. Additionally one of the
 # repositories can also be enabled for publication (publish: true).
 remote-repositories:
-  maven-central:
+  central:
     publish: false
     url: "http://repo.maven.apache.org/maven2/"
-  rug-types:
-    publish: false
-    url: "https://atomist.jfrog.io/atomist/libs-release"
   rugs:
     publish: false
-    url: "https://atomist.jfrog.io/atomist/rugs-release"
+    url: "https://atomist.jfrog.io/atomist/rugs"
 ```
 
 You can configure a repository directory on your local file system
@@ -50,9 +47,9 @@ a repository would look something like:
 
 ```yaml
 remote-repositories:
-  rugs:
-    url: "https://atomist.jfrog.io/atomist/rugs-release"
+  rugs-release:
     publish: true
+    url: "https://atomist.jfrog.io/atomist/rugs-release"
     authentication:
       username: "YOUR_USER_NAME"
       password: "YOUR_PASSWORD_OR_TOKEN"
@@ -151,8 +148,8 @@ output.  The second line contains detailed information from Git.
 
 ```console
 $ rug --version
-rug 0.24.0
-https://github.com/atomist/rug-cli.git (git revision f88e69c; last commit 2017-02-20)
+rug 0.25.0
+https://github.com/atomist/rug-cli.git (git revision a7aab63; last commit 2017-03-10)
 ```
 
 ## Debugging
