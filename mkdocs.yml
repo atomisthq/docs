@@ -118,31 +118,7 @@ pages:
 #            - Templates: reference/rug/templates.md
 #            - Tests: reference/rug/tests.md
 #            - Archives: reference/rug/archives.md
-        - Extensions:
-            - Overview: reference/rug/extensions/index.md
-            - CljProject: reference/rug/extensions/clj-project.md
-            - CSharpFile: reference/rug/extensions/c-sharp-file.md
-            - DockerFile: reference/rug/extensions/docker-file.md
-            - ElmModule: reference/rug/extensions/elm-module.md
-            - EveryPom: reference/rug/extensions/every-pom.md
-            - File: reference/rug/extensions/file.md
-            - JavaProject: reference/rug/extensions/java-project.md
-            - JavaSource: reference/rug/extensions/java-source.md
-            - JavaType: reference/rug/extensions/java-type.md
-            - Json: reference/rug/extensions/json.md
-            - Line: reference/rug/extensions/line.md
-            - Pom: reference/rug/extensions/pom.md
-            - Project: reference/rug/extensions/project.md
-            - Properties: reference/rug/extensions/properties.md
-            - PythonFile: reference/rug/extensions/python-file.md
-            - PythonRequirementsTxt: reference/rug/extensions/python-requirements-txt.md
-            - RugArchiveProject: reference/rug/extensions/rug-archive-project.md
-            - RugFile: reference/rug/extensions/rug-file.md
-            - ScalaFile: reference/rug/extensions/scala-file.md
-            - Services: reference/rug/extensions/services.md
-            - SpringBootProject: reference/rug/extensions/spring-boot-project.md
-            - Xml: reference/rug/extensions/xml.md
-            - Yml: reference/rug/extensions/yml.md
+        - Extensions: reference/rug/extensions.md
         - DSL:
             - Overview: reference/rug/dsl/index.md
             - Syntax: reference/rug/dsl/syntax.md

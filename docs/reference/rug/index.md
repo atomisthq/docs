@@ -3,9 +3,11 @@ the various types of Rugs, Rug extensions, and the deprecated Rug
 Domain Specific Language (DSL).
 
 -   [Rugs][rugs]
+-   [Rug API documentation][api]
 -   [Extensions][extensions]
 -   [DSL][dsl]
 
 [rugs]: rugs.md
-[extensions]: extensions/index.md
+[api]: http://apidocs.atomist.com/scaladocs/index.html#com.atomist.rug.package
+[extensions]: extensions.md
 [dsl]: dsl/index.md

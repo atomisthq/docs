@@ -114,11 +114,11 @@ programmatically!
 ### Rug can be Extended with Rug Language Extensions
 
 There is already a *lot* of power in
-the [Core Rug Language Extensions](../extensions/index.md) that are built
-into the Rug language but the intention is not for this to be the
-only, exhaustive set of types you can use.
+the [extensions](../extensions.md) that ship with Rug but the
+intention is not for this to be the only, exhaustive set of types you
+can use.
 
-Rug itself can be extended with new language extensions for new languages,
+Rug itself can be extended with new extensions for new languages,
 frameworks or even systems.
 
 If you want to see some Rugs, check out the rug projects in [atomist-rugs](https://github.com/atomist-rugs).
