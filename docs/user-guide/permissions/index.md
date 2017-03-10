@@ -1,8 +1,14 @@
-Atomist integrates with and automates activities over various tools and services in your development toolchain. To do so, certain permission are needed. We aim to ask only for the permissions required to get the job done.
+Atomist integrates with and automates activities over various tools
+and services in your development tool chain.  To do so, certain
+permission are needed.  Atomist only asks for permissions required to
+accomplish its work.
 
-Please see the individual sections for specifics on the permissions requested by Atomist.
+Please see the individual sections for specifics on the permissions
+requested by Atomist.
 
-* [Slack App OAuth Scopes](slack.md)
-* [GitHub OAuth Scopes](github.md)
+*   [Slack OAuth Scopes](slack.md)
+*   [GitHub OAuth Scopes](github.md)
 
-If you still have questions about permissions, please contact us in our [Atomist Community slack team](https://join.atomist.com) or email us at support@atomist.com.
+If you still have questions about permissions, please contact us in
+our [Atomist Community slack team](https://join.atomist.com) or email
+us at [support@atomist.com](mailto:support@atomist.com).
