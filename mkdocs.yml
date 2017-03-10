@@ -58,7 +58,11 @@ pages:
   - Connect Atomist to GitHub: getting-started/connect-atomist-to-github.md
   - Putting Atomist to Work: getting-started/putting-atomist-to-work.md
   - Connect Atomist to CI: getting-started/connect-atomist-to-ci.md
-  - Build Your Own Development Automation: getting-started/build-your-own-development-automation.md
+  - Build Your Own Development Automation:
+    - Introduction: getting-started/build-your-own-development-automation.md
+    - Build a Handler: getting-started/build-handler.md
+    - Build a Generator: getting-started/build-generator.md
+  - What next: getting-started/what-next.md
 - User Guide:
   - Introduction: user-guide/index.md
   - Rug:
