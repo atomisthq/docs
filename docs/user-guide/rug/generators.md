@@ -42,7 +42,7 @@ mkdocs-project
     │   ├── editors
     │   │   └── NewMkDocsDocumentationProject.ts
     │   └── tests
-    │       └── NewMkDocsDocumentationProject.rt
+    │       └── NewMkDocsDocumentationProjectTest.ts
     ├── README.md
     ├── docs
     │   └── index.md

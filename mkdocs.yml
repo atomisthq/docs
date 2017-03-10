@@ -95,6 +95,7 @@ pages:
         - CLI:
             - Overview: user-guide/interfaces/cli/index.md
             - Installation: user-guide/interfaces/cli/install.md
+            - Basics: user-guide/interfaces/cli/basics.md
             - Using Rugs: user-guide/interfaces/cli/using-rugs.md
             - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
 - Reference Documentation:

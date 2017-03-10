@@ -38,7 +38,7 @@ Running generator NewRugArchiveProject of atomist-rugs:rug-archive:0.2.1 complet
   | ├─┬ templates
   | | └── readme.vm
   | └─┬ tests
-  |   └── AddReadme.rt
+  |   └── AddReadmeTest.ts
   ├── .atomist.yml
   ├── .gitignore
   └── README.md
@@ -63,7 +63,7 @@ my-rug-project
 │   ├── templates
 │   │   └── readme.vm
 │   └── tests
-│       └── AddReadme.rt
+│       └── AddReadmeTest.ts
 ├── .atomist.yml
 ├── .gitignore
 └── README.md
@@ -71,7 +71,7 @@ my-rug-project
 4 directories, 7 files
 ```
 
-The editor `AddReadme.rug` and corresponding test `AddReadme.rt` have
+The editor `AddReadme.rug` and corresponding test `AddReadmeTest.ts` have
 been generated when running the generate command.
 
 Let's take a look at the `manifest.yml`:
@@ -150,7 +150,7 @@ Installing archive into local repository completed
   | ├─┬ templates
   | | └── readme.vm
   | └─┬ tests
-  |   └── AddReadme.rt
+  |   └── AddReadmeTest.ts
   ├── .atomist.yml
   ├── .gitignore
   ├─┬ META-INF/maven/atomist-rugs/my-rug-project
@@ -219,7 +219,7 @@ Publishing archive into remote repository completed
   | ├─┬ templates
   | | └── readme.vm
   | └─┬ tests
-  |   └── AddReadme.rt
+  |   └── AddReadmeTest.ts
   ├── .atomist.yml
   ├── .gitignore
   ├─┬ META-INF/maven/atomist-rugs/my-rug-project

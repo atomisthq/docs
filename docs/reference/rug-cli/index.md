@@ -1,161 +1,396 @@
-This page documents syntax and functionality of the Rug CLI.
+Below is the complete list of options and commands for the Rug CLI.
 
-!!! note ""
-    All commands listed below are provided only as examples of the
-    syntax.  They may refer to Rugs and Rug archives or projects that
-    do not exist and therefore may not work.
+## Global command-line options
 
-## Configuring
+`-?`, `--help`
+:   Print help information
 
-In order to use the CLI the following file named `cli.yml` needs to be
-placed in `~/.atomist`.  The contents of the simplest possible
-`cli.yml` are below.
+`-h`, `--help`
+:   Print help information
 
-```yaml
-# Set up the path to the local repository
-local-repository:
-  path: "${user.home}/.atomist/repository"
+`-o`, `--offline`
+:   Use only downloaded archives
 
-# Set up remote repositories to query for Rug archives. Additionally one of the
-# repositories can also be enabled for publication (publish: true).
-remote-repositories:
-  maven-central:
-    publish: false
-    url: "http://repo.maven.apache.org/maven2/"
-  rug-types:
-    publish: false
-    url: "https://atomist.jfrog.io/atomist/libs-release"
-  rugs:
-    publish: false
-    url: "https://atomist.jfrog.io/atomist/rugs-release"
-```
+`-q`, `--quiet`
+:   Do not display progress messages
 
-The Rug CLI will create the above `cli.yml` if you do not already have
-one.
+`--requires=RUG_VERSION`
+:   Overwrite the Rug version to RUG_VERSION (Use with Caution)
+
+`-r`, `--resolver-report`
+:   Print dependency tree
+
+`-s FILE`, `--settings=FILE`
+:   Use settings file FILE
+
+`-t`, `--timer`
+:   Print timing information
+
+`-u`, `--update`
+:   Update dependency resolution
+
+`-V`, `--verbose`
+:   Print verbose output
+
+`-X`, `--error`
+:   Print stacktraces
 
 ## Commands
 
-The CLI will assume the current working directory to be the root for execution.
+### `default`
 
-### Using the CLI as Rug users
+Set default archive
 
-#### Invoking Editors
-
-Run an editor as follows:
+*Usage:*
 
 ```console
-$ rug edit atomist-rugs:common-editors:AddReadme --artifact-version 1.0.0 \
-    parameter1=foo parameter2=bar
-
-$ rug edit atomist-rugs:common-editors:AddReadme parameter1=foo parameter2=bar
+$ rug default [OPTION]... ACTION [ARCHIVE]
 ```
 
-`artifact-version` is optional and defaults to `latest` semantics.
-`--change-dir` or `-C` for giving a generator a target directory.
+ACTION should be save or delete.  ARCHIVE should be a valid archive identifier of form GROUP:ARTIFACT or just GROUP.  At any time those defaults can be overriden by specifying GROUP:ARTIFACT and -a from the command line.
 
-#### Invoking Generators
+*Subcommands:* `save`, `delete`
+
+*Command options:*
+
+`-a AV`, `--archive-version=AV`
+:   Set default archive version to AV
+
+`-g`, `--global`
+:   Set global or project default archive
+
+### `describe`
+
+Print details about an archive or Rug
+
+*Usage:*
 
 ```console
-$ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
-    --artifact-version 1.0.0 my-new-project parameter1=foo parameter2=bar
-
-$ rug generate atomist-rugs:spring-boot-rest-service:NewSpringBootRestService" \
-    my-new-project parameter1=foo parameter2=bar
+$ rug describe [OPTION]... TYPE ARTIFACT
 ```
 
-`artifact-version` is optional and defaults to `latest` semantics.
-`--change-dir` or `-C` for giving a generator a target directory.
+TYPE should be 'editor', 'generator', 'reviewer', 'command-handler', 'event-handler', 'response-handler' or 'archive' and ARTIFACT should be the full name of an artifact, e.g., "atomist:spring-service:Spring Microservice".  If the name of the artifact has spaces in it, you need to put quotes around it.  FORMAT can be 'json' or 'yaml' and is only valid when describing an archive.
 
-#### Describing Rug Artifacts
+*Command aliases:* `desc`
 
-To get information about a Rug and list all its parameters, run the
-`rug describe` command.
+*Subcommands:* `editor`, `generator`, `reviewer`, `archive`, `command-handler`, `event-handler`, `response-handler`
+
+*Command options:*
+
+`-a AV`, `--archive-version=AV`
+:   Use archive version AV
+
+`-l`, `--local`
+:   Use local working directory as archive
+
+`-O FORMAT`, `--output=FORMAT`
+:   Specify output FORMAT
+
+### `edit`
+
+Run an editor to modify an existing project
+
+*Usage:*
 
 ```console
-$ rug describe archive atomist-rugs:spring-rest-service
-
-$ rug describe editor atomist-rugs:spring-boot-rest-service:SpringBootThing \
-    --artifact-version 1.0.0
-
-$ rug describe generator atomist-rugs:spring-boot-rest-service:NewSpringBootThing \
-    --artifact-version 1.0.0
+$ rug edit [OPTION]... EDITOR [PARAMETER]...
 ```
 
-#### Listing Local Archives
+EDITOR is a Rug editor, e.g., "atomist:common-editors:AddReadme".  If the name of the editor has spaces in it, you need to put quotes around it.  To pass parameters to the editor you can specify multiple PARAMETERs in "form NAME=VALUE".
 
-To list all locally available Rug archives, run the `rug list`
-command:
+*Command aliases:* `ed`
+
+*Command options:*
+
+`-a AV`, `--archive-version=AV`
+:   Use archive version AV
+
+`-C DIR`, `--change-dir=DIR`
+:   Run editor in directory DIR, default is '.'
+
+`-d`, `--dry-run`
+:   Do not persist changes, print diffs
+
+`-I`, `--interactive`
+:   Interactive mode for specifying parameter values
+
+`-l`, `--local`
+:   Use local working directory as archive
+
+`-R`, `--repo`
+:   Commit files to local git repository
+
+### `exit`
+
+Exit a shell session
+
+*Usage:*
 
 ```console
-$ rug list -f 'version=[1.2,2.0)' -f 'group=*atomist*' -f 'artifact=*sp?ing*'
+$ rug exit [OPTION]...
 ```
 
-The local listing can be filtered by using `-f` filter expressions on
-`group`, `artifact` and `version`. `group` and `artifact` support
-wildcards of `*` and `?`.  `version` takes any version constraint.
+*Command aliases:* `quit`, `q`
 
-### Using the CLI as Rug developer
+### `extension`
 
-All the following commands need to executed from within the Rug
-project directory.
+Manage command line extensions
 
-#### Running Tests
-
-To run all tests:
+*Usage:*
 
 ```console
-$ rug test
+$ rug extension SUBCOMMAND [OPTION]... [EXTENSION]
 ```
 
-To run a specific named test:
+SUBCOMMAND is either install, uninstall or list.  EXTENSION should be a valid extension identifier of form GROUP:ARTIFACT.  If no version EV is provided with -a, the latest version of the extension is installed.
+
+*Command aliases:* `ext`
+
+*Subcommands:* `list`, `install`, `uninstall`
+
+*Command options:*
+
+`-a EV`, `--extension-version=EV`
+:   Version EV of extension to install
+
+### `generate`
+
+Run a generator to create a new project
+
+*Usage:*
 
 ```console
-$ rug test "Whatever Test Secanrio"
+$ rug generate [OPTION]... GENERATOR PROJECT_NAME [PARAMETER]...
 ```
 
-To run all scenarios from a .rt file:
+GENERATOR is a Rug generator, e.g., "atomist:spring-service:Spring Microservice".  If the name of the generator has spaces in it, you need to put quotes around it.  PROJECT_NAME specifies the required name of the generated project.  To pass parameters to the generator you can specify multiple PARAMETERs in form "NAME=VALUE".
+
+*Command aliases:* `gen`
+
+*Command options:*
+
+`-a AV`, `--archive-version=AV`
+:   Use archive version AV
+
+`-C DIR`, `--change-dir=DIR`
+:   Create project in directory DIR, default is '.'
+
+`-F`, `--overwrite`
+:   Force overwrite if target directory already exists
+
+`-I`, `--interactive`
+:   Interactive mode for specifying parameter values
+
+`-l`, `--local`
+:   Use local working directory as archive
+
+`-R`, `--repo`
+:   Initialize and commit files to a new git repository
+
+### `help`
+
+Print usage help
+
+*Usage:*
 
 ```console
-$ rug test MyRugTestFilename
+$ rug help
 ```
 
-#### Installing a Rug archive
+Prints this usage help.
 
-Creating a Rug zip archive and installing it into the local repository
-can be done with the following command:
+*Command aliases:* `h`, `?`
+
+### `install`
+
+Create and install an archive into the local repository
+
+*Usage:*
 
 ```console
-$ rug install
+$ rug install [OPTION]...
 ```
 
-This command packages the project into a zip archive, creates a Pom
-and installs both into the local repository under, usually
-`.atomist/repository`.
+Create and install an archive from the current project in the local repository.  Ensure that there is a manifest.yml descriptor in the .atomist directory.
 
-## Dependency Resolution
+*Command options:*
 
-The Rug CLI will automatically resolve and download the dependencies
-of the given Rug archive when `edit` or `generate` is invoked. The
-archives along with their dependencies will be downloaded to a local
-repository under `~/.atomist` via Aether and resolved from there.
+`-a AV`, `--archive-version=AV`
+:   Override archive version with AV
 
-Therefore running above commands is a two step process:
+### `list`
 
-1.  Search and resolve (eventually download) the archive referenced in
-    the command.  The result of a resolution is cached for 60
-    minutes. You can force re-resolution with the `-r` command-line
-    option.
-2.  Start up `rug-lib` passing parameters over to run the editor or
-    generator
+List locally installed archives
 
-## Advanced Topics
-
-### Turning on Verbose output for Debugging
-
-If you want a more verbose output that includes any exceptions that
-Rug command may have encountered, please add `-X` to your command.
-For example:
+*Usage:*
 
 ```console
-$ rug test -X
+$ rug list [OPTION]...
 ```
+
+FILTER could be any of group, artifact or version.  VALUE should be a valid filter expression: for group and artifact ? and * are supported as wildcards;  the version filter can be any valid version or version range.
+
+*Command aliases:* `ls`
+
+*Command options:*
+
+`-f FILTER=VALUE`, `--filter=FILTER=VALUE`
+:   Specify filter of type FILTER with VALUE
+
+### `path`
+
+Evaluate a path expression against a project
+
+*Usage:*
+
+```console
+$ rug path [OPTION]... [EXPRESSION]
+```
+
+EXPRESSION can be any valid Rug path expression.  Depending on your expression you might need to put it in quotes.  Use '--values' to display values of tree nodes; caution as this option might lead to a lot of data being printed.
+
+*Command aliases:* `tree`
+
+*Command options:*
+
+`-C DIR`, `--change-dir=DIR`
+:   Evaluate expression against project in directory DIR, default is '.'
+
+`-v`, `--values`
+:   Displays tree node values
+
+### `publish`
+
+Create and publish an archive into a remote repository
+
+*Usage:*
+
+```console
+$ rug publish [OPTION]...
+```
+
+Create a Rug archive from the current repo and publish it in a remote repository.  Ensure that there is a manifest.yml descriptor in the .atomist directory.  Use -i to specify what repository configuration should be used to publish.  ID should refer to a repository name in cli.yml
+
+*Command options:*
+
+`--archive-artifact=AA`
+:   Override archive artifact with AA
+
+`--archive-group=AG`
+:   Override archive group with AG
+
+`-a AV`, `--archive-version=AV`
+:   Override archive version with AV
+
+`-i ID`, `--id=ID`
+:   ID identifying the repository to publish into
+
+### `repositories`
+
+Login and configure team-scoped repositories
+
+*Usage:*
+
+```console
+$ rug repositories SUBCOMMAND [OPTION]...
+```
+
+The Rug CLI uses your GitHub token to verify your membership in GitHub organizations and Slack teams that have the Atomist Bot enrolled.  Those teams have acccess to additional features, eg. team private Rug archives.  You can use the 'login' subcommand to login and then 'configure' to provision the list of repositories you have access to.
+
+*Command aliases:* `repo`
+
+*Subcommands:* `login`, `configure`
+
+*Command options:*
+
+`--mfa-code=MFA_CODE`
+:   GitHub MFA code (only required if MFA is enabled)
+
+`--username=USERNAME`
+:   GitHub username
+
+### `search`
+
+Search online catalog of available archives
+
+*Usage:*
+
+```console
+$ rug search [OPTION]... [SEARCH]
+```
+
+SEARCH could be any text used to search the catalog.  TAG can be any valid tag, eg. spring or elm.  TYPE can be either 'editor', 'generator', 'executor' or 'reviewer'.
+
+*Command options:*
+
+`--operations`
+:   Show operations in search output
+
+`-T TAG`, `--tag=TAG`
+:   Specify a TAG to filter search
+
+`--type=TYPE`
+:   Specify a TYPE to filter search based on Rug type
+
+### `shell`
+
+Start a shell for the specified Rug archive
+
+*Usage:*
+
+```console
+$ rug shell [OPTION]... ARCHIVE
+```
+
+ARCHIVE should be a full name of an Rug archive, e.g., "atomist:spring-service".
+
+*Command aliases:* `repl`, `load`
+
+*Command options:*
+
+`-a AV`, `--archive-version=AV`
+:   Use archive version AV
+
+`-l`, `--local`
+:   Use local working directory as archive
+
+### `test`
+
+Run test scenarios
+
+*Usage:*
+
+```console
+$ rug test [OPTION]... [TEST]
+```
+
+TEST is the name of a test scenario.  If no TEST is specified, all scenarios will run.
+
+### `to-path`
+
+Display path expression to a point in a file within a project
+
+*Usage:*
+
+```console
+$ rug to-path [OPTION]... PATH
+```
+
+PATH must be a valid path within the project at DIR or '.'.  
+
+*Command aliases:* `to-tree`
+
+*Command options:*
+
+`-C DIR`, `--change-dir=DIR`
+:   Evaluate expression against project in directory DIR, default is '.'
+
+`--column=COLUMN`
+:   Column within file at LINE
+
+`--kind=KIND`
+:   Rug Extension kind, eg. 'ScalaFile' or 'Pom'
+
+`--line=LINE`
+:   Line within the file
+
