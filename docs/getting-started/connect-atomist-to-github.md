@@ -62,6 +62,8 @@ authorization page in your browser.
   <img src="../images/github-account-oauth.png" alt="GitHub Account OAuth" class="ss-medium">
 </div>
 
+For information on the permissions requested, see [GitHub Permissions](/user-guide/permissions/github.md).
+
 Click the "Authorize application" button to authorize Atomist and you
 will then be redirected back to your Slack team in the browser.
 

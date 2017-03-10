@@ -41,6 +41,8 @@ that the correct Slack team is selected and click "Authorize".
   <img src="../images/slack-auth.png" alt="Slack Authorization" class="ss-small">
 </div>
 
+For information on the permissions requested, see [Slack Permissions](/user-guide/permissions/slack.md).
+
 Once you have successfully authorized the Atomist Bot in your Slack
 team, you will be redirected to a confirmation page.  You can close
 this page and go back to Slack to continue this guide.
