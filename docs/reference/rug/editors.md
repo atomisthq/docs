@@ -64,12 +64,11 @@ with File f when name = "myfile.txt"
 The `with` statement simply says *for each file in the project if name
 is "myfile.txt" append the given string to the end of the file.* . The
 `with` statement declared what we ***select*** and what type it is
-expected to be. The Rug language extension in the example above is
-the [Core Rug Language Extension][extensions]
-of [File](/reference/rug/extensions/file.md) and this dictates what
-functions are exposed what has been selected.
+expected to be. The Rug language extension in the example above is the
+Rug [extension][] of File and this dictates what functions are exposed
+what has been selected.
 
-[extensions]: /reference/rug/extensions/index.md
+[extension]: /reference/rug/extensions.md
 
 Let's make this a little more sophisticated. Perhaps we'd like to
 decide what content we should append. This would be a natural
