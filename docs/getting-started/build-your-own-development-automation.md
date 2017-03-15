@@ -131,7 +131,8 @@ Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
 
 ```
 
-> ***NOTE***: No passwords are stored, only a unique personal access token with org/read scope. Also if you are using 2 Factor Authentication with GitHub you will be prompted for the `MFA code` as shown above.
+!!! note ""
+    No passwords are stored, only a unique personal access token with org/read scope. Also if you are using 2 Factor Authentication with GitHub you will be prompted for the `MFA code` as shown above.
 
 Now when you execute `rug repositories configure` you should see the Rug CLI configured with your team's unique repository:
 
