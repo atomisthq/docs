@@ -77,7 +77,7 @@ and it is normal working hours for the author.
 Rug is a programming model and runtime.
 
 The Rug programming model defines the interface, which is "What events
-does this program respond to?" and "How does it respond?"  Programs
+does this program respond to?" and "How does it respond?".  Programs
 that implement this model are called Rugs, and they execute inside a
 Rug runtime.
 
