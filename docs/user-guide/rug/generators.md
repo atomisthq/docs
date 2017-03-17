@@ -191,7 +191,7 @@ This is the externally visible and discoverable name of the Rug.  This
 name, along with the generators group and repository, form the
 fully-qualified name of the generator.  The second argument to the
 `#!typescript @Generator` decorator is a brief description of the
-generator.  On line 5 we use the `#!typescript @Tags` decorator to
+generator.  On line 7 we use the `#!typescript @Tags` decorator to
 apply some tags to our generator so people can search for it more
 easily.  Using the `#!typescript @Tags` decorator is optional but
 highly recommended.
