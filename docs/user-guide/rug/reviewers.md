@@ -53,7 +53,7 @@ The responsibility of a reviewer is to return a `ReviewResult` containing zero o
 ## A Reviewer Focusing on AST Nodes
 When you are working with AST nodes within a file produced by Antlr or another technologies (and typically returned by path expressions), there is a convenient method of adding a review comment, automatically capturing full positional information. The comments in the following listing explain:
 
-```
+```typescript linenums="1"
 import {Project} from '@atomist/rug/model/Core'
 import {ProjectReviewer} from '@atomist/rug/operations/ProjectReviewer'
 import {PathExpression,PathExpressionEngine} from '@atomist/rug/tree/PathExpression'
@@ -102,7 +102,7 @@ export const editor = new CatchThrowable()
 ```
 The well-known Java path expression `Catch` is as follows, and is a useful model for user-authored path expressions. It builds an interpolated string from its construtor parameters and passes the result to its superclass's constructor:
 
-```
+```typescript linenums="1"
 export class Catch extends PathExpression<Project,TextTreeNode> {
 
     constructor(exception: string) {
