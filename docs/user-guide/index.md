@@ -16,10 +16,12 @@ The Atomist User Guide is split into three sections:
 -   [**Rug**][rug]: Atomist's enabling technology
 -   [**Integrations**][integrations]: External platforms and tools that Atomist works with
 -   [**Interfaces**][interfaces]: How users interact with Atomist
+-   [**Permissions**][permissions]: What permissions Atomist asks for
 
 [rug]: rug/index.md
 [integrations]: integrations/index.md
 [interfaces]: interfaces/index.md
+[permissions]: permissions/index.md
 
 Click on any of the links above to go directly to that section, or
 click Next at the bottom right of this page to go to the next page in

@@ -56,27 +56,26 @@ pages:
     - Concepts: concepts.md
     - Capabilities: capabilities.md
 - Getting Started:
-  - Overview: getting-started/index.md
-  - Prerequisites: getting-started/prerequisites.md
-  - Invite Atomist to Slack: getting-started/invite-atomist-to-slack.md
-  - Connect Atomist to GitHub: getting-started/connect-atomist-to-github.md
-  - Putting Atomist to Work: getting-started/putting-atomist-to-work.md
-  - Connect Atomist to CI: getting-started/connect-atomist-to-ci.md
-  - Build Your Own Development Automation:
-    - Introduction: getting-started/build-your-own-development-automation.md
-    - Build a Handler: getting-started/build-handler.md
-    - Build a Generator: getting-started/build-generator.md
-  - What next: getting-started/what-next.md
+    - Overview: getting-started/index.md
+    - Prerequisites: getting-started/prerequisites.md
+    - Invite Atomist to Slack: getting-started/invite-atomist-to-slack.md
+    - Connect Atomist to GitHub: getting-started/connect-atomist-to-github.md
+    - Putting Atomist to Work: getting-started/putting-atomist-to-work.md
+    - Connect Atomist to CI: getting-started/connect-atomist-to-ci.md
+    - Development Automation:
+        - Introduction: getting-started/build-your-own-development-automation.md
+        - Build a Handler: getting-started/build-handler.md
+        - Build a Generator: getting-started/build-generator.md
+    - What next: getting-started/what-next.md
 - User Guide:
     - Introduction: user-guide/index.md
     - Rug:
         - Introduction : user-guide/rug/index.md
-        - Runtime: user-guide/rug/runtime.md
         - Handlers: user-guide/rug/handlers.md
         - Commands: user-guide/rug/commands.md
         - Editors: user-guide/rug/editors.md
         - Generators: user-guide/rug/generators.md
-        - Reviewers: user-guide/rug/reviewers.md
+#        - Reviewers: user-guide/rug/reviewers.md
         - Extensions: user-guide/rug/extensions.md
         - Path Expressions: user-guide/rug/path-expressions.md
         - Microgrammars: user-guide/rug/microgrammars.md
@@ -86,6 +85,7 @@ pages:
         - Archives: user-guide/rug/archives.md
 #        - Development: user-guide/rug/development.md
         - Lifecycle: user-guide/rug/lifecycle.md
+        - Runtime: user-guide/rug/runtime.md
         - Conventions: user-guide/rug/conventions.md
     - Integrations:
         - Overview: user-guide/integrations/index.md
@@ -110,21 +110,15 @@ pages:
     - Overview: reference/index.md
     - Rug:
         - Overview: reference/rug/index.md
-        - Rugs:
-            - Overview: reference/rug/rugs.md
-#            - Handlers: reference/rug/handlers.md
-#            - Commands: reference/rug/commands.md
-            - Editors: reference/rug/editors.md
-            - Generators: reference/rug/generators.md
-#            - Reviewers: reference/rug/reviewers.md
-            - Path Expressions: reference/rug/path-expressions.md
-#            - Microgrammars: reference/rug/microgrammars.md
-#            - Templates: reference/rug/templates.md
-#            - Tests: reference/rug/tests.md
-#            - Archives: reference/rug/archives.md
+#        - Handlers: reference/rug/handlers.md
+#        - Commands: reference/rug/commands.md
+#        - Editors: reference/rug/editors.md
+#        - Generators: reference/rug/generators.md
+#        - Reviewers: reference/rug/reviewers.md
+        - Path Expressions: reference/rug/path-expressions.md
+#        - Microgrammars: reference/rug/microgrammars.md
+#        - Templates: reference/rug/templates.md
+#        - Tests: reference/rug/tests.md
+#        - Archives: reference/rug/archives.md
         - Extensions: reference/rug/extensions.md
-        - DSL:
-            - Overview: reference/rug/dsl/index.md
-            - Syntax: reference/rug/dsl/syntax.md
-            - Using JavaScript: reference/rug/dsl/javascript.md
     - Rug CLI: reference/rug-cli/index.md

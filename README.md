@@ -1,11 +1,14 @@
-# End-user documentation sources and generator
+# Atomist 'end-user-documentation'
 
 [![Build Status](https://travis-ci.org/atomist/end-user-documentation.svg?branch=master)](https://travis-ci.org/atomist/end-user-documentation)
 [![Slack Status](https://join.atomist.com/badge.svg)](https://join.atomist.com/)
 
 This repository contains the markdown sources for the documentation
-for Atomist.  You can find the current version of the Atomist
-documentation at [http://docs.atomist.com/](http://docs.atomist.com/).
+for [Atomist][atomist].  You can find the current version of the
+Atomist documentation at [http://docs.atomist.com/][docs].
+
+[atomist]: https://www.atomist.com/
+[docs]: http://docs.atomist.com/
 
 The documentation is generated from markdown using [mkdocs][].
 
@@ -17,14 +20,16 @@ Much of the documentation is hand-generated, so you can feel free to
 edit.
 
 The exception is the
-auto-generated [reference documentation](docs/reference/).
-the [Rug repository][rug].  At present, only the Rug extension
-documents are auto-generated during the [rug][] build.  After the
-running tests using `npm-release` profile, the generated documentation
-will be under `target/.atomist/node_modules/@atomist/rug/typedoc`.
-You can then copy these files to `docs/reference/rug/extensions`.
+auto-generated [reference documentation](docs/reference/).  The aim is
+for all of the reference documentation to be auto-generated.  At
+present, the [Rug][rug] and [Rug CLI][cli] reference documentation are
+auto-generated during their builds.  The Rug reference docs are
+automatically published to http://apidocs.atomist.com.  The Rug CLI
+documentation must be copied into this repo at
+`docs/reference/rug-cli/index.md`.
 
 [rug]: https://github.com/atomist/rug
+[cli]: https://github.com/atomist/rug-cli
 
 ## Styles
 

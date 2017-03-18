@@ -69,6 +69,7 @@ Project creation: <span class="rugs">[Generators][generators]</span>
     to stamp out a bunch of new microservice projects?  Stop the
     copy/pasting and use a generator.
 
+<!--
 Project compliance: <span class="rugs">[Reviewers][reviewers]</span>
 :   Rug <span class="mid-text">*reviewers*</span> ensure a project
     conforms with your standards.  Because Rug understands your code,
@@ -77,18 +78,19 @@ Project compliance: <span class="rugs">[Reviewers][reviewers]</span>
     without the editing.  Want to check if every Java try/catch block
     falls through to a `#!java catch Throwable`?  Write a reviewer for
     that.
+-->
+
+[handlers]: /user-guide/rug/handlers.md
+[commands]: /user-guide/rug/commands.md
+[editors]: /user-guide/rug/editors.md
+[generators]: /user-guide/rug/generators.md
+<!-- [reviewers]: /user-guide/rug/reviewers.md -->
 
 Individual Rugs can be composed.  For example, editors can be used by
 Rug handlers, commands, and generators to modify code in a consistent
 manner across many repositories.  Handlers can execute commands.
 Events can fire reviewers, e.g., every PR can trigger a reviewer that
 ensures it complies with your coding and submission standards.
-
-[handlers]: /user-guide/rug/handlers.md
-[commands]: /user-guide/rug/commands.md
-[editors]: /user-guide/rug/editors.md
-[generators]: /user-guide/rug/generators.md
-[reviewers]: /user-guide/rug/reviewers.md
 
 ## Events and code selection
 

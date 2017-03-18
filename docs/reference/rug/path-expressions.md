@@ -1,5 +1,9 @@
 # Rug Path Expression Version 0.1
 
+!!! warning ""
+    Not all of the specification below is implemented.  In particular,
+    execution of functions is not fully implemented.
+
 ## Introduction
 
 Rug Path Expressions are used to obtain tree nodes from structured
