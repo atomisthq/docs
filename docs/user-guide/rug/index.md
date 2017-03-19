@@ -22,11 +22,6 @@ encoding how it's done, instead of performing the typing every time.
 Not only does the automation reduce mistakes, it serves as
 documentation for the process.
 
-## Use Cases for Rug
-
-We are constantly finding new uses for Rug and here are a sample of
-the cases that we, and others, have used Rug for so far.
-
 ## Automating your development tasks
 
 It is said that good developers are lazy and like to automate their
@@ -102,7 +97,7 @@ In Rug, this is achieved through [reviewers][].
 
 ## Examples
 
-What does using Rug in your team look like in practice.  Here are just
+What does using Rug in your team look like in practice?  Here are just
 a few examples.
 
 *   Helping technical leads to guide development teams in best
