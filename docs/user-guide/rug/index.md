@@ -97,7 +97,7 @@ In Rug, this is achieved through [reviewers][].
 
 ## Examples
 
-What does using Rug in your team look like in practice.  Here are just
+What does using Rug in your team look like in practice?  Here are just
 a few examples.
 
 *   Helping technical leads to guide development teams in best
