@@ -12,7 +12,7 @@ of trees of information. -->
 ## Surgical selections
 
 When running a Rug against a `Project`, you can locate a file with a
-known name with some code like the following line.  string like this:
+known name with some code like the following line:
 
 ```typescript
 project.findFile("mkdocs.yml").replace("<NAME>", project.name())
@@ -64,10 +64,10 @@ may is a bit more involved, but it demonstrates the concepts well.
 ### Query the code
 
 
-While querying a project for files using path expressions allow for
+While querying a project for files using path expressions allows for
 greater flexibility than the other means of navigating files in a
-project, a more powerful way is to query the content of that file to
-manipulate directly. This file is a YAML structure, we therefore use a
+project, a more powerful way is to query the content of the target file
+directly. This file is a YAML structure, we therefore use a
 specific path expression engine that knows how to navigate this kind
 of structure.
 
@@ -92,7 +92,7 @@ First we create a specific YAML-aware path expression engine, this
 will offer us appropriate methods to work on a YAML structure.  The
 path expression we provide begins with the familiar file system query,
 identifying a file named `mkdocs.yml`.  The next step in the path
-expression, `YamlFile()` is something new.  The `YamlFile()` step to
+expression, `YamlFile()` is something new.  The `YamlFile()` step
 tells Rug to address the file(s) it has found using the preceding
 criteria as not just a generic `#!typescript File`, but a more
 specific `#!typescript YamlFile`.  The `#!typescript YamlFile` type
