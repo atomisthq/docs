@@ -38,9 +38,8 @@ This code breaks down as follows:
 
 - ***Lines 6 and 7*** - This is where the microgrammar is declared. The microgrammar is called `modelVersion` and we are looking for anywhere in the file that matches `<modelVersion>$mv1</modelVersion`. The `$mv1` is the microgrammar's marker for a submatcher, holding the content we want to extract when the microgrammar matches. Finally on Line 7 we are declaring the submatcher, associating it with a regular expression that declares what the structure of the `mv1` content should be. The § characters delineate a regular expression.
 - ***Line 9*** - Adds this new microgrammar to this Rug's [path expression][path-expressions] engine so that it can be applied.
-- ***Line 11*** - Applies a Rug [path expression][path-expressions] to the project, specifying that we are interested in any file in the project whose name begins with `pom.xml`.
 - ***Line 11*** - Applies a Rug [path expression][path-expressions] to the project, specifying that we are interested in any file in the project whose name begins with `pom.xml`. Then your new `modelVersion` microgrammar is applied to those files and the contents of the microgrammar's `mv1` is made available and assigned to the variable `n`.
-- ***Line 12*** - Inspecting the value of `n` the project editor is triggered to `fail` its editing if the value of `n` is not `4.0.0`.
+- ***Line 13*** - Inspecting the value of `n` the project editor is triggered to `fail` its editing if the value of `n` is not `4.0.0`.
 - ***Line 15*** - The value of `n` as extracted using the microgrammar, is embedded into a string message.
 - ***Line 17*** - Finally the value of `n` is set to something new by calling the `update` method.
 
