@@ -79,7 +79,7 @@ Different scenarios and even different features may share step definitions. This
 
 ### `#!typescript When`: Running operations
 
-Typically there is one `when` step, invoking a single editor or reviewer is invoked. We'll explain how to do this once we've covered the important **world** concept.
+Typically there is one `when` step, invoking a single generator, editor or reviewer. We'll explain how to do this once we've covered the important **world** concept.
 
 ### `#!typescript Then` Assertions
 
