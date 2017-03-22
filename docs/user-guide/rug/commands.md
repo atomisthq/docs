@@ -2,7 +2,7 @@ Controlling communication and information flows is paramount to
 effective teams. Open Source projects have long been relying on chat
 to help them operate and coordinate contributors and project lifecycle.  
 Recent modern chat solutions, which can integrate deeply in your ecosystem, have
-improved on those foundations and proven to be fantastic hubs for teams to 
+improved on those foundations and proven to be fantastic hubs for teams to
 drive automation with simple chat commands.
 
 Well-known scenarios drive a project's lifecycle, for instance cutting a new
@@ -20,16 +20,16 @@ or perform an action from where your team gathers to pilot the project.
 
 [bot]: /user-guide/interfaces/bot.md
 
-Depending on their goal, Rug commands are stored either along side the project
-they target or in a different project altogether when they are generic. In both
-cases however, Rug commands share the same approach as other Rugs. For the
-purpose of this documentation, we will assume our commands live in their own
-project rather than in an existing project like thie documentation describes for
-Rug generators or editors.
+Depending on their goal, Rug command implementations are stored either along
+side the project they target or in different projects altogether if they are
+generic. In both cases however, Rug commands share the same approach as other
+Rugs. For the purpose of this documentation, we will assume our command
+implementations live in their own projects rather than in an existing project
+as the documentation describes for Rug generators or editors.
 
 Below is the basic structure of a generic Rug project. Rather than the usual
 `.atomist/editors` directory, we have rather the `.atomist/handlers` directory
-where our Rug command script will live.
+where our Rug command implementation will live.
 
 ```console
 ~/workspace/team-handlers
@@ -45,30 +45,32 @@ where our Rug command script will live.
     ├── .gitignore
     ├── LICENSE
     └── README.md
-``` 
+```
 
 The remaining of this Rug follows the usual [Rug project][projects] structure.
 
 [projects]: projects.md
 
-Rug commands are one kind of Rug handlers. They handle commands coming from the 
-Atomist bot. Let's see in the section a basic Rug command.
+Rug commands are declared in Rug command handlers. Command handlers handle
+commands coming from the Atomist bot. The next section describes a basic Rug
+command implementation.
 
 ## A Basic Command
 
-Suppose we are interested in querying the [Spring][] project for the 
-latest tag of any of [its published projects][ghspring]. This would be a 
+Suppose we are interested in querying the [Spring][] project for the
+latest tag of any of [its published projects][ghspring]. This would be a
 typical example of simple Rug command that we could run from the Atomist bot.
 
 [spring]: http://spring.io/
 [ghspring]: https://github.com/spring-projects/
 
-Here is such a possible Rug command.
+Below is the command handler that declares the command and implements the
+handling logic:
 
 ```typescript linenums="1"
 import { HandleResponse, HandleCommand, Response, HandlerContext,
          Plan, Message } from '@atomist/rug/operations/Handlers';
-import { ResponseHandler, ParseJson, CommandHandler, Parameter, Tags, 
+import { ResponseHandler, ParseJson, CommandHandler, Parameter, Tags,
          Intent } from '@atomist/rug/operations/Decorators';
 import { Pattern } from '@atomist/rug/operations/RugOperation';
 import { Project } from '@atomist/rug/model/Project';
@@ -135,7 +137,7 @@ export let fetchLatestTagInfo = new FetchLatestTagInfo();
 export class ShowTag implements HandleResponse<any>{
 
     handle(@ParseJson response: Response<any>): Message {
-        let body = response.body(); 
+        let body = response.body();
         return new Message(`{
     "attachments": [
         {
@@ -188,36 +190,63 @@ export class FetchedFailed implements HandleResponse<any>{
 export let fetchedFailed = new FetchedFailed();
 ```
 
-This is certainly longer than other Rugs seen so far but as it follows the 
-same programming model principles, it look familiar.
+This is longer than other Rugs seen so far but as it follows the same
+programming model principles, it should look familiar.
 
 The first lines group the Rug typing imports which, as usual, provide interfaces
-and decorators to implement your Rug operations (lines 1&ndash;6). Here, the
-main Rug operation is `#!typescript GetLatestSpringProjectTag`. The following
-Rug operations, `#!typescript FetchLatestTagInfo`, `#!typescript ShowTag` and `#!typescript FetchedFailed` support the main one as we will see below. They are
+and decorators to implement and declare your handlers (lines 1&ndash;6).
+Here, the most important class is `#!typescript GetLatestSpringProjectTag`. The
+following classes, `#!typescript FetchLatestTagInfo`, `#!typescript ShowTag` and
+`#!typescript FetchedFailed` support the main one as we will see below. They are
 not expected to be called directly.
 
-We therefore declare our command through a TypeScript [decorators][] 
-(line 8). The first argument of the `#!typescript @CommandHandler` decorator is the name of the command. This the public visible and discoverable name of the Rug. This name, along with the commands group and repository, form the fully-qualified name of the command. The second argument of the `#!typescript @CommandHandler` decorator is a short description of the editor. The following line uses the `#!typescript @Tags` decorator to apply some tags to our command so people can search for it more easily. Using the `#!typescript @Tags` decorator is optional but highly recommended.
+We declare our command through a TypeScript [decorators][] (line 8). The first
+argument of the `#!typescript @CommandHandler` decorator is the name of the
+command, the second is its description. These make the handlers visible and
+discoverable. The name, along with the command's group and repository, form the
+fully-qualified name of the command handler. The following line uses the
+`#!typescript @Tags` decorator to apply some tags to the command so others can
+search for it more easily. Using the `#!typescript @Tags` decorator is optional
+but highly recommended.
 
 [decorators]: https://www.typescriptlang.org/docs/handbook/decorators.html
 
-A Rug command is associated to an intent an user sends when talking with the Atomist bot. This intent is described using the `#!typescript @Intent` decorator (line 10). Whenever an user sends the `@atomist latest tag` message to the Atomist bot, the Rug runtime applies the `#!typescript GetLatestSpringProjectTag` Rug command.
+A Rug command handler can have associated intent users can send when talking
+with the Atomist bot. The intent is described using the `#!typescript @Intent`
+decorator (line 10). Whenever a user sends the `@atomist latest tag` message to
+the Atomist bot, the Rug runtime runs the
+`#!typescript GetLatestSpringProjectTag` command handler.
 
-We then define the class which implements our command (line 11). A command 
-implements the `#!typescript HandleCommand` interface. That interface requires the `#!typescript handle(command: HandlerContext): Plan` method to be defined (line 19). It is convention for the command and the class that implements it to have the same name.
+We then define the class which implements our command handler (line 11). A
+command handler implements the `#!typescript HandleCommand` interface. This
+interface requires the `#!typescript handle(command: HandlerContext): Plan`
+method to be defined (line 19). It is a convention for the command handler and
+the class that defines it to have the same name.
 
-Rug commands can take parameters like other Rug operations to tune their output. This customization is achieved through parameters that your command must declare in the class via the `#!typescript @Parameter` decorator (line 13). The decorated variable names your parameter. If you assign a value to that variable, it becomes the parameter's default value. The `#!typescript @Parameter` decorator adds additional metadata via a single argument, a JavaScript object which properties are documented in the [conventions][rugconv]. Though the only mandatory property is `#!typescript pattern`, in the case of Rug commands, it is highly recommended to also set `#!typescript description`, `#!typescript displayName` and `#!typescript validInput` in order to help the user when invoking the command via the Atomist bot.
+Rug command handlers can take parameters like other Rugs. These are declared
+using the `#!typescript @Parameter` decorator (line 13). The decorated variable
+names the parameter. If you assign a value to that variable, it becomes the
+parameter's default value. The `#!typescript @Parameter` decorator adds
+additional metadata via a single argument, a JavaScript object whose properties
+are documented in the [conventions][rugconv]. Though the only mandatory property
+is `#!typescript pattern`, in the case of command handlers, it is highly
+recommended to also set `#!typescript description`, `#!typescript displayName`
+and `#!typescript validInput` in order to help other users when invoking
+commands via the Atomist bot.
 
 [rugconv]: conventions.md
 
 The `#!typescript handle` method takes a single argument, a
-`#!typescript HandlerContext` object. That object gives you access to a [path expression engine][pxe] to query your project from the command. The method
+`#!typescript HandlerContext` instance. This gives you access to a
+[path expression engine][pxe] to query your organization's projects. The method
 must return either a `#!typescript Plan` or `#!typescript Message`.
 
 [pxe]: path-expressions.md
 
-Let's start by explaining `#!typescript Message` as it is the simpler. A message represents a set of presentable content and/or actions displayed to the user in responsing to invoking the command. To the bare minimum, a message is text content. By default, the message will be routed to the caller, from the place where the user issued the command. However, it is also possible to route to a different location. For instance:
+Let's start by explaining `#!typescript Message` as it is the simpler. A message
+represents a set of presentable content and/or actions displayed to the user in
+response to invoking the command. By default, the message will be routed to the
+caller, from the place where the user issued the command:
 
 ```typescript
 handle(response: Response<any>): Message {
@@ -225,7 +254,8 @@ handle(response: Response<any>): Message {
 }
 ```
 
-Next, the message is sent to a different place by setting a Slack channel identifier (we assume a Slack integration here):
+However, it is also possible to route to a different location by setting a
+Slack channel identifier (we assume a Slack integration here):
 
 ```typescript
 handle(response: Response<any>): Message {
@@ -235,11 +265,15 @@ handle(response: Response<any>): Message {
 }
 ```
 
-Rug command can also return a `#!typescript Plan`. A plan describes the actions to be taken by the Rug runtime on behalf of the command. Plans are composed of messages and/or instructions. The former are exactly as we describe above where instructions have the following properties:
+A command handler can also return a `#!typescript Plan`. A plan describes the
+actions to be taken by the Rug runtime on behalf of the handler. Plans are
+composed of messages and/or instructions. The former are exactly as we describe
+above where instructions have the following properties:
 
-* `#!typescript kind`: the kind of instruction, one of `#!typescript "generate" | "edit" | "review" | "execute" | "respond" | "command"`
-* `#!typescript name`: the name of the operation to apply
-* `#!typescript parameters`: an object mapping properties to values and passed, by the Rug runtime, to the operation being called
+*   `#!typescript kind`: the kind of instruction, one of `#!typescript "generate" | "edit" | "review" | "execute" | "respond" | "command"`
+*   `#!typescript name`: the name of the operation to apply
+*   `#!typescript parameters`: an object mapping names to values that is passed by
+the Rug runtime, to the Rug being called.
 
 To make this a little more concrete, our only instruction is defined as:
 
@@ -254,20 +288,52 @@ To make this a little more concrete, our only instruction is defined as:
 }
 ```
 
-This instruction describes a HTTP call where the Rug function to call, by the Rug runtime, to perform that call is named `"http"`. At runtime, Rug will look for a Rug function named that way and will call it, passing the given `#!typescript parameters` to it. Here, we indicate the HTTP method is a `GET` as well as the URL to be addressed.
+This instruction describes an HTTP request implemented by a Rug function called
+`"http"`. At runtime, Rug will look for a Rug function with that name and will
+call it, passing the given `#!typescript parameters` as arguments to it. Here,
+we indicate the HTTP method is a `GET` as well as the URL to be requested.
 
-For other kinds, the definition looks similar but, in effect, a plan allows you to call any other Rug operations. This means, for example, that a command could perform a project's update or review at the tip of a conversation with the Atomist's bot.
+For other kinds, the definition looks similar but, in effect, a plan allows you
+to call any other Rug. This means, for example, that a command could perform a
+project edit or review initiated by a conversation with the Atomist's bot.
 
 !!! important "It's all asynchronous"
-    It is important to appreciate that because Rug commands describe a plan, the actions declared in that plan are executed asynchronously from the call to your command handler method. In other words, plans are just data the Rug runtime knows how to interpret but your handler cannot invoke those actions directly. Do not make assumption regarding when instructions in a plan will be executed, although it is fair to say that the Atomist platform will do its best to apply them as soon as possible.
+    It is important to appreciate that because command handlers describe a plan,
+    the actions declared in that plan are executed asynchronously. In other
+    words, plans are just data the Rug runtime knows how to interpret but your
+    handler cannot invoke those rugs or functions directly. So it's not safe to
+    make assumptions regarding when instructions in a plan will be run, although
+    it is fair to say that the Atomist platform will do its best to apply them
+    as soon as possible.
 
-Plans can have as many interleaved instructions and messages as they need to.
+Plans can have as many interleaved instructions and messages as they want.
 
-Finally, we can attach completion (line 33) and error (line 34) handlers to each instruction to process the instruction's execution result. Here, we indicate we want to process the response's content of our HTTP call when it succeeds but also deal with errors when they occur, (for instance when the HTTP call returned a 40x-class status code).
+Finally, we can attach success (line 33) and error (line 34) handlers to each
+instruction to process the instruction's result. Here, we indicate that we want
+to process the response's content of our HTTP call when it succeeds and also
+deal with errors if they occur (for instance when the HTTP call returned a
+40x-class status code).
 
-The `#!typescript onSuccess` and `#!typescript onError` properties expect themselves an instruction definition. Here, we tell the Rug runtime to execute the response handlers defined below the Rug command.
+The `#!typescript onSuccess` and `#!typescript onError` properties of an
+instruction can be a `#!typescript Plan`, `#!typescript Message` or a
+`#!typescript Respond`. A `#!typescript Respond` indicates the desire to handle
+the response using a `#!typescript ResponseHandler`. A `#!typescript Plan` or
+`#!typescript Message` are handled by the Rug runtime just as if they were
+returned directly from the command handler as described above.
 
-Rug response handlers, are defined with the `#!typescript ResponseHandler` decorator and the class must implement the `#!typescript handle(response: Response<T>): Plan` method of the `#!typescript HandleResponse<T>` interface. When the handler receives a JSON payload, you can benefit form an automatic parsing, in that case, your method declaration must look like this: `#!typescript handle(@ParseJson response: Response<T>): Plan`. 
+Response handlers are declared with the `#!typescript ResponseHandler` decorator
+and the class must implement the
+`#!typescript handle(response: Response<T>): Plan` method of the
+`#!typescript HandleResponse<T>` interface. When the handler receives a JSON
+payload, you can benefit from an automatic deserialization into an object by
+decorating the response parameter with the `#!typescript @ParseJson` decorator,
+for example `#!typescript handle(@ParseJson response: Response<T>): Plan`.
 
-A response handler returns a `#!typescript Message` or `#!typescript Plan` much like a Rug command. Here we can see for instance that the `#!typescript FetchLatestTagInfo` response handler (line 43) instructs the Rug runtime to perform another HTTP call, calling the `#!typescript ShowTag` response handler (line 57) to process its response. In other words, here we demonstrate how you can chain plans. The `#!typescript ShowTag` response handler (line 67) simply formats a final `#!typescript Message` returned to the user.
-
+A response handler returns a `#!typescript Message` or `#!typescript Plan` just
+like a command handler. So we can see for instance that the
+`#!typescript FetchLatestTagInfo` response handler (line 43) instructs the Rug
+runtime to perform another HTTP call, calling the `#!typescript ShowTag`
+response handler (line 57) to process its response. In other words, we
+demonstrate how you can chain execution of Rugs using Plans. The
+`#!typescript ShowTag` response handler (line 67) simply formats a final
+`#!typescript Message` to be returned to the user.
