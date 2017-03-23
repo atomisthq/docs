@@ -71,8 +71,8 @@ pages:
     - Introduction: user-guide/index.md
     - Rug:
         - Introduction : user-guide/rug/index.md
-        - Handlers: user-guide/rug/handlers.md
-        - Commands: user-guide/rug/commands.md
+        - Event Handlers: user-guide/rug/handlers.md
+        - Command Handlers: user-guide/rug/commands.md
         - Editors: user-guide/rug/editors.md
         - Generators: user-guide/rug/generators.md
 #        - Reviewers: user-guide/rug/reviewers.md
