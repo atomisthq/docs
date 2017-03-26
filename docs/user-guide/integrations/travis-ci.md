@@ -11,5 +11,5 @@ The Getting Started guide takes you through the process
 of [configuring Travis CI][config] to send data to the Atomist webhook
 endpoint.
 
-[travis]: https://travis-ci.org/
-[config]: /getting-started/connect-atomist-to-ci.md#travis-ci-setup
+[travis]: https://travis-ci.org/ (Travis CI)
+[config]: /getting-started/ci.md#travis-ci-setup (Atomist and Travis CI)

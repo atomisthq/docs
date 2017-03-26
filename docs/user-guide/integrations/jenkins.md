@@ -10,6 +10,6 @@ The Getting Started guide takes you through the process
 of [configuring Jenkins][config] to send data to the Atomist webhook
 endpoint.
 
-[jenkins]: https://jenkins.io/
-[plugin]: https://plugins.jenkins.io/notification
-[config]: /getting-started/connect-atomist-to-ci.md#jenkins-setup
+[jenkins]: https://jenkins.io/ (Jenkins)
+[plugin]: https://plugins.jenkins.io/notification (Jenkins Notification Plugin)
+[config]: /getting-started/ci.md#jenkins-setup (Atomist and Jenkins)

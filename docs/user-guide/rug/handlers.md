@@ -59,7 +59,7 @@ As you can see, Rug event handlers and Rug [command handlers][commands] are
  _very_ similar. In fact, the only significant difference is in the way they are
 invoked; event handlers are invoked by the Rug runtime in response to _events_
 ingested by Atomist, whereas command handlers are either invoked directly by
-users via the Atomist bot, or via the running of a `#!typescript Plan` returned
+users via the Atomist Bot, or via the running of a `#!typescript Plan` returned
 by a `#!typescript CommandHandler`, `#!typescript EventHandler` or
 `#!typescript ResponseHandler`.
 
