@@ -15,9 +15,11 @@ still be intuitive.
 
 !!! note ""
     Rug is designed to support Test Driven Development using the BDD
-    style, and we've seen the greatest productivity in its early use
-    from those that create test scenarios and then follow the `red`
-    &rarr; `green` &rarr; `refactor` approach.
+    style, and we recommend following the `red`
+    &rarr; `green` &rarr; `refactor` [Test-driven development][tdd] approach.
+
+[tdd]: https://en.wikipedia.org/wiki/Test-driven_development
+
 
 ## Quick overview
 
@@ -46,7 +48,7 @@ export class Renamer {
 
 We want to test that the editor works as intended.  First, we write a
 Gherkin `.feature` file that is an easily readable description of the
-behaviors we expect.  We'll call it `Renaming.feature` and place it
+behaviors we expect.  We'll name the file `Renaming.feature` and place it
 under `.atomist/tests/project`.
 
 ```gherkin
@@ -205,8 +207,7 @@ For each scenario there is typically one `#!gherkin When` step,
 invoking a single Rug, although you can have multiple if you wish.
 The typical approach in a `#!gherkin When` step is to use the
 `#!typescript ProjectScenarioWorld` to look up the Rug you want to run
-and run it.  A previous example shows how to look up an editor and run
-it.  Here's an example of using a generator.
+and run it.  Here's an example of using a generator.
 
 ```typescript
 import { Project } from "@atomist/rug/model/Project";
@@ -232,7 +233,7 @@ parameters so an empty object is provided.
 
 The `#!gherkin Then` steps consist of one or more assertions about the
 final state of the project.  It is good practice for each step to be
-fine-grained, i.e., contain only a single assertion, so that reports
+fine-grained, containing only a single assertion, so that reports
 are maximally informative about what succeeded and failed.  The code
 of each failed assertion will be available in the test report provided
 by the Rug CLI.
@@ -298,9 +299,9 @@ When("politics takes its course", (p, w) => {
 ## Well-known steps
 
 A "well-known step" is a named step that the Rug testing framework
-defines for you.  In other words, you can refer to the step in the
-feature file but do not have to define it in the steps file.  The
-well-known steps available for you are below.
+defines for you.  You can refer to the step in the
+feature file but do not have to define it in the steps file. Here are the
+well-known steps available.
 
 Step Type | Name | Meaning
 ----------|------|--------
@@ -353,7 +354,7 @@ Then("the README exists", (p: Project) => {
 
 ```
 
-## Gaps
+## Not currently supported
 
 Rug Test does not yet support the full range of Gherkin functionality.
 The following features are missing:
