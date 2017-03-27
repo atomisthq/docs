@@ -14,9 +14,9 @@ the Rug test framework particularly easy to learn; if not, it should
 still be intuitive.
 
 !!! note ""
-    Rug is designed to support Test Driven Development using the BDD
+    Rug is designed to support [Test Driven Development][tdd] using the BDD
     style, and we recommend following the `red`
-    &rarr; `green` &rarr; `refactor` [Test-driven development][tdd] approach.
+    &rarr; `green` &rarr; `refactor` approach.
 
 [tdd]: https://en.wikipedia.org/wiki/Test-driven_development
 
