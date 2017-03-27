@@ -330,7 +330,7 @@ To print the entire contents of a project in the test output, use the
 ```typescript
 import { Project } from "@atomist/rug/model/Project";
 import { Then } from "@atomist/rug/test/project/Core";
-import * as helpers from "@atomist/rug/test/Helpers"
+import * as helpers from "@atomist/rug/test/Helpers";
 
 Then("the README exists", (p: Project) => {
     helpers.prettyListFiles(p);
@@ -345,10 +345,10 @@ To see the contents of a file in the test output, use the
 ```typescript
 import { Project } from "@atomist/rug/model/Project";
 import { Then } from "@atomist/rug/test/project/Core";
-import * as helpers from "@atomist/rug/test/Helpers"
+import * as helpers from "@atomist/rug/test/Helpers";
 
 Then("the README exists", (p: Project) => {
-    helpers.dump(p, "src/main/java/Command.java);
+    helpers.dump(p, "src/main/java/Command.java");
     return true;
 });
 
