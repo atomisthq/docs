@@ -156,7 +156,7 @@ editors, the world provided to the function implementing the step is a
 ProjectScenarioWorld` extends `#!typescript ScenarioWorld`, adding
 functions to find editors and generators, query the number of
 modifications made, check if the parameters passed in were valid, see
-if the executing a Rug succeeded, etc.
+if the executing Rug succeeded, etc.
 
 The scenario world is an optional second parameter in the function
 that implements all steps.  For example, the declaration of the
