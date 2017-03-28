@@ -63,7 +63,7 @@ Rugs the project contains, e.g., `-editors` if this is a Rug project
 with a collection of useful editors or reviewers.
 
 If the main purpose of a Rug project is to be a generator, then ending
-the name of the type of project it will generate would be most
+the name with the type of project it will generate would be most
 appropriate.  For example if your Rug projects's main purpose was to be
 a generator for a Spring Boot Rest Service then
 `spring-boot-rest-service` or even `java-spring-boot-rest-service`
@@ -133,7 +133,7 @@ defining the Rug operation. For instance, for an editor:
 ### Discoverability
 
 Your Rugs should be annotated with a collection of `#!typescript
-@Tags` [TypeScript decorators][] to optimise their discoverability.
+@Tags` [TypeScript decorators][decorators] to optimise their discoverability.
 For example if you were to create an editor that altered the README
 file then the following `@Tags` would be applicable:
 
