@@ -333,7 +333,7 @@ import { Then } from "@atomist/rug/test/project/Core";
 import * as helpers from "@atomist/rug/test/project/Helpers";
 
 Then("the README exists", (p: Project) => {
-    helpers.prettyListFiles(p);
+    console.log(helpers.prettyListFiles(p));
     return true;
 });
 
@@ -348,7 +348,7 @@ import { Then } from "@atomist/rug/test/project/Core";
 import * as helpers from "@atomist/rug/test/project/Helpers";
 
 Then("the README exists", (p: Project) => {
-    helpers.dump(p, "src/main/java/Command.java");
+    console.log(helpers.dump(p, "src/main/java/Command.java"));
     return true;
 });
 
