@@ -1,7 +1,7 @@
 Events are everywhere in the software development and operations processes.
 Our source code repositories generate events. Our CI systems generate events.
 Our runtime platforms generate events. Our services generate events. Our issue
-tracking systems generate events. Everything seems to generated events.
+tracking systems generate events. Everything seems to generate events.
 
 Atomist believes that bringing all these events together so they can be
 connected and acted upon provides tremendous value for shipping better code
@@ -11,7 +11,7 @@ using Rug event handlers.
 Event handlers define automated responses to events. Each event handler is a
 program in a familiar <!-- @jessitron I want to say
 "compiles-to-JavaScript" --> Turing-complete language. Based on the
-characteristics of the event that occurred, the handler decides whether act and
+characteristics of the event that occurred, the handler decides whether to act and
 which actions to take.
 
 A new issue was created? Post that in the repository's chat channel and also add
@@ -20,7 +20,9 @@ leaving chat.
 
 A developer submits a pull request in a library? Find out whether it will to
 impact a service that uses the library: create a branch in the service, modify
-the code to update the dependency. The service build completes successfully?
+the code to update the dependency.
+
+The service build completes successfully?
 Update the library's pull request (PR), and tell the developer all the news.
 
 A person in chat asks Atomist "what did I do today?"? Respond by
