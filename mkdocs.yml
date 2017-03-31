@@ -110,15 +110,15 @@ pages:
     - Overview: reference/index.md
     - Rug:
         - Overview: reference/rug/index.md
-#        - Handlers: reference/rug/handlers.md
-#        - Commands: reference/rug/commands.md
+#        - Event Handlers: reference/rug/handlers.md
+#        - Command Handlers: reference/rug/commands.md
 #        - Editors: reference/rug/editors.md
 #        - Generators: reference/rug/generators.md
 #        - Reviewers: reference/rug/reviewers.md
+        - Extensions: reference/rug/extensions.md
         - Path Expressions: reference/rug/path-expressions.md
 #        - Microgrammars: reference/rug/microgrammars.md
 #        - Templates: reference/rug/templates.md
 #        - Tests: reference/rug/tests.md
 #        - Archives: reference/rug/archives.md
-        - Extensions: reference/rug/extensions.md
     - Rug CLI: reference/rug-cli/index.md

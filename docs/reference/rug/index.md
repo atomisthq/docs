@@ -7,8 +7,8 @@ the various types of Rugs, Rug extensions, and Rug internals.
 Each different kind of Rug provides a different way for you to
 interact with events and code.
 
--   [Handlers](handlers.md): Respond to events
--   [Commands](commands.md): Take action
+-   [Event Handlers](handlers.md): Respond to events
+-   [Command Handlers](commands.md): Take action
 -   [Editors](editors.md): Add, remove, and edit files
 -   [Generators](generators.md): Create new repositories
 -   [Reviewers](reviewers.md): Examine a repository for conformance to standards
@@ -18,7 +18,7 @@ When writing Rugs, several other concepts and features of Rug will be
 useful.
 
 -   [Extensions][extensions]: Interfaces for languages and services
--   [Path Expressions](path-expressions.md): Select specific elements of projects, files, and code
+-   [Path Expressions](path-expressions.md): Select specific events and elements of projects, files, and code
 <!-- -   [Microgrammars](microgrammars.md): Specify and work with a custom microgrammar to work effectively with files -->
 <!-- -   [Templates](templates.md): Generating content using templating frameworks -->
 <!-- -   [Tests](tests.md): BDD test framework for Rugs -->
@@ -26,8 +26,8 @@ useful.
 
 ## Rug
 
-If you are interested in extending the capabilities of Rug, the
-following topics may be of interest.
+If you are interested in extending the capabilities of Rug runtime,
+the following topics may be of interest.
 
 -   [Rug API documentation][api]
 -   [Extensions][extensions]
