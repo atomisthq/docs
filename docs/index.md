@@ -95,6 +95,8 @@ tools to automate them away, once and for all.
 
 To help you learn more about Atomist, this documentation contains
 
+-   The rest of this overview: Atomist [concepts][]
+    and [capabilities][]
 -   [Getting Started][getting-started] instructions
 -   The Atomist [User Guide][user-guide] explaining each part of
     Atomist and how it is used
@@ -108,19 +110,21 @@ Atomist functionality and need to answer a technical question,
 the [Reference Documentation][refdoc] is probably the best place to
 look.
 
-[getting-started]: getting-started/index.md
-[user-guide]: user-guide/index.md
-[refdoc]: reference/index.md
+[concepts]: concepts.md (Overview - Atomist Concepts)
+[capabilities]: capabilities.md (Overview - Atomist Capabilities)
+[getting-started]: getting-started/index.md (Atomist Getting Started)
+[user-guide]: user-guide/index.md (Atomist User Guide)
+[refdoc]: reference/index.md (Atomist Reference Documentation)
 
 To stay up to date with Atomist, get announcements on new features,
 and interact with the Atomist team, please
 
 -   Join the [Atomist Community Slack][slack]
--   Following our blog, [The Composition][composition]
+-   Follow our blog, [The Composition][composition]
 -   Follow [@atomist][twitter] on Twitter
 
-[slack]: https://join.atomist.com/
-[composition]: https://the-composition.com/
-[twitter]: https://twitter.com/atomist
+[slack]: https://join.atomist.com/ (Atomist Community Slack)
+[composition]: https://the-composition.com/ (Atomist Blog)
+[twitter]: https://twitter.com/atomist (@atomist on Twitter)
 
 We sincerely hope you enjoy using Atomist!
