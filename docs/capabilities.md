@@ -54,8 +54,8 @@ ChatDev and ChatOps: <span class="rugs">[Command Handlers][commands]</span>
     messages in chat, allowing you quickly create bot commands to
     automate common tasks in software development and operation.  Want
     to automate the release of a new version of your service to
-    production?  Write a command handler so you can release it right
-    from chat.
+    production?  Write a command handler so you can initiate the
+    release right from chat.
 
 Project updates: <span class="rugs">[Editors][editors]</span>
 :   Rug <span class="mid-text">*editors*</span> modify code directly and
