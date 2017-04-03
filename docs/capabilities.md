@@ -41,19 +41,21 @@ workflows and decision points.  There are several different types of
 Rugs, each providing a different way to help you improve your
 development and operations lifecycle.
 
-Event-driven actions: <span class="rugs">[Handlers][handlers]</span>
-:   Rug <span class="mid-text">*handlers*</span> respond to events.
-    Handlers can use the information on an event and its related
-    events to message the right team members, take direct action,
-    and/or create new events, which can trigger other handlers.  Need
-    to notify someone when their commit causes a stack trace in
-    production?  Automate that with a handler.
+Event-driven actions: <span class="rugs">[Event Handlers][handlers]</span>
+:   Rug <span class="mid-text">*event handlers*</span> respond to
+    events.  Event handlers can use the information on an event and
+    its related events to message the right team members, take direct
+    action, and/or create new events, which can trigger other event
+    handlers.  Need to notify someone when their commit causes a stack
+    trace in production?  Automate that with an event handler.
 
-ChatDev and ChatOps: <span class="rugs">[Commands][commands]</span>
-:   Rug <span class="mid-text">*commands*</span> are tasks you can
-    execute within chat, automating common tasks in software
-    development and operation.  Want to release a new version of your
-    service to production?  Do it right in chat with a command.
+ChatDev and ChatOps: <span class="rugs">[Command Handlers][commands]</span>
+:   Rug <span class="mid-text">*command handlers*</span> respond to
+    messages in chat, allowing you quickly create bot commands to
+    automate common tasks in software development and operation.  Want
+    to automate the release of a new version of your service to
+    production?  Write a command handler so you can release it right
+    from chat.
 
 Project updates: <span class="rugs">[Editors][editors]</span>
 :   Rug <span class="mid-text">*editors*</span> modify code directly and
@@ -67,7 +69,7 @@ Project creation: <span class="rugs">[Generators][generators]</span>
     from a model project.  More powerful than templating approaches,
     generators are real projects operating under native tooling.  Need
     to stamp out a bunch of new microservice projects?  Stop the
-    copy/pasting and use a generator.
+    copy/paste/find/replace cycle and use a generator.
 
 <!--
 Project compliance: <span class="rugs">[Reviewers][reviewers]</span>
