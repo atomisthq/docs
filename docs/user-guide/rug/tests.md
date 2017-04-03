@@ -334,7 +334,7 @@ import * as helpers from "@atomist/rug/test/project/Helpers";
 
 Then("the README exists", (p: Project) => {
     console.log(helpers.prettyListFiles(p));
-    return true;
+    return p.fileExists("README.md");
 });
 
 ```
@@ -348,8 +348,8 @@ import { Then } from "@atomist/rug/test/project/Core";
 import * as helpers from "@atomist/rug/test/project/Helpers";
 
 Then("the README exists", (p: Project) => {
-    console.log(helpers.dump(p, "src/main/java/Command.java"));
-    return true;
+    console.log(helpers.dump(p, "README.md"));
+    return p.fileExists("README.md");
 });
 
 ```
