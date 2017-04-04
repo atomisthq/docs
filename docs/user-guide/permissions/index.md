@@ -1,6 +1,6 @@
 Atomist integrates with and automates activities over various tools
 and services in your development tool chain.  To do so, certain
-permission are needed.  Atomist only asks for permissions required to
+permissions are needed.  Atomist only asks for permissions required to
 accomplish its work.
 
 Please see the individual sections for specifics on the permissions
