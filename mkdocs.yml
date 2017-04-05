@@ -76,11 +76,12 @@ pages:
     - Introduction: user-guide/index.md
     - Rug:
         - Introduction: user-guide/rug/index.md
-        - Event Handlers: user-guide/rug/handlers.md
-        - Command Handlers: user-guide/rug/commands.md
+        - Event Handlers: user-guide/rug/event-handlers.md
+        - Command Handlers: user-guide/rug/command-handlers.md
         - Editors: user-guide/rug/editors.md
         - Generators: user-guide/rug/generators.md
-#        - Reviewers: user-guide/rug/reviewers.md
+        - Rug Functions: user-guide/rug/rug-functions.md
+        - Secrets: user-guide/rug/secrets.md
         - Extensions: user-guide/rug/extensions.md
         - Path Expressions: user-guide/rug/path-expressions.md
         - Microgrammars: user-guide/rug/microgrammars.md

@@ -82,8 +82,8 @@ Project compliance: <span class="rugs">[Reviewers][reviewers]</span>
     that.
 -->
 
-[handlers]: /user-guide/rug/handlers.md
-[commands]: /user-guide/rug/commands.md
+[handlers]: /user-guide/rug/event-handlers.md
+[commands]: /user-guide/rug/command-handlers.md
 [editors]: /user-guide/rug/editors.md
 [generators]: /user-guide/rug/generators.md
 <!-- [reviewers]: /user-guide/rug/reviewers.md -->

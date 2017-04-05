@@ -36,7 +36,7 @@ team can focus on the things that require human attention.
 
 In Rug, this is achieved through [event handlers][handlers].
 
-[handlers]: handlers.md
+[handlers]: event-handlers.md
 
 ### Triggering a human decision
 
@@ -46,7 +46,7 @@ member at when needed.
 
 In Rug, this is achieved through [command handlers][commands].
 
-[commands]: commands.md
+[commands]: command-handlers.md
 
 ### Creating new projects
 
