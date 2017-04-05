@@ -34,11 +34,12 @@ documentation must be copied into this repo at
 ## Content Reuse
 
 Sometimes it's desirable to have certain content repeated in a page or duplicated
-across pages. This project uses a [markdown-include][] plugin to include content
-from files in the `common` directory prior to conversion to HTML. It uses the
-`{!filename!}` syntax, with all filenames relative to the `common` directory.
+across pages. This project uses a [markdown-include][markdown-include] plugin to 
+include content from files in the `docs/common` directory prior to conversion to 
+HTML. It uses the `{!filename!}` syntax, with all filenames relative to the 
+`docs/common` directory.
 
-e.g. to include the content from `common/handlers.md` into `user-guide/rug/commands.md`,
+e.g. to include the content from `docs/common/handlers.md` into `user-guide/rug/commands.md`,
 we simply add `{!handlers.md!}` to the desired location in `user-guide/rug/commands.md`.
 
 [markdown-include]: https://github.com/cmacmackin/markdown-include

@@ -30,7 +30,7 @@ google_analytics:
   - auto
 markdown_extensions:
   - markdown_include.include:
-      base_path: "common"
+      base_path: "docs/common"
   - admonition
   - codehilite(guess_lang=false, linenums=false)
   - def_list
