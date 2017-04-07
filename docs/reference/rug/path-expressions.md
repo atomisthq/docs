@@ -155,8 +155,8 @@ Push      | after            |  Commit
 ChatId    | memberOf         |  ChatChannel
 Issue     | resolvedBy       |  Commit
 Commit    | author           |  GitHubId
-Person    | hasChatIdentiy   |  SlackId
-Person    | hasGithubIdentiy |  GitHubId
+Person    | hasChatIdentity  |  SlackId
+Person    | hasGithubIdentity|  GitHubId
 SlackTeam | hasChannel       |  Channel
 Repo      | channel          |  Channel
 SlackId   | memberOf         |  SlackTeam
