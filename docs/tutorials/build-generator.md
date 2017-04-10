@@ -8,7 +8,7 @@ For the simplest case to create a new generator of our own we will need to:
 - Take an existing project and convert it to being a Rug archive with a default generator that simply copies over the baseline project's files into a new project.
 - Publish your new generator so that it can be invoked by your team only.
 
-### Make an Existing Project a Generator
+## Make an Existing Project a Generator
 
 First make sure you have already [installed the latest Rug CLI][cli-install]
 for your platform. You'll need the [Rug CLI][rug-cli] to publish your new rug archive.
@@ -121,7 +121,7 @@ The `-C` changes the directory to above where you're running the shell for the o
 
 With the new generator created, now it's time to publish it so you can list and execute it using the Atomist Bot from your team's Slack.
 
-### Publishing Your New Project Generator
+## Publishing Your New Project Generator
 
 Similar to how you published your handlers project previously, this time you're going to publish your new generator Rug archive. Execute the `rug publish` command from inside your generator's project directory:
 
