@@ -69,13 +69,13 @@ handling logic:
 
 ```typescript linenums="1"
 import { HandleResponse, HandleCommand, Response, HandlerContext,
-         Plan, Message } from '@atomist/rug/operations/Handlers';
+         Plan, ResponseMessage } from '@atomist/rug/operations/Handlers';
 import { ResponseHandler, ParseJson, CommandHandler, Parameter, Tags,
          Intent } from '@atomist/rug/operations/Decorators';
 import { Pattern } from '@atomist/rug/operations/RugOperation';
 import { Project } from '@atomist/rug/model/Project';
 
-@CommandHandler("GetLatestSpringProjectTag","Search for kitty snippets")
+@CommandHandler("GetLatestSpringProjectTag","Retrieve the latest Git tag for a Spring Project")
 @Tags("spring")
 @Intent("latest tag")
 export class GetLatestSpringProjectTag implements HandleCommand {
@@ -136,9 +136,9 @@ export let fetchLatestTagInfo = new FetchLatestTagInfo();
 @ResponseHandler("ShowTag", "Prints our the latest tag information")
 export class ShowTag implements HandleResponse<any>{
 
-    handle(@ParseJson response: Response<any>): Message {
-        let body = response.body();
-        return new Message(`{
+    handle(@ParseJson response: Response<any>): Plan {
+        let body = response.body;
+        return Plan.ofMessage(new ResponseMessage(`{
     "attachments": [
         {
             "fallback": "",
@@ -173,7 +173,7 @@ export class ShowTag implements HandleResponse<any>{
             ]
         }
     ]
-}`);
+}`));
     }
 }
 export let showTag = new ShowTag();
@@ -182,9 +182,9 @@ export let showTag = new ShowTag();
 @ResponseHandler("FetchedFailed", "Prints our a nice message in case of error")
 export class FetchedFailed implements HandleResponse<any>{
 
-    handle(response: Response<any>) : Message {
-        let message = response.body();
-        return new Message(`Failed fetching tag information: ${message}`);
+    handle(response: Response<any>) : Plan {
+        let message = response.body;
+        return Plan.ofMessage(new ResponseMessage(`Failed fetching tag information: ${message}`));
     }
 }
 export let fetchedFailed = new FetchedFailed();
@@ -239,18 +239,18 @@ commands via the Atomist Bot.
 The `#!typescript handle` method takes a single argument, a
 `#!typescript HandlerContext` instance. This gives you access to a
 [path expression engine][pxe] to query your organization's projects. The method
-must return either a `#!typescript Plan` or `#!typescript Message`.
+must return either a `#!typescript Plan`.
 
 [pxe]: path-expressions.md
 
-Let's start by explaining `#!typescript Message` as it is the simpler. A message
-represents a set of presentable content and/or actions displayed to the user in
-response to invoking the command. By default, the message will be routed to the
-caller, from the place where the user issued the command:
+Let's start by explaining `#!typescript ResponseMessage` as it is the simpler. 
+A message represents a set of presentable content and/or actions displayed to 
+the user in response to invoking the command. By default, the message will be 
+routed to the caller, from the place where the user issued the command:
 
 ```typescript
-handle(response: Response<any>): Message {
-    return new Message("Hello there!");
+handle(response: Response<any>): Plan {
+    return Plan.ofMessage(new ResponseMessage("Hello there!"));
 }
 ```
 
@@ -258,10 +258,9 @@ However, it is also possible to route to a different location by setting a
 Slack channel identifier (we assume a Slack integration here):
 
 ```typescript
-handle(response: Response<any>): Message {
-    let message: Message = new Message("Hello from a different channel!");
-    message.channelId = "C024BY98L";
-    return message;
+handle(response: Response<any>): Plan {
+    let message: = new DirectedMessage("Hello from a different channel!", new ChannelAddress("#general"));
+    return Plan.ofMessage(message);
 }
 ```
 

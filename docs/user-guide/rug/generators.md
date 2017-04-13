@@ -176,7 +176,7 @@ import { Generator, Parameter, Tags } from '@atomist/rug/operations/Decorators';
 export class NewSpringBootService implements PopulateProject {
 
     populate(project: Project) {
-        console.log(`Creating ${project.name()}`);
+        console.log(`Creating ${project.name}`);
     }
 }
 
@@ -241,12 +241,12 @@ export class NewSpringBootService implements PopulateProject {
     service_class_name: string;
 
     populate(project: Project) {
-        console.log(`Creating ${project.name()}`);
+        console.log(`Creating ${project.name}`);
 
-        let eng: PathExpressionEngine = project.context().pathExpressionEngine()
+        let eng: PathExpressionEngine = project.context.pathExpressionEngine
         eng.with<File>(project, '/src//File()[contains(@name, "MyRestService")]', f => {
             f.replace("MyRestService", this.service_class_name);
-            f.setPath(f.path().replace("MyRestService", this.service_class_name));
+            f.setPath(f.path.replace("MyRestService", this.service_class_name));
         });
     }
 }

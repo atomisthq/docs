@@ -18,7 +18,7 @@ When running a Rug against a `Project`, you can locate a file with a
 known name with some code like the following line:
 
 ```typescript
-project.findFile("mkdocs.yml").replace("<NAME>", project.name())
+project.findFile("mkdocs.yml").replace("<NAME>", project.name
 ```
 
 This approach provides a simple mechanism for finding a file within a
@@ -43,7 +43,7 @@ and fetch the `#!typescript PathExpressionEngine` from the
 `#!typescript Project` context.
 
 ```typescript
-let eng: PathExpressionEngine = project.context().pathExpressionEngine();
+let eng: PathExpressionEngine = project.context.pathExpressionEngine;
 ```
 
 We then rewrite the `#!typescript findFile()` function call using the
@@ -53,7 +53,7 @@ name.
 
 ```typescript
 eng.with<File>(project, "/*[@name='mkdocs.yml']", f => {
-    f.replace("<NAME>", project.name())
+    f.replace("<NAME>", project.name)
 })
 ```
 
@@ -83,10 +83,10 @@ import { YamlPathExpressionEngine } from "@atomist/rug/ast/yaml/YamlPathExpressi
 Let's amend our previous example:
 
 ```typescript
-let eng: PathExpressionEngine = new YamlPathExpressionEngine(project.context().pathExpressionEngine())
+let eng: PathExpressionEngine = new YamlPathExpressionEngine(project.context.pathExpressionEngine)
 
 eng.with<yaml.YamlString>(project, "/*[@name='mkdocs.yml']/YamlFile()/*[@name='site_name']", field => {
-    field.updateText(project.name())
+    field.updateText(project.name)
 })
 ```
 
@@ -150,7 +150,7 @@ Because we aren't working with a strict hierarchy, and because there can be mult
 Thus we often choose to build path expressions using *query by example*. This is an established technique for searching for data via examples of data that should match.
 
 ```
-import * as cortex from "@atomist/rug/cortex/stub/Types"
+import * as cortex from "@atomist/cortex/stub/Types"
 import * as query from '@atomist/rugs/util/tree/QueryByExample'
 
 ...
