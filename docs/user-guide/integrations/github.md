@@ -18,5 +18,5 @@ The Getting Started guide takes you through the process
 of [authorizing Atomist][auth] in your GitHub organization and each
 team member's GitHub user.
 
-[github]: https://github.com/
-[auth]: /getting-started/connect-atomist-to-github.md
+[github]: https://github.com/ (GitHub)
+[auth]: /getting-started/github.md (Atomist and GitHub.com)

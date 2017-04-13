@@ -60,19 +60,22 @@ pages:
 - Getting Started:
     - Overview: getting-started/index.md
     - Prerequisites: getting-started/prerequisites.md
-    - Invite Atomist to Slack: getting-started/invite-atomist-to-slack.md
-    - Connect Atomist to GitHub: getting-started/connect-atomist-to-github.md
-    - Putting Atomist to Work: getting-started/putting-atomist-to-work.md
-    - Connect Atomist to CI: getting-started/connect-atomist-to-ci.md
-    - Development Automation:
-        - Introduction: getting-started/build-your-own-development-automation.md
-        - Build a Handler: getting-started/build-handler.md
-        - Build a Generator: getting-started/build-generator.md
+    - Connect Atomist to Slack: getting-started/slack.md
+    - Connect Atomist to GitHub: getting-started/github.md
+    - Connect Atomist to CI:
+        - Overview: getting-started/ci.md
+        - Travis CI: getting-started/travis-ci.md
+        - Jenkins: getting-started/jenkins.md
+    - Atomist Bot: getting-started/bot.md
     - What next: getting-started/what-next.md
+- Tutorials:
+    - Introduction: tutorials/index.md
+    - Build a Handler: tutorials/handler.md
+    - Build a Generator: tutorials/generator.md
 - User Guide:
     - Introduction: user-guide/index.md
     - Rug:
-        - Introduction : user-guide/rug/index.md
+        - Introduction: user-guide/rug/index.md
         - Event Handlers: user-guide/rug/handlers.md
         - Command Handlers: user-guide/rug/commands.md
         - Editors: user-guide/rug/editors.md

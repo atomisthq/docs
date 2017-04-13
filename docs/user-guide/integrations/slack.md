@@ -10,6 +10,6 @@ Atomist Bot must be invited to channels where you would like to
 interact with it.  The [Getting Started][getting-started] guide takes
 you through this process step by step.
 
-[slack]: https://slack.com/
-[install]: /getting-started/invite-atomist-to-slack.md
-[getting-started]: /getting-started/index.md
+[slack]: https://slack.com/ (Slack)
+[install]: /getting-started/slack.md (Atomist and Slack)
+[getting-started]: /getting-started/index.md (Getting Started Guide)

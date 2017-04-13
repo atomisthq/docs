@@ -10,30 +10,34 @@ To use Atomist, you'll need three things:
     Next at the bottom-right of this page.
 
 [alpha]: https://atomist.typeform.com/to/MseQBs (Atomist Alpha)
-[slack]: https://slack.com/
-[github]: https://github.com
+[slack]: https://slack.com/ (Slack)
+[github]: https://github.com (GitHub)
 
 ## Atomist Alpha
 
-If you have not yet requested access to the Atomist Alpha,
-please fill out the [request form][alpha].  Using the information
-provided in the form, we will reach out to you with further
-instructions for completing your enrollment.  If you have filled out
-the form and have yet to receive the email with further instructions,
-please reach out to us in the <a href="https://join.atomist.com/" alt="join atomist community" target="_blank">Atomist Community Slack</a>
-`#support` channel.
+If you have not yet requested access to the Atomist Alpha, please fill
+out the [request form][alpha].  Using the information provided in the
+form, we will reach out to you with further instructions for
+completing your enrollment.  If you have filled out the form and have
+yet to receive the email with further instructions, please reach out
+to us in the <a href="https://join.atomist.com/" alt="join Atomist
+community" title="Join the Atomist Community Slack"
+target="_blank">Atomist Community Slack</a> `#support` channel.
 
 ## Slack
 
 Chat is one of the main interfaces for Atomist.  Currently we support
 the [Slack][slack] chat platform.  You can use any Slack team you are
 currently a member of with Atomist.  If you do not currently use Slack
-or prefer to use a new Slack team with Atomist, you
-can <a href="https://slack.com/create" alt="create slack team" target="_blank">create a new Slack team</a> for free.
+or prefer to use a new Slack team with Atomist, you can <a
+href="https://slack.com/create" alt="create Slack team" title="Create
+a Slack team" target="_blank">create a new Slack team</a> for free.
 
 ## GitHub
 
 Atomist wants to get to know your code.  Currently Atomist integrates
 with [Github.com][github].  If you already have a GitHub.com account,
 you can use Atomist with that.  If you do not have a GitHub.com
-account, you can <a href="https://github.com/join" alt="create github account" target="_blank">create an account</a> for free.
+account, you can <a href="https://github.com/join" alt="create GitHub
+account" title="Create a GitHub account" target="_blank">create an
+account</a> for free.

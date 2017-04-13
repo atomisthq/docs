@@ -1,6 +1,6 @@
 Controlling communication and information flows is paramount to
 effective teams. Open Source projects have long been relying on chat
-to help them operate and coordinate contributors and project lifecycle.  
+to help them operate and coordinate contributors and project lifecycle.
 Recent modern chat solutions, which can integrate deeply in your ecosystem, have
 improved on those foundations and proven to be fantastic hubs for teams to
 drive automation with simple chat commands.
@@ -14,7 +14,7 @@ against the project, all of this from the project's chat channel.
 
 ## Anatomy of a Command
 
-Rug commands are the interface to add new skills to the [Atomist bot][bot].
+Rug commands are the interface to add new skills to the [Atomist Bot][bot].
 These commands are suitable for when you want to either query your project
 or perform an action from where your team gathers to pilot the project.
 
@@ -52,14 +52,14 @@ The remaining of this Rug follows the usual [Rug project][projects] structure.
 [projects]: projects.md
 
 Rug commands are declared in Rug command handlers. Command handlers handle
-commands coming from the Atomist bot. The next section describes a basic Rug
+commands coming from the Atomist Bot. The next section describes a basic Rug
 command implementation.
 
 ## A Basic Command
 
 Suppose we are interested in querying the [Spring][] project for the
 latest tag of any of [its published projects][ghspring]. This would be a
-typical example of simple Rug command that we could run from the Atomist bot.
+typical example of simple Rug command that we could run from the Atomist Bot.
 
 [spring]: http://spring.io/
 [ghspring]: https://github.com/spring-projects/
@@ -212,9 +212,9 @@ but highly recommended.
 [decorators]: https://www.typescriptlang.org/docs/handbook/decorators.html
 
 A Rug command handler can have associated intent users can send when talking
-with the Atomist bot. The intent is described using the `#!typescript @Intent`
+with the Atomist Bot. The intent is described using the `#!typescript @Intent`
 decorator (line 10). Whenever a user sends the `@atomist latest tag` message to
-the Atomist bot, the Rug runtime runs the
+the Atomist Bot, the Rug runtime runs the
 `#!typescript GetLatestSpringProjectTag` command handler.
 
 We then define the class which implements our command handler (line 11). A
@@ -232,7 +232,7 @@ are documented in the [conventions][rugconv]. Though the only mandatory property
 is `#!typescript pattern`, in the case of command handlers, it is highly
 recommended to also set `#!typescript description`, `#!typescript displayName`
 and `#!typescript validInput` in order to help other users when invoking
-commands via the Atomist bot.
+commands via the Atomist Bot.
 
 [rugconv]: conventions.md
 
@@ -295,7 +295,7 @@ we indicate the HTTP method is a `GET` as well as the URL to be requested.
 
 For other kinds, the definition looks similar but, in effect, a plan allows you
 to call any other Rug. This means, for example, that a command could perform a
-project edit or review initiated by a conversation with the Atomist's bot.
+project edit or review initiated by a conversation with the Atomist Bot.
 
 !!! important "It's all asynchronous"
     It is important to appreciate that because command handlers describe a plan,

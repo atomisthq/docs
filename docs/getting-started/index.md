@@ -1,14 +1,21 @@
 Welcome!  If you want to get started with Atomist you're in the right
-place.  This guide will walk you through setup and getting started.
+place.  Before you can start automating development tasks with
+Atomist, Atomist needs to be able to communicate with your various
+development platforms like chat, source code repositories, and your
+continuous integration (CI) platform.  This guide will walk you
+through connecting Atomist to your development systems and how to
+start using the Atomist Bot.  If you, or someone else on your team,
+has already connected Atomist to your development environment, you can
+jump to the [Using the Atomist Bot][bot] section.
 
-**What this guide covers**
+-   [Prerequisites][prereq]
+-   [Connect Atomist to Slack][slack]
+-   [Connect Atomist to GitHub][github]
+-   [Connect Atomist to CI][ci]
+-   [Using the Atomist Bot][bot]
 
--   [**Prerequisites**](prerequisites.md)
--   [**Set up the Atomist Slack bot**](invite-atomist-to-slack.md)
--   [**Connect Atomist to GitHub**](connect-atomist-to-github.md)
--   [**Putting Atomist to work on your projects**](putting-atomist-to-work.md)
--   [**Connect Atomist to continuous integration**](connect-atomist-to-ci.md)
--   [**Building and deploying your first development automation**](build-your-own-development-automation.md)
-
-Click on any of the steps above to go directly to that step, or click
-Next at the bottom right of this page to continue this guide.
+[prereq]: prerequisites.md (Getting Started - Prerequisites)
+[slack]: slack.md (Getting Started - Connect Atomist & Slack)
+[github]: github.md (Getting Started - Connect Atomist & GitHub)
+[ci]: ci.md (Getting Started - Connect Atomist & CI)
+[bot]: bot.md (Getting Started - Atomist Bot)
