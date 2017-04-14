@@ -103,6 +103,13 @@ Now click on `Generate project` and you'll see several things happen:
 
 [community]: https://join.atomist.com/
 
+!!! tip "Link existing channels and repositories"
+    The Atomist Bot will automatically link repositories and channels
+    it creates, but you can link existing repositories to channels
+    too.  See [Using Atomist on existing projects][existing] below.
+
+[existing]: #using-atomist-on-existing-projects (Getting Started - Use Atomist on Existing Projects)
+
 Here's what the successful project creation message looks like:
 
 <div class="ss-container">
@@ -391,7 +398,7 @@ team.
     the [Atomist Community Slack][community], associations can only be
     made with repositories in the `atomist` GitHub organization.
 
-Once the associate is made, the Atomist Bot will begin reporting on
+Once the association is made, the Atomist Bot will begin reporting on
 activity in the associated repository and you can interact with the
 repository, creating and assigning issues, etc., just as you do with
 channels the Atomist Bot creates when it generates a project.
