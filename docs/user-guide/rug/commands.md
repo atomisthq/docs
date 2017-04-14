@@ -237,16 +237,21 @@ commands via the Atomist Bot.
 [rugconv]: conventions.md
 
 The `#!typescript handle` method takes a single argument, a
-`#!typescript HandlerContext` instance. This gives you access to a
-[path expression engine][pxe] to query your organization's projects. The method
-must return either a `#!typescript Plan`.
+`#!typescript HandlerContext` instance. This gives you access to
+a [path expression engine][pxe] to query your organization's
+projects. The method must return a `#!typescript Plan`.
 
 [pxe]: path-expressions.md
 
-Let's start by explaining `#!typescript ResponseMessage` as it is the simpler. 
-A message represents a set of presentable content and/or actions displayed to 
-the user in response to invoking the command. By default, the message will be 
-routed to the caller, from the place where the user issued the command:
+A `#!typescript Plan` can contain messages and instructions.  Let's
+start by explaining messages.  A message represents a set of
+presentable content and/or actions displayed to the user in response
+to invoking the command.  There are a few different types of messages.
+In the above example we see the use of a `#!typescript
+ResponseMessage`.  `#!typescript ResponseMessage`s are intended to be
+used when responding to a user message in chat.  By default, a
+`#!typescript ResponseMessage` will be routed to the caller, from the
+place where the user issued the command:
 
 ```typescript
 handle(response: Response<any>): Plan {
@@ -254,8 +259,11 @@ handle(response: Response<any>): Plan {
 }
 ```
 
-However, it is also possible to route to a different location by setting a
-Slack channel identifier (we assume a Slack integration here):
+However, it is also possible to route to a different location by using
+a `#!typescript DirectedMessage`.  The `#!typescript ResponseMessage`
+constructor takes an additional argument: the address where the
+message should be sent.  The address can either be a chat channel or
+user name:
 
 ```typescript
 handle(response: Response<any>): Plan {
