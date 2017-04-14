@@ -38,7 +38,7 @@ import { JavaClass } from '@atomist/rug/model/JavaClass';
 export class Renamer {
 
     edit(project: Project) {
-    	let eng = project.context().pathExpressionEngine();
+    	let eng = project.context.pathExpressionEngine;
         eng.with<JavaClass>(project, "//JavaClass()[@name='Dog']", jc => {
         	jc.rename("Cat");
         });
@@ -106,7 +106,7 @@ When("edit with Renamer", (p, world) => {
 });
 
 Then("there should be one file", p => {
-    return p.totalFileCount() == 1;
+    return p.totalFileCount() === 1;
 });
 
 Then("the file is now src/main/java/Cat.java", p => {

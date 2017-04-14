@@ -40,16 +40,16 @@ repository's Slack channel informing people in the channel about the tagging
 _event_.
 
 ```typescript linenums="1"
-import { HandleEvent, Message } from '@atomist/rug/operations/Handlers'
+import { HandleEvent, Plan, DirectedMessage, ChannelAddress } from '@atomist/rug/operations/Handlers'
 import { GraphNode, Match, PathExpression } from '@atomist/rug/tree/PathExpression'
 import { EventHandler, Tags } from '@atomist/rug/operations/Decorators'
 
 @EventHandler("TagHandler", "Handles tag events", "/Tag")
 @Tags("github", "tag")
 export class TagHandler implements HandleEvent<GraphNode, GraphNode> {
-    handle(event: Match<GraphNode, GraphNode>): Message {
-        let message = new Message("Tag event!");
-        return message.withNode(event.root());
+    handle(event: Match<GraphNode, GraphNode>): Plan {
+        let message = new DirectedMessage("Tag event!", new ChannelAddress("#general"));
+        return Plan.ofMessage(message);
     }
 }
 export const tagHandler = new TagHandler();
