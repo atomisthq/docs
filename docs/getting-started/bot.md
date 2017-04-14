@@ -65,7 +65,7 @@ thread.
   <img src="../images/project-creation-thread-start.png" alt="Project creation thread with Atomist" class="ss-small">
 </div>
 
-Type in a name for your new project and press <Enter>.  The project
+Type in a name for your new project and press `Enter`.  The project
 name must be a valid GitHub repository name, containing only letters,
 numbers, dashes (`-`), and underscores (`_`).  Since the project name
 is the only required input parameter for the
