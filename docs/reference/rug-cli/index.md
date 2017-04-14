@@ -37,6 +37,18 @@ Below is the complete list of options and commands for the Rug CLI.
 
 ## Commands
 
+### `clean`
+
+Clean up project
+
+*Usage:*
+
+```console
+$ rug clean [OPTION]...
+```
+
+Clean up all temporarily created files and directories from the project.
+
 ### `default`
 
 Set default archive
@@ -58,6 +70,31 @@ ACTION should be save or delete.  ARCHIVE should be a valid archive identifier o
 
 `-g`, `--global`
 :   Set global or project default archive
+
+### `dependencies`
+
+Print dependency tree for an archive
+
+*Usage:*
+
+```console
+$ rug dependencies [OPTION]... ARTIFACT
+```
+
+ARTIFACT should be the full name of an artifact, e.g., "atomist:spring-service:Spring Microservice".  If the name of the artifact has spaces in it, you need to put quotes around it.
+
+*Command aliases:* `deps`
+
+*Command options:*
+
+`-a AV`, `--archive-version=AV`
+:   Use archive version AV
+
+`-l`, `--local`
+:   Use local working directory as archive
+
+`--operations`
+:   Show operations in search output
 
 ### `describe`
 
@@ -334,7 +371,7 @@ SEARCH could be any text used to search the catalog.  TAG can be any valid tag, 
 
 ### `shell`
 
-Start a shell for the specified Rug archive
+Start a shell for a specified Rug archive
 
 *Usage:*
 
@@ -364,7 +401,7 @@ Run test scenarios
 $ rug test [OPTION]... [TEST]
 ```
 
-TEST is the name of a test scenario.  If no TEST is specified, all scenarios will run.
+TEST is the name of a test feature or feature file.  If no TEST is specified, all scenarios will run.
 
 ### `to-path`
 
