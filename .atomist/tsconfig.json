@@ -13,7 +13,8 @@
         "removeComments": false,
         "noLib": false,
         "preserveConstEnums": true,
-        "suppressImplicitAnyIndexErrors": true
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "target/ts-built"
     },
     "exclude": [
         "node_modules",
