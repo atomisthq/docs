@@ -71,6 +71,7 @@ pages:
 - Tutorials:
     - Introduction: tutorials/index.md
     - Custom Commit Notifications: tutorials/custom-commit-notifications.md
+    - Teach your Team new Skills: tutorials/teach-atomist-new-skills.md
 - User Guide:
     - Introduction: user-guide/index.md
     - Rug:
