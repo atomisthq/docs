@@ -71,8 +71,6 @@ pages:
 - Tutorials:
     - Introduction: tutorials/index.md
     - Custom Commit Notifications: tutorials/custom-commit-notifications.md
-    - Build a Handler: tutorials/handler.md
-    - Build a Generator: tutorials/generator.md
 - User Guide:
     - Introduction: user-guide/index.md
     - Rug:
