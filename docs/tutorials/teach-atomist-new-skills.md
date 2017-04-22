@@ -4,18 +4,21 @@ and interactions are constant.
 
 The Atomist Bot you have enrolled to your team strives to be tailored to what
 makes sense to your team. To do so, you can teach the bot new skills to
-automate common tasks your team routinely performs. Those skills are 
-implemented inside Rug command handlers and this tutorial will show you their 
+automate common tasks your team routinely performs. Those skills are
+implemented inside Rug command handlers and this tutorial will show you their
 powerful, and indeed fun, capabilities.
 
-!!! tip "All you need is Rug"
-    These tutorials assume you have a [Rug project][ugpj] which hosts your
-    new [Rug command handlers][rugcmd]. You can easily add them using the 
-    [AddTypeScriptCommandHandler Rug editor][rugeditor] provided by Atomist.
+!!! tip "Prerequisites"
+    For this tutorial, you will need:
+
+    * A [Rug project][ugpj] to work in. If you have not yet created a Rug project or would like to build the tutorial in a new Rug project, see [Creating a new Rug Project][createrug].
+    * Rug CLI installed. See the Rug CLI [Installation][cli-install] and [Basics][cli-basics] sections of the user guide for instructions on setting up and configuring the Rug CLI on your system.
 
 [ugpj]: /user-guide/rug/projects.md
 [rugcmd]: /user-guide/rug/commands.md
 [rugeditor]: https://github.com/atomist/rug-editors#addtypescriptcommandhandler
+[cli-install]: /user-guide/interfaces/cli/install.md
+[cli-basics]: /user-guide/interfaces/cli/basics.md
 
 ## Search StackOverflow using the Bot
 
@@ -84,7 +87,7 @@ be private or to work around the low limits of un-authenticated API call to
 the GitHub API, this command handler uses one of your GitHub tokens, line 11,
 stored as a secret value by Atomist (line 36). This secret does not transit
 on the wire and is only available at runtime when the command handler is
-executed on the Atomist backend. You only need to declare it, line 11, so 
+executed on the Atomist backend. You only need to declare it, line 11, so
 Atomist populates it when needed.
 
 !!! tip "Atomist and permissions"
@@ -98,6 +101,6 @@ The command handler builds a plan instructing Atomist to query the GitHub API
 on your behalf. The plan also indicates how to process the response from that
 call (line 41).
 
-The rendering of the returned issues is taken care by the 
+The rendering of the returned issues is taken care by the
 `DisplayLastActiveIssues` response handler which relies on a Slack renderer
 provdided by Atomist.
