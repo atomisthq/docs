@@ -1,124 +1,95 @@
-Things happen all the time in your development workflow. Commits are pushed,
-builds are started, they fail or succeed. Team members, or even users, open and
-comment issues everyday.
+There is a constant flow of activity on any active project. Issues are opened and commented on,
+commits are pushed, builds are started, they fail or succeed. Atomist notifies about all of
+these activities in a Slack channel by default. You can also create your own custom automated
+actions based on these activities.
 
-All that flow of information can become overwhelming. With Atomist, you can
-attach behavior to these events and automate all sorts of near real-time
-responses.
+!!! tip "Prerequisites"
+    For this tutorial, you will need:
 
-These tutorials show you how to rely on Atomist to automate those scenarios.
-
-!!! tip "All you need is Rug"
-    These tutorials aim at showing you the code that you could write to
-    automate event reactions. They assume you have a [Rug project][ugpj]. You
-    can easily add [Rug event handler][rugev] to that project via the public 
-    [AddTypeScriptEventHandler Rug editor][rugeditor] provided by Atomist.
+    * A [Rug project][ugpj] to work in. If you have not yet created a Rug project or would like to build the tutorial in a new Rug project, see [Creating a new Rug Project][createrug].
+    * Rug CLI installed. See the Rug CLI [Installation][cli-install] and [Basics][cli-basics] sections of the user guide for instructions on setting up and configuring the Rug CLI on your system.
 
 [rugev]: /user-guide/rug/handlers.md
 [ugpj]: /user-guide/rug/projects.md
 [rugeditor]: https://github.com/atomist/rug-editors#addtypescripteventhandler
+[createrug]: /tutorials/create-rug-project.md
+[cli-install]: /user-guide/interfaces/cli/install.md
+[cli-basics]: /user-guide/interfaces/cli/basics.md
 
-## Getting Notified from a User Commit
+## Message Me on Commits
 
-The first events you will ask Atomist to react to are commits pushed by a user.
-To achieve this, you add a [Rug event handler][rugev] to your
-[Rug project][ugpj] that, once you have [published][ugpub] it to your team, will
-be evaluated and executed by Atomist on such events.
+Imagine that you are the onboarding partner for a new developer in your
+team and want to know about commits they push so that you can
+provide input and help where needed as they ramp up.
+
+Let's write a script that will notify in a direct message when commits are pushed by
+your new teammate. To achieve this, you will add a [Rug event handler][rugev] to your
+Rug project. Once you have created and [published][ugpub], it will
+be triggered and run on push events.
 
 [ugpub]: /user-guide/rug/lifecycle.md#publishing
 
-Below is such an event handler:
+Here is the TypeScript code for a handler that does this.
 
-```typescript linenums="1"
-{!../../.atomist/handlers/event/NewCommitPushedToGeneral.ts!}
-```
-
-An event handler tells Atomist what it is interested in via its
-[path expression][ugpxe] on line 10. Notice in particular how the handler
-filters only commit made by a given author on line 11 (here, Alice's commits). 
-Finally, line 12 asks Atomist to also feed the handler with the commits
-repository details.
-
-[ugpxe]: /user-guide/rug/path-expressions.md
-
-Once it gets called, the event handler builds a message to send to the 
-`#general` channel of your team. 
-
-## Message me on Commits
-
-In the previous section, you wrote an event handler that sends a message to
-the general channel of your team when Alice pushes her commits.
-
-Let's see now you could ask Atomist to send a direct message instead.
-
-```typescript linenums="1" hl_lines="22"
+```typescript linenums="1" hl_lines="11 22"
 {!../../.atomist/handlers/event/NewCommitPushedToDM.ts!}
 ```
 
-As you can see, the only change is on line 22 where you provide the name of 
-the user to send the message to, here `@Bob`.
+An event handler gets triggered based on the event it is interested in. This
+is done in Rug via its [path expression][ugpxe] on line 10. Notice in particular how the handler
+filters only commits made by a given author on line 11 (here, Alice's commits).
+Finally, line 12 asks Atomist to also feed the handler with the commits
+repository details. Once it gets called, the handler builds a direct message to send to the Slack
+user in line 22.
 
-But wait, you can have it both ways and send a direct message and a 
-channel message:
+[ugpxe]: /user-guide/rug/path-expressions.md
 
-```typescript linenums="1" hl_lines="21 26 31 33"
-{!../../.atomist/handlers/event/NewCommitPushedToDMAndGeneral.ts!}
+## Customize the Handler
+
+If you do not yet have a local clone or your Rug project repository, clone it now.
+
+Next, add the code example above into a new file called `NewCommitPushedToDM.ts` in the
+`.atomist/handlers/event` directory of the local repo for your Rug project
+like so:
+
+```console
+atomist-tutorials $ curl \
+'https://raw.githubusercontent.com/atomist/end-user-documentation/master/.atomist/handlers/event/NewCommitPushedToDM.ts' \
+-o .atomist/handlers/event/NewCommitPushedToDM.ts
 ```
 
-Event handlers can dispatch multiple messages from a single event as shown 
-on the highlithed lines in this example.
+Fire up your favorite editor and change the code to match on the actual GitHub
+user you want push notifications for (line 11), and your Slack user name (line 22).
+For example, in my case, I want to see notifications for pushes by GitHub user
+`fauxryan` sent to my Slack user `jrday`, so my edited version of `NewCommitPushedToDM.ts`
+looks like this.
 
-## Fetch and Display the Modified Files 
-
-Sending messages on events is critical for information flow but what if you 
-could perform actions on those events! On a commit, it should be handy to see 
-which files were modified without having to open a browser or pulling the
-changes locally.
-
-Atomist allows your event handler to perform operations such as calling an 
-HTTP endpoint through Instructions you add to the returned Plan. Let's see
-how this could look like with the following event handler.
-
-!!! note
-    This example relies on the [GitHub REST API][ghrestapi] and expects
-    anonymous access to that repository for the call to succeed.
-
-[ghrestapi]: https://developer.github.com/v3/repos/commits/
-
-```typescript linenums="1"
-{!../../.atomist/handlers/event/ListCommitFilesChanged.ts!}
+```typescript linenums="1" hl_lines="11 22"
+{!../../.atomist/handlers/event/NewCommitPushedToDM_Modified.ts!}
 ```
 
-This handler is a bit longer than in previous section indeed. The reason is that
-it does much more, and hopefully glancing at the code should make sense
-already.
+## Publish the New Handler
 
-On line 32, you instruct Atomist to perform a HTTP GET request against
-the provided URL to retrieve the commit information, such as the number of
-files modified by that commit.
+With your local Rug CLI [installed, up-to-date][cli-install], and [configured][cli-basics] you are ready to publish
+the updated Rug project with your new handler.
 
-!!! warning
-    Atomist has a [whitelist][] of services that can be accessed that way,
-    please contact us if you need to call a service not in that list.
+From within your Rug project directory:
 
-[whitelist]: https://github.com/atomist/rug-function-http/blob/master/src/com/atomist/rug/functions/rug_function_http/whitelist.clj
+```console
+$ cd .atomist
+$ npm install
+/atomist-tutorials/.atomist
+└─┬ @atomist/rugs@0.24.3
+  ├── @atomist/cortex@0.31.0
+  ├── @atomist/rug@0.25.1
+  └── mustache@2.3.0
 
-The call is performed as soon as possible by Atomist, which, in return, calls
-the appropriate success or error handler based on the response from the HTTP
-call.
+npm WARN .atomist No description
+npm WARN .atomist No repository field.
+npm WARN .atomist No license field.
+```
 
-Here, you indicate that errors should be simply returned as a generic error 
-message using the `GenericErrorHandler` provided by Atomist. However, succesful
-calls will be handled by the `ReceivedCommitDetails` response handler defined
-line 61.
+Your specific output may vary. This step installs dependencies needed for your Rug project.
 
-!!! tip
-    This response handler should live in the same TypeScript file as its event
-    handler.
-
-
-Your response handler prepares a [Slack-ready message][slack] with the changes
-from that commit. Notice how the response from the HTTP call is automatically
-parsed, line 63, for you and available via `response.body` as an object.
-
-[slack]: https://api.slack.com/docs/message-formatting
+```console
+$ rug publish
