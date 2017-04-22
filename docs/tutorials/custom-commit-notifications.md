@@ -6,15 +6,16 @@ actions based on these activities.
 !!! tip "Prerequisites"
     For this tutorial, you will need:
 
-    * A [Rug project][ugpj] to work in. If you have not yet created a Rug project or would like to build the tutorial in a new Rug project, see [Creating a new Rug Project][createrug].
-    * Rug CLI installed. See the Rug CLI [Installation][cli-install] and [Basics][cli-basics] sections of the user guide for instructions on setting up and configuring the Rug CLI on your system.
+    * Completed the [Getting Started][getting-started] steps so that Atomist Bot is in your
+    Slack team and connected to your GitHub account.
+    * A [Rug project][ugpj] to work in. See [Creating a new Rug Project][rug-create] instructions.
+    * Rug CLI installed. See [Rug CLI Quick Setup][cli-quick] instructions.
 
+[getting-started]: /getting-started
+[rug-create]: /tutorials/#create-a-new-rug-project
 [rugev]: /user-guide/rug/handlers.md
 [ugpj]: /user-guide/rug/projects.md
-[rugeditor]: https://github.com/atomist/rug-editors#addtypescripteventhandler
-[createrug]: /tutorials/create-rug-project.md
-[cli-install]: /user-guide/interfaces/cli/install.md
-[cli-basics]: /user-guide/interfaces/cli/basics.md
+[cli-quick]: /tutorials/#rug-cli-quick-setup
 
 ## Message Me on Commits
 
@@ -93,3 +94,4 @@ Your specific output may vary. This step installs dependencies needed for your R
 
 ```console
 $ rug publish
+```
