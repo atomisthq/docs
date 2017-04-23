@@ -2,11 +2,14 @@ Below is the complete list of options and commands for the Rug CLI.
 
 ## Global command-line options
 
+`--disable-verification`
+:   Disable verification of extensions (Use with Caution)
+
 `-?`, `--help`
-:   Print help information
+:   Print usage help
 
 `-h`, `--help`
-:   Print help information
+:   Print usage help
 
 `-o`, `--offline`
 :   Use only downloaded archives
@@ -49,52 +52,35 @@ $ rug clean [OPTION]...
 
 Clean up all temporarily created files and directories from the project.
 
-### `default`
+### `configure`
 
-Set default archive
+Change/manage configuration settings
 
 *Usage:*
 
 ```console
-$ rug default [OPTION]... ACTION [ARCHIVE]
+$ rug configure [OPTION]... SUBCOMMAND [ARCHIVE]
 ```
 
-ACTION should be save or delete.  ARCHIVE should be a valid archive identifier of form GROUP:ARTIFACT or just GROUP.  At any time those defaults can be overriden by specifying GROUP:ARTIFACT and -a from the command line.
+SUBCOMMAND can either be default archive or repositories.  The repositories command uses your GitHub authentication to configure all of your private Rug archive repositories and enables them for publication with the publish command.  Please execute the login command before configuring repositories.The default archive command sets a global or project specific Rug archive so that Rugs can be invoked without a fully qualified coordinate.  ARCHIVE should be a valid archive coordinate of form GROUP:ARTIFACT or just GROUP.  At any time those defaults can be overriden by specifying GROUP:ARTIFACT and -a from the command line.
 
-*Subcommands:* `save`, `delete`
+*Command aliases:* `config`, `conf`
+
+*Subcommands:* `default archive`, `repositories`
 
 *Command options:*
 
 `-a AV`, `--archive-version=AV`
 :   Set default archive version to AV
 
+`-D`, `--delete`
+:   Remove default archive
+
 `-g`, `--global`
 :   Set global or project default archive
 
-### `dependencies`
-
-Print dependency tree for an archive
-
-*Usage:*
-
-```console
-$ rug dependencies [OPTION]... ARTIFACT
-```
-
-ARTIFACT should be the full name of an artifact, e.g., "atomist:spring-service:Spring Microservice".  If the name of the artifact has spaces in it, you need to put quotes around it.
-
-*Command aliases:* `deps`
-
-*Command options:*
-
-`-a AV`, `--archive-version=AV`
-:   Use archive version AV
-
-`-l`, `--local`
-:   Use local working directory as archive
-
-`--operations`
-:   Show operations in search output
+`-S`, `--save`
+:   Set default archive
 
 ### `describe`
 
@@ -106,11 +92,11 @@ Print details about an archive or Rug
 $ rug describe [OPTION]... TYPE ARTIFACT
 ```
 
-TYPE should be 'editor', 'generator', 'reviewer', 'command-handler', 'event-handler', 'response-handler' or 'archive' and ARTIFACT should be the full name of an artifact, e.g., "atomist:spring-service:Spring Microservice".  If the name of the artifact has spaces in it, you need to put quotes around it.  FORMAT can be 'json' or 'yaml' and is only valid when describing an archive.
+TYPE should be 'editor', 'generator', 'command-handler', 'event-handler', 'response-handler', 'function', 'dependencies' or 'archive' and ARTIFACT should be the full name of an artifact, e.g., "atomist:spring-service:Spring Microservice".  If the name of the artifact has spaces in it, you need to put quotes around it.  FORMAT can be 'json' or 'yaml' and is only valid when describing an archive.
 
 *Command aliases:* `desc`
 
-*Subcommands:* `editor`, `generator`, `reviewer`, `archive`, `command-handler`, `event-handler`, `response-handler`
+*Subcommands:* `editor`, `generator`, `archive`, `command-handler`, `event-handler`, `response-handler`, `function`, `dependencies`
 
 *Command options:*
 
@@ -120,7 +106,10 @@ TYPE should be 'editor', 'generator', 'reviewer', 'command-handler', 'event-hand
 `-l`, `--local`
 :   Use local working directory as archive
 
-`-O FORMAT`, `--output=FORMAT`
+`-O`, `--operations`
+:   List operations
+
+`--output=FORMAT`
 :   Specify output FORMAT
 
 ### `edit`
@@ -274,6 +263,28 @@ FILTER could be any of group, artifact or version.  VALUE should be a valid filt
 `-f FILTER=VALUE`, `--filter=FILTER=VALUE`
 :   Specify filter of type FILTER with VALUE
 
+### `login`
+
+Login using GitHub authentication
+
+*Usage:*
+
+```console
+$ rug repositories SUBCOMMAND [OPTION]...
+```
+
+The Rug CLI uses your GitHub token to verify your membership in GitHub organizations and Slack teams that have the Atomist Bot enrolled.  Those teams have acccess to additional features, eg. team private Rug archives.  Once you used the 'login' command, you can run 'configure repositories' to configure access to your team's artifact repositories.
+
+*Command aliases:* `lg`
+
+*Command options:*
+
+`--mfa-code=MFA_CODE`
+:   GitHub MFA code (only required if MFA is enabled)
+
+`--username=USERNAME`
+:   GitHub username
+
 ### `path`
 
 Evaluate a path expression against a project
@@ -322,30 +333,6 @@ Create a Rug archive from the current repo and publish it in a remote repository
 `-i ID`, `--id=ID`
 :   ID identifying the repository to publish into
 
-### `repositories`
-
-Login and configure team-scoped repositories
-
-*Usage:*
-
-```console
-$ rug repositories SUBCOMMAND [OPTION]...
-```
-
-The Rug CLI uses your GitHub token to verify your membership in GitHub organizations and Slack teams that have the Atomist Bot enrolled.  Those teams have acccess to additional features, eg. team private Rug archives.  You can use the 'login' subcommand to login and then 'configure' to provision the list of repositories you have access to.
-
-*Command aliases:* `repo`
-
-*Subcommands:* `login`, `configure`
-
-*Command options:*
-
-`--mfa-code=MFA_CODE`
-:   GitHub MFA code (only required if MFA is enabled)
-
-`--username=USERNAME`
-:   GitHub username
-
 ### `search`
 
 Search online catalog of available archives
@@ -360,14 +347,14 @@ SEARCH could be any text used to search the catalog.  TAG can be any valid tag, 
 
 *Command options:*
 
-`--operations`
-:   Show operations in search output
+`-K TYPE`, `--type=TYPE`
+:   Specify a TYPE to filter search based on Rug type
+
+`-O`, `--operations`
+:   List operations
 
 `-T TAG`, `--tag=TAG`
 :   Specify a TAG to filter search
-
-`--type=TYPE`
-:   Specify a TYPE to filter search based on Rug type
 
 ### `shell`
 
@@ -403,7 +390,7 @@ $ rug test [OPTION]... [TEST]
 
 TEST is the name of a test feature or feature file.  If no TEST is specified, all scenarios will run.
 
-### `to-path`
+### `to path`
 
 Display path expression to a point in a file within a project
 
@@ -414,8 +401,6 @@ $ rug to-path [OPTION]... PATH
 ```
 
 PATH must be a valid path within the project at DIR or '.'.  
-
-*Command aliases:* `to-tree`
 
 *Command options:*
 
