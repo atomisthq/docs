@@ -49,11 +49,14 @@ a span.button {
     top: 5px;
     right: 5px;
 }
+.ss-x-small {
+    width: 40%;
+}
 .ss-small {
-    width: 60%;
+    width: 50%;
 }
 .ss-medium {
-    width: 80%;
+    width: 75%;
 }
 .ss-large {
     width: 100%;
