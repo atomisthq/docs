@@ -70,9 +70,11 @@ pages:
     - What next: getting-started/what-next.md
 - Tutorials:
     - Introduction: tutorials/index.md
+    - Rug CLI Quick Setup: tutorials/cli-quick-setup.md
+    - Create a New Rug Project: tutorials/create-rug-project.md
+    - Publish a Rug Project: tutorials/publish-rug-project.md
+    - Add New Bot Command: tutorials/add-new-bot-command.md
     - Custom Commit Notifications: tutorials/custom-commit-notifications.md
-    - Teach your Team new Skills: tutorials/teach-atomist-new-skills.md
-    - Create New Rug Project: tutorials/create-rug-project.md
 - User Guide:
     - Introduction: user-guide/index.md
     - Rug:
