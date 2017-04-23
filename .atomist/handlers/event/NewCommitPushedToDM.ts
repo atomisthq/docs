@@ -8,7 +8,7 @@ import { Match } from '@atomist/rug/tree/PathExpression';
 
 @EventHandler("NewCommitPushedToDM", "sends a DM on new commit pushed",
               `/Commit()
-                  [/author::GitHubId()[@name="Alice"]]
+                  [/author::GitHubId()[@login="alice"]]
                   [/repo::Repo()]`)
 @Tags("commit", "push")
 export class NewCommitPushedToDM implements HandleEvent<Commit, Commit> {
@@ -19,7 +19,7 @@ export class NewCommitPushedToDM implements HandleEvent<Commit, Commit> {
 
         const message = new DirectedMessage(
             `${commit.author.name} has pushed ${url}`,
-            new UserAddress("@Bob"));
+            new UserAddress("@bob"));
 
         return Plan.ofMessage(message);
     }

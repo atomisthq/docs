@@ -3,19 +3,14 @@ commits are pushed, builds are started, they fail or succeed. Atomist notifies a
 these activities in a Slack channel by default. You can also create your own custom automated
 actions based on these activities.
 
-!!! tip "Prerequisites"
-    For this tutorial, you will need:
-
-    * Completed the [Getting Started][getting-started] steps so that Atomist Bot is in your
-    Slack team and connected to your GitHub account.
-    * A [Rug project][ugpj] to work in. See [Creating a new Rug Project][rug-create] instructions.
-    * Rug CLI installed. See [Rug CLI Quick Setup][cli-quick] instructions.
+!!! tip ""
+    Completing the [Getting Started][getting-started] steps, [Rug CLI setup][cli-setup], and having a
+    [Rug project][create-rug] to publish are prerequisites for this tutorial.
 
 [getting-started]: /getting-started
-[rug-create]: /tutorials/#create-a-new-rug-project
+[cli-setup]: /tutorials/cli-quick-setup
+[create-rug]: /tutorials/create-rug-project
 [rugev]: /user-guide/rug/handlers.md
-[ugpj]: /user-guide/rug/projects.md
-[cli-quick]: /tutorials/#rug-cli-quick-setup
 
 ## Message Me on Commits
 
@@ -25,10 +20,10 @@ provide input and help where needed as they ramp up.
 
 Let's write a script that will notify in a direct message when commits are pushed by
 your new teammate. To achieve this, you will add a [Rug event handler][rugev] to your
-Rug project. Once you have created and [published][ugpub], it will
+Rug project. Once you have created and [published][publish], it will
 be triggered and run on push events.
 
-[ugpub]: /user-guide/rug/lifecycle.md#publishing
+[publish]: /tutorials/publish-rug-project
 
 Here is the TypeScript code for a handler that does this.
 
@@ -38,7 +33,7 @@ Here is the TypeScript code for a handler that does this.
 
 An event handler gets triggered based on the event it is interested in. This
 is done in Rug via its [path expression][ugpxe] on line 10. Notice in particular how the handler
-filters only commits made by a given author on line 11 (here, Alice's commits).
+filters only commits made by a given author on line 11 (here, `alice`'s commits).
 Finally, line 12 asks Atomist to also feed the handler with the commits
 repository details. Once it gets called, the handler builds a direct message to send to the Slack
 user in line 22.
@@ -69,29 +64,46 @@ looks like this.
 {!../../.atomist/handlers/event/NewCommitPushedToDM_Modified.ts!}
 ```
 
-## Publish the New Handler
+## Publish
 
-With your local Rug CLI [installed, up-to-date][cli-install], and [configured][cli-basics] you are ready to publish
-the updated Rug project with your new handler.
-
-From within your Rug project directory:
-
-```console
-$ cd .atomist
-$ npm install
-/atomist-tutorials/.atomist
-└─┬ @atomist/rugs@0.24.3
-  ├── @atomist/cortex@0.31.0
-  ├── @atomist/rug@0.25.1
-  └── mustache@2.3.0
-
-npm WARN .atomist No description
-npm WARN .atomist No repository field.
-npm WARN .atomist No license field.
-```
-
-Your specific output may vary. This step installs dependencies needed for your Rug project.
+Now, publish your updated Rug project with the new handler.
 
 ```console
 $ rug publish
 ```
+
+See [Publish a Rug Project][publish] if you need more information on this step.
+
+## Test Notification
+
+!!! caution ""
+    Commit must be pushed in a GitHub repository in the organization associated
+    with the Atomist Bot in your Slack team. You and the person whose commits you
+    want to be notified of must have authorized your GitHub accounts with the
+    Atomist Bot with your GitHub. To confirm, message the Bot with `@atomist github`.
+    See [Getting Started - Connect Atomist to GitHub][connect-gh] for
+    instructions.
+
+[connect-gh]: /getting-started/github/
+
+The handler is now published. You can test the scenario by having your new
+teammate push a commit.
+
+<div class="ss-container">
+  <img src="../images/commit-change.png" alt="Commit change" class="ss-medium">
+</div>
+
+A direct message notification is sent to you in Slack, similar to this.
+
+<div class="ss-container">
+  <img src="../images/custom-commit-dm.png" alt="Custom Commit DM" class="ss-large">
+</div>
+
+If you do not receive a notification:
+
+* Confirm that the other person's GitHub login and your Slack user name are
+correct in your modification of `NewCommitPushedToDM.ts`
+* Ensure the GitHub setup noted at the top of this section has been done
+* Ask us for help in [atomist-community][atomist-community] Slack team `#support` channel
+
+[atomist-community]: https://join.atomist.com/
