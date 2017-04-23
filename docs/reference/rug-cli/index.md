@@ -270,7 +270,7 @@ Login using GitHub authentication
 *Usage:*
 
 ```console
-$ rug repositories SUBCOMMAND [OPTION]...
+$ rug login [OPTION]...
 ```
 
 The Rug CLI uses your GitHub token to verify your membership in GitHub organizations and Slack teams that have the Atomist Bot enrolled.  Those teams have acccess to additional features, eg. team private Rug archives.  Once you used the 'login' command, you can run 'configure repositories' to configure access to your team's artifact repositories.
