@@ -132,7 +132,7 @@ $ virtualenv -p `which python3` ~/.venvs/userdocs
 ```
 
 Every time you want to work on this repository,
-you shall activate that virtualenv in your terminal:
+you need to activate that virtualenv in your terminal:
 
 ```
 $ source ~/.venvs/userdocs/bin/activate
@@ -154,6 +154,15 @@ $ mkdocs serve
 
 If all goes well, you can browse the documentation at
 http://127.0.0.1:8000 .
+
+Once all the initial set up is done, you can just run:
+
+```shell
+./activate_and_serve.sh
+```
+
+To enter the virtual env, install any new requirements,
+and start the local server.
 
 You can publish the docs manually from your local repository with the
 following command:

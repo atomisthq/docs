@@ -132,23 +132,7 @@ defining the Rug operation. For instance, for an editor:
 
 ### Discoverability
 
-Your Rugs should be annotated with a collection of `#!typescript
-@Tags` [TypeScript decorators][decorators] to optimise their discoverability.
-For example if you were to create an editor that altered the README
-file then the following `@Tags` would be applicable:
-
-```typescript
-@Tags("readme", "documentation")
-```
-
-Tag values should consist of only lower case letters, numbers, and
-dashes (`-`).
-
-Please make sure at least one of the tags on your Rug maps to an image
-for a nicer rendering.  The following tags currently have images:
-`docker`,`github`, `travis-ci`, `apache`, `git`, `spring-boot`,
-`spring`, `clojure`, `go`, `java`, `python`, `scala`, and
-`documentation`.
+{!decorators/tags.md!}
 
 ### Code style
 
