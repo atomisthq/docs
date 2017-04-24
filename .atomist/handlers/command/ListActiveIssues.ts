@@ -1,10 +1,20 @@
-import { CommandHandler, Intent, MappedParameter, Parameter, ParseJson,
-         ResponseHandler, Secrets,
-         Tags } from '@atomist/rug/operations/Decorators';
-import { HandleCommand, HandlerContext, HandleResponse, MappedParameters, Plan,
-         Response, ResponseMessage } from '@atomist/rug/operations/Handlers';
-import { Pattern } from '@atomist/rug/operations/RugOperation';
-import { renderIssues } from '@atomist/rugs/operations/messages/MessageRendering';
+import { CommandHandler,
+    Intent,
+    MappedParameter,
+    Parameter,
+    ParseJson,
+    ResponseHandler,
+    Secrets,
+    Tags } from "@atomist/rug/operations/Decorators";
+import { HandleCommand,
+    HandlerContext,
+    HandleResponse,
+    MappedParameters,
+    Plan,
+    Response,
+    ResponseMessage } from "@atomist/rug/operations/Handlers";
+import { Pattern } from "@atomist/rug/operations/RugOperation";
+import { renderIssues } from "@atomist/rugs/operations/messages/MessageRendering";
 
 @CommandHandler("ListActiveIssues", "list the most recent active issues")
 @Tags("issue")
@@ -13,12 +23,12 @@ import { renderIssues } from '@atomist/rugs/operations/messages/MessageRendering
 export class ListActiveIssues implements HandleCommand {
 
     @MappedParameter(MappedParameters.GITHUB_REPOSITORY)
-    repo: string
+    public repo: string;
 
     @MappedParameter(MappedParameters.GITHUB_REPO_OWNER)
-    owner: string
+    public owner: string;
 
-    handle(command: HandlerContext): Plan {
+    public handle(command: HandlerContext): Plan {
         const plan = new Plan();
 
         const api = `https://api.github.com/repos/${this.owner}/${this.repo}/issues?sort=comments&state=open`;
@@ -33,14 +43,14 @@ export class ListActiveIssues implements HandleCommand {
                     config: {
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `token #{github://user_token?scopes=repo}`
+                            "Authorization": `token #{github://user_token?scopes=repo}`,
                         }
                     }
                 }
             },
             onSuccess: {
                 kind: "respond",
-                name: "DisplayLastActiveIssues"
+                name: "DisplayLastActiveIssues",
             }
         });
 

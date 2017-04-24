@@ -1,13 +1,28 @@
-import { CommandHandler, Intent, MappedParameter, Parameter, ParseJson,
-         ResponseHandler, Secrets,
-         Tags} from "@atomist/rug/operations/Decorators";
-import { Execute, HandleCommand, HandlerContext, HandleResponse, Instruction,
-         MappedParameters, MessageMimeTypes, Plan, Respond , Respondable,
-         Response, ResponseMessage} from "@atomist/rug/operations/Handlers";
+import { CommandHandler,
+    Intent,
+    MappedParameter,
+    Parameter,
+    ParseJson,
+    ResponseHandler,
+    Secrets,
+    Tags} from "@atomist/rug/operations/Decorators";
+import { Execute,
+    HandleCommand,
+    HandlerContext,
+    HandleResponse,
+    Instruction,
+    MappedParameters,
+    MessageMimeTypes,
+    Plan,
+    Respond ,
+    Respondable,
+    Response,
+    ResponseMessage} from "@atomist/rug/operations/Handlers";
 import * as mustache from "mustache";
 
-const APISearchURL = `http://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&site=stackoverflow&q=`;
-const WebSearchURL = `http://stackoverflow.com/search?order=desc&sort=relevance&q=`;
+const apiSearchUrl =
+    `http://api.stackexchange.com/2.2/search/advanced?pagesize=3&order=desc&sort=relevance&site=stackoverflow&q=`;
+const webSearchUrl = `http://stackoverflow.com/search?order=desc&sort=relevance&q=`;
 
 @CommandHandler("SearchStackOverflow", "Query Stack Overflow")
 @Tags("StackOverflow")
@@ -15,9 +30,9 @@ const WebSearchURL = `http://stackoverflow.com/search?order=desc&sort=relevance&
 class SearchStackOverflow implements HandleCommand {
 
     @Parameter({description: "your search query", pattern: "^.*$"})
-    query: string;
+    public query: string;
 
-    handle(ctx: HandlerContext): Plan {
+    public handle(ctx: HandlerContext): Plan {
         const plan = new Plan();
 
         plan.add({
@@ -26,13 +41,13 @@ class SearchStackOverflow implements HandleCommand {
                 name: "http",
                 parameters: {
                     method: "get",
-                    url: encodeURI(APISearchURL + this.query)
+                    url: encodeURI(apiSearchUrl + this.query)
                 }
             },
             onSuccess: {
                 kind: "respond",
                 name: "SendStackOverflowResults",
-                parameters: { query: this.query }
+                parameters: this
             }
         });
         return plan;
@@ -43,29 +58,25 @@ export const searchStackOverflow = new SearchStackOverflow();
 @ResponseHandler("SendStackOverflowResults", "Shows answers to a query on Stack Overflow")
 class StackOverflowResponder implements HandleResponse<any> {
 
-    @Parameter({description: "Enter your search query", pattern: "^.*$"})
-    query: string;
+    @Parameter({description: "your search query", pattern: "^.*$"})
+    public query: string;
 
-    handle(@ParseJson response: Response<any>): Plan {
-        return Plan.ofMessage(
-            new ResponseMessage(
-                renderResults(response.body, encodeURI(this.query)),
-                MessageMimeTypes.SLACK_JSON));
+    public handle(@ParseJson response: Response<any>): Plan {
+        return Plan.ofMessage(renderResults(response.body, encodeURI(this.query)));
     }
 }
 export let responder = new StackOverflowResponder();
 
-function renderResults(response: any, query: string): string {
-    const result = response.body as any;
+function renderResults(result: any, query: string): ResponseMessage {
 
     if (result.items.length === 0) {
-        return "No results found.";
+        return new ResponseMessage("No results found.", MessageMimeTypes.PLAIN_TEXT);
     }
 
     // mark the last item for rendering purpose by mustache
     result.items[result.items.length - 1].last = true;
 
-    return mustache.render(`{
+    return new ResponseMessage(mustache.render(`{
   "attachments": [
 {{#answers.items}}
     {
@@ -82,9 +93,9 @@ function renderResults(response: any, query: string): string {
 {{/answers.items}},
 		{
 			"title": "See more >",
-			"title_link": "${WebSearchURL + query}"
+			"title_link": "${webSearchUrl + query}"
 		}
   ]
 }`,
-    {answers: response});
+    {answers: result}), MessageMimeTypes.SLACK_JSON);
 }
