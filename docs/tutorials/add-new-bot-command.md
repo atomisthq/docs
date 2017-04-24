@@ -79,7 +79,19 @@ See [Publish a Rug Project][publish] if you need more information on this step.
 
 ## Make it Active in Slack
 
-In `#general` or any channel in your Slack team that Atomist Bot has been invited to, type this message:
+In `#general` or any channel in your Slack team that Atomist Bot has been invited to,
+type this message, replacing `<group>` and `<artifact>` with the values for
+`group` and `artifact` found in your `.atomist/manifest.yml`.
+
+```
+@atomist add skills <group>:<artifact>
+```
+
+<div class="ss-container">
+  <img src="../images/add-skills.png" alt="Add Bot Skills" class="ss-medium">
+</div>
+
+Tell the Bot to load the new skills with this message:
 
 ```
 @atomist refresh skills
