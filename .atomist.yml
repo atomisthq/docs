@@ -30,3 +30,118 @@ editor:
     branch: "jessitron/own-editors"
     sha: "e61994c"
 
+---
+kind: "operation"
+client: "rug-cli 0.32.0"
+editor:
+  name: "AddTypeScriptEventHandler"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "https://github.com/atomist-rugs/rug-editors.git"
+    branch: "7557a1b6213caa4ea8d4ae71785722339bcc75a3"
+    sha: "7557a1b"
+  parameters:
+    - "handlerName": "NewCommitPushedToGeneral"
+    - "description": "sends a message to the #general channel on new commit pushed"
+    - "pathExpression": "/Commit()"
+
+---
+kind: "operation"
+client: "rug-cli 0.32.0"
+editor:
+  name: "AddTypeScriptEventHandler"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "https://github.com/atomist-rugs/rug-editors.git"
+    branch: "7557a1b6213caa4ea8d4ae71785722339bcc75a3"
+    sha: "7557a1b"
+  parameters:
+    - "handlerName": "NewCommitPushedToDM"
+    - "description": "sends a DM channel on new commit pushed"
+    - "pathExpression": "/Commit()"
+
+---
+kind: "operation"
+client: "rug-cli 0.32.0"
+editor:
+  name: "AddTypeScriptEventHandler"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "https://github.com/atomist-rugs/rug-editors.git"
+    branch: "7557a1b6213caa4ea8d4ae71785722339bcc75a3"
+    sha: "7557a1b"
+  parameters:
+    - "handlerName": "NewCommitPushedToDMAndGeneral"
+    - "description": "sends a DM and to the general channel on new commit pushed"
+    - "pathExpression": "/Commit()"
+
+---
+kind: "operation"
+client: "rug-cli 0.32.0"
+editor:
+  name: "AddTypeScriptEventHandler"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "https://github.com/atomist-rugs/rug-editors.git"
+    branch: "7557a1b6213caa4ea8d4ae71785722339bcc75a3"
+    sha: "7557a1b"
+  parameters:
+    - "handlerName": "ListCommitFilesChanged"
+    - "description": "list modified files in a commit"
+    - "pathExpression": "/Commit()"
+
+---
+kind: "operation"
+client: "rug-cli 0.32.0"
+editor:
+  name: "AddTypeScriptCommandHandler"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "https://github.com/atomist-rugs/rug-editors.git"
+    branch: "7557a1b6213caa4ea8d4ae71785722339bcc75a3"
+    sha: "7557a1b"
+  parameters:
+    - "handlerName": "SearchStackOverflow"
+    - "description": "searches the StackOverflow service"
+    - "intent": "search SO for"
+
+---
+kind: "operation"
+client: "rug-cli 0.32.0"
+editor:
+  name: "AddTypeScriptCommandHandler"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "https://github.com/atomist-rugs/rug-editors.git"
+    branch: "7557a1b6213caa4ea8d4ae71785722339bcc75a3"
+    sha: "7557a1b"
+  parameters:
+    - "handlerName": "ListActiveIssues"
+    - "description": "list the most recent active issues"
+    - "intent": "active issues"
+
+---
+kind: "operation"
+client: "rug-cli 0.33.4"
+editor:
+  name: "UpdateSupportFiles"
+  group: "atomist"
+  artifact: "rug-rugs"
+  version: "0.28.0"
+  origin:
+    repo: "https://github.com/atomist/rug-rugs.git"
+    branch: "8cdcef125af800f1ce3c31bd5881638fb715194d"
+    sha: "8cdcef1"
+

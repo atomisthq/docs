@@ -98,6 +98,8 @@ To help you learn more about Atomist, this documentation contains
 -   The rest of this overview: Atomist [concepts][]
     and [capabilities][]
 -   [Getting Started][getting-started] instructions
+-   Learn how to customize Atomist by working through
+    our [Tutorials][tutorials]
 -   The Atomist [User Guide][user-guide] explaining each part of
     Atomist and how it is used
 -   Detailed [Reference Documentation][refdoc]
@@ -113,6 +115,7 @@ look.
 [concepts]: concepts.md (Overview - Atomist Concepts)
 [capabilities]: capabilities.md (Overview - Atomist Capabilities)
 [getting-started]: getting-started/index.md (Atomist Getting Started)
+[tutorials]: tutorials/index.md (Atomist Tutorials)
 [user-guide]: user-guide/index.md (Atomist User Guide)
 [refdoc]: reference/index.md (Atomist Reference Documentation)
 
