@@ -132,3 +132,16 @@ editor:
     - "description": "list the most recent active issues"
     - "intent": "active issues"
 
+---
+kind: "operation"
+client: "rug-cli 0.33.4"
+editor:
+  name: "UpdateSupportFiles"
+  group: "atomist"
+  artifact: "rug-rugs"
+  version: "0.28.0"
+  origin:
+    repo: "https://github.com/atomist/rug-rugs.git"
+    branch: "8cdcef125af800f1ce3c31bd5881638fb715194d"
+    sha: "8cdcef1"
+

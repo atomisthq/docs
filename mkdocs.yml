@@ -74,7 +74,7 @@ pages:
     - Create a New Rug Project: tutorials/create-rug-project.md
     - Publish a Rug Project: tutorials/publish-rug-project.md
     - Add New Bot Command: tutorials/add-new-bot-command.md
-    - Custom Commit Notifications: tutorials/custom-commit-notifications.md
+ #    - Custom Commit Notifications: tutorials/custom-commit-notifications.md
 - User Guide:
     - Introduction: user-guide/index.md
     - Rug:
@@ -119,11 +119,10 @@ pages:
     - Overview: reference/index.md
     - Rug:
         - Overview: reference/rug/index.md
-#        - Event Handlers: reference/rug/handlers.md
-#        - Command Handlers: reference/rug/commands.md
+#        - Event Handlers: reference/rug/event-handlers.md
+#        - Command Handlers: reference/rug/command-handlers.md
 #        - Editors: reference/rug/editors.md
 #        - Generators: reference/rug/generators.md
-#        - Reviewers: reference/rug/reviewers.md
         - Extensions: reference/rug/extensions.md
         - Path Expressions: reference/rug/path-expressions.md
 #        - Microgrammars: reference/rug/microgrammars.md

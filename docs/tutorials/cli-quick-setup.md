@@ -2,7 +2,7 @@ This is the quick version of the Rug CLI setup on Mac OS X using Homebrew. If yo
 a different operating system or run into issues, please see the full
 [Rug CLI installation][cli-install] documentation.
 
-[cli-install]: /user-guide/interfaces/cli/install/
+[cli-install]: /user-guide/interfaces/cli/install.md
 
 ### Install Rug CLI
 
@@ -13,12 +13,13 @@ $ brew install rug-cli
 
 ### Configure Rug CLI GitHub Access
 
-If you have two-factor authentication configure on your GitHub account,
-you will be prompted for your second factor code as `MFA code`.
+Use the `rug login` command to set up your Rug CLI configuration for
+access to GitHub.  Provide your GitHub.com login name and password
+when prompted.
 
 ```console
 $ rug login
-Resolving dependencies for atomist-rugs:atomist-tutorials (0.1.0·local) completed
+Resolving dependencies for com.atomist:rug (0.26.1·jar) completed
 
 The Rug CLI needs your GitHub login to identify you.
 
@@ -36,18 +37,30 @@ be sent to Atomist; only to api.github.com.
 Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
 ```
 
+If you have two-factor authentication configure on your GitHub account,
+you will be prompted for your second factor code as `MFA code`.
+
+!!! danger "Atomist does not store your GitHub credentials"
+
+    As the command output says, Atomist does not store your GitHub
+    credentials.  They are used to authenticate against the GiTHub API
+    to create a properly scoped [personal access token][pat].
+
+[pat]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
+
 ### Configure Repositories
+
+Run the `rug configure repositories` command so the Rug CLI can use
+your GitHub authentication to configure all of your private Rug
+archive repositories and enables them for publication with the
+`publish` command.
 
 ```console
 $ rug configure repositories
-Resolving dependencies for atomist-rugs:atomist-tutorials (0.1.0·local) completed
+Resolving dependencies for com.atomist:rug (0.26.1·jar) completed
 Configuring team-scoped repositories completed
 
 → Repositories
-  global (public-rug-archives)
-  └── https://atomist.jfrog.io/atomist/rugs-release
-  t29e48p34 (atomist-community)
-  └── https://atomist.jfrog.io/atomist/T29E48P34
   t489lv5qf (sfz)
   └── https://atomist.jfrog.io/atomist/T489LV5QF
 

@@ -11,7 +11,7 @@ development workflow and processes.
 Completing the [Getting Started][getting-started] steps so that Atomist Bot is in your
 Slack team and connected to your GitHub account is a prerequisite for the tutorials.
 
-The tutorials are laid out so that the first three ensure that you are set up for
+The tutorials are organized so that the first few ensure that you are set up for
 writing and publishing Rug scripts.
 
 [getting-started]: /getting-started

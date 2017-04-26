@@ -132,6 +132,3 @@ or windows open at this point.  Feel free to close all but one.
 
 [bot]: /getting-started/bot.md (Getting Started - The Atomist Bot)
 [ci]: /getting-started/ci.md (Getting Started - Connect to CI)
-
-Click Next in the lower-right corner of this page to continue the
-Getting Started guide.

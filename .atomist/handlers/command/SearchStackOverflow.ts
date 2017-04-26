@@ -1,23 +1,11 @@
-import { CommandHandler,
-    Intent,
-    MappedParameter,
-    Parameter,
-    ParseJson,
-    ResponseHandler,
-    Secrets,
-    Tags} from "@atomist/rug/operations/Decorators";
-import { Execute,
-    HandleCommand,
-    HandlerContext,
-    HandleResponse,
-    Instruction,
-    MappedParameters,
-    MessageMimeTypes,
-    Plan,
-    Respond ,
-    Respondable,
-    Response,
-    ResponseMessage} from "@atomist/rug/operations/Handlers";
+import {
+    CommandHandler, Intent, Parameter, ParseJson,
+    ResponseHandler, Tags,
+} from "@atomist/rug/operations/Decorators";
+import {
+    CommandPlan, HandleCommand, HandlerContext, HandleResponse,
+    MessageMimeTypes, Response, ResponseMessage,
+} from "@atomist/rug/operations/Handlers";
 import * as mustache from "mustache";
 
 const apiSearchUrl =
@@ -25,15 +13,15 @@ const apiSearchUrl =
 const webSearchUrl = `http://stackoverflow.com/search?order=desc&sort=relevance&q=`;
 
 @CommandHandler("SearchStackOverflow", "Query Stack Overflow")
-@Tags("StackOverflow")
+@Tags("stack-overflow")
 @Intent("search SO")
 class SearchStackOverflow implements HandleCommand {
 
-    @Parameter({description: "your search query", pattern: "^.*$"})
+    @Parameter({ description: "your search query", pattern: "^.*$" })
     public query: string;
 
-    public handle(ctx: HandlerContext): Plan {
-        const plan = new Plan();
+    public handle(ctx: HandlerContext): CommandPlan {
+        const plan = new CommandPlan();
 
         plan.add({
             instruction: {
@@ -41,28 +29,31 @@ class SearchStackOverflow implements HandleCommand {
                 name: "http",
                 parameters: {
                     method: "get",
-                    url: encodeURI(apiSearchUrl + this.query)
-                }
+                    url: encodeURI(apiSearchUrl + this.query),
+                },
             },
             onSuccess: {
                 kind: "respond",
                 name: "SendStackOverflowResults",
-                parameters: this
-            }
+                parameters: this,
+            },
         });
         return plan;
     }
 }
 export const searchStackOverflow = new SearchStackOverflow();
 
-@ResponseHandler("SendStackOverflowResults", "Shows answers to a query on Stack Overflow")
+@ResponseHandler("SendStackOverflowResults",
+    "Shows answers to a query on Stack Overflow")
 class StackOverflowResponder implements HandleResponse<any> {
 
-    @Parameter({description: "your search query", pattern: "^.*$"})
+    @Parameter({ description: "your search query", pattern: "^.*$" })
     public query: string;
 
-    public handle(@ParseJson response: Response<any>): Plan {
-        return Plan.ofMessage(renderResults(response.body, encodeURI(this.query)));
+    public handle( @ParseJson response: Response<any>): CommandPlan {
+        return CommandPlan.ofMessage(
+            renderResults(response.body, encodeURI(this.query)),
+        );
     }
 }
 export let responder = new StackOverflowResponder();
@@ -70,7 +61,8 @@ export let responder = new StackOverflowResponder();
 function renderResults(result: any, query: string): ResponseMessage {
 
     if (result.items.length === 0) {
-        return new ResponseMessage("No results found.", MessageMimeTypes.PLAIN_TEXT);
+        return new ResponseMessage("No results found.",
+            MessageMimeTypes.PLAIN_TEXT);
     }
 
     // mark the last item for rendering purpose by mustache
@@ -97,5 +89,5 @@ function renderResults(result: any, query: string): ResponseMessage {
 		}
   ]
 }`,
-    {answers: result}), MessageMimeTypes.SLACK_JSON);
+        { answers: result }), MessageMimeTypes.SLACK_JSON);
 }

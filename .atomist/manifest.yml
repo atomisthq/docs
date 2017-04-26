@@ -1,7 +1,7 @@
 group: atomist-docs
 artifact: end-user-documentation
 version: "0.1.0"
-requires: "[0.25.1,1.0.0)"
+requires: "[0.26.1,0.27.0)"
 dependencies:
 extensions:
-- "com.atomist.rug:rug-function-http:[0.6.2,1.0.0)"
+  - "com.atomist.rug:rug-function-http:[0.6.2,1.0.0)"

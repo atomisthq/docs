@@ -1,11 +1,14 @@
-We provide a generator that can be run from your Slack team to create a new Rug project using standard setup, sensible defaults, and starter Rugs.
+We provide a generator that can be run from your Slack team to create
+a new Rug project using standard setup, sensible defaults, and starter
+Rugs.
 
 !!! tip ""
     Completing the [Getting Started][getting-started] steps is a prerequisite for this tutorial.
 
-[getting-started]: /getting-started
+[getting-started]: /getting-started/index.md
 
-In `#general` or any channel in your Slack team that Atomist Bot has been invited to, type this message:
+In `#general` or any channel in your Slack team that Atomist Bot has
+been invited to, type this message:
 
 ```
 @atomist generators starter
@@ -32,14 +35,17 @@ thread.
   <img src="../images/rug-project-creation-thread-start.png" alt="Rug project creation thread with Atomist" class="ss-x-small">
 </div>
 
-Type in a name for your new project and press `Enter`.  A new repository with this
-name will be created, so the project name must be a valid GitHub repository name.
+Type in a name for your new project and press `Enter`.  A new
+repository with this name will be created, so the project name must be
+a valid GitHub repository name.
 
 <div class="ss-container">
   <img src="../images/create-rug-project-parameters.png" alt="Rug project parameters all set" class="ss-x-small">
 </div>
 
-Now click on "Generate project" and the Bot will create the project in a new GitHub repository, then confirm with a message similar to the following.
+Now click on "Generate project" and the Atomist Bot will create the
+project in a new GitHub repository, then confirm with a message
+similar to the following.
 
 <div class="ss-container">
   <img src="../images/rug-project-creation-response.png" alt="Rug project creation response from Atomist" class="ss-medium">
