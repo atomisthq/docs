@@ -4,14 +4,12 @@ functionality that Atomist provides.  These tutorials will teach you
 how to extend and customize Atomist, tailoring it to your own
 development workflow and processes.
 
-[gs]: /getting-started/index.md (Atomist Getting Started)
-
 ## Prerequisites
 
-Completing the [Getting Started][getting-started] steps so that Atomist Bot is in your
-Slack team and connected to your GitHub account is a prerequisite for the tutorials.
+Make sure you've completed all the [Getting Started][gs] steps so that Atomist Bot is in your
+Slack team and connected to your GitHub account.
 
 The tutorials are organized so that the first few ensure that you are set up for
 writing and publishing Rug scripts.
 
-[getting-started]: /getting-started
+[gs]: /getting-started (Atomist Getting Started)
