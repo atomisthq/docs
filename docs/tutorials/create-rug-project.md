@@ -1,4 +1,6 @@
-We provide a generator that can be run from your Slack team to create
+You can use Atomist to create a new Rug project without leaving your Slack team.
+
+Atomist comes with a generator that can be run from your Slack team to create
 a new Rug project using standard setup, sensible defaults, and starter
 Rugs.
 
@@ -7,7 +9,7 @@ Rugs.
 
 [getting-started]: /getting-started/index.md
 
-In `#general` or any channel in your Slack team that Atomist Bot has
+In `#general`, or any channel in your Slack team that Atomist Bot has
 been invited to, type this message:
 
 ```
@@ -23,11 +25,11 @@ The Bot will show generators with the tag `starter` like following.
 Click on the "Generate project" button for the `NewStarterRugProject` generator.
 
 The Atomist Bot will respond with a message telling you what project
-generator you created and then start a [thread][] off that message to
-gather the information it needs to generate the project.  Click now on
-the "1 reply" link below the message to open up the thread in Slack.
-You will see that the Atomist Bot has asked you a question in the
-thread.
+generator you created and then start a [thread][] from that message to
+gather the information it needs to generate the project.
+
+Click on the **1 reply** link below the message to open up the thread in Slack.
+You will see that the Atomist Bot has asked you a question in the thread.
 
 [thread]: https://get.slack.help/hc/en-us/articles/115000769927-Message-threads
 
@@ -43,9 +45,11 @@ a valid GitHub repository name.
   <img src="../images/create-rug-project-parameters.png" alt="Rug project parameters all set" class="ss-x-small">
 </div>
 
-Now click on "Generate project" and the Atomist Bot will create the
-project in a new GitHub repository, then confirm with a message
-similar to the following.
+Now click on **Generate project** and the Atomist Bot will create the
+project in a new GitHub repository.
+
+Once the new repository has been created, the Atomist Bot will send a message
+similar to the following:
 
 <div class="ss-container">
   <img src="../images/rug-project-creation-response.png" alt="Rug project creation response from Atomist" class="ss-medium">

@@ -1,5 +1,5 @@
 You can write custom commands that the Atomist Bot can run in your team. We
-call these _skills_, and you can teach the bot new skills to
+call these _skills_, and you can teach the Atomist Bot new skills to
 automate common tasks your team routinely performs. Those skills are
 implemented inside Rug command handlers and this tutorial will show you
 how to create a new one.
@@ -35,11 +35,11 @@ the Atomist Bot will always prompt for it.
 
 Lines 26--40 tell Atomist to call the StackOverflow REST API URL and,
 on success, use the `SendStackOverflowResults` response handler,
-defined starting on line 46. It simply formats the search results from
-the StackOverflow API call.
+which starts on line 46. This response handler merely formats the search results from
+the StackOverflow API call for presentation as a Slack message.
 
 !!! tip ""
-    Please see the [Rug command handler user-guide][rugcmd] for more information.
+    Please see the [Rug command handler user guide][rugcmd] for more information.
 
 [rugcmd]: /user-guide/rug/command-handlers.md
 
@@ -47,7 +47,7 @@ the StackOverflow API call.
 
 Add the code example above into a new file called `SearchStackOverflow.ts` in the
 `.atomist/handlers/command` directory of the local repo for your Rug project
-like so:
+like this:
 
 ```console
 $ cd atomist-tutorials
@@ -55,9 +55,8 @@ $ curl -o .atomist/handlers/command/SearchStackOverflow.ts \
     https://raw.githubusercontent.com/atomist/end-user-documentation/master/.atomist/handlers/command/SearchStackOverflow.ts
 ```
 
-Your command handler uses the `http` function, so you need to add that
-dependency as an extension into the `manifest.yml` of your Rug
-project.
+This command handler uses the `http` function, so you need to add it
+as an extension into the `manifest.yml` of your Rug project.
 
 ```yml hl_lines="5 6"
 group: "atomist-contrib"
@@ -68,7 +67,7 @@ extensions:
   - "com.atomist.rug:rug-function-http:0.6.2"
 ```
 
-Now commit those changes to your Rug project.
+Now commit these changes to your Rug project.
 
 ```console
 $ git add .atomist/handlers/command/SearchStackOverflow.ts .atomist/manifest.yml
@@ -77,9 +76,8 @@ $ git commit -m 'Added StackOverflow command handler'
 
 ## Publish
 
-Now, publish your Rug project, which add your new Atomist Bot skill,
-using the same team ID you determined in
-the [Publish a Rug Project][publish] tutorial.
+Add this new Atomist Bot skill to your Slack team by publishing your Rug project
+using the same team ID you used in the [Publish a Rug Project][publish] tutorial.
 
 ```console
 $ rug publish -i <YOUR_TEAM_ID>
@@ -87,7 +85,7 @@ $ rug publish -i <YOUR_TEAM_ID>
 
 [publish]: /tutorials/publish-rug-project.md
 
-## Make it Active in Slack
+## Make The New Skill Active In Slack
 
 In `#general` or any channel in your Slack team that Atomist Bot has
 been invited to, type this message, replacing `<group>` and
@@ -112,15 +110,15 @@ Tell the Bot to load the new skills with this message:
   <img src="../images/refresh-skills.png" alt="Refresh Bot Skills" class="ss-medium">
 </div>
 
-## Running the command in slack
+## Running The Command In Slack
 
-Once available in your team, you can use the new command:
+Once you've added the new command to your team, you can use it like this:
 
 ```
 @atomist search SO
 ```
 
-Upon which the Atomist Bot will open a thread and ask you to enter a
+The Atomist Bot will open a thread and ask you to enter a
 value for the query parameter.  Enter "python3 runtime error" and
 submit.  The Atomist Bot will trigger the execution of your command
 handler and return the results in the Slack channel.

@@ -14,7 +14,7 @@ $ brew install rug-cli
 ### Configure Rug CLI GitHub Access
 
 Use the `rug login` command to set up your Rug CLI configuration for
-access to GitHub.  Provide your GitHub.com login name and password
+access to GitHub.  Provide your GitHub login and password
 when prompted.
 
 ```console
@@ -38,12 +38,12 @@ Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
 ```
 
 If you have two-factor authentication configure on your GitHub account,
-you will be prompted for your second factor code as `MFA code`.
+you will be prompted for your second factor code as a `MFA code`.
 
 !!! danger "Atomist does not store your GitHub credentials"
 
     As the command output says, Atomist does not store your GitHub
-    credentials.  They are used to authenticate against the GiTHub API
+    credentials.  They are used to authenticate against the GitHub API
     to create a properly scoped [personal access token][pat].
 
 [pat]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
@@ -52,7 +52,7 @@ you will be prompted for your second factor code as `MFA code`.
 
 Run the `rug configure repositories` command so the Rug CLI can use
 your GitHub authentication to configure all of your private Rug
-archive repositories and enables them for publication with the
+archive repositories and enable them for publication with the
 `publish` command.
 
 ```console
@@ -67,4 +67,8 @@ Configuring team-scoped repositories completed
 Successfully configured team-scoped repositories
 ```
 
-Now, your local CLI is configured and ready to publish Rug projects.
+Well done! Your local CLI is configured and ready to publish Rug projects.
+
+Next, let's learn how to [Create A New Rug Project][cnrp].
+
+[cnrp]: /tutorials/create-rug-project (Create A New Rug Project Tutorial)
