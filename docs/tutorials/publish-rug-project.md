@@ -1,5 +1,5 @@
 To make new or modified Rug scripts in your Rug project available
-in your team, you will need to publish the Rug project.
+in your Slack team, you will need to publish the Rug project.
 
 !!! missing "Prerequisites"
     Completing the [Getting Started Guide][getting-started]
@@ -27,16 +27,15 @@ The `yarn` command will install all the needed dependencies.
 
 [npm]: https://www.npmjs.com/ (NPM Modules)
 
-## Identify Slack Team ID
-
-Since you may be in multiple Slack teams that have the Atomist Bot
-installed (for example, atomist-community public Slack team and your
-own Slack team), you will need to tell the Rug CLI which team to
-publish this Rug project to.
+Since you may be in multiple Slack teams that have the Atomist Bot installed (for
+example, the [atomist-community][atomc] public Slack team and your own Slack team), you will need
+to tell the Rug CLI which team to publish this Rug project to.
 
 You can find the team ID from within your Slack team. Send this
 message in `#general` or any channel that the Atomist Bot has been
 invited to.
+
+[atomc]: https://atomist-community.slack.com
 
 ```
 @atomist team
@@ -72,3 +71,5 @@ Successfully published archive for atomist-contrib:atomist-tutorials (0.1.0)
 ```
 
 You have successfully published a Rug project archive!
+
+
