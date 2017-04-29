@@ -44,13 +44,17 @@ the "Add Endpoint" button.
   <img src="../images/jenkins-add-notification.png" alt="Add Notification" class="ss-medium">
 </div>
 
-On the "Job Notifications" configuration tab, set the "Notifications
-Endpoints" URL to `https://webhook.atomist.com/jenkins` and check that
-the other parameters match the information shown below.
+On the "Job Notifications" configuration tab, add an endpoint, setting
+the "Notifications Endpoints" URL to
+`https://webhook.atomist.com/atomist/jenkins` and leave the other
+values at their defaults: Format: JSON, Protocol: HTTP, Event: All
+Events, Timeout: 30000, and Log: 0.
 
+<!-- TODO fix URL in image
 <div class="ss-container">
   <img src="../images/jenkins-webhook.png" alt="Configure Webhook" class="ss-medium">
 </div>
+-->
 
 Now, Jenkins is set up to send build notifications to Atomist.  Go
 back to the [Connect Atomist to CI][ci] page to see what Atomist does
