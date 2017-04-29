@@ -1,4 +1,4 @@
-<img style="float:right; margin-top:0px; margin-right:0px; margin-bottom:10px; margin-left:10px;" src="../images/slack-logo.png" height="100px" width="100px" alt"Slack logo"/>
+<img style="float:right; margin-top:0px; margin-right:0px; margin-bottom:10px; margin-left:10px;" src="../images/slack-logo.png" height="100px" width="100px" alt="Slack logo"/>
 
 [Slack][slack], through its real-time messaging (RTM) API, is the
 supported means for interacting with the Atomist Bot.  Slack messages

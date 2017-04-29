@@ -24,7 +24,7 @@ handle(response: Response<any>): CommandPlan {
 ```
 
 By default, the body of the message is assumed to be `"text/plain`, and will be
-displayed verbatim. The message can also be JSON formatted according to 
+displayed verbatim. The message can also be JSON formatted according to
 [Slack's message standards][slack-message]:
 
 ```typescript

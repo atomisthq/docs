@@ -36,7 +36,7 @@ Suppose we want to open a new GitHub issue:
 {!../../.atomist/handlers/command/CreateIssue.ts!}
 ```
 
-This command handler follows the same programming model as other Rugs, so it 
+This command handler follows the same programming model as other Rugs, so it
 should look familiar.
 
 ### Declaration
@@ -78,7 +78,7 @@ made availble to users in chat.
 You define the class which implements your command handler (line 21). The class is
 exported so that it can referenced from unit tests. A command handler implements
 the `#!typescript HandleCommand` interface. This interface requires the
-`#!typescript handle(command: HandlerContext): CommandPlan` method to be 
+`#!typescript handle(command: HandlerContext): CommandPlan` method to be
 implemented. It is a convention for the command handler and the class that defines
 it to have the same name.
 
@@ -103,7 +103,7 @@ relevant contextual information when invoked via the Atomist bot. {!decorators/m
 ### CommandPlans
 
 A `#!typescript CommandPlan` describes the actions to be taken by the Rug runtime
-on behalf of the handler. CommandPlans are composed of [Messages](#messages) and/or 
+on behalf of the handler. CommandPlans are composed of [Messages](#messages) and/or
 [respondables](#respondables). Respondables instruct the rug runtime to immediately
 perform ordinary rug operations, whereas messages are sent to the Atomist Bot for
 display to the user.
@@ -126,22 +126,22 @@ achieve this in different ways.
 
 An `#!typescript CommandRespondable` is really just a container for an instruction and
 some optional `onError` and `onSuccess` capabilities. The `onError` and `onSuccess`
-properties of an `#!typescript CommandRespondable` can be [messages](#messages), 
-[CommandPlans](#eventplans) or [response handlers](#response-handlers).
+properties of an `#!typescript CommandRespondable` can be [messages](#messages),
+[CommandPlans](#commandplans) or [response handlers](#response-handlers).
 
 ```typescript
 const plan = new CommandPlan();
 plan.add(
-    { 
-        instruction: { 
-            kind: "execute", 
+    {
+        instruction: {
+            kind: "execute",
             name: "create-github-issue",
             parameters: this
         },
-        onError: { 
-            kind: "respond", 
-            name: "GenericErrorHandler", 
-            parameters: this 
+        onError: {
+            kind: "respond",
+            name: "GenericErrorHandler",
+            parameters: this
         },
         onSuccess: new ResponseMesssage("Successfully created issue")
     }
@@ -159,7 +159,7 @@ if creation fails.
 
 Instructions in an `#!typescript CommandRespondable` have the following properties:
 
-*   `#!typescript kind: "generate" | "edit" | "execute" | "command"`: the kind of instruction 
+*   `#!typescript kind: "generate" | "edit" | "execute" | "command"`: the kind of instruction
 *   `#!typescript name: string`: the name of the operation to apply
 *   `#!typescript parameters: {}`: key/value pairs passed to the operation
 *   `#!typescript project?: string`: Project name (only for generators & editors)
@@ -176,4 +176,3 @@ Handler.
 ### Response Handlers
 
 {!response-handlers.md!}
-

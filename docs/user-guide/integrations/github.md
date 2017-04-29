@@ -1,4 +1,4 @@
-<img style="float:right; margin-top:0px; margin-right:0px; margin-bottom:10px; margin-left:10px;" src="../images/github-logo.png" height="100px" width="100px" alt"GitHub logo"/>
+<img style="float:right; margin-top:0px; margin-right:0px; margin-bottom:10px; margin-left:10px;" src="../images/github-logo.png" height="100px" width="100px" alt="GitHub logo"/>
 
 [GitHub.com][github] provides a central repository for source code and
 also issue tracking.  The Atomist GitHub OAuth application must be

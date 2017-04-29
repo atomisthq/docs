@@ -39,7 +39,7 @@ coordinates must be present in the [`manifest.yml`](/user-guide/rug/archives.md)
     handler will be aborted.
 
 [Secrets](#secrets) can also be passed to Rug Functions, but currently this is only supported
-for Command Handlers. 
+for Command Handlers.
 
 The special `#{<secret path>}` notation used above is a way of injecting the value
 of a secret (in this case, a GitHub token with `repo` scope) in to the parameters
@@ -63,4 +63,3 @@ The following Rug Function archives available:
 ### Secrets
 
 {!decorators/secrets.md!}
-

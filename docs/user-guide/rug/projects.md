@@ -96,7 +96,7 @@ the Maven [version range][mvn-ver-range].  The following would cause
 the Rugs in the project to only executed by Rug runtime version
 0.13.0.
 
-[mvn-ver-range]: https://maven.apache.org/enforcer/enforcer-rules/versionRanges.htmlp
+[mvn-ver-range]: https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html (Maven Version Ranges)
 
 ```yaml
 requires: "0.13.0"

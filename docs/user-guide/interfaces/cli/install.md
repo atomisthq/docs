@@ -273,7 +273,7 @@ simply put it its `bin` directory in your `PATH`.
     see [How to Edit Your System Path][winpath], adding the `bin`
     directory of the archive you unpacked in the previous step.
 
-[java]: https://java.com/en/download/help/index_installing.xml?os=All+Platforms&j=8&n=20
+[java]: https://www.java.com/en/download/help/download_options.xml
 [openjdk]: http://openjdk.java.net/install/
 [latest]: https://github.com/atomist/rug-cli/releases/latest
 [winpath]: http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/

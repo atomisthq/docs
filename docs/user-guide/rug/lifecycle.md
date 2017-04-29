@@ -6,7 +6,7 @@ project.
 If you haven't done so and you want to follow along, please [install
 the Rug CLI][install].
 
-[install]: http://docs.atomist.com/rug/cli/rug-cli-install/
+[install]: /user-guide/interfaces/cli/install.md
 
 ## Inception
 
@@ -18,7 +18,7 @@ how to do it with the CLI.
 $ rug generate atomist-rugs:rug-editors:NewStarterRugProject my-rug-project
 Resolving dependencies for atomist-rugs:rug-editors (latest·zip) completed
 Loading atomist-rugs:rug-editors (0.18.0·zip) completed
-  TypeScript files added, run `cd .atomist && npm install`                                                                                                                                                      
+  TypeScript files added, run `cd .atomist && npm install`
 Running generator NewStarterRugProject of atomist-rugs:rug-editors (0.18.0·zip) completed
 
 → Project
@@ -107,7 +107,7 @@ generated Rug project already has some tests.
 ```console
 $ rug test
 Resolving dependencies for atomist-rugs:my-rug-project (0.1.0·local) completed
-Invoking TypeScript Compiler on .ts files 
+Invoking TypeScript Compiler on .ts files
   Created .atomist/tests/project/MyFirstEditorTest.js.map
   Created .atomist/tests/project/MyFirstEditorTest.js
   Created .atomist/editors/MyFirstEditor.js.map
@@ -116,8 +116,8 @@ Invoking compilers on project sources completed
 Loading atomist-rugs:my-rug-project (0.1.0·local) completed
 Running test feature Tests from MyFirstEditor.rt
   Running test scenario MyFirstEditor is added to your project by AddMyFirstEditor
-  Completed test scenario MyFirstEditor is added to your project by AddMyFirstEditor passed 
-Completed test feature Tests from MyFirstEditor.rt passed         
+  Completed test scenario MyFirstEditor is added to your project by AddMyFirstEditor passed
+Completed test feature Tests from MyFirstEditor.rt passed
 Running tests in atomist-rugs:my-rug-project (0.1.0·local) completed
 
 Successfully executed 1 of 1 test: Test SUCCESS
@@ -131,20 +131,20 @@ run from any directory, you must install it:
 ```console
 $ rug install
 Resolving dependencies for atomist-rugs:my-rug-project (0.1.0·local) completed
-Invoking TypeScript Compiler on .ts files                                                                                                                                                                        
+Invoking TypeScript Compiler on .ts files
   Created .atomist/tests/project/MyFirstEditorTest.js
   Created .atomist/tests/project/MyFirstEditorTest.js.map
   Created .atomist/editors/MyFirstEditor.js
-  Created .atomist/editors/MyFirstEditor.js.map                                                                                                                                                                  
+  Created .atomist/editors/MyFirstEditor.js.map
 Invoking compilers on project sources completed
 Loading atomist-rugs:my-rug-project (0.1.0·local) completed
   Created META-INF/maven/atomist-rugs/my-rug-project/pom.xml
   Created .atomist/manifest.yml
-  Created .atomist/metadata.json                                                                                                                                                                                 
+  Created .atomist/metadata.json
 Generating archive metadata completed
   Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.zip → ~/.atomist/repository
   Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.pom → ~/.atomist/repository
-  Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0-metadata.json → ~/.atomist/repository                                                                                    
+  Installed atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0-metadata.json → ~/.atomist/repository
 Installing archive into local repository completed
 → Archive
   ~/develop/my-rug-project/.atomist/target/my-rug-project-0.1.0.zip (530 kb in 245 files)
@@ -186,18 +186,18 @@ Once you have your publishing repository configured, you simply run
 `rug publish`.
 
 ```console
-$ rug publish 
+$ rug publish
 Resolving dependencies for atomist-rugs:my-rug-project (0.1.0·local) completed
 Invoking TypeScript Compiler on .ts files
   Created .atomist/tests/project/MyFirstEditorTest.js.map
   Created .atomist/tests/project/MyFirstEditorTest.js
   Created .atomist/editors/MyFirstEditor.js.map
-  Created .atomist/editors/MyFirstEditor.js                                                                                                                                           
+  Created .atomist/editors/MyFirstEditor.js
 Invoking compilers on project sources completed
 Loading atomist-rugs:my-rug-project (0.1.0·local) completed
-  Created META-INF/maven/atomist-rugs/my-rug-project/pom.xml      
-  Created .atomist/manifest.yml   
-  Created .atomist/metadata.json                                                                                                                                                                                 
+  Created META-INF/maven/atomist-rugs/my-rug-project/pom.xml
+  Created .atomist/manifest.yml
+  Created .atomist/metadata.json
 Generating archive metadata completed
   Uploading atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.zip → rugs-release (530 kb) succeeded
   Uploading atomist-rugs/my-rug-project/0.1.0/my-rug-project-0.1.0.pom → rugs-release (640 bytes) succeeded

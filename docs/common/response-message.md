@@ -1,4 +1,4 @@
-A Response Message is much like a `#!typescript DirectedMesssage`, except that 
+A Response Message is much like a `#!typescript DirectedMesssage`, except that
 the destination for the message is optional because the Atomist Bot chooses the
 channel or user to respond to based on where the command was invoked in the chat
 system. As such, it really only makes sense to return Response Messages in Plans

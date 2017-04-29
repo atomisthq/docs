@@ -23,4 +23,4 @@ the `.atomist/handlers` directory:
 The remaining files and directors of this Rug follows the usual
 [Rug project][projects] structure.
 
-[projects]: projects.md
+[projects]: /user-guide/rug/projects.md
