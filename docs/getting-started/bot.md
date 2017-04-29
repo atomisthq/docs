@@ -1,7 +1,59 @@
-Atomist can now be put to work, creating projects, editing code,
-managing issues, and generally tying your whole development process
-together.  Let's kick things off by having the Atomist Bot create a
-new project for us.
+Atomist can now be put to work: reporting on events in your
+development, creating projects, editing code, managing issues, and
+generally tying your whole development process together.  Let's kick
+things off by connecting some of your existing code repositories to
+your chat channels.  After than, we'll use the Atomist Bot to create a
+new project for us using a generator.
+
+## Using Atomist on existing projects
+
+You almost certainly have many existing projects that you would like
+Atomist's help keeping track of.  To get Atomist's help with an
+existing GitHub repository, simply invite the Atomist Bot to a channel
+where you discuss that repository.  You can invite the Atomist Bot to
+a channel just as you would invite any other user, e.g., by using the
+`/invite @atomist` command.  Once the Atomist Bot is in the channel,
+you can tell the Atomist Bot what repository to associate with the
+channel using by sending it the `repo` message.  The `repo` command
+takes a single argument, the name of the repository you want to
+associate with the channel.  You supply just the name of the
+repository, not including the repository owner since the Atomist Bot
+already knows what GitHub organization is associated with your Slack
+team.
+
+```
+@atomist repo REPOSITORY_NAME
+```
+
+!!! caution ""
+    If you are working through these steps in
+    the [Atomist Community Slack][community], associations can only be
+    made with repositories in the `atomist` GitHub organization.
+
+Once the association is made, the Atomist Bot will begin reporting on
+activity in the associated repository and you can interact with the
+repository, reporting on pushes, creating and assigning issues, etc.
+If you have connected Atomist with your CI system, you will also see
+builds as they start and are completed.
+
+<div class="ss-container">
+  <img src="../images/commit-build.gif" alt="Commits and builds in a chat channel" class="ss-medium">
+</div>
+
+At any time you can ask the Atomist Bot to tell you what repository is
+associated with the current channel by sending it the `repos` message.
+
+```
+@atomist repos
+```
+
+The Atomist Bot will respond with the repositories linked to the
+current channel, providing links to the repositories and buttons to
+allow you to quickly un-link the channel and repository.
+
+<div class="ss-container">
+  <img src="../images/repos-linked.png" alt="Repositories linked to a channel" class="ss-medium">
+</div>
 
 ## Create a new project
 
@@ -192,80 +244,6 @@ displaying GitHub events, Atomist can generate and modify code and
 open issues and PRs, all without you ever having to leave Slack.
 Let's use the Atomist Bot to create a GitHub Issue for us.
 
-<!-- It appears github-handlers are there by default
-
-Before we can create GitHub issues in Slack, we have to enable the
-functionality in the Atomist Bot.  To do this, we tell the Atomist Bot
-to load up a set of skills.  We call these skills "command handlers"
-because they are Rugs that handle, i.e., take the appropriate action,
-when the Atomist Bot is sent a command via a Slack message.  The
-Atomist Bot comes with a core set of skills it knows, like the
-`generators` command we used above to search for generators.  You can
-see what skills the Atomist Bot knows by sending it the `show skills`
-message.
-
-```
-@atomist show skills
-```
-
-The Atomist Bot will respond with a truncated list of skills and a
-link at the end of the list to expand out to the entire list.
-
-<div class="ss-container">
-  <img src="../images/show-skills-truncated.png" alt="Atomist Bot Show Skills Truncated" class="ss-small">
-</div>
-
-Click the "Show more..." at the end of the message to display the
-entire list of known skills.
-
-<div class="ss-container">
-  <img src="../images/show-skills.png" alt="Atomist Bot Show Skills" class="ss-medium">
-</div>
-
-You can see the known skills are organized into sets.  Each set
-represents all the skills in a single "Rug archive", the method by
-which Rugs are packaged and published.  Each Rug archive has an
-artifact name, a group name, and a version.  The archive name is
-typically the GitHub repository name of the set of Rugs, e.g.,
-"github-handlers".  The group name is typically the GitHub owner,
-i.e., organization or user, of the same GitHub repository, e.g.,
-"atomist-rugs".  The version is a [semantic version][semver] of the
-form `MAJOR.MINOR.PATCH`, e.g., "1.2.3".  Within each Rug archive
-grouping is a list of the message the Atomist Bot recognizes to
-trigger the command handler and a brief description of what the
-command handler does.
-
-[semver]: http://semver.org/
-
-To teach the Atomist Bot a new set of skills, we use the `add skills`
-command.  The `add skills` command takes a single argument: the full
-name of the Rug archive containing the set of skills you want the
-Atomist Bot to start responding to.  The full name of a Rug archive is
-the group name, artifact name, and optional version, each joined by a
-colon (:).  Here we will add the skills from the
-`atomist-rugs:github-handlers` Rug archive.  Since we have omitted the
-version from the full name, the Atomist Bot will add the skills from
-the latest version of the Rug archive available.
-
-```
-@atomist add skills atomist-rugs:github-handlers
-```
-
-The Atomist Bot knows where to find all the command handlers available
-to your team, so it will determine the latest version of
-`atomist-rugs:github-handlers`, download it, and recognize the
-commands that Rug archive makes available.  You can see the new skills
-by sending the Atomist Bot the `show skills` message again.
-
-<div class="ss-container">
-  <img src="../images/show-new-skills.png" alt="Atomist Bot Show Skills" class="ss-medium">
-</div>
-
-Your Atomist Bot will now be able to create new issues for you in
-GitHub.
-
--->
-
 We can open GitHub Issues without leaving Slack by sending a `create
 issue` message to the Atomist Bot.  When running commands like this,
 the Atomist Bot is aware of the context in which it is asked to run
@@ -372,48 +350,3 @@ Bot notifying you that the issue has been updated.
 The circle is complete!  After connecting Atomist and GitHub, we can
 see GitHub events in Slack, take action on them, and see the result in
 GitHub and Slack.
-
-## Using Atomist on existing projects
-
-You almost certainly have many existing projects that you would like
-Atomist's help keeping track of.  To get Atomist's help with an
-existing GitHub repository, simply invite the Atomist Bot to a channel
-where you discuss that repository.  You can invite the Atomist Bot to
-a channel just as you would invite any other user, e.g., by using the
-`/invite @atomist` command.  Once the Atomist Bot is in the channel,
-you can tell the Atomist Bot what repository to associate with the
-channel using by sending it the `repo` message.  The `repo` command
-takes a single argument, the name of the repository you want to
-associate with the channel.  You supply just the name of the
-repository, not including the repository owner since the Atomist Bot
-already knows what GitHub organization is associated with your Slack
-team.
-
-```
-@atomist repo REPOSITORY_NAME
-```
-
-!!! caution ""
-    If you are working through these steps in
-    the [Atomist Community Slack][community], associations can only be
-    made with repositories in the `atomist` GitHub organization.
-
-Once the association is made, the Atomist Bot will begin reporting on
-activity in the associated repository and you can interact with the
-repository, creating and assigning issues, etc., just as you do with
-channels the Atomist Bot creates when it generates a project.
-
-At any time you can ask the Atomist Bot to tell you what repository is
-associated with the current channel by sending it the `repos` message.
-
-```
-@atomist repos
-```
-
-The Atomist Bot will respond with the repositories linked to the
-current channel, providing links to the repositories and buttons to
-allow you to quickly un-link the channel and repository.
-
-<div class="ss-container">
-  <img src="../images/repos-linked.png" alt="Repositories linked to a channel" class="ss-medium">
-</div>
