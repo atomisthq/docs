@@ -111,7 +111,7 @@ We used [Nuget][nuget] and [Chocolatey][choco] to package and
 distribute the CLI on Windows systems (actually wherever .NET and
 Powershell run).
 
-[nuget]: https://docs.nuget.org/
+[nuget]: https://www.nuget.org/
 
 The following steps have been tested on Windows 10, your mileage may vary.
 
