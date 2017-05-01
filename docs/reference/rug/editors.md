@@ -54,7 +54,7 @@ Before we go into a more systematic presentation of Rug syntax, let's
 start by building up a simple program: a project editor that appends
 to a file:
 
-```rug
+```
 editor AppendToSpecificFile
 
 with File f when name = "myfile.txt"
@@ -74,7 +74,7 @@ Let's make this a little more sophisticated. Perhaps we'd like to
 decide what content we should append. This would be a natural
 parameter:
 
-```rug
+```
 editor AppendToFile
 
 param to_append: ^.*$
@@ -96,7 +96,7 @@ It would be good to describe this editor so that users see information
 beyond its name. We can do this with the `description` annotation. We
 can also describe the parameter:
 
-```rug
+```
 @description """Appends value of to_append parameter to
      the end of files called myfile.txt"""
 editor AppendToFile
@@ -115,7 +115,7 @@ escaping.
 We can add multiple `with` blocks. So we could process another type of
 file as follows:
 
-```rug
+```
 editor AppendToFile
 
 param to_append: ^.*$
@@ -130,7 +130,7 @@ with File f when name = "MyClass.java"
 Sometimes we need to compute additional values. We do this with the
 `let` keyword as shown to populate the `x` value below:
 
-```rug
+```
 editor AppendToFile
 
 param to_append: ^.*$
@@ -150,7 +150,7 @@ remainder of the Rug program itself.
 We can also perform multiple `do` steps as follows, enclosing them in
 a `begin/end` block:
 
-```rug
+```
 editor AppendToFile
 
 param to_append: ^.*$
@@ -167,7 +167,7 @@ perform a do manipulation. A JavaScript expression is enclosed in
 curly braces. The following example builds the string to be appended
 using JavaScript:
 
-```rug
+```
 editor AppendToFile
 
 param to_append: ^.*$
@@ -178,7 +178,7 @@ with File f when name = "myfile.txt"
 
 We can also use JavaScript expressions in predicates, like this:
 
-```rug
+```
 editor AppendToFile
 
 with File
@@ -192,7 +192,7 @@ Editors can be composed. For example, executing the `Foo` editor in
 the following Rug script will result in `some` being replaced by `foo`
 and then by `bar`, as the `Foo` editor invokes the `Bar` editor.
 
-```rug
+```
 editor Foo
 
 with File f
@@ -217,7 +217,7 @@ When composing by calling an editor that accepts parameters, the
 parameters are provided as a comma-separate list of
 `param_name=param_value` tokens.
 
-```rug
+```
 editor CallerEditor
 
 CalledEditor first="some", second="thing"

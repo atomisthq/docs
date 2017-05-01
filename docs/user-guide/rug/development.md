@@ -7,7 +7,7 @@ Development stuff
 *Annotations* are used to describe the following program elements:
 editors, reviewers and parameters. For example:
 
-```rug
+```
 @description "Takes EJBs and delivers a roundhouse kick to them"
 editor RemoveEJB
 
@@ -42,7 +42,7 @@ double-quoted strings can include special characters like newlines.
 are supplied to your script for use when declaring editor parameter
 patterns, for example:
 
-```rug
+```
 editor ClassRenamer
 
 param old_class: @java_class

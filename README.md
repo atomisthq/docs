@@ -152,7 +152,6 @@ and install the dependencies into it:
 
 ```
 $ pip install -r requirements.txt
-$ ( cd rug_pygments && python setup.py install )
 ```
 
 Finally, install [HTMLProofer][html-proofer].
