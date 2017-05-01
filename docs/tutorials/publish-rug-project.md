@@ -1,44 +1,42 @@
 To make new or modified Rug scripts in your Rug project available
 in your team, you will need to publish the Rug project.
 
-!!! tip ""
-    Completing the [Getting Started][getting-started] steps, [Rug CLI setup][cli-setup], and having a
-    [Rug project][create-rug] to publish are prerequisites for this tutorial.
+!!! missing "Prerequisites"
+    Completing the [Getting Started Guide][getting-started]
+    and the [Rug CLI setup][cli-setup],
+    [Rug project creation][create-rug], and [TypeScript setup][ts]
+    tutorials are prerequisites for this tutorial.
 
-[getting-started]: /getting-started
-[cli-setup]: /tutorials/cli-quick-setup
-[create-rug]: /tutorials/create-rug-project
+[getting-started]: /getting-started/index.md
+[cli-setup]: setup-cli.md
+[create-rug]: create-rug-project.md
+[ts]: setup-typescript.md
 
-### Install npm Dependencies for the Rug project
+## Install Dependencies
 
-The Rug project contains npm module dependencies that need to be installed
-before we publish. From within your Rug project directory:
+The Rug project contains [NPM][npm] module dependencies that need to
+be installed before we publish.  Run the following commands from
+within your Rug project directory.
 
 ```console
 $ cd .atomist
-$ npm install
-/atomist-tutorials/.atomist
-└─┬ @atomist/rugs@0.24.3
-  ├── @atomist/cortex@0.31.0
-  ├── @atomist/rug@0.25.1
-  └── mustache@2.3.0
-
-npm WARN .atomist No description
-npm WARN .atomist No repository field.
-npm WARN .atomist No license field.
+$ yarn
 ```
 
-Your output may vary, for example, if you have already installed npm module
-dependencies in this Rug project.
+The `yarn` command will install all the needed dependencies.
 
-### Identify Slack Team ID for Publishing
+[npm]: https://www.npmjs.com/ (NPM Modules)
 
-Since you may be in multiple Slack teams that have the Atomist Bot installed (for
-example, atomist-community public Slack team and your own Slack team), you will need
-to tell the Rug CLI which team to publish this Rug project to.
+## Identify Slack Team ID
 
-You can find the team ID from within your Slack team. Send this message in `#general` or
-any channel that the Atomist Bot has been invited to.
+Since you may be in multiple Slack teams that have the Atomist Bot
+installed (for example, atomist-community public Slack team and your
+own Slack team), you will need to tell the Rug CLI which team to
+publish this Rug project to.
+
+You can find the team ID from within your Slack team. Send this
+message in `#general` or any channel that the Atomist Bot has been
+invited to.
 
 ```
 @atomist team
@@ -48,11 +46,16 @@ any channel that the Atomist Bot has been invited to.
   <img src="../images/atomist-team.png" alt="List of project generators" class="ss-medium">
 </div>
 
-The `sfz` Slack team ID is `T489LV5QF`. Look for your team Slack ID and pass it into
-the `rug publish` command like this.
+In this example, the Slack team ID is "T489LV5QF".
+
+## Publish
+
+Now that you know your Slack team ID, you can publish your Rug project
+archive.  Pass the lower-cased version of your Slack team ID to the
+`rug publish` command like this.
 
 ```console
-$ rug publish -i <YOUR_TEAM_ID>
+$ rug publish --id=t489lv5qf
 Resolving dependencies for atomist-contrib:atomist-tutorials (0.1.0·local) completed
 Invoking compilers on project sources completed
 Loading atomist-contrib:atomist-tutorials (0.1.0·local) completed
@@ -67,3 +70,5 @@ Publishing archive into remote repository completed
 
 Successfully published archive for atomist-contrib:atomist-tutorials (0.1.0)
 ```
+
+You have successfully published a Rug project archive!

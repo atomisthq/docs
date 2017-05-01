@@ -2,8 +2,9 @@ We provide a generator that can be run from your Slack team to create
 a new Rug project using standard setup, sensible defaults, and starter
 Rugs.
 
-!!! tip ""
-    Completing the [Getting Started][getting-started] steps is a prerequisite for this tutorial.
+!!! missing "Prerequisites"
+    Completing the [Getting Started Guide][getting-started] is a
+    prerequisite for this tutorial.
 
 [getting-started]: /getting-started/index.md
 

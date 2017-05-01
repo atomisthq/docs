@@ -4,15 +4,18 @@ automate common tasks your team routinely performs. Those skills are
 implemented inside Rug command handlers and this tutorial will show you
 how to create a new one.
 
-!!! tip ""
-    Completing the [Getting Started][getting-started]
-    steps, [Rug CLI setup][cli-setup], and having
-    a [Rug project][create-rug] to publish are prerequisites for this
-    tutorial.
+!!! missing "Prerequisites"
+    Completing the [Getting Started Guide][getting-started]
+    and the [Rug CLI setup][cli-setup],
+    [Rug project creation][create-rug], [TypeScript setup][ts],
+    and [Rug archive publishing][publish] tutorials are prerequisites
+    for this tutorial.
 
 [getting-started]: /getting-started/index.md
-[cli-setup]: /tutorials/cli-quick-setup.md
-[create-rug]: /tutorials/create-rug-project.md
+[cli-setup]: setup-cli.md
+[create-rug]: create-rug-project.md
+[ts]: setup-typescript.md
+[publish]: publish-rug-project.md
 
 ## Search StackOverflow from Slack
 
@@ -38,8 +41,8 @@ on success, use the `SendStackOverflowResults` response handler,
 defined starting on line 46. It simply formats the search results from
 the StackOverflow API call.
 
-!!! tip ""
-    Please see the [Rug command handler user-guide][rugcmd] for more information.
+!!! tip "Rug Command Handlers"
+    See the [Rug command handler user-guide][rugcmd] for more information.
 
 [rugcmd]: /user-guide/rug/command-handlers.md
 
@@ -84,8 +87,6 @@ the [Publish a Rug Project][publish] tutorial.
 ```console
 $ rug publish -i <YOUR_TEAM_ID>
 ```
-
-[publish]: /tutorials/publish-rug-project.md
 
 ## Make it Active in Slack
 
