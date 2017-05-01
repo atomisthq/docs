@@ -17,7 +17,10 @@ The documentation is generated from markdown using [mkdocs][].
 ## Editing
 
 Much of the documentation is hand-generated, so you can feel free to
-edit.
+edit.  See [below][build-serve] for instructions on how to test your
+changes locally.
+
+[build-serve]: #build-and-serve-the-documentation-locally
 
 The exception is the
 auto-generated [reference documentation](docs/reference/).  The aim is
@@ -34,9 +37,9 @@ documentation must be copied into this repo at
 ## Content Reuse
 
 Sometimes it's desirable to have certain content repeated in a page or duplicated
-across pages. This project uses a [markdown-include][markdown-include] plugin to 
-include content from files in the `docs/common` directory prior to conversion to 
-HTML. It uses the `{!filename!}` syntax, with all filenames relative to the 
+across pages. This project uses a [markdown-include][markdown-include] plugin to
+include content from files in the `docs/common` directory prior to conversion to
+HTML. It uses the `{!filename!}` syntax, with all filenames relative to the
 `docs/common` directory.
 
 e.g. to include the content from `docs/common/handlers.md` into `user-guide/rug/commands.md`,
@@ -99,14 +102,19 @@ by GitHub at http://atomisthq.github.io and https://docs.atomist.com .
 
 [pages]: https://github.com/atomisthq/atomisthq.github.io
 
+You can publish the docs to the GitHub Pages branch of this repository
+manually from your local repository with the following command:
+
+```
+$ rm docs/CNAME && mkdocs gh-deploy && git checkout docs/CNAME
+```
+
 ## Build and serve the documentation locally
 
-Generally speaking, you probably do not need to do anything
-with this repository aside from pushing markdown content.
+Before you push changes to this repository, you should test your
+changes locally.
 
-However, if you want to make a change to the HTML template
-or serve the doc locally before a push, you should follow the
-next steps to gear up properly your environment.
+### Install dependencies
 
 First [install Python](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md)
 
@@ -131,44 +139,62 @@ $ source ~/.bashrc
 $ virtualenv -p `which python3` ~/.venvs/userdocs
 ```
 
-Every time you want to work on this repository,
-you need to activate that virtualenv in your terminal:
+With the virtual environment created, activate it in the current
+terminal:
 
 ```
-$ source ~/.venvs/userdocs/bin/activate
+$ . ~/.venvs/userdocs/bin/activate
 ```
 
-Now that the virtual environment is created, we can
-install the dependencies into it:
+and install the dependencies into it:
 
 ```
 $ pip install -r requirements.txt
 $ ( cd rug_pygments && python setup.py install )
 ```
 
-You can now serve the documentation locally by running:
+Finally, install [HTMLProofer][html-proofer].
+
+```
+$ bundle install
+```
+
+[html-proofer]: https://github.com/gjtorikian/html-proofer
+
+### Testing and Serving
+
+Every time you want to work on this repository, you need to activate
+the Python virtualenv in your working terminal:
+
+```
+$ . ~/.venvs/userdocs/bin/activate
+```
+
+After making changes, you can test them by building the documentation
+in strict mode and running HTMLProofer on the resulting site.
+
+```
+$ mkdocs build --strict && \
+    bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'
+```
+
+To review your changes in a browser, you can serve the documentation
+locally by running:
 
 ```
 $ mkdocs serve
 ```
 
-If all goes well, you can browse the documentation at
-http://127.0.0.1:8000 .
+and browse the documentation at http://127.0.0.1:8000 .  To stop the
+server, press `Ctrl-C` in the terminal.
 
-Once all the initial set up is done, you can just run:
+### Shortcut
+
+The `activate_and_serve.sh` script activates the virtual environment
+and builds, proofs, and serves the docs with a single command.
 
 ```shell
 ./activate_and_serve.sh
-```
-
-To enter the virtual env, install any new requirements,
-and start the local server.
-
-You can publish the docs manually from your local repository with the
-following command:
-
-```
-$ rm docs/CNAME && mkdocs gh-deploy && git checkout docs/CNAME
 ```
 
 ## Conditions of use
