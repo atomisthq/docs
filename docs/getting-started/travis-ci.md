@@ -37,4 +37,9 @@ notifications:
 ```
 
 Once you commit and push those changes, Travis CI events will start
-flowing to Atomist.
+flowing to Atomist.  You should go to
+the [getting started with the Atomist Bot][bot] page to see how build
+events are integrated into messages with the other events in your
+development flow.
+
+[bot]: bot.md (Getting Started - Atomist Bot)

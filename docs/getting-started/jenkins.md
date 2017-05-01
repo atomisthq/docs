@@ -19,13 +19,13 @@ interface, select it, and complete the installation.
 [notification]: https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin
 
 <div class="ss-container">
-  <img src="../images/jenkins-install-notification.png" alt="Install Notification Plugin" class="ss-medium">
+  <img src="../images/jenkins-install-notification.png" alt="Install Notification Plugin" class="ss-large">
 </div>
 
 To enable the plugin, be sure to restart Jenkins after installation.
 
 <div class="ss-container">
-  <img src="../images/jenkins-install-notification-status-reboot.png" alt="Notification Plugin Installation Status" class="ss-medium">
+  <img src="../images/jenkins-install-notification-status-reboot.png" alt="Notification Plugin Installation Status" class="ss-large">
 </div>
 
 Now that the Notification plugin is installed and enabled, it's time
@@ -34,14 +34,14 @@ would like Atomist to get events from then select "Configure" from the
 left column.
 
 <div class="ss-container">
-  <img src="../images/jenkins-configure-project.png" alt="Configure Project" class="ss-small">
+  <img src="../images/jenkins-configure-project.png" alt="Configure Project" class="ss-medium">
 </div>
 
 In the "Job Notifications" section of the project configuration, click
 the "Add Endpoint" button.
 
 <div class="ss-container">
-  <img src="../images/jenkins-add-notification.png" alt="Add Notification" class="ss-medium">
+  <img src="../images/jenkins-add-notification.png" alt="Add Notification" class="ss-large">
 </div>
 
 On the "Job Notifications" configuration tab, add an endpoint, setting
@@ -50,17 +50,16 @@ the "Notifications Endpoints" URL to
 values at their defaults: Format: JSON, Protocol: HTTP, Event: All
 Events, Timeout: 30000, and Log: 0.
 
-<!-- TODO fix URL in image
 <div class="ss-container">
-  <img src="../images/jenkins-webhook.png" alt="Configure Webhook" class="ss-medium">
+  <img src="../images/jenkins-webhook.png" alt="Configure Webhook" class="ss-large">
 </div>
--->
 
-Now, Jenkins is set up to send build notifications to Atomist.  Go
-back to the [Connect Atomist to CI][ci] page to see what Atomist does
-with these notifications.
+Now, Jenkins is set up to send build notifications to Atomist.  You
+should go to the [getting started with the Atomist Bot][bot] page to
+see how build events are integrated into messages with the other
+events in your development flow.
 
-[ci]: ci.md (Atomist and CI)
+[bot]: bot.md (Getting Started - Atomist Bot)
 
 ## Jenkinsfile
 
@@ -195,4 +194,7 @@ the calls to `#!groovy notifyAtomist()` to the `success`, `unstable`,
 and `failure` subsections.
 
 Once Jenkins picks up those changes, CI events will start flowing to
-Atomist.
+Atomist.  You should go to
+the [getting started with the Atomist Bot][bot] page to see how build
+events are integrated into messages with the other events in your
+development flow.
