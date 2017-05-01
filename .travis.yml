@@ -13,7 +13,7 @@ env:
   - secure: avZof6zOvqzTz3HIWKUCCVnNtN1kUJJUulrRPqQNukYpvK6pPFmv9bv0KPZeTWr7fC88fnptjm2SbgXhtNkZxv0pqRP2Zy5yzgwZfQlHJKWb2DSA7D65kCCejHvmyIx6fbpfG4A7OMGHKP1yoUOkgm3WXmXXfckKZ0ADiEnvx1kenhF4MfMNoAxBIX/xX9NtKxWejvF/Go18ePxVW/Y+UpOQ9l8n9z3RZQ2+ocoSP/7RhQTNnJgHO+S9UtnRVN5yBkUTiLU9I7+NpvcLbBekLGyS0Vh979HT0oDU/LAbpXWIfGFm97CY7zn7pCa3vkPtbGs/+FVAo10ZYuLYYrzlxipbrEGPBAQl0eFbIu7Fl/aQWsGYM0/kLiLKFl+/8NgB+eblGb7F8CyUKWgpARlGLc50Ht0C/QBREzRT7bLoDfRxsGc90vQ+mw1D6P7w1vi6Ib3XeVw+zSKvtgb8ul+lqbuShkiH2x4gE+M/1NLByWTIsVdEqiyLK9up+xYOLw7X3swaXLTEjNVTi8havQEABn+cVZPpiOSQcIyF3ydW7kVOqAzc3ewrYPasgOTj2humYTwpAm3Cv49OqahRKA03S7iGzNCzLn1uTX6EsftztCV4OHHHZrsBNB3Kyni/OJh0hg8tc23EXPdBSy2bQFFyeHCG5oyMsy6S+aEZmC08968=
 install:
 - pip install -r requirements.txt
-- bundle install && bundle show html-proofer
+- bundle install
 script:
 - bash travis-build.bash
 notifications:
@@ -27,8 +27,9 @@ notifications:
     urls:
     - https://webhook.atomist.com/travis
 cache:
-- bundler
-- pip
+  pip: true
+  directories:
+    - .rvm/gems
 deploy:
   provider: releases
   api_key:
