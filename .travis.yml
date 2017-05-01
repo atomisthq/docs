@@ -29,7 +29,7 @@ notifications:
 cache:
   pip: true
   directories:
-    - .rvm/gems
+    - ~/.rvm/gems
 deploy:
   provider: releases
   api_key:
