@@ -26,7 +26,9 @@ notifications:
     on_cancel: always
     urls:
     - https://webhook.atomist.com/travis
-cache: bundler
+cache:
+- bundler
+- pip
 deploy:
   provider: releases
   api_key:
