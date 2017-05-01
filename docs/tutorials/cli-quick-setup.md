@@ -37,14 +37,23 @@ be sent to Atomist; only to api.github.com.
 Successfully logged in to GitHub and stored token in ~/.atomist/cli.yml
 ```
 
+The Rug CLI will authenticate against GitHub and create
+a [personal access token][pat] with "read:org" scope and store it so
+it can determine what GitHub orgs you are in when configuring your
+repositories (see below).
+
+!!! fail "Do not enter a personal access token"
+    GitHub requires that you authenticate with your password, not a
+    personal access token, when creating a personal access token so be
+    sure to provide your GitHub username and *password*.
+
 If you have two-factor authentication configure on your GitHub account,
 you will be prompted for your second factor code as `MFA code`.
 
 !!! danger "Atomist does not store your GitHub credentials"
-
     As the command output says, Atomist does not store your GitHub
     credentials.  They are used to authenticate against the GiTHub API
-    to create a properly scoped [personal access token][pat].
+    to create a properly scoped personal access token.
 
 [pat]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
 
