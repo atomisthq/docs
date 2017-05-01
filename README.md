@@ -96,10 +96,12 @@ http://atomist.github.io/end-user-documentation/ .
 
 [travis]: https://travis-ci.com/atomisthq/end-user-documentation
 
-If the build is triggered by a tag of the form `M.N.P`, the site will
-be pushed to the [Atomist GitHub Pages][pages] repository and served
-by GitHub at http://atomisthq.github.io and https://docs.atomist.com .
+If the build is triggered by a tag of the form `M.N.P` and that same
+version is found in the [`VERSION`][version] file, the site will be
+pushed to the [Atomist GitHub Pages][pages] repository and served by
+GitHub at http://atomisthq.github.io and https://docs.atomist.com .
 
+[version]: VERSION
 [pages]: https://github.com/atomisthq/atomisthq.github.io
 
 You can publish the docs to the GitHub Pages branch of this repository
