@@ -52,13 +52,8 @@ you will be prompted for your second factor code as a `MFA code`.
 
 !!! danger "Atomist does not store your GitHub credentials"
     As the command output says, Atomist does not store your GitHub
-<<<<<<< b9d7fb830c8c5ae9a4e549408be794ac3068f1a3:docs/tutorials/setup-cli.md
-    credentials.  They are used to authenticate against the GiTHub API
-    to create a properly scoped personal access token.
-=======
     credentials.  They are used to authenticate against the GitHub API
     to create a properly scoped [personal access token][pat].
->>>>>>> Minor grammar and style edits.:docs/tutorials/cli-quick-setup.md
 
 [pat]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
 

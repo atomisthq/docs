@@ -71,5 +71,3 @@ Successfully published archive for atomist-contrib:atomist-tutorials (0.1.0)
 ```
 
 You have successfully published a Rug project archive!
-
-
