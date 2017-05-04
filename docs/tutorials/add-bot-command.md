@@ -41,13 +41,8 @@ on success, use the `SendStackOverflowResults` response handler,
 which starts on line 46. This response handler merely formats the search results from
 the StackOverflow API call for presentation as a Slack message.
 
-<<<<<<< HEAD:docs/tutorials/add-bot-command.md
 !!! tip "Rug Command Handlers"
     See the [Rug command handler user-guide][rugcmd] for more information.
-=======
-!!! tip ""
-    Please see the [Rug command handler user guide][rugcmd] for more information.
->>>>>>> d0ebc2294b9cbce31fe7cfbc5b60eb9de009b2df:docs/tutorials/add-new-bot-command.md
 
 [rugcmd]: /user-guide/rug/command-handlers.md
 
