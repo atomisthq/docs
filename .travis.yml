@@ -6,11 +6,11 @@ python:
 branches:
   except:
   - gh-pages
-  - /\+travis\d+$/
+  - "/\\+travis\\d+$/"
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-  - secure: avZof6zOvqzTz3HIWKUCCVnNtN1kUJJUulrRPqQNukYpvK6pPFmv9bv0KPZeTWr7fC88fnptjm2SbgXhtNkZxv0pqRP2Zy5yzgwZfQlHJKWb2DSA7D65kCCejHvmyIx6fbpfG4A7OMGHKP1yoUOkgm3WXmXXfckKZ0ADiEnvx1kenhF4MfMNoAxBIX/xX9NtKxWejvF/Go18ePxVW/Y+UpOQ9l8n9z3RZQ2+ocoSP/7RhQTNnJgHO+S9UtnRVN5yBkUTiLU9I7+NpvcLbBekLGyS0Vh979HT0oDU/LAbpXWIfGFm97CY7zn7pCa3vkPtbGs/+FVAo10ZYuLYYrzlxipbrEGPBAQl0eFbIu7Fl/aQWsGYM0/kLiLKFl+/8NgB+eblGb7F8CyUKWgpARlGLc50Ht0C/QBREzRT7bLoDfRxsGc90vQ+mw1D6P7w1vi6Ib3XeVw+zSKvtgb8ul+lqbuShkiH2x4gE+M/1NLByWTIsVdEqiyLK9up+xYOLw7X3swaXLTEjNVTi8havQEABn+cVZPpiOSQcIyF3ydW7kVOqAzc3ewrYPasgOTj2humYTwpAm3Cv49OqahRKA03S7iGzNCzLn1uTX6EsftztCV4OHHHZrsBNB3Kyni/OJh0hg8tc23EXPdBSy2bQFFyeHCG5oyMsy6S+aEZmC08968=
+  - secure: EO1TtdhykNQx7tj+sS5/EcGsyyfMRuw9Yci25h4Mpi6I9G4XOvZHE7kLmslTr9V+Fc9NojdgLjasFJYSDxZGblRfNcMvp6BLZlWNZKtJ6EqEB/UUjuxuuvVXCJI9LGzXfsIyuNf4jHnIuHeJ34cCfZgbbMzFB2a3zNf2XuXlskGKSAAYY7Eg2C1taVA8FZHuqUezpUHGXVcIUbWuzN++KSKznzDcQwGdgtqBF4R8iay+NdU3GG7IJYDkfsFshNbpRcmqP/HxmcDOYHMQzGzhEoCHyHL/8UzO3Zh2eVqa12yLAC3bbh6+2HN8YFEP70V5E4esArIkB1SmQIZrMfgfkmClOVbPx57VfvyTgihRU7p/lRN4exQ878r3PwdPFfpm4NtPQY+YWULWL4Zcnw64GjR0lR0sf8V6BDYXTYBHpY1ggBLrqIE+iJBlM3Fv59R4X+ePO31aiZ5XGyy4+it/NlFVWLp6QGIeq9YXoyuAosNhuCwaS7EsS+9UK43j4kSZwe8qVYaiyQDE7NmXwLihN5ps0+d4JhnADrVhfpqReXb/2S02HpQZXIE+vnRnVgtR9XbJABwX7a/u/TGpn+d90WLYSS5iZbQ/9NV6NFp8wmRU1RgEyYHt58l8AH6UTZ9afA0DeIBYJ/t8F70u2uqbMd8hUZIWR2400E5xlvGYFsU=
 install:
 - pip install -r requirements.txt
 - bundle install
@@ -29,7 +29,7 @@ notifications:
 cache:
   pip: true
   directories:
-    - ~/.rvm/gems
+  - "~/.rvm/gems"
 deploy:
   provider: releases
   api_key:
