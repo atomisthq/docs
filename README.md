@@ -10,7 +10,7 @@ Atomist documentation at [http://docs.atomist.com/][docs].
 [atomist]: https://www.atomist.com/
 [docs]: http://docs.atomist.com/
 
-The documentation is generated from markdown using [mkdocs][].
+The documentation is generated from markdown using [MkDocs][mkdocs].
 
 [mkdocs]: http://www.mkdocs.org/
 
@@ -118,12 +118,24 @@ changes locally.
 
 ### Install dependencies
 
-First [install Python](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md)
+The project uses [MkDocs][mkdocs] to generate the static site
+and [HTMLProofer][html-proofer] to validate the generated HTML.  Below
+are instructions to install them in a non-obtrusive way.
+
+[html-proofer]: https://github.com/gjtorikian/html-proofer
+
+#### MkDocs
+
+First [install Python][py-install] using [Homebrew][brew] on Mac OS X.
+
+[py-install]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+[brew]: https://brew.sh/
 
 ```
 $ brew install python3
 ```
-or
+
+or on GNU/Linux
 
 ```
 $ sudo apt-get install python3
@@ -131,7 +143,9 @@ $ curl -O https://bootstrap.pypa.io/get-pip.py
 $ sudo python3.5 get-pip.py
 ```
 
-Then create a virtual environment to host the dependencies:
+Then create a [virtual environment][venv] to host the dependencies:
+
+[venv]: https://virtualenv.pypa.io/en/stable/
 
 ```
 $ pip3 install virtualenv
@@ -154,13 +168,37 @@ and install the dependencies into it:
 $ pip install -r requirements.txt
 ```
 
-Finally, install [HTMLProofer][html-proofer].
+#### HTMLProofer
+
+Install [HTMLProofer][html-proofer] using [rbenv][].  First install
+rbenv.
+
+[rbenv]: https://github.com/rbenv/rbenv
+
+```
+$ brew install rbenv
+$ eval "$(rbenv init -)"
+```
+
+Install a recent version of Ruby using rbenv and then set that as the
+version to be used in this project.
+
+```
+$ rbenv install 2.4.1
+$ rbenv local 2.4.1
+```
+
+Install the bundler gem.
+
+```
+$ gem install bundler
+```
+
+Finally, install HTMLProofer.
 
 ```
 $ bundle install
 ```
-
-[html-proofer]: https://github.com/gjtorikian/html-proofer
 
 ### Testing and Serving
 

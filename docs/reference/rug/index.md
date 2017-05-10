@@ -32,5 +32,5 @@ the following topics may be of interest.
 -   [Rug API documentation][api]
 -   [Extensions][extensions]
 
-[api]: http://apidocs.atomist.com/
+[api]: http://apidocs.atomist.com/scaladocs/
 [extensions]: extensions.md
