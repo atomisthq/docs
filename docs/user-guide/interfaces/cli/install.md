@@ -130,6 +130,14 @@ The following steps have been tested on Windows 10, your mileage may vary.
     (admin) C:\ > choco install rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
     ```
 
+    If you want to install a pre-release rather than the
+    latest stable version, add the `--pre` argument to the
+    command:
+
+    ```console
+    (admin) C:\ > choco install rug-cli --pre -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
+    ```
+
     The CLI will be installed in
     `%programdata%\Chocolatey\lib\rug-cli` and available to your
     `%PATH%`. You can now run as a normal user:
