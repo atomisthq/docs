@@ -1,7 +1,7 @@
 Lowering the barrier for communication and information flow makes
 teams more productive. Open Source projects have long relied on chat
 to help them operate and coordinate contributors and project lifecycle.
-Modern chat solutions such as Slac, which can integrate deeply in your ecosystem,
+Modern chat solutions such as Slack, which can integrate deeply in your ecosystem,
 have improved on those foundations and have proven to be fantastic hubs for teams
 to drive automation with simple chat commands.
 
