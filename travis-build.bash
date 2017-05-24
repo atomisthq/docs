@@ -4,7 +4,7 @@
 set -o pipefail
 
 declare Pkg=travis-build-mkdocs
-declare Version=0.1.0
+declare Version=0.2.0
 
 function msg() {
     echo "$Pkg: $*"
@@ -20,11 +20,15 @@ function site-build() {
         return 1
     fi
 
-    # the logo img is added by material theme, so ignore it not having alt
-    if ! bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'; then
-        err "HTMLProofer failed"
-        return 1
-    fi
+    local i
+    for (( i=0; i < 4; i++)); do
+        # the logo img is added by material theme, so ignore it not having alt
+        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'; then
+            break
+        else
+            err "HTMLProofer attempt $i failed"
+        fi
+    done
 }
 
 # usage: main "$@"
