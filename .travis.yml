@@ -3,6 +3,10 @@ sudo: false
 language: python
 python:
 - 3.5
+addons:
+  apt:
+    packages:
+      - libcurl3-dev
 branches:
   except:
   - gh-pages

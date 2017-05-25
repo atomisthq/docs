@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.2.0...HEAD
 
+### Added
+
+-   Handler testing docs
+
 ## [7.2.0] - 2017-05-01
 
 [7.2.0]: https://github.com/atomist/end-user-documentation/compare/7.1.0...7.2.0
