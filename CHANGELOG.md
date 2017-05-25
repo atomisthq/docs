@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.2.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.3.0...HEAD
+
+## [7.3.0] - 2017-05-25
+
+[7.3.0]: https://github.com/atomist/end-user-documentation/compare/7.2.0...7.3.0
 
 ### Added
 
