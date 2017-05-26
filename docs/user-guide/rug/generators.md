@@ -7,7 +7,8 @@ to create new projects.  The transformations are encoded in the Rug
 generator script located under the project's `.atomist` directory.
 Using these components, a generator does the followings:
 
-1.  Copy the content of its host project, `.atomist` directory
+1.  Copy the content of its host project, `.atomist` directory 
+    (and anything listed in `.atomist/ignore`)
     excluded, into the new target directory
 2.  Runs the generator's `populate` function against the contents of
     target directory
