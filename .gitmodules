@@ -1,0 +1,3 @@
+[submodule "docs/common/doc-rugs"]
+	path = docs/common/doc-rugs
+	url = https://github.com/atomist/doc-rugs.git
