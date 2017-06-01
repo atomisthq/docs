@@ -5,11 +5,17 @@ Below is the complete list of options and commands for the Rug CLI.
 `--disable-verification`
 :   Disable verification of extensions (Use with Caution)
 
+`--disable-version-check`
+:   Disable version compatibility check (Use with Caution)
+
 `-?`, `--help`
 :   Print usage help
 
 `-h`, `--help`
 :   Print usage help
+
+`-n`, `--noisy`
+:   Display more progress messages
 
 `-o`, `--offline`
 :   Use only downloaded archives
@@ -62,7 +68,7 @@ Change/manage configuration settings
 $ rug configure [OPTION]... SUBCOMMAND [ARCHIVE]
 ```
 
-SUBCOMMAND can either be default archive or repositories.  The repositories command uses your GitHub authentication to configure all of your private Rug archive repositories and enables them for publication with the publish command.  Please execute the login command before configuring repositories.The default archive command sets a global or project specific Rug archive so that Rugs can be invoked without a fully qualified coordinate.  ARCHIVE should be a valid archive coordinate of form GROUP:ARTIFACT or just GROUP.  At any time those defaults can be overriden by specifying GROUP:ARTIFACT and -a from the command line.
+SUBCOMMAND can either be 'default archive' or 'repositories'.  The 'repositories' command uses your GitHub authentication to configure all of your private Rug archive repositories and enables them for publication with the publish command.  Please execute the login command before configuring repositories.  The 'default archive' command sets a global or project specific Rug archive so that Rugs can be invoked without a fully qualified coordinate.  ARCHIVE should be a valid archive coordinate of form GROUP:ARTIFACT or just GROUP.  At any time those defaults can be overriden by specifying GROUP:ARTIFACT and -a from the command line.
 
 *Command aliases:* `config`, `conf`
 
@@ -96,7 +102,7 @@ TYPE should be 'editor', 'generator', 'command-handler', 'event-handler', 'respo
 
 *Command aliases:* `desc`
 
-*Subcommands:* `editor`, `generator`, `archive`, `command-handler`, `event-handler`, `response-handler`, `function`, `dependencies`
+*Subcommands:* `editor`, `generator`, `archive`, `command-handler`, `event-handler`, `response-handler`, `integration-test`, `function`, `dependencies`
 
 *Command options:*
 
@@ -122,7 +128,7 @@ Run an editor to modify an existing project
 $ rug edit [OPTION]... EDITOR [PARAMETER]...
 ```
 
-EDITOR is a Rug editor, e.g., "atomist:common-editors:AddReadme".  If the name of the editor has spaces in it, you need to put quotes around it.  To pass parameters to the editor you can specify multiple PARAMETERs in "form NAME=VALUE".
+EDITOR is a Rug editor, e.g., "atomist:common-editors:AddReadme".  If the name of the editor has spaces in it, you need to put quotes around it.  To pass parameters to the editor you can specify multiple PARAMETERs in  form of "NAME=VALUE".
 
 *Command aliases:* `ed`
 
@@ -168,7 +174,7 @@ Manage command line extensions
 $ rug extension SUBCOMMAND [OPTION]... [EXTENSION]
 ```
 
-SUBCOMMAND is either install, uninstall or list.  EXTENSION should be a valid extension identifier of form GROUP:ARTIFACT.  If no version EV is provided with -a, the latest version of the extension is installed.
+SUBCOMMAND is either 'install', 'uninstall' or 'list'.  EXTENSION should be a valid extension identifier of form GROUP:ARTIFACT.  If no version EV is provided with -a, the latest version of the extension is installed.
 
 *Command aliases:* `ext`
 
@@ -201,7 +207,7 @@ GENERATOR is a Rug generator, e.g., "atomist:spring-service:Spring Microservice"
 `-C DIR`, `--change-dir=DIR`
 :   Create project in directory DIR, default is '.'
 
-`-F`, `--overwrite`
+`-F`, `--force`
 :   Force overwrite if target directory already exists
 
 `-I`, `--interactive`
@@ -237,7 +243,7 @@ Create and install an archive into the local repository
 $ rug install [OPTION]...
 ```
 
-Create and install an archive from the current project in the local repository.  Ensure that there is a manifest.yml descriptor in the .atomist directory.
+Create and install an archive from the current project in the local repository.
 
 *Command options:*
 
@@ -317,7 +323,7 @@ Create and publish an archive into a remote repository
 $ rug publish [OPTION]...
 ```
 
-Create a Rug archive from the current repo and publish it in a remote repository.  Ensure that there is a manifest.yml descriptor in the .atomist directory.  Use -i to specify what repository configuration should be used to publish.  ID should refer to a repository name in cli.yml
+Create a Rug archive from the current repo and publish it in a remote repository.  Use -i to specify what repository configuration should be used to publish.  ID should refer to a repository name in cli.yml
 
 *Command options:*
 
@@ -329,6 +335,9 @@ Create a Rug archive from the current repo and publish it in a remote repository
 
 `-a AV`, `--archive-version=AV`
 :   Override archive version with AV
+
+`-F`, `--force`
+:   Force publish if working tree isn't clean
 
 `-i ID`, `--id=ID`
 :   ID identifying the repository to publish into
@@ -343,7 +352,7 @@ Search online catalog of available archives
 $ rug search [OPTION]... [SEARCH]
 ```
 
-SEARCH could be any text used to search the catalog.  TAG can be any valid tag, eg. spring or elm.  TYPE can be either 'editor', 'generator', 'executor' or 'reviewer'.
+SEARCH could be any text used to search the catalog.  TAG can be any valid tag, eg. spring or elm.  TYPE can be either 'editor', 'generator', 'command_handler', 'event_handler' or 'response_handler'.
 
 *Command options:*
 
