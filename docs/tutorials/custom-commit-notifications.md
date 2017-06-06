@@ -28,13 +28,13 @@ be triggered and run on push events.
 Here is the TypeScript code for a handler that does this.
 
 ```typescript linenums="1" hl_lines="11 22"
-{!../../.atomist/handlers/event/NewCommitPushedToDM.ts!}
+{!doc-rugs/.atomist/handlers/event/NewCommitPushedToDM.ts!}
 ```
 
 An event handler gets triggered based on the event it is interested in. This
 is done in Rug via its [path expression][ugpxe] on line 10. Notice in particular how the handler
 filters only commits made by a given author on line 11 (here, `alice`'s commits).
-Finally, line 12 asks Atomist to also feed the handler with the commits
+Finally, line 12 asks Atomist to also feed the handler with the commit's
 repository details. Once it gets called, the handler builds a direct message to send to the Slack
 user in line 22.
 
@@ -61,7 +61,7 @@ For example, in my case, I want to see notifications for pushes by GitHub user
 looks like this.
 
 ```typescript linenums="1" hl_lines="11 22"
-{!../../.atomist/handlers/event/NewCommitPushedToDM_Modified.ts!}
+{!doc-rugs/.atomist/handlers/event/NewCommitPushedToDMMod.ts!}
 ```
 
 ## Publish

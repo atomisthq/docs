@@ -14,6 +14,34 @@ The documentation is generated from markdown using [MkDocs][mkdocs].
 
 [mkdocs]: http://www.mkdocs.org/
 
+## Cloning
+
+This repository uses [Git submodules][submodule] to bring in the
+various Rugs used in the documentation from
+the [atomist/doc-rugs][doc-rugs] repository.  Therefore, after you
+clone the repository for the first time, you will need to initialize
+and update the submodules.
+
+[submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodulse
+[doc-rugs]: https://github.com/atomist/doc-rugs
+
+```
+$ git submodule init
+$ git submodule update
+```
+
+When updating doc-rugs, we prefer that you create a tag and release of
+the doc-rugs repository, checkout that tag in `docs/common/doc-rugs`
+and commit those changes here.
+
+```
+$ cd docs/common/doc-rugs
+$ git fetch
+$ git checkout M.N.P
+$ cd ..
+$ git add doc-rugs
+```
+
 ## Editing
 
 Much of the documentation is hand-generated, so you can feel free to

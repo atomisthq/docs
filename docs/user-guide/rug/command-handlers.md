@@ -33,7 +33,7 @@ the project they target or in different projects altogether.
 Suppose we want to open a new GitHub issue:
 
 ```typescript linenums="1"
-{!../../.atomist/handlers/command/CreateIssue.ts!}
+{!doc-rugs/.atomist/handlers/command/CreateIssue.ts!}
 ```
 
 This command handler follows the same programming model as other Rugs, so it

@@ -25,7 +25,7 @@ StackOverflow and show you the first few results right in chat.
 Here is the TypeScript code for a command that does this.
 
 ```typescript linenums="1" hl_lines="17 21"
-{!../../.atomist/handlers/command/SearchStackOverflow.ts!}
+{!doc-rugs/.atomist/handlers/command/SearchStackOverflow.ts!}
 ```
 
 The `@Intent` specified in line 17, `search SO`, is the command that
