@@ -7,7 +7,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.3.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.4.0...HEAD
+
+## [7.4.0] - 2017-06-06
+
+[7.4.0]: https://github.com/atomist/end-user-documentation/compare/7.3.0...7.4.0
+
+Break out release
+
+### Removed
+
+-   Move Rug code into [atomist/doc-rugs][doc-rugs] repository
+
+### Changed
+
+-   Update Rug CLI reference docs
+
+[doc-rugs]: https://github.com/atomist/doc-rugs
 
 ## [7.3.0] - 2017-05-25
 
