@@ -28,11 +28,11 @@ refactor" approach.
 [cli-install]: /user-guide/interfaces/cli/install.md (Rug CLI Installation)
 [node]: https://nodejs.org/ (Node.js)
 
-For unit testing, we recommend using the [Mocha][mocha] framework with
-either [Power Assert][power-assert].  You should put your Mocha unit
+For unit testing, we recommend using the [Mocha][mocha] framework
+with [Power Assert][power-assert].  You should put your Mocha unit
 tests in the `.atomist/mocha` directory to avoid conflicts with where
-the Rug CLI looks for the BDD tests.  With this setup and using Power
-Assert, your `.atomist/package.json` would look something like this:
+the Rug CLI looks for the BDD tests.  With this setup, your
+`.atomist/package.json` would look something like this:
 
 ```json
 {
