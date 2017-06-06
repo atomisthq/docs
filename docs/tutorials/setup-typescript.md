@@ -17,22 +17,19 @@ page.  You can install either the LTS or Current version.
 
 ## TypeScript
 
-Once you have NPM installed, you should install
-TypeScript, [TSLint][tslint], and [Yarn][yarn] with the following
-command.
+Once you have NPM installed, you should install TypeScript
+and [TSLint][tslint] with the following command.
 
 ```console
-$ npm install --global yarn tslint typescript
+$ npm install --global tslint typescript
 ```
 
 [tslint]: https://palantir.github.io/tslint/ (TSLint)
-[yarn]: https://yarnpkg.com/en/ (Yarn Package Manager)
 
-Yarn is an improved Node.js package management system used in most Rug
-projects.  The `typescript` package will install the TypeScript
-compiler and other tools.  TSLint, like linting programs for other
-languages, provides and enforces a set of development best-practices
-to your Rugs.
+The `typescript` package will install the TypeScript compiler and
+other tools.  TSLint, like linting programs for other languages,
+provides and enforces a set of development best-practices to your
+Rugs.
 
 For a smooth development experience, we recommend you
 use [Visual Studio Code][code] with the [TSLint plugin][plugin].

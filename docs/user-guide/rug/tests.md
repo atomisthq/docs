@@ -21,20 +21,18 @@ tests and BDD.  We recommend following the "red &rarr; green &rarr;
 refactor" approach.
 
 !!! missing "Prerequisites"
-    You will need the [Rug CLI][cli-install], [Node.js][node],
-    and [Yarn][yarn] installed to run tests.
+    You will need the [Rug CLI][cli-install] and [Node.js][node]
+    installed to run tests.
 
 [tdd]: https://en.wikipedia.org/wiki/Test-driven_development (Test-Driven Development)
 [cli-install]: /user-guide/interfaces/cli/install.md (Rug CLI Installation)
 [node]: https://nodejs.org/ (Node.js)
-[yarn]: https://yarnpkg.com/ (Yarn Package Manager)
 
 For unit testing, we recommend using the [Mocha][mocha] framework with
-either [Power Assert][power-assert] or [Chai][chai].  You should put
-your Mocha unit tests in the `.atomist/mocha` directory to avoid
-conflicts with where the Rug CLI looks for the BDD tests.  With this
-setup and using Power Assert, your `.atomist/package.json` would look
-something like this:
+either [Power Assert][power-assert].  You should put your Mocha unit
+tests in the `.atomist/mocha` directory to avoid conflicts with where
+the Rug CLI looks for the BDD tests.  With this setup and using Power
+Assert, your `.atomist/package.json` would look something like this:
 
 ```json
 {
@@ -56,7 +54,7 @@ something like this:
   "scripts": {
     "lint": "tslint '**/*.ts' --exclude 'node_modules/**' -t verbose",
     "mocha": "mocha --compilers ts:espower-typescript/guess 'mocha/**/*.ts'",
-    "test": "yarn run mocha && rug test"
+    "test": "npm run mocha && rug test"
   }
 }
 ```
@@ -64,23 +62,21 @@ something like this:
 and you can run your unit tests with the following command:
 
 ```console
-$ ( cd .atomist && yarn run mocha )
+$ ( cd .atomist && npm run mocha )
 ```
 
 or run both the unit and BDD tests with this command:
 
 ```console
-$ ( cd .atomist && yarn test )
+$ ( cd .atomist && npm test )
 ```
 
-The documentation for [Mocha][mocha], [Chai][chai],
-and [Power Assert][power-assert] can help you get started with unit
-testing in TypeScript/JavaScript.  The rest of this document focuses
-on Rug BDD testing.
+The documentation for [Mocha][mocha] and [Power Assert][power-assert]
+can help you get started with unit testing in TypeScript/JavaScript.
+The rest of this document focuses on Rug BDD testing.
 
 [mocha]: https://mochajs.org/ (Mocha.js)
-[chai]: http://chaijs.com/ (Chai.js)
-[power-assert]: https://github.com/power-assert-js/power-assert (Power Assert)
+[power-assert]: https://github.com/power-assert-js/power-assert (JavaScript Power Assert)
 
 ## Quick overview
 
@@ -553,6 +549,8 @@ of the right kind, are calling the right Rug, and have the proper
 response handlers.  A JavaScript assertion framework such
 as [Chai][chai] can help.  You can get the plan returned by a handler
 using the `plan` method on `#!typescript HandlerScenarioWorld`.
+
+[chai]: http://chaijs.com/ (Chai.js)
 
 ```typescript
 import { DirectedMessage } from "@atomist/rug/operations/Handlers";

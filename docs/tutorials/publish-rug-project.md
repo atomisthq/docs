@@ -15,15 +15,12 @@ in your team, you will need to publish the Rug project.
 ## Install Dependencies
 
 The Rug project contains [NPM][npm] module dependencies that need to
-be installed before we publish.  Run the following commands from
-within your Rug project directory.
+be installed before we publish.  Run the following command from within
+your Rug project directory to install its dependencies.
 
 ```console
-$ cd .atomist
-$ yarn
+$ ( cd .atomist && npm install )
 ```
-
-The `yarn` command will install all the needed dependencies.
 
 [npm]: https://www.npmjs.com/ (NPM Modules)
 

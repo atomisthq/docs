@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.4.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.5.0...HEAD
+
+## [7.5.0] - 2017-06-06
+
+[7.5.0]: https://github.com/atomist/end-user-documentation/compare/7.4.0...7.5.0
+
+Package release
+
+### Changed
+
+-   Update docs to reflect preference for npm over yarn
 
 ## [7.4.0] - 2017-06-06
 
