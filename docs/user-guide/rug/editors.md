@@ -19,7 +19,6 @@ be a running Spring Boot project in its own right. Here is such a project:
     │   ├── editors
     │   │   └── NewSpringBootService.ts
     │   ├── .gitignore
-    │   ├── manifest.yml
     │   ├── package.json
     │   ├── tests
     │   │   ├── project

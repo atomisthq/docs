@@ -17,15 +17,15 @@ good support for TypeScript language.
 
 To generate and edit code with Rug automation, you should become
 familiar with Rug editors, generators, and reviewers.  The best way to
-do that is to look at some examples.  Some simple examples of Rug
-editors can be found in the [common-editors][common] repo.  You can
-clone that repo with the following command.
+do that is to look at some examples.  Some examples of Rug editors can
+be found in the [rug-rugs][] repo.  You can clone that repo with the
+following command.
 
-[common]: https://github.com/atomist-rugs/common-editors
+[rug-rugs]: https://github.com/atomist/rug-rugs
 
 ```console
-$ git clone https://github.com/atomist-rugs/common-editors.git
-$ cd common-editors
+$ git clone https://github.com/atomist/rug-rugs.git
+$ cd rug-rugs
 $ ls -1F
 CHANGELOG.md
 CODE_OF_CONDUCT.md
@@ -42,14 +42,14 @@ same directory that has the `.git` directory.
 $ ls -1F .atomist/
 build/
 editors/
-manifest.yml
+package.json
 target/
 templates/
 tests/
 ```
 
 Here you can see the standard layout for a Rug directory.  It has a
-`manifest.yml` describing the contents of the project.  Think of this
+`package.json` describing the contents of the project.  Think of this
 as the metadata for your Rugs, i.e., the name, version, dependencies,
 etc.  The editors and generators are in the `editors` directory.  Any
 templates are in the `templates` directory.  Testing is integral to
@@ -80,7 +80,7 @@ there, investigate the Rug syntax, and see what the tests look like.
 
 It is a best practice to provide tests for your Rugs.  The first Rug
 command we are going to try will run all of the tests available in the
-common-editors repo.
+rug-rugs repo.
 
 ```console
 $ rug test
@@ -92,8 +92,8 @@ Processing dependencies
   ... (more downloads)
   Downloading com/atomist/rug-cli-root/1.0.0/rug-cli-root-1.0.0.jar ← rug-types (1kb) succeeded
   Downloading org/scala-lang/scala-reflect/2.11.8/scala-reflect-2.11.8.jar ← maven-central (4466kb) succeeded
-Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
-Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
+Resolving dependencies for atomist:rug-rugs:0.7.0 ← local completed
+Loading atomist:rug-rugs:0.7.0 ← local into runtime completed
 Executing scenario AddApacheSoftwareLicense20 should add a new LICENSE file according to a provided template...
   Testing assertion fileExists(SimpleLiteral(LICENSE))
   Testing assertion fileContains(SimpleLiteral(LICENSE),SimpleLiteral(Version 2.0, January 2004))
@@ -152,13 +152,13 @@ Executing scenario RemoveApacheSoftwareLicense20 silently do nothing if no CHANG
 Executing scenario RemoveCodeOfConduct should remove CODE_OF_CONDUCT...
   Testing assertion ParsedJavaScriptFunction(JavaScriptBlock( !result.fileExists("CODE_OF_CONDUCT.md") ))
 Executing scenario RemoveCodeOfConduct silently do nothing if no CODE_OF_CONDUCT present...
-Running test scenarios in atomist-rugs:common-editors:0.7.0 ← local completed
+Running test scenarios in atomist:rug-rugs:0.7.0 ← local completed
 
 Successfully executed 22 of 22 scenarios: Test SUCCESS
 ```
 
 The above command will download all the dependencies needed to run the
-editors defined in the common-editors repo.  Depending on the speed of
+editors defined in the rug-rugs repo.  Depending on the speed of
 your network connection, this may take some time.  Each dependency
 only need be downloaded once, so subsequent executions of `rug` will
 be faster.
@@ -186,25 +186,24 @@ command.
 
 ```console
 $ rug install
-Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
-Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
-  Generated META-INF/maven/atomist-rugs/common-editors/pom.xml
-  Generated .atomist/manifest.yml
+Resolving dependencies for atomist:rug-rugs:0.7.0 ← local completed
+Loading atomist:rug-rugs:0.7.0 ← local into runtime completed
+  Generated META-INF/maven/atomist/rug-rugs/pom.xml
   Generated .atomist/metadata.json
 Generating archive metadata completed
-  Installed atomist-rugs/common-editors/0.7.0/common-editors-0.7.0.zip → /Users/dd/.atomist/repository
-  Installed atomist-rugs/common-editors/0.7.0/common-editors-0.7.0.pom → /Users/dd/.atomist/repository
-  Installed atomist-rugs/common-editors/0.7.0/common-editors-0.7.0-metadata.json → /Users/dd/.atomist/repository
+  Installed atomist/rug-rugs/0.7.0/rug-rugs-0.7.0.zip → /Users/dd/.atomist/repository
+  Installed atomist/rug-rugs/0.7.0/rug-rugs-0.7.0.pom → /Users/dd/.atomist/repository
+  Installed atomist/rug-rugs/0.7.0/rug-rugs-0.7.0-metadata.json → /Users/dd/.atomist/repository
 Installing archive into local repository completed
 
 → Archive
-  ~/develop/atomist-rugs/common-editors/.atomist/target/common-editors-0.7.0.zip (39kb in 43 files)
+  ~/develop/atomist/rug-rugs/.atomist/target/rug-rugs-0.7.0.zip (39kb in 43 files)
 
 → Contents
   ├─┬ .atomist
 ...
 
-Successfully installed archive for atomist-rugs:common-editors:0.7.0
+Successfully installed archive for atomist:rug-rugs:0.7.0
 ```
 
 This command packages up all of the Rugs in the `.atomist` directory
@@ -223,7 +222,7 @@ Resolving dependencies for com.atomist:rug:0.8.0 completed
 Listing local archives completed
 
 → Local Archives
-  atomist-rugs:common-editors (0.7.0)
+  atomist:rug-rugs (0.7.0)
 
 For more information on specific archive version, run:
   rug describe archive ARCHIVE -a VERSION
@@ -236,18 +235,18 @@ can omit the `-a` command-line option.  When it is not provided, the
 latest version is used.
 
 ```console
-$ rug describe archive atomist-rugs:common-editors
+$ rug describe archive atomist:rug-rugs
 Processing dependencies
-  Downloading atomist-rugs/common-editors/maven-metadata.xml ← rugs (0kb) succeeded
-Resolving dependencies for atomist-rugs:common-editors:latest completed
-Loading atomist-rugs:common-editors:0.7.0 into runtime completed
+  Downloading atomist/rug-rugs/maven-metadata.xml ← rugs (0kb) succeeded
+Resolving dependencies for atomist:rug-rugs:latest completed
+Loading atomist:rug-rugs:0.7.0 into runtime completed
 
-atomist-rugs:common-editors:0.7.0
+atomist:rug-rugs:0.7.0
 
 → Origin
-  atomist-rugs/common-editors.git#master (622ed10)
+  atomist/rug-rugs.git#master (622ed10)
 → Archive
-  ~/.atomist/repository/atomist-rugs/common-editors/0.7.0/common-editors-0.7.0.zip (39kb in 43 files)
+  ~/.atomist/repository/atomist/rug-rugs/0.7.0/rug-rugs-0.7.0.zip (39kb in 43 files)
 
 → Editors
   AddApacheSoftwareLicense20 (add the Apache Software License version 2.0 file)
@@ -324,11 +323,11 @@ editor we want to run, that seems promising.
 
 ```console
 $ rug describe -l editor AddApacheSoftwareLicense20
-Resolving dependencies for atomist-rugs:common-editors:0.7.0 ← local completed
-Loading atomist-rugs:common-editors:0.7.0 ← local into runtime completed
+Resolving dependencies for atomist:rug-rugs:0.7.0 ← local completed
+Loading atomist:rug-rugs:0.7.0 ← local into runtime completed
 
 AddApacheSoftwareLicense20
-atomist-rugs:common-editors:0.7.0
+atomist:rug-rugs:0.7.0
 add the Apache Software License version 2.0 file
 
 → Tags
@@ -339,17 +338,17 @@ add the Apache Software License version 2.0 file
   no parameters needed
 
 To invoke the AddApacheSoftwareLicense20 editor, run:
-  rug edit "atomist-rugs:common-editors:AddApacheSoftwareLicense20" -a 0.7.0 -l
+  rug edit "atomist:rug-rugs:AddApacheSoftwareLicense20" -a 0.7.0 -l
 ```
 
 Success!  The output from that command also tells us what the full
 name of the editor is,
-`atomist-rugs:common-editors:AddApacheSoftwareLicense20`.  We could
+`atomist:rug-rugs:AddApacheSoftwareLicense20`.  We could
 have guessed that.  Since we previously installed the editor, we could
 have run the following command and gotten the same result.
 
 ```console
-$ rug describe editor atomist-rugs:common-editors:AddApacheSoftwareLicense20
+$ rug describe editor atomist:rug-rugs:AddApacheSoftwareLicense20
 ```
 
 The `describe editor` output includes several pieces of useful
@@ -370,19 +369,19 @@ We will just run the command we were provided above.  We remove the
 from the local directory, we can run it from the installed archive.
 
 ```console
-$ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20 -a 0.7.0
-Resolving dependencies for atomist-rugs:common-editors:latest completed
-Loading atomist-rugs:common-editors:0.7.0 into runtime completed
-Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.7.0 completed
+$ rug edit atomist:rug-rugs:AddApacheSoftwareLicense20 -a 0.7.0
+Resolving dependencies for atomist:rug-rugs:latest completed
+Loading atomist:rug-rugs:0.7.0 into runtime completed
+Running editor AddApacheSoftwareLicense20 of atomist:rug-rugs:0.7.0 completed
 
 → Project
-  ~/develop/atomist-rugs/common-editors/ (282kb in 302 files)
+  ~/develop/atomist/rug-rugs/ (282kb in 302 files)
 
 → Changes
   ├── LICENSE created 11kb
   └── .atomist.yml created 3kb
 
-Successfully edited project common-editors
+Successfully edited project rug-rugs
 ```
 
 Looks like two files were edited in the local repository.
@@ -411,12 +410,12 @@ $ cat .atomist.yml
 kind: "operation"
 client: "rug-cli 0.20.0"
 editor:
-  name: "atomist-rugs.common-editors.AddApacheSoftwareLicense20"
-  group: "atomist-rugs"
-  artifact: "common-editors"
+  name: "atomist.rug-rugs.AddApacheSoftwareLicense20"
+  group: "atomist"
+  artifact: "rug-rugs"
   version: "0.7.0"
   origin:
-    repo: "atomist-rugs/common-editors.git"
+    repo: "atomist/rug-rugs.git"
     branch: "master"
     sha: "622ed10"
 
@@ -436,14 +435,14 @@ $ cd ..
 $ mkdir atomist-test
 $ cd !$
 $ git init
-$ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20
-$ rug edit atomist-rugs:common-editors:AddApacheSoftwareLicense20
-Resolving dependencies for atomist-rugs:common-editors:latest completed
-Loading atomist-rugs:common-editors:0.7.0 into runtime completed
-Running editor AddApacheSoftwareLicense20 of atomist-rugs:common-editors:0.7.0 completed
+$ rug edit atomist:rug-rugs:AddApacheSoftwareLicense20
+$ rug edit atomist:rug-rugs:AddApacheSoftwareLicense20
+Resolving dependencies for atomist:rug-rugs:latest completed
+Loading atomist:rug-rugs:0.7.0 into runtime completed
+Running editor AddApacheSoftwareLicense20 of atomist:rug-rugs:0.7.0 completed
 
 → Project
-  ~/develop/atomist-rugs/atomist-test/ (15 kb in 16 files)
+  ~/develop/atomist/atomist-test/ (15 kb in 16 files)
 
 → Changes
   ├── LICENSE created 11 kb
@@ -468,13 +467,13 @@ That's more like it!  What if we decide we do not want the Apache
 Software License?  There's an editor for that!
 
 ```console
-$ rug edit atomist-rugs:common-editors:RemoveApacheSoftwareLicense20
-Resolving dependencies for atomist-rugs:common-editors:latest completed
-Loading atomist-rugs:common-editors:0.7.0 into runtime completed
-Running editor RemoveApacheSoftwareLicense20 of atomist-rugs:common-editors:0.7.0 completed
+$ rug edit atomist:rug-rugs:RemoveApacheSoftwareLicense20
+Resolving dependencies for atomist:rug-rugs:latest completed
+Loading atomist:rug-rugs:0.7.0 into runtime completed
+Running editor RemoveApacheSoftwareLicense20 of atomist:rug-rugs:0.7.0 completed
 
 → Project
-  ~/develop/atomist-rugs/atomist-test/ (26 kb in 15 files)
+  ~/develop/atomist/atomist-test/ (26 kb in 15 files)
 
 → Changes
   ├── LICENSE deleted 15 kb
@@ -503,12 +502,12 @@ $ cat .atomist.yml
 kind: "operation"
 client: "rug-cli 0.20.0"
 editor:
-  name: "atomist-rugs.common-editors.AddApacheSoftwareLicense20"
-  group: "atomist-rugs"
-  artifact: "common-editors"
+  name: "atomist.rug-rugs.AddApacheSoftwareLicense20"
+  group: "atomist"
+  artifact: "rug-rugs"
   version: "0.7.0"
   origin:
-    repo: "atomist-rugs/common-editors.git"
+    repo: "atomist/rug-rugs.git"
     branch: "master"
     sha: "622ed10"
 
@@ -516,12 +515,12 @@ editor:
 kind: "operation"
 client: "rug-cli 0.20.0"
 editor:
-  name: "atomist-rugs.common-editors.RemoveApacheSoftwareLicense20"
-  group: "atomist-rugs"
-  artifact: "common-editors"
+  name: "atomist.rug-rugs.RemoveApacheSoftwareLicense20"
+  group: "atomist"
+  artifact: "rug-rugs"
   version: "0.7.0"
   origin:
-    repo: "atomist-rugs/common-editors.git"
+    repo: "atomist/rug-rugs.git"
     branch: "master"
     sha: "622ed10"
 
