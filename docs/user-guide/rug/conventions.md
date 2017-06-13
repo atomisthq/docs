@@ -72,14 +72,17 @@ generate a valid Maven project then `maven-project` would be appropriate.
 
 ### Metadata
 
-The Rug archive project metadata stored in the `.atomist/manifest.yml`
+The Rug archive project metadata stored in the `.atomist/package.json`
 file should conform to the following guidelines.
 
--   `#!yaml group`: The group should be the same as the GitHub owner.
--   `#!yaml artifact`: The artifact should be the same as the GitHub project name.
--   `#!yaml version`: The version should be a valid [Semantic version][semver].
+-   `name`: The name should be [scoped][scope] under the owner of the
+    project's repository and the unqualified name should be the same
+    as the repository name.  For example, for the GitHub repository
+    `someone/something`, the name should be `@someone/something`.
+-   `version`: The version should be a valid [Semantic version][semver].
 
-[semver]: http://semver.org/
+[scope]: https://docs.npmjs.com/getting-started/scoped-packages (NPM Scopes)
+[semver]: http://semver.org/ (Semantic Versioning)
 
 <!-- Do we want to say something about appropriate version ranges to use for dependencies? -->
 
