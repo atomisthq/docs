@@ -59,22 +59,28 @@ $ curl -o .atomist/handlers/command/SearchStackOverflow.ts \
 ```
 
 Your command handler uses the `http` function, so you need to add that
-dependency as an extension into the `manifest.yml` of your Rug
-project.
+dependency as an extension into the `atomist` section of your Rug
+project's `package.json`.
 
-```yml hl_lines="5 6"
-group: "atomist-contrib"
-artifact: "atomist-tutorials"
-version: "0.3.0"
-requires: "[0.25.3,0.26.0)"
-extensions:
-  - "com.atomist.rug:rug-function-http:0.6.2"
+```json hl_lines="7 8"
+{
+  "name": "@atomist-contrib/atomist-tutorials",
+  "version": "0.3.0",
+  ...
+  "atomist": {
+    "requires": "[1.0.0-m.4,2.0.0)",
+    "extensions": {
+      "com.atomist.rug:rug-function-http": "[0.7.3,1.0.0)"
+    }
+  }
+}
 ```
 
 Now commit those changes to your Rug project.
 
 ```console
-$ git add .atomist/handlers/command/SearchStackOverflow.ts .atomist/manifest.yml
+$ ( cd .atomist && npm install )
+$ git add .atomist/handlers/command/SearchStackOverflow.ts .atomist/package*.json
 $ git commit -m 'Added StackOverflow command handler'
 ```
 
@@ -93,7 +99,7 @@ $ rug publish -i <YOUR_TEAM_ID>
 In `#general` or any channel in your Slack team that Atomist Bot has
 been invited to, type this message, replacing `<group>` and
 `<artifact>` with the values for `group` and `artifact` found in your
-Rug project's `.atomist/manifest.yml`.
+Rug project's `.atomist/package.json`.
 
 ```
 @atomist add skills <group>:<artifact>
