@@ -7,7 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.5.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.6.0...HEAD
+
+## [7.6.0] - 2017-06-21
+
+[7.6.0]: https://github.com/atomist/end-user-documentation/compare/7.5.0...7.6.0
+
+De-manifest release
+
+### Fixed
+
+-   Update all references to manifest.yml to package.json
+-   Updated /user-guide/rug/lifecycle.md
 
 ## [7.5.0] - 2017-06-06
 
