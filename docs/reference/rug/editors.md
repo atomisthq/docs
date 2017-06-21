@@ -211,7 +211,7 @@ in separate files within the same project where we would use the `use`
 statement to bring in the editor in a different file. We can also
 refer to editors outside the current project by introducing a
 dependency on the Rug project that those editors that we want to
-import are located in to the `.atomist/manifest.yml` file.
+import are in the `.atomist/package.json` file.
 
 When composing by calling an editor that accepts parameters, the
 parameters are provided as a comma-separate list of

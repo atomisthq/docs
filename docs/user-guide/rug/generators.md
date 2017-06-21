@@ -7,7 +7,7 @@ to create new projects.  The transformations are encoded in the Rug
 generator script located under the project's `.atomist` directory.
 Using these components, a generator does the followings:
 
-1.  Copy the content of its host project, `.atomist` directory 
+1.  Copy the content of its host project, `.atomist` directory
     (and anything listed in `.atomist/ignore`)
     excluded, into the new target directory
 2.  Runs the generator's `populate` function against the contents of
@@ -17,8 +17,8 @@ Let's look more closely at what makes a project a Rug generator.
 
 ## Anatomy of a Generator
 
-Suppose we have a model project our team clones to quickly get the skeleton of a 
-[Spring Bot Rest Service][springrest].  The contents of the model project are 
+Suppose we have a model project our team clones to quickly get the skeleton of a
+[Spring Bot Rest Service][springrest].  The contents of the model project are
 the following.
 
 [springrest]: https://spring.io/guides/gs/rest-service/
@@ -48,8 +48,8 @@ the following.
     │                   └── MyRestServiceWebIntegrationTests.java
 ```
 
-To convert out model project into a [Rug generator][rugproj], we can use the 
-`ConvertExistingProjectToGenerator` Rug editor in [rug-editors][convert] to 
+To convert out model project into a [Rug generator][rugproj], we can use the
+`ConvertExistingProjectToGenerator` Rug editor in [rug-editors][convert] to
 add all the necessary directories and files:
 
 [rugproj]: projects.md
@@ -62,31 +62,22 @@ $ rug edit atomist-rugs:rug-editors:ConvertExistingProjectToGenerator \
     version=0.13.0 \
     generator_name=NewSpringBootService \
     description="Rug generator for a Spring Boot REST service"
-Processing dependencies                                                                                                                                                                                          
-  Downloading atomist-rugs/rug-editors/maven-metadata.xml ← rugs (740 bytes) succeeded                                                                                                                 
-  Downloading atomist-rugs/rug-editors/maven-metadata.xml ← global (740 bytes) succeeded                                                                                                               
-  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0.pom ← rugs (635 bytes) succeeded                                                                                                      
-  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0-metadata.json ← rugs (14 kb) succeeded                                                                                                
-  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0.zip ← rugs (194 kb) succeeded                                                                                                         
+Processing dependencies
+  Downloading atomist-rugs/rug-editors/maven-metadata.xml ← rugs (740 bytes) succeeded
+  Downloading atomist-rugs/rug-editors/maven-metadata.xml ← global (740 bytes) succeeded
+  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0.pom ← rugs (635 bytes) succeeded
+  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0-metadata.json ← rugs (14 kb) succeeded
+  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0.zip ← rugs (194 kb) succeeded
 Resolving dependencies for atomist-rugs:rug-editors:latest completed
 Loading atomist-rugs:rug-editors:0.14.0 into runtime completed
-  TypeScript files added, run `cd .atomist && npm install`                                                                                                                                                      
-                                                                                                                                                                                                                
+  TypeScript files added, run `cd .atomist && npm install`
+
 Running editor ConvertExistingProjectToGenerator of atomist-rugs:rug-editors:0.14.0 completed
 
 → Project
   ~/workspace/spring-boot-rest-basic (14 kb in 20 files)
 
 → Changes
-  ├── .atomist/manifest.yml created (223 bytes)
-  ├── .atomist/manifest.yml updated (227 bytes)
-  ├── .atomist/manifest.yml updated (235 bytes)
-  ├── .atomist/manifest.yml updated (235 bytes)
-  ├── .atomist/manifest.yml updated (179 bytes)
-  ├── .atomist/manifest.yml updated (128 bytes)
-  ├── .atomist/manifest.yml updated (113 bytes)
-  ├── .atomist/manifest.yml updated (105 bytes)
-  ├── .atomist/manifest.yml updated (103 bytes)
   ├── .atomist/package.json created (57 bytes)
   ├── .atomist/tsconfig.json created (627 bytes)
   ├── .atomist/.gitignore created (27 bytes)
@@ -100,8 +91,8 @@ Running editor ConvertExistingProjectToGenerator of atomist-rugs:rug-editors:0.1
   └── .atomist.yml created (2 kb)
 ```
 
-The `group_id` and `archive_name` parameters, coupled with the name of the Rug 
-generator, define the fully-qualified name of the [Rug archive][rugarch] (the 
+The `group_id` and `archive_name` parameters, coupled with the name of the Rug
+generator, define the fully-qualified name of the [Rug archive][rugarch] (the
 published package of a Rug).
 
 [rugarch]: archives.md
@@ -114,7 +105,6 @@ Once this is completed, the project should look like this:
     │   ├── editors
     │   │   └── NewSpringBootService.ts
     │   ├── .gitignore
-    │   ├── manifest.yml
     │   ├── package.json
     │   ├── tests
     │   │   ├── project
@@ -146,10 +136,10 @@ Once this is completed, the project should look like this:
     │                   └── MyRestServiceWebIntegrationTests.java
 ```
 
-The `.atomist` directory contains a manifest file,
-declares [TypeScript][ts] dependencies in the `package.json` file, and
-has the Rug generator script and its associated test in appropriate
-subdirectories.
+The `.atomist` directory contains a metadata file, `package.json`,
+defining characteristics of the project and declaring [TypeScript][ts]
+dependencies, and has the Rug generator script and its associated test
+in appropriate subdirectories.
 
 [ts]: https://www.typescriptlang.org/
 
@@ -163,7 +153,7 @@ Let's take a close look at the Rug generator script.
 ## A Basic Generator Script
 
 The generator script's `#!typescript populate` method is invoked after
-the model project's files have been copied to the target project.  The default 
+the model project's files have been copied to the target project.  The default
 contents of the generator script we added above look like the following:
 
 ```typescript linenums="1"
@@ -212,10 +202,10 @@ Like the generator class name, the name of the `#!typescript const`
 does not matter, but it is convention to use the generator/class name,
 lower-casing the first letter.
 
-As explained earlier, a generator copies the content of the project where it 
-lives into a target directory before applying changes. The definition of our 
+As explained earlier, a generator copies the content of the project where it
+lives into a target directory before applying changes. The definition of our
 generator currently performs only the copy (this is done automatically for us).
-Let's now amend the generator to modify the copied contents, for example to 
+Let's now amend the generator to modify the copied contents, for example to
 change the name of the copied class. An action users would likely do manually.
 
 ```typescript linenums="1" hl_lines="3 6 26 27 28 29 30"
@@ -253,7 +243,7 @@ export class NewSpringBootService implements PopulateProject {
 }
 
 export const newSpringBootService = new NewSpringBootService();
-``` 
+```
 
 Rugs, like typical methods, often take parameters to customize their
 behavior.  Generators have a required parameter: the name of the
@@ -280,24 +270,24 @@ the files copied from the generator project.  Using this object, you
 can alter the exact copy of the original project as appropriate so the
 result is the new project with the desired contents.  To effect your
 desired changes, you have the power of TypeScript and the Rug
-programming model.  
+programming model.
 
 In that regards, as Atomist comprehends filesystem and code structure, the Rug
 programming model offers a powerful mechanism to make the above example a lot
-less brittle through [path expressions][pxe]. In this generator script, we query 
-the filesystem for all files containing a specific token in their names 
-(line 27). Then for each one of these files, we replace its content (line 28) 
-and move it to different path (line 29). 
+less brittle through [path expressions][pxe]. In this generator script, we query
+the filesystem for all files containing a specific token in their names
+(line 27). Then for each one of these files, we replace its content (line 28)
+and move it to different path (line 29).
 
 [pxe]: path-expressions.md
 
-Rugs should be tested as any other pieces of software, Rug and its runtime 
-natively supports a [BDD-centric testing approach][rugtest], based on the 
+Rugs should be tested as any other pieces of software, Rug and its runtime
+natively supports a [BDD-centric testing approach][rugtest], based on the
 Gherkin DSL.
 
 [rugtest]: tests.md
 
-The test for our generator could be described as follows in 
+The test for our generator could be described as follows in
 `.atomist/tests/NewSpringBootService.feature`:
 
 ```gherkin
@@ -305,9 +295,9 @@ Feature: Creating new Spring Rest Service projects
 
 Scenario: A default Spring Rest project structure should be generated
  Given an empty project
- 
+
  When running the Spring Boot Service generator
- 
+
  Then the name of the application file is changed
  Then the name of the configuration file is changed
  Then the name of the application tests file is changed
@@ -335,57 +325,57 @@ When("running the Spring Boot Service generator", (p: Project, world: ProjectSce
   world.generateWith(generator, {"service_class_name": "CalendarService"});
 })
 
-Then("the name of the application file is changed", (p: Project) => 
+Then("the name of the application file is changed", (p: Project) =>
     p.fileExists("src/main/java/com/company/CalendarServiceApplication.java")
 )
-Then("the name of the configuration file is changed", (p: Project) => 
+Then("the name of the configuration file is changed", (p: Project) =>
     p.fileExists("src/main/java/com/company/CalendarServiceConfiguration.java")
 )
-Then("the name of the application tests file is changed", (p: Project) => 
+Then("the name of the application tests file is changed", (p: Project) =>
     p.fileExists("src/test/java/com/company/CalendarServiceApplicationTests.java")
 )
-Then("the name of the integration tests file is changed", (p: Project) => 
+Then("the name of the integration tests file is changed", (p: Project) =>
     p.fileExists("src/test/java/com/company/CalendarServiceOutOfContainerIntegrationTests.java")
 )
-Then("the name of the web integration tests file is changed", (p: Project) => 
+Then("the name of the web integration tests file is changed", (p: Project) =>
     p.fileExists("src/test/java/com/company/CalendarServiceWebIntegrationTests.java")
 )
 
-Then("the name of the class in the application file is changed", (p: Project) => 
+Then("the name of the class in the application file is changed", (p: Project) =>
     p.findFile("src/main/java/com/company/CalendarServiceApplication.java").contains("CalendarServiceApplication")
 )
-Then("the name of the class in the configuration file is changed", (p: Project) => 
+Then("the name of the class in the configuration file is changed", (p: Project) =>
     p.findFile("src/main/java/com/company/CalendarServiceConfiguration.java").contains("CalendarServiceConfiguration")
 )
-Then("the name of the class in the application tests file is changed", (p: Project) => 
+Then("the name of the class in the application tests file is changed", (p: Project) =>
     p.findFile("src/test/java/com/company/CalendarServiceApplicationTests.java").contains("CalendarServiceApplicationTests")
 )
-Then("the name of the class in the integration tests file is changed", (p: Project) => 
+Then("the name of the class in the integration tests file is changed", (p: Project) =>
     p.findFile("src/test/java/com/company/CalendarServiceOutOfContainerIntegrationTests.java").contains("CalendarServiceOutOfContainerIntegrationTests")
 )
-Then("the name of the class in the web integration tests is changed", (p: Project) => 
+Then("the name of the class in the web integration tests is changed", (p: Project) =>
     p.findFile("src/test/java/com/company/CalendarServiceWebIntegrationTests.java").contains("CalendarServiceWebIntegrationTests")
 )
 ```
 
-If you're not familiar with this approach, the 
+If you're not familiar with this approach, the
 `.atomist/tests/NewSpringBootService.feature` describes our tests in a set of
-hypotheses and expectations. All those steps are implemented in the 
+hypotheses and expectations. All those steps are implemented in the
 `.atomist/tests/Steps.ts` file which is executed when the test is run:
 
 ```console
 $ rug test
 Resolving dependencies for com.company.rugs:spring-boot-service:0.13.0:local completed
-Invoking TypeScript Compiler on ts script sources                                                                                                                                                                
-  Created .atomist/tests/Steps.js.map                                                                                                                                                                            
-  Created .atomist/tests/Steps.js                                                                                                                                                                                
-  Created .atomist/editors/NewSpringBootService.js.map                                                                                                                                                           
-  Created .atomist/editors/NewSpringBootService.js                                                                                                                                                               
+Invoking TypeScript Compiler on ts script sources
+  Created .atomist/tests/Steps.js.map
+  Created .atomist/tests/Steps.js
+  Created .atomist/editors/NewSpringBootService.js.map
+  Created .atomist/editors/NewSpringBootService.js
 Processing script sources completed
 Loading com.company.rugs:spring-boot-service:0.13.0:local completed
-  Executing feature Creating new Spring Rest Service projects                                                                                                                                                   
-    Executing test scenario A default Spring Rest project structure should be generated                                                                                                                         
-  Creating project_name                                                                                                                                                                                         
+  Executing feature Creating new Spring Rest Service projects
+    Executing test scenario A default Spring Rest project structure should be generated
+  Creating project_name
 Running tests in com.company.rugs:spring-boot-service:0.13.0:local completed
 
 Successfully executed 1 of 1 test: Test SUCCESS
@@ -397,16 +387,16 @@ with a relevant error message:
 ```console
 $ rug test
 Resolving dependencies for com.company.rugs:spring-boot-service:0.13.0:local completed
-Invoking TypeScript Compiler on ts script sources                                                                                                                                                                
-  Created .atomist/tests/Steps.js.map                                                                                                                                                                            
-  Created .atomist/tests/Steps.js                                                                                                                                                                                
-  Created .atomist/editors/NewSpringBootService.js                                                                                                                                                               
-  Created .atomist/editors/NewSpringBootService.js.map                                                                                                                                                           
+Invoking TypeScript Compiler on ts script sources
+  Created .atomist/tests/Steps.js.map
+  Created .atomist/tests/Steps.js
+  Created .atomist/editors/NewSpringBootService.js
+  Created .atomist/editors/NewSpringBootService.js.map
 Processing script sources completed
 Loading com.company.rugs:spring-boot-service:0.13.0:local completed
-  Executing feature Creating new Spring Rest Service projects                                                                                                                                                   
-    Executing test scenario A default Spring Rest project structure should be generated                                                                                                                         
-  Creating project_name                                                                                                                                                                                         
+  Executing feature Creating new Spring Rest Service projects
+    Executing test scenario A default Spring Rest project structure should be generated
+  Creating project_name
 Running tests in com.company.rugs:spring-boot-service:0.13.0:local completed
 
 → Test Report
@@ -431,9 +421,7 @@ Unsuccessfully executed 1 of 1 test: Test FAILURE
 ```
 
 As you can see, Rug generator scripts are simple functions that apply
-changes against a freshly copy of your its content. This changes may be 
-parametarized to tailor the result to the user's expectations. Finally, 
+changes against a freshly copy of your its content. This changes may be
+parametarized to tailor the result to the user's expectations. Finally,
 following a test-driven approach, generators can be quickly validated before
 being released.
-
-

@@ -30,8 +30,11 @@ The plan above instructs the Rug Runtime to invoke the `http` Rug Function,
 passing all the `parameters` to it, and sending appropriate messages to the
 `#random` channel `onSuccess` or `onError`.
 
-In order use a Rug Function from an Event or Command Handler, its archive's
-coordinates must be present in the [`manifest.yml`](/user-guide/rug/archives.md).
+To use a Rug Function from an Event or Command Handler, its archive's
+coordinates must be present in the `.atomist.extensions` section of
+the Rug project's [`package.json`][archives].
+
+[archives]: /user-guide/rug/archives.md (Rug Archives)
 
 !!! danger "Security"
     All Rug Function archives must be signed by Atomist and be explicitly

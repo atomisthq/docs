@@ -10,7 +10,6 @@ the `.atomist/handlers` directory:
     │   │   │   └── MergePR.ts
     │   │   └── event
     │   │   │   └── GitHubCommit.ts
-    │   ├── manifest.yml
     │   ├── package.json
     │   ├── tests
     │   └── tsconfig.json
