@@ -7,7 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.6.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.7.0...HEAD
+
+## [7.7.0] - 2017-06-30
+
+[7.7.0]: https://github.com/atomist/end-user-documentation/compare/7.6.0...7.7.0
+
+Nanogrammar release
+
+### Changed
+
+-   Update microgrammar documentation to point
+    to [`@atomist/microgrammar`][microgrammar]
+
+[microgrammar]: https://github.com/atomist/microgrammar
 
 ## [7.6.0] - 2017-06-21
 
