@@ -11,16 +11,18 @@ the [Getting Started][getting-started] guide.
 [overview]: /index.md
 [getting-started]: /getting-started/index.md
 
-The Atomist User Guide is split into three sections:
+The Atomist User Guide contains the following sections:
 
 -   [**Rug**][rug]: Atomist's enabling technology
 -   [**Integrations**][integrations]: External platforms and tools that Atomist works with
 -   [**Interfaces**][interfaces]: How users interact with Atomist
+-   [**Fingerprints**][fingerprints]: How Atomist detects significant code changes
 -   [**Permissions**][permissions]: What permissions Atomist asks for
 
 [rug]: rug/index.md
 [integrations]: integrations/index.md
 [interfaces]: interfaces/index.md
+[fingerprints]: fingerprints.md
 [permissions]: permissions/index.md
 
 Click on any of the links above to go directly to that section, or
