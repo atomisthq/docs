@@ -1,6 +1,6 @@
-Fingerprints detect important changes to code and configuration. They ensure that critical, potentially breaking changes don’t slip by unnoticed and cause outages or other problems. 
+Fingerprints detect important changes to code and configuration. They ensure that critical, potentially breaking changes don’t slip by unnoticed and cause outages or other problems.
 
-Fingerprints are calculated by extracting specific, logically related fragments of code, normalizing and sorting them in a deterministic order, and then computing a SHA. Fingerprints are computed on each commit and pull request. If a change from previous version is detected, Atomist alerts you in Slack and in some cases sets the GitHub build status to blocked. 
+Fingerprints are calculated by extracting specific, logically related fragments of code, normalizing and sorting them in a deterministic order, and then computing a SHA. Fingerprints are computed on the difference or impact between the commit and its parent commit. The fingerprints are calculated on each commit. If a change from previous version is detected, Atomist alerts you in Slack and in some cases sets the GitHub build status to blocked.
 
 ## Available Fingerprints
 
@@ -15,11 +15,11 @@ Entry | Description
 `plugins` | Maven plugins
 `plugsMgt` | Maven plugin management
 `deps` | Maven dependencies
-`depsMgt` | Maven dependency management 
+`depsMgt` | Maven dependency management
 
 ## Appearance
 
-Below is an example fingerprint rendering in Slack. It shows that both the build configuration and the configured plugins changed. Notice that the fingerprint has done its job here: the fingerprint detected a change to the build file that the commit message neglected to mention. 
+Below is an example fingerprint rendering in Slack. It shows that both the build configuration and the configured plugins changed. Notice that the fingerprint has done its job here: the fingerprint detected a change to the build file that the commit message neglected to mention.
 
 ![Fingerprint](/images/fingerprint.png)
 
@@ -27,5 +27,4 @@ Below is an example fingerprint rendering in Slack. It shows that both the build
 
 The fingerprint configuration file is located in the atomist-config repo:
 
-`https://<your-repo>/atomist-config/blob/master/fingerprints.json` 
-
+`https://<your-repo>/atomist-config/blob/master/fingerprints.json`
