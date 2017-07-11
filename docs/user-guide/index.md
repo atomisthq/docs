@@ -16,6 +16,7 @@ The Atomist User Guide contains the following sections:
 -   [**Rug**][rug]: Atomist's enabling technology
 -   [**Integrations**][integrations]: External platforms and tools that Atomist works with
 -   [**Interfaces**][interfaces]: How users interact with Atomist
+-   [**Seeds**][fingerprints]: Projects that generate other projects
 -   [**Fingerprints**][fingerprints]: How Atomist detects significant code changes
 -   [**Permissions**][permissions]: What permissions Atomist asks for
 

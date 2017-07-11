@@ -113,6 +113,7 @@ pages:
             - Using Rugs: user-guide/interfaces/cli/using-rugs.md
             - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
     - Fingerprints: user-guide/fingerprints.md
+    - Seeds: user-guide/seeds.md
     - Permissions:
         - Overview: user-guide/permissions/index.md
         - Slack Scopes: user-guide/permissions/slack.md
