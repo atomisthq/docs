@@ -323,7 +323,7 @@ Create and publish an archive into a remote repository
 $ rug publish [OPTION]...
 ```
 
-Create a Rug archive from the current repo and publish it in a remote repository.  Use -i to specify what repository configuration should be used to publish.  ID should refer to a repository name in cli.yml
+Create a Rug archive from the current repo and publish it into a remote repository.  Use -i to specify what repository configuration should be used to publish.  ID should refer to a repository name in cli.yml
 
 *Command options:*
 
@@ -342,8 +342,8 @@ Create a Rug archive from the current repo and publish it in a remote repository
 `-i ID`, `--id=ID`
 :   ID identifying the repository to publish into
 
-`-U`, `--update-all`
-:   Update archive in all repositories it exists
+`-P`, `--publish-all`
+:   Publish archive into all repositories it exists
 
 ### `search`
 
