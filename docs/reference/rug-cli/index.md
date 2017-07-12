@@ -342,6 +342,9 @@ Create a Rug archive from the current repo and publish it in a remote repository
 `-i ID`, `--id=ID`
 :   ID identifying the repository to publish into
 
+`-U`, `--update-all`
+:   Update archive in all repositories it exists
+
 ### `search`
 
 Search online catalog of available archives
