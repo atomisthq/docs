@@ -12,7 +12,7 @@ You can install the agent in a project using the Atomist bot or manually.
 
 ### Using the Atomist Bot
 
-Add the Spring Agent to a project by running `@atomist add atomist agent`.
+Add the Spring Agent to a project by running `@atomist add spring agent`. Ideally you would run this command from a Slack channel that is linked to GitHub repository via `@atomist repo <repo owner name> <repo name>`. 
 
 ### Manually
 
@@ -22,11 +22,11 @@ Add the Agent in your application by adding the following to your `pom.xml`:
 		<dependency>
 			<groupId>com.atomist</groupId>
 			<artifactId>spring-boot-agent</artifactId>
-			<version>latest version</version>
+			<version><latest version></version>
 		</dependency>
 ```
 
-As this agent is not available from Maven Central adding the following repo is requried, too:
+As the agent is not available from Maven Central adding the following repo is requried, too:
 
 ```
 		<repository>
@@ -45,7 +45,7 @@ Once added to your project, the agent can be configured from the Spring Boot `ap
 # enable or disable the agent
 atomist.enabled=true
 # enable trace output; this allows you to review the event messages the agent sends
-atomist.debug=false
+atomist.debug=true
 # configure the endpoint; {id} should be replaced by your Slack team id
 atomist.url=https://webhook.atomist.com/atomist/application/teams/{id}
 
