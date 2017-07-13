@@ -114,6 +114,7 @@ pages:
             - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
     - Fingerprints: user-guide/fingerprints.md
     - Seeds: user-guide/seeds.md
+    - Spring Agent: user-guide/spring-agent.md
     - Permissions:
         - Overview: user-guide/permissions/index.md
         - Slack Scopes: user-guide/permissions/slack.md
