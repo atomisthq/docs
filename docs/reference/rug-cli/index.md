@@ -402,6 +402,11 @@ $ rug test [OPTION]... [TEST]
 
 TEST is the name of a test feature or feature file.  If no TEST is specified, all scenarios will run.
 
+*Command options:*
+
+`--disable-console-log`
+:   Disable console logging
+
 ### `to path`
 
 Display path expression to a point in a file within a project
