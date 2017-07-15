@@ -1,4 +1,4 @@
-The Atomist Spring Agent sends runtime notifications to Atomist about your [Spring Boot][spring-boot] application instances so that this information can be surfaced in your Slack channels:
+The Atomist Spring Agent sends runtime notifications to Atomist about your [Spring Boot][spring-boot] application instances so that you can see this information in Slack.
 
 ![Spring Agent](/images/spring-agent.png)
 
@@ -6,32 +6,32 @@ The Atomist Spring Agent sends runtime notifications to Atomist about your [Spri
 
 ## Prerequisites
 
-To use the Atomist Spring Agent you will need to:
+To use the Atomist Spring Agent you need to:
 
 - Authorize the Atomist Bot on Slack and GitHub as described in [getting-started](/getting-started/index.md).
 - Be working on a Maven-based Spring Boot application.
 
 ## Adding the Spring Agent
 
-You can install the agent in a project using the Atomist bot or manually.
+You can install the agent in a project either using the Atomist bot (recommended) or manually.
 
 ### Adding the Spring Agent using the Bot
+ 
+Start in a Slack channel that's linked to the GitHub repository you want to add the agent to. You can check the association between Slack channel and GitHub repo by running the `@atomist repos` command.
 
-The best way to add the agent is to navigate in Slack to a channel that is associated with the repository in GitHub that contains the Maven-based Spring Boot project you want to add the agent to. If you're not sure that the channel is associated with the correct repository you can check using the `@atomist repos` command.
-
-Once you're sure you're in a channel attached to the repository that contains your Maven-based Spring Boot application you can ask Atomist to add the agent:
+In that channel, ask Atomist to add the agent:
 
 ```shell
 @atomist add spring agent
 ```
 
-This will result in the bot creating a branch and PR on your repository that contains changes to the `pom.xml` and the `application.yml`.
+This results in the bot creating a branch and PR on your repository that contains changes to the `pom.xml` and the `application.yml`.
 
-If configured a build of the branch will be triggered with appropriate checks and then you'll be prompted to merge this branch into your project's `master` branch:
+If configured, a build of the branch is triggered with appropriate checks. When the checks complete, the bot prompts you to merge this branch into your project's `master` branch. Be sure to merge the changes to complete installation.
 
 ![Add Spring Agent](/images/add-spring-agent.png)
 
-When you first enable the agent Atomist will add the `spring-boot-agent` dependency to your project's `pom.xml`:
+When you first enable the agent, Atomist adds the `spring-boot-agent` dependency to your project's `pom.xml`:
 
 ```xml
 <dependency>
@@ -41,7 +41,7 @@ When you first enable the agent Atomist will add the `spring-boot-agent` depende
 </dependency>
 ```
 
-If not already present then the `public-atomist-release` repository will also be added to the `repositories` block in your `pom.xml` so that the `spring-boot-agent` dependency can be resolved:
+If not already present, the `public-atomist-release` repository is added to the `repositories` block in your `pom.xml` so that the `spring-boot-agent` dependency can be resolved:
 
 ```xml
 <repositories>
@@ -56,7 +56,7 @@ If not already present then the `public-atomist-release` repository will also be
 </repositories>
 ```
 
-Finally a few properties are added to the `src/main/resources/application.yml` file for your project to identify and describe the application appropriately when the runtime information is sent to your project's Slack channel:
+Finally Atomist adds a few properties to your project's `src/main/resources/application.yml` file that identify and describe the application  when runtime information is sent to your project's Slack channel:
 
 ```yml
 atomist:
@@ -72,7 +72,9 @@ You can customise these properties using the usual [Spring Boot mechanisms][spri
 
 ### Adding the Spring Agent Manually
 
-You can add the agent to your application manually by adding the following to your `pom.xml`:
+If you prefer, you can add the agent to your application manually. 
+
+Add the following to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -82,7 +84,7 @@ You can add the agent to your application manually by adding the following to yo
 </dependency>
 ```
 
-As the agent is not available from Maven Central adding the following Maven repository is requried too:
+Because the agent is not available from Maven Central you must add the following Maven repository:
 
 ```xml
 <repositories>
@@ -143,13 +145,13 @@ Once you have merged the new branch into your project's `master` you can clone t
 > mvn spring-boot:run
 ```
 
-If everything is configured correctly then you should then begin to see application instance lifecycle messages for your Spring Boot application in the corresponding channel for your project:
+If everything is configured correctly you will see application instance lifecycle messages for your Spring Boot application in your project's Slack channel:
 
 ![Spring Application Lifecycle Messages](/images/agent-messages.png)
 
 ## What information is shared by the Spring Agent?
 
-Once your application is running and the agent is added then in the `DEBUG` logging for your application you will see the information that the agent is sending to Atomist:
+ Once the agent is installed and the application is running, the information that the agent sends Atomist appears in your applications `DEBUG` logging:
 
 ```
 09:46:11.317 [eventTaskExecutor-1] DEBUG c.a.s.a.AgentEventSender - Atomist event about to be sent:
@@ -171,4 +173,4 @@ Once your application is running and the agent is added then in the `DEBUG` logg
 
 ## Removing the Spring Agent
 
-If you decide that you no longer want to have the agent in your project then all you need to do is remove the `spring-boot-agent` dependency from your project's `pom.xml` and then clean out the `atomist` properties from your `src/main/resources/application.yml` file.
+Remove the agent from your project at any time by deleting the `spring-boot-agent` dependency from your project's `pom.xml` and deleting the `atomist` properties from your `src/main/resources/application.yml` file.
