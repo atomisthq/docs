@@ -19,12 +19,15 @@ The Atomist User Guide contains the following sections:
 -   [**Seeds**][fingerprints]: Projects that generate other projects
 -   [**Fingerprints**][fingerprints]: How Atomist detects significant code changes
 -   [**Permissions**][permissions]: What permissions Atomist asks for
+-   [**Spring Agent**][spring-agent]: Installing and Using the [Spring][spring] Agent
 
 [rug]: rug/index.md
 [integrations]: integrations/index.md
 [interfaces]: interfaces/index.md
 [fingerprints]: fingerprints.md
 [permissions]: permissions/index.md
+[spring-agent]: spring-agent.md
+[spring]: https://spring.io/
 
 Click on any of the links above to go directly to that section, or
 click Next at the bottom right of this page to go to the next page in
