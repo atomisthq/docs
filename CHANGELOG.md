@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.7.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.10.1...HEAD
+
+## [7.10.1] - 2017-07-28
+
+[7.10.1]: https://github.com/atomist/end-user-documentation/compare/7.10.0...7.10.1
+
+Generator update release
+
+### Fixed
+
+-   Outdated examples in generator user guide [#182][182]
+
+[182]: https://github.com/atomist/end-user-documentation/issues/182
 
 ## [7.7.0] - 2017-06-30
 
