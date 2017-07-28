@@ -49,30 +49,30 @@ the following.
 ```
 
 To convert out model project into a [Rug generator][rugproj], we can use the
-`ConvertExistingProjectToGenerator` Rug editor in [rug-editors][convert] to
+`ConvertExistingProjectToGenerator` Rug editor in [rug-rugs][convert] to
 add all the necessary directories and files:
 
 [rugproj]: projects.md
-[convert]: https://github.com/atomist-rugs/rug-editors#convertexistingprojecttogenerator
+[convert]: https://github.com/atomist/rug-rugs#convertexistingprojecttogenerator
 
 ```console
-$ rug edit atomist-rugs:rug-editors:ConvertExistingProjectToGenerator \
-    archive_name=spring-boot-service \
-    group_id=company-rugs \
+$ rug edit atomist:rug-rugs:ConvertExistingProjectToGenerator \
+    archiveName=spring-boot-service \
+    groupId=company-rugs \
     version=0.13.0 \
-    generator_name=NewSpringBootService \
+    generatorName=NewSpringBootService \
     description="Rug generator for a Spring Boot REST service"
 Processing dependencies
-  Downloading atomist-rugs/rug-editors/maven-metadata.xml ← rugs (740 bytes) succeeded
-  Downloading atomist-rugs/rug-editors/maven-metadata.xml ← global (740 bytes) succeeded
-  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0.pom ← rugs (635 bytes) succeeded
-  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0-metadata.json ← rugs (14 kb) succeeded
-  Downloading atomist-rugs/rug-editors/0.14.0/rug-editors-0.14.0.zip ← rugs (194 kb) succeeded
-Resolving dependencies for atomist-rugs:rug-editors:latest completed
-Loading atomist-rugs:rug-editors:0.14.0 into runtime completed
+  Downloading atomist/rug-rugs/maven-metadata.xml ← rugs (740 bytes) succeeded
+  Downloading atomist/rug-rugs/maven-metadata.xml ← global (740 bytes) succeeded
+  Downloading atomist/rug-rugs/0.14.0/rug-rugs-0.14.0.pom ← rugs (635 bytes) succeeded
+  Downloading atomist/rug-rugs/0.14.0/rug-rugs-0.14.0-metadata.json ← rugs (14 kb) succeeded
+  Downloading atomist/rug-rugs/0.14.0/rug-rugs-0.14.0.zip ← rugs (194 kb) succeeded
+Resolving dependencies for atomist:rug-rugs:latest completed
+Loading atomist:rug-rugs:0.14.0 into runtime completed
   TypeScript files added, run `cd .atomist && npm install`
 
-Running editor ConvertExistingProjectToGenerator of atomist-rugs:rug-editors:0.14.0 completed
+Running editor ConvertExistingProjectToGenerator of atomist:rug-rugs:0.14.0 completed
 
 → Project
   ~/workspace/spring-boot-rest-basic (14 kb in 20 files)
@@ -81,17 +81,17 @@ Running editor ConvertExistingProjectToGenerator of atomist-rugs:rug-editors:0.1
   ├── .atomist/package.json created (57 bytes)
   ├── .atomist/tsconfig.json created (627 bytes)
   ├── .atomist/.gitignore created (27 bytes)
-  ├── .atomist/editors/NewSpringBootService.ts created (602 bytes)
+  ├── .atomist/generators/NewSpringBootService.ts created (602 bytes)
   ├── .atomist/tests/NewSpringBootService.rt created (153 bytes)
-  ├── .atomist/editors/NewSpringBootService.ts updated (580 bytes)
-  ├── .atomist/editors/NewSpringBootService.ts updated (583 bytes)
-  ├── .atomist/editors/NewSpringBootService.ts updated (584 bytes)
-  ├── .atomist/tests/NewSpringBootService.rt updated (155 bytes)
-  ├── .atomist/tests/NewSpringBootService.rt updated (880 bytes)
+  ├── .atomist/generators/NewSpringBootService.ts updated (580 bytes)
+  ├── .atomist/generators/NewSpringBootService.ts updated (583 bytes)
+  ├── .atomist/generators/NewSpringBootService.ts updated (584 bytes)
+  ├── .atomist/tests/project/NewSpringBootService.rt updated (155 bytes)
+  ├── .atomist/tests/project/NewSpringBootService.rt updated (880 bytes)
   └── .atomist.yml created (2 kb)
 ```
 
-The `group_id` and `archive_name` parameters, coupled with the name of the Rug
+The `groupId` and `archiveName` parameters, coupled with the name of the Rug
 generator, define the fully-qualified name of the [Rug archive][rugarch] (the
 published package of a Rug).
 
@@ -102,7 +102,7 @@ Once this is completed, the project should look like this:
 ```console hl_lines="2 3 4 5 6 7 8 9 10 11"
 ~/workspace/spring-boot-rest-basic
     ├── .atomist
-    │   ├── editors
+    │   ├── generators
     │   │   └── NewSpringBootService.ts
     │   ├── .gitignore
     │   ├── package.json
@@ -288,7 +288,7 @@ Gherkin DSL.
 [rugtest]: tests.md
 
 The test for our generator could be described as follows in
-`.atomist/tests/NewSpringBootService.feature`:
+`.atomist/tests/project/NewSpringBootService.feature`:
 
 ```gherkin
 Feature: Creating new Spring Rest Service projects
@@ -311,7 +311,7 @@ Scenario: A default Spring Rest project structure should be generated
  Then the name of the class in the web integration tests is changed
 ```
 
-Implemented by the steps in `.atomist/tests/Steps.ts` file:
+Implemented by the steps in `.atomist/tests/project/Steps.ts` file:
 
 ```typescript linenums="1"
 import { Given, When, Then, ProjectScenarioWorld } from "@atomist/rug/test/project/Core";
@@ -359,19 +359,14 @@ Then("the name of the class in the web integration tests is changed", (p: Projec
 ```
 
 If you're not familiar with this approach, the
-`.atomist/tests/NewSpringBootService.feature` describes our tests in a set of
+`.atomist/tests/project/NewSpringBootService.feature` describes our tests in a set of
 hypotheses and expectations. All those steps are implemented in the
-`.atomist/tests/Steps.ts` file which is executed when the test is run:
+`.atomist/tests/project/Steps.ts` file which is executed when the test is run:
 
 ```console
 $ rug test
 Resolving dependencies for com.company.rugs:spring-boot-service:0.13.0:local completed
-Invoking TypeScript Compiler on ts script sources
-  Created .atomist/tests/Steps.js.map
-  Created .atomist/tests/Steps.js
-  Created .atomist/editors/NewSpringBootService.js.map
-  Created .atomist/editors/NewSpringBootService.js
-Processing script sources completed
+Invoking TypeScript Compiler on ts script sources completed
 Loading com.company.rugs:spring-boot-service:0.13.0:local completed
   Executing feature Creating new Spring Rest Service projects
     Executing test scenario A default Spring Rest project structure should be generated
@@ -387,12 +382,7 @@ with a relevant error message:
 ```console
 $ rug test
 Resolving dependencies for com.company.rugs:spring-boot-service:0.13.0:local completed
-Invoking TypeScript Compiler on ts script sources
-  Created .atomist/tests/Steps.js.map
-  Created .atomist/tests/Steps.js
-  Created .atomist/editors/NewSpringBootService.js
-  Created .atomist/editors/NewSpringBootService.js.map
-Processing script sources completed
+Invoking TypeScript Compiler on ts script sources completed
 Loading com.company.rugs:spring-boot-service:0.13.0:local completed
   Executing feature Creating new Spring Rest Service projects
     Executing test scenario A default Spring Rest project structure should be generated
