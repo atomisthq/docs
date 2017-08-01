@@ -151,7 +151,7 @@ The following steps have been tested on Windows 10, your mileage may vary.
     Notice, you will find the `.atomist` directory for settings and
     artifacts in `%USERPROFILE%\.atomist`
 
-You can keep your Rug CLI up to dat by regularly upgrading:
+You can keep your Rug CLI up to date by regularly upgrading:
 
 ```console
 (admin) C:\ > choco upgrade rug-cli -s "'https://atomist.jfrog.io/atomist/api/nuget/nuget'"
