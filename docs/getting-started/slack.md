@@ -1,20 +1,30 @@
+<script>
+	/**
+	* Function that tracks a click on an outbound link in Analytics.
+	* This function takes a valid URL string as an argument, and uses that URL string
+	* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+	* using 'navigator.sendBeacon' in browser that support it.
+	*/
+	var trackOutboundLink = function(url) {
+		ga('send', 'event', 'outbound', 'click', url, {
+			'transport': 'beacon',
+			'hitCallback': function(){document.location = url;}
+		});
+	}
+</script>
+
 Atomist integrates with [Slack][slack] via the Atomist Bot, which
 provides a chat-based interface to Atomist's capabilities.
 
 [slack]: https://slack.com/ (Slack)
 
-After you filled out the [Atomist Alpha][alpha] form, you should have
-received an email invitation that looks something like the following:
-
-[alpha]: https://atomist.typeform.com/to/MseQBs (Atomist Alpha)
+To invite the Atomist Bot into your Slack team, click on the "Add to Slack" button below.
 
 <div class="ss-container">
-  <img src="../images/alpha-welcome-email.png" alt="Welcome Email" class="ss-medium">
+  <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
+                    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+  </a>
 </div>
-
-To invite the Atomist Bot into your Slack team, simply click the
-"Install Atomist Bot in Slack" button in the Atomist Alpha
-invitation email.
 
 Clicking the button will send you to a web page where you will be
 asked to sign into your Slack team if you are not already signed in.
@@ -69,7 +79,7 @@ This video provides a brief introduction to the Atomist Bot's
 capabilities and how to interact with it.
 
 <div class="ss-container">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/B_x43nPoDH4" frameborder="0" allowfullscreen></iframe>
+  <iframe id="ytplayer" type="text/html" width="560" height="320" src="https://www.youtube.com/embed/oGwPIxbdt7E?list=PL-HpeqSmYBmRKACTYZayfpOzJHOGED3-l&autoplay=1&loop=1&modestbranding=1" loop="1" frameborder="0" allowfullscreen></iframe>
 </div>
 
 For a complete list of the things the Atomist Bot can do, send the bot
