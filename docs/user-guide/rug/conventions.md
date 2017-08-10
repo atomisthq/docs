@@ -37,14 +37,8 @@ the [Markdown][markdown] format, containing the following information:
 
 Public Rug repositories should be automatically built, tested and
 deployed using a continuous integration service,
-like [Travis CI][travis].  The CI build status badge and the Slack
-badge for the Atomist Community should be placed in the `README.md`
-between the page title and the general description.  Here is the
-markdown text to add the Slack badge:
-
-```md
-[![Slack Status](https://join.atomist.com/badge.svg)](https://join.atomist.com)
-```
+like [Travis CI][travis].  The CI build status badge should be placed
+in the `README.md` between the page title and the general description.
 
 [travis]: https://travis-ci.org/
 
