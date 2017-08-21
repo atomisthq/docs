@@ -21,8 +21,21 @@ Atomist offers the seeds in the table below. You can also create your own. An or
 Entry | Description
 ------|------------
 `spring-rest-seed` | Spring MVC REST Service 
+`java-lib-seed` | Java library
 
-To see all available seeds in your organization, run `@atomist generators seed`. 
+
+To see all available seeds in your organization, run `@atomist generators seed`.
+
+### Excluded files
+
+When you create a project from a seed, Atomist will copy the seed project, update the POM, and update Java class names.
+
+These files are excluded from copying:
+  - .travis.yml
+  - LICENSE
+  - CHANGELOG.md
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
 
 ## Naming
 
