@@ -31,11 +31,12 @@ To see all available seeds in your organization, run `@atomist generators seed`.
 When you create a project from a seed, Atomist will copy the seed project, update the POM, and update Java class names.
 
 These files are excluded from copying:
-  - .travis.yml
-  - LICENSE
-  - CHANGELOG.md
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
+
+-   .travis.yml
+-   LICENSE
+-   CHANGELOG.md
+-   CODE_OF_CONDUCT.md
+-   CONTRIBUTING.md
 
 ## Naming
 
