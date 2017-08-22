@@ -10,9 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.10.1...HEAD
 
-## [7.11.1] - 2017-08-21
+## [7.11.2] - 2017-08-21
 
-[7.11.1]: https://github.com/atomist/end-user-documentation/compare/7.11.0...7.11.1
+[7.11.2]: https://github.com/atomist/end-user-documentation/compare/7.11.0...7.11.2
 
 Add list of excluded file to seed docs
 
