@@ -34,7 +34,7 @@ To use a Rug Function from an Event or Command Handler, its archive's
 coordinates must be present in the `.atomist.extensions` section of
 the Rug project's [`package.json`][archives].
 
-[archives]: /user-guide/rug/archives.md (Rug Archives)
+[archives]: /reference/rug/archives.md (Rug Archives)
 
 !!! danger "Security"
     All Rug Function archives must be signed by Atomist and be explicitly

@@ -44,7 +44,7 @@ the StackOverflow API call.
 !!! tip "Rug Command Handlers"
     See the [Rug command handler user-guide][rugcmd] for more information.
 
-[rugcmd]: /user-guide/rug/command-handlers.md
+[rugcmd]: /reference/rug/command-handlers.md
 
 ## Get the Code Into Your Rug Project
 

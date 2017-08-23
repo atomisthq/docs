@@ -53,10 +53,7 @@ markdown_extensions:
 repo_name: Rug
 repo_url: https://github.com/atomist/rug
 pages:
-- Overview:
-    - Introduction: index.md
-    - Concepts: concepts.md
-    - Capabilities: capabilities.md
+- Introduction: index.md
 - Getting Started:
     - Overview: getting-started/index.md
     - Prerequisites: getting-started/prerequisites.md
@@ -68,41 +65,8 @@ pages:
         - Jenkins: getting-started/jenkins.md
     - Atomist Bot: getting-started/bot.md
     - What next: getting-started/what-next.md
-- Tutorials:
-    - Introduction: tutorials/index.md
-    - Setup Rug CLI: tutorials/setup-cli.md
-    - Create Rug Project: tutorials/create-rug-project.md
-    - Setup TypeScript: tutorials/setup-typescript.md
-    - Publish Rug Project: tutorials/publish-rug-project.md
-    - Add Bot Command: tutorials/add-bot-command.md
-#    - Custom Commit Notifications: tutorials/custom-commit-notifications.md
 - User Guide:
     - Introduction: user-guide/index.md
-    - Rug:
-        - Introduction: user-guide/rug/index.md
-        - Event Handlers: user-guide/rug/event-handlers.md
-        - Command Handlers: user-guide/rug/command-handlers.md
-        - Editors: user-guide/rug/editors.md
-        - Generators: user-guide/rug/generators.md
-        - Rug Functions: user-guide/rug/rug-functions.md
-        - Secrets: user-guide/rug/secrets.md
-        - Extensions: user-guide/rug/extensions.md
-        - Path Expressions: user-guide/rug/path-expressions.md
-        - Microgrammars: user-guide/rug/microgrammars.md
-        - Templates: user-guide/rug/templates.md
-        - Tests: user-guide/rug/tests.md
-        - Projects: user-guide/rug/projects.md
-        - Archives: user-guide/rug/archives.md
-#        - Development: user-guide/rug/development.md
-        - Lifecycle: user-guide/rug/lifecycle.md
-        - Runtime: user-guide/rug/runtime.md
-        - Conventions: user-guide/rug/conventions.md
-    - Integrations:
-        - Overview: user-guide/integrations/index.md
-        - Slack: user-guide/integrations/slack.md
-        - GitHub.com: user-guide/integrations/github.md
-        - Travis CI: user-guide/integrations/travis-ci.md
-        - Jenkins: user-guide/integrations/jenkins.md
     - Interfaces:
         - Introduction: user-guide/interfaces/index.md
         - Bot: user-guide/interfaces/bot.md
@@ -112,25 +76,51 @@ pages:
             - Basics: user-guide/interfaces/cli/basics.md
             - Using Rugs: user-guide/interfaces/cli/using-rugs.md
             - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
-    - Fingerprints: user-guide/fingerprints.md
-    - Seeds: user-guide/seeds.md
-    - Spring Agent: user-guide/spring-agent.md
+    - Integrations:
+        - Overview: user-guide/integrations/index.md
+        - Slack: user-guide/integrations/slack.md
+        - GitHub.com: user-guide/integrations/github.md
+        - Travis CI: user-guide/integrations/travis-ci.md
+        - Jenkins: user-guide/integrations/jenkins.md
     - Permissions:
         - Overview: user-guide/permissions/index.md
         - Slack Scopes: user-guide/permissions/slack.md
         - GitHub Scopes: user-guide/permissions/github.md
+    - Fingerprints: user-guide/fingerprints.md
+    - Spring Agent: user-guide/spring-agent.md
+    - Seeds: user-guide/seeds.md
+- How To Configure:
+    - Introduction: how-to-configure/index.md
+- How To Customize:
+    - Introduction: how-to-customize/index.md
+    - Setup Rug CLI: how-to-customize/setup-cli.md
+    - Create Rug Project: how-to-customize/create-rug-project.md
+    - Setup TypeScript: how-to-customize/setup-typescript.md
+    - Publish Rug Project: how-to-customize/publish-rug-project.md
+    - Add Bot Command: how-to-customize/add-bot-command.md
+#    - Custom Commit Notifications: tutorials/custom-commit-notifications.md
 - Reference Documentation:
-    - Overview: reference/index.md
+    - Overview: 
+        - Introduction: reference/index.md
+        - Atomist Concepts: reference/platform/concepts.md
+        - Atomist Capabilities: reference/platform/capabilities.md
     - Rug:
         - Overview: reference/rug/index.md
-#        - Event Handlers: reference/rug/event-handlers.md
-#        - Command Handlers: reference/rug/command-handlers.md
-#        - Editors: reference/rug/editors.md
-#        - Generators: reference/rug/generators.md
+        - Event Handlers: reference/rug/event-handlers.md
+        - Command Handlers: reference/rug/command-handlers.md
+        - Editors: reference/rug/editors.md
+        - Generators: reference/rug/generators.md
+        - Secrets: reference/rug/secrets.md
+        - Projects: reference/rug/projects.md
+        - Archives: reference/rug/archives.md
+        - Lifecycle: reference/rug/lifecycle.md
+        - Runtime: reference/rug/runtime.md
+        - Conventions: reference/rug/conventions.md
+        - Functions: reference/rug/rug-functions.md
         - Extensions: reference/rug/extensions.md
         - Path Expressions: reference/rug/path-expressions.md
-#        - Microgrammars: reference/rug/microgrammars.md
-#        - Templates: reference/rug/templates.md
-#        - Tests: reference/rug/tests.md
-#        - Archives: reference/rug/archives.md
+        - Microgrammars: reference/rug/microgrammars.md
+        - Templates: reference/rug/templates.md
+        - Tests: reference/rug/tests.md
+        - Archives: reference/rug/archives.md
     - Rug CLI: reference/rug-cli/index.md

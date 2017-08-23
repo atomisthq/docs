@@ -2,12 +2,12 @@ Congratulations, you've made it through the Atomist Getting Started
 guide.  Now that you're up and running with Atomist, please be sure
 to:
 
--   Learn how to customize Atomist by working through our [tutorials][]
+-   Learn how to customize Atomist by working through the [user guide][user-guide]
 -   Join the [Atomist Community Slack][slack]
 -   Following our blog, [The Composition][composition]
 -   Follow [@atomist][twitter] on Twitter
 
-[tutorials]: /tutorials/index.md
+[user-guide]: /user-guide/index.md
 [slack]: https://join.atomist.com/ (Atomist Community Slack)
 [composition]: https://the-composition.com/ (Atomist Blog)
 [twitter]: https://twitter.com/atomist (@atomist on Twitter)

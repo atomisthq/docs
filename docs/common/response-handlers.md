@@ -16,8 +16,8 @@ for example `#!typescript handle(@ParseJson response: Response<T>): CommandPlan`
 
 Response Handlers must also return a plan, just like any handler. However, they
 must return the appropriate type of plan for the execution chain in which they
-respond. So for an [Event Handler](/user-guide/rug/event-handlers.md) they must
-return an `#!typescript EventPlan`, and for a [Command Handler](/user-guide/rug/command-handlers.md)
+respond. So for an [Event Handler](/reference/rug/event-handlers.md) they must
+return an `#!typescript EventPlan`, and for a [Command Handler](/reference/rug/command-handlers.md)
 they must return a `#!typescript CommandPlan`.
 
 {!hint-async.md!}

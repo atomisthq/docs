@@ -7,16 +7,39 @@ faster.
 
 <!-- @jessitron we should have each section mirror "extends known concepts and introduces new ones" -->
 
+## Atomist ties everything together
+
+Atomist is the next phase in the evolution of software.
+Infrastructure-as-code captures infrastructure architecture and
+configuration in software.  DevOps automates IT operations with
+software.  Atomist goes further, capturing how we develop and operate
+software *in software*.  Atomist lets you say goodbye to the boring,
+repetitive tasks surrounding software development by giving you the
+tools to automate them away, once and for all.
+
+!!! important ""
+    <span class="major-point">In a world where everything is code,
+    **Atomist** ties everything together.  By bringing software
+    development processes, IT operations, and infrastructure-as-code
+    together with a deep understanding of the code itself, **Atomist**
+    is able to surface the right information to the right person at
+    the right time in the right place to speed software delivery and
+    stabilize IT operations.</span>
+
 <img style="float:right; margin-top:0px; margin-left:0px; margin-right:10px; margin-bottom:10px;" src="/images/atomist-bot-color.jpg" width="150px" height="150px" alt="Your friendly, neighborhood Atomist Bot"/>
 
-At its core, Atomist is a partner that improves your development process
+Atomist is a partner that improves your development process
 through automation.  The automation we are talking about goes well
 beyond what traditionally comes to mind when talking about IT
-automation.  Atomist is not a configuration management system.
-Atomist is not a templating system.  Atomist is not
-infrastructure-as-code.  Atomist is not a DevOps platform.  Atomist is
-not a ChatOps platform.  Atomist brings all of those things
-together&hellip; and more.  Bringing the events and information from
+automation.  This is best understood by framing first what Atomist is _not_:
+
+- Atomist is not a configuration management system.
+- Atomist is not a templating system.  
+- Atomist is not infrastructure-as-code.  
+- Atomist is not a DevOps platform.  
+- Atomist is not a ChatOps platform.  
+
+Atomist brings all of those things together&hellip; and more.  Bringing the events and information from
 the systems and tools you already use together in one place, providing
 insight into what is happening in your day-to-day development flow, is
 just the beginning.  Once the information is collected, it can be
