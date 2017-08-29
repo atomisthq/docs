@@ -8,7 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.10.1...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.10.3...HEAD
+## [7.11.3] - 2017-08-29
+
+[7.11.3]: https://github.com/atomist/end-user-documentation/compare/7.11.2...7.11.3
+
+### Changed
+
+-   Jenkinsfile notification must happen after the code checkout to have access
+    to the commit information.
 
 ## [7.11.2] - 2017-08-21
 
