@@ -147,12 +147,20 @@ notifyAtomist()` function from within our build step.
 pipeline {
     // ...
     stages {
+        stage('Checkout') {
+            // retrieve the code to build
+            checkout scm
+
+            // notifiy Atomist the buid starts now. This must happen
+            // after the checkout so we have commit information to send
+            notifyAtomist("STARTED", "STARTED")
+            // ...
+        }
+
         // ...
+
         stage('Build') {
             steps {
-                // notifiy Atomist the buid starts now
-                notifyAtomist("UNSTABLE", "STARTED")
-                // ...
             }
             // ...
         }
@@ -165,6 +173,11 @@ It is best to call the `#!groovy notifyAtomist()` function as early in
 the build process as possible.  The commented ellipses, `// ...`,
 indicate that we are only showing the portions of the `Jenkinsfile`
 relevant to adding the single function call.
+
+!!! important ""
+    The notification that a build starts must be done after you checked out the
+    code that will be built. The commit information is necessary for
+    Atomist to associate that event to the right repository and channel.
 
 We also add calls to the `#!groovy notifyAtomist()` function in
 the [`post`][jf-post] section of the `pipeline` configuration to
