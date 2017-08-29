@@ -13,12 +13,20 @@
 	}
 </script>
 
-Atomist integrates with [Slack][slack] via the Atomist Bot, which
-provides a chat-based interface to Atomist's capabilities.
+Atomist surfaces relevant and actionable information about what's going on in your
+ software development wherever you and your team are working. One really collaborative place 
+ is in [Slack][slack] and Atomist integrates with Slack via the Atomist Bot to give 
+ you a chat-based interface to Atomist's capabilities.
 
 [slack]: https://slack.com/ (Slack)
 
-To invite the Atomist Bot into your Slack team, click on the "Add to Slack" button below.
+The following video shows how you can enroll the Atomist bot to your Slack team:
+
+<div class="ss-container">
+<iframe id="ytplayer" type="text/html" width="560" height="320" src="https://www.youtube.com/embed/U8iNc_hadUQ" frameborder="0" loop="1" allowfullscreen></iframe>
+</div>
+
+Let's walk through the steps in the above video. First, invite the Atomist Bot into your Slack team by clicking on the `Add to Slack` button below:
 
 <div class="ss-container">
   <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
@@ -73,13 +81,6 @@ via the channel settings > "Invite team members to join ...".
 
 <div class="ss-container">
   <img src="../images/slack-channel-invite.png" alt="Slack channel invite team members" class="ss-medium">
-</div>
-
-This video provides a brief introduction to the Atomist Bot's
-capabilities and how to interact with it.
-
-<div class="ss-container">
-  <iframe id="ytplayer" type="text/html" width="560" height="320" src="https://www.youtube.com/embed/oGwPIxbdt7E?list=PL-HpeqSmYBmRKACTYZayfpOzJHOGED3-l&autoplay=1&loop=1&modestbranding=1" loop="1" frameborder="0" allowfullscreen></iframe>
 </div>
 
 For a complete list of the things the Atomist Bot can do, send the bot

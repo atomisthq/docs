@@ -4,6 +4,10 @@ The Atomist Spring Agent sends runtime notifications to Atomist about your [Spri
 
 [spring-boot]: https://projects.spring.io/spring-boot/
 
+You can see how to add the Spring Agent, and then how it surfaces your runtime instance information, in the following video:
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/1Mmmv32AiMg" frameborder="0" allowfullscreen></iframe>
+
 ## Prerequisites
 
 To use the Atomist Spring Agent you need to:

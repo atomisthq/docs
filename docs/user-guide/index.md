@@ -13,15 +13,13 @@ the [Getting Started][getting-started] guide.
 
 The Atomist User Guide contains the following sections:
 
--   [**Rug**][rug]: Atomist's enabling technology
--   [**Integrations**][integrations]: External platforms and tools that Atomist works with
 -   [**Interfaces**][interfaces]: How users interact with Atomist
--   [**Seeds**][fingerprints]: Projects that generate other projects
--   [**Fingerprints**][fingerprints]: How Atomist detects significant code changes
+-   [**Integrations**][integrations]: External platforms and tools that Atomist works with
 -   [**Permissions**][permissions]: What permissions Atomist asks for
+-   [**Fingerprints**][fingerprints]: How Atomist detects significant code changes
 -   [**Spring Agent**][spring-agent]: Installing and Using the [Spring][spring] Agent
+-   [**Seeds**][fingerprints]: Projects that generate other projects
 
-[rug]: rug/index.md
 [integrations]: integrations/index.md
 [interfaces]: interfaces/index.md
 [fingerprints]: fingerprints.md

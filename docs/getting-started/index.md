@@ -4,7 +4,7 @@ Atomist, Atomist needs to be able to communicate with your various
 development platforms like chat, source code repositories, and your
 continuous integration (CI) platform.  This guide will walk you
 through connecting Atomist to your development systems and how to
-start using the Atomist Bot.  If you, or someone else on your team,
+start using the Atomist Bot. If you, or someone else on your team,
 has already connected Atomist to your development environment, you can
 jump to the [Using the Atomist Bot][bot] section.
 

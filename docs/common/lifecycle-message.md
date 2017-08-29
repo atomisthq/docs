@@ -17,7 +17,7 @@ one-another. In a Slack context, this means a Commit message could have its
 associated CI build status updated as the build progresses from say `started`
 through `succeeded` or `failed`.
 
-[graphnode]: /user-guide/rug/path-expressions.md
+[graphnode]: /reference/rug/path-expressions.md
 
 So the main responsibility of lifecycle messages is to create associations between
 related messages using the lifecycle-id.
@@ -51,8 +51,8 @@ So by adding actions to a message, we are dispatching optional deferred Rug
 executions. In this instance a Command Handler bound to a specific GitHub issue,
 but it could just as easily have been an [editor][editors] or [generator][generators].
 
-[commands]: /user-guide/rug/command-handlers.md
-[functions]: /user-guide/rug/rug-functions.md
-[editors]: /user-guide/rug/editors.md
-[generators]: /user-guide/rug/generators.md
+[commands]: /reference/rug/command-handlers.md
+[functions]: /reference/rug/rug-functions.md
+[editors]: /reference/rug/editors.md
+[generators]: /reference/rug/generators.md
 [buttons]: https://api.slack.com/docs/message-buttons

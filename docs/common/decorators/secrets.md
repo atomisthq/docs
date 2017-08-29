@@ -1,5 +1,5 @@
 Secrets are pieces of sensitive information stored securely by Atomist. Secrets
-are used by [Rug Functions](/user-guide/rug/rug-functions.md) to provide access
+are used by [Rug Functions](/reference/rug/rug-functions.md) to provide access
 to secured systems, such as the GitHub API.
 
 Handlers that invoke Rug Functions that require secrets must use the

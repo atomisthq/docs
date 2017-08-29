@@ -82,11 +82,10 @@ Project compliance: <span class="rugs">[Reviewers][reviewers]</span>
     that.
 -->
 
-[handlers]: /user-guide/rug/event-handlers.md
-[commands]: /user-guide/rug/command-handlers.md
-[editors]: /user-guide/rug/editors.md
-[generators]: /user-guide/rug/generators.md
-<!-- [reviewers]: /user-guide/rug/reviewers.md -->
+[handlers]: /reference/rug/event-handlers.md
+[commands]: /reference/rug/command-handlers.md
+[editors]: /reference/rug/editors.md
+[generators]: /reference/rug/generators.md
 
 Individual Rugs can be composed.  For example, editors can be used by
 Rug handlers, commands, and generators to modify code in a consistent
@@ -108,7 +107,7 @@ a CI build that failed, and specific blocks of code in specific files,
 e.g., all Scala methods that return `#!scala Boolean`.
 
 [xpath]: https://en.wikipedia.org/wiki/XPath
-[path]: /user-guide/rug/path-expressions.md
+[path]: /reference/rug/path-expressions.md
 
 ## Developing Rugs
 
