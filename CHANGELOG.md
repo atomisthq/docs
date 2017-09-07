@@ -5,11 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [Unreleased][]
 
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.11.4...HEAD
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.10.3...HEAD
-## [7.11.3] - 2017-08-29
+## [7.11.4][] - 2017-09-07
+
+[7.11.4]: https://github.com/atomist/end-user-documentation/compare/7.11.3...7.11.4
+
+### Fixed
+
+-   Remove deprecated `add skills` and `refresh skills` commands from tutorial
+    [#198][198]
+
+[198]: https://github.com/atomist/end-user-documentation/issues/198
+
+## [7.11.3][] - 2017-08-29
 
 [7.11.3]: https://github.com/atomist/end-user-documentation/compare/7.11.2...7.11.3
 
@@ -18,19 +29,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Jenkinsfile notification must happen after the code checkout to have access
     to the commit information.
 
-## [7.11.2] - 2017-08-21
+## [7.11.2][] - 2017-08-21
 
 [7.11.2]: https://github.com/atomist/end-user-documentation/compare/7.11.0...7.11.2
 
 Add list of excluded file to seed docs
 
-## [7.11.0] - 2017-07-28
+## [7.11.0][] - 2017-07-28
 
 [7.11.0]: https://github.com/atomist/end-user-documentation/compare/7.10.1...7.11.0
 
 Update generator user guide
 
-## [7.10.1] - 2017-07-28
+## [7.10.1][] - 2017-07-28
 
 [7.10.1]: https://github.com/atomist/end-user-documentation/compare/7.10.0...7.10.1
 
@@ -155,4 +166,3 @@ Tutorials release
 [0.1.0]: https://github.com/atomist/end-user-documentation/tree/0.1.0
 
 Initial release
-

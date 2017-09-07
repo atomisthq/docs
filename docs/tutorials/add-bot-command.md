@@ -94,38 +94,9 @@ the [Publish a Rug Project][publish] tutorial.
 $ rug publish -i <YOUR_TEAM_ID>
 ```
 
-## Make it Active in Slack
-
-In `#general` or any channel in your Slack team that Atomist Bot has
-been invited to, type this message, replacing `<group>` and
-`<artifact>` with the values from the `name` property in your Rug
-project's `.atomist/package.json`.  The scope of the name without the
-leading asterisk (`@`) is the `<group>` and the unqualified name is
-the `<artifact>`.  The `latest` at the end of the command ensure the
-Atomist Bot will always use the latest available version of your
-archive.
-
-```
-@atomist add skills <group>:<artifact>:latest
-```
-
-For example, if the name in the `package.json` file is
-`@atomist-contrib/atomist-tutorials`, then running the command would
-look something like:
-
-<div class="ss-container">
-  <img src="../images/add-skills.png" alt="Add Bot Skills" class="ss-medium">
-</div>
-
-Tell the Bot to load the new skills with this message:
-
-```
-@atomist refresh skills
-```
-
-<div class="ss-container">
-  <img src="../images/refresh-skills.png" alt="Refresh Bot Skills" class="ss-medium">
-</div>
+Once the Rug archive is successfully published, the Atomist bot will
+be notified the new archive is available in your team and it should
+become available to use within a few minutes.
 
 ## Running the command in slack
 
