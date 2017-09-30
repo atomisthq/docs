@@ -1,4 +1,4 @@
-Atomist Rugs are most often developed using [TypeScript][ts].  To
+Atomist Rugs are most often developed using [TypeScript][ts].  You can, however, use JavaScript or anything that will compile to JavaScript. To
 successfully complete the rest of the tutorials, you will need to have
 several TypeScript-related tools installed locally on your system.
 

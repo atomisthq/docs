@@ -32,6 +32,8 @@ the project they target or in different projects altogether.
 
 Suppose we want to open a new GitHub issue:
 
+TODO FIX THIS
+
 ```typescript linenums="1"
 {!doc-rugs/.atomist/handlers/command/CreateIssue.ts!}
 ```
@@ -65,8 +67,7 @@ made availble to users in chat.
 
 !!! note "Command Handlers invoking Command Handlers"
     Most of the time, it makes sense to add the `#!typescript @Intent` decorator.
-    However, it's also possible to invoke Command Handlers from Command Handlers
-    by adding them to the Plan (more on this later), so for these handlers, it
+    However, it's also possible to invoke Command Handlers from Command Handlers, so for these handlers, it
     might not make sense to expose them directly to chat users as commands.
 
 ### Discovery
@@ -75,10 +76,9 @@ made availble to users in chat.
 
 ### Implementation
 
-You define the class which implements your command handler (line 21). The class is
-exported so that it can referenced from unit tests. A command handler implements
+You define the class which implements your command handler (line 21). A command handler implements
 the `#!typescript HandleCommand` interface. This interface requires the
-`#!typescript handle(command: HandlerContext): CommandPlan` method to be
+`#!typescript handle(command: HandlerContext): Promise<HandlerResult>` method to be
 implemented. It is a convention for the command handler and the class that defines
 it to have the same name.
 
