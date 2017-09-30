@@ -57,6 +57,8 @@ ChatDev and ChatOps: <span class="rugs">[Command Handlers][commands]</span>
     production?  Write a command handler so you can initiate the
     release right from chat.
 
+Within these two categories, there are two more key concepts in our client library.
+
 Project updates: <span class="rugs">[Editors][editors]</span>
 :   Rug <span class="mid-text">*editors*</span> modify code directly and
     consistently.  They can modify any code, in any project,
@@ -96,19 +98,12 @@ ensures it complies with your coding and submission standards.
 
 ## Events and code selection
 
-How does a handler know what event it should act on?  How does an
-editor know what part of what file to edit?  Atomist provides a
-powerful mechanism for pinpoint selection of events and
-code: [path expressions][path].  Inspired by [XPath][xpath], path
-expressions provide a concise abstraction for navigating the various
-elements in your code and development environment.  Path expressions
-select related events satisfying specific criteria, e.g., a Slack user
+How does a handler know what event it should act on? GraphQL queries are used in 
+event subscriptions to match trigger criteria: for example, a Slack user
 whose GitHub user authored a commit that was in a push that triggered
-a CI build that failed, and specific blocks of code in specific files,
-e.g., all Scala methods that return `#!scala Boolean`.
+a CI build that failed.
 
-[xpath]: https://en.wikipedia.org/wiki/XPath
-[path]: /user-guide/rug/path-expressions.md
+Atomist's navigation capability extends to the code inside repositories itself. You can easily get from a repository and sha returned via a GraphQL subscription or query to the code within it, and drill into using [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) and Atomist [microgrammars](https://github.com/atomist/microgrammar). Microgrammars occupy a spot between regex and full-blown grammars, and make it easy to pinpoint code or config elements you want to change and change them with clean diffs.
 
 ## Developing Rugs
 
@@ -116,7 +111,7 @@ Atomist is extensible.  Atomist ships with many useful capabilities,
 but the ways in which Atomist can improve your development and
 operations do not stop there.  The primary supported development
 language for writing Rugs is [TypeScript][ts], although any language
-that compiles to JavaScript can be used.  You can modify existing Rugs
+that compiles to JavaScript can be used, after [importing our node client](https://github.com/atomist/automation-client-ts). You can modify existing Rugs
 or create your own Rugs to match your processes and workflows.
 
 Atomist meets you where you are.  It doesn't make you change how your
