@@ -1,3 +1,4 @@
-[submodule "docs/common/doc-rugs"]
-	path = docs/common/doc-rugs
+
+[submodule "docs/common/samples-ts"]
+	path = docs/common/sample-rugs
 	url = https://github.com/atomist/automation-client-samples-ts.git
