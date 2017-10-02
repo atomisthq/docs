@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/8.0.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/8.0.1...HEAD
+
+## [8.0.1][] - 2017-10-02
+
+[8.0.1]: https://github.com/atomist/end-user-documentation/compare/8.0.0...8.0.1
+
+No CLI release
+
+### Changed
+
+-   Removed more references to CLI and other cleanup
 
 ## [8.0.0][] - 2017-10-02
 

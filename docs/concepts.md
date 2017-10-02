@@ -116,7 +116,7 @@ also provide our users with the ability to implement their own
 integrations, empowering them to unleash Atomist's integrative power
 across all their systems and processes.  Users can use native
 capabilities provided by Atomist to call a third-party service's REST
-API and have the response ingested as an event in Atomist.
+API and have the response ingested as a custom event in Atomist.
 
 ## Interfaces
 
@@ -130,10 +130,6 @@ be backed by an intelligent system that integrates all relevant
 information and delivers it to the appropriate users in actionable
 ways.  The Atomist Bot provides this exact interface for everyone
 working in and around software development and delivery.
-
-**CLI** - Many developers prefer working on the command line,
-prototyping and hacking together clever solutions to vexing problems.
-Atomist provides a CLI that you can use to invoke Rugs as you develop them locally.
 
 **None** - The real power of Atomist is achieved when no interface is
 necessary.  Put another way, Atomist is about driving to *complete*
