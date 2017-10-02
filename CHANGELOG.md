@@ -7,7 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/7.11.4...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/8.0.0...HEAD
+
+## [8.0.0][] - 2017-10-02
+
+[8.0.0]: https://github.com/atomist/end-user-documentation/compare/7.11.4...8.0.0
+
+New jack release
+
+### Changed
+
+-   Updated for new API-driven development, removing deprecated and
+    outdated content
 
 ## [7.11.4][] - 2017-09-07
 
