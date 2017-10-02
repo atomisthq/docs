@@ -68,13 +68,13 @@ pages:
         - Jenkins: getting-started/jenkins.md
     - Atomist Bot: getting-started/bot.md
     - What next: getting-started/what-next.md
-- Tutorials:
-    - Introduction: tutorials/index.md
-    - Setup Rug CLI: tutorials/setup-cli.md
-    - Create Rug Project: tutorials/create-rug-project.md
-    - Setup TypeScript: tutorials/setup-typescript.md
-    - Publish Rug Project: tutorials/publish-rug-project.md
-    - Add Bot Command: tutorials/add-bot-command.md
+#- Tutorials:
+#    - Introduction: tutorials/index.md
+#    - Setup Rug CLI: tutorials/setup-cli.md
+#    - Create Rug Project: tutorials/create-rug-project.md
+#    - Setup TypeScript: tutorials/setup-typescript.md
+#    - Publish Rug Project: tutorials/publish-rug-project.md
+#    - Add Bot Command: tutorials/add-bot-command.md
 #    - Custom Commit Notifications: tutorials/custom-commit-notifications.md
 - User Guide:
     - Introduction: user-guide/index.md
@@ -84,34 +84,16 @@ pages:
         - Command Handlers: user-guide/rug/command-handlers.md
         - Editors: user-guide/rug/editors.md
         - Generators: user-guide/rug/generators.md
-        - Rug Functions: user-guide/rug/rug-functions.md
         - Secrets: user-guide/rug/secrets.md
-        - Extensions: user-guide/rug/extensions.md
-        - Path Expressions: user-guide/rug/path-expressions.md
         - Microgrammars: user-guide/rug/microgrammars.md
-        - Templates: user-guide/rug/templates.md
         - Tests: user-guide/rug/tests.md
-        - Projects: user-guide/rug/projects.md
-        - Archives: user-guide/rug/archives.md
-#        - Development: user-guide/rug/development.md
-        - Lifecycle: user-guide/rug/lifecycle.md
-        - Runtime: user-guide/rug/runtime.md
-        - Conventions: user-guide/rug/conventions.md
     - Integrations:
         - Overview: user-guide/integrations/index.md
         - Slack: user-guide/integrations/slack.md
         - GitHub.com: user-guide/integrations/github.md
         - Travis CI: user-guide/integrations/travis-ci.md
         - Jenkins: user-guide/integrations/jenkins.md
-    - Interfaces:
-        - Introduction: user-guide/interfaces/index.md
-        - Bot: user-guide/interfaces/bot.md
-        - CLI:
-            - Overview: user-guide/interfaces/cli/index.md
-            - Installation: user-guide/interfaces/cli/install.md
-            - Basics: user-guide/interfaces/cli/basics.md
-            - Using Rugs: user-guide/interfaces/cli/using-rugs.md
-            - Developing Rugs: user-guide/interfaces/cli/developing-rugs.md
+    - Bot: user-guide/bot.md
     - Fingerprints: user-guide/fingerprints.md
     - Seeds: user-guide/seeds.md
     - Spring Agent: user-guide/spring-agent.md
@@ -119,18 +101,3 @@ pages:
         - Overview: user-guide/permissions/index.md
         - Slack Scopes: user-guide/permissions/slack.md
         - GitHub Scopes: user-guide/permissions/github.md
-- Reference Documentation:
-    - Overview: reference/index.md
-    - Rug:
-        - Overview: reference/rug/index.md
-#        - Event Handlers: reference/rug/event-handlers.md
-#        - Command Handlers: reference/rug/command-handlers.md
-#        - Editors: reference/rug/editors.md
-#        - Generators: reference/rug/generators.md
-        - Extensions: reference/rug/extensions.md
-        - Path Expressions: reference/rug/path-expressions.md
-#        - Microgrammars: reference/rug/microgrammars.md
-#        - Templates: reference/rug/templates.md
-#        - Tests: reference/rug/tests.md
-#        - Archives: reference/rug/archives.md
-    - Rug CLI: reference/rug-cli/index.md

@@ -1,10 +1,10 @@
-Secrets are pieces of sensitive information stored securely by Atomist. Secrets
-are used by [Rug Functions](/user-guide/rug/rug-functions.md) to provide access
-to secured systems, such as the GitHub API.
+Secrets are pieces of sensitive information stored securely by
+Atomist. Secrets allow the Atomist Bot and automations to act on your
+behalf, providing access to secured systems, such as the GitHub API.
 
-Handlers that invoke Rug Functions that require secrets must use the
-`#!typescript @Secrets` decorator to declare to the Rug runtime that those
-secrets will be required during the execution of the handler's CommandPlan:
+Handlers that that require secrets must use the `#!typescript
+@Secrets` decorator to declare to the Rug runtime that those secrets
+will be required during the execution of the handler's CommandPlan:
 
 ```typescript
 ...

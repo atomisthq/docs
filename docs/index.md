@@ -34,11 +34,11 @@ commits.  The correlation of these events is then used to
 automatically respond: retry a build, start an integration test,
 message a committer.
 
-Atomist provides both out of the box automations like our [Slack lifecycle notifications](https://the-composition.com/move-fast-and-dont-break-things-run-development-from-slack-3e4de5318e3f) and an API that you can use to build automations benefiting from its correlated data model. 
+Atomist provides both out of the box automations like our [Slack lifecycle notifications](https://the-composition.com/move-fast-and-dont-break-things-run-development-from-slack-3e4de5318e3f) and an API that you can use to build automations benefiting from its correlated data model.
 
 The Atomist API is primarily exposed via [GraphQL](http://graphql.org), a sophisticated, standard way of working with connected data. This choice makes it easy to work with the Atomist data model from any popular tech stack, and to explore it via the [GraphiQL browser](https://github.com/graphql/graphiql).
 
-To make working with our client API easy, we provide a `node` [client library](https://github.com/atomist/automation-client-ts) written in TypeScript. 
+To make working with our client API easy, we provide a `node` [client library](https://github.com/atomist/automation-client-ts) written in TypeScript.
 *We'll be providing other client libraries future.*
 
 ***The Atomist service provides:***
@@ -106,19 +106,15 @@ To help you learn more about Atomist, this documentation contains
 -   The rest of this overview: Atomist [concepts][]
     and [capabilities][]
 -   [Getting Started][getting-started] instructions
--   Learn how to customize Atomist by working through
-    our [Tutorials][tutorials]
+<!-- -   Learn how to customize Atomist by working through
+    our [Tutorials][tutorials] -->
 -   The Atomist [User Guide][user-guide] explaining each part of
     Atomist and how it is used
--   Detailed [Reference Documentation][refdoc]
 
 If you are new to Atomist, we recommend working through
 the [Getting Started][getting-started] instructions to get Atomist set
 up.  Once you are set up, you can get more information on using
-Atomist in the [User Guide][user-guide].  If you are developing new
-Atomist functionality and need to answer a technical question,
-the [Reference Documentation][refdoc] is probably the best place to
-look.
+Atomist in the [User Guide][user-guide].
 
 [concepts]: concepts.md (Overview - Atomist Concepts)
 [capabilities]: capabilities.md (Overview - Atomist Capabilities)

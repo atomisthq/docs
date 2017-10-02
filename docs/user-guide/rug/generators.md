@@ -13,6 +13,8 @@ Using these components, a generator does the followings:
 2.  Runs the generator's `populate` function against the contents of
     target directory
 
+<!--
+
 Let's look more closely at what makes a project a Rug generator.
 
 ## Anatomy of a Generator
@@ -415,3 +417,5 @@ changes against a freshly copy of your its content. This changes may be
 parametarized to tailor the result to the user's expectations. Finally,
 following a test-driven approach, generators can be quickly validated before
 being released.
+
+-->

@@ -13,6 +13,8 @@ program in a compiles-to-JavaScript, Turing-complete language. Based on the
 characteristics of the event that occurred, the handler decides whether to act and
 which actions to take.
 
+<!--
+
 !!! hint "Why not try..."
     A new issue was created? Post that in the repository's chat channel and also add
     buttons to the message that let people apply labels or claim the issue without
@@ -54,17 +56,7 @@ import { GraphNode, Match, PathExpression } from "@atomist/rug/tree/PathExpressi
 import { Comment } from "@atomist/cortex/Comment";
 import { Issue } from "@atomist/cortex/Issue";
 
-@EventHandler("ClosedGitHubIssues", "Handles closed issue events",
-    new PathExpression<Issue, Issue>(
-        `/Issue()[@state='closed']
-            [/resolvingCommits::Commit()/author::GitHubId()
-                [/person::Person()/chatId::ChatId()]?]?
-            [/openedBy::GitHubId()
-                [/person::Person()/chatId::ChatId()]?]
-            [/closedBy::GitHubId()
-                [/person::Person()/chatId::ChatId()]?]?
-            [/repo::Repo()/channels::ChatChannel()]
-            [/labels::Label()]?`))
+@EventHandler("ClosedGitHubIssues", "Handles closed issue events", GraphQLSubscription)
 @Tags("github", "issue")
 class ClosedIssue implements HandleEvent<Issue, Issue> {
     handle(event: Match<Issue, Issue>): Plan {
@@ -92,7 +84,7 @@ class ClosedIssue implements HandleEvent<Issue, Issue> {
 export const closedIssue = new ClosedIssue();
 ```
 
-This event handler follows the same programming model as other Rugs, so it 
+This event handler follows the same programming model as other Rugs, so it
 should look familiar. It gets triggered for each GitHub repository `Commit` event
 in the team and responds by sending a [Lifecycle Message](#messages) to the Atomist
 Bot.
@@ -100,13 +92,13 @@ Bot.
 ### Declaration
 
 Declaring an event handler is done using the `#!typescript @EventHandler` class
-decorator which requires a name and a description. Additionally, it requires a 
-[Path Expression][pes], which registers the types of events for which the handler
+decorator which requires a name and a description. Additionally, it requires a
+GraphQL subscription, which registers the types of events for which the handler
 should be triggered.
 
 ### Implementation
 
-Rug event handlers must implemente the `#!typescript HandleEvent<R,M>` interface, 
+Rug event handlers must implemente the `#!typescript HandleEvent<R,M>` interface,
 where the `R` and `M` type parameters refer to the expected root node and match
 types resulting from the execution of a [Path Expression][pes] respectively.
 
@@ -117,7 +109,7 @@ types resulting from the execution of a [Path Expression][pes] respectively.
 ### EventPlans
 
 An `#!typescript EventPlan` describes the actions to be taken by the Rug runtime
-on behalf of the handler. EventPlans are composed of [Messages](#messages) and/or 
+on behalf of the handler. EventPlans are composed of [Messages](#messages) and/or
 [respondables](#respondables). Respondables instruct the rug runtime to automatically
 perform ordinary Rug operations, whereas messages are sent to chat by the Atomist
 Bot.
@@ -127,76 +119,7 @@ Bot.
 A `Message` represents presentable content and/or deferable actions displayed
 to the user in response to returning an `#!typescript EventPlan` from an event
 handler. Every message will end up being sent to a chat channel or user by the
-Atomist bot. However, each of the two available message types achieve this in 
+Atomist bot. However, each of the two available message types achieve this in
 different ways.
 
-#### Directed Messages
-
-{!directed-message.md!}
-
-#### Lifecycle Messages
-
-{!lifecycle-message.md!}
-
-### Respondables
-
-An `#!typescript EventRespondable` is really just a container for an instruction and
-some optional `onError` and `onSuccess` capabilities. The `onError` and `onSuccess`
-properties of an `#!typescript EventRespondable` can be [messages](#messages), 
-[EventPlans](#eventplans) or [response handlers](#response-handlers).
-
-```typescript
-const plan = new EventPlan();
-plan.add(
-    {
-        instruction: {
-            kind: "edit",
-            project: "rugs",
-            name: "UpdateReadme",
-            parameters: {
-                newContent: "Rugs really tie the room together"
-            }
-        },
-        onSuccess: new DirectedMessage("woot", new ChannelAddress("#random")),
-        onError: {
-            kind: "respond",
-            name: "HandleReadmeUpdateErrors"
-        }
-    }
-)
-
-```
-
-The example above shows how to send `woot` to the `#random` channel using a
-[Directed Message](#messages) if the `edit` Instruction completes successfully,
-and invoke the `HandleReadmeUpdateErros` [Response Handler](#response-handlers)
-if it fails.
-
-### Instructions
-
-Instructions in an `#!typescript EventRespondable` have the following properties:
-
-*   `#!typescript kind: "generate" | "edit" | "execute"`: the kind of instruction 
-*   `#!typescript name: string`: the name of the operation to apply
-*   `#!typescript parameters: {}`: key/value pairs passed to the operation
-*   `#!typescript project?: string`: Project name (only for generators & editors)
-
-Instructions can be used to have the rug runtime run Rugs, such as invoking
-a generator (`#!typescript "generate"`), an editor (`#!typescript "edit"`), or
-a [Rug Funtion](#rug-functions) (`#!typescript "execute"`).
-
-### Rug Functions
-
-{!rug-functions.md!}
-
-!!! missing
-    Although it's possible to invoke Rug Functions from Event Handlers, there is
-    currently no mechanism to populate Secrets (tokens, passwords etc.) as there
-    is for Command Handlers. We are currently working on support for this.
-
-### Response Handlers
-
-{!response-handlers.md!}
-
-[commands]: command-handlers.md
-[pes]: path-expressions.md
+-->

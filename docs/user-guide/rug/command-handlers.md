@@ -12,6 +12,8 @@ can you use Rug commands to list open issues on a project but the team can also
 query the project's code or even run other Rugs against the project, all of this
 from the project's chat channel.
 
+<!--
+
 ## Anatomy of a Command Handler
 
 Rug commands handlers are the interface to add new skills to the [Atomist bot][bot].
@@ -122,57 +124,4 @@ achieve this in different ways.
 
 {!response-message.md!}
 
-### Respondables
-
-An `#!typescript CommandRespondable` is really just a container for an instruction and
-some optional `onError` and `onSuccess` capabilities. The `onError` and `onSuccess`
-properties of an `#!typescript CommandRespondable` can be [messages](#messages),
-[CommandPlans](#commandplans) or [response handlers](#response-handlers).
-
-```typescript
-const plan = new CommandPlan();
-plan.add(
-    {
-        instruction: {
-            kind: "execute",
-            name: "create-github-issue",
-            parameters: this
-        },
-        onError: {
-            kind: "respond",
-            name: "GenericErrorHandler",
-            parameters: this
-        },
-        onSuccess: new ResponseMesssage("Successfully created issue")
-    }
-)
-plan.add(handleErrors(exec, this))
-return plan;
-
-```
-
-The example above shows how send a message back to the user or channel that invoked
-the command `onSuccess` or to invoke the `GenericErrorHandler` [Response Handler](#response-handlers)
-if creation fails.
-
-### Instructions
-
-Instructions in an `#!typescript CommandRespondable` have the following properties:
-
-*   `#!typescript kind: "generate" | "edit" | "execute" | "command"`: the kind of instruction
-*   `#!typescript name: string`: the name of the operation to apply
-*   `#!typescript parameters: {}`: key/value pairs passed to the operation
-*   `#!typescript project?: string`: Project name (only for generators & editors)
-
-Instructions can be used to have the rug runtime run Rugs, such as invoking
-a Generator (`#!typescript "generate"`), an Editor (`#!typescript "edit"`),
-a [Rug Funtion](#rug-functions) (`#!typescript "execute"`) or even another Command
-Handler.
-
-### Rug Functions
-
-{!rug-functions.md!}
-
-### Response Handlers
-
-{!response-handlers.md!}
+-->

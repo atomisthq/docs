@@ -4,6 +4,8 @@ resources.
 
 Rug editors automate updates, from the simplest to most complex.
 
+<!--
+
 ## Anatomy of an Editor
 
 Assume our team has an existing Spring Boot Rest project cloned or copied/pasted
@@ -380,3 +382,5 @@ Then("the endpoint method should be created in the controller class", (p: Projec
     well-known convention when writing Rugs that we encourage you to follow.
 
 [generators]: generators.md
+
+-->

@@ -8,12 +8,10 @@ The Rug ecosystem includes a programming model, runtime, test runner,
 and package manager.  The Rug programming model is expressed
 as [TypeScript module][ts] interfaces and classes.  The Rug runtime
 runs as a service, accessible from any Slack that has invited the
-Atomist Bot (try it in [Atomist Community Slack][slack]).  There's
-also the [Rug CLI][cli] for local use, essential for Rug development.
+Atomist Bot (try it in [Atomist Community Slack][slack]).
 
 [ts]: https://www.typescriptlang.org/
 [slack]: https://join.atomist.com/
-[cli]: /user-guide/interfaces/cli/index.md
 
 Rug is a medium for code that modifies code.  Rug helps developers
 automate development.  When a coding task is common, tedious,
