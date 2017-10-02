@@ -12,20 +12,11 @@ In `#general` or any channel in your Slack team that Atomist Bot has
 been invited to, type this message:
 
 ```
-@atomist generators starter
+@atomist new automation
 ```
 
-The Bot will show generators with the tag `starter` like following.
-
-<div class="ss-container">
-  <img src="../images/new-rug-generator.png" alt="New Rug Generator" class="ss-medium">
-</div>
-
-Click on the "Generate project" button for the `NewStarterRugProject` generator.
-
-The Atomist Bot will respond with a message telling you what project
-generator you created and then start a [thread][] off that message to
-gather the information it needs to generate the project.  Click now on
+The Atomist Bot will start a [thread][] off that message to
+gather the information it needs to create the project.  Click now on
 the "1 reply" link below the message to open up the thread in Slack.
 You will see that the Atomist Bot has asked you a question in the
 thread.
@@ -55,4 +46,4 @@ similar to the following.
 You now have a starter Rug project to write new Rugs in. Click on the project link
 to see your project in GitHub.
 
-We recommend you make a local clone of this new repository for use in other tutorials.
+You don't need to create a new automation project every time you want to write new Rugs. Often, you will add to an existing project.

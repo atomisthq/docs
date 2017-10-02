@@ -12,6 +12,8 @@ can you use Rug commands to list open issues on a project but the team can also
 query the project's code or even run other Rugs against the project, all of this
 from the project's chat channel.
 
+<!--
+
 ## Anatomy of a Command Handler
 
 Rug commands handlers are the interface to add new skills to the [Atomist bot][bot].
@@ -31,6 +33,8 @@ the project they target or in different projects altogether.
 ## Example Command Handler
 
 Suppose we want to open a new GitHub issue:
+
+TODO FIX THIS
 
 ```typescript linenums="1"
 {!doc-rugs/.atomist/handlers/command/CreateIssue.ts!}
@@ -65,8 +69,7 @@ made availble to users in chat.
 
 !!! note "Command Handlers invoking Command Handlers"
     Most of the time, it makes sense to add the `#!typescript @Intent` decorator.
-    However, it's also possible to invoke Command Handlers from Command Handlers
-    by adding them to the Plan (more on this later), so for these handlers, it
+    However, it's also possible to invoke Command Handlers from Command Handlers, so for these handlers, it
     might not make sense to expose them directly to chat users as commands.
 
 ### Discovery
@@ -75,10 +78,9 @@ made availble to users in chat.
 
 ### Implementation
 
-You define the class which implements your command handler (line 21). The class is
-exported so that it can referenced from unit tests. A command handler implements
+You define the class which implements your command handler (line 21). A command handler implements
 the `#!typescript HandleCommand` interface. This interface requires the
-`#!typescript handle(command: HandlerContext): CommandPlan` method to be
+`#!typescript handle(command: HandlerContext): Promise<HandlerResult>` method to be
 implemented. It is a convention for the command handler and the class that defines
 it to have the same name.
 
@@ -122,57 +124,4 @@ achieve this in different ways.
 
 {!response-message.md!}
 
-### Respondables
-
-An `#!typescript CommandRespondable` is really just a container for an instruction and
-some optional `onError` and `onSuccess` capabilities. The `onError` and `onSuccess`
-properties of an `#!typescript CommandRespondable` can be [messages](#messages),
-[CommandPlans](#commandplans) or [response handlers](#response-handlers).
-
-```typescript
-const plan = new CommandPlan();
-plan.add(
-    {
-        instruction: {
-            kind: "execute",
-            name: "create-github-issue",
-            parameters: this
-        },
-        onError: {
-            kind: "respond",
-            name: "GenericErrorHandler",
-            parameters: this
-        },
-        onSuccess: new ResponseMesssage("Successfully created issue")
-    }
-)
-plan.add(handleErrors(exec, this))
-return plan;
-
-```
-
-The example above shows how send a message back to the user or channel that invoked
-the command `onSuccess` or to invoke the `GenericErrorHandler` [Response Handler](#response-handlers)
-if creation fails.
-
-### Instructions
-
-Instructions in an `#!typescript CommandRespondable` have the following properties:
-
-*   `#!typescript kind: "generate" | "edit" | "execute" | "command"`: the kind of instruction
-*   `#!typescript name: string`: the name of the operation to apply
-*   `#!typescript parameters: {}`: key/value pairs passed to the operation
-*   `#!typescript project?: string`: Project name (only for generators & editors)
-
-Instructions can be used to have the rug runtime run Rugs, such as invoking
-a Generator (`#!typescript "generate"`), an Editor (`#!typescript "edit"`),
-a [Rug Funtion](#rug-functions) (`#!typescript "execute"`) or even another Command
-Handler.
-
-### Rug Functions
-
-{!rug-functions.md!}
-
-### Response Handlers
-
-{!response-handlers.md!}
+-->

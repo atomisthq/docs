@@ -133,9 +133,7 @@ working in and around software development and delivery.
 
 **CLI** - Many developers prefer working on the command line,
 prototyping and hacking together clever solutions to vexing problems.
-Atomist provides a powerful Rug CLI that not only supports running
-Rugs, but also a provides immediate feedback when developing and
-testing Rugs.
+Atomist provides a CLI that you can use to invoke Rugs as you develop them locally.
 
 **None** - The real power of Atomist is achieved when no interface is
 necessary.  Put another way, Atomist is about driving to *complete*

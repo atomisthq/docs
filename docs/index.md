@@ -11,7 +11,7 @@ fun.
 Timely, correlated, and actionable information results from capturing
 your processes and operations in code.  Atomist knows the platforms
 and tools you already use: GitHub, Slack, Travis CI.  Atomist
-understands your code: Java, C#, JavaScript, Scala, Python, Clojure,
+helps you write code that understands your code: Java, C#, JavaScript, Scala, Python, Clojure,
 even Dockerfiles and Maven POMs.  Most importantly, Atomist
 understands the relationship between your code, your tools, your
 environments, and your running services and brings this information to
@@ -24,7 +24,7 @@ or switching from IDE to chat to web browser ad infinitum, let Atomist
 remove the drudgery and reduce the context switching so your team can
 focus on what matters: shipping great software.
 
-## Atomist is SaaS
+## Atomist is a Service and an API
 
 The Atomist service consumes events from your systems: source code
 repositories, continuous integration servers, deployment platforms,
@@ -34,9 +34,17 @@ commits.  The correlation of these events is then used to
 automatically respond: retry a build, start an integration test,
 message a committer.
 
+Atomist provides both out of the box automations like our [Slack lifecycle notifications](https://the-composition.com/move-fast-and-dont-break-things-run-development-from-slack-3e4de5318e3f) and an API that you can use to build automations benefiting from its correlated data model.
+
+The Atomist API is primarily exposed via [GraphQL](http://graphql.org), a sophisticated, standard way of working with connected data. This choice makes it easy to work with the Atomist data model from any popular tech stack, and to explore it via the [GraphiQL browser](https://github.com/graphql/graphiql).
+
+To make working with our client API easy, we provide a `node` [client library](https://github.com/atomist/automation-client-ts) written in TypeScript.
+*We'll be providing other client libraries future.*
+
 ***The Atomist service provides:***
 
 -   *the SaaS platform to ingest and correlate events*
+-   *a GraphQL API to work with the resulting data model*
 -   *a core set of integrations and event responses*
 -   *the ability for teams to customize the events, correlation, and
     actions for their existing processes*
@@ -44,7 +52,7 @@ message a committer.
 ## Atomist is events
 
 Within Atomist, all events are captured and actionable.  As events are
-consumed from your systems, event handlers are triggered.  These
+consumed from your systems, **event handlers** are triggered.  These
 handlers respond to events, by taking action themselves and/or
 creating new events, which can in turn trigger other handlers.  Event
 handlers can do anything from trigger a deployment of a new version of
@@ -98,19 +106,15 @@ To help you learn more about Atomist, this documentation contains
 -   The rest of this overview: Atomist [concepts][]
     and [capabilities][]
 -   [Getting Started][getting-started] instructions
--   Learn how to customize Atomist by working through
-    our [Tutorials][tutorials]
+<!-- -   Learn how to customize Atomist by working through
+    our [Tutorials][tutorials] -->
 -   The Atomist [User Guide][user-guide] explaining each part of
     Atomist and how it is used
--   Detailed [Reference Documentation][refdoc]
 
 If you are new to Atomist, we recommend working through
 the [Getting Started][getting-started] instructions to get Atomist set
 up.  Once you are set up, you can get more information on using
-Atomist in the [User Guide][user-guide].  If you are developing new
-Atomist functionality and need to answer a technical question,
-the [Reference Documentation][refdoc] is probably the best place to
-look.
+Atomist in the [User Guide][user-guide].
 
 [concepts]: concepts.md (Overview - Atomist Concepts)
 [capabilities]: capabilities.md (Overview - Atomist Capabilities)
