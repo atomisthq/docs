@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/8.0.1...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/8.0.2...HEAD
+
+## [8.0.2][] - 2017-10-02
+
+[8.0.2]: https://github.com/atomist/end-user-documentation/compare/8.0.1...8.0.2
+
+Less Rug release
+
+### Changed
+
+-  Remove references to Rug in introductory material
 
 ## [8.0.1][] - 2017-10-02
 

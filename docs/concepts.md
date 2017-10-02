@@ -70,19 +70,11 @@ the author of the code change that led to an error in your staging
 environment but only if that commit was made within the last 24 hours
 and it is normal working hours for the author.
 
-## Rug
+## Automations
 
-<!-- *That rug really tied the room together, did it not?* -->
-
-Rug is a programming model and runtime.
-
-The Rug programming model defines the interface, which is "What events
-does this program respond to?" and "How does it respond?".  Programs
-that implement this model are called Rugs, and they execute inside a
-Rug runtime.
-
-Rugs can automate and codify all manner of steps in a development or
-operations workflow.  For example, Rugs can
+Atomist automations define "What events am I interested in?" and "How
+do I respond to each event?".  Automations can codify all manner of
+steps in a development or operations workflow.  For example, they can
 
 -   Alert the author whose change caused an error at runtime
 -   Automate deployment by linking your CI system, your integration
@@ -90,13 +82,13 @@ operations workflow.  For example, Rugs can
 -   Identify a commit leading to a regression in production, revert
     the commit, and release the "new" version!
 
-These are just a few ways Rugs are able to tie all the events of a
-team together into a coherent model.
+These are just a few ways automations are able to tie all the events
+of a team together into a coherent model.
 
-Atomist ships with a core set of Rugs.  Anyone using Atomist can
-implement additional Rugs for their team.  These custom Rugs are
-dynamically discovered by Atomist and used when processing all
-subsequent events.
+Atomist ships with a core set of automations.  Anyone using Atomist
+can implement additional automations for their team.  These custom
+automations register themselves with the Atomist API and are sent the
+events and data they need to execute their automations.
 
 ## Integrations
 
