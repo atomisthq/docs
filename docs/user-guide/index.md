@@ -14,21 +14,21 @@ the [Getting Started][getting-started] guide.
 The Atomist User Guide contains the following sections:
 
 -   [**Rug**][rug]: Atomist's enabling technology
--   [**Integrations**][integrations]: External platforms and tools that Atomist works with
 -   [**Atomist Bot**][bot]: How to interact with the Atomist Bot in Slack
--   [**Seeds**][seeds]: Projects that generate other projects
 -   [**Fingerprints**][fingerprints]: How Atomist detects significant code changes
--   [**Permissions**][permissions]: What permissions Atomist asks for
+-   [**Seeds**][seeds]: Projects that generate other projects
 -   [**Spring Agent**][spring-agent]: Installing and Using the [Spring][spring] Agent
+-   [**Integrations**][integrations]: External platforms and tools that Atomist works with
+-   [**Permissions**][permissions]: What permissions Atomist asks for
 
 [rug]: rug/index.md
-[integrations]: integrations/index.md
 [bot]: bot.md
-[seeds]: seeds.md
 [fingerprints]: fingerprints.md
-[permissions]: permissions/index.md
+[seeds]: seeds.md
 [spring-agent]: spring-agent.md
 [spring]: https://spring.io/
+[integrations]: integrations/index.md
+[permissions]: permissions/index.md
 
 Click on any of the links above to go directly to that section, or
 click Next at the bottom right of this page to go to the next page in

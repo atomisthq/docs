@@ -194,6 +194,8 @@ Bot notifying you that the issue has been updated.
 After connecting Atomist and GitHub, we can see GitHub events in
 Slack, take action on them, and see the result in GitHub and Slack.
 
+<!--
+
 ## Create a new project
 
 You can ask the Atomist Bot to create a new project for you either
@@ -316,3 +318,5 @@ Click on the project link to see your project in GitHub.
 
 Clone your new repository from GitHub and you will have a new, working
 project courtesy of Atomist.
+
+-->

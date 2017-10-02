@@ -87,16 +87,16 @@ pages:
         - Secrets: user-guide/rug/secrets.md
         - Microgrammars: user-guide/rug/microgrammars.md
         - Tests: user-guide/rug/tests.md
+    - Bot: user-guide/bot.md
+    - Fingerprints: user-guide/fingerprints.md
+    - Seeds: user-guide/seeds.md
+    - Spring Agent: user-guide/spring-agent.md
     - Integrations:
         - Overview: user-guide/integrations/index.md
         - Slack: user-guide/integrations/slack.md
         - GitHub.com: user-guide/integrations/github.md
         - Travis CI: user-guide/integrations/travis-ci.md
         - Jenkins: user-guide/integrations/jenkins.md
-    - Bot: user-guide/bot.md
-    - Fingerprints: user-guide/fingerprints.md
-    - Seeds: user-guide/seeds.md
-    - Spring Agent: user-guide/spring-agent.md
     - Permissions:
         - Overview: user-guide/permissions/index.md
         - Slack Scopes: user-guide/permissions/slack.md

@@ -14,8 +14,7 @@ Atomist [microgrammar (pdf)][microgrammar] support allows you to safely pinpoint
 
 [microgrammar-ac]: https://blog.acolyer.org/2016/05/31/how-to-build-static-checking-systems-using-orders-of-magnitude-less-code/ (Micro Grammars - The Morning Paper)
 
-TPlease see
-the [`@atomist/microgrammar`][microgrammar-ts] TypeScript
+Please see the [`@atomist/microgrammar`][microgrammar-ts] TypeScript
 implementation for the latest documentation and usage.
 
 [microgrammar-ts]: https://github.com/atomist/microgrammar (Microgrammar TypeScript module)

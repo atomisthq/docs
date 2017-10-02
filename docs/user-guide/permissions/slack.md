@@ -10,8 +10,11 @@ must be granted.
 
 Slack Scope | How Atomist Uses It
 -------------|----------
-`bot` | Enables the bot to hear and respond to channel activity, such as bot commands and events.
-`channels:write` | Enables the bot to create channels and write messages to channels.  For example, when you create a new project with Atomist, the bot can create a channel that will be associated with the project's repository.
+[bot][] | Enables the bot to hear and respond to channel activity, such as bot commands and events.
+[channels:write][cw] | Enables the bot to create channels and write messages to channels.  For example, when you create a new project with Atomist, the bot can create a channel that will be associated with the project's repository.
+
+[bot]: https://api.slack.com/scopes/bot (Slack bot Scope)
+[cw]: https://api.slack.com/scopes/channels:write (Slack channels:write Scope)
 
 For more information, see the [Slack bot users][bot-users] documentation.
 
