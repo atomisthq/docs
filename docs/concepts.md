@@ -17,15 +17,14 @@ Atomist is not a templating system.  Atomist is not
 infrastructure-as-code.  Atomist is not a DevOps platform.  Atomist is
 not a ChatOps platform.  Atomist brings all of those things
 together&hellip; and more.  Bringing the events and information from
-the systems and tools you already use together in one place, providing
-insight into what is happening in your day-to-day development flow, is
-just the beginning.  Once the information is collected, it can be
+the systems and tools you already use together in one place to provide
+insight into what is happening in your day-to-day development flow.  Once the information is collected, it can be
 correlated and contextualized, providing a coherent view of your
 development landscape.  Even more importantly, Atomist provides the
 ability to take action on information and events, both automatically
 and by prompting the appropriate users.  In short, Atomist provides
 you with the information, context, and tooling to help you make better
-decision more quickly.
+decisions more quickly.
 
 ## Software as a Service
 
