@@ -1,13 +1,14 @@
 site_name: The Atomist Documentation
-site_description: Documentation for the Atomist Developer Platform
+site_description: Documentation for the Atomist Development Automation Platform
 site_author: The Atomist Team
 copyright: '&copy; 2017 Atomist, Inc.'
 extra:
   main_site_url: https://www.atomist.com/
-theme: material
-site_favicon: images/favicon.ico
+theme:
+  name: material
+  favicon: 'img/favicon.ico'
 extra:
-  logo: images/atomist-logo-horiz-reversed.svg
+  logo: img/atomist-logo-horiz-reversed.svg
   palette:
     primary: green
     accent: green
@@ -29,8 +30,8 @@ google_analytics:
   - UA-74966852-1
   - auto
 markdown_extensions:
-  - markdown_include.include:
-      base_path: "docs/common"
+#  - markdown_include.include:
+#      base_path: "docs/common"
   - admonition
   - codehilite(guess_lang=false, linenums=false)
   - def_list
@@ -50,54 +51,19 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist(custom_checkbox=true)
   - pymdownx.tilde
-repo_name: Rug
-repo_url: https://github.com/atomist/rug
+# repo_name: Rug
+# repo_url: https://github.com/atomist/rug
 pages:
-- Overview:
-    - Introduction: index.md
-    - Concepts: concepts.md
-    - Capabilities: capabilities.md
-- Getting Started:
-    - Overview: getting-started/index.md
-    - Prerequisites: getting-started/prerequisites.md
-    - Connect Atomist to Slack: getting-started/slack.md
-    - Connect Atomist to GitHub: getting-started/github.md
-    - Connect Atomist to CI:
-        - Overview: getting-started/ci.md
-        - Travis CI: getting-started/travis-ci.md
-        - Jenkins: getting-started/jenkins.md
-    - Atomist Bot: getting-started/bot.md
-    - What next: getting-started/what-next.md
-#- Tutorials:
-#    - Introduction: tutorials/index.md
-#    - Setup Rug CLI: tutorials/setup-cli.md
-#    - Create Rug Project: tutorials/create-rug-project.md
-#    - Setup TypeScript: tutorials/setup-typescript.md
-#    - Publish Rug Project: tutorials/publish-rug-project.md
-#    - Add Bot Command: tutorials/add-bot-command.md
-#    - Custom Commit Notifications: tutorials/custom-commit-notifications.md
-- User Guide:
-    - Introduction: user-guide/index.md
-    - Rug:
-        - Introduction: user-guide/rug/index.md
-        - Event Handlers: user-guide/rug/event-handlers.md
-        - Command Handlers: user-guide/rug/command-handlers.md
-        - Editors: user-guide/rug/editors.md
-        - Generators: user-guide/rug/generators.md
-        - Secrets: user-guide/rug/secrets.md
-        - Microgrammars: user-guide/rug/microgrammars.md
-        - Tests: user-guide/rug/tests.md
-    - Bot: user-guide/bot.md
-    - Fingerprints: user-guide/fingerprints.md
-    - Seeds: user-guide/seeds.md
-    - Spring Agent: user-guide/spring-agent.md
-    - Integrations:
-        - Overview: user-guide/integrations/index.md
-        - Slack: user-guide/integrations/slack.md
-        - GitHub.com: user-guide/integrations/github.md
-        - Travis CI: user-guide/integrations/travis-ci.md
-        - Jenkins: user-guide/integrations/jenkins.md
-    - Permissions:
-        - Overview: user-guide/permissions/index.md
-        - Slack Scopes: user-guide/permissions/slack.md
-        - GitHub Scopes: user-guide/permissions/github.md
+  - Introduction: index.md
+  - Setup: setup/index.md
+  - Automations:
+      - Overview: automations/index.md
+      - Prerequisites: automations/prerequisites.md
+      - Quick Start: automations/quick-start.md
+      - Handling Commands: automations/commands.md
+      - Subscribing to Events: automations/events.md
+      - Slack Messages: automations/slack.md
+      - GraphClient: automations/graphql.md
+      - Automation Client: automations/client.md
+      - Discovering Automations: automations/discovery.md
+      - Running an Automation Client on a PaaS: automations/paas.md
