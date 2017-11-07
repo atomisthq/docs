@@ -2,10 +2,14 @@
 
 Trigger your automations from your dashboard[LINK] or Slack! Command handlers respond to requests in Slack -- like `@atomist do my thing` or a button press[LINK to button instructions]. Each command handler also responds over REST or on the dashboard. You can create your own command handlers to make the Atomist bot do what you want.
 
-To create your own command handlers, you'll need
+For the fastest path to a command handler, follow [this quick-start Command Handler blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
+
+If you already have an automation client, this page will help you add a command handler to it.
+
+You'll need
 [ ] an automation client of your own [LINK to quick start]
 [ ] a task you want to automate (even if it's just saying "hi")
-[ ] a phrase that people can say in Slack
+[ ] a phrase that people can say in Slack to trigger it
 [ ] a name for the command handler
 
 For the purposes of this guide, we'll create MyCommandHandler, which responds to "do my thing".
@@ -60,13 +64,65 @@ Here are some quick examples for common automations:
 
 ### Send an HTTP request
 
+The `axios` library in TypeScript is great for HTTP requests. It returns a Promise of a response.
+Axios parses JSON and XML into JavaScript objects into the `data` field on the response, very handy!
+
+Here's a quick-start for your `handle` method:
+
+```
+import axios from "axios";
+return axios.get("http://icanhazip.com/")
+              .then(response => context.messageClient.respond("My IP is: " + response.data))
+              .then(() => Success)
+```
+
+For a fuller example, try [a query to Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
+This example is available through a very quick start as described in this [Command Handler blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
+
 ### Send a message to a particular channel
 
+This is handy for creating an informal audit log of automation runs.
+The `addressChannels` method on messageClient has a second argument, which is a channel name (or channel ID). 
+Or pass an array of channel names to send the message to all of them.
+
+```
+return context.messageClient.addressChannels("I did the thing","random")
+           .then(() => Succcess)
+```
+
 ### Make a code change
+
+Atomist lets developers automate our own work, and that includes changing code.
 
 ### Inspect code across repositories
 
 ### Make a new repository
+
+### Send a direct message
+
+Perhaps you'd like to DM yourself whenever someone runs your automation. 
+The `addressUsers` method on the messageClient has a second argument: a Slack username or an array of Slack usernames.
+
+```
+return context.messageClient.addressUsers("ping","jessitron")
+           .then(() => Succcess)
+```
+
+### Send a message that's more than text.
+
+All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or JSON for a Slack message.
+Learn about formatting options on [Slack's lovely message builder page](https://api.slack.com/docs/messages/builder).
+
+```
+   import * as slack from "@atomist/slack-messages/SlackMessages";
+   const message: slack.SlackMessage: {
+       text: "This message is simple; you could have passed a string."
+   };
+   return context.messageClient.respond(message)
+              .then(() => Success)
+```
+
+Find full information about all the options here [LINK], including how to add buttons [LINK].
 
 ## Parameters
 
