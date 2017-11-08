@@ -86,14 +86,14 @@ Perhaps it's the build number for the build whose log you want, or the issue num
 #### How they're populated
 
 In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), they'll be prompted in a thread 
-to for each required parameter. Then they get to review all the parameter values and click or type Submit. If there are no required parameters, your command will be invoked right away.
+to supply a value for each required parameter. Then they get to review all the parameter values and click or type Submit. If there are no required parameters, your command will be invoked right away.
 
 TODO: picture of parameter thread
 
 callout: You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`. If you supply all the required parameters,
 the command will be invoked right away.
 
-In Slack buttons, the automation creating the button can supply as many parameters as its knows[LINK]. Whoever clicks the button will be prompted for any required parameters that weren't part of the button definition.
+In Slack buttons, the automation creating the button can supply as many parameters as it knows[LINK]. Whoever clicks the button will be prompted for any required parameters that weren't part of the button definition.
 
 In the dashboard, each parameter is a form field. [TODO: picture]
 

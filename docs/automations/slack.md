@@ -7,7 +7,7 @@ handling events.
 _Actionable_ refers to the ability to place buttons and menus onto messages that
 trigger - when clicked or selected - new commands on behalf of the user taking
 action. Over time, as a result of some new events or triggered actions, a posted
-message can we re-written and updated with new content and actions; this makes 
+message can be re-written and updated with new content and actions; this makes 
 a message _updatable_.
 
 The following screenshot shows a sample message with different [`Attachments`](https://api.slack.com/docs/message-attachments) and
@@ -102,7 +102,7 @@ Additionally we'll demonstrate how to add buttons and menus to messages.
 ### Simple Messages
 
 The `addressUsers`, `addressChannels` and `respond` methods accept a `string`
-message as first argument. A simple `string` message can still some basic
+message as first argument. A simple `string` message can still have some basic
 formatting. 
 
 Here are a couple of examples for simple messages:
@@ -221,10 +221,10 @@ return ctx.messageClient.respond(message)
 ### Adding Message Menus
 
 Message menus are very similar to message buttons in the way they are created and
-added to the message. Main difference is that menus are defined with a `MenuSpecification`
+added to the message. The main difference is that menus are defined with a `MenuSpecification`
 instead of a `ButtonSpecification`.
 
-Besides the name of the menu, a `MenuSpecification` allows to define menu options
+Besides the name of the menu, a `MenuSpecification` allows you to define menu options
 and option groups.
 
 See the following example:
@@ -253,8 +253,8 @@ const message: slack.SlackMessage = {
 };
 ```
 
-To create the menu `menuForCommand` is called with the menu details, the reference
-to the command handler and the name of the parameter on the command handler
+To create the menu, `menuForCommand` is called with the menu details, the reference
+to the command handler and the name of the parameter on the command handler that
 the selected value of the menu should be bound to; in this example, the value of
 the option will be bound to the `label` parameter.
 
@@ -316,9 +316,9 @@ expected to be in milliseconds, too. So, when a message is received by the bot,
 it compares the `ts + ttl` of the existing message with `ts` of the new 
 message; if `ts + ttl` is smaller, the new message will be posted to the bottom
 of the Slack stream and will not re-write the existing message. As long `ts + ttl`
-is greater then `ts` of the new message, the existing message will be overridden.
+is greater then `ts` of the new message, the existing message will be overwritten.
 
 Lastly, the `post` property specifies if a message should be posted only if
 it is an update to a previously posted message with the same `id`. If 
-`post === "always"`, the message will also be posted as new message and 
+`post === "always"`, the message will also be posted as a new message and 
 will never rewrite a previous message.

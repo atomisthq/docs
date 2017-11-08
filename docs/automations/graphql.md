@@ -14,7 +14,7 @@ how to mutate data.
 ## Accessing Data with GraphiQL
 
 [GraphiQL](https://github.com/graphql/graphiql) is a GraphQL client that provides 
-assistance for writing your queries, and see the shape of the resulting data. 
+assistance for writing your queries, and displays the shape of the resulting data. 
 It also gives access to the documentation of the data model.
 
 !!! note 
@@ -42,7 +42,7 @@ of GraphiQL.
 
 ## Queries 
 
-You can execute queries from command and event handles when running an Atomist 
+You can execute queries from command and event handlers when running an Atomist 
 automation client. To execute queries the client provides two distinct methods 
 on `GraphClient`. A `GraphClient` is available from the `HandlerContext`.
 
@@ -176,8 +176,8 @@ ctx.graphClient.executeMutationFromFile("createSlackChannel",
 
 ## Strongly-typed GraphQL Queries
 
-One nice side-effect of using GraphQL as query layer is that we can generate
-types for the use with TypeScript from the schema and our queries, subscriptions
+One nice side-effect of using GraphQL as the query layer is that we can generate
+types for use with TypeScript from the schema and our queries, subscriptions
 and mutations.
 
 To generate types for your externalized GraphQL operations, run `npm run gql:gen`.
