@@ -7,8 +7,8 @@ extra:
 theme:
   name: material
   favicon: 'img/favicon.ico'
-extra:
   logo: img/atomist-logo-horiz-reversed.svg
+extra:
   palette:
     primary: green
     accent: green
