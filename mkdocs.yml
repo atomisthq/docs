@@ -62,8 +62,8 @@ pages:
       - Quick Start: automations/quick-start.md
       - Handling Commands: automations/commands.md
       - Subscribing to Events: automations/events.md
-      - Slack Messages: automations/slack.md
-      - GraphClient: automations/graphql.md
+      - Actionable Slack Messages: automations/slack.md
+      - Working with GraphQL: automations/graphql.md
       - Automation Client: automations/client.md
       - Discovering Automations: automations/discovery.md
       - Running an Automation Client on a PaaS: automations/paas.md
