@@ -99,12 +99,12 @@ Atomist lets developers automate our own work, and that includes changing code. 
 Maybe we want to add a CONTRIBUTING.md file to one repository, with organization-standard content.
 
 To edit one project, we can specify:
-    *  GitHub credentials: see [Secrets](#secrets) for how to do this operation as the user who invoked the command
+    *  GitHub credentials: see Secrets[LINK] for how to do this operation as the user who invoked the command
     *  How to edit the project: Atomist uses a [Project](https://atomist.github.io/automation-client-ts/modules/_project_project_.html) object to model operations on a repository.
     *  How to save your work: make a Pull Request[LINK to typedocs when re-generated] or a commit to a branch[LINK to typedoc] 
-    *  which repository to edit: see [Mapped Parameters](#mappedparameters) for how to guess this from the channel where the command is invoked
+    *  which repository to edit: see Mapped Parameters[LINK] for how to guess this from the channel where the command is invoked
 
-[Here is a command handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/AddContributing.ts) that does this. The `handle` method contains
+[Here is a command handler](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/editor/AddContributing.ts) that does this. The `handle` method contains
 
 ```typescript
 function editProject(p: Project) { 
@@ -123,13 +123,13 @@ return editOne(context,
     .then(() => Success, failure);
 ```
 
-Check [the complete source](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/AddContributing.ts) for the necessary imports.
+Check [the complete source](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/editor/AddContributing.ts) for the necessary imports.
 
 #### Change the content of a file in all repositories
 
 Why stop at just one repository? This is automation! We can change them all!
 
-Let's update the Copyright year in all the READMEs in all our repositories. [Full command handler is here.](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts)
+Let's update the Copyright year in all the READMEs in all our repositories. [Full command handler is here.](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/editor/UpdateCopyright.ts)
 
 For that, we'll need a function to edit the project. This one gets the project, the HandlerContext and some extra parameters.
 It returns an EditResult.
@@ -152,7 +152,7 @@ Then in the handle method, use `editAll` to run on all the projects that we can 
             { newYear: this.newYear }) // parameters to pass on to the edit function
             .then(() => Success, failure);
 ```
-With [this handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts) running
+With [this handler](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/editor/UpdateCopyright.ts) running
 in our automation client, we can initiate PRs on all repositories that have an out-of-date Copyright notice with one `@atomist update README copyright year` in Slack, or one invocation from the client dashboard[LINK].
 
 ### Inspect code across repositories
@@ -161,7 +161,7 @@ Which repositories are up to current coding standards? We can write an automatio
 
 For a quick example, let's check which repositories have a current copyright notice in the README. I want to report on every repository: Does it have a copyright notice? If so, is it up-to-date?
 
-Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/review/ReviewCopyright.ts). Take it and modify it for your purposes.
+Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/reviewer/ReviewCopyright.ts). Take it and modify it for your purposes.
 
 <!-- TODO: when it works (which will require some fixes to cloning), put output here -->
 
