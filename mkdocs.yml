@@ -33,13 +33,17 @@ markdown_extensions:
 #  - markdown_include.include:
 #      base_path: "docs/common"
   - admonition
-  - codehilite(guess_lang=false, linenums=false)
+  - codehilite:
+      guess_lang: false
+      linenums: false
   - def_list
   - footnotes
   - meta
   - smarty
-  - toc(permalink=true)
-  - pymdownx.betterem(smart_enable=all)
+  - toc:
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.emoji:
@@ -49,7 +53,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
 # repo_name: Rug
 # repo_url: https://github.com/atomist/rug
