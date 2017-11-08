@@ -69,7 +69,7 @@ Axios parses JSON and XML into JavaScript objects into the `data` field on the r
 
 Here's a quick-start for your `handle` method:
 
-```
+```typescript
 import axios from "axios";
 return axios.get("http://icanhazip.com/")
               .then(response => context.messageClient.respond("My IP is: " + response.data))
@@ -92,18 +92,91 @@ return context.messageClient.addressChannels("I did the thing","random")
 
 ### Make a code change
 
-Atomist lets developers automate our own work, and that includes changing code.
+Atomist lets developers automate our own work, and that includes changing code. The `@atomist/automation-client` module (it's in your automation client) has tools for editing projects. Here are some examples to get you started:
+
+#### Add a file to a single repository
+
+Maybe we want to add a CONTRIBUTING.md file to one repository, with organization-standard content.
+
+To edit one project, we can specify:
+    *  GitHub credentials: see [Secrets](#secrets) for how to do this operation as the user who invoked the command
+    *  How to edit the project: Atomist uses a [Project](https://atomist.github.io/automation-client-ts/modules/_project_project_.html) object to model operations on a repository.
+    *  How to save your work: make a Pull Request[LINK to typedocs when re-generated] or a commit to a branch[LINK to typedoc] 
+    *  which repository to edit: see [Mapped Parameters](#mappedparameters) for how to guess this from the channel where the command is invoked
+
+[Here is a command handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/AddContributing.ts) that does this. The `handle` method contains
+
+```typescript
+function editProject(p: Project) { 
+    return p.addFile("CONTRIBUTING.md", `Yes! Contributions are welcome`)
+}
+
+const pullRequest = new PullRequest("contributing", "Add CONTRIBUTING.md");
+
+const gitHubRepo = new GitHubRepoRef(this.owner, this.repository);
+
+return editOne(context,
+    { token: this.githubToken }, // GitHub credentials
+    editProject, // a function to change the project
+    pullRequest, // how to save the edit
+    gitHubRepo) // where to find the project
+    .then(() => Success, failure);
+```
+
+Check [the complete source](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/AddContributing.ts) for the necessary imports.
+
+#### Change the content of a file in all repositories
+
+Why stop at just one repository? This is automation! We can change them all!
+
+Let's update the Copyright year in all the READMEs in all our repositories. [Full command handler is here.](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts)
+
+For that, we'll need a function to edit the project. This one gets the project, the HandlerContext and some extra parameters.
+It returns an EditResult.
+
+```typescript
+export function editProject(p: Project, context: HandlerContext, params: { newYear: string }): Promise<EditResult> {
+    return p.findFile("README.md")
+        .then(file => file.replace(/(Copyright.*\s)[0-9]+(\s+Atomist)/, `$1${params.newYear}$2`))
+        .then(() => successfulEdit(p), (err) => failedEdit(p, err));
+}
+```
+
+Then in the handle method, use `editAll` to run on all the projects that we can find:
+
+```typescript
+        return editAll(context,
+            { token: this.githubToken }, // GitHub credentials
+            editProject, // how to change the project
+            new PullRequest("update-copyright-year", "Update the copyright to " + this.newYear), // how to save the edit
+            { newYear: this.newYear }) // parameters to pass on to the edit function
+            .then(() => Success, failure);
+```
+With [this handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts) running
+in our automation client, we can initiate PRs on all repositories that have an out-of-date Copyright notice with one `@atomist update README copyright year` in Slack, or one invocation from the client dashboard[LINK].
 
 ### Inspect code across repositories
 
+Which repositories are up to current coding standards? We can write an automation to check for us.
+
+For a quick example, let's check which repositories have a current copyright notice in the README. I want to report on every repository: Does it have a copyright notice? If so, is it up-to-date?
+
+Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/review/ReviewCopyright.ts). Take it and modify it for your purposes.
+
+<!-- TODO: when it works (which will require some fixes to cloning), put output here -->
+
 ### Make a new repository
+
+When you want to make a new service or library, it's common to start by copying an old one. With Atomist, you can automate the copy
+and modify the starting point to be your new service.
+
 
 ### Send a direct message
 
 Perhaps you'd like to DM yourself whenever someone runs your automation. 
 The `addressUsers` method on the messageClient has a second argument: a Slack username or an array of Slack usernames.
 
-```
+```typescript
 return context.messageClient.addressUsers("ping","jessitron")
            .then(() => Succcess)
 ```
@@ -113,7 +186,7 @@ return context.messageClient.addressUsers("ping","jessitron")
 All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or JSON for a Slack message.
 Learn about formatting options on [Slack's lovely message builder page](https://api.slack.com/docs/messages/builder).
 
-```
+```typescript
    import * as slack from "@atomist/slack-messages/SlackMessages";
    const message: slack.SlackMessage: {
        text: "This message is simple; you could have passed a string."
@@ -260,8 +333,35 @@ This secret is more useful in Event Handlers[LINK], which are not attributable t
 
 ## Troubleshooting
 
+Anything you print with console.log() in your command handler will show up in the logs of your automation-client.
+If you're running locally, these logs go to stdout.
+
 ### My intent was not recognized
+
+When you tell Atomist to do the thing, and it responds with
+
+```Hmm, I don't understand 'do my thing'. How about: ...```
+
+It'll guess at nearby commands. This means it didn't find your intent.
+
+To see everything available, try `@atomist show skills`. This lists commands registered by automation client. Is your automation client listed?
+If not, perhaps it is not running.
+
+If you can't tell, consider changing the name of your automation client (in package.json) to something you'll recognize.
+
+If your client is listed but your automation is not, perhaps it is not included in `atomist.config.ts`. See command discovery [LINK].
 
 ### Command was invoked unsuccessfully
 
+When your handler returns a failure status, you'll see a message in Slack:
+
+```
+Unable to run command
+Unsuccessfully invoked command-handler MyCommandHandler of my-automation@0.1.0
+```
+
+Check the logs of your automation client to figure out what went wrong.
+
 ### Something went wrong
+
+If the bot tells you "Oops, something went wrong" ... that's our bad. Please contact us in the #support channel at atomist-community.slack.com, or email support@atomist.com[LINK]. We care about your problems.
