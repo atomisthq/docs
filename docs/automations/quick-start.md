@@ -13,13 +13,13 @@ Specifically, be sure you have
 -   [Installed the Atomist CLI][install-cli]
 -   [Run `atomist config`][atomist-config]
 
-[setup]: ../setup.md (Atomist Setup)
+[setup]: ../setup/index.md (Atomist Setup)
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
-[add-slack]: ../setup.md#slack (Add Atomist to Slack)
-[auth-github]: ../setup.md#github (Authorize Atomist in GitHub)
-[install-node]: prerequisite.md#nodejs (Install Node.js)
-[install-cli]: prerequisite.md#atomist-cli (Install the Atomist CLI)
-[atomist-config]: prerequisite.md#github-token (Configure Atomist)
+[add-slack]: ../setup/index.md#slack (Add Atomist to Slack)
+[auth-github]: ../setup/index.md#github (Authorize Atomist in GitHub)
+[install-node]: prerequisites.md#nodejs (Install Node.js)
+[install-cli]: prerequisites.md#atomist-cli (Install the Atomist CLI)
+[atomist-config]: prerequisites.md#github-token (Configure Atomist)
 
 ## Bot Command
 
