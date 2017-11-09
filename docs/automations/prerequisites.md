@@ -27,7 +27,7 @@ instructions for installing on your platform.  This will make the
 Alternatively, if you are on macOS you and use [Homebrew][brew], you
 can install Node.js with the following command:
 
-```console
+```
 brew install node
 ```
 
@@ -42,7 +42,7 @@ The Atomist CLI performs several useful functions that are used
 throughout this documentation.  Please install the CLI using the
 following command:
 
-```console
+```
 npm install -g @atomist/automation-client
 ```
 
@@ -68,7 +68,7 @@ automations to it.
 The easiest way to create the appropriate GitHub personal access is to
 use the Atomist CLI's `config` command.
 
-```console
+```
 atomist config
 ```
 
@@ -89,13 +89,13 @@ Finally, manually create your local Atomist configuration file.
 
 _On UNIX-like systems:_
 
-```console
+```
 ( umask 077 && mkdir -p "$HOME/.atomist" && touch "$HOME/.atomist/client.config.json" )
 ```
 
 _On MS Windows:_
 
-```doscon
+```
 md %USERPROFILE%\.atomist && type nul > %USERPROFILE%\.atomist\client.config.json
 ```
 
