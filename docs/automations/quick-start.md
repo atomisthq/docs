@@ -129,9 +129,12 @@ Atomist Bot has been invited to and send the bot the command intent.
 ```
 
 If you do not provide a value for the query parameter, the Atomist Bot
-will open a thread and ask you to enter it.
+will open a thread and ask you to enter it.  You should get a response
+that looks something like the following image.
 
-That's it!
+![Search Stack Overflow Results](img/search-so.png)
+
+Congratulations, you've just created your own bot command!
 
 [slack]: slack.md (Atomist Automation Slack Messages)
 [so]: https://stackoverflow.com/ (Stack Overflow)
