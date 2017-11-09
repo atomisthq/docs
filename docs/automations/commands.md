@@ -85,7 +85,7 @@ This is handy for creating an informal audit log of automation runs.
 The `addressChannels` method on messageClient has a second argument, which is a channel name (or channel ID). 
 Or pass an array of channel names to send the message to all of them.
 
-```
+```typescript
 return context.messageClient.addressChannels("I did the thing","random")
            .then(() => Succcess)
 ```
