@@ -1,42 +1,40 @@
 # Working with GraphQL
 
-[GraphQL](http://graphql.org) is a powerful query language that let's you query 
-and mutate your own data in the Atomist automation platform.
+[GraphQL](http://graphql.org) is a powerful query language that you use to query 
+and mutate your data in the Atomist automation platform.
 
 Besides being a great query language, GraphQL provides great tool support based
-on strongly typed schemas as well as type generation for TypeScript and many other
+on strongly-typed schemas, type generation for TypeScript, and many other
 advantages. 
 
-The following sections will describe how to use GraphQL to query your data, 
-subscriptions to get notifications when new pieces of data get ingested and lastly 
+The following sections tell you how to use GraphQL to query your data, 
+how to use subscriptions to get notifications when new data is ingested, and 
 how to mutate data.
 
 ## Accessing Data with GraphiQL
 
-[GraphiQL](https://github.com/graphql/graphiql) is a GraphQL client that provides 
-assistance for writing your queries, and displays the shape of the resulting data. 
-It also gives access to the documentation of the data model.
+[GraphiQL](https://github.com/graphql/graphiql) is a GraphQL client that helps you write
+queries and displays the shape of the resulting data. It also provides access to the data model's documentation.
 
 !!! note 
-    If you're Mac OS user, it is easiest to install GraphiQL as stand-alone app
+    On Mac OS it's easiest to install GraphiQL as a stand-alone app
     from https://github.com/skevy/graphiql-app.
 
-After installation we need to configure the endpoint and authentication in GraphiQL.
+After installation you need to configure the endpoint and authentication in GraphiQL.
 
 To setup authentication, click on _Edit HTTP Headers_ and select _+ Add Header_.
-Now enter `Authorization` as _Header name_ and `Bearer <token>` as _Header value_.
-Whereas `<token>` needs to be replaced by a GitHub personal access token with
-`org:read` scope. 
+Enter `Authorization` as _Header name_ and `Bearer <token>` as _Header value_.
+Replace `<token>` with a GitHub personal access token that has `org:read` scope. 
 
 !!! note
-    GitHub personal access tokens can be created and managed over at: 
+    Create and manage GitHub personal access tokens at: 
     https://github.com/settings/tokens
 
 Next, enter `https://automation.atomist.com/graphql/team/<teamId>` as _GraphQL
 Endpoint_ replacing `<teamId>` with your Slack team id. See the Setup section
 on how to obtain your Slack team id.
 
-Now you can start to create some queries and explore the possibilities of the
+Now you are ready to create queries and explore the possibilities of the
 Atomist data model. Don't miss the schema documentation on the right hand side 
 of GraphiQL.
 
@@ -46,19 +44,19 @@ You can execute queries from command and event handlers when running an Atomist
 automation client. To execute queries the client provides two distinct methods 
 on `GraphClient`. A `GraphClient` is available from the `HandlerContext`.
 
-`executeQuery` can be used to run a GraphQL query from a `string` instance.
-Alternatively, queries can be stored in `*.graphql` files and loaded from those
-files for running queries. This is provided by the `executeQueryFromFile` method.
+You can use `executeQuery` to run a GraphQL query from a `string` instance.
+Alternatively, you can can use the `executeQueryFromFile` method to load and 
+run queries stored in `*.graphql` files.
 
 !!! note
-    Externalizing queries makes is possible to generate types for the use within
-    your TypeScript code. More on that in a later section.
+    Externalizing queries makes it possible to generate types for use in
+    your TypeScript code. More on that later.
 
-In the following example we want to query for pushes and see all corresponding
+The following example shows you how to query for pushes and see all corresponding
 continuous integration builds.
 
-First we start by creating the query. Here we use a variable and a predicate to
-match only failed builds. For this example we store assume the query is saved in
+Start by creating the query. The sample query includes a variable and a predicate that
+matches only failed builds. This example assumes the query is saved in
 a file called `pushesWithFailedBuilds.graphql`.
 
 ```graphql
@@ -77,7 +75,7 @@ query PushesWithFailedBuilds ($name: String!) {
 }
 ```
 
-Now that the query is defined, it can be used with the `GraphClient` to execute 
+Once the query is defined, you can use it with the `GraphClient` to execute 
 a query.
 
 ```typescript
@@ -93,7 +91,7 @@ public handle(ctx: HandlerContext): Promise<HandlerResult> {
 }
 ```
 The `executeQueryFromFile` method takes the relative path to the external query
-file as first parameter. Second parameter in the above example is the value for
+file as first parameter. The second parameter in the above example is the value for
 the query variable. Lastly we specify `__dirname` to pass over the full path of 
 the current script which is needed to resolve the relative reference to the 
 `.graphql` file.
@@ -103,12 +101,13 @@ the current script which is needed to resolve the relative reference to the
 As detailed in the section on event handlers, GraphQL subscriptions can be used
 to _subscribe_ to events as they get ingested into the Atomist platform.
 
-Subscriptions can't be executed with the `GraphClient`; instead then can only
+Subscriptions can't be executed with the `GraphClient`; instead they can only
 be used from the `@EventHandler` decorator.
 
-There are two approaches to declare the subscriptions on event handlers: either
-via embedded strings or - more reusable - via referencing external files. In the
-following we demonstrate the latter approach:
+There are two ways to declare subscriptions on event handlers: either
+by embedded strings or by referencing external files, which is more reusable.
+
+This example demonstrates subscribing using an external file:
 
 ```graphql
 subscription PushesWithFailedBuilds {
@@ -135,16 +134,17 @@ export class FailedBuildHandler implements HandleEvent<any>
 ```
 !!! note
     `GraphClient.executeQueryFromFile` and `GraphQL.subscriptionFromFile`
-    take an optional `current` parameter. If omitted GraphQL files will be 
-    attempted to be loaded from a `./graphql/` directory in the root of your
+    take an optional `current` parameter. If omitted, Atomist tries to
+    load GraphQL files from a `./graphql/` directory in the root of your
     automation client project. 
 
     When specifying the filename, the `.graphql` extension is optional.
 
 ## Mutations
 
-Most of the data in the Atomist platform is being ingested via WebHooks. 
-Nevertheless there are currently six GraphQL mutations available to handlers
+Most of the data in the Atomist platform is ingested via Webhooks and is read-only. 
+
+There are however six GraphQL mutations available to handlers
 in automation clients that can be very useful.
 
 | Mutation | Description |
@@ -156,9 +156,10 @@ in automation clients that can be very useful.
 | `setTeamPreference` | Set preference data on the team entity |
 | `setUserPreference` | Set preference data on the user entity |
 
-Similarly to queries, mutations can be loaded from files and executed with the
+Like queries, mutations can be loaded from files and executed with the
 `GraphClient`. Here is an example showing how to create a new channel in Slack.
-Let's start with the GraphQL file first:
+
+Here's the GraphQL file containing the mutation:
 
 ```graphql
 mutation CreateSlackChannel($name: String!) {
@@ -168,6 +169,7 @@ mutation CreateSlackChannel($name: String!) {
 }
 ```
 
+This invokes the mutation from the GraphQL file:
 ```typescript
 ctx.graphClient.executeMutationFromFile("createSlackChannel", 
     { name: "random"}, __dirname)
@@ -176,14 +178,14 @@ ctx.graphClient.executeMutationFromFile("createSlackChannel",
 
 ## Strongly-typed GraphQL Queries
 
-One nice side-effect of using GraphQL as the query layer is that we can generate
-types for use with TypeScript from the schema and our queries, subscriptions
+One nice side-effect of using GraphQL as the query layer is that you can generate
+types for use with TypeScript from the schema and your queries, subscriptions
 and mutations.
 
 To generate types for your externalized GraphQL operations, run `npm run gql:gen`.
 This creates a file called `types.ts` in `src/typings/`.
 
-Now we can change our earlier query to use those types:
+Now you can change the earlier query to use those types:
 
 ```typescript
 import * as graphql from "./typings/types";
@@ -203,7 +205,7 @@ public handle(ctx: HandlerContext): Promise<HandlerResult> {
     // ....
 }
 ```
-Additionally the event handler example from earlier can now use types too:
+The event handler example from earlier can also now use types:
 
 ```typescript
 import * as GraphQL from "@atomist/automation-client/graph/graphQL";
