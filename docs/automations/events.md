@@ -152,7 +152,7 @@ describe("IssueNotification", () => {
 			    "name": "saviors",
 			    "channels": [
 			        {
-			            "name": "water cooler talk"
+			            "name": "water-cooler-talk"
 			        }
 			    ]
 			}
@@ -167,7 +167,7 @@ describe("IssueNotification", () => {
             protected doSend(msg: string | SlackMessage, userNames: string | string[],
                              channelNames: string | string[], options?: MessageOptions): Promise<any> {
                 assert.deepEqual(msg, "New issue: #123 'another bug to fix' in negan.saviors");
-                assert.deepEqual(channelNames, ["water cooler talk"]);
+                assert.deepEqual(channelNames, ["water-cooler-talk"]);
                 return Promise.resolve();
             }
         }
