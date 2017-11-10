@@ -161,23 +161,6 @@ node $NODE_DEBUG_OPTION --trace-warnings --expose_gc --optimize_for_size \
 See `node --help` and `node --v8-options` for more detail on these
 options.
 
-Here's a summary of the various NPM package scripts available in most
-automation client projects.
-
-Command | Description
-------- | ------
-`npm install` | install all the required packages
-`npm run autostart` | run the client, refreshing when files change
-`npm run autotest` | run tests every time files change
-`npm run build` | lint, compile, and test
-`npm run clean` | remove stray compiled JavaScript files and build directory
-`npm run compile` | compile all TypeScript into JavaScript
-`npm run fmt` | run tsfmt on TypeScript files
-`npm run lint` | run tslint against the TypeScript
-`npm run lint:fix` | run `tslint --fix` against the TypeScript
-`npm start` | start the Atomist automation client
-`npm test` | run tests
-
 ## Client Lifecycle
 
 The automation client lifecycle will be familiar to those developing
