@@ -30,8 +30,8 @@ google_analytics:
   - UA-74966852-1
   - auto
 markdown_extensions:
-#  - markdown_include.include:
-#      base_path: "docs/common"
+  - markdown_include.include:
+      base_path: "docs/common"
   - admonition
   - codehilite:
       guess_lang: false

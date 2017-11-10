@@ -4,12 +4,47 @@ the automation client is the [automation-client-ts][client-ts]
 project, which is written in [TypeScript][ts].  The combination of
 TypeScript and [GraphQL][gql] provides an excellent development
 experience, with excellent tooling and debugging support.  This
-section documents the structure and organization of typical automation
-client projects written in TypeScript.
+section documents creating a new TypeScript automation client project
+and the structure and organization of typical automation client
+projects written in TypeScript.
 
 [client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [gql]: http://graphql.org/ (GraphQL)
+
+## Creating a Client Project
+
+There are a few ways to create a new automation client project.  We
+suggest using the [automation-seed-ts][seed] project as a seed for
+your automation client project.
+
+Before creating a project using Slack or the Atomist CLI,
+{!prereq-items.md!}
+
+
+### Slack
+
+```
+@atomist generate automation-client
+```
+
+### Command Line
+
+You can use the Atomist CLI to create a new automation project from
+the automation-seed-ts project.  Run the following command, replacing
+`PROJECT_NAME` with the name of your new project.
+
+```
+atomist execute NewAutomation —name=PROJECT_NAME
+```
+
+### GitHub
+
+If you prefer the manual route, fixing up the project metadata
+yourself, you can always just fork the [automation-seed-ts][seed]
+project on GitHub.
+
+[seed]: https://github.com/atomist/automation-seed-ts (Atomist Automation Client Seed Project)
 
 ## Project Structure
 
@@ -67,7 +102,7 @@ defined in the `package.json` and installed by NPM.
 ### scripts
 
 The `scripts` directory contains various ancillary scripts.  For
-examples, the directory might have scripts for building the project on
+example, this directory might have scripts for building the project on
 CI, publishing the project as an Node.js package, and publishing the
 projects [TypeDoc][typedoc].
 
@@ -105,12 +140,6 @@ and [power-assert][].
 
 [mocha]: https://mochajs.org/ (Mocha)
 [power-assert]: https://github.com/power-assert-js/power-assert#readme (power-assert)
-
-## Creating a Client Project
-
-Fork the [automation-seed-ts][seed] project.
-
-[seed]: https://github.com/atomist/automation-seed-ts (Atomist Automation Client Seed Project)
 
 <!--
 ## Debugging with Visual Studio Code

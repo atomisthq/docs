@@ -6,24 +6,10 @@ a lifecycle that is more like a traditional _server_ process.  This
 section documents building and running an automation client and
 discusses each part of the client lifecycle.
 
-Before you can build and run your own automation client, be sure
-someone in your Slack team has completed the [setup][] and you have
-satisfied the [prerequisites][prereq].  Specifically, be sure
-
--   [the Atomist Bot has been added to your Slack team][add-slack]
--   [Atomist has been authorized to access GitHub][auth-github]
--   [you have installed Node.js][install-node]
--   [you have installed the Atomist CLI][install-cli]
--   [you have run `atomist config`][atomist-config]
+Before you can build and run your own automation client,
+{!prereq-items.md!}
 
 [ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
-[setup]: ../setup/index.md (Atomist Setup)
-[prereq]: prerequisites.md (Atomist Automation Prerequisites)
-[add-slack]: ../setup/index.md#slack (Add Atomist to Slack)
-[auth-github]: ../setup/index.md#github (Authorize Atomist in GitHub)
-[install-node]: prerequisites.md#nodejs (Install Node.js)
-[install-cli]: prerequisites.md#atomist-cli (Install the Atomist CLI)
-[atomist-config]: prerequisites.md#github-token (Configure Atomist)
 
 ## Building a Client
 

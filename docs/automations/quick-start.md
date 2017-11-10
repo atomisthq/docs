@@ -3,23 +3,8 @@ easy with the Atomist development automation platform.  In the
 following sections we will walk through simple examples of a bot
 command and an event automation.
 
-Before working through these examples, be sure someone in your Slack
-team has completed the [setup][] and you have satisfied
-the [prerequisites][prereq].  Specifically, be sure you have
-
--   [Added the Atomist Bot the your Slack team][add-slack]
--   [Authorized Atomist to access GitHub][auth-github]
--   [Installed Node.js][install-node]
--   [Installed the Atomist CLI][install-cli]
--   [Run `atomist config`][atomist-config]
-
-[setup]: ../setup/index.md (Atomist Setup)
-[prereq]: prerequisites.md (Atomist Automation Prerequisites)
-[add-slack]: ../setup/index.md#slack (Add Atomist to Slack)
-[auth-github]: ../setup/index.md#github (Authorize Atomist in GitHub)
-[install-node]: prerequisites.md#nodejs (Install Node.js)
-[install-cli]: prerequisites.md#atomist-cli (Install the Atomist CLI)
-[atomist-config]: prerequisites.md#github-token (Configure Atomist)
+Before working through these examples,
+{!prereq-items.md!}
 
 ## Bot Command
 
