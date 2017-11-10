@@ -136,7 +136,7 @@ For instance, I like to create an informal audit log of automation runs in #team
 The `addressChannels` method on messageClient takes a message plus a second argument, which is a channel name (or channel ID). 
 Or pass an array of channel names to send the message to all of them.
 
-```
+```typescript
 return context.messageClient.addressChannels("I did the thing","random")
            .then(() => Succcess)
 ```
