@@ -1,6 +1,6 @@
 # Running Automation Clients
 
-Automation clients can run in many different environments, ranging from your laptop
+You can run automation clients in many different environments, ranging from your laptop
 or data center to Platform-as-a-Service offerings like Heroku and Pivotal Cloud Foundry.
 
 Atomist also supports running clients as Docker containers. This allows you
