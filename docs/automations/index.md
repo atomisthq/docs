@@ -44,6 +44,8 @@ custom bot commands & event subscriptions.
 [client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
 [aac]: https://www.npmjs.com/package/@atomist/automation-client (Atomist Automation Client Node Module)
 
+![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
+
 ## GraphQL
 
 The Atomist automation API allows you to access the events and data
