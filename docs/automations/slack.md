@@ -5,7 +5,7 @@ into Slack; either as a response to command handler invocations or as a result o
 handling events. 
 
 _Actionable_ refers to the ability to place buttons and menus onto messages that
-trigger - when clicked or selected - new commands on behalf of the user taking
+ - when clicked or selected - trigger new commands on behalf of the user taking
 action. Over time, as a result of some new events or triggered actions, a posted
 message can be re-written and updated with new content and actions; this makes 
 a message _updatable_.
@@ -43,7 +43,7 @@ allows for addressing messages to user or channels via their respective names or
 to simply send a response message.
 
 Generally the `MessageClient` is available from the `HandlerContext` parameter
-to the `handle` method of command and event handlers.
+to the `handle` method of [command] and event handlers.
 
 ### Response Messages
 
@@ -53,7 +53,7 @@ command handlers. Sending such a response message can be done via the `respond`
 method. The Atomist platform takes care of delivering the message into the right
 conversation in Slack.
 
-The following is an example how to send a response message from a command handler.
+The following is an example of how to send a response message from a command handler.
 
 ```typescript
 export class HelloWorld implements HandleCommand {
@@ -165,7 +165,7 @@ button to it.
 
 With Atomist it is easy to bind Slack action buttons to command handlers. Such a
 binding consists of three parts: the specification of the button as required by 
-Slack, a reference to the command handler and optional parameters that should be
+Slack, a reference to the [command handler][command], and optional parameters that should be
 pre-populated when invoking the command. 
 
 The button specification is defined by Slack in the [field guide](https://api.slack.com/docs/interactive-message-field-guide).
@@ -184,7 +184,7 @@ const buttonSpec: ButtonSpecification = {
     },
 };
 ```
-With the following, you're preparing a command handler and its parameter to be
+With the following, you're preparing a [command handler][command] and its parameter to be
 bound to the button. In this example we are using the `SearchStackOverflow`
 command handler from our [blog series](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
@@ -322,3 +322,5 @@ Lastly, the `post` property specifies if a message should be posted only if
 it is an update to a previously posted message with the same `id`. If 
 `post === "always"`, the message will also be posted as a new message and 
 will never rewrite a previous message.
+
+[command](commands.md)
