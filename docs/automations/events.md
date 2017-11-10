@@ -5,7 +5,9 @@ In addition to triggering an automation directly via command handlers, you can h
 To create your own event handlers, you’ll need an automation client of your own [LINK to quick start] and an event you want to react to. Our event handler will take the action of notifying us in Slack when there is a new GitHub issue .
 
 ## Events
-First we need to understand the events involved. We can (use GraphiQL to query for events)[http://127.0.0.1:8000/automations/graphql/#accessing-data-with-graphiql]. Lets try searching for GitHub issues. This query shows the issue number and title for all of our issues.
+
+First we need to understand the events involved. We can [use GraphiQL to query for events](graphql.md#accessing-data-with-graphiql). Lets try searching for GitHub issues. This query shows the issue number and title for all of our issues.
+
 ```
 {
   Issue {
@@ -54,6 +56,7 @@ This results in the data we want but we can do even better. Ideally we would lik
 There are a lot of interesting events and convenient relationships between them. [LINK to a catalog of event types somewhere, maybe the lifecycle schema if nothing else?] Hopefully this gets you interested in searching your builds, releases, Slack channels, comments and more. But for now let's use this query to write our event handler.
 
 ## Event handler structure
+
 Here is a complete event handler that listens for new issues and notifies us. This is putting together a lot of pieces that you have likely already seen.
 
 ```typescript
@@ -104,12 +107,14 @@ export interface Issues {
 }
 ```
 
-The @EventHandler decorator allows you to provide a description and a query to subscribe to. You will notice the GraphQL that we built up in the previous section. You can (define the subscription GraphQL query inline or reference a file)[http://127.0.0.1:8000/automations/graphql/#subscriptions]. It also implements HandleEvent which specifies the handle method. This is where your automation code goes. Every matching event triggers the code here. From here you have access to the event itself with EventFired and a (HandlerContext for interacting with Slack or querying more events)[http://127.0.0.1:8000/automations/commands/#what-do-you-get]. While a command handler has @Parameters and @MappedParamters to specify the details on invocation, an event handler does not. Instead it acts on the data inside the event. It can have (@Secrets)[http://127.0.0.1:8000/automations/commands/#secret] though to specify details you don't want in your code.
+The @EventHandler decorator allows you to provide a description and a query to subscribe to. You will notice the GraphQL that we built up in the previous section. You can [define the subscription GraphQL query inline or reference a file](graphql.md#subscriptions). It also implements HandleEvent which specifies the handle method. This is where your automation code goes. Every matching event triggers the code here. From here you have access to the event itself with EventFired and a [HandlerContext for interacting with Slack or querying more events](commands.md#what-do-you-get). While a command handler has @Parameters and @MappedParamters to specify the details on invocation, an event handler does not. Instead it acts on the data inside the event. It can have [@Secrets](commands.md#secret) though to specify details you don't want in your code.
 
-In this example specifically, we use the HandlerContext to send a message about the new issue to any associated channels it has. Most of the work was done just by the subscription query with the data we needed. The Issues interface exists merely for the convenience have having a typed EventFired, but there are ways to generate this type implicitly from the GraphQL schema. We return a (HandlerResult)[http://127.0.0.1:8000/automations/commands/#what-do-you-give-back] based on the success of the operation. (say something about what can be done with the result, are failures just logged?).
+In this example specifically, we use the HandlerContext to send a message about the new issue to any associated channels it has. Most of the work was done just by the subscription query with the data we needed. The Issues interface exists merely for the convenience have having a typed EventFired, but there are ways to generate this type implicitly from the GraphQL schema. We return a [HandlerResult](commands.md#what-do-you-give-back) based on the success of the operation. (say something about what can be done with the result, are failures just logged?).
 
 # Register and trigger the handler
+
 Register this event handler by addinfg it to atomist.config.ts.
+
 ```typescript
 export const configuration: Configuration = {
     events: [
@@ -117,9 +122,11 @@ export const configuration: Configuration = {
     ]
 }
 ```
+
 Restart your automation client and create a new GitHub issue to see the Slack notification. This is cool, but we are not limited to mere notification. You can do whatever you want in that handle method with the event data. But before we get carried away, make sure you unit test your event handler.
 
 # Unit test
+
 Event handlers run in the background based on incoming events. You want to test it to be sure that it does what you expect in various cases. Luckily, event handlers are very unit testable. Here is a test for our issue notification event handler.
 
 ```typescript
@@ -131,7 +138,7 @@ import { MessageClientSupport } from "@atomist/automation-client/spi/message/Mes
 import { SlackMessage } from "@atomist/slack-messages/SlackMessages";
 import "mocha";
 import * as assert from "power-assert";
-import {IssueNotification} from "../../../../src/tutorial/lessons/events/IssueNotification";
+import { IssueNotification } from "../../../../src/tutorial/lessons/events/IssueNotification";
 
 describe("IssueNotification", () => {
 
@@ -172,10 +179,8 @@ describe("IssueNotification", () => {
             messageClient: new FakeMessageClient(),
         };
         handler.handle(JSON.parse(payloadNewIssue) as EventFired<any>, ctx)
-            .then(result => {
-                done();
-            });
-    }).timeout(5000);
+            .then(done, done);
+    });
 
 });
 ```

@@ -1,13 +1,13 @@
 # Command Handlers
 
-Trigger your automations from the web or Slack! 
-Command handlers respond to requests -- 
+Trigger your automations from the web or Slack!
+Command handlers respond to requests --
 like `@atomist do my thing` or a button press. Each command handler also responds over REST or on the dashboard. You can create your own command handlers to make the Atomist bot do what you want.
 
-For the fastest path to a command handler, 
+For the fastest path to a command handler,
 follow [this quick-start blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
-If you already have an automation client, 
+If you already have an automation client,
 this page will help you add a command handler to it.
 
 You'll need
@@ -23,19 +23,19 @@ For the purposes of this guide, we'll create MyCommandHandler, which responds to
 
 Command handlers are classes with a `handle` method
  and some decorators that supply metadata.
-They can live anywhere in the `src` directory; 
-your automation client will discover them on startup. (Or [specify them yourself](client/#register-handlers).)
+They can live anywhere in the `src` directory;
+your automation client will discover them on startup. (Or [specify them yourself](client.md#client-configuration).)
 
-You can add a class to any file, 
-or make a new TypeScript file anywhere in the `src` directory, 
+You can add a class to any file,
+or make a new TypeScript file anywhere in the `src` directory,
 like `src/commands/MyCommandHandler.ts`.
 
-I like to copy the content of 
-[the HelloWorld sample](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloWorld.ts) 
+I like to copy the content of
+[the HelloWorld sample](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloWorld.ts)
 into my new file to start with.
 
 ## Command Handler class with decorators
-A command handler class implements `HandleCommand`, 
+A command handler class implements `HandleCommand`,
 with a `handle` method, and is decorated with `@CommandHandler`.
  It can also contain [parameter specifications](#parameters)
   to gather additional information.
@@ -68,25 +68,25 @@ export class MyCommandHandler implements HandleCommand {
 ### What do you get?
 The `handle` method receives a `HandlerContext` [LINK to API docs if we have those?)]. It contains the following super-useful members:
 
-   * `messageClient: MessageClient` lets you send Slack messages from the Atomist bot. 
-   You can send messages to particular [users](slack/#user-and-channel-messages),
-    particular [channels](http://127.0.0.1:8000/automations/slack/#user-and-channel-messages), 
-    or to [whoever typed the command](slack/#response-messages).
-   * `graphClient: GraphClient` lets you run queries against the 
+   * `messageClient: MessageClient` lets you send Slack messages from the Atomist bot.
+   You can send messages to particular [users](slack.md#user-and-channel-messages),
+    particular [channels](slack.md#user-and-channel-messages),
+    or to [whoever typed the command](slack.md#response-messages).
+   * `graphClient: GraphClient` lets you run queries against the
    Atomist [GraphQL API](graphql.md), where you can discover things like which builds
-    failed on which commits, and who made those commits, and what their 
+    failed on which commits, and who made those commits, and what their
     Slack username is.
 
-When you need more information, define [parameters](#parameters) 
-in your command handler. 
+When you need more information, define [parameters](#parameters)
+in your command handler.
 
 ### What do you give back?
 
 A `HandlerResult` is an object containing a return code
- (0 for success, anything else for error). 
- You can add other properties to the object for debugging; 
+ (0 for success, anything else for error).
+ You can add other properties to the object for debugging;
  they'll show up in your automation client's log.
-  Return this HandlerResult after doing whatever it is you'd like 
+  Return this HandlerResult after doing whatever it is you'd like
   your automation to accomplish.
 
 The do-nothing `handle` method creates a Promise from a successful HandlerResult:
@@ -94,13 +94,13 @@ The do-nothing `handle` method creates a Promise from a successful HandlerResult
 `return Promise.resolve({ code: 0 })`
 
 There's a `Success` object in `@atomist/automation-client/HandlerResult`
- that you can substitute for `{ code: 0 }` to be extra expressive, or a 
+ that you can substitute for `{ code: 0 }` to be extra expressive, or a
  `success` function for when you need `() => { code: 0 }` like when
   translating a Promise of something else into a HandlerResult: `promise.then(success)`.
 
 The `handle` method returns a Promise because usually you'll want to do something
- fun asynchronously, like respond in Slack. 
-The `messageClient.respond` method returns a Promise, 
+ fun asynchronously, like respond in Slack.
+The `messageClient.respond` method returns a Promise,
 so you can return success after the message is sent:
 
 ```typescript
@@ -131,9 +131,9 @@ This example is available in the very quick start described in this [Command Han
 
 ### Send a message to a particular channel
 
-Sometimes you know where you want the message to go. 
+Sometimes you know where you want the message to go.
 For instance, I like to create an informal audit log of automation runs in #team-stream.
-The `addressChannels` method on messageClient takes a message plus a second argument, which is a channel name (or channel ID). 
+The `addressChannels` method on messageClient takes a message plus a second argument, which is a channel name (or channel ID).
 Or pass an array of channel names to send the message to all of them.
 
 ```typescript
@@ -153,18 +153,18 @@ Maybe we want to add a CONTRIBUTING.md file to one repository, with organization
 To edit one project, we specify:
 
 -  GitHub credentials: see [Secrets](#secrets) for how to do this operation as the user who invoked the command,
--  How to edit the project: Atomist uses a [Project](https://atomist.github.io/automation-client-ts/modules/_project_project_.html) 
+-  How to edit the project: Atomist uses a [Project](https://atomist.github.io/automation-client-ts/modules/_project_project_.html)
 object to model operations on a repository; pass a function that changes it.
--  How to save your work: make a [Pull Request](https://atomist.github.io/automation-client-ts/classes/_operations_edit_editmodes_.pullrequest.html) 
-or [commit to a branch](https://atomist.github.io/automation-client-ts/interfaces/_operations_edit_editmodes_.branchcommit.html). 
--  which repository to edit: see [Mapped Parameters](#mapped-parameters) 
+-  How to save your work: make a [Pull Request](https://atomist.github.io/automation-client-ts/classes/_operations_edit_editmodes_.pullrequest.html)
+or [commit to a branch](https://atomist.github.io/automation-client-ts/interfaces/_operations_edit_editmodes_.branchcommit.html).
+-  which repository to edit: see [Mapped Parameters](#mapped-parameters)
 for how to guess this from the channel where the command is invoked,
 
-[Here is a command handler](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/editor/AddContributing.ts) 
+[Here is a command handler](https://github.com/atomist/automation-client-samples-ts/tree/nortissej/simple-editor/src/commands/editor/AddContributing.ts)
 that does this. The `handle` method contains
 
 ```typescript
-function editProject(p: Project) { 
+function editProject(p: Project) {
     return p.addFile("CONTRIBUTING.md", `Yes! Contributions are welcome`)
 }
 
@@ -230,7 +230,7 @@ and modify the starting point to be your new service.
 
 ### Send a direct message
 
-Perhaps you'd like to DM yourself whenever someone runs your automation. 
+Perhaps you'd like to DM yourself whenever someone runs your automation.
 The `addressUsers` method on the messageClient has a second argument: a Slack username or an array of Slack usernames.
 
 ```typescript
@@ -260,18 +260,18 @@ You don't want your command handler to do the _same_ thing every time. Gather mo
 Parameters are annotated fields on your command handler class. The automation client populates them before
 calling your `handle` method.
 
-You can get this information from the user or button definition (@Parameter), 
+You can get this information from the user or button definition (@Parameter),
 from Atomist's understanding of where the command was invoked (@MappedParameter),
 and from Atomist's vault (@Secret).
 
 ### @Parameter
 
-Annotate a field from this when you want whoever triggers this command handler to supply the information. 
+Annotate a field from this when you want whoever triggers this command handler to supply the information.
 Perhaps it's the build number for the build whose log you want, or the issue number to close.
 
 #### How they're populated
 
-In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), they'll be prompted in a thread 
+In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), they'll be prompted in a thread
 to supply a value for each required parameter. Then they get to review all the parameter values and click or type Submit. If there are no required parameters, your command will be invoked right away.
 
 TODO: picture of parameter thread
@@ -326,7 +326,7 @@ type: `string` or `boolean` or `number`, although we'll figure that out from the
 ### @MappedParameter
 
 There are a few things Atomist can infer from who invoked this command, or what channel they invoked it in.
-You can request this information by decorating fields with `@MappedParameter`. 
+You can request this information by decorating fields with `@MappedParameter`.
 Supply one argument to that decorator to tell it which of the MappedParameters you want.
 
 In Slack, if the value is ambiguous based on your team and channel, Atomist will ask the user.
