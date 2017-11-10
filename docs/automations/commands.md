@@ -361,12 +361,22 @@ MappedParameters.GitHubApiUrl = This is https://api.github.com unless you're on 
 
 MappedParameters.GitHubDefaultRepositoryVisibility = our best guess for whether you prefer to create new repositories as "public" or "private".
 
-### @Secret
+### Secrets
 
-These are secure values which Atomist stores and supplies to the automation client so that it can run commands as a particular user.
+These are secure values which Atomist stores and supplies to the automation client
+ so that it can run commands as a particular user.
 
-When I invoke a command like `@atomist create issue title="Do another thing"`, I want that issue to show up in GitHub created by me.
-That means the automation needs to use a GitHub token supplied by the invoking user.
+Fields decorated with @Secret are populated by Atomist before calling the `handle` method.
+ They're never printed to the log or stored to disk outside Vault. 
+
+When I invoke a command like `@atomist create issue title="Do another thing"`, 
+I want that issue to show up in GitHub created by me.
+Built-in commands like this one receive a token collected from the invoking user.
+
+
+ Currently the only secret available to automation clients is a GitHub token. Currently custom automation
+ clients will always receive the GitHub token they configured[TODO: link], so all GitHub API calls will be
+ performed by the automator. Please tell us[link] when this gets in your way.
 
 ### How they're collected
 
@@ -378,15 +388,22 @@ I've already authorized. It'll remember that token for any future automations th
 
 In a command handler, to get access to common GitHub operations (read more about GitHub scopes here[LINK]):
 
-```
-@Secret(Secrets.UserToken + `?scope=repo) [TODO: how do they specify scope?]
+```typescript
+@Secret(Secrets.UserToken + `?scope=repo`)
 public githubToken: string;
 ```
 
-When you run your automation client locally, and your teammates invoke your automation, the command handler won't get their tokens. It'll get yours. This is a security measure. When you deploy your client, supplying it with an authorized token[LINK] will give it access to everyone's tokens.
+<!-- not implemented: When you run your automation client locally, and your teammates invoke your automation, the command handler won't get their tokens. It'll get yours. This is a security measure.
+ When you deploy your client, supplying it with an authorized token[LINK] will give it access to everyone's tokens. 
+ -->
 
-The only other Secret currently available is `Secrets.OrgToken`. This provides the token collected when a GitHub organization was linked to the team. Typically this belongs to the user who enrolled Atomist in your Slack team.
+The only other Secret currently available is `Secrets.OrgToken`. Currently in custom automations, that will be 
+the GitHub token provided in configuration [LINK].
+
+<!-- not implemented: This provides the token collected when a GitHub organization was linked to the team. 
+Typically this belongs to the user who enrolled Atomist in your Slack team.
 This secret is more useful in Event Handlers[LINK], which are not attributable to a particular user.
+-->
 
 ## Troubleshooting
 
