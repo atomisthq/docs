@@ -6,7 +6,6 @@ To use Atomist, you'll need:
     more GitHub organizations where you have permission
     to [authorize OAuth Apps][github-oauth]
 
-[alpha]: https://atomist.typeform.com/to/MseQBs (Atomist Alpha)
 [slack]: https://slack.com/ (Slack)
 [slack-app]: https://get.slack.help/hc/en-us/articles/202035138-Adding-apps-to-your-team (Slack app)
 [github]: https://github.com (GitHub)
@@ -32,7 +31,7 @@ team</a> for free.
 ## GitHub
 
 Atomist wants to get to know your code.  Currently Atomist integrates
-with [GitHub.com][github] and GitHub Enterprise.
+with [GitHub.com][github] and [GitHub Enterprise][ghe].
 
 If you already have a GitHub.com account, you can use it with
 Atomist. You will need to be a member of one or more GitHub
@@ -42,13 +41,16 @@ GitHub.com account, you can [create a GitHub account][github-join] for
 free. If you are not a member of a GitHub organization, you
 can [create a public org for free][github-org].
 
-Single repository?
+<!-- Single repository? -->
 
-If you use GitHub Enterprise, please [get in touch directly][contact]
-with us.
+If you use GitHub Enterprise, please [get in touch][contact] with us.
 
-[github-join]: https://github.com/join (Join GitHub)
-[contact]: mailto:hi@atomist.com?subject=GitHub%20Enterprise (GHE)
+After you add Atomist to your Slack team, the Atomist Bot will prompt
+you to authorize Atomist with GitHub.
+
+[ghe]: https://enterprise.github.com/home (GitHub Enterprise)
+[github-join]: https://github.com/join (Join GitHub.com)
+[contact]: mailto:hi@atomist.com?subject=GitHub%20Enterprise (Atomist + GitHub Enterprise)
 [github-org]: https://help.github.com/articles/creating-a-new-organization-from-scratch/ (GitHub org)
 
 ## Integration
