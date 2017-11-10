@@ -24,9 +24,18 @@ Before creating a project using Slack or the Atomist CLI,
 
 ### Slack
 
+You can create your very own automation client project using the
+Atomist Bot.  You can run this bot command, which itself is
+implemented as a command handler, with the following message to the
+Atomist Bot:
+
 ```
-@atomist generate automation-client
+@atomist generate automation
 ```
+
+The bot will ask you where you want to create it, what you want to
+name it, and, once creation is complete, tell you where you can find
+it.
 
 ### Command Line
 
@@ -35,7 +44,7 @@ the automation-seed-ts project.  Run the following command, replacing
 `PROJECT_NAME` with the name of your new project.
 
 ```
-atomist execute NewAutomation —name=PROJECT_NAME
+atomist execute NewAutomation --name=PROJECT_NAME
 ```
 
 ### GitHub
@@ -112,19 +121,22 @@ projects [TypeDoc][typedoc].
 
 The `src` directory contains the TypeScript source code.
 
-#### handlers
+#### atomist.config.ts
 
-The `src/handlers` directory contains the source code for command and
-event handlers.
+The `atomist.config.ts` file contains automation client
+project-specific configuration.
+See [Client Configuration][client-config] for more details.
 
-##### command
+[client-config]: client.md#client-configuration (Atomist Automation Client Configuration)
 
-The `src/handlers/command` directory contains the source code for bot
+#### commands
+
+The `src/commands` directory contains the source code for bot
 commands.
 
-##### event
+#### events
 
-The `src/handlers/event` directory contains the source code for event
+The `src/events` directory contains the source code for event
 automations.
 
 #### typings
