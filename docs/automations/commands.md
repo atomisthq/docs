@@ -238,7 +238,7 @@ return context.messageClient.addressUsers("ping","jessitron")
            .then(() => Succcess)
 ```
 
-### Send a message that's more than text.
+### Send a message that's more than text
 
 All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or JSON for a Slack message.
 Learn about formatting options on [Slack's lovely message builder page](https://api.slack.com/docs/messages/builder).
@@ -271,57 +271,62 @@ Perhaps it's the build number for the build whose log you want, or the issue num
 
 #### How they're populated
 
-In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), they'll be prompted in a thread
-to supply a value for each required parameter. Then they get to review all the parameter values and click or type Submit. If there are no required parameters, your command will be invoked right away.
+In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), 
+they'll be prompted in a thread
+to supply a value for each required parameter. 
+Then they get to review all the parameter values, change them if desired, then click or type Submit. 
 
-TODO: picture of parameter thread
+!!! note
+    If there are no required parameters to prompt for, your command will be invoked right away.
 
-callout: You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`. If you supply all the required parameters,
+<!-- TODO: how to make this prettier? -->
+<img src="../../images/command-parameters-thread.png" />
+
+!!! tip
+    You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`. If you supply all the required parameters,
 the command will be invoked right away.
 
-In Slack buttons, the automation creating the button can supply as many parameters as it knows[LINK]. Whoever clicks the button will be prompted for any required parameters that weren't part of the button definition.
-
-In the dashboard, each parameter is a form field. [TODO: picture]
+In Slack buttons, the automation creating the button can supply as
+ many parameters as it knows[LINK]. Whoever clicks the button will 
+ be prompted for any required parameters that weren't part of the button 
+ definition.
 
 In a REST call, parameters come in with the request. [LINK]
 
 #### How they're specified
 
-When you annotate a field with `@Parameter`, you can pass the decorator an object describing the parameter. Here are some examples:
+When you annotate a field with `@Parameter`, 
+you can pass the decorator an object describing the parameter. 
+Here are some examples:
 
 
 A buildId is required, and it is a string of digits:
-```
+
+```typescript
 @Parameter({ pattern: /^[0-9]+$/ })
 public buildId: string;
 ```
 
 An animal can be specified, or it'll default to armadillo:
-```
+
+```typescript
 @Parameter({})
 public animal: string = "armadillo";
 ```
 
 You can define:
 
-[TODO: make a table]
-pattern: If you want to validate values, pass a `RegExp`. It must start with `^` and end with `$` so that it covers the whole value. Default: `/^.*$/` for "anything"
-
-required: set this to `false` if the parameter is optional. If you supply a default value for the field, we'll automatically set required to false!
-
-description: the Slack or Dashboard user will see this when they're prompted for the parameter. [TODO: is that true about the dashboard?]
-
-displayName: defaults to the name of the field you're annotating
-
-validInput: if you supplied a pattern, you may also want to describe in words what input is valid.
-
-displayable: [TODO: what does this accomplish]
-
-maxLength: if you want to limit the length of a parameter, supply a number here.
-
-minLength: if you want at least so many characters, supply a number here.
-
-type: `string` or `boolean` or `number`, although we'll figure that out from the type of the field if we can.
+| field | meaning |
+| ----- | ------- |
+| pattern | If you want to validate values, pass a `RegExp`. It must start with `^` and end with `$` so that it covers the whole value. Default: `/^.*$/` for "anything" |
+| required | set this to `false` if the parameter is optional. If you supply a default value for the field, we'll automatically set required to false! |
+| description | the Slack or Dashboard user will see this when they're prompted for the parameter. [TODO | is that true about the dashboard?] |
+| displayName | defaults to the name of the field you're annotating |
+| validInput | if you supplied a pattern, you may also want to describe in words what input is valid. |
+| displayable | [TODO: what does this accomplish] |
+| maxLength | if you want to limit the length of a parameter, supply a number here. |
+| minLength | if you want at least so many characters, supply a number here. |
+| type | `string` or `boolean` or `number`, although we'll figure that out from the type of the field if we can. |
 
 ### @MappedParameter
 
@@ -329,37 +334,34 @@ There are a few things Atomist can infer from who invoked this command, or what 
 You can request this information by decorating fields with `@MappedParameter`.
 Supply one argument to that decorator to tell it which of the MappedParameters you want.
 
+```typescript
+@MappedParameter(MappedParameters.SlackUserName)
+public slackUserName: string;
+```
+
 In Slack, if the value is ambiguous based on your team and channel, Atomist will ask the user.
 
 In Slack buttons, the automation that defines the button can provide values for these.
 
-In the dashboard or a REST call, the invocation has to supply these. All Mapped Parameters are required.
+In a REST call, the invocation has to supply these. All Mapped Parameters are required.
 
 #### Available Mapped Parameters
 
-callout: these are available in Command Handlers but _not_ Event Handlers.
+!!! note
+    Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
 
-[TODO: table]
-
-MappedParameters.SlackUserName: Who invoked this command? This is the username, not the display name of the user. For instance: jessitron
-
-MappedParameters.SlackUser = The ID of the slack user who invoked the command. For instance: U6L3BGG01;
-
-MappedParameters.SlackChannelName = The name of the channel where the command was invoked.
-
-MappedParameters.SlackChannel = The ID of the channel where the command was invoked. For instance: C3NGYQF6Y
-
-MappedParameters.SlackTeam = The ID of your slack team. For instance: T6MFSPUDL
-
-MappedParameters.GitHubRepository = If the command was invoked in a channel linked[LINK] to exactly one repository, this is the name of it. Otherwise, prompt for one of the repository names in your team.
-
-MappedParameters.GitHubOwner: If your team has one linked organization[LINK], this is it. If the command was invoked in a channel linked[LINK] to exactly one repository, this is the owner of that repository. Otherwise, prompt for one of the organizations linked to your team.
-
-MappedParameters.GitHubUrl = This is https://github.com unless you're on GitHub Enterprise.
-
-MappedParameters.GitHubApiUrl = This is https://api.github.com unless you're on GitHub Enterprise.
-
-MappedParameters.GitHubDefaultRepositoryVisibility = our best guess for whether you prefer to create new repositories as "public" or "private".
+| Constant | What you get |
+| -------- | ------------ |
+| MappedParameters.SlackUserName | Who invoked this command? This is the username, not the display name of the user. For instance: jessitron |
+| MappedParameters.SlackUser | The ID of the slack user who invoked the command. For instance: U6L3BGG01; |
+| MappedParameters.SlackChannelName | The name of the channel where the command was invoked. |
+| MappedParameters.SlackChannel | The ID of the channel where the command was invoked. For instance: C3NGYQF6Y |
+| MappedParameters.SlackTeam | The ID of your slack team. For instance: T6MFSPUDL |
+| MappedParameters.GitHubRepository | If the command was invoked in a channel linked[LINK] to exactly one repository, this is the name of it. Otherwise, prompt for one of the repository names in your team. |
+| MappedParameters.GitHubOwner | If your team has one linked organization[LINK], this is it. If the command was invoked in a channel linked[LINK] to exactly one repository, this is the owner of that repository. Otherwise, prompt for one of the organizations linked to your team. |
+| MappedParameters.GitHubUrl | This is https://github.com unless you're on GitHub Enterprise. |
+| MappedParameters.GitHubApiUrl | This is https://api.github.com unless you're on GitHub Enterprise. |
+| MappedParameters.GitHubDefaultRepositoryVisibility | our best guess for whether you prefer to create new repositories as "public" or "private". |
 
 ### Secrets
 
@@ -418,12 +420,17 @@ When you tell Atomist to do the thing, and it responds with
 
 It'll guess at nearby commands. This means it didn't find your intent.
 
-To see everything available, try `@atomist show skills`. This lists commands registered by automation client. Is your automation client listed?
+To see everything available, try `@atomist show skills`. 
+This lists commands registered by automation client.
+ Is your automation client listed?
 If not, perhaps it is not running.
 
-If you can't tell, consider changing the name of your automation client (in package.json) to something you'll recognize.
+If you can't tell, consider changing the name of your automation client 
+(in package.json) to something you'll recognize.
 
-If your client is listed but your automation is not, perhaps it is not included in `atomist.config.ts`. See command discovery [LINK].
+If your automation client is listed but your automation is not, 
+perhaps it is not included in `atomist.config.ts`. 
+See command discovery [LINK].
 
 ### Command was invoked unsuccessfully
 
@@ -438,4 +445,7 @@ Check the logs of your automation client to figure out what went wrong.
 
 ### Something went wrong
 
-If the bot tells you "Oops, something went wrong" ... that's our bad. Please contact us in the #support channel at atomist-community.slack.com, or email support@atomist.com[LINK]. We care about your problems.
+If the bot tells you "Oops, something went wrong" ... 
+that's our bad. Please contact us in the #support channel at 
+atomist-community.slack.com, or email support@atomist.com[LINK]. 
+We care about your problems.
