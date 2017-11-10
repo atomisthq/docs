@@ -86,8 +86,7 @@ and show you how to
 -   send sophisticated [Slack messages][slack],
 -   use [GraphQL with the automation API][graphql-api],
 -   start the [automation client][client],
--   create a new automation client [project][],
--   [discover automations][discover] written by others, and
+-   create a new automation client [project][], and
 -   run an automation client on a [PaaS][paas].
 
 With the knowledge available in this section, you'll have everything
@@ -102,5 +101,4 @@ processes!
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [client]: client.md (Atomist Automation Client)
 [project]: project.md (Atomist Automation Client Project)
-[discover]: discovery.md (Discover Atomist Automations)
 [paas]: paas.md (Atomiat Automation Client on PaaS)
