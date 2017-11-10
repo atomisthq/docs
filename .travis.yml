@@ -6,11 +6,11 @@ python:
 addons:
   apt:
     packages:
-      - libcurl3-dev
+    - libcurl3-dev
 branches:
   except:
   - gh-pages
-  - "/\\+travis\\d+$/"
+  - "/\\+travis\\.\\d+$/"
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
