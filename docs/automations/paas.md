@@ -1,51 +1,46 @@
 # Running Automation Clients
 
-The distributed architecture of the Atomist automation platform makes
-it possible to run automation clients in many different environments,
-ranging from Platform-as-a-Service offerings like Heroku and Pivotal
-Cloud Foundry to running it on your laptop or in your own data center.
+Automation clients can run in many different environments, ranging from your laptop
+or data center to Platform-as-a-Service offerings like Heroku and Pivotal Cloud Foundry.
 
-Certainly we support running clients as Docker containers, allowing you
-to operate them eg in Kubernetes clusters or Google Cloud Platform.
+Atomist also supports running clients as Docker containers. This allows you
+to operate them in Kubernetes clusters or Google Container Engine, for example.
 
-In the following sections, we'll discuss how to run clients in several
-different environments.
+This document explains various ways to run automation clients.
 
 ## Running Locally
 
-The easiest way to start and run an automation client is to start it up
-on your local development machine.
+The easiest way to run an automation client is to start it up on your local
+development machine. 
 
-If you bootstrapped your client project using one of our seeds and
-generators, you'll be able to simply start the client by running the
-following commands:
+Running the automation client locally is extremely helpful
+during development of your automations. 
+* You can debug commands and event handlers using local development tools 
+like Visual Studio Code and Google Chrome. 
+* You can iterate rapidly because there is no deployment and only a minimal build process.
+
+If you bootstrapped your client project using an Atomist seed and
+generator, start the client by running the following commands:
 
 ```
 npm run compile && npm start
 ```
 
-Assuming you don't have any other process running on port `2866`, the
-client should start up without issue.
+By default, the client process runs on port `2866`.
 
 !!! note
     The automation client requires an open internet connection to
     `https://automation.atomist.com` to successfully and register event
     subscriptions.
 
-The ability to run the automation client locally is a really great asset
-during development of your automations. It allows you to debug our
-handlers using local development tools like Visual Studio Code or
-Google Chrome. This makes iterating on changes really fast. There is no
-long deployment or build process involved.
-
 ## Cloud Foundry
 
 To push your automation client to an instance of Pivotal Cloud
 Foundry, you need an account on the instance you want to target and
-have the [Cloud Foundry CLI][cf-cli] installed.
+you must have the [Cloud Foundry CLI][cf-cli] installed.
 
-Very detailed information about the deployment process are available
-in the [Cloud Foundry documentation][cf-docs].
+For detailed information about the deployment process, consult
+the [Cloud Foundry documentation][cf-docs].
 
 A push to Cloud Foundry needs some additional meta data in your
 project.  First you need to create a [`manifest.yml`][cf-manifest]
@@ -68,8 +63,8 @@ applications:
     Technically a `manifest.yml` is not required but it makes things
     simpler.
 
-Next please add an `"engines"` top-level entry to your `package.json`
-file like the following:
+Next add an `"engines"` top-level entry to your `package.json`
+file:
 
 ```json
   "engines": {
@@ -78,7 +73,7 @@ file like the following:
   }
 ```
 
-Finally you can start the deployment with:
+Finally, start the deployment with:
 
 ```
 cf push
@@ -94,7 +89,7 @@ Shipping your automation client as a Docker image allows you to package
 up all required tools and dependencies. This is especially useful if you
 plan on reusing existing scripts or command line tools in your automations.
 
-To set up a Docker image build, we need a `Dockerfile`. Read the
+To set up a Docker image build, you need a `Dockerfile`. Read the
 documentation on [building Docker images][docker-build] for more
 details.
 
@@ -121,23 +116,23 @@ EXPOSE 2866
 CMD [ "npm", "start" ]
 ```
 
-Additionally it makes sense to create `.dockerignore` to exclude files
+Be sure to create `.dockerignore` to exclude files
 and directories that aren't needed at runtime.
 
 ```
 /node_modules
 ```
 
-With our `Dockerfile` in place, the actual Docker build can now be
-started:
+With the `Dockerfile` in place, you can now start the 
+actual Docker build:
 
 ```
 npm run compile && \
     docker build . -t lifecycle-automation:0.1.0
 ```
 
-After the build complete successfully, the image can be pushed to any
-Docker image registry with:
+After the build completes successfully, you can push the
+image to any Docker image registry:
 
 ```
 docker push lifecycle-automation:0.1.0
