@@ -59,13 +59,13 @@ contact with the API server so that it may receive events and commands
 it is interested in as they occur.  Rather than constant polling via
 HTTP calls or requiring clients to open up firewall holes so the API
 server can send events and commands to the client, the Atomist
-automation API is accessed via a [WebSocket][websocket] connection.
-The WebSocket connection is initiated by the automation client when it
+automation API is accessed via a [WebSocket][ws] connection.  The
+WebSocket connection is initiated by the automation client when it
 starts up, establishing a persistent two-way communication channel
 between the automation client and API that requires neither polling
 nor firewall rule changes.
 
-[websocket]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
+[ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
 
 ---
 

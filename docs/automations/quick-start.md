@@ -3,9 +3,9 @@ easy with the Atomist development automation platform.  In the
 following sections we will walk through simple examples of a bot
 command and an event automation.
 
-Before working through these examples, be sure you have completed
-the [setup][] and satisfied the [prerequisites][prereq].
-Specifically, be sure you have
+Before working through these examples, be sure someone in your Slack
+team has completed the [setup][] and you have satisfied
+the [prerequisites][prereq].  Specifically, be sure you have
 
 -   [Added the Atomist Bot the your Slack team][add-slack]
 -   [Authorized Atomist to access GitHub][auth-github]
@@ -168,9 +168,9 @@ the code implementing your event automation, providing it with the
 information you have requested about the event.
 
 In this example, we implement an event automation that responds to
-select commits pushed to a repository.  First, using a [GraphQL][gql]
-_subscription_ we define the type of event we want to be notified
-about.
+select commits pushed to a repository.  First, using
+a [GraphQL subscription][subscription] we define the type of event we
+want to be notified about.
 
 ```typescript
 const Subscription = `
@@ -276,5 +276,5 @@ you push that commit, the bot should send a message to the linked
 channel letting everyone know you crushed it!
 
 
-[gql]: http://graphql.org/ (GraphQL)
+[subscription]: graphql.md#subscriptions
 [regex]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions (JavaScript Regular Expressions)

@@ -55,13 +55,10 @@ The Atomist automation API client uses
 a [GitHub personal access token][token] to register with the Atomist
 API.  The Atomist API will use the token to confirm you are in a
 GitHub organization connected to the Slack team in which you are
-running your automations.  The token needs _read:org_ scope to see
-what GitHub organizations your GitHub user is in.  In addition, the
-Atomist API only allows members of the GitHub team
-`atomist-automation` to authenticate and register a new client.  You
-will have to create a team in your GitHub organization named
-`atomist-automation` and add the users who want to create and register
-automations to it.
+running your automations.  The token needs [_read:org_ scope][scope]
+to see what GitHub organizations your GitHub user is in.
+
+[scope]: https://developer.github.com/changes/2014-02-25-organization-oauth-scopes/ (GitHub Token Scopes)
 
 ### The Easy Way
 
@@ -112,6 +109,10 @@ personal access token you just created.
   ]
 }
 ```
+
+If you are in multiple Slack teams and want to run your automations in
+all of them, simply add all of their team IDs to the `teamIds` array
+in the client configuration file.
 
 [token]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
 [new-token]: https://github.com/settings/tokens/new (GitHub New Personal Access Token)
