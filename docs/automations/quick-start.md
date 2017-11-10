@@ -185,8 +185,7 @@ repositories, and chat channels.
 
 Each time a commit event occurs, Atomist gathers the event data you
 have requested and sends it to your code implementing your event
-automation, which we call an _event handler_.  Here is the event
-handler code for this example:
+automation.  Here is the event handler code for this example:
 
 ```typescript
 const Pattern = /[cC]rush(ed|ing)[\s]*#([0-9]*)/g;
