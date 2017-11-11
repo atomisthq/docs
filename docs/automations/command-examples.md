@@ -102,7 +102,8 @@ Then in the handle method, use `editAll` to run on all the projects that we can 
             .then(() => Success, failure);
 ```
 With [this handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts) running
-in our automation client, we can initiate PRs on all repositories that have an out-of-date Copyright notice with one `@atomist update README copyright year` in Slack, or one invocation from the client dashboard[LINK].
+in our automation client, we can initiate PRs on all repositories that have an out-of-date Copyright 
+notice with one `@atomist update README copyright year` in Slack.
 
 ## Inspect code across repositories
 
@@ -144,7 +145,7 @@ Learn about formatting options on [Slack's lovely message builder page](https://
               .then(() => Success)
 ```
 
-Find full information about all the options here [LINK], including how to add buttons [LINK].
+Find full information about all the options under [Slack Messages](slack.md), including how to add buttons.
 
 ## Command handlers in the wild
 

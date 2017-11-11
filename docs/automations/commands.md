@@ -147,24 +147,24 @@ Perhaps it's the build number for the build whose log you want, or the issue num
 In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), 
 they'll be prompted in a thread
 to supply a value for each required parameter. 
-Then they get to review all the parameter values, change them if desired, then click or type Submit. 
-
-!!! note
-    If there are no required parameters to prompt for, your command will be invoked right away.
 
 <!-- TODO: how to make this prettier? -->
 <img src="../../images/command-parameters-thread.png" alt="a threaded conversation to request parameter values"/>
 
+The invoker can review all the parameter values, change them if desired, then click or type Submit. 
+
+
 !!! tip
-    You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`. If you supply all the required parameters,
-the command will be invoked right away.
+    You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`. 
 
-In Slack buttons, the automation creating the button can supply as
- many parameters as it knows[LINK]. Whoever clicks the button will 
- be prompted for any required parameters that weren't part of the button 
- definition.
+!!! note
+    If there are no required parameters to prompt for, your command will be invoked right away.
 
-In a REST call, parameters come in with the request. [LINK]
+In Slack buttons, the automation creating the [button](slack.md#adding-message-buttons) can supply as
+ many parameters as it knows. Whoever clicks the button will 
+ be prompted for any other required parameters.
+
+In a REST call, parameters come in with the request.
 
 #### How they're specified
 
@@ -196,7 +196,7 @@ You can define:
 | description | the Slack or Dashboard user will see this when they're prompted for the parameter. [TODO | is that true about the dashboard?] |
 | displayName | defaults to the name of the field you're annotating |
 | validInput | if you supplied a pattern, you may also want to describe in words what input is valid. |
-| displayable | [TODO: what does this accomplish] |
+| displayable | If false, hide this parameter from the user before when prompting them to submit. For instance, sometimes buttons include cryptic internal identifiers. |
 | maxLength | if you want to limit the length of a parameter, supply a number here. |
 | minLength | if you want at least so many characters, supply a number here. |
 | type | `string` or `boolean` or `number`, although we'll figure that out from the type of the field if we can. |
@@ -244,24 +244,28 @@ These are secure values which Atomist stores and supplies to the automation clie
 Fields decorated with @Secret are populated by Atomist before calling the `handle` method.
  They're never printed to the log or stored to disk outside Vault. 
 
+### How they're collected
+
 When I invoke a command like `@atomist create issue title="Do another thing"`, 
 I want that issue to show up in GitHub created by me.
 Built-in commands like this one receive a token collected from the invoking user.
 
+ Currently the only secret available to automation clients is a GitHub token. 
+ Currently custom automation
+ clients will always receive the GitHub token they configured, so all GitHub API calls will be
+ performed by the automator.
+  Please [tell us](https://atomist.zendesk.com) when this gets in your way.
 
- Currently the only secret available to automation clients is a GitHub token. Currently custom automation
- clients will always receive the GitHub token they configured[TODO: link], so all GitHub API calls will be
- performed by the automator. Please tell us[link] when this gets in your way.
-
-### How they're collected
-
-When I first invoke `create issue`, Atomist notices the scopes required by that automation (it's repo scope [LINK]).
-It recognizes that I haven't authorized it for that scope, and prompts me to authorize with GitHub right then, with repo scope plus any
-I've already authorized. It'll remember that token for any future automations that require the same scope.
+When I first invoke `create issue`, Atomist notices the scopes required by that 
+automation (it's [repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).
+It recognizes that I haven't authorized it for that scope, 
+and prompts me to authorize with GitHub right then.
+ It'll remember that token for any future automations that require the same scope.
 
 ### How they're supplied
 
-In a command handler, to get access to common GitHub operations (read more about GitHub scopes here[LINK]):
+In a command handler, to get access to a GitHub token with
+ [repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/): (read more about GitHub scopes here[LINK]):
 
 ```typescript
 @Secret(Secrets.UserToken + `?scope=repo`)
@@ -272,8 +276,11 @@ public githubToken: string;
  When you deploy your client, supplying it with an authorized token[LINK] will give it access to everyone's tokens. 
  -->
 
-The only other Secret currently available is `Secrets.OrgToken`. Currently in custom automations, that will be 
-the GitHub token provided in configuration [LINK].
+The only other Secret currently available is `Secrets.OrgToken`, the authorization supplied
+when someone enrolled an organization with "@atomist enroll org". 
+
+Currently in custom automations, both of these will be populated by the GitHub token supplied in the automation client's
+configuration. Your token will need to already have all the scopes your automations need.
 
 <!-- not implemented: This provides the token collected when a GitHub organization was linked to the team. 
 Typically this belongs to the user who enrolled Atomist in your Slack team.
@@ -319,6 +326,6 @@ Check the logs of your automation client to figure out what went wrong.
 ### Something went wrong
 
 If the bot tells you "Oops, something went wrong" ... 
-that's our bad. Please contact us in the #support channel at 
-atomist-community.slack.com, or email support@atomist.com[LINK]. 
+that's our bad. Please contact us in the #support channel in [Slack](https://atomist-community.slack.com),
+email [support@atomist.com](mailto:support@atomist.com), or leave us a [ticket](https://atomist.zendesk.com).
 We care about your problems.

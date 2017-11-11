@@ -38,7 +38,7 @@ allows you to address messages to users or channels by name or to simply send a
 response message.
 
 Generally the `MessageClient` is available from the `HandlerContext` parameter
-to the `handle` method of [command] and event handlers.
+to the `handle` method of [command](commands.md) and event handlers.
 
 ### Response Messages
 
@@ -157,7 +157,7 @@ button to it.
 
 With Atomist it's easy to bind Slack action buttons to command handlers. Such a
 binding consists of three parts: the specification of the button as required by 
-Slack, a reference to the [command handler][command], and optional parameters that should be
+Slack, a reference to the [command handler](commands.md), and optional parameters that should be
 pre-populated when invoking the command. 
 
 The button specification is defined by Slack in the [field guide](https://api.slack.com/docs/interactive-message-field-guide).
@@ -177,7 +177,7 @@ const buttonSpec: ButtonSpecification = {
 };
 ```
 
-With the following, you're preparing a [command handler][command]  and its parameter to be
+With the following, you're preparing a [command handler](commands.md)  and its parameter to be
 bound to the button. This example uses the `SearchStackOverflow`
 command handler from the Atomist [blog series](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
@@ -315,4 +315,3 @@ it is an update to a previously posted message with the same `id`. If
 a previous message.
 will never rewrite a previous message.
 
-[command](commands.md)
