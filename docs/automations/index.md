@@ -1,5 +1,5 @@
-The Atomist development automation platform ingests events from your
-software development systems:
+Atomist ingests events from your software development systems
+and makes them available via an automation API:
 
 -   Source code repositories like [GitHub.com][gh]
     and [GitHub Enterprise][ghe]
@@ -11,17 +11,16 @@ software development systems:
 -   Runtime platforms like [Kubernetes][k8] and [Cloud Foundry][cf]
 -   Custom events from _any_ other system you use
 
-and makes these events and their related data available to you via an
-automation API.  As these events are ingested by Atomist, typically
-via webhook JSON payloads, the individual events are automatically
-connected, commits to pushes to builds to deployments to running
-containers, so your automations always have the necessary context to
+As Atomist ingests events, typically via webhook JSON payloads, it automatically
+correlates them to each other: commits to pushes to builds to deployments to running
+containers. This results in a data model that represents your development flow. 
+Automations rely on this data model to provide the necessary context so they can always 
 do the right thing.
 
 The Atomist development automation platform also provides a simple yet
 powerful interface for implementing custom bot commands.  By providing
 all the infrastructure needed to hear commands, collect parameters,
-execute the code, and respond back, Atomist let's you focus on writing
+execute the code, and respond back, Atomist lets you focus on writing
 your bot command code, not all the ceremony around it.
 
 The Atomist automation API can be accessed via any compliant client.
@@ -44,69 +43,72 @@ custom bot commands & event subscriptions.
 [client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
 [aac]: https://www.npmjs.com/package/@atomist/automation-client (Atomist Automation Client Node Module)
 
+
 ![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
 
 ## GraphQL
 
-The Atomist automation API allows you to access the events and data
+The Atomist automation API provides you access to the events and data
 from your development platforms using [GraphQL][graphql], a modern,
-standard query language and runtime for APIs.  GraphQL enables you to
-get the exact data you want without making multiple API calls and
-provides excellent tooling support for developers, including a
-queryable, self-describing schema.  The Atomist automation API allows
-you to use queries to fetch data directly, subscriptions to register
-the types of events you want to receive, and limited mutations to
-change data and make connections.
+standard query language and runtime for APIs.
+
+You can use GraphQL with the Atomist automation API for:
+1. Queries that fetch data directly
+2. Subscriptions to register the types of events you want to receive
+3. Mutations to change data and make connections
 
 [graphql]: http://graphql.org/ (GraphQL)
 
 ## WebSockets
 
-Unlike most API clients, the automation client must maintain contact
-with the API server so that it may receive events and commands it is
-interested in as they occur.  Rather than constant polling via HTTP
-calls or requiring clients to open up firewall holes so the API server
-can send events and commands to the client, the Atomist automation API
-is accessed via a [WebSocket][ws] connection.  The WebSocket
+Unlike most API clients, an Atomist automation client must maintain contact
+with the API server so that it can receive the events and commands it's
+interested in as they occur.  
+
+Automation clients access the Atomist automation API
+via a [WebSocket][ws] connection. WebSockets allow the API server to send events and
+commands to the client without constant polling via HTTP
+calls and without requiring clients to open up firewall holes. The WebSocket
 connection is initiated by the automation client when it starts up,
 establishing a persistent two-way communication channel between the
-automation client and API that requires neither polling nor firewall
-rule changes and is resilient to interruptions in connectivity.
+automation client and API that is resilient to interruptions in connectivity.
 
 [ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
 
 ---
 
-In the following pages of this section, we will walk you
-through
+The rest of this section describes how to develop automations
 
--   [setting up your system][prereq] for developing and running
-    automations,
--   getting your [first automations running][quick],
+Quick Start
 
-provide a detailed look at writing your own
+-   [Setting up your system][prereq] to develop and run
+    automations
+-   Getting your [first automations running][quick]
 
--   [bot commands][command] &
--   [event handlers][event],
+Write Your Own
 
-and give you a in-depth description of
+-   [Bot commands][command] 
+-   [Event handlers][event]
 
--   crafting sophisticated [Slack messages][slack],
--   using [GraphQL with the automation API][graphql-api],
--   building and starting an [automation client][client],
--   describing the anatomy of an automation client [project][], and
--   running an automation client on a [PaaS][paas].
+In-depth Topics
 
-With the knowledge available in this section, you'll have everything
+-   Crafting sophisticated [Slack messages][slack]
+-   Using [GraphQL with the automation API][graphql-api]
+-   Building and starting an [automation client][client]
+-   Understanding the anatomy of an automation client [project][]
+-   Running an automation client on a [PaaS][paas].
+
+Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
-processes!
+processes.
 
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
 [quick]: quick-start.md (Atomist Automation Quick Start)
-[command]: commands.md (Atomist AUtomation Command Handlers)
+[command]: commands.md (Atomist Automation Command Handlers)
 [event]: events.md (Atomist Automation Event Handlers)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [client]: client.md (Atomist Automation Client)
 [project]: project.md (Atomist Automation Client Project)
 [paas]: paas.md (Atomiat Automation Client on PaaS)
+
