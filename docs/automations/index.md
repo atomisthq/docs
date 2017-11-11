@@ -79,18 +79,18 @@ automation client and API that is resilient to interruptions in connectivity.
 
 The rest of this section describes how to develop automations
 
-Quick Start
+## Get Started
 
 -   [Setting up your system][prereq] to develop and run
     automations
 -   Getting your [first automations running][quick]
 
-Write Your Own
+## Write Your Own
 
 -   [Bot commands][command] 
 -   [Event handlers][event]
 
-In-depth Topics
+## In-depth Topics
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
