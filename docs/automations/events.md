@@ -2,11 +2,11 @@
 
 Event handlers are automations that trigger when events happen, such as pull requests, updated issues, failed builds and more.  You can create your own event handlers to make Atomist react however you want.
 
-To create your own event handlers, you need an automation client of your own [LINK to quick start] and an event you want to listen for. The event handler below takes the action of notifying you in Slack when a new GitHub issue is created.
+To create an event handler, you need an automation client of your own [LINK to quick start] and an event you want to listen for. The sample event handler below notifies you in Slack when a new GitHub issue is created.
 
 ## Events
 
-First you need to understand the events involved. You can [use GraphiQL to query for events](graphql.md#accessing-data-with-graphiql) to search for GitHub issues. This query shows the issue number and title for all your issues.
+To write an event handler, you need to understand the events involved. You can [use GraphiQL to query for events](graphql.md#accessing-data-with-graphiql) to search for GitHub issues. This query shows the issue number and title for all your issues.
 
 ```
 {
