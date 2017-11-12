@@ -122,7 +122,7 @@ you can automate the copy,
 and modify the starting point to be your new service.
 
 Check out an 
-[example](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/NewAutomation.ts)
+[example](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/generator/NewAutomation.ts)
 that copies a sample automation client into your own repository.
 
 Once the repository is created, you can do things like add collaborators, teams, or labels to bring the
