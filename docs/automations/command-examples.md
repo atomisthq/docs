@@ -117,8 +117,19 @@ Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/
 
 ## Make a new repository
 
-When you want to make a new service or library, it's common to start by copying an old one. With Atomist, you can automate the copy
+When you want to make a new service or library, it's common to start by copying an old one. With Atomist, 
+you can automate the copy,
 and modify the starting point to be your new service.
+
+Check out an 
+[example](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/NewAutomation.ts)
+that copies a sample automation client into your own repository.
+
+Once the repository is created, you can do things like add collaborators, teams, or labels to bring the
+GitHub repository to your standards. For examples, the Atomist 
+[Spring Initializr generator](https://github.com/atomist/initializr-atomist/blob/master/src/commands/generator/initializr/RepoCreator.ts) 
+adds a collaborator
+(and accepts the invitation) as part of project creation.
 
 
 ## Send a direct message
