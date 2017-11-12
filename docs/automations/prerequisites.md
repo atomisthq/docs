@@ -1,4 +1,4 @@
-Before you begin developing and running your own automations, you will
+Before you begin developing and running your own automations, you
 need to have Atomist [set up in your team][setup] and know your Slack
 team ID, which the Atomist Bot is happy to tell you.  Just send the
 `team` message to the Atomist Bot (be sure the bot is already in the
@@ -17,14 +17,14 @@ The above response tells you the Slack team ID is `T1L0V3KJP`.
 ## Node.js
 
 The reference implementation of the Atomist automation API client is
-in [TypeScript][ts], a superset of [JavaScript][js].  To develop and
+implemented in [TypeScript][ts], a superset of [JavaScript][js].  To develop and
 run automations using the reference implementation of the automation
-client, you will need to install Node.js.  The easiest way to install
+client, you must install Node.js.  The easiest way to install
 Node.js is to go to the [Node.js web site][node] and follow the
-instructions for installing on your platform.  This will make the
+installation instructions for your platform.  This makes the
 `node` and `npm` programs available on your system.
 
-Alternatively, if you are on macOS you and use [Homebrew][brew], you
+Alternatively, macOS users with [Homebrew][brew]
 can install Node.js with the following command:
 
 ```
@@ -38,22 +38,19 @@ brew install node
 
 ## Atomist CLI
 
-The Atomist CLI performs several useful functions that are used
-throughout this documentation.  Please install the CLI using the
-following command:
+The Atomist CLI performs several useful functions that are referred to
+throughout this documentation.  Once you have Node.js successfully installed,
+install the CLI with the following command:
 
 ```
 npm install -g @atomist/automation-client
 ```
 
-Note that this step requires the successful installation of Node.js
-mentioned above.
-
 ## GitHub Token
 
 The Atomist automation API client uses
 a [GitHub personal access token][token] to register with the Atomist
-API.  The Atomist API will use the token to confirm you are in a
+API.  The Atomist API uses the token to confirm you are in a
 GitHub organization connected to the Slack team in which you are
 running your automations.  The token needs [_read:org_ scope][scope]
 to see what GitHub organizations your GitHub user is in.
