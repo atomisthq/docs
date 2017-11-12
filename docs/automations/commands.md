@@ -129,47 +129,40 @@ Some quick examples for common automations:
 
 ## Parameters
 
-You don't want your command handler to do the _same_ thing every time. Gather more information from parameters!
-Parameters are annotated fields on your command handler class. The automation client populates them before
-calling your `handle` method.
+You don't want your command handler to do the _same_ thing every
+time. Gather more information from parameters!  By annotating your
+command handler fields with @Parameter, @MappedParameter or @Secret,
+you are instructing Atomist automation API to collect and provide
+values for those parameters when your command is invoked.
 
 You can get this information from the user or button definition (@Parameter),
 from Atomist's understanding of where the command was invoked (@MappedParameter),
 and from Atomist's vault (@Secret).
 
-### @Parameter
+### Input Parameters
 
-Annotate a field from this when you want whoever triggers this command handler to supply the information.
-Perhaps it's the build number for the build whose log you want, or the issue number to close.
-
-#### How they're populated
-
-In Slack, when someone types "@atomist do my thing" (or whatever intent you defined in the @CommandHandler annotation), 
-they'll be prompted in a thread
-to supply a value for each required parameter. 
-
-<!-- TODO: how to make this prettier? -->
-<img src="../../images/command-parameters-thread.png" alt="a threaded conversation to request parameter values"/>
-
-The invoker can review all the parameter values, change them if desired, then click or type Submit. 
-
+These are simple values that you need to be supplied in order to run
+your command handler. For example, the issue number to close or the
+build number to restart. When a user invokes your command in Slack,
+atomist bot will prompt her in a thread to supply value for each
+required parameter. The user will get to review provided parameter
+values, change them if desired, and click or type Submit.
 
 !!! tip
-    You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`. 
+    You can supply parameters in one line with name-value pairs like: `@atomist do my thing buildId=42`.
 
 !!! note
     If there are no required parameters to prompt for, your command will be invoked right away.
 
-In Slack buttons, the automation creating the [button](slack.md#adding-message-buttons) can supply as
- many parameters as it knows. Whoever clicks the button will 
- be prompted for any other required parameters.
+In Slack buttons, the automation creating
+the [button](slack.md#adding-message-buttons) can supply as many
+parameters as it knows. Whoever clicks the button will be prompted for
+any other required parameters.
 
 In a REST call, parameters come in with the request.
 
-#### How they're specified
-
-When you annotate a field with `@Parameter`, 
-you can pass the decorator an object describing the parameter. 
+When you annotate a field with `@Parameter`,
+you can pass the decorator an object describing the parameter.
 Here are some examples:
 
 
@@ -218,10 +211,7 @@ In Slack buttons, the automation that defines the button can provide values for 
 
 In a REST call, the invocation has to supply these. All Mapped Parameters are required.
 
-#### Available Mapped Parameters
-
-!!! note
-    Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
+The available Mapped Parameters are:
 
 | Constant | What you get |
 | -------- | ------------ |
@@ -236,33 +226,35 @@ In a REST call, the invocation has to supply these. All Mapped Parameters are re
 | MappedParameters.GitHubApiUrl | This is https://api.github.com unless you're on GitHub Enterprise. |
 | MappedParameters.GitHubDefaultRepositoryVisibility | our best guess for whether you prefer to create new repositories as "public" or "private". |
 
+!!! note
+    Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
+
 ### Secrets
 
 These are secure values which Atomist stores and supplies to the automation client
  so that it can run commands as a particular user.
 
 Fields decorated with @Secret are populated by Atomist before calling the `handle` method.
- They're never printed to the log or stored to disk outside Vault. 
+They're never printed to the log or stored to disk outside Vault.
 
-### How they're collected
-
-When I invoke a command like `@atomist create issue title="Do another thing"`, 
+When I invoke a command like `@atomist create issue title="Do another thing"`,
 I want that issue to show up in GitHub created by me.
 Built-in commands like this one receive a token collected from the invoking user.
 
- Currently the only secret available to automation clients is a GitHub token. 
- Currently custom automation
- clients will always receive the GitHub token they configured, so all GitHub API calls will be
- performed by the automator.
-  Please [tell us](https://atomist.zendesk.com) when this gets in your way.
+Currently the only secret available to automation clients is a GitHub
+token.  Currently custom automation clients will always receive the
+GitHub token they configured, so all GitHub API calls will be
+performed by the automator.
+Please [tell us](https://atomist.zendesk.com) when this gets in your
+way.
 
-When I first invoke `create issue`, Atomist notices the scopes required by that 
-automation (it's [repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).
-It recognizes that I haven't authorized it for that scope, 
-and prompts me to authorize with GitHub right then.
- It'll remember that token for any future automations that require the same scope.
-
-### How they're supplied
+When I first invoke `create issue`, Atomist notices the scopes
+required by that automation
+(it's
+[repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).
+It recognizes that I haven't authorized it for that scope, and prompts
+me to authorize with GitHub right then.  It'll remember that token for
+any future automations that require the same scope.
 
 In a command handler, to get access to a GitHub token with
  [repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/): (read more about GitHub scopes here[LINK]):
@@ -273,16 +265,16 @@ public githubToken: string;
 ```
 
 <!-- not implemented: When you run your automation client locally, and your teammates invoke your automation, the command handler won't get their tokens. It'll get yours. This is a security measure.
- When you deploy your client, supplying it with an authorized token[LINK] will give it access to everyone's tokens. 
+ When you deploy your client, supplying it with an authorized token[LINK] will give it access to everyone's tokens.
  -->
 
 The only other Secret currently available is `Secrets.OrgToken`, the authorization supplied
-when someone enrolled an organization with "@atomist enroll org". 
+when someone enrolled an organization with "@atomist enroll org".
 
 Currently in custom automations, both of these will be populated by the GitHub token supplied in the automation client's
 configuration. Your token will need to already have all the scopes your automations need.
 
-<!-- not implemented: This provides the token collected when a GitHub organization was linked to the team. 
+<!-- not implemented: This provides the token collected when a GitHub organization was linked to the team.
 Typically this belongs to the user who enrolled Atomist in your Slack team.
 This secret is more useful in Event Handlers[LINK], which are not attributable to a particular user.
 -->
@@ -300,16 +292,16 @@ When you tell Atomist to do the thing, and it responds with
 
 It'll guess at nearby commands. This means it didn't find your intent.
 
-To see everything available, try `@atomist show skills`. 
+To see everything available, try `@atomist show skills`.
 This lists commands registered by automation client.
  Is your automation client listed?
 If not, perhaps it is not running.
 
-If you can't tell, consider changing the name of your automation client 
+If you can't tell, consider changing the name of your automation client
 (in package.json) to something you'll recognize.
 
-If your automation client is listed but your automation is not, 
-perhaps it is not included in `atomist.config.ts`. 
+If your automation client is listed but your automation is not,
+perhaps it is not included in `atomist.config.ts`.
 See command discovery [LINK].
 
 ### Command was invoked unsuccessfully
@@ -325,7 +317,8 @@ Check the logs of your automation client to figure out what went wrong.
 
 ### Something went wrong
 
-If the bot tells you "Oops, something went wrong" ... 
-that's our bad. Please contact us in the #support channel in [Slack](https://atomist-community.slack.com),
-email [support@atomist.com](mailto:support@atomist.com), or leave us a [ticket](https://atomist.zendesk.com).
+If the bot tells you "Oops, something went wrong"&hellip;  that's our
+bad. Please contact us through any of our [support channels][support].
 We care about your problems.
+
+[support]: ../support.md

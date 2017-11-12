@@ -3,7 +3,7 @@ and makes them available via an automation API:
 
 -   Source code repositories like [GitHub.com][gh]
     and [GitHub Enterprise][ghe]
--   Issue tracking systems like GitHub and [Jira][jira]
+-   Issue tracking systems like [GitHub][gh-issues] and [Jira][jira]
 -   Continuous integration platforms
     like [Travis CI][travis], [CircleCI][circle],
     and [Jenkins][jenkins]
@@ -13,8 +13,8 @@ and makes them available via an automation API:
 
 As Atomist ingests events, typically via webhook JSON payloads, it automatically
 correlates them to each other: commits to pushes to builds to deployments to running
-containers. This results in a data model that represents your development flow. 
-Automations rely on this data model to provide the necessary context so they can always 
+containers. This results in a data model that represents your development flow.
+Automations rely on this data model to provide the necessary context so they can always
 do the right thing.
 
 The Atomist development automation platform also provides a simple yet
@@ -32,6 +32,7 @@ custom bot commands & event subscriptions.
 
 [gh]: https://github.com (GitHub.com)
 [ghe]: https://enterprise.github.com/home (GitHub Enterprise)
+[gh-issues]: https://guides.github.com/features/issues/ (Mastering GitHub Issues)
 [jira]: https://www.atlassian.com/software/jira (Jira)
 [travis]: https://travis-ci.org (Travis CI)
 [circle]: https://circleci.com (CircleCI)
@@ -53,9 +54,10 @@ from your development platforms using [GraphQL][graphql], a modern,
 standard query language and runtime for APIs.
 
 You can use GraphQL with the Atomist automation API for:
-1. Queries that fetch data directly
-2. Subscriptions to register the types of events you want to receive
-3. Mutations to change data and make connections
+
+1.  Queries that fetch data directly
+2.  Subscriptions to register the types of events you want to receive
+3.  Mutations to change data and make connections
 
 [graphql]: http://graphql.org/ (GraphQL)
 
@@ -63,7 +65,7 @@ You can use GraphQL with the Atomist automation API for:
 
 Unlike most API clients, an Atomist automation client must maintain contact
 with the API server so that it can receive the events and commands it's
-interested in as they occur.  
+interested in as they occur.
 
 Automation clients access the Atomist automation API
 via a [WebSocket][ws] connection. WebSockets allow the API server to send events and
@@ -77,20 +79,23 @@ automation client and API that is resilient to interruptions in connectivity.
 
 ---
 
-The rest of this section describes how to develop automations
+## Automations
 
-## Get Started
+The rest of this section describes how to develop your own
+automations.
+
+### Get Started
 
 -   [Setting up your system][prereq] to develop and run
     automations
 -   Getting your [first automations running][quick]
 
-## Write Your Own
+### Write Your Own
 
--   [Bot commands][command] 
+-   [Bot commands][command]
 -   [Event handlers][event]
 
-## In-depth Topics
+### In-depth Topics
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
@@ -111,4 +116,3 @@ processes.
 [client]: client.md (Atomist Automation Client)
 [project]: project.md (Atomist Automation Client Project)
 [paas]: paas.md (Atomiat Automation Client on PaaS)
-
