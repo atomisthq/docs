@@ -279,6 +279,12 @@ Typically this belongs to the user who enrolled Atomist in your Slack team.
 This secret is more useful in Event Handlers[LINK], which are not attributable to a particular user.
 -->
 
+## Testing
+
+You can test command handlers by hand: run the client locally and then address Atomist in Slack DM or a channel.
+
+You can [test command handlers automatically](command-examples.md#automated-tests-for-command-handlers) as well.
+
 ## Troubleshooting
 
 Anything you print with console.log() in your command handler will show up in the logs of your automation-client.

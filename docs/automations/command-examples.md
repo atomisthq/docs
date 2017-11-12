@@ -11,8 +11,9 @@ Axios parses JSON (or XML) into JavaScript objects into the `data` field on the 
 
 Here's a quick-start for your `handle` method:
 
-```typescript
+```typescript 
 import axios from "axios";
+
 return axios.get("http://icanhazip.com/")
               .then(response => context.messageClient.respond("My IP is: " + response.data))
               .then(() => Success)
@@ -158,6 +159,8 @@ Learn about formatting options on [Slack's lovely message builder page](https://
 
 Find full information about all the options under [Slack Messages](slack.md), including how to add buttons.
 
+<!-- TODO: describe a command handler that queries the graph. -->
+
 ## Command handlers in the wild
 
 There's a repository full of sample automations [here][samples-ts].
@@ -169,6 +172,60 @@ live in our [lifecycle-automations][lifecycle].
 
 [Tell us](https://join.atomist.com) about yours!
 
-[samples-ts](https://github.com/atomist/automation-client-samples-ts)
-[docker-samples](https://github.com/atomist/automation-client-samples-ts-docker)
-[lifecycle](https://github.com/atomist/lifecycle-automation)
+*  [samples-ts](https://github.com/atomist/automation-client-samples-ts) has commands and events, including editors and generators.
+*  [docker-samples](https://github.com/atomist/automation-client-samples-ts-docker) runs tslint on every commit, and is set up for Docker
+*  [lifecycle](https://github.com/atomist/lifecycle-automation) has Atomist's built-in automations around commits, builds, issues, etc.
+
+# Automated tests for command handlers
+
+Testing command handlers amounts to testing the `handle` method, or whichever portion of it you choose.
+If you already have a favorite TypeScript or JavaScript testing style and framework, use that.
+If you'd like some hints, this section describes our testing style for command handlers.
+
+We use mocha for unit tests in our automation clients, with power-assert for fancy failure messages.
+Tests live in the `test/` directory. Run them with `npm run test`.
+
+Command handlers are side-effecting, so we usually test by passing fake objects to substitute for messageClient, 
+graphClient, etc.
+Creating fakes is easy in a language like JavaScript or TypeScript, so we can create minimal fakes as needed.
+For instance, to test 
+[a handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloChannel.ts)
+that sends a message to a channel, I'll make a fake messageClient that only
+has one function:
+
+```typescript
+// create a fake message client.
+const fakeMessageClient = {
+   addressChannels(message, channel) {
+       this.channelThatWasSent = channel; // store what we care about
+       return Promise.resolve(); // fake a return value
+   },
+};
+
+// cast the context to the type we need
+const fakeContext = { messageClient: fakeMessageClient } as any as HandlerContext;
+```
+
+Check out the
+[full test](https://github.com/atomist/automation-client-samples-ts/blob/master/test/commands/simple/HelloChannelTest.ts)
+for a full description.
+
+### Testing editors and generators
+
+For handlers that use automation-client functions to [create or change code](#make-a-code-change), we typically test
+only the project-editing function. There is an implementation of Project that is all in-memory, for easy testing.
+For example:
+
+```typescript
+// describe each pretend file in the input project
+const project = InMemoryProject.of({ path: "README.md", content: "# This is the README" },
+                                   { path: "package.json", content: `{ "name": "my-project" }`});
+
+const result = editProject(project,
+                           null, // context is not used
+                           { newYear: "2222" }); // parameters
+```
+
+Check out the 
+[whole example](https://github.com/atomist/automation-client-samples-ts/blob/master/test/commands/editor/UpdateCopyrightEditorTest.ts)
+in the samples.

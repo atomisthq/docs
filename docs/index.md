@@ -45,14 +45,16 @@ Code in automations is written in Atomist automation clients, which interact wit
 
 ### Commands
 
-Commands perform actions in response to events or when invoked by users through the bot or CLI. Their implementations are defined in **command handlers**. 
+Commands perform actions in response to events or when invoked by users through the bot or CLI. 
+Their implementations are defined in [**command handlers**](automations/commands.md). 
 
 Examples of commands include the bot command `create issue` and the `merge pull request` command that users invoke by pressing a button in Slack. 
 
-
 ### Events
 
-Atomist events can be anything from commits to pushes to CI builds to deployments to stack traces in production logs. When an event is ingested, Atomist retes it to other events to build up necessary contextual information. Atomist may also take automated action. The response to an event is defined in an **event handler**.
+Atomist events can be anything from commits to pushes to CI builds to deployments to stack traces in production logs. 
+When an event is ingested, Atomist retes it to other events to build up necessary contextual information.
+ Atomist may also take automated action. The response to an event is defined in an [**event handler**](automations/events.md).
 
 How does a handler know what event it should act on? GraphQL queries are used in event subscriptions to match trigger criteria. For example, you can create a subscription to receive an event when a Slack user whose GitHub user authored a commit that was in a push that triggered a CI build that failed.
 
