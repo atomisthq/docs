@@ -126,7 +126,7 @@ export const configuration: Configuration = {
 Restart your automation client and create a new GitHub issue to see the Slack notification. 
 
 !!! hint 
-You are not limited to notifications - you can do whatever you want in the handle method with your event data.
+    You are not limited to notifications in the handle method; you can do whatever you want with your event data!
 
 # Unit test
 
