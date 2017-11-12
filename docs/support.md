@@ -11,10 +11,15 @@ hesitate to contact us in whatever way is most convenient for you.
 -   [Zendesk][zendesk]
 -   [Twitter][twitter]
 
+If you have a specific issue with one of
+our [open source projects][github], feel free to open an issue or pull
+request directly on that repository.
+
 We exist to help you to be the best developer you can be.  Happy
 coding!
 
-[slack]: https://join.atomist.com
-[email]: mailto:support@atomist.com
-[zendesk]: https://atomist.zendesk.com/
-[twitter]: https://twitter.com/atomist
+[slack]: https://join.atomist.com (Atomist Community Slack)
+[email]: mailto:support@atomist.com (Atomist Email Support)
+[zendesk]: https://atomist.zendesk.com/ (Atomist Zendesk)
+[twitter]: https://twitter.com/atomist (@atomist on Twitter)
+[github]: https://github.com/atomist (Atomist on GitHub)
