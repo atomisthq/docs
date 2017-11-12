@@ -1,14 +1,14 @@
 # Actionable Slack Messages
 
-Atomist supports sending _rich_, _actionable_ and _updatable_ Slack messages. Messages can be sent by an event handler or a command handler.  
+Atomist supports sending _rich_, _actionable_ and _updatable_ Slack messages. Messages can be sent by an event handler or a command handler.
 
-* _Rich_ messages take full advantage of Slack's native message formatting capabilities 
-* _Actionable_ messages contain buttons and menus that trigger new commands on behalf of the user who clicked them 
+* _Rich_ messages take full advantage of Slack's native message formatting capabilities
+* _Actionable_ messages contain buttons and menus that trigger new commands on behalf of the user who clicked them
 * _Updatable_ messages can be rewritten with new content over time in response to new events
-and actions. This helps reduce the number of messages from the Atomist bot in a Slack channel. 
+and actions. This helps reduce the number of messages from the Atomist bot in a Slack channel.
 
 Here's an example of a message with different [`Attachments`](https://api.slack.com/docs/message-attachments) and
-[`Actions`](https://api.slack.com/interactive-messages) from the Atomist open source community Slack team. 
+[`Actions`](https://api.slack.com/interactive-messages) from the Atomist open source community Slack team.
 
 ![Push Lifecycle](../img/push-lifecycle.png)
 
@@ -16,14 +16,14 @@ If you're not familiar with the main concepts of Slack message formatting, you m
 
 ## MessageClient Interface
 
-Let's take a look at the [`MessageClient`](https://github.com/atomist/automation-client-ts/blob/master/src/spi/message/MessageClient.ts#L13) interface. 
+Let's take a look at the [`MessageClient`](https://github.com/atomist/automation-client-ts/blob/master/src/spi/message/MessageClient.ts) interface.
 
 ```typescript
 export interface MessageClient {
 
     respond(msg: string | SlackMessage, options?: MessageOptions): Promise<any>;
 
-    addressUsers(msg: string | SlackMessage, userNames: string | string[], 
+    addressUsers(msg: string | SlackMessage, userNames: string | string[],
                  options?: MessageOptions): Promise<any>;
 
     addressChannels(msg: string | SlackMessage, channelNames: string | string[],
@@ -34,7 +34,7 @@ export interface MessageClient {
 ```
 
 The `MessageClient` provides access to methods for sending messages to Slack. It
-allows you to address messages to users or channels by name or to simply send a 
+allows you to address messages to users or channels by name or to simply send a
 response message.
 
 Generally the `MessageClient` is available from the `HandlerContext` parameter
@@ -42,8 +42,8 @@ to the `handle` method of [command](commands.md) and event handlers.
 
 ### Response Messages
 
-A response message is a message that is sent while handling a request to 
-run a certain command; they can therefore only be sent by command handlers. 
+A response message is a message that is sent while handling a request to
+run a certain command; they can therefore only be sent by command handlers.
 Use the `respond` method to sending a response message. The Atomist platform takes
 care of delivering the message into the right conversation in Slack.
 
@@ -60,15 +60,15 @@ export class HelloWorld implements HandleCommand {
 ```
 ### User and Channel Messages
 
-Address messages to users by calling the `addressUsers` method, 
+Address messages to users by calling the `addressUsers` method,
 providing one or more names of Slack users. To send a message to one
 or more channels, call the `addressChannels` method.
 
 !!! note
-    If you want to send a direct message to a user in your Slack team, use the 
+    If you want to send a direct message to a user in your Slack team, use the
     `addressUsers` method with the user name of the recipient.
 
-Here is an example of sending a simple message into the `#general` channel of 
+Here is an example of sending a simple message into the `#general` channel of
 your Slack team:
 
 ```typescript
@@ -95,7 +95,7 @@ formatting simple and complex Slack messages. It also demonstrates how to add bu
 
 The `addressUsers`, `addressChannels` and `respond` methods accept a `string`
 message as first argument. A simple `string` message can still have some basic
-formatting. 
+formatting.
 
 Here are a couple of examples of simple messages:
 
@@ -111,12 +111,12 @@ More details on Slack text formatting can be found the [documentation](https://a
 ### Rich Messages
 
 For more complex, rich messages, Atomist provides the [`SlackMessage`](https://github.com/atomist/slack-messages) type as
-part of the _@atomist/slack-messages_ NPM module. 
+part of the _@atomist/slack-messages_ NPM module.
 
 The `SlackMessage` type can have `Attachments` and `Actions`. More details
 on those concepts can be found in the [Slack documentation](https://api.slack.com/docs/message-attachments).
 
-In order to create a formatted Slack message, simply build an instance of 
+In order to create a formatted Slack message, simply build an instance of
 `SlackMessage` with all desired properties. Here is an example:
 
 ```typescript
@@ -153,12 +153,12 @@ This renders the following in Slack:
 
 In the previous section you saw how rich messages can be created and posted to
 Slack. Now you'll see how to turn this message into an actionable message by adding a
-button to it. 
+button to it.
 
 With Atomist it's easy to bind Slack action buttons to command handlers. Such a
-binding consists of three parts: the specification of the button as required by 
+binding consists of three parts: the specification of the button as required by
 Slack, a reference to the [command handler](commands.md), and optional parameters that should be
-pre-populated when invoking the command. 
+pre-populated when invoking the command.
 
 The button specification is defined by Slack in the [field guide](https://api.slack.com/docs/interactive-message-field-guide).
 Here is an example of a button with a confirmation pop-up:
@@ -188,8 +188,8 @@ handler.q = "atomist";
 
 Now that you have the `ButtonSpecification` and the command handler, you can bring this
 all together into a Slack message button and send the message. Create the action
-button by calling the `buttonForCommand` function, passing the 
-`ButtonSpecification` and the command handler instance: 
+button by calling the `buttonForCommand` function, passing the
+`ButtonSpecification` and the command handler instance:
 
 ```typescript
 import { buttonForCommand } from "@atomist/automation-client/spi/message/MessageClient";
@@ -254,15 +254,15 @@ the option will be bound to the `label` parameter.
 ## Message Options
 
 With `MessageOptions` actionable Slack message can be turned into _updatable_
-messages; the `MessageOptions` interface provides important options to handle 
-and tune message updates and rewrites in Slack. 
+messages; the `MessageOptions` interface provides important options to handle
+and tune message updates and rewrites in Slack.
 
 The following section describes the properties on the `MessageOptions`
 interface and what they can be used for. But first, here is the interface:
 
 ```typescript
 export interface MessageOptions {
-    
+
     /**
      * Unique message id per channel and team. This is required
      * if you wish to re-write a message at a later time.
@@ -277,14 +277,14 @@ export interface MessageOptions {
      * This is only applicable if id is set too.
      */
     ts?: number;
-    
+
     /**
      * Time to live for a posted message. If ts + ttl of the
      * existing message with ts is < as a new incoming message
      * with the same id, the message will be re-written.
      */
     ttl?: number;
-    
+
     /**
      * If update_only is given, this message will only be posted
      * if a previous message with the same id exists.
@@ -293,25 +293,24 @@ export interface MessageOptions {
 }
 ```
 
-The `id` property uniquely identifies a message in a channel or 
-direct message. It therefore must be unique in the scope of a channel 
-or direct message. 
+The `id` property uniquely identifies a message in a channel or
+direct message. It therefore must be unique in the scope of a channel
+or direct message.
 
 `ts` specifies the time in milliseconds of the message. If not set, it
 defaults to the current time. This property is important to maintain correct
 order of messages: eg. the Atomist Bot will not post a message with a `ts`
 if there is a message for the same `id` but a later `ts` already in the channel
-or direct message. 
+or direct message.
 
 `ttl` or time-to-live defines the amount of time in milliseconds that a message can be updated, after which a new instance of the message is posted to the bottom of the Slack stream. So, when a message is received by the bot,
-it compares the `ts + ttl` of the existing message with `ts` of the new 
+it compares the `ts + ttl` of the existing message with `ts` of the new
 message; if `ts + ttl` is smaller, a new message ia posted to the bottom
 of the Slack stream and the existing message is not rewritten. As long `ts + ttl`
 is greater then `ts` of the new message, the existing message will be overwritten.
 
 Lastly, the `post` property specifies whether a message should be posted only if
-it is an update to a previously posted message with the same `id`. If 
-`post === "always"`, the message is always posted as a new message and never rewrites 
+it is an update to a previously posted message with the same `id`. If
+`post === "always"`, the message is always posted as a new message and never rewrites
 a previous message.
 will never rewrite a previous message.
-
