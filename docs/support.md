@@ -1,4 +1,4 @@
-Thanks so much for choosing Atomist!  At Atomist, want all
+Thanks so much for choosing Atomist!  At Atomist, we want all
 developers to excel.  We believe that given the right tools and
 guidance, all developers can be 10&times; developers.  We strive to
 provide the tools that give their users super powers and we're happy
