@@ -1,25 +1,15 @@
 <img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
-**Option 1**: Atomist is a development automation platform that brings
-event-driven automation to the process of software
-development. Atomist correlates event streams from activity at the
-various stages of development and represents them as a model of code,
-people, and process in a graph database.
-
-**Option 2** Atomist provides a powerful model for automating software
-development and delivery, a _development automation platform_.  More
-than continuous integration or infrastructure-as-code, Atomist
-correlates events spanning your entire development and delivery flow,
-providing them as a cohesive model of code, people, and process for
-you to query and take action.  The Atomist development automation
-platform provides the tools to make _you_ a more productive developer
-by reducing busy work and codifying standards.
+Atomist is a powerful automation platform that unifies events across 
+your software development and delivery into a cohesive model of code, 
+people and process. Gain visibility and control over your software 
+delivery process with automations that respond to commands and
+events. The Atomist development automation platform provides the tools
+ to make _you_ a more productive developer.
 
 ## Using Atomist
 
-Atomist helps you gain visibility and control over your software
-delivery process by providing automations that respond to commands and
-events.  You can use Atomist's out-of-the-box automations or you can
+You can use Atomist's out-of-the-box automations or you can
 write your own.
 
 ### Atomist automations
@@ -66,21 +56,23 @@ to create automations that reduce repetitive work and distractions.
 
 Atomist's development automation platform is powered by a service that
 ingests and correlates events from your software development flow.  At
-the heart of the service is a single coherent model of your
-development flow: code, people, and processes.  You query and mutate
-that model using [GraphQL][gql] when you write your own automations.
+the heart of the service is a single coherent model: code, people, and 
+processes.  You query and mutate that model using [GraphQL][gql] when 
+you write your own automations.
 
 [gql]: http://graphql.org/ (GraphQL)
 
 ### Automation client
 
-Code in automations is written in Atomist automation clients, which
+Code in automations is written in [Atomist automation clients][ac], which
 interact with the Atomist platform using primarily GraphQL.  Each
-client is itself a server which hosts automations that can be invoked
-via the Atomist bot, Slack buttons, or when events occur.  A client
-can host any number of automations, and can be hosted wherever the
+client hosts automations that can be invoked via the Atomist bot, Slack 
+buttons, or when events occur.  A client can host any number of automations,
+ and can be hosted wherever the
 author likes: locally during testing, inside a corporate firewall, or
 on a public cloud or PaaS.
+
+[ac]: https://github.com/atomist/automation-client-ts (Atomist automation clients)
 
 ### Commands
 
@@ -119,8 +111,7 @@ Atomist uses the native integration technology for each platform or
 tool.  For example, to integrate with GitHub and Travis CI, Atomist
 uses webhooks; to integrate with Slack it uses their native real-time
 messaging (RTM) API.  For each platform Atomist integrates with, it
-asks for the minimal set of permissions required to perform its
-duties.
+asks for the minimal set of permissions required.
 
 If you use a system or tool Atomist does not natively support, you can
 implement your own integrations.  You can use whatever tools and
