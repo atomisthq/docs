@@ -6,7 +6,7 @@ creating your own automations.
 
 ## Slack
 
-### Enroll Slack Bot
+### Enroll Slack bot
 
 The Atomist Bot can be installed from
 the [Slack App Directory][slack-app-directory].  Slack's default
@@ -48,7 +48,7 @@ Currrently the authorization process asks you to authorize two things:
   </a>
 </div>
 
-### De-Authorize Atomist in your Slack Team
+### De-authorize Atomist in your Slack team
 
 As mentioned above, a bot can not really do much until it's invited to
 channels (you can direct message of the bot of course but it's
@@ -66,7 +66,7 @@ team's channels.
 [manage-permissions]: https://slack.com/apps/manage/permissions
 [support-email]: mailto:support@atomist.com
 
-### Slack Team IDs
+### Slack team IDs
 
 At various points throughout this guide, it is useful to know your
 Slack team ID, which the Atomist bot is happy to tell you.  Once you
@@ -88,7 +88,7 @@ The above response tells you the Slack team ID is `T1L0V3JTP`.
 
 org or single repository
 
-## Continuous Integration
+## Continuous integration
 
 Atomist natively supports several different continuous integration
 (CI) platforms, listening for CI events, correlating them with the
