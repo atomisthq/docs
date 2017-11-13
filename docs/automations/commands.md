@@ -62,7 +62,7 @@ export class MyCommandHandler implements HandleCommand {
 }
 ```
 
-### Command handler arguments
+### Handler arguments
 
 The `handle` method receives a `HandlerContext` [LINK to API docs if we have those?)]. It contains the following useful members:
 
