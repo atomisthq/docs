@@ -297,7 +297,7 @@ or direct message.
 
 `ts` specifies the time in milliseconds of the message. If not set, it
 defaults to the current time. This property is important to maintain correct
-order of messages: eg. the Atomist Bot will not post a message with a `ts`
+order of messages: the Atomist bot will not post a message with a `ts`
 if there is a message for the same `id` but a later `ts` already in the channel
 or direct message.
 

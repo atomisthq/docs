@@ -25,9 +25,9 @@ Before creating a project using Slack or the Atomist CLI,
 ### Slack
 
 You can create your very own automation client project using the
-Atomist Bot.  You can run this bot command, which itself is
+Atomist bot.  You can run this bot command, which itself is
 implemented as a command handler, with the following message to the
-Atomist Bot:
+Atomist bot:
 
 ```
 @atomist generate automation

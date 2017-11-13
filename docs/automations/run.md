@@ -31,7 +31,7 @@ npm run compile && npm start
 !!! note
     The automation client requires an open internet connection to
     `https://automation.atomist.com` to successfully and register event
-    subscriptions.
+    subscriptions and commands.
 
 ## Cloud Foundry
 
@@ -42,7 +42,7 @@ you must have the [Cloud Foundry CLI][cf-cli] installed.
 For detailed information about the deployment process, consult
 the [Cloud Foundry documentation][cf-docs].
 
-A push to Cloud Foundry needs some additional meta data in your
+A push to Cloud Foundry needs some additional metadata in your
 project.  First you need to create a [`manifest.yml`][cf-manifest]
 file in the root of your client:
 

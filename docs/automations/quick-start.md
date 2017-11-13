@@ -18,7 +18,7 @@ to provide are:
 -   the code implementing your command.
 
 Atomist takes care of recognizing when someone invokes the bot command
-by sending the intent to the Atomist Bot, collecting the required
+by sending the intent to the Atomist bot, collecting the required
 parameters, and invoking the code implementing your command.  Plus,
 the Atomist automation API provides methods for sending all manner
 of [Slack messages][slack].
@@ -56,7 +56,7 @@ decorated with information about the command handler using the
 
 The first argument is a description of the command handler and the
 second argument is the intent Atomist associates with your handler,
-and the message users will send the Atomist Bot when they want to
+and the message users will send the Atomist bot when they want to
 invoke your command.  The intent for this command is "search so".
 
 Command input parameters are class instance variables decorated using
@@ -116,13 +116,13 @@ bot command in your Slack team, and begin writing its logs to your
 terminal.
 
 Go ahead and test it by going to a channel in your Slack team that the
-Atomist Bot has been invited to and send the bot the command intent.
+Atomist bot has been invited to and send the bot the command intent.
 
 ```
 @atomist search so q="spring 5"
 ```
 
-If you do not provide a value for the query parameter, the Atomist Bot
+If you do not provide a value for the query parameter, the Atomist bot
 will open a thread and ask you to enter it.  You should get a response
 that looks something like the following image.
 

@@ -1,7 +1,7 @@
 Before you begin developing and running your own automations, you
 need to have Atomist [set up in your team][setup] and know your Slack
-team ID, which the Atomist Bot is happy to tell you.  Just send the
-`team` message to the Atomist Bot (be sure the bot is already in the
+team ID, which the Atomist bot is happy to tell you.  Just send the
+`team` message to the Atomist bot (be sure the bot is already in the
 channel!).
 
 ```
@@ -39,7 +39,7 @@ brew install node
 ## Atomist CLI
 
 The Atomist CLI performs several useful functions that are referred to
-throughout this documentation.  Once you have Node.js successfully installed,
+throughout this documentation.  Once you have Node.js installed,
 install the CLI with the following command:
 
 ```
@@ -59,8 +59,8 @@ to see what GitHub organizations your GitHub user is in.
 
 ### The easy way
 
-The easiest way to create the appropriate GitHub personal access is to
-use the Atomist CLI's `config` command.
+The easiest way to create the appropriate GitHub personal access token
+is to use the Atomist CLI's `config` command.
 
 ```
 atomist config
@@ -76,7 +76,7 @@ generated personal access token is only stored on your local system.
 
 If you prefer to create the GitHub personal access token yourself, you
 can do so on your GitHub.com [new personal access token][new-token]
-page.  Give the token a description name, like "My manually created
+page.  Give the token a descriptive name, like "My manually created
 Atomist token", and ensure _read:org_ scope is selected before
 clicking the "Generate token" button.  Copy the generated token.
 Finally, manually create your local Atomist configuration file.

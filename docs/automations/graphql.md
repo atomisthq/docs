@@ -16,7 +16,7 @@ that helps you write queries and displays the shape of the resulting
 data. It also provides access to the data model's documentation.
 
 !!! note
-    On Mac OS it's easiest to install GraphiQL as a stand-alone app
+    On macOS it's easiest to install GraphiQL as a stand-alone app
     from https://github.com/skevy/graphiql-app.
 
 After installation you need to configure the endpoint and authentication in GraphiQL.
@@ -148,7 +148,7 @@ mutations available to handlers in automation clients.
 | Mutation | Description |
 |----------|-------------|
 | `createSlackChannel` | Create a new public channel in Slack |
-| `addBotToSlackChannel` | Invite the @atomist bot user into the given channel |
+| `addBotToSlackChannel` | Invite the Atomist bot user into the given channel |
 | `inviteUserToSlackChannel` | Invite any user into the given channel |
 | `linkSlackChannelToRepo` | Link a repository to a Slack channel |
 | `setTeamPreference` | Set preference data on the team entity |
