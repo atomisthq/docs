@@ -1,13 +1,19 @@
 <img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
-Atomist provides a powerful model for automating software development
-and delivery, a _development automation platform_.  More than
-continuous integration or infrastructure-as-code, Atomist correlates
-events spanning your entire development and delivery flow, providing
-them as a cohesive model of code, people, and process for you to query
-and take action.  The Atomist development automation platform provides
-the tools to make _you_ a more productive developer by reducing
-drudgery and codifying standards.
+**Option 1**: Atomist is a development automation platform that brings
+event-driven automation to the process of software
+development. Atomist correlates event streams from activity at the
+various stages of development and represents them as a model of code,
+people, and process in a graph database.
+
+**Option 2** Atomist provides a powerful model for automating software
+development and delivery, a _development automation platform_.  More
+than continuous integration or infrastructure-as-code, Atomist
+correlates events spanning your entire development and delivery flow,
+providing them as a cohesive model of code, people, and process for
+you to query and take action.  The Atomist development automation
+platform provides the tools to make _you_ a more productive developer
+by reducing drudgery and codifying standards.
 
 ## Using Atomist
 
