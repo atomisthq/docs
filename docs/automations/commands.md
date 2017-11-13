@@ -106,6 +106,7 @@ return context.messageClient.respond("That sounds like a great idea!")
     .then(success)
 ```
 
+<!--
 ## Command examples
 
 Some quick examples for common automations:
@@ -118,6 +119,7 @@ Some quick examples for common automations:
 -   [Inspect code in all repositories](command-examples.md#inspect-code-across-repositories) and report on it in Slack
 -   [Send a direct message](command-examples.md#send-a-direct-message)
 -   [Send a fancy formatted message](command-examples.md#send-a-message-thats-more-than-text)
+-->
 
 ## Parameters
 
@@ -223,9 +225,15 @@ The available Mapped Parameters are:
 
 ## Testing
 
-You can test command handlers by hand: run the client locally and then address Atomist in Slack DM or a channel.
+You can test command handlers the same way you test any TypeScript
+class.
 
+You can also test command handlers by hand: run the client locally and
+then address Atomist in Slack DM or a channel.
+
+<!--
 You can [test command handlers automatically](command-examples.md#automated-tests-for-command-handlers) as well.
+-->
 
 ## Troubleshooting
 
