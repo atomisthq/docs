@@ -8,13 +8,13 @@ theme:
   name: material
   favicon: 'img/favicon.ico'
   logo: img/atomist-logo-horiz-reversed.svg
-extra:
   palette:
-    primary: green
-    accent: green
+    primary: blue grey
+    accent: blue
   font:
     text: Roboto
     code: Roboto Mono
+extra:
   social:
     - type: medium
       link: https://the-composition.com/
