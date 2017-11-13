@@ -23,7 +23,9 @@ function site-build() {
     local i
     for (( i=0; i < 4; i++)); do
         # the logo img is added by material theme, so ignore it not having alt
-        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'; then
+        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
+                  --url-ignore https://api.github.com
+        then
             return 0
         else
             err "HTMLProofer attempt $i failed"
