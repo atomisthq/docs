@@ -13,14 +13,14 @@ correlates events spanning your entire development and delivery flow,
 providing them as a cohesive model of code, people, and process for
 you to query and take action.  The Atomist development automation
 platform provides the tools to make _you_ a more productive developer
-by reducing drudgery and codifying standards.
+by reducing busy work and codifying standards.
 
 ## Using Atomist
 
 Atomist helps you gain visibility and control over your software
 delivery process by providing automations that respond to commands and
 events.  You can use Atomist's out-of-the-box automations or you can
-write your own automations.
+write your own.
 
 ### Atomist automations
 
@@ -32,11 +32,11 @@ creation to deployment to monitoring.
 ### Custom automations
 
 You can customize Atomist's built-in automations or write wholly new
-automations.
+ones.
 
 Atomist provides an automation API with integrations for your
-developer tools and runtime platforms, native Slack notifications and
-commands, and an open source client and command-line interface.
+development tools and runtime platforms, native Slack notifications
+and commands, and an open source client and command-line interface.
 
 Custom automations can be used to further streamline development:
 
@@ -60,7 +60,7 @@ Custom automations can be used to further streamline development:
 Atomist is all about making you more productive by helping you to
 automate away all the things that slow you down.  The following
 concepts describe the pieces Atomist provides to make it easy for you
-to create automations that reduce drudgery and distractions.
+to create automations that reduce repetitive work and distractions.
 
 ### Development automation platform
 
@@ -101,12 +101,12 @@ deployments to stack traces in production logs.  When an event is
 ingested, Atomist relates it to other events to build up necessary
 contextual information.  Atomist may also take automated action.
 
-How does a handler know what event it should act on?  GraphQL
-subscriptions are used to match trigger criteria.  For example, you
-can create a subscription to receive an event when Kubernetes
-deployment results in a pod crash looping and connect that to an event
-handler that automatically rolls that deployment back and notifies the
-committers of the failure.
+How does an automation know what event it should act on?  GraphQL
+subscriptions are used to define the trigger criteria.  For example,
+you can create a subscription to receive an event when Kubernetes
+deployment results in a pod crash looping and connect that to an
+automation that automatically rolls that deployment back and notifies
+the committers of the failure.
 
 [event]: automations/events.md (Events)
 

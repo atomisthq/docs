@@ -36,7 +36,9 @@ allows you to address messages to users or channels by name or to simply send a
 response message.
 
 Generally the `MessageClient` is available from the `HandlerContext` parameter
-to the `handle` method of [command](commands.md) and event handlers.
+to the `handle` method of [command][] and event handlers.
+
+[command]: commands.md (Atomist Commands)
 
 ### Response messages
 
@@ -104,7 +106,7 @@ Here are a couple of examples of simple messages:
 | `messageClient.respond("This some _italics_ text");` | This is some _italics_ text |
 | `messageClient.respond("Some multiline\ntext");` | Some multiline<br>text |
 
-More details on Slack text formatting can be found the [documentation](https://api.slack.com/docs/messages).
+More details on Slack text formatting can be found their the [documentation](https://api.slack.com/docs/messages).
 
 ### Rich messages
 
@@ -153,9 +155,9 @@ In the previous section you saw how rich messages can be created and posted to
 Slack. Now you'll see how to turn this message into an actionable message by adding a
 button to it.
 
-With Atomist it's easy to bind Slack action buttons to command handlers. Such a
+With Atomist, it's easy to bind Slack action buttons to command handlers. Such a
 binding consists of three parts: the specification of the button as required by
-Slack, a reference to the [command handler](commands.md), and optional parameters that should be
+Slack, a reference to the [command handler][command], and optional parameters that should be
 pre-populated when invoking the command.
 
 The button specification is defined by Slack in the [field guide](https://api.slack.com/docs/interactive-message-field-guide).
@@ -175,7 +177,7 @@ const buttonSpec: ButtonSpecification = {
 };
 ```
 
-With the following, you're preparing a [command handler](commands.md)  and its parameter to be
+With the following, you're preparing a [command handler][command] and its parameter to be
 bound to the button. This example uses the `SearchStackOverflow`
 command handler from the Atomist [blog series](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
