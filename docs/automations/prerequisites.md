@@ -1,16 +1,5 @@
-Before you begin developing and running your own automations, you
-need to have Atomist [set up in your team][setup] and know your Slack
-team ID, which the Atomist bot is happy to tell you.  Just send the
-`team` message to the Atomist bot (be sure the bot is already in the
-channel!).
-
-```
-you> @atomist team
-atomist> The Slack id for team your-slack-team is T1L0V3KJP
-         16 of 24 users in this team have authorized themselves
-```
-
-The above response tells you the Slack team ID is `T1L0V3KJP`.
+Before you begin developing and running your own automations, you need
+to have Atomist [set up in your Slack team][setup].
 
 [setup]: ../setup/index.md (Atomist Setup)
 
@@ -67,10 +56,10 @@ atomist config
 ```
 
 The `atomist config` command will prompt you for your Slack team ID
-(see above) and your GitHub credentials.  Your GitHub credentials are
-only used to authenticate to GitHub so the personal access token can
-be created.  Atomist does not store your GitHub credentials and the
-generated personal access token is only stored on your local system.
+and your GitHub credentials.  Your GitHub credentials are only used to
+authenticate to GitHub so the personal access token can be created.
+Atomist does not store your GitHub credentials and the generated
+personal access token is only stored on your local system.
 
 ### The hard way
 
@@ -95,8 +84,8 @@ md %USERPROFILE%\.atomist && type nul > %USERPROFILE%\.atomist\client.config.jso
 
 Open the `client.config.json` file you just created in your favorite
 text editor and add the following contents, replacing `TEAM_ID` with
-your Slack team ID (see above) and `GITHUB_TOKEN` with the GitHub
-personal access token you just created.
+your Slack team ID and `GITHUB_TOKEN` with the GitHub personal access
+token you just created.
 
 ```json
 {

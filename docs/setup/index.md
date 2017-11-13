@@ -2,7 +2,7 @@
 
 ## Enroll Slack Bot
 
-The Atomist Bot can be installed from the [Slack App Directory](https://atomist.slack.com/apps/A0HM83NCC-atomist).  However, it is possible that some users 
+The Atomist Bot can be installed from the [Slack App Directory](slack-app-directory).  However, it is possible that some users 
 on your slack team are restricted from being able to install new applications.  Slack supports an "Approved Apps" setting which controls this configuration:
 
 ![Approved Apps](images/ApprovedApps.png)
@@ -25,17 +25,121 @@ If you're ready to get started with the Atomist bot, you can simply click here:
   <img src="https://platform.slack-edge.com/img/add_to_slack.png"></img>
 </a>
 
+[slack-app-directory]: https://atomist.slack.com/apps/A0HM83NCC-atomist
+
 ## Authorize GitHub
 
 
 
 org or single repository
 
-## Integration
+## Slack Team IDs
 
-### Travis CI
+At various points throughout this guide, it is useful to know your
+Slack team ID, which the Atomist bot is happy to tell you.  Once you
+have added Atomist to your Slack team, invite the Atomist bot to a
+channel and send the `team` message to it.
+
+```
+you> /invite @atomist
+you> @atomist team
+atomist> The Slack id for team your-slack-team is T1L0V3JTP
+         16 of 24 users in this team have authorized themselves
+```
+
+The above response tells you the Slack team ID is `T1L0V3JTP`.
+
+## Continuous Integration
+
+Atomist natively supports several different continuous integration
+(CI) platforms, listening for CI events, correlating them with the
+commits that triggered the build, and showing contextualized
+notifications in a Slack channel linked to the repository.  Enabling
+this capability is as easy as adding the appropriate Atomist CI
+webhook URL to your CI configuration.
+
+In the examples below, replace `TEAM_ID` with your Slack team ID.
+
+### CircleCI
+
+To send events from [CircleCI][circleci] to Atomist, add the following
+snippet to your `.circleci/config.yml` configuration file.
+
+```yaml
+notify:
+  webhooks:
+    - url: https://webhook.atomist.com/atomist/circle/teams/TEAM_ID
+```
+
+[circleci]: https://circleci.com/ (CircleCI)
 
 ### Jenkins
 
-### CircleCI
- 
+You can send events from [Jenkins][jenkins] to Atomist using
+the [notification plugin][not-plugin], configuring it to send its
+payload to
+`https://webhook.atomist.com/atomist/jenkins/teams/TEAM_ID`.
+
+If you configure your build using a [`Jenkinsfile`][jenkinsfile], add
+these functions to your `Jenkinsfile`.  Don't forget to replace
+`TEAM_ID` with your Slack team ID.
+
+```groovy
+import groovy.json.JsonOutput
+
+def getSCMInformation() {
+    def gitUrl = sh(returnStdout: true, script: 'git config --get remote.origin.url').trim()
+    def gitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+    def gitBranch = sh(returnStdout: true, script: 'git name-rev --always --name-only HEAD').trim().replace('remotes/origin/', '')
+    return [ url: gitUrl, branch: gitBranch, commit: gitSha ]
+}
+
+def notifyAtomist(buildStatus, buildPhase="FINALIZED",
+                  endpoint="https://webhook.atomist.com/atomist/jenkins/teams/TEAM_ID") {
+
+    def payload = JsonOutput.toJson([
+        name: env.JOB_NAME,
+        duration: currentBuild.duration,
+        build: [
+            number: env.BUILD_NUMBER,
+            phase: buildPhase,
+            status: buildStatus,
+            full_url: env.BUILD_URL,
+            scm: getSCMInformation()
+        ]
+    ])
+    sh "curl --silent -XPOST -H 'Content-Type: application/json' -d '${payload}' ${endpoint}"
+}
+```
+
+Then call `notifyAtomist` when the build starts, e.g., in the first
+stage, and ends, i.e., in the `post` block, sending the appropriate
+status and phase.
+
+-   Start: `notifyAtomist("STARTED", "STARTED")`
+-   Succesful: `notifyAtomist("SUCCESS")`
+-   Unstable: `notifyAtomist("UNSTABLE")`
+-   Failure: `notifyAtomist("FAILURE")`
+
+[jenkins]: https://jenkins.io/ (Jenkins)
+[not-plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin (Jenkins Notification Plugin)
+[jenkinsfile]: https://jenkins.io/doc/book/pipeline/jenkinsfile/ (Jenkinsfile)
+
+### Travis CI
+
+To send events from [Travis CI][travisci] to Atomist, add the
+following snippet to your `.travis.yml` configuration file.
+
+```yaml
+notifications:
+  webhooks:
+    urls:
+      - https://webhook.atomist.com/atomist/travis/teams/TEAM_ID
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
+```
+
+[travisci]: https://travis-ci.org (Travis CI)
