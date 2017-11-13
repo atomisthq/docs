@@ -85,7 +85,7 @@ occur.  A client can host any number of automations, and can be hosted
 wherever the author likes: locally during testing, inside a corporate
 firewall, or on a public cloud or PaaS.
 
-[client]: automation/client.md (Atomist Automation Client)
+[client]: automations/client.md (Atomist Automation Client)
 
 ### Commands
 
