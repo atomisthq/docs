@@ -65,9 +65,9 @@ pages:
       - Overview: automations/index.md
       - Prerequisites: automations/prerequisites.md
       - Quick Start: automations/quick-start.md
-      - Handling Commands: automations/commands.md
+      - Commands: automations/commands.md
 #      - Command Examples: automations/command-examples.md
-      - Subscribing to Events: automations/events.md
+      - Events: automations/events.md
       - Slack Messages: automations/slack.md
       - Working with GraphQL: automations/graphql.md
       - Automation Client: automations/client.md

@@ -6,12 +6,12 @@ Here are some examples of simple [commands](commands.md).
 
 This command calls a REST service that returns your IP address.
 
-The `axios` library in TypeScript handles HTTP requests. It returns a Promise of a response.
+The `axios` TypeScript library handles HTTP requests. It returns a Promise of a response.
 Axios parses JSON (or XML) into JavaScript objects into the `data` field on the response.
 
 Here's a quick-start for your `handle` method:
 
-```typescript 
+```typescript
 import axios from "axios";
 
 return axios.get("http://icanhazip.com/")
@@ -22,11 +22,11 @@ return axios.get("http://icanhazip.com/")
 For a fuller example, try a command that [Searches Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
 This example is explained in detail in this [Command blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
-## Send a message to a particular channel
+## Send a message to a Slack channel
 
-This command sends a message to the channel you specify. 
+This command sends a message to the channel you specify.
 
-One common use for this command is to send messages from automations under development to a particular Slack channel that serves as an informal audit log. 
+One common use for this command is to send messages from automations under development to a particular Slack channel that serves as an informal audit log.
 
 The `addressChannels` method on messageClient takes a message plus a second argument, which is a channel name (or channel ID).
 Or pass an array of channel names to send the message to all of them.
@@ -105,31 +105,31 @@ Then in the handle method, use `editAll` to run on all the projects that Atomist
             .then(() => Success, failure);
 ```
 With [this handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts) running
-in your automation client, you can initiate PRs on all repositories that have an out-of-date copyright 
+in your automation client, you can initiate PRs on all repositories that have an out-of-date copyright
 notice with a single invocation of `@atomist update README copyright year` in Slack.
 
 ## Inspect code across repositories
 
 This command checks which repositories are up to current coding standards.
 
-For the sake of clarify, this example checks which repositories have a current copyright notice in the README. It then reports on every repository: Does it have a copyright notice? If so, is it up-to-date?
+For the sake of clarity, this example checks which repositories have a current copyright notice in the README. It then reports on every repository: Does it have a copyright notice? If so, is it up-to-date?
 
-Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/reviewer/ReviewCopyright.ts). Take it and modify it for your purposes.
+Here is [the code](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/reviewer/ReviewCopyright.ts), take it and modify it for your purposes.
 
 <!-- TODO: when it works (which will require some fixes to cloning), put output here -->
 
 ## Make a new repository
 
-When you want to make a new service or library, it's common to start by copying an old one. With Atomist, 
+When you want to make a new service or library, it's common to start by copying an old one. With Atomist,
 you can automate the copy, and modify the starting point to be your new service.
 
-Check out this 
+Check out this
 [example](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/generator/NewAutomation.ts)
 that copies a sample automation client into your own repository.
 
 Once the repository is created, you can do things like add collaborators, teams, or labels to bring the
-GitHub repository to your standards. For examples, the Atomist 
-[Spring Initializr generator](https://github.com/atomist/initializr-atomist/blob/master/src/commands/generator/initializr/RepoCreator.ts) 
+GitHub repository to your standards. For examples, the Atomist
+[Spring Initializr generator](https://github.com/atomist/initializr-atomist/blob/master/src/commands/generator/initializr/RepoCreator.ts)
 adds a collaborator
 (and accepts the invitation) as part of project creation.
 
@@ -146,7 +146,7 @@ return context.messageClient.addressUsers("ping","jessitron")
 
 ## Send a message that's more than text
 
-All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or JSON for a Slack message.
+All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or Slack message object.
 Learn about formatting options on [Slack's message builder page](https://api.slack.com/docs/messages/builder).
 
 ```typescript
@@ -166,7 +166,7 @@ Find full information about all the options under [Slack Messages](slack.md), in
 
 There's a repository full of sample automations [here][samples-ts].
 
-The built-in GitHub and build notifications, along with commands like `create issue`, 
+The built-in GitHub and build notifications, along with commands like `create issue`,
 live in [lifecycle-automations][lifecycle].
 
 One handy command for automation developers runs tslint in a Docker container. You'll find it in the [docker samples][docker-samples].
@@ -185,12 +185,14 @@ We use [Mocha](https://mochajs.org/) for unit tests in our automation clients, w
 
 Tests live in the `test/` directory. Run them with `npm run test`.
 
-Commands usually produce side-effects, so we test by passing fake objects to substitute for messageClient, 
-graphClient, etc. Creating fakes is easy in a language like JavaScript or TypeScript.
+Commands usually produce side-effects, so we test by passing fake
+objects to substitute for `messageClient`, `graphClient`,
+etc. Creating fakes is easy in a language like JavaScript or
+TypeScript.
 
-For instance, to test 
+For instance, to test
 [a command](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloChannel.ts)
-that sends a message to a channel, make a fake messageClient that only
+that sends a message to a Slack channel, make a fake `messageClient` that only
 has one function:
 
 ```typescript
@@ -226,6 +228,6 @@ const result = editProject(project,
                            { newYear: "2222" }); // parameters
 ```
 
-Check out the 
+Check out the
 [whole example](https://github.com/atomist/automation-client-samples-ts/blob/master/test/commands/editor/UpdateCopyrightEditorTest.ts)
 in the samples.

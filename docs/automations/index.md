@@ -1,5 +1,5 @@
-Atomist ingests events from your software development systems
-and makes them available via an automation API:
+The Atomist development automation platform ingests events from your
+software development systems:
 
 -   Source code repositories like [GitHub.com][gh]
     and [GitHub Enterprise][ghe]
@@ -11,24 +11,29 @@ and makes them available via an automation API:
 -   Runtime platforms like [Kubernetes][k8] and [Cloud Foundry][cf]
 -   Custom events from _any_ other system you use
 
-As Atomist ingests events, typically via webhook JSON payloads, it automatically
-correlates them to each other: commits to pushes to builds to deployments to running
-containers. This results in a data model that represents your development flow.
-Automations rely on this data model to provide the necessary context so they can always
-do the right thing.
+and makes them available via an automation API.
 
-The Atomist development automation platform also provides a simple yet
-powerful interface for implementing custom bot commands.  By providing
-all the infrastructure needed to hear commands, collect parameters,
-execute the code, and respond back, Atomist lets you focus on writing
-your bot command code, not all the ceremony around it.
+As Atomist ingests events, typically via webhook JSON payloads, it
+automatically correlates them to each other: commits to pushes to
+builds to deployments to running containers. This results in a data
+model that represents your development flow.  You can subscribe to
+events and take action when they occur, with the data model providing
+the necessary context so your automations can always do the right
+thing.
+
+The development automation platform also provides a simple yet
+powerful interface for implementing custom chat bot commands.  Atomist
+provides all the infrastructure needed to hear commands, collect
+parameters, execute the code, and respond back, letting you focus on
+writing your bot command code, not all the ceremony around it.
 
 The Atomist automation API can be accessed via any compliant client.
 The reference implementation of the client is open source, written
 in [TypeScript][ts], and available in
 the [automation-client-ts][client-ts] GitHub repository and
-via [NPM][aac].  The client can be used to query data _and_ register
-custom bot commands & event subscriptions.
+via [NPM][aac].  The reference client provides local testing tools, a
+CLI, interactive querying of the data model, and interfaces for
+implementing your own automations.
 
 [gh]: https://github.com (GitHub.com)
 [ghe]: https://enterprise.github.com/home (GitHub Enterprise)
@@ -63,17 +68,18 @@ You can use GraphQL with the Atomist automation API for:
 
 ## WebSockets
 
-Unlike most API clients, an Atomist automation client must maintain contact
-with the API server so that it can receive the events and commands it's
-interested in as they occur.
+Unlike most API clients, an Atomist automation client must maintain
+contact with the API server so that it can receive the events and
+commands it's interested in as they occur.
 
-Automation clients access the Atomist automation API
-via a [WebSocket][ws] connection. WebSockets allow the API server to send events and
-commands to the client without constant polling via HTTP
-calls and without requiring clients to open up firewall holes. The WebSocket
-connection is initiated by the automation client when it starts up,
-establishing a persistent two-way communication channel between the
-automation client and API that is resilient to interruptions in connectivity.
+Automation clients access the Atomist automation API via
+a [WebSocket][ws] connection.  WebSockets allow the API server to send
+events and commands to the client without constant polling via HTTP
+calls and without requiring clients to open up firewall holes. The
+WebSocket connection is initiated by the automation client when it
+starts up, establishing a persistent two-way communication channel
+between the automation client and API that is resilient to
+interruptions in connectivity.
 
 [ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
 
@@ -81,7 +87,7 @@ automation client and API that is resilient to interruptions in connectivity.
 
 ## Automations
 
-The rest of this section describes how to develop your own
+The rest of this section describes how to develop and run your own
 automations.
 
 ### Get started
@@ -90,17 +96,17 @@ automations.
     automations
 -   Getting your [first automations running][quick]
 
-### Write your own
+### Write your own automations
 
--   [Bot commands][command]
--   [Event handlers][event]
+-   [Commands][command]
+-   [Events][event]
 
 ### In-depth topics
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
 -   Building and starting an [automation client][client]
--   Understanding the anatomy of an automation client [project][]
+-   Understanding the anatomy of an [automation client project][]
 -   Running an automation client on a [PaaS][paas].
 
 Once you've finished this section, you'll have everything
@@ -109,10 +115,10 @@ processes.
 
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
 [quick]: quick-start.md (Atomist Automation Quick Start)
-[command]: commands.md (Atomist Automation Command Handlers)
-[event]: events.md (Atomist Automation Event Handlers)
+[command]: commands.md (Atomist Command Automations)
+[event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [client]: client.md (Atomist Automation Client)
 [project]: project.md (Atomist Automation Client Project)
-[paas]: paas.md (Atomiat Automation Client on PaaS)
+[paas]: paas.md (Atomist Automation Client on PaaS)

@@ -51,16 +51,16 @@ file that will look something like:
 ```
 
 The `token` is your GitHub personal access token and the `teamIds` are
-the Slack teams you want to register automations in.  If you want to
-change the token or add/remove teams, you can just edit this file
-directly.  Remember whatever token you use, it must have at least
-[read:org scope][scope].
+the Slack teams where you want to run your automations.  If you want
+to change the token or add/remove teams, you can just edit this file
+directly.  Remember, whatever token you use, it must have at
+least [_read:org_ scope][scope].
 
 If you are managing several automation client projects for different
 teams, you can override your user-level configuration using the
 project-level configuration in each project, typically located at
-`src/atomist.config.ts` in the project.  A typical project
-configuration file will look like this:
+`src/atomist.config.ts`.  A typical project configuration file will
+look like this:
 
 ```typescript
 import { Configuration } from "@atomist/automation-client/configuration";
@@ -87,10 +87,10 @@ and tokens for different environments, you can use the [config][]
 Node.js package to supply values for `teamIds` and `token`.
 
 By default, all automations in your project will be registered with
-the API when the client starts up (see [lifecycle][lifecycle]).  If
-you only want a subset of your automations active, you can explicitly
-list those you want active using the `commands` and `events` arrays in
-the `configuration` object:
+the automation API when the client starts up
+(see [lifecycle][lifecycle]).  If you only want a subset of your
+automations active, you can explicitly list them using the `commands`
+and `events` arrays in the `configuration` object:
 
 ```typescript
 import { HelloWorld } from "./commands/HelloWorld";
@@ -155,13 +155,13 @@ persistent applications.
 1.  **Authentication** - When the automation client starts up, it
     connects to the automation API and authenticates using
     the [GitHub personal access token][token] you have provided in
-    your client configuration file.  This token has read:org scope,
+    your client configuration file.  This token has _read:org_ scope,
     allowing the automation API to establish who you are and your
     GitHub organization memberships.
 
 2.  **Registration** - Once your identity has been established, the
     client registers its automations, i.e., the bot commands it
-    provided and the events it wants to receive, with the Slack teams
+    provides and the events it wants to receive, with the Slack teams
     specified in your client configuration.  If Atomist does not
     recognize your Slack team or your GitHub identity is not connected
     to any member of that Slack team, registration will fail and the

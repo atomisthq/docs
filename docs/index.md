@@ -12,8 +12,9 @@ drudgery and codifying standards.
 ## Using Atomist
 
 Atomist helps you gain visibility and control over your software
-delivery process.  You can use Atomist's out-of-the-box automations or
-you can write your own automations.
+delivery process by providing automations that respond to commands and
+events.  You can use Atomist's out-of-the-box automations or you can
+write your own automations.
 
 ### Atomist automations
 
@@ -77,25 +78,22 @@ on a public cloud or PaaS.
 
 ### Commands
 
-Commands perform actions when invoked by users by sending the Atomist
-bot messages, click buttons in Slack, or using the Atomist CLI.
-Command implementations are defined
-in [**command handlers**][command].
+[Commands][command] perform actions when invoked by users by sending
+the Atomist bot messages, click buttons in Slack, or using the Atomist
+CLI.
 
 Examples of commands include the bot command `create issue` and the
 `merge pull request` command that users invoke by pressing a button in
 Slack.
 
-[command]: automations/commands.md (Bot Commands)
+[command]: automations/commands.md (Commands)
 
 ### Events
 
-Events can be anything from commits to pushes to CI builds to
+[Events][event] can be anything from commits to pushes to CI builds to
 deployments to stack traces in production logs.  When an event is
 ingested, Atomist relates it to other events to build up necessary
-contextual information.  Atomist may also take automated action. The
-response to an event is defined in
-an [**event handler**][event].
+contextual information.  Atomist may also take automated action.
 
 How does a handler know what event it should act on?  GraphQL
 subscriptions are used to match trigger criteria.  For example, you
@@ -104,7 +102,7 @@ deployment results in a pod crash looping and connect that to an event
 handler that automatically rolls that deployment back and notifies the
 committers of the failure.
 
-[event]: automations/events.md (Event Automations)
+[event]: automations/events.md (Events)
 
 ### Integrations
 
