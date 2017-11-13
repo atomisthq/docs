@@ -116,7 +116,7 @@ bot command in your Slack team, and begin writing its logs to your
 terminal.
 
 Go ahead and test it by going to a channel in your Slack team that the
-Atomist bot has been invited to and send the bot the command intent.
+Atomist bot has been invited to and send the bot the command's intent.
 
 ```
 @atomist search so q="spring 5"
@@ -152,8 +152,8 @@ Atomist takes care of noticing when the events occur and and invoking
 the code implementing your event automation, providing it with the
 information you have requested about the event.
 
-In this example, we implement an event automation that responds to
-select commits pushed to a repository.  First, using
+In this example, we implement an event automation that is invoked
+whenever commits are pushed to a repository.  First, using
 a [GraphQL subscription][subscription] we define the type of event we
 want to be notified about.
 
@@ -253,7 +253,7 @@ git clone git@github.com:atomist-blogs/event-handler.git atomist/event-handler \
     && npm start
 ```
 
-To trigger this event automation, you need to make a commit in a
+To trigger this event handler, you need to make a commit in a
 repository that is linked to a Slack channel.  The commit message
 should include the word "Crushed" followed by a reference to an issue
 in the form `#N`, replacing `N` with the number of the issue.  Once
