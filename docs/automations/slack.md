@@ -32,8 +32,8 @@ export interface MessageClient {
 ```
 
 The `MessageClient` provides access to methods for sending messages to Slack. It
-allows you to address messages to users or channels by name or to simply send a
-response message.
+allows you to address messages to users or channels by name, or to simply send a
+response message to the channel in which the command was invoked.
 
 Generally the `MessageClient` is available from the `HandlerContext` parameter
 to the `handle` method of [command][] and event handlers.
