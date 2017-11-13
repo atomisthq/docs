@@ -1,12 +1,12 @@
-# Command Handler Examples
+# Command Examples
 
-Command handlers are described on [this page](commands.md).
-
-Here are some quick examples for common automations:
+Here are some examples of simple [commands](commands.md).
 
 ## Send an HTTP request
 
-The `axios` library in TypeScript is great for HTTP requests. It returns a Promise of a response.
+This command calls a REST service that returns your IP address.
+
+The `axios` library in TypeScript handles HTTP requests. It returns a Promise of a response.
 Axios parses JSON (or XML) into JavaScript objects into the `data` field on the response.
 
 Here's a quick-start for your `handle` method:
@@ -19,13 +19,15 @@ return axios.get("http://icanhazip.com/")
               .then(() => Success)
 ```
 
-For a fuller example, try [a query to Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
-This example is available in the very quick start described in this [Command Handler blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
+For a fuller example, try a command that [Searches Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
+This example is explained in detail in this [Command blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
 ## Send a message to a particular channel
 
-Sometimes you know where you want the message to go.
-For instance, I like to create an informal audit log of automation runs in #team-stream.
+This command sends a message to the channel you specify. 
+
+One common use for this command is to send messages from automations under development to a particular Slack channel that serves as an informal audit log. 
+
 The `addressChannels` method on messageClient takes a message plus a second argument, which is a channel name (or channel ID).
 Or pass an array of channel names to send the message to all of them.
 
@@ -36,14 +38,14 @@ return context.messageClient.addressChannels("I did the thing","random")
 
 ## Make a code change
 
-Atomist lets developers automate our work, and that includes changing code.
- The `@atomist/automation-client` module (it's in your automation client) has tools for editing projects. Here are some examples to get you started:
+Atomist lets developers automate their work, and that includes changing code.
+ The `@atomist/automation-client` module that you can find in your automation client has tools for editing projects. Here are some examples to get you started:
 
 ### Add a file to a single repository
 
-Maybe we want to add a CONTRIBUTING.md file to one repository, with organization-standard content.
+This example adds a CONTRIBUTING.md file to one repository, with organization-standard content.
 
-To edit one project, we specify:
+To edit one project, specify:
 
 -  GitHub credentials: see [Secrets](commands.md#secrets) for how to do this operation as the user who invoked the command,
 -  How to edit the project: Atomist uses a [Project](https://atomist.github.io/automation-client-ts/modules/_project_project_.html)
@@ -53,7 +55,7 @@ or [commit to a branch](https://atomist.github.io/automation-client-ts/interface
 -  which repository to edit: see [Mapped Parameters](commands/#mapped-parameters)
 for how to guess this from the channel where the command is invoked,
 
-[Here is a command handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/AddContributing.ts)
+[Here is a command](https://github.com/atomist/automation-client-samples-ts/tree/master/src/cs/editor/AddContributing.ts)
 that does this. The `handle` method contains
 
 ```typescript
@@ -77,11 +79,11 @@ Check [the complete source](https://github.com/atomist/automation-client-samples
 
 ### Change the content of a file in all repositories
 
-Why stop at just one repository? This is automation! We can change them all!
+Why stop at just one repository? This is automation! You can change them all!
 
-Let's update the Copyright year in all the READMEs in all our repositories. [Full command handler is here.](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts)
+Let's update the copyright year in all the READMEs in all your repositories. [Full command is here.](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts)
 
-For that, we'll need a function to edit the project. This one gets the project, the HandlerContext and some extra parameters.
+For that, you need a function to edit the project. This one gets the project, the HandlerContext and some additional parameters.
 It returns an EditResult.
 
 ```typescript
@@ -92,7 +94,7 @@ export function editProject(p: Project, context: HandlerContext, params: { newYe
 }
 ```
 
-Then in the handle method, use `editAll` to run on all the projects that we can find:
+Then in the handle method, use `editAll` to run on all the projects that Atomist can find:
 
 ```typescript
         return editAll(context,
@@ -103,14 +105,14 @@ Then in the handle method, use `editAll` to run on all the projects that we can 
             .then(() => Success, failure);
 ```
 With [this handler](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts) running
-in our automation client, we can initiate PRs on all repositories that have an out-of-date Copyright 
-notice with one `@atomist update README copyright year` in Slack.
+in your automation client, you can initiate PRs on all repositories that have an out-of-date copyright 
+notice with a single invocation of `@atomist update README copyright year` in Slack.
 
 ## Inspect code across repositories
 
-Which repositories are up to current coding standards? We can write an automation to check for us.
+This command checks which repositories are up to current coding standards.
 
-For a quick example, let's check which repositories have a current copyright notice in the README. I want to report on every repository: Does it have a copyright notice? If so, is it up-to-date?
+For the sake of clarify, this example checks which repositories have a current copyright notice in the README. It then reports on every repository: Does it have a copyright notice? If so, is it up-to-date?
 
 Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/reviewer/ReviewCopyright.ts). Take it and modify it for your purposes.
 
@@ -119,10 +121,9 @@ Here is [that reviewer](https://github.com/atomist/automation-client-samples-ts/
 ## Make a new repository
 
 When you want to make a new service or library, it's common to start by copying an old one. With Atomist, 
-you can automate the copy,
-and modify the starting point to be your new service.
+you can automate the copy, and modify the starting point to be your new service.
 
-Check out an 
+Check out this 
 [example](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/generator/NewAutomation.ts)
 that copies a sample automation client into your own repository.
 
@@ -146,7 +147,7 @@ return context.messageClient.addressUsers("ping","jessitron")
 ## Send a message that's more than text
 
 All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or JSON for a Slack message.
-Learn about formatting options on [Slack's lovely message builder page](https://api.slack.com/docs/messages/builder).
+Learn about formatting options on [Slack's message builder page](https://api.slack.com/docs/messages/builder).
 
 ```typescript
    import * as slack from "@atomist/slack-messages/SlackMessages";
@@ -159,16 +160,16 @@ Learn about formatting options on [Slack's lovely message builder page](https://
 
 Find full information about all the options under [Slack Messages](slack.md), including how to add buttons.
 
-<!-- TODO: describe a command handler that queries the graph. -->
+<!-- TODO: describe a command that queries the graph. -->
 
-## Command handlers in the wild
+## Commands in the wild
 
 There's a repository full of sample automations [here][samples-ts].
 
-My favorite automation runs tslint in a Docker container, in the [docker samples][docker-samples].
-
 The built-in GitHub and build notifications, along with commands like `create issue`, 
-live in our [lifecycle-automations][lifecycle].
+live in [lifecycle-automations][lifecycle].
+
+One handy command for automation developers runs tslint in a Docker container. You'll find it in the [docker samples][docker-samples].
 
 [Tell us](https://join.atomist.com) about yours!
 
@@ -176,28 +177,27 @@ live in our [lifecycle-automations][lifecycle].
 *  [docker-samples](https://github.com/atomist/automation-client-samples-ts-docker) runs tslint on every commit, and is set up for Docker
 *  [lifecycle](https://github.com/atomist/lifecycle-automation) has Atomist's built-in automations around commits, builds, issues, etc.
 
-# Automated tests for command handlers
+# Automated tests for commands
 
-Testing command handlers amounts to testing the `handle` method, or whichever portion of it you choose.
-If you already have a favorite TypeScript or JavaScript testing style and framework, use that.
-If you'd like some hints, this section describes our testing style for command handlers.
+Test commands by testing the `handle` method. This section describes the Atomist team's testing style for commands, but there are many ways to test. If you already have a favorite TypeScript or JavaScript testing style and framework, use that.
 
-We use mocha for unit tests in our automation clients, with power-assert for fancy failure messages.
+We use [Mocha](https://mochajs.org/) for unit tests in our automation clients, with [power-assert](https://github.com/power-assert-js/power-assert) for enhanced failure messages.
+
 Tests live in the `test/` directory. Run them with `npm run test`.
 
-Command handlers are side-effecting, so we usually test by passing fake objects to substitute for messageClient, 
-graphClient, etc.
-Creating fakes is easy in a language like JavaScript or TypeScript, so we can create minimal fakes as needed.
+Commands usually produce side-effects, so we test by passing fake objects to substitute for messageClient, 
+graphClient, etc. Creating fakes is easy in a language like JavaScript or TypeScript.
+
 For instance, to test 
-[a handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloChannel.ts)
-that sends a message to a channel, I'll make a fake messageClient that only
+[a command](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloChannel.ts)
+that sends a message to a channel, make a fake messageClient that only
 has one function:
 
 ```typescript
 // create a fake message client.
 const fakeMessageClient = {
    addressChannels(message, channel) {
-       this.channelThatWasSent = channel; // store what we care about
+       this.channelThatWasSent = channel; // store what you care about
        return Promise.resolve(); // fake a return value
    },
 };
@@ -212,8 +212,8 @@ for a full description.
 
 ### Testing editors and generators
 
-For handlers that use automation-client functions to [create or change code](#make-a-code-change), we typically test
-only the project-editing function. There is an implementation of Project that is all in-memory, for easy testing.
+For commands that use automation-client functions to [create or change code](#make-a-code-change), we typically test
+only the project-editing function. There is an implementation of `Project` that is all in-memory, for easy testing.
 For example:
 
 ```typescript
