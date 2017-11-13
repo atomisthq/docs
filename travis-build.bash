@@ -24,11 +24,12 @@ function site-build() {
     for (( i=0; i < 4; i++)); do
         # the logo img is added by material theme, so ignore it not having alt
         if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'; then
-            break
+            return 0
         else
             err "HTMLProofer attempt $i failed"
         fi
     done
+    return 1
 }
 
 # usage: main "$@"
