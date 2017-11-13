@@ -2,7 +2,7 @@
 
 Event handlers are automations that trigger when events happen, such as pull requests, updated issues, failed builds and more.  You can create your own event handlers to make Atomist react however you want.
 
-To create an event handler, you need an automation client of your own [LINK to quick start] and an event you want to listen for. The sample event handler below notifies you in Slack when a new GitHub issue is created.
+To create an event handler, you need [an automation client of your own](client.md) and an event you want to listen for. The sample event handler below notifies you in Slack when a new GitHub issue is created.
 
 ## Events
 
@@ -17,7 +17,7 @@ To write an event handler, you need to understand the events involved. You can [
 }
 ```
 
-Events can have relationships when it makes sense, even between different systems. Issues are related to their repo, and GitHub repos may also be associated with Slack channels [LINK to associating slack channel with repo?]. You can get all the information about these relationships in one query.
+Events can have relationships when it makes sense, even between different systems. Issues are related to their repo, and GitHub repos may also be associated with Slack channels. You can get all the information about these relationships in one query.
 
 ```
 {
@@ -35,7 +35,7 @@ Events can have relationships when it makes sense, even between different system
 }
 ```
 
-This query returns the data you want but it returns more data than you need. In this case you don't want all the issues, just the open ones. You can use a GraphQL argument to get exactly that, without making additional queries, and without having to filter the results.
+This query actually returns more data than is needed. In this case you only want the open issues. You can use a GraphQL argument to get exactly that, without making additional queries, and without having to filter the results later in code.
 
 ```
 {
@@ -53,7 +53,7 @@ This query returns the data you want but it returns more data than you need. In 
 }
 ```
 
-There are a lot of interesting events and convenient relationships between them. [LINK to a catalog of event types somewhere, maybe the lifecycle schema if nothing else?] Exploring your builds, releases, Slack channels, comments and more using GraphQL may give you additional ideas for event handlers to build. For now, let's use this query to write our event handler. 
+There are a lot of [interesting events and convenient relationships between them](https://github.com/atomist/lifecycle-automation/blob/master/src/typings/types.d.ts#L244). Exploring your builds, releases, Slack channels, comments and more using GraphQL may give you additional ideas for event handlers to build. For now, let's use this query to write our event handler. 
 
 ## Event handler structure
 
@@ -109,7 +109,7 @@ export interface Issues {
 
 The @EventHandler decorator allows you to provide a description and a query to subscribe to. Notice the GraphQL that you built up in the previous section. You can [define the subscription GraphQL query inline or reference a file](graphql.md#subscriptions). It also implements HandleEvent which specifies the handle method. This is where your automation code goes. Every matching event triggers the code here. From here you have access to the event itself with EventFired and a [HandlerContext for interacting with Slack or querying more events](commands.md#what-do-you-get). While a command handler has @Parameters and @MappedParamters to specify the details on invocation, an event handler does not. Instead it acts on the data inside the event. It can have [@Secrets](commands.md#secrets) though to specify details you don't want in your code.
 
-This example uses the HandlerContext to send a message about the new issue to any associated channels it has. Most of the work is done just by the subscription query that provides the data the event handler needs. The Issues interface exists merely for the convenience of having a typed EventFired, but there are ways to generate this type implicitly from the GraphQL schema. This event handler returns a [HandlerResult](commands.md#what-do-you-give-back) based on the success of the operation. (say something about what can be done with the result, are failures just logged?).
+This example uses the HandlerContext to send a message about the new issue to any associated channels it has. Most of the work is done just by the subscription query that provides the data the event handler needs. The Issues interface exists merely for the convenience of having a typed EventFired, but there are ways to generate this type implicitly from the GraphQL schema. This event handler returns a [HandlerResult](commands.md#what-do-you-give-back) based on the success of the operation.
 
 # Register and trigger the handler
 
@@ -130,7 +130,7 @@ Restart your automation client and create a new GitHub issue to see the Slack no
 
 # Unit test
 
-Event handlers run in the background based on incoming events, so it's critical to test so you can be sure that they do what you expect in various cases. Luckily, event handlers are very unit testable. 
+Event handlers run in the background based on incoming events, so it's critical to test so you can be sure that they do what you expect in various cases. Event handlers are very unit testable by design.
 
 Here is a test for the issue notification event handler:
 
