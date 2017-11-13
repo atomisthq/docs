@@ -4,37 +4,80 @@ Here are some examples of simple [commands](commands.md).
 
 ## Send an HTTP request
 
-This command calls a REST service that returns your IP address.
+Call endpoints on the internet or in your internal network, anywhere accessible where your own automation client is running.
 
-The `axios` TypeScript library handles HTTP requests. It returns a Promise of a response.
-Axios parses JSON (or XML) into JavaScript objects into the `data` field on the response.
+Check out a 
+[very simple HTTP example](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloHttp.ts),
+ or a more complicated one that 
+ [Searches Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
 
-Here's a quick-start for your `handle` method:
+## Respond
+
+This `respond` message posts to Slack in the same
+channel where the command was invoked.
 
 ```typescript
-import axios from "axios";
-
-return axios.get("http://icanhazip.com/")
-              .then(response => context.messageClient.respond("My IP is: " + response.data))
-              .then(() => Success)
+return context.messageClient.respond("I hear you.")
+           .then(success);
 ```
-
-For a fuller example, try a command that [Searches Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
-This example is explained in detail in this [Command blog post](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
 
 ## Send a message to a Slack channel
 
-This command sends a message to the channel you specify.
+Send a message to the channel you specify.
 
-One common use for this command is to send messages from automations under development to a particular Slack channel that serves as an informal audit log.
+One common use for this command is to send messages from automations under development to a particular Slack channel 
+that serves as an informal audit log.
 
-The `addressChannels` method on messageClient takes a message plus a second argument, which is a channel name (or channel ID).
+The `addressChannels` method on messageClient takes a message plus a second argument, 
+which is a channel name (or channel ID).
 Or pass an array of channel names to send the message to all of them.
 
 ```typescript
 return context.messageClient.addressChannels("I did the thing","random")
-           .then(() => Success)
+           .then(success);
 ```
+
+## Send a direct message
+
+Perhaps you'd like to DM yourself whenever someone runs your automation.
+The `addressUsers` method on the messageClient has a second argument: a Slack username or an array of Slack usernames.
+
+```typescript
+return context.messageClient.addressUsers("ping","jessitron")
+           .then(success)
+```
+
+## Send a message that's more than text
+
+All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) 
+accept either a string or Slack message object.
+Learn about formatting options on [Slack's message builder page](https://api.slack.com/docs/messages/builder?msg=%7B%22text%22%3A%22These%20are%20a%20few%20of%20my%20favorite%20things%3A%22%2C%22attachments%22%3A%5B%7B%22fallback%22%3A%22my%20favorite%20vegetable%20is%20carrots%22%2C%22title%22%3A%22Vegetable%22%2C%22color%22%3A%22%23ffa500%22%2C%22text%22%3A%22carrots%22%7D%2C%7B%22fallback%22%3A%22my%20favorite%20coffee%22%2C%22title%22%3A%22Coffee%20Drink%22%2C%22title_link%22%3A%22https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCappuccino%22%2C%22color%22%3A%226f4e37%22%2C%22text%22%3A%22cappuccino%20%3Acoffee%3A%22%7D%5D%7D).
+
+```typescript
+   import { SlackMessage } from "@atomist/slack-messages/SlackMessages";
+   const message: SlackMessage = {
+             text: "These are a few of my favorite things:",
+             attachments: [{
+                 fallback: "my favorite vegetable is carrots",
+                 title: "Vegetable",
+                 color: "#ffa500",
+                 text: "carrots"
+             },
+             {
+                 fallback: "my favorite coffee drink is cappuccino",
+                 title: "Coffee Drink",
+                 title_link:"https://en.wikipedia.org/wiki/Cappuccino",
+                 color: "6f4e37",
+                 text: "cappuccino :coffee:"
+             }]
+         };
+   return context.messageClient.respond(message)
+              .then(success)
+```
+
+Find full information about all the options under [Slack Messages](slack.md), including how to add buttons.
+
+<!-- TODO: describe a command that queries the graph. -->
 
 ## Make a code change
 
@@ -134,33 +177,6 @@ adds a collaborator
 (and accepts the invitation) as part of project creation.
 
 
-## Send a direct message
-
-Perhaps you'd like to DM yourself whenever someone runs your automation.
-The `addressUsers` method on the messageClient has a second argument: a Slack username or an array of Slack usernames.
-
-```typescript
-return context.messageClient.addressUsers("ping","jessitron")
-           .then(() => Succcess)
-```
-
-## Send a message that's more than text
-
-All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) accept either a string or Slack message object.
-Learn about formatting options on [Slack's message builder page](https://api.slack.com/docs/messages/builder).
-
-```typescript
-   import * as slack from "@atomist/slack-messages/SlackMessages";
-   const message: slack.SlackMessage: {
-       text: "This message is simple; you could have passed a string."
-   };
-   return context.messageClient.respond(message)
-              .then(() => Success)
-```
-
-Find full information about all the options under [Slack Messages](slack.md), including how to add buttons.
-
-<!-- TODO: describe a command that queries the graph. -->
 
 ## Commands in the wild
 
