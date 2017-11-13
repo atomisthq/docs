@@ -1,4 +1,6 @@
+As [described in the introduction][introduction], the Atomist platform is about automations.   creating automations, or simply using out-of-the-box automations.
 
+[introduction]: /#atomist-automations
 
 ## Enroll Slack Bot
 
@@ -24,14 +26,19 @@ Currrently the authorization process asks you to authorize two things:
   </a>
 </div>
 
-[slack-app-directory]: https://atomist.slack.com/apps/A0HM83NCC-atomist
-[manage-permissions]: https://atomist.slack.com/apps/manage/permissions
+### De-Authorize Atomist in your Slack Team
 
-## Authorize GitHub
+As mentioned above, a bot can not really do much until it's invited to channels (you can direct message of the bot of course but it's otherwise a very lonely bot).  However, you can
+always remove the bot from all your channels instantly by revoking access to the "Atomist" application.  We certainly hope it won't come to this!
 
-org or single repository
+The [App Manage page][slack-app-settings] has a "Remove App" button at the bottom of the page.  Please [let us know][support-email] if there's anything we can do to clarify how the bot works with your team's channels.
 
-## Slack Team IDs
+[slack-app-directory]: https://slack.com/apps/A0HM83NCC-atomist
+[slack-app-settings]: https://slack.com/apps/A0HM83NCC-atomist?page=1
+[manage-permissions]: https://slack.com/apps/manage/permissions
+[support-email]: mailto:support@atomist.com
+
+### Slack Team IDs
 
 At various points throughout this guide, it is useful to know your
 Slack team ID, which the Atomist bot is happy to tell you.  Once you
@@ -46,6 +53,12 @@ atomist> The Slack id for team your-slack-team is T1L0V3JTP
 ```
 
 The above response tells you the Slack team ID is `T1L0V3JTP`.
+
+## Authorize GitHub
+
+
+org or single repository
+
 
 ## Continuous Integration
 
