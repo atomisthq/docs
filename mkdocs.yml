@@ -73,5 +73,5 @@ pages:
       - Automation Client: automations/client.md
       - Automation Projects: automations/project.md
 #      - Discovering Automations: automations/discovery.md
-      - Running Automation Clients: automations/paas.md
+      - Running Automation Clients: automations/run.md
   - Support: support.md

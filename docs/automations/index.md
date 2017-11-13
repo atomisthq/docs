@@ -23,7 +23,7 @@ thing.
 
 The development automation platform also provides a simple yet
 powerful interface for implementing custom chat bot commands.  Atomist
-provides all the infrastructure needed to hear commands, collect
+provides all the infrastructure needed to recognize commands, collect
 parameters, execute the code, and respond back, letting you focus on
 writing your bot command code, not all the ceremony around it.
 
@@ -55,8 +55,8 @@ implementing your own automations.
 ## GraphQL
 
 The Atomist automation API provides you access to the events and data
-from your development platforms using [GraphQL][graphql], a modern,
-standard query language and runtime for APIs.
+from your development platforms using [GraphQL][graphql], a
+widely-used query language and runtime for APIs.
 
 You can use GraphQL with the Atomist automation API for:
 
@@ -106,8 +106,8 @@ automations.
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
 -   Building and starting an [automation client][client]
--   Understanding the anatomy of an [automation client project][]
--   Running an automation client on a [PaaS][paas].
+-   Understanding the anatomy of an [automation client project][project]
+-   [Running an automation client][run].
 
 Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
@@ -121,4 +121,4 @@ processes.
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [client]: client.md (Atomist Automation Client)
 [project]: project.md (Atomist Automation Client Project)
-[paas]: paas.md (Atomist Automation Client on PaaS)
+[run]: run.md (Running an Atomist Automation Client)
