@@ -13,26 +13,26 @@ this page will help you add a command handler to it.
 You'll need
 
 -   an [automation client](client.md) of your own
--   a task you want to automate (even if it's just saying "hi")
+-   a task you want to automate, even if it's just saying "Hello, World!"
 -   a phrase that people can say in Slack to trigger it
 -   a name for the command handler
 
-For the purposes of this guide, we'll create MyCommandHandler, which responds to "do my thing".
+In this guide you'll create MyCommandHandler, which responds to "do my thing".
 
 ## Create the command handler
 
 Command handlers are classes with a `handle` method
  and some decorators that supply metadata.
-They can live anywhere in the `src` directory;
-your automation client will discover them on startup. (Or [specify them yourself](client.md#client-configuration).)
+Store them anywhere in the `src` directory;
+your automation client discovers them on startup. (Or [specify them yourself](client.md#client-configuration).)
 
 You can add a class to any file,
 or make a new TypeScript file anywhere in the `src` directory,
 like `src/commands/MyCommandHandler.ts`.
 
-I like to copy the content of
+Start by copying the content of
 [the HelloWorld sample](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloWorld.ts)
-into my new file to start with.
+into a new file to start with.
 
 ## Command Handler class with decorators
 A command handler class implements `HandleCommand`,
@@ -205,7 +205,7 @@ Supply one argument to that decorator to tell it which of the MappedParameters y
 public slackUserName: string;
 ```
 
-In Slack, if the value is ambiguous based on your team and channel, Atomist will ask the user.
+In Slack, if the value is ambiguous based on your team and channel, Atomist asks the user.
 
 In Slack buttons, the automation that defines the button can provide values for these.
 
@@ -237,23 +237,23 @@ These are secure values which Atomist stores and supplies to the automation clie
 Fields decorated with @Secret are populated by Atomist before calling the `handle` method.
 They're never printed to the log or stored to disk outside Vault.
 
-When I invoke a command like `@atomist create issue title="Do another thing"`,
-I want that issue to show up in GitHub created by me.
+Ideally, when a user invokes a command like `@atomist create issue`, that issue 
+should show up in GitHub created by that user.
 Built-in commands like this one receive a token collected from the invoking user.
 
 Currently the only secret available to automation clients is a GitHub
-token.  Currently custom automation clients will always receive the
+token.  Custom automation clients always receive the
 GitHub token they configured, so all GitHub API calls will be
-performed by the automator.
+performed on behalf of the automator.
 Please [tell us](https://atomist.zendesk.com) when this gets in your
 way.
 
-When I first invoke `create issue`, Atomist notices the scopes
+When you first invoke `create issue`, Atomist notices the scopes
 required by that automation
 (it's
 [repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).
-It recognizes that I haven't authorized it for that scope, and prompts
-me to authorize with GitHub right then.  It'll remember that token for
+It recognizes that it hasn't been authorized for that scope, and prompts
+the user to authorize with GitHub before proceeding.  Atomist remembers that token for
 any future automations that require the same scope.
 
 In a command handler, to get access to a GitHub token with
