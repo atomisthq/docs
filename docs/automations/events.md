@@ -1,5 +1,3 @@
-# Event Handlers
-
 Event handlers are automations that trigger when events happen, such as pull requests, updated issues, failed builds and more.  You can create your own event handlers to make Atomist react however you want.
 
 To create an event handler, you need [an automation client of your own](client.md) and an event you want to listen for. The sample event handler below notifies you in Slack when a new GitHub issue is created.
@@ -53,7 +51,7 @@ This query actually returns more data than is needed. In this case you only want
 }
 ```
 
-There are a lot of [interesting events and convenient relationships between them](https://github.com/atomist/lifecycle-automation/blob/master/src/typings/types.d.ts#L244). Exploring your builds, releases, Slack channels, comments and more using GraphQL may give you additional ideas for event handlers to build. For now, let's use this query to write our event handler. 
+There are a lot of [interesting events and convenient relationships between them](https://github.com/atomist/lifecycle-automation/blob/master/src/typings/types.d.ts#L244). Exploring your builds, releases, Slack channels, comments and more using GraphQL may give you additional ideas for event handlers to build. For now, let's use this query to write our event handler.
 
 ## Event handler structure
 
@@ -111,7 +109,7 @@ The @EventHandler decorator allows you to provide a description and a query to s
 
 This example uses the HandlerContext to send a message about the new issue to any associated channels it has. Most of the work is done just by the subscription query that provides the data the event handler needs. The Issues interface exists merely for the convenience of having a typed EventFired, but there are ways to generate this type implicitly from the GraphQL schema. This event handler returns a [HandlerResult](commands.md#what-do-you-give-back) based on the success of the operation.
 
-# Register and trigger the handler
+## Register and trigger the handler
 
 Register this event handler by adding it to atomist.config.ts.
 
@@ -123,12 +121,12 @@ export const configuration: Configuration = {
 }
 ```
 
-Restart your automation client and create a new GitHub issue to see the Slack notification. 
+Restart your automation client and create a new GitHub issue to see the Slack notification.
 
-!!! hint 
+!!! hint
     You are not limited to notifications in the handle method; you can do whatever you want with your event data!
 
-# Unit test
+## Unit test
 
 Event handlers run in the background based on incoming events, so it's critical to test so you can be sure that they do what you expect in various cases. Event handlers are very unit testable by design.
 

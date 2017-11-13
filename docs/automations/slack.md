@@ -1,5 +1,3 @@
-# Actionable Slack Messages
-
 Atomist supports sending _rich_, _actionable_ and _updatable_ Slack messages. Messages can be sent by an event handler or a command handler.
 
 * _Rich_ messages take full advantage of Slack's native message formatting capabilities
@@ -14,7 +12,7 @@ Here's an example of a message with different [`Attachments`](https://api.slack.
 
 If you're not familiar with the main concepts of Slack message formatting, you may want to read [Slack's documentation](https://api.slack.com/docs/message-formatting) before you read the following sections.
 
-## MessageClient Interface
+## MessageClient interface
 
 Let's take a look at the [`MessageClient`](https://github.com/atomist/automation-client-ts/blob/master/src/spi/message/MessageClient.ts) interface.
 
@@ -40,7 +38,7 @@ response message.
 Generally the `MessageClient` is available from the `HandlerContext` parameter
 to the `handle` method of [command](commands.md) and event handlers.
 
-### Response Messages
+### Response messages
 
 A response message is a message that is sent while handling a request to
 run a certain command; they can therefore only be sent by command handlers.
@@ -58,7 +56,7 @@ export class HelloWorld implements HandleCommand {
     }
 }
 ```
-### User and Channel Messages
+### User and channel messages
 
 Address messages to users by calling the `addressUsers` method,
 providing one or more names of Slack users. To send a message to one
@@ -86,12 +84,12 @@ possible to send the same message into more than one channel by simply providing
 an array of channel names to the `addressChannels` method. The same works for
 `addressUsers`.
 
-## Formatting Messages
+## Formatting messages
 
 In the previous section you saw how to address and send messages to Slack. This section covers
 formatting simple and complex Slack messages. It also demonstrates how to add buttons and menus to messages.
 
-### Simple Messages
+### Simple messages
 
 The `addressUsers`, `addressChannels` and `respond` methods accept a `string`
 message as first argument. A simple `string` message can still have some basic
@@ -108,7 +106,7 @@ Here are a couple of examples of simple messages:
 
 More details on Slack text formatting can be found the [documentation](https://api.slack.com/docs/messages).
 
-### Rich Messages
+### Rich messages
 
 For more complex, rich messages, Atomist provides the [`SlackMessage`](https://github.com/atomist/slack-messages) type as
 part of the _@atomist/slack-messages_ NPM module.
@@ -149,7 +147,7 @@ This renders the following in Slack:
 
 ![Stack Overflow Result Message](../img/sof-result.png)
 
-### Adding Message Buttons
+### Adding message buttons
 
 In the previous section you saw how rich messages can be created and posted to
 Slack. Now you'll see how to turn this message into an actionable message by adding a
@@ -211,7 +209,7 @@ return ctx.messageClient.respond(message)
     .then(() => Success, failure);
 ```
 
-### Adding Message Menus
+### Adding message menus
 
 Message menus are very similar to message buttons in the way they are created and
 added to the message. The main difference is that menus are defined with a `MenuSpecification`
@@ -251,7 +249,7 @@ to the command handler and the name of the parameter on the command handler that
 the selected value of the menu should be bound to; in this example, the value of
 the option will be bound to the `label` parameter.
 
-## Message Options
+## Message options
 
 With `MessageOptions` actionable Slack message can be turned into _updatable_
 messages; the `MessageOptions` interface provides important options to handle

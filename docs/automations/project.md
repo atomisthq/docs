@@ -12,7 +12,7 @@ projects written in TypeScript.
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [gql]: http://graphql.org/ (GraphQL)
 
-## Creating a Client Project
+## Creating a client project
 
 There are a few ways to create a new automation client project.  We
 suggest using the [automation-seed-ts][seed] project as a seed for
@@ -37,7 +37,7 @@ The bot will ask you where you want to create it, what you want to
 name it, and, once creation is complete, tell you where you can find
 it.
 
-### Command Line
+### Command line
 
 You can use the Atomist CLI to create a new automation project from
 the automation-seed-ts project.  Run the following command, replacing
@@ -55,7 +55,7 @@ project on GitHub.
 
 [seed]: https://github.com/atomist/automation-seed-ts (Atomist Automation Client Seed Project)
 
-## Project Structure
+## Project structure
 
 Automation client projects are organized and behave like any standard
 TypeScript project.

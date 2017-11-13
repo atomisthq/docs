@@ -46,7 +46,7 @@ install the CLI with the following command:
 npm install -g @atomist/automation-client
 ```
 
-## GitHub Token
+## GitHub token
 
 The Atomist automation API client uses
 a [GitHub personal access token][token] to register with the Atomist
@@ -57,7 +57,7 @@ to see what GitHub organizations your GitHub user is in.
 
 [scope]: https://developer.github.com/changes/2014-02-25-organization-oauth-scopes/ (GitHub Token Scopes)
 
-### The Easy Way
+### The easy way
 
 The easiest way to create the appropriate GitHub personal access is to
 use the Atomist CLI's `config` command.
@@ -72,7 +72,7 @@ only used to authenticate to GitHub so the personal access token can
 be created.  Atomist does not store your GitHub credentials and the
 generated personal access token is only stored on your local system.
 
-### The Hard Way
+### The hard way
 
 If you prefer to create the GitHub personal access token yourself, you
 can do so on your GitHub.com [new personal access token][new-token]

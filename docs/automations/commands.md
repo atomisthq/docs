@@ -1,5 +1,3 @@
-# Command Handlers
-
 Trigger your automations from the web or Slack!
 Command handlers respond to requests --
 like `@atomist do my thing` or a button press. Each command handler also responds over REST or on the dashboard. You can create your own command handlers to make the Atomist bot do what you want.
@@ -19,7 +17,7 @@ You'll need
 
 In this guide you'll create MyCommandHandler, which responds to "do my thing".
 
-## Create the command handler
+## Command handler
 
 Command handlers are classes with a `handle` method
  and some decorators that supply metadata.
@@ -34,7 +32,6 @@ Start by copying the content of
 [the HelloWorld sample](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloWorld.ts)
 into a new file to start with.
 
-## Command Handler class with decorators
 A command handler class implements `HandleCommand`,
 with a `handle` method, and is decorated with `@CommandHandler`.
  It can also contain [parameter specifications](#parameters)
@@ -65,7 +62,8 @@ export class MyCommandHandler implements HandleCommand {
 }
 ```
 
-### What do you get?
+### Handler arguments
+
 The `handle` method receives a `HandlerContext` [LINK to API docs if we have those?)]. It contains the following super-useful members:
 
    * `messageClient: MessageClient` lets you send Slack messages from the Atomist bot.
@@ -80,7 +78,7 @@ The `handle` method receives a `HandlerContext` [LINK to API docs if we have tho
 When you need more information, define [parameters](#parameters)
 in your command handler.
 
-### What do you give back?
+### Handler return
 
 A `HandlerResult` is an object containing a return code
  (0 for success, anything else for error).
@@ -108,24 +106,18 @@ return context.messageClient.respond("That sounds like a great idea!")
     .then(success)
 ```
 
-## Things to do in command handlers
+## Command examples
 
 Some quick examples for common automations:
 
-[Send an HTTP request](command-examples.md#send-an-http-request)
-
-[Send a message to a particular channel](command-examples.md#send-a-message-to-a-particular-channel)
-
-[Add a file to one repository](command-examples.md#add-a-file-to-a-single-repository) in a pull request
-
-[Change the content of many repositories](command-examples.md#change-the-content-of-a-file-in-all-repositories)
+-   [Send an HTTP request](command-examples.md#send-an-http-request)
+-   [Send a message to a particular channel](command-examples.md#send-a-message-to-a-particular-channel)
+-   [Add a file to one repository](command-examples.md#add-a-file-to-a-single-repository) in a pull request
+-   [Change the content of many repositories](command-examples.md#change-the-content-of-a-file-in-all-repositories)
  in many pull requests
-
-[Inspect code in all repositories](command-examples.md#inspect-code-across-repositories) and report on it in Slack
-
-[Send a direct message](command-examples.md#send-a-direct-message)
-
-[Send a fancy formatted message](command-examples.md#send-a-message-thats-more-than-text)
+-   [Inspect code in all repositories](command-examples.md#inspect-code-across-repositories) and report on it in Slack
+-   [Send a direct message](command-examples.md#send-a-direct-message)
+-   [Send a fancy formatted message](command-examples.md#send-a-message-thats-more-than-text)
 
 ## Parameters
 
@@ -228,56 +220,6 @@ The available Mapped Parameters are:
 
 !!! note
     Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
-
-### Secrets
-
-These are secure values which Atomist stores and supplies to the automation client
- so that it can run commands as a particular user.
-
-Fields decorated with @Secret are populated by Atomist before calling the `handle` method.
-They're never printed to the log or stored to disk outside Vault.
-
-Ideally, when a user invokes a command like `@atomist create issue`, that issue 
-should show up in GitHub created by that user.
-Built-in commands like this one receive a token collected from the invoking user.
-
-Currently the only secret available to automation clients is a GitHub
-token.  Custom automation clients always receive the
-GitHub token they configured, so all GitHub API calls will be
-performed on behalf of the automator.
-Please [tell us](https://atomist.zendesk.com) when this gets in your
-way.
-
-When you first invoke `create issue`, Atomist notices the scopes
-required by that automation
-(it's
-[repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/).
-It recognizes that it hasn't been authorized for that scope, and prompts
-the user to authorize with GitHub before proceeding.  Atomist remembers that token for
-any future automations that require the same scope.
-
-In a command handler, to get access to a GitHub token with
- [repo scope](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/): (read more about GitHub scopes here[LINK]):
-
-```typescript
-@Secret(Secrets.UserToken + `?scope=repo`)
-public githubToken: string;
-```
-
-<!-- not implemented: When you run your automation client locally, and your teammates invoke your automation, the command handler won't get their tokens. It'll get yours. This is a security measure.
- When you deploy your client, supplying it with an authorized token[LINK] will give it access to everyone's tokens.
- -->
-
-The only other Secret currently available is `Secrets.OrgToken`, the authorization supplied
-when someone enrolled an organization with "@atomist enroll org".
-
-Currently in custom automations, both of these will be populated by the GitHub token supplied in the automation client's
-configuration. Your token will need to already have all the scopes your automations need.
-
-<!-- not implemented: This provides the token collected when a GitHub organization was linked to the team.
-Typically this belongs to the user who enrolled Atomist in your Slack team.
-This secret is more useful in Event Handlers[LINK], which are not attributable to a particular user.
--->
 
 ## Testing
 

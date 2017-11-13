@@ -11,7 +11,7 @@ Before you can build and run your own automation client,
 
 [ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
 
-## Building a Client
+## Building a client
 
 Most automation client projects are written in [TypeScript][ts] and
 run on [Node.js][node].  Building an automation client is the same as
@@ -33,7 +33,7 @@ npm run build
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [node]: https://nodejs.org/en/ (Node.js)
 
-## Client Configuration
+## Client configuration
 
 The automation client will use the configuration you created when you
 ran `atomist config` as part of the [prerequisites][atomist-config].
@@ -114,7 +114,7 @@ export const configuration: Configuration = {
 [config]: https://www.npmjs.com/package/config (config Node.js package)
 [lifecycle]: #client-lifecycle (Atomist Automation Client Lifecycle)
 
-## Starting a Client
+## Starting a client
 
 There are a few different ways to start the automation client,
 depending on how you are running it.  If you are running the
@@ -147,7 +147,7 @@ node $NODE_DEBUG_OPTION --trace-warnings --expose_gc --optimize_for_size \
 See `node --help` and `node --v8-options` for more detail on these
 options.
 
-## Client Lifecycle
+## Client lifecycle
 
 The automation client lifecycle will be familiar to those developing
 persistent applications.

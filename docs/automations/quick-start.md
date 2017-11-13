@@ -6,7 +6,7 @@ command and an event automation.
 Before working through these examples,
 {!prereq-items.md!}
 
-## Bot Command
+## Bot commands
 
 The Atomist development automation platform provides all the
 infrastructure you need to create custom bot commands.  All you need
@@ -135,7 +135,7 @@ Congratulations, you've just created your own bot command!
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [axios]: https://www.npmjs.com/package/axios (Axios HTTP Client)
 
-## Event Automations
+## Event automations
 
 Bot commands are useful for responding to user input, but what about
 responding to activity within your development platforms?  You might

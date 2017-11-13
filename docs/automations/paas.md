@@ -8,16 +8,18 @@ to operate them in Kubernetes clusters or Google Container Engine, for example.
 
 This document explains various ways to run automation clients.
 
-## Running Locally
+## Running locally
 
 The easiest way to run an automation client is to start it up on your local
-development machine. 
+development machine.
 
 Running the automation client locally is extremely helpful
-during development of your automations. 
-* You can debug commands and event handlers using local development tools 
-like Visual Studio Code and Google Chrome. 
-* You can iterate rapidly because there is no deployment and only a minimal build process.
+during development of your automations.
+
+-   You can debug commands and event handlers using local development
+    tools like Visual Studio Code and Google Chrome.
+-   You can iterate rapidly because there is no deployment and only a
+    minimal build process.
 
 If you bootstrapped your client project using an Atomist seed and
 generator, start the client by running the following commands:
@@ -25,8 +27,6 @@ generator, start the client by running the following commands:
 ```
 npm run compile && npm start
 ```
-
-By default, the client process runs on port `2866`.
 
 !!! note
     The automation client requires an open internet connection to
@@ -67,10 +67,10 @@ Next add an `"engines"` top-level entry to your `package.json`
 file:
 
 ```json
-  "engines": {
-    "node": "8.x.x",
-    "npm": "5.x.x"
-  }
+"engines": {
+  "node": "8.x.x",
+  "npm": "5.x.x"
+}
 ```
 
 Finally, start the deployment with:
@@ -123,7 +123,7 @@ and directories that aren't needed at runtime.
 /node_modules
 ```
 
-With the `Dockerfile` in place, you can now start the 
+With the `Dockerfile` in place, you can now start the
 actual Docker build:
 
 ```
