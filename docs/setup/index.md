@@ -130,8 +130,9 @@ def notifyAtomist(buildStatus, buildPhase="FINALIZED",
 }
 ```
 
-Then call `notifyAtomist` when the build starts and ends, sending the
-appropriate status and phase.
+Then call `notifyAtomist` when the build starts, e.g., in the first
+stage, and ends, i.e., in the `post` block, sending the appropriate
+status and phase.
 
 -   Start: `notifyAtomist("STARTED", "STARTED")`
 -   Succesful: `notifyAtomist("SUCCESS")`
