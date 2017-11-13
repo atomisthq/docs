@@ -11,8 +11,9 @@ how to mutate data.
 
 ## Accessing data with GraphiQL
 
-[GraphiQL](https://github.com/graphql/graphiql) is a GraphQL client that helps you write
-queries and displays the shape of the resulting data. It also provides access to the data model's documentation.
+[GraphiQL](https://github.com/graphql/graphiql) is a GraphQL client
+that helps you write queries and displays the shape of the resulting
+data. It also provides access to the data model's documentation.
 
 !!! note
     On Mac OS it's easiest to install GraphiQL as a stand-alone app
@@ -22,15 +23,15 @@ After installation you need to configure the endpoint and authentication in Grap
 
 To setup authentication, click on _Edit HTTP Headers_ and select _+ Add Header_.
 Enter `Authorization` as _Header name_ and `Bearer <token>` as _Header value_.
-Replace `<token>` with a GitHub personal access token that has `org:read` scope.
+Replace `<token>` with a GitHub personal access token that has _org:read_ scope.
 
 !!! note
     Create and manage GitHub personal access tokens at:
     https://github.com/settings/tokens
 
 Next, enter `https://automation.atomist.com/graphql/team/<teamId>` as _GraphQL
-Endpoint_ replacing `<teamId>` with your Slack team id. See the Setup section
-on how to obtain your Slack team id.
+Endpoint_ replacing `<teamId>` with your Slack team ID. See the Setup section
+on how to obtain your Slack team ID.
 
 Now you are ready to create queries and explore the possibilities of the
 Atomist data model. Don't miss the schema documentation on the right hand side
@@ -39,7 +40,7 @@ of GraphiQL.
 ## Queries
 
 You can execute queries from command and event handlers when running an Atomist
-automation client. To execute queries the client provides two distinct methods
+automation client. To execute queries, the client provides two distinct methods
 on `GraphClient`. A `GraphClient` is available from the `HandlerContext`.
 
 You can use `executeQuery` to run a GraphQL query from a `string` instance.
@@ -140,10 +141,9 @@ export class FailedBuildHandler implements HandleEvent<any>
 
 ## Mutations
 
-Most of the data in the Atomist platform is ingested via Webhooks and is read-only.
-
-There are however six GraphQL mutations available to handlers
-in automation clients that can be very useful.
+Most of the data in the Atomist platform is ingested via Webhooks and
+is read-only.  There are however a small number of very useful GraphQL
+mutations available to handlers in automation clients.
 
 | Mutation | Description |
 |----------|-------------|
