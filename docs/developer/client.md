@@ -16,8 +16,8 @@ Before you can build and run your own automation client,
 
 An automation client project is any project that connects to the
 Atomist development automation API.  The reference implementation of
-the automation client is the [automation-seed-ts][seed]
-project, which is written in [TypeScript][ts].  The combination of
+the automation client is the [automation-client-ts][client-ts]
+library, which is written in [TypeScript][ts].  The combination of
 TypeScript and [GraphQL][gql] provides an excellent development
 experience, with excellent tooling and debugging support.
 
