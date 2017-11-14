@@ -94,29 +94,81 @@ team's channels.
 
 Atomist helps you work with GitHub in two ways:
 
-1.  By enabling web hooks, your automations can react to your team's 
-    GitHub activity.
-2.  Automations can expose Commands that utilize GitHub apis.  Each
-    user on your team independently authorizes Atomist.  This means 
-    that your automation's Commands remain sandboxed by the GitHub
-    security model.
+1.  By enabling web hooks, your automations can react to  
+    GitHub activities such as Pushes, Pull Requests, or Issues.
+2.  Automations can expose Commands that access GitHub through 
+    the v3 api, authorized by OAuth tokens.
+    Each user on your team must independently authorize Atomist --
+    this means that your users remain within the boundaries
+    of the existing GitHub security model.  Atomist acts on _behalf_ of
+    your users, not _instead_ of them.
+
+### GitHub User authorization
+
+When the Atomist bot first arrives in a team, it will send a Direct Message
+to the authorizing user, requesting that they authorize Atomist
+to access GitHub on their behalf.
+
+![github auth](images/github-auth.png)
+
+This same dialog will be shown to users anytime Atomist detects
+that an automation needs to access GitHub as that user.  Every user on the 
+team must individually opt in.  Atomist will display this option each
+time an un-authorized user runs a Command 
+that requires a GitHub authorization.  
+Users can ask for their current GitHub authorization status by running:
+
+```
+you> @atomist github
+```
+
+Atomist will send a direct message to this user with their current Authorization
+status.
 
 ### Org-level Web Hooks
 
 GitHub Organization members that have the [Owner role][owners], are allowed 
-to configure Organization-wide web hooks.  This is very convenient because it 
-is a one-time operation;  however, you will require a User who is an `Owner` in
+to configure Organization-wide web hooks.  This is convenient
+because it only has to be configured once;  
+however, you will require a User who has the `Owner` role in
 your GitHub organization.
 
 ```
 you> @atomist enroll org
 ```
 
+When you choose to enroll a GitHub Organization, you will most likely be 
+prompted to authorize a new scope (Atomist only asks for new scopes when
+explicitly required).  The `admin:org_hook` is required when enrolling a new 
+GitHub organization.
 
+![authorize org hook](images/authorize-org-hook.png)
+
+Since you might be a member of many GitHub organizations, Atomist may ask you to
+choose which Organization you are enrolling.
+
+![choose org](images/choose-org.png)
+
+Finally, you will be presented with a button to configure the Org-level webhook.
+
+![install webhook](images/install-webhook.png)
 
 [owners]: https://help.github.com/articles/permission-levels-for-an-organization/
 
 ### Repo-level Web Hooks
+
+If your team does not use a GitHub Organization account, then you can choose to
+configure web hooks on repositories owned by a User account.
+
+```
+you> @atomist install webhook
+```
+
+The bot will now ask for the `Owner` of the Repository.  This question will be
+skipped if there is only valid choice (your User account).  Second the bot will
+ask you to select the Repository to recieve the new web hook.
+
+![choose repo](images/choose-repo.png)
 
 ## Continuous integration
 
