@@ -67,7 +67,7 @@ your own automations.
 ### Automation client
 
 Automations are written and run within an
-Atomist [automation client][client], which interact with the Atomist
+Atomist [automation client][client], which interacts with the Atomist
 platform using primarily GraphQL.  Each client hosts automations that
 can be invoked via the Atomist bot, Slack buttons, or when events
 occur.  A client can host any number of automations, and can be hosted
