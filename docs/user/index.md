@@ -27,7 +27,7 @@ full [Developer Guide][dev].
 
 Click the "Add to Slack" button below to invite the Atomist Bot into your Slack team.
 
-<div style="text-align:center">
+<div style="text-align:center;">
   <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
     <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
   </a>
@@ -40,7 +40,7 @@ an "Approved Apps" setting to control this.
 
 [manage-permissions]: https://slack.com/apps/manage/permissions
 
-![Approved Apps](img/ApprovedApps.png)
+![Slack Approved Apps](img/ApprovedApps.png)
 
 If your team requires approval for new apps, and you are not a Slack
 admin, then Slack will you whether you'd like to request that the
@@ -101,7 +101,7 @@ team's channels.
 
 Atomist helps you work with GitHub in two ways:
 
-1.  By enabling web hooks, your automations can react to
+1.  By enabling webhooks, your automations can react to
     GitHub activities such as Pushes, Pull Requests, or Issues.
 2.  Automations can expose Commands that access GitHub through
     the v3 api, authorized by OAuth tokens.
@@ -116,7 +116,7 @@ When the Atomist bot first arrives in a team, it will send a Direct Message
 to the authorizing user, requesting that they authorize Atomist
 to access GitHub on their behalf.
 
-![github auth](img/github-auth.png)
+![GitHub Authorization](img/github-auth.png)
 
 This same dialog will be shown to users anytime Atomist detects
 that an automation needs to access GitHub as that user.  Every user on the
@@ -132,10 +132,10 @@ you> @atomist github
 Atomist will send a direct message to this user with their current Authorization
 status.
 
-### Organization web hooks
+### Organization webhooks
 
 GitHub Organization members that have the [Owner role][owners], are allowed
-to configure Organization-wide web hooks.  This is convenient
+to configure Organization-wide webhooks.  This is convenient
 because it only has to be configured once;
 however, you will require a User who has the `Owner` role in
 your GitHub organization.
@@ -149,23 +149,23 @@ prompted to authorize a new scope (Atomist only asks for new scopes when
 explicitly required).  The `admin:org_hook` is required when enrolling a new
 GitHub organization.
 
-![authorize org hook](img/authorize-org-hook.png)
+![GitHub Authorize Organization Webhook](img/authorize-org-hook.png)
 
 Since you might be a member of many GitHub organizations, Atomist may ask you to
 choose which Organization you are enrolling.
 
-![choose org](img/choose-org.png)
+![Choose GitHub Organization](img/choose-org.png)
 
 Finally, you will be presented with a button to configure the Org-level webhook.
 
-![install webhook](img/install-webhook.png)
+![Install GitHub Webhook](img/install-webhook.png)
 
 [owners]: https://help.github.com/articles/permission-levels-for-an-organization/
 
-### Repository web hooks
+### Repository webhooks
 
 If your team does not use a GitHub Organization account, then you can choose to
-configure web hooks on repositories owned by a User account.
+configure webhooks on repositories owned by a User account.
 
 ```
 you> @atomist install webhook
@@ -173,9 +173,11 @@ you> @atomist install webhook
 
 The bot will now ask for the `Owner` of the Repository.  This question will be
 skipped if there is only valid choice (your User account).  Second the bot will
-ask you to select the Repository to recieve the new web hook.
+ask you to select the Repository to recieve the new webhook.
 
-![choose repo](img/choose-repo.png)
+<div style="text-align:center;">
+  <img alt="Choose GitHub Repository" height="137" width="528" src="img/choose-repo.png" />
+</div>
 
 ## Continuous integration
 
