@@ -11,27 +11,17 @@ ready to use without lots of manual find and replace. Generators frequently also
 configure supporting systems, for example, by creating a dedicated
 Slack channel, setting up issue tracking, and so on.
 
-The following table contains a list of actions that generators commonly perform 
-with pointers to their implementations. 
+To make your own generator, get an [automation client](client.md) of your own.
+Then take a look at [a generator](https://github.com/atomist-blogs/spring5-kotlin/blob/master/src/commands/KotlinSpring5.ts)
+ that makes a Spring 5 project -- 
+it [declares a starting point](https://github.com/atomist-blogs/spring5-kotlin/blob/45cac17bf6ed4238188d3f79b78c6f7432da7ff7/src/commands/KotlinSpring5.ts#L54) and
+ [customizes that code](https://github.com/atomist-blogs/spring5-kotlin/blob/45cac17bf6ed4238188d3f79b78c6f7432da7ff7/src/commands/KotlinSpring5.ts#L65).
 
-| Action | Example Code |
-| ------ | ------------ |
-| Create a GitHub repository | [with `generate`](https://github.com/atomist/initializr-atomist/blob/55b587a4222349352f74d4b022e8e58a568d429e/src/commands/generator/initializr/RepoCreator.ts#L33) |
-|  Base it on a seed repository | [hard code its name if you like](https://github.com/atomist/automation-client-samples-ts/blob/7c1a7267ff0881935f4682784a9ce5e403b1b7ff/src/commands/generator/NewAutomation.ts#L39) |
-|  Adjust the code for the new service | [with an editing function](https://github.com/atomist/automation-client-samples-ts/blob/7c1a7267ff0881935f4682784a9ce5e403b1b7ff/src/commands/generator/NewAutomation.ts#L47) |
-|  Change code in other repositories, to set up logging or deployment | [with `editOne`](https://github.com/atomist/automation-client-samples-ts/blob/7c1a7267ff0881935f4682784a9ce5e403b1b7ff/src/commands/editor/AddContributing.ts#L38) |
-|  Configure the new repository with collaborators or labels | [like this one](https://github.com/atomist/initializr-atomist/blob/55b587a4222349352f74d4b022e8e58a568d429e/src/commands/generator/initializr/RepoCreator.ts#L46) |
-|  Activate a build on your CI | _coming soon_ |
-|  Call out to your deployment system or other tools | [with http](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloHttp.ts)|
-
-Atomist gives you a convenient client to run your generator, and hooks up to Slack. You could
+The automation client hooks your generator up to Slack. You can also
 add a custom form to serve project creation to your team or organization.
 
-One handy generator is the [new automation generator,](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/generator/NewAutomation.ts)
-which creates an automation project based on the Atomist samples repository. Run the automation and 
-then say `@atomist new automation` in Slack to invoke it.
-
-Then modify that same generator to make the projects you want to see!
+A generator is one kind of [command handler](commands.md), so you can 
+make it do as much as you want.
 
 <!--
 
