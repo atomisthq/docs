@@ -1,50 +1,66 @@
-<<<<<<< HEAD
+<script>
+	/**
+	* Function that tracks a click on an outbound link in Analytics.
+	* This function takes a valid URL string as an argument, and uses that URL string
+	* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+	* using 'navigator.sendBeacon' in browser that support it.
+	*/
+	var trackOutboundLink = function(url) {
+		ga('send', 'event', 'outbound', 'click', url, {
+			'transport': 'beacon',
+			'hitCallback': function(){document.location = url;}
+		});
+	}
+</script>
 
-=======
-As [described in the introduction][introduction], the Atomist platform
-is about automations: simply using out-of-the-box automations and
-creating your own automations.
+This is a step by step guide to setting up Atomist's built-in automations to see and control your development flow from [Slack][slack]. To write your own automations, see [Quick Start] or the full [Developer Guide]
 
-[introduction]: ../index.md#atomist-automations
->>>>>>> 4be6716ffe5c07358ccae8a452d54f7ef6dc1093
+[slack]: https://slack.com/ (Slack)
+
 
 ## Slack
 
 ### Enroll Slack bot
 
-The Atomist Bot can be installed from
-the [Slack App Directory][slack-app-directory].  Slack's default
-configuration allows team members to add new Slack applications.
-However, Slack admins may decide to configure restrictions on which
-new applications can be installed.  This "Approved Apps" setting is
-shown on the [Permissions management page][manage-permissions].
+Click the "Add to Slack" button below to invite the Atomist Bot into your Slack team.
+
+<div class="ss-container">
+  <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
+                    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+  </a>
+</div>
+
+
+Slack's default configuration allows team members to add new Slack applications.
+However, Slack admins may decide to configure restrictions on which new applications 
+can be installed.  This "Approved Apps" setting is shown on the [Permissions management page][manage-permissions].
+
+[manage-permissions]: https://atomist.slack.com/apps/manage/permissions
 
 ![Approved Apps](images/ApprovedApps.png)
 
 If your team requires approval for new apps, and you are not a Slack
-admin, Slack will ask you whether you'd like to request that the
+admin, Slack asks you whether you'd like to request that the
 Atomist application be approved (Slack is really helpful here!).
 
 Currrently the authorization process asks you to authorize two things:
 
-1.  Our application adds a bot user named "@atomist" to your team.
+1.  The Atomist app adds a bot user named "@atomist" to your team.
     Your team can `\invite` the Atomist bot to channels in order to
-    access functionality that you have deployed using the Atomist
-    platform.  Bot users can not create channels.  Bot users can not
-    join channels unless they are invited by a non-bot channel member.
-    Bot users can not see messages in channels of which they are not a
+    access functionality that you deployed using the Atomist
+    platform.  Bot users cannot create channels, cannot
+    join channels unless they are invited by a non-bot channel member, 
+    and cannot see messages in channels where they are not a
     member.  In other words, a bot might join your team when an
     authorization occurs, but it doesn't become a real part of your
-    team until it is being invited to channels.
-2.  We request a scope called "Modify public channels".  We request
-    this scope because Atomist wants to help you setup channels to map
-    information from external Systems in to Slack.  For example, when
+    team until it has been invited to channels.
+2.  Atomist requests a scope called "Modify public channels".  
+    This scope allows Atomist to help you setup channels to bring
+    information from external systems into Slack.  For example, when
     you create a project in a new GitHub repo, Atomist can help you
-    map events pertaining to that projct into a new Channel that only
-    people working on that project decide to join.  Channel creation
-    is _not_ done by a bot -- bots users are simply not allowed to
-    create channels in Slack.  Creating new channels is an operation
-    performed by the user who first authorizes Atomist.
+    direct events from that project into a new channel that only
+    people working on that project decide to join.  The Atomist app 
+    creates new channels on behalf of the user who first authorizes Atomist.
 
 <div align="center">
   <a href="https://atm.st/2wiDlUe">
@@ -52,38 +68,27 @@ Currrently the authorization process asks you to authorize two things:
   </a>
 </div>
 
-<<<<<<< HEAD
-[slack-app-directory]: https://atomist.slack.com/apps/A0HM83NCC-atomist
-[manage-permissions]: https://atomist.slack.com/apps/manage/permissions
-
 ## Authorize GitHub
 =======
 ### De-authorize Atomist in your Slack team
 
-As mentioned above, a bot can not really do much until it's invited to
-channels (you can direct message of the bot of course but it's
-otherwise a very lonely bot).  However, you can always remove the bot
-from all your channels instantly by revoking access to the "Atomist"
-application.  We certainly hope it won't come to this!
+You can remove the bot from all your channels instantly
+by revoking access to the "Atomist" application.  We certainly hope it 
+doesn't come to this!
 
 The [App Manage page][slack-app-settings] has a "Remove App" button at
 the bottom of the page.  Please [let us know][support-email] if
 there's anything we can do to clarify how the bot works with your
 team's channels.
->>>>>>> 4be6716ffe5c07358ccae8a452d54f7ef6dc1093
 
 org or single repository
 
-<<<<<<< HEAD
-## Slack Team IDs
-=======
 ### Slack team IDs
 >>>>>>> 4be6716ffe5c07358ccae8a452d54f7ef6dc1093
 
-At various points throughout this guide, it is useful to know your
-Slack team ID, which the Atomist bot is happy to tell you.  Once you
-have added Atomist to your Slack team, invite the Atomist bot to a
-channel and send the `team` message to it.
+Some operations need to know your Slack team ID, which the Atomist 
+bot is happy to tell you.  Once you've added Atomist to your Slack team,
+invite the Atomist bot to a channel and send it the `team` message.
 
 ```
 you> /invite @atomist
@@ -94,7 +99,6 @@ atomist> The Slack id for team your-slack-team is T1L0V3JTP
 
 The above response tells you the Slack team ID is `T1L0V3JTP`.
 
-<<<<<<< HEAD
 ## Continuous Integration
 =======
 ## GitHub
@@ -104,13 +108,12 @@ The above response tells you the Slack team ID is `T1L0V3JTP`.
 org or single repository
 
 ## Continuous integration
->>>>>>> 4be6716ffe5c07358ccae8a452d54f7ef6dc1093
 
-Atomist natively supports several different continuous integration
+Atomist natively supports several continuous integration
 (CI) platforms, listening for CI events, correlating them with the
 commits that triggered the build, and showing contextualized
-notifications in a Slack channel linked to the repository.  Enabling
-this capability is as easy as adding the appropriate Atomist CI
+notifications in a Slack channel linked to the repository.  To enable
+this capability, just add the desired Atomist CI
 webhook URL to your CI configuration.
 
 In the examples below, replace `TEAM_ID` with your Slack team ID.
