@@ -39,13 +39,18 @@ we simply add `{!handlers.md!}` to the desired location in `user-guide/rug/comma
 ## Styles
 
 We use the [Admonition][admonition] extension.  Here are the available
-admonition styles.
+admonition styles:
 
-![Admonition Classes](images/admonition-classes.png)
+-   summary tldr
+-   hint important tip
+-   check done success
+-   attention caution warning
+-   fail failure missing
+-   danger error
+-   bug
+-   default (i.e., none of the above)
 
-Below are the default styles.
-
-![Admonition Classes](images/admonition-classes-default.png)
+Items on the same line create a visually equivalent admonition.
 
 [admonition]: https://pythonhosted.org/Markdown/extensions/admonition.html
 
