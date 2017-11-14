@@ -257,12 +257,12 @@ client.
 One of Atomist's built-in automations sends a DM to the person whose commit 
 [failed a build.](https://github.com/atomist/lifecycle-automation/blob/master/src/handlers/event/build/NotifyPusherOnBuild.ts)
 
-<!-- TODO
 ## Troubleshooting
 
-Your best source of information is the log of your automation client. Add `console.log` calls to your handler as needed.
+After unit testing your logic, your best source of information is the log of your automation client. Add `console.log` calls to your handler as needed.
 
 ### My event didn't arrive
+First, check that your registration completed successfully in the client logs at startup.
 
 Run your query in GraphiQL to verify that your event arrived to Atomist. Try adding order-by-timestamp arguments to the 
 top of the query, to see the most recent events that came in.
@@ -277,6 +277,5 @@ top of the query, to see the most recent events that came in.
 
 ```
 
-Check that your registration completed successfully, in the client logs at startup.
--->
-
+### My handler didn't do what I expected
+Ensure that the type of your incoming EventFired object matches the structure that you see in the query. Write unit tests that take events with the same structure and be sure to test corner cases. You can run the client locally in a debugger and trigger the events to see what is happening.
