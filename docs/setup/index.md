@@ -25,7 +25,7 @@ Click the "Add to Slack" button below to invite the Atomist Bot into your Slack 
 
 <div class="ss-container">
   <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
-                    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
   </a>
 </div>
 
@@ -103,10 +103,20 @@ Atomist helps you work with GitHub in two ways:
 
 ### Org-level Web Hooks
 
+GitHub Organization members that have the [Owner role][owners], are allowed 
+to configure Organization-wide web hooks.  This is very convenient because it 
+is a one-time operation;  however, you will require a User who is an `Owner` in
+your GitHub organization.
 
+```
+you> @atomist enroll org
+```
+
+
+
+[owners]: https://help.github.com/articles/permission-levels-for-an-organization/
 
 ### Repo-level Web Hooks
-
 
 ## Continuous integration
 
