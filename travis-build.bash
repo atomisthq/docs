@@ -4,7 +4,7 @@
 set -o pipefail
 
 declare Pkg=travis-build-mkdocs
-declare Version=0.2.1
+declare Version=0.3.0
 
 function msg() {
     echo "$Pkg: $*"
@@ -21,7 +21,7 @@ function site-build() {
     fi
 
     local i
-    for (( i=0; i < 4; i++)); do
+    for (( i=0; i < 4; i++ )); do
         # the logo img is added by material theme, so ignore it not having alt
         if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
                   --url-ignore https://api.github.com
@@ -42,42 +42,10 @@ function main () {
 
     [[ $TRAVIS_PULL_REQUEST == false ]] || return 0
 
-    local version_file=VERSION
-    local project_version
-    project_version=$(<$version_file)
-    if [[ $? -ne 0 || ! $project_version ]]; then
-        err "failed to determine current version from $version_file"
-        return 1
-    fi
-    if [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-        if [[ $project_version != $TRAVIS_TAG ]]; then
-            err "project version ($project_version) does not match git tag ($TRAVIS_TAG)"
-            return 1
-        fi
-        project_version=$TRAVIS_TAG
-    elif [[ $TRAVIS_BRANCH == master ]]; then
-        local timestamp
-        timestamp=$(date +%Y%m%d%H%M%S)
-        if [[ $? -ne 0 || ! $timestamp ]]; then
-            err "failed to generate timestamp: $timestamp"
-            return 1
-        fi
-        project_version=$project_version-$timestamp
-    else
-        return 0
-    fi
-    msg "doc version: $project_version"
+    [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(m|rc)\.[0-9]+)?$ ]] || return 0
 
-    if ! rm site/CNAME; then
-        err "failed to remove CNAME for staging publish"
-        return 1
-    fi
-    if ! bash deploy.bash "$TRAVIS_REPO_SLUG"; then
-        err "failed to deploy staging site"
-        return 1
-    fi
-    if ! cp docs/CNAME site/CNAME; then
-        err "failed to restore CNAME file"
+    if ! s3cmd sync --delete-removed site/ s3://docs.atomist.com/; then
+        err "failed to sync site to s3"
         return 1
     fi
 
@@ -89,17 +57,17 @@ function main () {
         err "failed to set git user name"
         return 1
     fi
-    local git_tag=$project_version+travis.$TRAVIS_BUILD_NUMBER
-    if ! git tag "$git_tag" -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"; then
-        err "failed to create git tag: $git_tag"
+    local tag=$TRAVIS_TAG+travis.$TRAVIS_BUILD_NUMBER
+    if ! git tag "$tag" -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER"; then
+        err "failed to create git tag: '$tag'"
         return 1
     fi
     local remote=origin
     if [[ $GITHUB_TOKEN ]]; then
         remote=https://$GITHUB_TOKEN:x-oauth-basic@github.com/$TRAVIS_REPO_SLUG.git
     fi
-    if ! git push --quiet "$remote" "$git_tag" > /dev/null 2>&1; then
-        err "failed to push git tag: '$git_tag'"
+    if ! git push --quiet "$remote" "$tag" > /dev/null 2>&1; then
+        err "failed to push git tag: '$tag'"
         return 1
     fi
 }
