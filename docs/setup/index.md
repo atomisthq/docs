@@ -17,7 +17,6 @@ This is a step by step guide to setting up Atomist's built-in automations to see
 
 [slack]: https://slack.com/ (Slack)
 
-
 ## Slack
 
 ### Enroll Slack bot
@@ -30,22 +29,17 @@ Click the "Add to Slack" button below to invite the Atomist Bot into your Slack 
   </a>
 </div>
 
-<div align="center">
-  <a href="https://atm.st/2wiDlUe">
-    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
-  </a>
-</div>
+Slack's default configuration allows all team members to add new Slack applications.
+However, your team's admins may decide to restrict the set of applications that can
+can be added in your team.  The [Permissions management page][manage-permissions] has 
+an "Approved Apps" setting to control this.
 
-Slack's default configuration allows team members to add new Slack applications.
-However, Slack admins may decide to configure restrictions on which new applications 
-can be installed.  This "Approved Apps" setting is shown on the [Permissions management page][manage-permissions].
-
-[manage-permissions]: https://atomist.slack.com/apps/manage/permissions
+[manage-permissions]: https://slack.com/apps/manage/permissions
 
 ![Approved Apps](images/ApprovedApps.png)
 
 If your team requires approval for new apps, and you are not a Slack
-admin, Slack asks you whether you'd like to request that the
+admin, then Slack will you whether you'd like to request that the
 Atomist application be approved (Slack is really helpful here!).
 
 Currrently the authorization process asks you to authorize two things:
@@ -82,9 +76,7 @@ atomist> The Slack id for team your-slack-team is T1L0V3JTP
 
 The above response tells you the Slack team ID is `T1L0V3JTP`.
 
-## Authorize GitHub
-
-### De-authorize Atomist in your Slack team
+### Removing Atomist from Slack
 
 You can remove the bot from all your channels instantly
 by revoking access to the "Atomist" application.  We certainly hope it 
@@ -94,6 +86,27 @@ The [App Manage page][slack-app-settings] has a "Remove App" button at
 the bottom of the page.  Please [let us know][support-email] if
 there's anything we can do to clarify how the bot works with your
 team's channels.
+
+[slack-app-settings]: https://slack.com/apps/A0HM83NCC-atomist?page=1
+[support-email]: mailto:support@atomist.com
+
+## GitHub
+
+Atomist helps you work with GitHub in two ways:
+
+1.  By enabling web hooks, your automations can react to your team's 
+    GitHub activity.
+2.  Automations can expose Commands that utilize GitHub apis.  Each
+    user on your team independently authorizes Atomist.  This means 
+    that your automation's Commands remain sandboxed by the GitHub
+    security model.
+
+### Org-level Web Hooks
+
+
+
+### Repo-level Web Hooks
+
 
 ## Continuous integration
 
