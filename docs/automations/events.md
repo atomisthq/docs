@@ -77,8 +77,8 @@ event handler.
 ## Event handler structure
 
 Here is a complete event handler that listens for new issues and
-notifies you. This puts together a lot of pieces that you have likely
-already seen.
+notifies you. This puts together a lot of pieces that you may have
+already seen in the [Quick Start](quick-start.md).
 
 ```typescript
 import { EventHandler } from "@atomist/automation-client/decorators";
@@ -87,7 +87,7 @@ import { HandlerContext } from "@atomist/automation-client/HandlerContext";
 import {
     failure,
     HandlerResult,
-    Success
+    success
 } from "@atomist/automation-client/HandlerResult";
 
 @EventHandler("Notify channel on new issue",
@@ -112,7 +112,7 @@ export class IssueNotification implements HandleEvent<Issues> {
             `New issue: #${issue.number} '${issue.title}' in ${issue.repo.owner}.${issue.repo.name}`,
             issue.repo.channels.map(c => c.name)
         )
-            .then(() => Success, failure);
+            .then(success, failure);
     }
 }
 
@@ -149,7 +149,7 @@ issue to any associated channels it has.  Most of the work is done
 just by the subscription query that provides the data the event
 handler needs.  The `Issues` interface exists merely for the
 convenience of having a typed `EventFired`, but there are ways to
-generate this type implicitly from the GraphQL schema.  This event
+[generate this type implicitly from the GraphQL schema](graphql/#strongly-typed-graphql-queries).  This event
 handler returns a [`HandlerResult`][handler-ret] based
 on the success of the operation.
 
@@ -231,3 +231,52 @@ actually sending a message, the sample provides a `FakeMessageClient`
 (via the `HandlerContext`) where you assert about the way the message
 would be sent.  A real test should exercise other test cases that are
 not necessarily the happy path.
+
+## Examples
+
+### Respond to new commits
+
+When commits are pushed to GitHub, a Push event is triggered. 
+
+For instance, Atomist can run a linter with autofix, and commit the result back to the branch! We run 
+[this handler](https://github.com/atomist/automation-client-samples-ts-docker/blob/master/src/handlers/PushToTsLinting.ts)
+in our teams.
+
+This 
+[simple handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/events/NotifyOnPush.ts)
+sends a message in Slack about a push.
+
+### Comment on an issue
+
+[This handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/events/CommentOnIssue.ts)
+also watches for new or updated GitHub issues. It makes a comment on issues created by you, the runner of the automation
+client. 
+
+### React to a failed build
+
+One of Atomist's built-in automations sends a DM to the person whose commit 
+[failed a build.](https://github.com/atomist/lifecycle-automation/blob/master/src/handlers/event/build/NotifyPusherOnBuild.ts)
+
+<!-- TODO
+## Troubleshooting
+
+Your best source of information is the log of your automation client. Add `console.log` calls to your handler as needed.
+
+### My event didn't arrive
+
+Run your query in GraphiQL to verify that your event arrived to Atomist. Try adding order-by-timestamp arguments to the 
+top of the query, to see the most recent events that came in.
+
+```graphql
+{
+  Issue(orderBy: timestamp_desc, first: 10) {
+    number
+    timestamp
+  }
+}
+
+```
+
+Check that your registration completed successfully, in the client logs at startup.
+-->
+
