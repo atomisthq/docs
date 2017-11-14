@@ -31,12 +31,12 @@ Click the "Add to Slack" button below to invite the Atomist Bot into your Slack 
 
 Slack's default configuration allows all team members to add new Slack applications.
 However, your team's admins may decide to restrict the set of applications that can
-can be added in your team.  The [Permissions management page][manage-permissions] has 
+can be added in your team.  The [Permissions management page][manage-permissions] has
 an "Approved Apps" setting to control this.
 
 [manage-permissions]: https://slack.com/apps/manage/permissions
 
-![Approved Apps](images/ApprovedApps.png)
+![Approved Apps](img/ApprovedApps.png)
 
 If your team requires approval for new apps, and you are not a Slack
 admin, then Slack will you whether you'd like to request that the
@@ -48,22 +48,22 @@ Currently the authorization process asks you to authorize two things:
     Your team can `\invite` the Atomist bot to channels in order to
     access functionality that you deployed using the Atomist
     platform.  Bot users cannot create channels, cannot
-    join channels unless they are invited by a non-bot channel member, 
+    join channels unless they are invited by a non-bot channel member,
     and cannot see messages in channels where they are not a
     member.  In other words, a bot might join your team when an
     authorization occurs, but it doesn't become a real part of your
     team until it has been invited to channels.
-2.  Atomist requests a scope called "Modify public channels".  
+2.  Atomist requests a scope called "Modify public channels".
     This scope allows Atomist to help you setup channels to bring
     information from external systems into Slack.  For example, when
     you create a project in a new GitHub repo, Atomist can help you
     direct events from that project into a new channel that only
-    people working on that project decide to join.  The Atomist app 
+    people working on that project decide to join.  The Atomist app
     creates new channels on behalf of the user who first authorizes Atomist.
 
 ### Check Slack team IDs
 
-Some operations need to know your Slack team ID, which the Atomist 
+Some operations need to know your Slack team ID, which the Atomist
 bot is happy to tell you.  Once you've added Atomist to your Slack team,
 invite the Atomist bot to a channel and send it the `team` message.
 
@@ -79,7 +79,7 @@ The above response tells you the Slack team ID is `T1L0V3JTP`.
 ### Removing Atomist from Slack
 
 You can remove the bot from all your channels instantly
-by revoking access to the "Atomist" application.  We certainly hope it 
+by revoking access to the "Atomist" application.  We certainly hope it
 doesn't come to this!
 
 The [App Manage page][slack-app-settings] has a "Remove App" button at
@@ -94,9 +94,9 @@ team's channels.
 
 Atomist helps you work with GitHub in two ways:
 
-1.  By enabling web hooks, your automations can react to  
+1.  By enabling web hooks, your automations can react to
     GitHub activities such as Pushes, Pull Requests, or Issues.
-2.  Automations can expose Commands that access GitHub through 
+2.  Automations can expose Commands that access GitHub through
     the v3 api, authorized by OAuth tokens.
     Each user on your team must independently authorize Atomist --
     this means that your users remain within the boundaries
@@ -109,13 +109,13 @@ When the Atomist bot first arrives in a team, it will send a Direct Message
 to the authorizing user, requesting that they authorize Atomist
 to access GitHub on their behalf.
 
-![github auth](images/github-auth.png)
+![github auth](img/github-auth.png)
 
 This same dialog will be shown to users anytime Atomist detects
-that an automation needs to access GitHub as that user.  Every user on the 
+that an automation needs to access GitHub as that user.  Every user on the
 team must individually opt in.  Atomist will display this option each
-time an un-authorized user runs a Command 
-that requires a GitHub authorization.  
+time an un-authorized user runs a Command
+that requires a GitHub authorization.
 Users can ask for their current GitHub authorization status by running:
 
 ```
@@ -127,9 +127,9 @@ status.
 
 ### Org-level Web Hooks
 
-GitHub Organization members that have the [Owner role][owners], are allowed 
+GitHub Organization members that have the [Owner role][owners], are allowed
 to configure Organization-wide web hooks.  This is convenient
-because it only has to be configured once;  
+because it only has to be configured once;
 however, you will require a User who has the `Owner` role in
 your GitHub organization.
 
@@ -137,21 +137,21 @@ your GitHub organization.
 you> @atomist enroll org
 ```
 
-When you choose to enroll a GitHub Organization, you will most likely be 
+When you choose to enroll a GitHub Organization, you will most likely be
 prompted to authorize a new scope (Atomist only asks for new scopes when
-explicitly required).  The `admin:org_hook` is required when enrolling a new 
+explicitly required).  The `admin:org_hook` is required when enrolling a new
 GitHub organization.
 
-![authorize org hook](images/authorize-org-hook.png)
+![authorize org hook](img/authorize-org-hook.png)
 
 Since you might be a member of many GitHub organizations, Atomist may ask you to
 choose which Organization you are enrolling.
 
-![choose org](images/choose-org.png)
+![choose org](img/choose-org.png)
 
 Finally, you will be presented with a button to configure the Org-level webhook.
 
-![install webhook](images/install-webhook.png)
+![install webhook](img/install-webhook.png)
 
 [owners]: https://help.github.com/articles/permission-levels-for-an-organization/
 
@@ -168,7 +168,7 @@ The bot will now ask for the `Owner` of the Repository.  This question will be
 skipped if there is only valid choice (your User account).  Second the bot will
 ask you to select the Repository to recieve the new web hook.
 
-![choose repo](images/choose-repo.png)
+![choose repo](img/choose-repo.png)
 
 ## Continuous integration
 
