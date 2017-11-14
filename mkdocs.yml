@@ -66,7 +66,6 @@ pages:
       - Prerequisites: automations/prerequisites.md
       - Quick Start: automations/quick-start.md
       - Commands: automations/commands.md
-#      - Command Examples: automations/command-examples.md
       - Events: automations/events.md
       - Slack Messages: automations/slack.md
       - Working with GraphQL: automations/graphql.md
@@ -74,4 +73,5 @@ pages:
       - Automation Projects: automations/project.md
 #      - Discovering Automations: automations/discovery.md
       - Running Automation Clients: automations/run.md
+      - Move This: automations/create.md
   - Support: support.md

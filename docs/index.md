@@ -91,11 +91,11 @@ Slack.
 
 ### Events
 
-[Events][event] can be source from anywhere: commits, pushes, CI
+[Events][event] can be sourced from anywhere: commits, pushes, CI
 builds, deployments, stack traces in production logs, etc.  When an
 event is ingested, Atomist relates it to other events to build up
-contextual information: a push contains commits and triggers a CI
-build creates an artifact that gets deployed.  Atomist is able to take
+contextual information: a push containing commits triggers a CI
+build creating an artifact that gets deployed.  Atomist is able to take
 automated action on any and all of these events along the chain.
 
 How does an automation know what event it should act on?  GraphQL

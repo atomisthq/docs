@@ -42,7 +42,7 @@ If your team requires approval for new apps, and you are not a Slack
 admin, then Slack will you whether you'd like to request that the
 Atomist application be approved (Slack is really helpful here!).
 
-Currrently the authorization process asks you to authorize two things:
+Currently the authorization process asks you to authorize two things:
 
 1.  The Atomist app adds a bot user named "@atomist" to your team.
     Your team can `\invite` the Atomist bot to channels in order to
@@ -175,7 +175,7 @@ Then call `notifyAtomist` when the build starts, e.g., in the first
 stage, and ends, i.e., in the `post` block, sending the appropriate
 status and phase.
 
--   Start: `notifyAtomist("STARTED", "STARTED")`
+-   Start: `notifyAtomist("STARTED")`
 -   Succesful: `notifyAtomist("SUCCESS")`
 -   Unstable: `notifyAtomist("UNSTABLE")`
 -   Failure: `notifyAtomist("FAILURE")`
