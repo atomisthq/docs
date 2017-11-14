@@ -5,52 +5,26 @@ Develop your first automations: a bot command and an event handler.
 First,
 {!prereq-items.md!}
 
-## Create a bot command
-
-To create a custom bot command, you need to provide:
-
--   your command _intent_, i.e., the text users type when they
-    want to invoke the command
--   descriptions of your command's input parameters, and
--   the code implementing your command.
+## Bot commands
 
 Atomist recognizes when someone invokes the bot command by sending the
 intent to the Atomist bot, then collects the required
 parameters, and invokes the code implementing your command.
 
-This bot command searches [Stack Overflow][so] and replies with the results:
+Let's try out a bot command that searches [Stack Overflow][so] and replies with the results:
 
-```typescript
-@CommandHandler("Query Stack Overflow", "search so")
-@Tags("stack-overflow")
-export class SearchStackOverflow implements HandleCommand {
-
-    @Parameter({description: "your search query", pattern: /^.*$/})
-    public q: string;
-
-    public handle(ctx: HandlerContext): Promise<HandlerResult> {
-        return axios.get(`${apiSearchUrl}${encodeURIComponent(this.q)}`)
-            .then(res => this.handleResult(res, this.q))
-            .then(msg => ctx.messageClient.respond(msg))
-            .then(success, failure);
-    }
-}
-```
-
-Let's try it out.
-
-!!! hint
-    Setting up, building, and running an automation client follows
-    the same steps as any other standard TypeScript or JavaScript
-    project.
-
-First, clone the project containing the above code and all the
+First, clone the project containing the command handler code and all the
 necessary project files.
 
 ```
 git clone https://github.com/atomist-blogs/sof-command.git sof-command \
     && cd sof-command
 ```
+
+!!! hint
+    Setting up, building, and running an automation client follows
+    the same steps as any other standard TypeScript or JavaScript
+    project.
 
 Next install the project dependencies.
 
@@ -70,7 +44,7 @@ Finally, start the client process on your local system.
 npm start
 ```
 
-This last command will start up the client, register the "search so"
+This last command will start up the [client][client], register the "search so"
 bot command in your Slack team, and begin writing its logs to your
 terminal.
 
@@ -87,71 +61,26 @@ that looks something like this:
 
 ![Search Stack Overflow Results](img/search-so.png)
 
-Congratulations, you just created your own bot command!  For more
-detailed information, see the full documentation
+Congratulations, you just ran your own bot command!  For more
+detailed information about writing your own commands, see the full documentation
 for [commands][command].
 
 [slack]: slack.md (Atomist Automation Slack Messages)
 [so]: https://stackoverflow.com/ (Stack Overflow)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [axios]: https://www.npmjs.com/package/axios (Axios HTTP Client)
+[client]: client.md (Atomist Automation Client)
 
-## Create an event handler
+## Handling events
 
 Event handlers react to GitHub pushes, updates to issues, pull
 requests, or similar events.
 
-To create an event handler, you provide:
-
--   the type of event you want to react to
--   the code that implements your event handler
-
-This event handler is triggered when a commit is pushed
+Let's add an event handler that notifies us in Slack when a commit is pushed
 to a repository - but only if the commit message contains
-a string like "Crushed #77!" Here's the code:
+a string like "Crushed #77!".
 
-```typescript
-const Subscription = `
-subscription FindReferencedGitHubIssue {
-  Commit {
-    sha
-    message
-    repo {
-      owner
-      name
-      channels {
-        name
-      }
-    }
-  }
-}`;
-
-const Pattern = /[cC]rush(ed|ing)[\s]*#([0-9]*)/g;
-
-@EventHandler("Find referenced GitHub issues and PRs in commit message", Subscription)
-export class FindReferencedGitHubIssue implements HandleEvent<Commits> {
-
-    public handle(event: EventFired<Commits>, ctx: HandlerContext): Promise<HandlerResult> {
-        const commit = event.data.Commit[0];
-        const referencedIssues: string[] = [];
-        let match;
-        while (match = Pattern.exec(commit.message)) {
-            referencedIssues.push(`#${match[2]}`);
-        }
-        if (referencedIssues.length > 0 && commit.repo && commit.repo.channels) {
-            const msg = `You crushed ${referencedIssues.join(", ")} with commit` +
-                ` \`${commit.repo.owner}/${commit.repo.name}@${commit.sha.slice(0, 7)}\``;
-            const channels = commit.repo.channels.map(c => c.name);
-            return ctx.messageClient.addressChannels(msg, channels)
-                .then(success, failure);
-        } else {
-            return Promise.resolve(Success);
-        }
-    }
-}
-```
-
-As above, follow the standard procedure for getting a TypeScript/JavaScript going:
+This code is in a different automation client, but you get it and run it the same way:
 
 ```
 git clone git@github.com:atomist-blogs/event-handler.git event-handler \
@@ -169,22 +98,8 @@ the word "Crushed" followed by a reference to an issue in the form
 Push that commit and the bot sends a message to the linked channel
 letting everyone know you crushed it!
 
-For more detailed information, see the full documentation
+For more detailed information about customizing event handling, see the full documentation
 for [events][event].
-
-<!--
-
-The `handle` code in this example
-
--   Extracts the commit from the event data
--   Finds all "crushing" issue and PR mentions in the commit message
-    using a [regular expression][regex]
--   Sends a message to all channels linked to the repository informing
-    everyone what issues and PRs were crushed
--   Indicates that it successfully processed the event or sends a
-    failure message
-
--->
 
 ## Dive in
 
@@ -198,6 +113,3 @@ The `handle` code in this example
 [command]: commands.md (Atomist Command Automations)
 [event]: events.md (Atomist Event Automations)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
-
-[subscription]: graphql.md#subscriptions
-[regex]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions (JavaScript Regular Expressions)
