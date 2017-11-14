@@ -4,7 +4,7 @@
 set -o pipefail
 
 declare Pkg=travis-build-mkdocs
-declare Version=0.2.0
+declare Version=0.2.1
 
 function msg() {
     echo "$Pkg: $*"
@@ -23,12 +23,15 @@ function site-build() {
     local i
     for (( i=0; i < 4; i++)); do
         # the logo img is added by material theme, so ignore it not having alt
-        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'; then
-            break
+        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
+                  --url-ignore https://api.github.com
+        then
+            return 0
         else
             err "HTMLProofer attempt $i failed"
         fi
     done
+    return 1
 }
 
 # usage: main "$@"
@@ -86,13 +89,17 @@ function main () {
         err "failed to set git user name"
         return 1
     fi
-    local git_tag=$project_version+travis$TRAVIS_BUILD_NUMBER
+    local git_tag=$project_version+travis.$TRAVIS_BUILD_NUMBER
     if ! git tag "$git_tag" -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"; then
         err "failed to create git tag: $git_tag"
         return 1
     fi
-    if ! git push --quiet --tags "https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG" > /dev/null 2>&1; then
-        err "failed to push git tags"
+    local remote=origin
+    if [[ $GITHUB_TOKEN ]]; then
+        remote=https://$GITHUB_TOKEN:x-oauth-basic@github.com/$TRAVIS_REPO_SLUG.git
+    fi
+    if ! git push --quiet "$remote" "$git_tag" > /dev/null 2>&1; then
+        err "failed to push git tag: '$git_tag'"
         return 1
     fi
 }

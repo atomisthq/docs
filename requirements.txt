@@ -1,5 +1,5 @@
-mkdocs
-pygments
-pymdown-extensions
-mkdocs-material
-markdown-include
+markdown-include==0.5.1
+mkdocs==0.17.1
+mkdocs-material==2.0.4
+Pygments==2.2.0
+pymdown-extensions==4.1

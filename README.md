@@ -13,53 +13,15 @@ The documentation is generated from markdown using [MkDocs][mkdocs].
 
 [mkdocs]: http://www.mkdocs.org/
 
-## Cloning
-
-This repository uses [Git submodules][submodule] to bring in the
-various Rugs used in the documentation from
-the [atomist/doc-rugs][doc-rugs] repository.  Therefore, after you
-clone the repository for the first time, you will need to initialize
-and update the submodules.
-
-[submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodulse
-[doc-rugs]: https://github.com/atomist/doc-rugs
-
-```
-$ git submodule init
-$ git submodule update
-```
-
-When updating doc-rugs, we prefer that you create a tag and release of
-the doc-rugs repository, checkout that tag in `docs/common/doc-rugs`
-and commit those changes here.
-
-```
-$ cd docs/common/doc-rugs
-$ git fetch
-$ git checkout M.N.P
-$ cd ..
-$ git add doc-rugs
-```
-
 ## Editing
 
 Much of the documentation is hand-generated, so you can feel free to
-edit.  See [below][build-serve] for instructions on how to test your
-changes locally.
+edit.  We try to adhere to
+the [Google Developer Documentation Style Guide][doc-style].
+See [below][build-serve] for instructions on how to test your changes
+locally.
 
-[build-serve]: #build-and-serve-the-documentation-locally
-
-The exception is the
-auto-generated [reference documentation](docs/reference/).  The aim is
-for all of the reference documentation to be auto-generated.  At
-present, the [Rug][rug] and [Rug CLI][cli] reference documentation are
-auto-generated during their builds.  The Rug reference docs are
-automatically published to http://apidocs.atomist.com.  The Rug CLI
-documentation must be copied into this repo at
-`docs/reference/rug-cli/index.md`.
-
-[rug]: https://github.com/atomist/rug
-[cli]: https://github.com/atomist/rug-cli
+[doc-style]: https://developers.google.com/style/ (Google Developer Documentation Style Guide)
 
 ## Content Reuse
 
@@ -241,7 +203,8 @@ in strict mode and running HTMLProofer on the resulting site.
 
 ```
 $ mkdocs build --strict && \
-    bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/'
+    bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
+        --url-ignore https://api.github.com
 ```
 
 To review your changes in a browser, you can serve the documentation
@@ -253,6 +216,18 @@ $ mkdocs serve
 
 and browse the documentation at http://127.0.0.1:8000 .  To stop the
 server, press `Ctrl-C` in the terminal.
+
+### Updating Dependencies
+
+The `requirements.txt` file sets specific versions for the packages.
+To update to new versions, you can use the following command:
+
+```
+$ ( cut -d = -f 1 requirements.txt > req.txt && \
+      cat req.txt | xargs -n 1 pip install -U && \
+      pip freeze -r req.txt > requirements.txt ) ; \
+    rm req.txt
+```
 
 ### Shortcut
 

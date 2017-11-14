@@ -1,148 +1,143 @@
-<img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="images/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
+<img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
-# Atomist Overview
+[Atomist][www] is a powerful automation platform that unifies events
+across your software development and delivery tools into a cohesive
+model of code, people, and process.  Gain visibility and control over
+your software delivery flow with automations that respond to commands
+and events.  The Atomist development automation platform provides the
+tools to make _you_ a more productive developer.
 
-Atomist enables you to ship software in less time and respond to
-operational events more quickly.  By automating tasks, integrating
-tools, and providing timely, correlated, and actionable information,
-Atomist makes software delivery faster, more standardized, and more
-fun.
+[www]: https://www.atomist.com (Atomist)
 
-Timely, correlated, and actionable information results from capturing
-your processes and operations in code.  Atomist knows the platforms
-and tools you already use: GitHub, Slack, Travis CI.  Atomist
-helps you write code that understands your code: Java, C#, JavaScript, Scala, Python, Clojure,
-even Dockerfiles and Maven POMs.  Most importantly, Atomist
-understands the relationship between your code, your tools, your
-environments, and your running services and brings this information to
-where you live: chat.
+## Using Atomist
 
-If you spend time upgrading dependencies across multiple repositories,
-integrating code repositories and CI, configuring and managing
-deployment platforms, figuring out who to ask about an error in a log,
-or switching from IDE to chat to web browser ad infinitum, let Atomist
-remove the drudgery and reduce the context switching so your team can
-focus on what matters: shipping great software.
+You can use Atomist's out-of-the-box automations or you can
+write your own.
 
-## Atomist is a Service and an API
+### Atomist automations
 
-The Atomist service consumes events from your systems: source code
-repositories, continuous integration servers, deployment platforms,
-and chat.  The information from these systems is correlated together:
-pushes with builds, artifacts with deployments, stack traces with
-commits.  The correlation of these events is then used to
-automatically respond: retry a build, start an integration test,
-message a committer.
+Invite the Atomist bot into your Slack team and use the built-in
+automations.  The bot sends you relevant, actionable messages that
+enable you to control your development flow from Slack, from project
+creation to deployment to monitoring.
 
-Atomist provides both out of the box automations like
-our [Slack lifecycle notifications][lifecycle] and an API that you can
-use to build automations benefiting from its correlated data model.
+### Custom automations
 
-[lifecycle]: https://the-composition.com/move-fast-and-dont-break-things-run-development-from-slack-3e4de5318e3f (Move Fast and Don't Break Things - The Composition)
+You can customize Atomist's built-in automations or write wholly new
+ones.
 
-The Atomist API is primarily exposed
-via [GraphQL](http://graphql.org), a sophisticated, standard way of
-working with connected data. This choice makes it easy to work with
-the Atomist data model from any popular tech stack, and to explore it
-via the [GraphiQL browser](https://github.com/graphql/graphiql).
+Atomist provides an automation API with integrations for your
+development tools and runtime platforms, native Slack notifications
+and commands, and an open source client and command-line interface.
 
-To make working with our client API easy, we provide a
-Node.js [client library][client] written in TypeScript.  We will be
-providing other client libraries future.
+Custom automations can be used to further streamline development:
 
-[client]: https://github.com/atomist/automation-client-ts (Atomist API Client)
+-   Notify team members about events such as pushes, pull requests,
+    build failures, crash looping Kubernetes pods and more.
+-   Create custom bot commands for fun and profit. Search
+    StackOverflow from Slack or exchange banter with other teams -
+    it's up to you.
+-   Automate your release process - rather than delegating it to your
+    build system - so you can release with a single button press in
+    Slack.
+-   Merge pull requests automatically as soon as the required checks
+    and reviews pass.
+-   Auto-close issues when a fix is deployed to production.
+-   Roll back automatically: identify a commit that caused a
+    regression in production, revert the commit, and release the "new"
+    version
 
-***The Atomist service provides:***
+## Concepts
 
--   *the SaaS platform to ingest and correlate events*
--   *a GraphQL API to work with the resulting data model*
--   *a core set of integrations and event responses*
--   *the ability for teams to customize the events, correlation, and
-    actions for their existing processes*
+Atomist is all about making you more productive by helping you to
+automate away all the things that slow you down.  The following
+concepts describe the pieces Atomist provides to make it easy for you
+to create automations that reduce repetitive work and distractions.
 
-## Atomist is events
+### Development automation platform
 
-Within Atomist, all events are captured and actionable.  As events are
-consumed from your systems, **event handlers** are triggered.  These
-handlers respond to events, by taking action themselves and/or
-creating new events, which can in turn trigger other handlers.  Event
-handlers can do anything from trigger a deployment of a new version of
-your service to page the developer whose commit led to a runtime error
-in production to modify code directly to fix errors.
+Atomist's development automation platform is powered by a service that
+ingests and correlates events from your software development flow.  At
+the heart of the service is a single coherent model: code, people, and
+processes.  You query that model using [GraphQL][gql] when you write
+your own automations.
 
-***Atomist events enable you to:***
+[gql]: http://graphql.org/ (GraphQL)
 
--   *codify your workflow*
--   *capture best practices in code*
--   *reduce incident time-to-resolution*
+### Automation client
 
-## Atomist is code
+Automations are written and run within an
+Atomist [automation client][client], which interact with the Atomist
+platform using primarily GraphQL.  Each client hosts automations that
+can be invoked via the Atomist bot, Slack buttons, or when events
+occur.  A client can host any number of automations, and can be hosted
+wherever the author likes: locally during testing, inside a corporate
+firewall, or on a public cloud or PaaS.
 
-We've all heard that [software is eating the world][eating].  Atomist
-eats software.  Atomist consumes your code, understanding your files,
-classes, variables, exceptions and more.  This understanding is used
-to modify code directly and to connect code changes to runtime
-changes.
+[client]: developer/client.md (Atomist Automation Client)
 
-[eating]: https://a16z.com/2016/08/20/why-software-is-eating-the-world/
+### Commands
 
-***Atomist is code that:***
+[Commands][command] perform actions when invoked by users sending the
+Atomist bot messages, clicking buttons in Slack, or running the
+Atomist CLI.
 
--   *understands <span class="highlight">your</span> code*
--   *understands your processes*
--   *understands your operations*
--   *can <span class="highlight">modify</span> your code*
+Examples of commands include the bot command `create issue` and the
+"merge pull request" command that users invoke by pressing a button in
+Slack.
 
-## Atomist ties everything together
+[command]: developer/commands.md (Commands)
 
-Atomist is the next phase in the evolution of software.
-Infrastructure-as-code captures infrastructure architecture and
-configuration in software.  DevOps automates IT operations with
-software.  Atomist goes further, capturing how we develop and operate
-software *in software*.  Atomist lets you say goodbye to the boring,
-repetitive tasks surrounding software development by giving you the
-tools to automate them away, once and for all.
+### Events
 
-!!! important ""
-    <span class="major-point">In a world where everything is code,
-    **Atomist** ties everything together.  By bringing software
-    development processes, IT operations, and infrastructure-as-code
-    together with a deep understanding of the code itself, **Atomist**
-    is able to surface the right information to the right person at
-    the right time in the right place to speed software delivery and
-    stabilize IT operations.</span>
+[Events][event] can be sourced from anywhere: commits, pushes, CI
+builds, deployments, stack traces in production logs, etc.  When an
+event is ingested, Atomist relates it to other events to build up
+contextual information: a push containing commits triggers a CI build,
+creating an artifact that gets deployed.  Atomist is able to take
+automated action on any and all of these events along the chain.
 
-To help you learn more about Atomist, this documentation contains
+How does an automation know what event it should act on?  GraphQL
+subscriptions are used to define the trigger criteria.  For example,
+you can create a subscription to receive an event whenever a
+Kubernetes deployment results in a pod crash looping, providing an
+automation that automatically rolls that deployment back and notifies
+the committers of the failure.
 
--   The rest of this overview: Atomist [concepts][]
-    and [capabilities][]
--   [Getting Started][getting-started] instructions
-<!-- -   Learn how to customize Atomist by working through
-    our [Tutorials][tutorials] -->
--   The Atomist [User Guide][user-guide] explaining each part of
-    Atomist and how it is used
+[event]: developer/events.md (Events)
 
-If you are new to Atomist, we recommend working through
-the [Getting Started][getting-started] instructions to get Atomist set
-up.  Once you are set up, you can get more information on using
-Atomist in the [User Guide][user-guide].
+### Integrations
 
-[concepts]: concepts.md (Overview - Atomist Concepts)
-[capabilities]: capabilities.md (Overview - Atomist Capabilities)
-[getting-started]: getting-started/index.md (Atomist Getting Started)
-[tutorials]: tutorials/index.md (Atomist Tutorials)
-[user-guide]: user-guide/index.md (Atomist User Guide)
-[refdoc]: reference/index.md (Atomist Reference Documentation)
+Atomist receives events from and performs operations on many systems,
+including version control, CI systems, Slack, and more.
 
-To stay up to date with Atomist, get announcements on new features,
-and interact with the Atomist team, please
+Atomist uses the native integration technology for each platform or
+tool.  For example, to integrate with GitHub and Travis CI, Atomist
+uses webhooks; to integrate with Slack it uses their native real-time
+messaging (RTM) API.  For each platform Atomist integrates with, it
+requests the minimal set of permissions required.
 
--   Join the [Atomist Community Slack][slack]
--   Follow our blog, [The Composition][composition]
--   Follow [@atomist][twitter] on Twitter
+If you use a system or tool Atomist does not natively support, you can
+implement your own integrations.  You can use whatever tools and
+libraries you want to communicate with your systems, and then register
+these custom event types with Atomist so it can properly connect them
+with other events.
 
-[slack]: https://join.atomist.com/ (Atomist Community Slack)
-[composition]: https://the-composition.com/ (Atomist Blog)
-[twitter]: https://twitter.com/atomist (@atomist on Twitter)
+---
 
-We sincerely hope you enjoy using Atomist!
+## What next?
+
+-   If you're new to Atomist, visit the [Atomist web site][www] to
+    learn more about Atomist and how we can help you and your team
+    deliver better software faster.
+
+-   If you want to get started using Atomist, go to the [setup][] page
+    to get Atomist installed in your Slack team, authorized in GitHub,
+    and connected to your continuous integration system.
+
+-   If you already are using Atomist and are interested in writing
+    your own automations, go to the [automation overview][auto-over]
+    to learn how to create and run your own automations.
+
+[setup]: user/index.md (Atomist Setup)
+[auto-over]: developer/index.md (Atomist Automations)
