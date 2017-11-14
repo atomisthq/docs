@@ -35,16 +35,16 @@ Click the "Add to Slack" button below to invite the Atomist Bot into your Slack 
 
 Slack's default configuration allows all team members to add new Slack applications.
 However, your team's admins may decide to restrict the set of applications that can
-can be added in your team.  The [Permissions management page][manage-permissions] has
+can be added in your team.  The [permissions management page][manage-permissions] has
 an "Approved Apps" setting to control this.
 
 [manage-permissions]: https://slack.com/apps/manage/permissions
 
 ![Slack Approved Apps](img/ApprovedApps.png)
 
-If your team requires approval for new apps, and you are not a Slack
-admin, then Slack will you whether you'd like to request that the
-Atomist application be approved (Slack is really helpful here!).
+If your team requires approval for new apps and you're not a Slack
+admin, Slack helps you request approval from a Slack admin 
+to install the Atomist application.
 
 Currently the authorization process asks you to authorize two things:
 
@@ -54,23 +54,21 @@ Currently the authorization process asks you to authorize two things:
     platform.  Bot users cannot create channels, cannot
     join channels unless they are invited by a non-bot channel member,
     and cannot see messages in channels where they are not a
-    member.  In other words, a bot might join your team when an
-    authorization occurs, but it doesn't become a real part of your
-    team until it has been invited to channels.
+    member.
 2.  Atomist requests a scope called "Modify public channels".
-    This scope allows Atomist to help you setup channels to bring
-    information from external systems into Slack.  For example, when
-    you create a project in a new GitHub repo, Atomist can help you
-    direct events from that project into a new channel that only
-    people working on that project decide to join.  The Atomist app
+    This scope allows Atomist to help you setup channels.  For example, 
+    when you create a project in a new GitHub repo, Atomist can create 
+    a Slack channel to go with it.
+
+!!! Note
+    The Atomist app
     creates new channels on behalf of the user who first authorizes Atomist.
 
 ### Slack team ID
 
-Some operations, like [connecting your CI with Atomist][ci], require
-your Slack team ID, which the Atomist bot is happy to tell you.  Once
-you've added Atomist to your Slack team, invite the Atomist bot to a
-channel and send it the `team` message.
+Some operations, like [connecting your CI with Atomist][ci], need you to pass
+in your Slack team ID. To get your Slack team ID, send `team` to the Atomist
+bot. 
 
 ```
 you> /invite @atomist
@@ -78,8 +76,6 @@ you> @atomist team
 atomist> The Slack id for team your-slack-team is T1L0V3JTP
          16 of 24 users in this team have authorized themselves
 ```
-
-The bot's response tells you the Slack team ID is `T1L0V3JTP`.
 
 [ci]: #continuous-integration (Connecting Atomist with Continuous Integration Platforms)
 
@@ -102,15 +98,15 @@ team's channels.
 Atomist helps you work with GitHub in two ways:
 
 1.  By enabling webhooks, your automations can react to
-    GitHub activities such as Pushes, Pull Requests, or Issues.
-2.  Automations can expose Commands that access GitHub through
+    GitHub activities such as pushes, pull requests, or issues.
+2.  Automations can expose commands that access GitHub through
     the v3 api, authorized by OAuth tokens.
     Each user on your team must independently authorize Atomist --
     this means that your users remain within the boundaries
     of the existing GitHub security model.  Atomist acts on _behalf_ of
     your users, not _instead_ of them.
 
-### GitHub User authorization
+### GitHub user authorization
 
 When the Atomist bot first arrives in a team, it will send a Direct Message
 to the authorizing user, requesting that they authorize Atomist
@@ -134,10 +130,10 @@ status.
 
 ### Organization webhooks
 
-GitHub Organization members that have the [Owner role][owners], are allowed
+GitHub organization members that have the [owner role][owners], are allowed
 to configure Organization-wide webhooks.  This is convenient
 because it only has to be configured once;
-however, you will require a User who has the `Owner` role in
+however, you will require a user who has the `owner` role in
 your GitHub organization.
 
 ```
@@ -152,11 +148,11 @@ GitHub organization.
 ![GitHub Authorize Organization Webhook](img/authorize-org-hook.png)
 
 Since you might be a member of many GitHub organizations, Atomist may ask you to
-choose which Organization you are enrolling.
+choose which organization you are enrolling.
 
 ![Choose GitHub Organization](img/choose-org.png)
 
-Finally, you will be presented with a button to configure the Org-level webhook.
+Finally, you will be presented with a button to configure the org-level webhook.
 
 ![Install GitHub Webhook](img/install-webhook.png)
 
@@ -164,16 +160,16 @@ Finally, you will be presented with a button to configure the Org-level webhook.
 
 ### Repository webhooks
 
-If your team does not use a GitHub Organization account, then you can choose to
-configure webhooks on repositories owned by a User account.
+If your team does not use a GitHub organization account, then you can choose to
+configure webhooks on repositories owned by a user account.
 
 ```
 you> @atomist install webhook
 ```
 
-The bot will now ask for the `Owner` of the Repository.  This question will be
-skipped if there is only valid choice (your User account).  Second the bot will
-ask you to select the Repository to recieve the new webhook.
+The bot now asks for the `owner` of the repository.  This question is
+skipped if there is only valid choice (your user account).  Next the bot
+asks you to select the repository to receive the new webhook.
 
 <div style="text-align:center;">
   <img alt="Choose GitHub Repository" height="137" width="528" src="img/choose-repo.png" />
@@ -188,7 +184,8 @@ notifications in a Slack channel linked to the repository.  To enable
 this capability, just add the desired Atomist CI
 webhook URL to your CI configuration.
 
-In the examples below, replace `TEAM_ID` with your Slack team ID.
+!!! note
+    In the examples below, replace `TEAM_ID` with your Slack team ID.
 
 ### CircleCI
 
@@ -242,8 +239,8 @@ def notifyAtomist(buildStatus, buildPhase="FINALIZED",
 }
 ```
 
-Then call `notifyAtomist` when the build starts, e.g., in the first
-stage, and ends, i.e., in the `post` block, sending the appropriate
+Then call `notifyAtomist` when the build starts (here, in the first
+stage) and ends ( in the `post` block), sending the appropriate
 status and phase.
 
 -   Start: `notifyAtomist("STARTED", "STARTED")`
