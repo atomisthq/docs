@@ -30,6 +30,11 @@ Click the "Add to Slack" button below to invite the Atomist Bot into your Slack 
   </a>
 </div>
 
+<div align="center">
+  <a href="https://atm.st/2wiDlUe">
+    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+  </a>
+</div>
 
 Slack's default configuration allows team members to add new Slack applications.
 However, Slack admins may decide to configure restrictions on which new applications 
@@ -62,29 +67,7 @@ Currrently the authorization process asks you to authorize two things:
     people working on that project decide to join.  The Atomist app 
     creates new channels on behalf of the user who first authorizes Atomist.
 
-<div align="center">
-  <a href="https://atm.st/2wiDlUe">
-    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
-  </a>
-</div>
-
-## Authorize GitHub
-=======
-### De-authorize Atomist in your Slack team
-
-You can remove the bot from all your channels instantly
-by revoking access to the "Atomist" application.  We certainly hope it 
-doesn't come to this!
-
-The [App Manage page][slack-app-settings] has a "Remove App" button at
-the bottom of the page.  Please [let us know][support-email] if
-there's anything we can do to clarify how the bot works with your
-team's channels.
-
-org or single repository
-
-### Slack team IDs
->>>>>>> 4be6716ffe5c07358ccae8a452d54f7ef6dc1093
+### Check Slack team IDs
 
 Some operations need to know your Slack team ID, which the Atomist 
 bot is happy to tell you.  Once you've added Atomist to your Slack team,
@@ -99,13 +82,18 @@ atomist> The Slack id for team your-slack-team is T1L0V3JTP
 
 The above response tells you the Slack team ID is `T1L0V3JTP`.
 
-## Continuous Integration
-=======
-## GitHub
+## Authorize GitHub
 
-### Authorize GitHub
+### De-authorize Atomist in your Slack team
 
-org or single repository
+You can remove the bot from all your channels instantly
+by revoking access to the "Atomist" application.  We certainly hope it 
+doesn't come to this!
+
+The [App Manage page][slack-app-settings] has a "Remove App" button at
+the bottom of the page.  Please [let us know][support-email] if
+there's anything we can do to clarify how the bot works with your
+team's channels.
 
 ## Continuous integration
 
