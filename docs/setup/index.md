@@ -30,12 +30,6 @@ Click the "Add to Slack" button below to invite the Atomist Bot into your Slack 
   </a>
 </div>
 
-<div align="center">
-  <a href="https://atm.st/2wiDlUe">
-    <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
-  </a>
-</div>
-
 Slack's default configuration allows team members to add new Slack applications.
 However, Slack admins may decide to configure restrictions on which new applications 
 can be installed.  This "Approved Apps" setting is shown on the [Permissions management page][manage-permissions].
@@ -48,7 +42,7 @@ If your team requires approval for new apps, and you are not a Slack
 admin, Slack asks you whether you'd like to request that the
 Atomist application be approved (Slack is really helpful here!).
 
-Currrently the authorization process asks you to authorize two things:
+Currently the authorization process asks you to authorize two things:
 
 1.  The Atomist app adds a bot user named "@atomist" to your team.
     Your team can `\invite` the Atomist bot to channels in order to
@@ -79,8 +73,6 @@ you> @atomist team
 atomist> The Slack id for team your-slack-team is T1L0V3JTP
          16 of 24 users in this team have authorized themselves
 ```
-
-The above response tells you the Slack team ID is `T1L0V3JTP`.
 
 ## Authorize GitHub
 
@@ -162,7 +154,7 @@ Then call `notifyAtomist` when the build starts, e.g., in the first
 stage, and ends, i.e., in the `post` block, sending the appropriate
 status and phase.
 
--   Start: `notifyAtomist("STARTED", "STARTED")`
+-   Start: `notifyAtomist("STARTED")`
 -   Succesful: `notifyAtomist("SUCCESS")`
 -   Unstable: `notifyAtomist("UNSTABLE")`
 -   Failure: `notifyAtomist("FAILURE")`

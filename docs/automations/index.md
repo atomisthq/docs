@@ -24,8 +24,8 @@ thing.
 The development automation platform also provides a simple yet
 powerful interface for implementing custom chat bot commands.  Atomist
 provides all the infrastructure needed to recognize commands, collect
-parameters, execute the code, and respond back, letting you focus on
-writing your bot command code, not all the ceremony around it.
+parameters, execute the code, and respond. This lets you focus on
+writing your bot command code rather than the ceremony around it.
 
 The Atomist automation API can be accessed via any compliant client.
 The reference implementation of the client is open source, written
