@@ -58,10 +58,11 @@ markdown_extensions:
   - pymdownx.tilde
 # repo_name: Rug
 # repo_url: https://github.com/atomist/rug
+
 pages:
   - Introduction: index.md
-  - Setup: setup/index.md
-  - Automations:
+  - Using Atomist: setup/index.md
+  - Developer Guide:
       - Overview: automations/index.md
       - Prerequisites: automations/prerequisites.md
       - Quick Start: automations/quick-start.md
@@ -71,7 +72,6 @@ pages:
       - Working with GraphQL: automations/graphql.md
       - Automation Client: automations/client.md
       - Automation Projects: automations/project.md
-#      - Discovering Automations: automations/discovery.md
       - Running Automation Clients: automations/run.md
       - Move This: automations/create.md
   - Support: support.md
