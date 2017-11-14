@@ -7,6 +7,7 @@ addons:
   apt:
     packages:
     - libcurl3-dev
+    - s3cmd
 branches:
   except:
   - gh-pages
@@ -15,6 +16,9 @@ env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
   - secure: EO1TtdhykNQx7tj+sS5/EcGsyyfMRuw9Yci25h4Mpi6I9G4XOvZHE7kLmslTr9V+Fc9NojdgLjasFJYSDxZGblRfNcMvp6BLZlWNZKtJ6EqEB/UUjuxuuvVXCJI9LGzXfsIyuNf4jHnIuHeJ34cCfZgbbMzFB2a3zNf2XuXlskGKSAAYY7Eg2C1taVA8FZHuqUezpUHGXVcIUbWuzN++KSKznzDcQwGdgtqBF4R8iay+NdU3GG7IJYDkfsFshNbpRcmqP/HxmcDOYHMQzGzhEoCHyHL/8UzO3Zh2eVqa12yLAC3bbh6+2HN8YFEP70V5E4esArIkB1SmQIZrMfgfkmClOVbPx57VfvyTgihRU7p/lRN4exQ878r3PwdPFfpm4NtPQY+YWULWL4Zcnw64GjR0lR0sf8V6BDYXTYBHpY1ggBLrqIE+iJBlM3Fv59R4X+ePO31aiZ5XGyy4+it/NlFVWLp6QGIeq9YXoyuAosNhuCwaS7EsS+9UK43j4kSZwe8qVYaiyQDE7NmXwLihN5ps0+d4JhnADrVhfpqReXb/2S02HpQZXIE+vnRnVgtR9XbJABwX7a/u/TGpn+d90WLYSS5iZbQ/9NV6NFp8wmRU1RgEyYHt58l8AH6UTZ9afA0DeIBYJ/t8F70u2uqbMd8hUZIWR2400E5xlvGYFsU=
+before_install:
+- openssl aes-256-cbc -K $encrypted_68f27be61f88_key -iv $encrypted_68f27be61f88_iv
+  -in .s3cfg.enc -out $HOME/.s3cfg -d
 install:
 - pip install -r requirements.txt
 - bundle install
@@ -34,13 +38,20 @@ cache:
   pip: true
   directories:
   - "~/.rvm/gems"
+before_deploy:
+- touch site/.nojekyll
 deploy:
-  provider: releases
+- provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  local_dir: site
+  email: travis-ci@atomist.com
+  name: Atomist Travis CI
+  on:
+    branch: master
+- provider: releases
   api_key:
     secure: pyaxQjhyUN2Lr91v2jAbqBCd6G+e91zJvKxvkWRL+DQR0i0mnmUS04iTkB2uEykystixqVKT6XYif/S12NAH03SFFwrgiaSF8hQgNG9l40nLhE00/mnxajezFVp98vwivEs+2CSy8CTRhZw9H3yT6A5ja7dN+t7EyrFs1gfP8VKEoJyrEajkIh8nlELDmoISKcRPUlEqjMUm2Ve/axaQoxbu5JKJcpSJ+X8gwv5bFU0JpFtAZcsxu7KaDFgtujaKavzt+HiXvDgvcawpTzuAdoZBW0hEEbjmAOnbRd5RHpg+1mvbkOdP5Or5bfsrf6ohW994pGSmGi7mNsCB8SV0oEMBeVTVObqoKLAvN5QF49Zm4k95SurGJCDuG/JQbiDWUE203mA4vwZZE5i1FnkqR71U0ufKm1ERu5U6dSh8fQNQShHld+8nscrWb9QC7WTrd4kXVt2ZhexrKV1TYCzspuA12Dr2t/4FC/Pr9vj9nb8f/J53OcrXJvmYJcIxJnbhmK2mbhEYLT4TzoxNJpaucvzhYnV9ojBtNqauS75BtIZlu/mS+Sgq6RZME/7cnGmeQn8pPK3KyGDq2Iiv59JigbI3jcZqMcLiA67W7JR0YTOjTfNVHhf2TqKbaxMOOnlcPYzqA1853gCxoE8ek5QUy3zWehJRQQeumPU72uMt0j8=
-  skip_cleanup: true
   on:
     tags: true
     condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$"
-after_deploy:
-- bash deploy.bash atomisthq/atomisthq.github.io master

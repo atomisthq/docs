@@ -4,10 +4,10 @@
 
 This repository contains the markdown sources for the documentation
 for [Atomist][atomist].  You can find the current version of the
-Atomist documentation at [http://docs.atomist.com/][docs].
+Atomist documentation at [https://docs.atomist.com/][docs].
 
 [atomist]: https://www.atomist.com/
-[docs]: http://docs.atomist.com/
+[docs]: https://docs.atomist.com/
 
 The documentation is generated from markdown using [MkDocs][mkdocs].
 
@@ -84,26 +84,15 @@ Items on the same line create a visually equivalent admonition.
 
 ## Releasing
 
-When a push is made to this repository, the entire documentation is
-built again via a [Travis][travis] job and published to
-http://atomist.github.io/end-user-documentation/ .
+When a push is made to the master branch of this repository, the
+entire documentation is built again via a [Travis][travis] job and
+published to http://atomist.github.io/end-user-documentation/ .
 
 [travis]: https://travis-ci.com/atomisthq/end-user-documentation
 
-If the build is triggered by a tag of the form `M.N.P` and that same
-version is found in the [`VERSION`][version] file, the site will be
-pushed to the [Atomist GitHub Pages][pages] repository and served by
-GitHub at http://atomisthq.github.io and https://docs.atomist.com .
-
-[version]: VERSION
-[pages]: https://github.com/atomisthq/atomisthq.github.io
-
-You can publish the docs to the GitHub Pages branch of this repository
-manually from your local repository with the following command:
-
-```
-$ rm docs/CNAME && mkdocs gh-deploy && git checkout docs/CNAME
-```
+If the build is triggered by a tag of the form `M.N.P`, the site will
+be pushed to the docs.atomist.com S3 bucket hosting
+https://docs.atomist.com .
 
 ## Build and serve the documentation locally
 
