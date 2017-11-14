@@ -1,6 +1,7 @@
-Develop your first automations: a bot command and an event handler.  
+Develop your first automations: a bot command and an event handler.
 
 ## Set up
+
 First,
 {!prereq-items.md!}
 
@@ -13,9 +14,9 @@ To create a custom bot command, you need to provide:
 -   descriptions of your command's input parameters, and
 -   the code implementing your command.
 
-Atomist recognizes when someone invokes the bot command
-by sending the intent to the Atomist bot, then collects the required
-parameters, and invokes the code implementing your command.  
+Atomist recognizes when someone invokes the bot command by sending the
+intent to the Atomist bot, then collects the required
+parameters, and invokes the code implementing your command.
 
 This bot command searches [Stack Overflow][so] and replies with the results:
 
@@ -31,7 +32,7 @@ export class SearchStackOverflow implements HandleCommand {
         return axios.get(`${apiSearchUrl}${encodeURIComponent(this.q)}`)
             .then(res => this.handleResult(res, this.q))
             .then(msg => ctx.messageClient.respond(msg))
-            .then(() => Success, failure);
+            .then(success, failure);
     }
 }
 ```
@@ -47,8 +48,8 @@ First, clone the project containing the above code and all the
 necessary project files.
 
 ```
-git clone https://github.com/atomist-blogs/sof-command.git atomist/sof-command \
-    && cd atomist/sof-command
+git clone https://github.com/atomist-blogs/sof-command.git sof-command \
+    && cd sof-command
 ```
 
 Next install the project dependencies.
@@ -82,11 +83,13 @@ Atomist bot has been invited to and send the bot the command's intent.
 
 If you don't provide a value for the query parameter, the Atomist bot
 opens a thread and asks you to enter it.  You should get a response
-that looks something like this: 
+that looks something like this:
 
 ![Search Stack Overflow Results](img/search-so.png)
 
-Congratulations, you just created your own bot command!
+Congratulations, you just created your own bot command!  For more
+detailed information, see the full documentation
+for [commands][command].
 
 [slack]: slack.md (Atomist Automation Slack Messages)
 [so]: https://stackoverflow.com/ (Stack Overflow)
@@ -96,7 +99,7 @@ Congratulations, you just created your own bot command!
 ## Create an event handler
 
 Event handlers react to GitHub pushes, updates to issues, pull
-requests, or similar events.  
+requests, or similar events.
 
 To create an event handler, you provide:
 
@@ -108,6 +111,21 @@ to a repository - but only if the commit message contains
 a string like "Crushed #77!" Here's the code:
 
 ```typescript
+const Subscription = `
+subscription FindReferencedGitHubIssue {
+  Commit {
+    sha
+    message
+    repo {
+      owner
+      name
+      channels {
+        name
+      }
+    }
+  }
+}`;
+
 const Pattern = /[cC]rush(ed|ing)[\s]*#([0-9]*)/g;
 
 @EventHandler("Find referenced GitHub issues and PRs in commit message", Subscription)
@@ -125,7 +143,7 @@ export class FindReferencedGitHubIssue implements HandleEvent<Commits> {
                 ` \`${commit.repo.owner}/${commit.repo.name}@${commit.sha.slice(0, 7)}\``;
             const channels = commit.repo.channels.map(c => c.name);
             return ctx.messageClient.addressChannels(msg, channels)
-                .then(() => Success, failure);
+                .then(success, failure);
         } else {
             return Promise.resolve(Success);
         }
@@ -136,54 +154,25 @@ export class FindReferencedGitHubIssue implements HandleEvent<Commits> {
 As above, follow the standard procedure for getting a TypeScript/JavaScript going:
 
 ```
-git clone git@github.com:atomist-blogs/event-handler.git atomist/event-handler \
-    && cd atomist/event-handler \
+git clone git@github.com:atomist-blogs/event-handler.git event-handler \
+    && cd event-handler \
     && npm install \
     && npm run build \
     && npm start
 ```
 
-Next, trigger this event handler by making a commit in a
-repository that is linked to a Slack channel. The commit message
-should include the word "Crushed" followed by a reference to an issue
-in the form `#N`, replacing `N` with the number of the issue.  
+Next, trigger this event handler by making a commit in a repository
+that is linked to a Slack channel. The commit message should include
+the word "Crushed" followed by a reference to an issue in the form
+`#N`, replacing `N` with the number of the issue.
 
-Push that commit and the bot sends a message to the linked
-channel letting everyone know you crushed it!
+Push that commit and the bot sends a message to the linked channel
+letting everyone know you crushed it!
 
-Optionally, you can change the type of event you want to be notified 
-about by changing the [GraphQL subscription][subscription]:
+For more detailed information, see the full documentation
+for [events][event].
 
-```typescript
-const Subscription = `
-subscription FindReferencedGitHubIssue {
-  Commit {
-    sha
-    message
-    repo {
-      owner
-      name
-      channels {
-        name
-      }
-    }
-  }
-}`;
-```
-
-A GraphQL subscription begins with the keyword `subscription` followed
-by a name for the subscription, `FindReferencedGitHubIssue` in this
-case.  After the opening brace, you specify the type of the top-level
-event you are subscribing to, `Commit` in this example.  Your
-subscription then defines the structured data you want to receive for
-each such event, navigating the data model's properties and
-relationships to connect related data elements like commits,
-repositories, and chat channels.
-
-You can also change the event handler's `handle` method.
-The first argument to the `handle` method is the event, which will
-have the structure defined in the subscription.  Note that some
-elements may be `null`.
+<!--
 
 The `handle` code in this example
 
@@ -195,14 +184,13 @@ The `handle` code in this example
 -   Indicates that it successfully processed the event or sends a
     failure message
 
-Have fun!
+-->
 
 ## Dive in
 
 -   [Atomist Automation Overview][overview]
 -   [Commands][command]
 -   [Events][event]
-
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
 
@@ -213,4 +201,3 @@ Have fun!
 
 [subscription]: graphql.md#subscriptions
 [regex]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions (JavaScript Regular Expressions)
-

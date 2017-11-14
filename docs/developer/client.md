@@ -3,13 +3,63 @@ client [WebSocket][ws] connection.  WebSocket connections are
 persistent, providing bidirectional communication between the client
 and the API.  As such, the client process is a persistent process with
 a lifecycle that is more like a traditional _server_ process.  This
-section documents building and running an automation client and
-discusses each part of the client lifecycle.
+section documents creating, building, and running an automation
+client, discusses each part of the client lifecycle, and details the
+structure and organization of a typical automation client project.
 
 Before you can build and run your own automation client,
 {!prereq-items.md!}
 
 [ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
+
+## Creating a client project
+
+An automation client project is any project that connects to the
+Atomist development automation API.  The reference implementation of
+the automation client is the [automation-client-ts][client-ts]
+project, which is written in [TypeScript][ts].  The combination of
+TypeScript and [GraphQL][gql] provides an excellent development
+experience, with excellent tooling and debugging support.
+
+There are a few ways to create a new automation client project.  We
+suggest using the [automation-seed-ts][seed] project as a seed for
+your automation client project.
+
+[client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
+[ts]: https://www.typescriptlang.org/ (TypeScript)
+[gql]: http://graphql.org/ (GraphQL)
+[seed]: https://github.com/atomist/automation-seed-ts (Atomist Automation Client Seed Project)
+
+### Slack
+
+You can create your very own automation client project using the
+Atomist bot.  You can run this bot command, which itself is
+implemented as a command handler, with the following message to the
+Atomist bot:
+
+```
+@atomist generate automation
+```
+
+The bot will ask you where you want to create it, what you want to
+name it, and, once creation is complete, tell you where you can find
+it.
+
+### Command line
+
+You can use the Atomist CLI to create a new automation project from
+the automation-seed-ts project.  Run the following command, replacing
+`PROJECT_NAME` with the name of your new project.
+
+```
+atomist execute NewAutomation --name=PROJECT_NAME
+```
+
+### GitHub
+
+If you prefer the manual route, fixing up the project metadata
+yourself, you can always just fork the [automation-seed-ts][seed]
+project on GitHub.
 
 ## Building a client
 
@@ -30,7 +80,6 @@ running tests.
 npm run build
 ```
 
-[ts]: https://www.typescriptlang.org/ (TypeScript)
 [node]: https://nodejs.org/en/ (Node.js)
 
 ## Client configuration
@@ -177,3 +226,104 @@ persistent applications.
     de-registers with the API and gracefully shuts down.
 
 [token]: prerequisites.md#github-token
+
+## Project structure
+
+Automation client projects are organized and behave like any standard
+TypeScript project.
+
+### package.json
+
+The `package.json` file defines the metadata and dependencies for the
+project.  In addition, this file defines the standard "NPM package
+scripts", i.e., `npm run` commands, typically available in Node.js
+projects.  Here's a summary of the NPM package scripts available in
+most automation client projects.
+
+Command | Description
+------- | ------
+`npm install` | install all the required packages
+`npm run autostart` | run the client, refreshing when files change
+`npm run autotest` | run tests every time files change
+`npm run build` | lint, compile, and test
+`npm run clean` | remove stray compiled JavaScript files and build directory
+`npm run compile` | compile all TypeScript into JavaScript
+`npm run fmt` | run tsfmt on TypeScript files
+`npm run lint` | run tslint against the TypeScript
+`npm run lint:fix` | run `tslint --fix` against the TypeScript
+`npm start` | start the Atomist automation client
+`npm test` | run tests
+
+### build
+
+The `build` directory contains the JavaScript sources output from
+TypeScript compilation.
+
+### config
+
+The `config` directory is optional, used only when you use
+the [config][config-js] Node.js package.
+
+[config-js]: https://www.npmjs.com/package/config (Node-config)
+
+### graphql
+
+The `graphql` directory contains `.graphql` files defining
+your [GraphQL][gql] queries, subscriptions, and mutations.  This
+directory is optional, as you can define your GraphQL in strings
+within the source code.  That said, it is recommended that you define
+your GraphQL in `.graphql` files so you can realize the full benefit
+of its type bindings in TypeScript.
+
+### node_modules
+
+The `node_modules` directory contains all the project dependencies, as
+defined in the `package.json` and installed by NPM.
+
+### scripts
+
+The `scripts` directory contains various ancillary scripts.  For
+example, this directory might have scripts for building the project on
+CI, publishing the project as an Node.js package, and publishing the
+project's [TypeDoc][typedoc].
+
+[typedoc]: http://typedoc.org/ (TypeDoc)
+
+### src
+
+The `src` directory contains the TypeScript source code.
+
+#### atomist.config.ts
+
+The `atomist.config.ts` file contains automation client
+project-specific configuration.
+See [Client Configuration][client-config] for more details.
+
+[client-config]: client.md#client-configuration (Atomist Automation Client Configuration)
+
+#### commands
+
+The `src/commands` directory contains the source code for commands.
+
+#### events
+
+The `src/events` directory contains the source code for event
+handlers.
+
+#### typings
+
+The `src/typings` directory contains the auto-generated TypeScript
+types for your GraphQL queries, subscriptions, and mutations.
+
+### test
+
+The `test` directory contains the automated tests for the project.
+Typically these are unit tests written using [mocha][]
+and [power-assert][].
+
+[mocha]: https://mochajs.org/ (Mocha)
+[power-assert]: https://github.com/power-assert-js/power-assert#readme (power-assert)
+
+<!--
+## Debugging with Visual Studio Code
+-->

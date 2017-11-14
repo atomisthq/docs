@@ -1,7 +1,7 @@
 Before you begin developing and running your own automations, you need
 to have Atomist [set up in your Slack team][setup].
 
-[setup]: ../setup/index.md (Atomist Setup)
+[setup]: ../user/index.md (Atomist Setup)
 
 ## Node.js
 

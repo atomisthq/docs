@@ -8,13 +8,13 @@ theme:
   name: material
   favicon: 'img/favicon.ico'
   logo: img/atomist-logo-horiz-reversed.svg
-extra:
   palette:
-    primary: green
-    accent: green
+    primary: blue grey
+    accent: blue
   font:
     text: Roboto
     code: Roboto Mono
+extra:
   social:
     - type: medium
       link: https://the-composition.com/
@@ -61,17 +61,16 @@ markdown_extensions:
 
 pages:
   - Introduction: index.md
-  - Using Atomist: setup/index.md
+  - Using Atomist: user/index.md
   - Developer Guide:
-      - Overview: automations/index.md
-      - Prerequisites: automations/prerequisites.md
-      - Quick Start: automations/quick-start.md
-      - Commands: automations/commands.md
-      - Events: automations/events.md
-      - Slack Messages: automations/slack.md
-      - Working with GraphQL: automations/graphql.md
-      - Automation Client: automations/client.md
-      - Automation Projects: automations/project.md
-      - Running Automation Clients: automations/run.md
-      - Move This: automations/create.md
+      - Overview: developer/index.md
+      - Prerequisites: developer/prerequisites.md
+      - Quick Start: developer/quick-start.md
+      - Commands: developer/commands.md
+      - Events: developer/events.md
+      - Slack Messages: developer/slack.md
+      - Working with GraphQL: developer/graphql.md
+      - Automation Client: developer/client.md
+      - Running Automation Clients: developer/run.md
+      - Move This: developer/create.md
   - Support: support.md

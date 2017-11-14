@@ -24,8 +24,9 @@ thing.
 The development automation platform also provides a simple yet
 powerful interface for implementing custom chat bot commands.  Atomist
 provides all the infrastructure needed to recognize commands, collect
-parameters, execute the code, and respond. This lets you focus on
-writing your bot command code rather than the ceremony around it.
+parameters, execute the code, and respond.  This lets you focus on
+writing your bot command code, not boilerplate code and ceremony
+around running bots.
 
 The Atomist automation API can be accessed via any compliant client.
 The reference implementation of the client is open source, written
@@ -48,7 +49,6 @@ implementing your own automations.
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
 [aac]: https://www.npmjs.com/package/@atomist/automation-client (Atomist Automation Client Node Module)
-
 
 ![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
 
@@ -105,8 +105,7 @@ automations.
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
--   Building and starting an [automation client][client]
--   Understanding the anatomy of an [automation client project][project]
+-   Creating, building, and starting an [automation client][client]
 -   [Running an automation client][run].
 
 Once you've finished this section, you'll have everything
@@ -120,5 +119,4 @@ processes.
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [client]: client.md (Atomist Automation Client)
-[project]: project.md (Atomist Automation Client Project)
 [run]: run.md (Running an Atomist Automation Client)

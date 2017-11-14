@@ -124,17 +124,29 @@ subscription PushesWithFailedBuilds {
 }
 ```
 
+A GraphQL subscription begins with the keyword `subscription` followed
+by a name for the subscription, `PushesWithFailedBuilds` in this case.
+After the opening brace, you specify the type of the top-level event
+you are subscribing to, `Push` in this example.  Your subscription
+then defines the structured data you want to receive for each such
+event, navigating the data model's properties and relationships to
+connect related data elements like pushes, repositories, and CI
+builds.
+
+To use the above GraphQL subscription in an event handler, use the
+`subscriptionFromFile` method:
+
 ```typescript
 import * as GraphQL from "@atomist/automation-client/graph/graphQL";
 
 @EventHandler("Notify on broken builds",
     GraphQL.subscriptionFromFile("pushesWithFailedBuilds", __dirname))
-export class FailedBuildHandler implements HandleEvent<any>
+export class FailedBuildHandler implements HandleEvent<any> { ... }
 ```
 !!! note
     `GraphClient.executeQueryFromFile` and `GraphQL.subscriptionFromFile`
     take an optional `current` parameter. If omitted, Atomist tries to
-    load GraphQL files from a `./graphql/` directory in the root of your
+    load GraphQL files from a `graphql` directory in the root of your
     automation client project.
 
     When specifying the filename, the `.graphql` extension is optional.

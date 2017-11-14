@@ -13,9 +13,13 @@
 	}
 </script>
 
-This is a step by step guide to setting up Atomist's built-in automations to see and control your development flow from [Slack][slack]. To write your own automations, see [Quick Start] or the full [Developer Guide]
+This is a step by step guide to setting up Atomist's built-in
+automations to see and control your development flow
+from [Slack][slack].  To write your own automations, see the
+full [Developer Guide][dev].
 
 [slack]: https://slack.com/ (Slack)
+[dev]: ../developer/index.md (Atomist Developer Guide)
 
 ## Slack
 
@@ -23,7 +27,7 @@ This is a step by step guide to setting up Atomist's built-in automations to see
 
 Click the "Add to Slack" button below to invite the Atomist Bot into your Slack team.
 
-<div class="ss-container">
+<div style="text-align:center">
   <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
     <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
   </a>
@@ -61,11 +65,12 @@ Currently the authorization process asks you to authorize two things:
     people working on that project decide to join.  The Atomist app
     creates new channels on behalf of the user who first authorizes Atomist.
 
-### Check Slack team IDs
+### Slack team ID
 
-Some operations need to know your Slack team ID, which the Atomist
-bot is happy to tell you.  Once you've added Atomist to your Slack team,
-invite the Atomist bot to a channel and send it the `team` message.
+Some operations, like [connecting your CI with Atomist][ci], require
+your Slack team ID, which the Atomist bot is happy to tell you.  Once
+you've added Atomist to your Slack team, invite the Atomist bot to a
+channel and send it the `team` message.
 
 ```
 you> /invite @atomist
@@ -74,7 +79,9 @@ atomist> The Slack id for team your-slack-team is T1L0V3JTP
          16 of 24 users in this team have authorized themselves
 ```
 
-The above response tells you the Slack team ID is `T1L0V3JTP`.
+The bot's response tells you the Slack team ID is `T1L0V3JTP`.
+
+[ci]: #continuous-integration (Connecting Atomist with Continuous Integration Platforms)
 
 ### Removing Atomist from Slack
 
@@ -125,7 +132,7 @@ you> @atomist github
 Atomist will send a direct message to this user with their current Authorization
 status.
 
-### Org-level Web Hooks
+### Organization web hooks
 
 GitHub Organization members that have the [Owner role][owners], are allowed
 to configure Organization-wide web hooks.  This is convenient
@@ -155,7 +162,7 @@ Finally, you will be presented with a button to configure the Org-level webhook.
 
 [owners]: https://help.github.com/articles/permission-levels-for-an-organization/
 
-### Repo-level Web Hooks
+### Repository web hooks
 
 If your team does not use a GitHub Organization account, then you can choose to
 configure web hooks on repositories owned by a User account.
@@ -237,7 +244,7 @@ Then call `notifyAtomist` when the build starts, e.g., in the first
 stage, and ends, i.e., in the `post` block, sending the appropriate
 status and phase.
 
--   Start: `notifyAtomist("STARTED")`
+-   Start: `notifyAtomist("STARTED", "STARTED")`
 -   Succesful: `notifyAtomist("SUCCESS")`
 -   Unstable: `notifyAtomist("UNSTABLE")`
 -   Failure: `notifyAtomist("FAILURE")`

@@ -221,7 +221,7 @@ The available Mapped Parameters are:
 !!! note
     Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
 
-## Command Examples
+## Examples
 
 Here are some examples of simple [commands](commands.md).
 
@@ -229,9 +229,9 @@ Here are some examples of simple [commands](commands.md).
 
 Call endpoints on the internet or in your internal network, anywhere accessible where your own automation client is running.
 
-Check out a 
+Check out a
 [very simple HTTP example](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloHttp.ts),
- or a more complicated one that 
+ or a more complicated one that
  [Searches Stack Overflow](https://github.com/atomist-blogs/sof-command/blob/master/src/commands/SearchStackOverflow.ts).
 
 ### Respond
@@ -246,10 +246,10 @@ return context.messageClient.respond("I hear you.")
 
 ### Send a message to a Slack channel
 
-Send a message to the channel you specify. 
+Send a message to the channel you specify.
 [Here's a simple handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloChannel.ts).
 
-I use to send messages from automations under development to a particular Slack channel 
+I use to send messages from automations under development to a particular Slack channel
 that serves as an informal audit log.
 
 ### Send a direct message
@@ -262,27 +262,35 @@ return context.messageClient.addressUsers("ping","jessitron")
            .then(success)
 ```
 
-### Send a message that's more than text
+### Send a formatted message
 
-All of the messageClient methods (`respond`, `addressChannels`, `addressUsers`) 
-accept either a string or Slack message object.
-Learn about formatting options on [Slack's message builder page](https://api.slack.com/docs/messages/builder?msg=%7B%22text%22%3A%22These%20are%20a%20few%20of%20my%20favorite%20things%3A%22%2C%22attachments%22%3A%5B%7B%22fallback%22%3A%22my%20favorite%20vegetable%20is%20carrots%22%2C%22title%22%3A%22Vegetable%22%2C%22color%22%3A%22%23ffa500%22%2C%22text%22%3A%22carrots%22%7D%2C%7B%22fallback%22%3A%22my%20favorite%20coffee%22%2C%22title%22%3A%22Coffee%20Drink%22%2C%22title_link%22%3A%22https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCappuccino%22%2C%22color%22%3A%226f4e37%22%2C%22text%22%3A%22cappuccino%20%3Acoffee%3A%22%7D%5D%7D).
+All of the messageClient methods (`respond`, `addressChannels`,
+`addressUsers`) accept either a string or Slack message object.  Learn
+about formatting options
+on [Slack's message builder page][slack-query].
 
-Find full information about all the options under [Slack Messages](slack.md), including how to add buttons.
+[slack-query]: https://api.slack.com/docs/messages/builder?msg=%7B%22text%22%3A%22These%20are%20a%20few%20of%20my%20favorite%20things%3A%22%2C%22attachments%22%3A%5B%7B%22fallback%22%3A%22my%20favorite%20vegetable%20is%20carrots%22%2C%22title%22%3A%22Vegetable%22%2C%22color%22%3A%22%23ffa500%22%2C%22text%22%3A%22carrots%22%7D%2C%7B%22fallback%22%3A%22my%20favorite%20coffee%22%2C%22title%22%3A%22Coffee%20Drink%22%2C%22title_link%22%3A%22https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCappuccino%22%2C%22color%22%3A%226f4e37%22%2C%22text%22%3A%22cappuccino%20%3Acoffee%3A%22%7D%5D%7D (Slack API Message Builder)
+
+Find full information about all the options
+under [Slack Messages](slack.md), including how to add buttons.
 
 <!-- TODO: describe a command that queries the graph. -->
 
 ### Make a code change
 
-Atomist lets developers automate their work, and that includes changing code.
- The `@atomist/automation-client` module that you can find in your automation client has tools for 
- creating and editing projects.
+Atomist lets developers automate their work, and that includes
+changing code.  The `@atomist/automation-client` module that you can
+find in your automation client has tools for creating and editing
+projects.
 
 For instance, you might want to:
 
 #### Add a file to a repository
 
-[This example](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/editor/AddContributing.ts) adds a CONTRIBUTING.md file to one repository, with organization-standard content.
+[This example][ex-add-file] adds a `CONTRIBUTING.md` file to one
+repository, with organization-standard content.
+
+[ex-add-file]: https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/editor/AddContributing.ts (Command - Add File)
 
 #### Change the content of a file in all repositories
 
@@ -318,25 +326,27 @@ adds a collaborator
 
 ### Commands in the wild
 
-There's a repository full of sample automations [here][samples-ts].
+There's a [repository full of sample automations][samples-ts] with
+example commands, including editors and generators.
 
-The built-in GitHub and build notifications, along with commands like `create issue`,
-live in [lifecycle-automations][lifecycle].
+The built-in GitHub and build notifications, along with commands like
+`create issue`, live in [lifecycle-automation][lifecycle].
 
-One handy command for automation developers runs tslint in a Docker container. You'll find it in the [docker samples][docker-samples].
+One handy command for automation developers runs tslint in a Docker
+container for every push to a TypeScript repository.  You'll find it
+in the [docker samples][docker-samples].
 
 [Tell us](https://join.atomist.com) about yours!
 
-*  [samples-ts](https://github.com/atomist/automation-client-samples-ts) has commands and events, including editors and generators.
-*  [docker-samples](https://github.com/atomist/automation-client-samples-ts-docker) runs tslint on every commit, and is set up for Docker
-*  [lifecycle](https://github.com/atomist/lifecycle-automation) has Atomist's built-in automations around commits, builds, issues, etc.
-
+[samples-ts]: https://github.com/atomist/automation-client-samples-ts (Atomist Automation Client Sample Automations)
+[lifecycle]: https://github.com/atomist/lifecycle-automation (Atomist's Built-In Lifecycle Automations)
+[docker-samples]: https://github.com/atomist/automation-client-samples-ts-docker (Atomist Docker Automation Client Samples)
 
 ## Testing
 
 You can test command handlers the same way you test any TypeScript
 class.
-[A client doc](https://github.com/atomist/automation-client-ts/blob/master/docs/CommandTesting.md) describes the Atomist team's testing style for commands, but there are many ways to test. 
+[A client doc](https://github.com/atomist/automation-client-ts/blob/master/docs/CommandTesting.md) describes the Atomist team's testing style for commands, but there are many ways to test.
 If you already have a favorite TypeScript or JavaScript testing style and framework, use that.
 
 You can also test command handlers by hand: run the client locally and
