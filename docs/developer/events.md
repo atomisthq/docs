@@ -77,8 +77,7 @@ event handler.
 ## Event handler structure
 
 Here is a complete event handler that listens for new issues and
-notifies you. This puts together a lot of pieces that you may have
-already seen in the [Quick Start](quick-start.md).
+notifies you.
 
 ```typescript
 import { EventHandler } from "@atomist/automation-client/decorators";
@@ -236,13 +235,13 @@ not necessarily the happy path.
 
 ### Respond to new commits
 
-When commits are pushed to GitHub, a Push event is triggered. 
+When commits are pushed to GitHub, a Push event is triggered.
 
-For instance, Atomist can run a linter with autofix, and commit the result back to the branch! We run 
+For instance, Atomist can run a linter with autofix, and commit the result back to the branch! We run
 [this handler](https://github.com/atomist/automation-client-samples-ts-docker/blob/master/src/handlers/PushToTsLinting.ts)
 in our teams.
 
-This 
+This
 [simple handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/events/NotifyOnPush.ts)
 sends a message in Slack about a push.
 
@@ -250,11 +249,11 @@ sends a message in Slack about a push.
 
 [This handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/events/CommentOnIssue.ts)
 also watches for new or updated GitHub issues. It makes a comment on issues created by you, the runner of the automation
-client. 
+client.
 
 ### React to a failed build
 
-One of Atomist's built-in automations sends a DM to the person whose commit 
+One of Atomist's built-in automations sends a DM to the person whose commit
 [failed a build.](https://github.com/atomist/lifecycle-automation/blob/master/src/handlers/event/build/NotifyPusherOnBuild.ts)
 
 ## Troubleshooting
@@ -264,7 +263,7 @@ After unit testing your logic, your best source of information is the log of you
 ### My event didn't arrive
 First, check that your registration completed successfully in the client logs at startup.
 
-Run your query in GraphiQL to verify that your event arrived to Atomist. Try adding order-by-timestamp arguments to the 
+Run your query in GraphiQL to verify that your event arrived to Atomist. Try adding order-by-timestamp arguments to the
 top of the query, to see the most recent events that came in.
 
 ```graphql

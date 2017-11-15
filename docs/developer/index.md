@@ -94,10 +94,6 @@ automations.
 
 -   [Setting up your system][prereq] to develop and run
     automations
--   Getting your [first automations running][quick]
-
-### Write your own automations
-
 -   [Commands][command]
 -   [Events][event]
 
@@ -113,7 +109,6 @@ you need to eliminate the pain points in your development and delivery
 processes.
 
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
-[quick]: quick-start.md (Atomist Automation Quick Start)
 [command]: commands.md (Atomist Command Automations)
 [event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)
