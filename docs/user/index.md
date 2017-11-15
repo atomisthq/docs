@@ -152,7 +152,7 @@ choose which organization you are enrolling.
 
 ![Choose GitHub Organization](img/choose-org.png)
 
-Finally, you will be presented with a button to configure the org-level webhook.
+Finally, you will be presented with a button to configure the organization webhook.
 
 ![Install GitHub Webhook](img/install-webhook.png)
 
@@ -168,7 +168,7 @@ you> @atomist install webhook
 ```
 
 The bot now asks for the `owner` of the repository.  This question is
-skipped if there is only valid choice (your user account).  Next the bot
+skipped if there is only one valid choice (your user account).  Next the bot
 asks you to select the repository to receive the new webhook.
 
 <div style="text-align:center;">
@@ -239,8 +239,8 @@ def notifyAtomist(buildStatus, buildPhase="FINALIZED",
 }
 ```
 
-Then call `notifyAtomist` when the build starts (here, in the first
-stage) and ends ( in the `post` block), sending the appropriate
+Then call `notifyAtomist` when the build starts (in the first
+stage) and ends (in the `post` block), sending the appropriate
 status and phase.
 
 -   Start: `notifyAtomist("STARTED", "STARTED")`
