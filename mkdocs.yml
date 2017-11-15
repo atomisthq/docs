@@ -62,15 +62,15 @@ markdown_extensions:
 pages:
   - Introduction: index.md
   - Using Atomist: user/index.md
+  - Quick Start: developer/quick-start.md
   - Developer Guide:
       - Overview: developer/index.md
       - Prerequisites: developer/prerequisites.md
-      - Quick Start: developer/quick-start.md
       - Commands: developer/commands.md
       - Events: developer/events.md
       - Slack Messages: developer/slack.md
       - Working with GraphQL: developer/graphql.md
+      - Creating Projects: developer/create.md
       - Automation Client: developer/client.md
       - Running Automation Clients: developer/run.md
-      - Move This: developer/create.md
   - Support: support.md
