@@ -19,10 +19,10 @@ In this guide you'll create MyCommandHandler, which responds to "do my thing".
 
 ## Command handler
 
-Command handlers are classes with a `handle` method
- and some decorators that supply metadata.
-Store them anywhere in the `src` directory;
-your automation client discovers them on startup. (Or [specify them yourself](client.md#client-configuration).)
+Command handlers are classes with a `handle` method and some
+decorators that supply metadata.  Store them anywhere in the `src`
+directory; your automation client discovers them on startup
+(or [specify them yourself](client.md#client-configuration)).
 
 You can add a class to any file,
 or make a new TypeScript file anywhere in the `src` directory,
@@ -32,13 +32,16 @@ Start by copying the content of
 [the HelloWorld sample](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloWorld.ts)
 into a new file to start with.
 
-A command handler class implements `HandleCommand`,
-with a `handle` method, and is decorated with `@CommandHandler`.
- It can also contain [parameter specifications](#parameters)
-  to gather additional information.
+A command handler class implements `HandleCommand`, with a `handle`
+method, and is decorated with `@CommandHandler`.  It can also
+contain [parameter specifications](#parameters) to gather additional
+information.
 
-The `@CommandHandler(description: string, intent: string)` decorator on the class adds the top-level metadata that Atomist needs to run your command handler.
-The `intent` parameter is important: it's the phrase people type in Slack to trigger this handler. Your `description` will show up in help messages.
+The `@CommandHandler(description: string, intent: string)` decorator
+on the class adds the top-level metadata that Atomist needs to run
+your command handler.  The `intent` parameter is important: it's the
+phrase people type in Slack to trigger this handler. Your
+`description` will show up in help messages.
 
 Implement your automation in the `handle` method.
 
@@ -64,7 +67,8 @@ export class MyCommandHandler implements HandleCommand {
 
 ### Handler arguments
 
-The `handle` method receives a `HandlerContext` [LINK to API docs if we have those?)]. It contains the following useful members:
+The `handle` method receives a [`HandlerContext`][handler-context]. It
+contains the following useful members:
 
 -   `messageClient: MessageClient` lets you send Slack messages from
     the Atomist bot.  You can send messages to
@@ -78,6 +82,8 @@ The `handle` method receives a `HandlerContext` [LINK to API docs if we have tho
 
 When you need more information, define [parameters](#parameters)
 in your command handler.
+
+[handler-context]: https://atomist.github.io/automation-client-ts/interfaces/_handlercontext_.handlercontext.html (Reference Documentation - Handler Context)
 
 ### Handler return
 
@@ -176,11 +182,11 @@ public animal: string = "armadillo";
 
 You can define:
 
-| field | meaning |
+| Field | Meaning |
 | ----- | ------- |
 | pattern | If you want to validate values, pass a `RegExp`. It must start with `^` and end with `$` so that it covers the whole value. Default: `/^[\S\s]*$/` for "anything" |
 | required | set this to `false` if the parameter is optional. If you supply a default value for the field, we'll automatically set required to `false`! |
-| description | the Slack or Dashboard user will see this when they're prompted for the parameter. [TODO | is that true about the dashboard?] |
+| description | the Slack or Atomist dashboard user will see this when they're prompted for the parameter. |
 | displayName | defaults to the name of the field you're decorating |
 | validInput | if you supplied a pattern, you may also want to describe in words what input is valid. |
 | displayable | If `false`, hide this parameter from the user before when prompting them to submit. For instance, sometimes buttons include cryptic internal identifiers. |
@@ -212,14 +218,17 @@ The available Mapped Parameters are:
 | MappedParameters.SlackChannelName | The name of the channel where the command was invoked. |
 | MappedParameters.SlackChannel | The ID of the channel where the command was invoked. For instance: C3NGYQF6Y |
 | MappedParameters.SlackTeam | The ID of your Slack team. For instance: T6MFSPUDL |
-| MappedParameters.GitHubRepository | If the command was invoked in a channel linked[LINK] to exactly one repository, this is the name of it. Otherwise, prompt for one of the repository names in your team. |
-| MappedParameters.GitHubOwner | If your team has one linked organization[LINK], this is it. If the command was invoked in a channel linked[LINK] to exactly one repository, this is the owner of that repository. Otherwise, prompt for one of the organizations linked to your team. |
+| MappedParameters.GitHubRepository | If the command was invoked in a [channel linked to exactly one repository][repo-link], this is the name of it. Otherwise, prompt for one of the repository names in your team. |
+| MappedParameters.GitHubOwner | If your team has one [linked organization][github-org], this is it. If the command was invoked in a [channel linked to exactly one repository][repo-link], this is the owner of that repository. Otherwise, prompt for one of the organizations linked to your team. |
 | MappedParameters.GitHubUrl | This is https://github.com unless you're on GitHub Enterprise. |
 | MappedParameters.GitHubApiUrl | This is https://api.github.com unless you're on GitHub Enterprise. |
 | MappedParameters.GitHubDefaultRepositoryVisibility | our best guess for whether you prefer to create new repositories as "public" or "private". |
 
 !!! note
     Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
+
+[repo-link]: ../user/index.md#linking-slack-github (Link GitHub Repository to Slack Channel)
+[github-org]: ../user/index.md#organization-webhooks (Link GitHub Organization to Atomist)
 
 ## Examples
 
@@ -378,8 +387,9 @@ If you can't tell, consider changing the name of your automation client
 (in package.json) to something you'll recognize.
 
 If your automation client is listed but your automation is not,
-perhaps it is not included in `atomist.config.ts`.
-See command discovery [LINK].
+perhaps it is not included in [`atomist.config.ts`][client-config].
+
+[client-config]: client.md#client-configuration
 
 ### Command was invoked unsuccessfully
 

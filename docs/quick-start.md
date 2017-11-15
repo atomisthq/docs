@@ -109,16 +109,19 @@ git clone git@github.com:atomist-blogs/event-handler.git event-handler \
     && npm start
 ```
 
-Next, trigger this event handler by making a commit in a repository
-that is linked to a Slack channel. The commit message should include
-the word "Crushed" followed by a reference to an issue in the form
-`#N`, replacing `N` with the number of the issue.
+Next, trigger this event handler by making a commit in
+a [repository that is linked to a Slack channel][repo-link]. The
+commit message should include the word "Crushed" followed by a
+reference to an issue in the form `#N`, replacing `N` with the number
+of the issue.
 
 Push that commit and the bot sends a message to the linked channel
 letting everyone know you crushed it!
 
 For more detailed information about customizing event handling, see the full documentation
 for [events][event].
+
+[repo-link]: user/index.md#linking-slack-github (Link GitHub Repository to Slack Channel)
 
 ## Dive in
 
