@@ -162,9 +162,11 @@ mutations available to handlers in automation clients.
 | `createSlackChannel` | Create a new public channel in Slack |
 | `addBotToSlackChannel` | Invite the Atomist bot user into the given channel |
 | `inviteUserToSlackChannel` | Invite any user into the given channel |
-| `linkSlackChannelToRepo` | Link a repository to a Slack channel |
+| `linkSlackChannelToRepo` | [Link a GitHub repository to a Slack channel][repo-link] |
 | `setTeamPreference` | Set preference data on the team entity |
 | `setUserPreference` | Set preference data on the user entity |
+
+[repo-link]: ../user/index.md#linking-slack-github (Link GitHub Repository to Slack Channel)
 
 Like queries, mutations can be loaded from files and executed with the
 `GraphClient`. Here is an example showing how to create a new channel in Slack.
