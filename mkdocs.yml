@@ -58,11 +58,10 @@ markdown_extensions:
   - pymdownx.tilde
 # repo_name: Rug
 # repo_url: https://github.com/atomist/rug
-
 pages:
   - Introduction: index.md
   - Using Atomist: user/index.md
-  - Quick Start: developer/quick-start.md
+  - Developer Quick Start: quick-start.md
   - Developer Guide:
       - Overview: developer/index.md
       - Prerequisites: developer/prerequisites.md

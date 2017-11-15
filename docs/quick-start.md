@@ -2,8 +2,27 @@ Develop your first automations: a bot command and an event handler.
 
 ## Set up
 
-First,
-{!prereq-items.md!}
+First, be sure someone in your Slack team has completed
+the [setup][setup].  Then, install [Node.js][node]
+
+```
+brew install node
+```
+
+install the Atomist CLI
+
+```
+npm install -g @atomist/automation-client
+```
+
+and configure Atomist on your local system
+
+```
+atomist config
+```
+
+[setup]: user/index.md (Atomist Setup)
+[node]: https://nodejs.org (Node.js)
 
 ## Bot commands
 
@@ -65,11 +84,11 @@ Congratulations, you just ran your own bot command!  For more
 detailed information about writing your own commands, see the full documentation
 for [commands][command].
 
-[slack]: slack.md (Atomist Automation Slack Messages)
+[slack]: developer/slack.md (Atomist Automation Slack Messages)
 [so]: https://stackoverflow.com/ (Stack Overflow)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [axios]: https://www.npmjs.com/package/axios (Axios HTTP Client)
-[client]: client.md (Atomist Automation Client)
+[client]: developer/client.md (Atomist Automation Client)
 
 ## Handling events
 
@@ -109,7 +128,7 @@ for [events][event].
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
 
-[overview]: index.md (Atomist Automation Overview)
-[command]: commands.md (Atomist Command Automations)
-[event]: events.md (Atomist Event Automations)
-[graphql-api]: graphql.md (Atomist Automation GraphQL)
+[overview]: developer/index.md (Atomist Automation Overview)
+[command]: developer/commands.md (Atomist Command Automations)
+[event]: developer/events.md (Atomist Event Automations)
+[graphql-api]: developer/graphql.md (Atomist Automation GraphQL)
