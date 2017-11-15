@@ -320,7 +320,7 @@ that copies a sample automation client into your own repository.
 
 Once the repository is created, you can do things like add collaborators, teams, or labels to bring the
 GitHub repository to your standards. For examples, the Atomist
-[Spring Initializr generator](https://github.com/atomist/initializr-atomist/blob/master/src/commands/generator/initializr/RepoCreator.ts)
+[Spring generator](https://github.com/atomist/initializr-atomist/blob/1b90f78f31ec157489f6e6d53a0ccb7372e0e53d/src/commands/generator/initializr/SpringRepoCreator.ts#L56)
 adds a collaborator
 (and accepts the invitation) as part of project creation.
 
