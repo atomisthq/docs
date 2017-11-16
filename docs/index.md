@@ -86,7 +86,7 @@ Examples of commands include the bot command `create issue` and the
 "merge pull request" command that users invoke by pressing a button in
 Slack.
 
-[command]: developer/commands.md (Commands)
+[command]: developer/commands.md (Atomist - Commands)
 
 ### Events
 
@@ -104,7 +104,7 @@ Kubernetes deployment results in a pod crash looping, providing an
 automation that automatically rolls that deployment back and notifies
 the committers of the failure.
 
-[event]: developer/events.md (Events)
+[event]: developer/events.md (Atomist - Events)
 
 ### Integrations
 
@@ -131,13 +131,17 @@ with other events.
     learn more about Atomist and how we can help you and your team
     deliver better software faster.
 
--   If you want to get started using Atomist, go to the [setup][] page
-    to get Atomist installed in your Slack team, authorized in GitHub,
-    and connected to your continuous integration system.
+-   If you want to get started using Atomist, go to
+    the [Using Atomist][user] page to get Atomist installed in your
+    Slack team, authorized in GitHub, and connected to your continuous
+    integration system.
 
 -   If you already are using Atomist and are interested in writing
-    your own automations, go to the [automation overview][auto-over]
-    to learn how to create and run your own automations.
+    your own automations, you can begin with
+    the [Developer Quick Start][quick-start] or go straight to
+    the [Developer Guide][dev-guide] to learn how to create and run
+    your own automations.
 
-[setup]: user/index.md (Atomist Setup)
-[auto-over]: developer/index.md (Atomist Automations)
+[user]: user/index.md (Atomist User Guide)
+[quick-start]: quick-start.md (Atomist Developer Quick Start)
+[dev-guide]: developer/index.md (Atomist Automations Developer Guide)
