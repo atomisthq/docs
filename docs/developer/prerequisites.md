@@ -39,12 +39,25 @@ npm install -g @atomist/automation-client
 
 The Atomist automation API client uses
 a [GitHub personal access token][token] to register with the Atomist
-API.  The Atomist API uses the token to confirm you are in a
-GitHub organization connected to the Slack team in which you are
-running your automations.  The token needs [_read:org_ scope][scope]
-to see what GitHub organizations your GitHub user is in.
+API.  The Atomist API uses the token to confirm you are in a GitHub
+organization connected to the Slack team in which you are running your
+automations.  The token needs [_read:org_ scope][scope] to see what
+GitHub organizations your GitHub user is in.  In addition, we
+recommend you include the _repo_ scope in the token you use since many
+automations interact with GitHub repositories and require _repo_ scope
+to do their work, e.g., comment on issues, create PRs, and create
+repositories.
 
-[scope]: https://developer.github.com/changes/2014-02-25-organization-oauth-scopes/ (GitHub Token Scopes)
+!!! warn
+    If you created your token before 2017-11-20, it may have been
+    created with just the _read:org_ scope.  If this is the case, the
+    token can be used to register automations with the automation API
+    but automations that require access to GitHub repositories may
+    fail since the token does not have _repo_ scope.  You can remedy
+    this issue by adding _repo_ scope to
+    your [existing Atomist API token(s)][token].
+
+[scope]: https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/ (GitHub Token Scopes)
 
 ### The easy way
 
@@ -58,7 +71,7 @@ atomist config
 The `atomist config` command will prompt you for your Slack team ID
 and your GitHub credentials.  Your GitHub credentials are only used to
 authenticate to GitHub so the personal access token can be created.
-Atomist does not store your GitHub credentials and the generated
+Atomist does not retain your GitHub credentials and the generated
 personal access token is only stored on your local system.
 
 ### The hard way
@@ -66,9 +79,10 @@ personal access token is only stored on your local system.
 If you prefer to create the GitHub personal access token yourself, you
 can do so on your GitHub.com [new personal access token][new-token]
 page.  Give the token a descriptive name, like "My manually created
-Atomist token", and ensure _read:org_ scope is selected before
-clicking the "Generate token" button.  Copy the generated token.
-Finally, manually create your local Atomist configuration file.
+Atomist token", and ensure _read:org_ and _repo_ scopes are selected
+before clicking the "Generate token" button.  Copy the generated
+token.  Finally, manually create your local Atomist configuration
+file.
 
 _On UNIX-like systems:_
 

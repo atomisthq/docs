@@ -99,11 +99,11 @@ file that will look something like:
 }
 ```
 
-The `token` is your GitHub personal access token and the `teamIds` are
-the Slack teams where you want to run your automations.  If you want
-to change the token or add/remove teams, you can just edit this file
-directly.  Remember, whatever token you use, it must have at
-least [_read:org_ scope][scope].
+The `token` is your [GitHub personal access token][token] and the
+`teamIds` are the Slack teams where you want to run your automations.
+If you want to change the token or add/remove teams, you can just edit
+this file directly.  Remember, whatever token you use, it must have at
+least _read:org_ and we recommend it also have the _repo_ scope.
 
 If you are managing several automation client projects for different
 teams, you can override your user-level configuration using the
@@ -159,7 +159,6 @@ export const configuration: Configuration = {
 };
 ```
 
-[scope]: https://developer.github.com/changes/2014-02-25-organization-oauth-scopes/ (GitHub Token Scopes)
 [config]: https://www.npmjs.com/package/config (config Node.js package)
 [lifecycle]: #client-lifecycle (Atomist Automation Client Lifecycle)
 
