@@ -41,12 +41,11 @@ The Atomist automation API client uses
 a [GitHub personal access token][token] to register with the Atomist
 API.  The Atomist API uses the token to confirm you are in a GitHub
 organization connected to the Slack team in which you are running your
-automations.  The token needs [_read:org_ scope][scope] to see what
-GitHub organizations your GitHub user is in.  In addition, we
-recommend you include the _repo_ scope in the token you use since many
-automations interact with GitHub repositories and require _repo_ scope
-to do their work, e.g., comment on issues, create PRs, and create
-repositories.
+automations.  The token needs _read:org_ [scope][] to see what GitHub
+organizations your GitHub user is in.  In addition, we recommend you
+include the _repo_ scope in the token you use since many automations
+interact with GitHub repositories and require _repo_ scope to do their
+work, e.g., comment on issues, create PRs, and create repositories.
 
 !!! warn
     If you created your token before 2017-11-20, it may have been
