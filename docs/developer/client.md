@@ -1,3 +1,7 @@
+An automation client is a program that runs on your laptop or wherever you deploy it. It executes the automations you write, triggered by Atomist.
+
+![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
+
 You interact with the Atomist development automation API via a
 client [WebSocket][ws] connection.  WebSocket connections are
 persistent, providing bidirectional communication between the client
