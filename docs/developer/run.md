@@ -111,8 +111,6 @@ ENV SUPPRESS_NO_CONFIG_WARNING true
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_ENV production
 
-EXPOSE 2866
-
 CMD [ "npm", "start" ]
 ```
 
