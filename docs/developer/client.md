@@ -85,8 +85,8 @@ npm run build
 ## Client configuration
 
 The automation client will use the configuration you created when you
-ran `atomist config` as part of the [prerequisites][atomist-config].
-The configuration file, typically located under your home/user profile
+ran `atomist config` as part of the [prerequisites][prereq].  The
+configuration file, typically located under your home/user profile
 directory at `.atomist/client.config.json`.  It is a standard JSON
 file that will look something like:
 
@@ -136,10 +136,10 @@ and tokens for different environments, you can use the [config][]
 Node.js package to supply values for `teamIds` and `token`.
 
 By default, all automations in your project will be registered with
-the automation API when the client starts up
-(see [lifecycle][lifecycle]).  If you only want a subset of your
-automations active, you can explicitly list them using the `commands`
-and `events` arrays in the `configuration` object:
+the automation API when the client starts up (see [lifecycle][]).  If
+you only want a subset of your automations active, you can explicitly
+list them using the `commands` and `events` arrays in the
+`configuration` object:
 
 ```typescript
 import { HelloWorld } from "./commands/HelloWorld";
@@ -159,6 +159,7 @@ export const configuration: Configuration = {
 };
 ```
 
+[prereq]: prerequisites.md (Atomist Automation Client Prerequisites)
 [config]: https://www.npmjs.com/package/config (config Node.js package)
 [lifecycle]: #client-lifecycle (Atomist Automation Client Lifecycle)
 
