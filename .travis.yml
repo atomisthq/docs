@@ -50,8 +50,7 @@ deploy:
   on:
     branch: master
 - provider: releases
-  api_key:
-    secure: pyaxQjhyUN2Lr91v2jAbqBCd6G+e91zJvKxvkWRL+DQR0i0mnmUS04iTkB2uEykystixqVKT6XYif/S12NAH03SFFwrgiaSF8hQgNG9l40nLhE00/mnxajezFVp98vwivEs+2CSy8CTRhZw9H3yT6A5ja7dN+t7EyrFs1gfP8VKEoJyrEajkIh8nlELDmoISKcRPUlEqjMUm2Ve/axaQoxbu5JKJcpSJ+X8gwv5bFU0JpFtAZcsxu7KaDFgtujaKavzt+HiXvDgvcawpTzuAdoZBW0hEEbjmAOnbRd5RHpg+1mvbkOdP5Or5bfsrf6ohW994pGSmGi7mNsCB8SV0oEMBeVTVObqoKLAvN5QF49Zm4k95SurGJCDuG/JQbiDWUE203mA4vwZZE5i1FnkqR71U0ufKm1ERu5U6dSh8fQNQShHld+8nscrWb9QC7WTrd4kXVt2ZhexrKV1TYCzspuA12Dr2t/4FC/Pr9vj9nb8f/J53OcrXJvmYJcIxJnbhmK2mbhEYLT4TzoxNJpaucvzhYnV9ojBtNqauS75BtIZlu/mS+Sgq6RZME/7cnGmeQn8pPK3KyGDq2Iiv59JigbI3jcZqMcLiA67W7JR0YTOjTfNVHhf2TqKbaxMOOnlcPYzqA1853gCxoE8ek5QUy3zWehJRQQeumPU72uMt0j8=
+  api_key: "$GITHUB_TOKEN"
   on:
     tags: true
     condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$"
