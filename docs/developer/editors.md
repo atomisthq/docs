@@ -1,6 +1,16 @@
-Atomist is about automating more of our own work, and that includes the work of writing code. Not all code, of course, but the repetitive parts of coding, or the code that you want to change across many projects. If the change would be so much tedious work to do by hand that you wouldn't even bother, consider automating it.
+Atomist is about automating more of our own work, and that includes
+the work of writing code.  Not all code, of course, but the repetitive
+parts of coding, or the code that you want to change across many
+projects.  If the change would be so tedious to do by hand that you
+wouldn't even bother, consider automating it.
 
-Atomist provides tools that make automating code feasible: tools for parsing and manipulating code, and [command automation](commands.md) to turn your functions into pull requests on one or more projects.
+Atomist provides tools that make automating writing code feasible.
+Powerful file and code parsing and editing primitives can easily be
+wrapped in [command automations][commands], allowing you and your team
+to apply your editors to one or all of your projects to update code
+and create pull requests.
+
+[commands]: commands.md (Atomist Command Automations)
 
 # Project Editor
 
@@ -10,7 +20,7 @@ Start with a function that turns an existing Project into a promise of the Proje
 type SimpleProjectEditor:  (project: Project) => Promise<Project>;
 ```
 
-The Project is an abstraction over the filesystem. This is convenient because you can use an InMemoryProject for testing. 
+The Project is an abstraction over the filesystem. This is convenient because you can use an InMemoryProject for testing.
 
 This [example](https://github.com/atomist/automation-client-samples-ts/blob/1da17e847b8e4a55ec246dfac351334ca49f3e71/src/commands/editor/addMyFile.ts) adds a file with hard-coded content:
 
@@ -25,7 +35,7 @@ const addMyFile: SimpleProjectEditor = (project: Project, ctx: HandlerContext) =
 
 # Running an editor
 
-An editor can be transformed into a [command](commands.md) automation; when invoked, the command will clone a repository, change the code, and push the results to GitHub as a pull request or commit.
+An editor can be transformed into a [command][commands] automation; when invoked, the command will clone a repository, change the code, and push the results to GitHub as a pull request or commit.
 
 This example will prompt for a repository, then create a pull request that adds the file.
 
@@ -88,12 +98,12 @@ it("adds the file", (done) => {
 });
 ```
 
-# Working with Projects
+# Working with projects
 
 The [Project](https://atomist.github.io/automation-client-ts/interfaces/_project_project_.project.html) abstraction aims to provide both synchronous and asynchronous ways of changing projects. The synchronous methods simplify testing,
 while the asynchronous ones will give better performance in your automations.
 
-If you want to modify the filesystem directly in your ProjectEditor function, do what you like; find the underlying directory in `project.baseDir`. 
+If you want to modify the filesystem directly in your ProjectEditor function, do what you like; find the underlying directory in `project.baseDir`.
 
 ## Accessing files
 
@@ -134,8 +144,8 @@ import Project from ...
 import File from ...
 
 function upgradeLibrary(project: Project): Promise<Project> {
-    return project.findFile("package.json").then((file: File) => 
-       file.replace(/"library-of-interest": ".*?"/, 
+    return project.findFile("package.json").then((file: File) =>
+       file.replace(/"library-of-interest": ".*?"/,
                     `"library-of-interest": "3.4.6"`);
     )
 }
@@ -144,7 +154,7 @@ function upgradeLibrary(project: Project): Promise<Project> {
 !!! tip ""
 Please import File from "@atomist/automation-client/project/File", because TypeScript has a built-in File type that's different.
 
-## Navigating Language ASTs
+## Navigating language ASTs
 
 You can navigate the code in your Project based on your programming language's abstract syntax tree (AST). We include parsers for Java, Kotlin, and TypeScript; any language with an ANTLR grammar is supported.
 
@@ -167,4 +177,3 @@ export const removeAutowiredOnSoleConstructor: SimpleProjectEditor = p => {
 # More to come
 
 This page describes only some of the ProjectEditor functionality. There's additional information about project editors in [@atomist/automation-client](https://github.com/atomist/automation-client-ts/blob/master/docs/ProjectEditors.md) and its [TypeDoc](https://atomist.github.io/automation-client-ts/index.html). Please come with further questions to [Slack](https://join.atomist.com); we'll be happy to answer them.
-
