@@ -12,7 +12,7 @@ and create pull requests.
 
 [commands]: commands.md (Atomist Command Automations)
 
-# Project Editor
+## Project Editor
 
 Start with a function that turns an existing Project into a promise of the Project you want it to be. We call this kind of function a `ProjectEditor`.
 
@@ -33,7 +33,7 @@ const addMyFile: SimpleProjectEditor = (project: Project, ctx: HandlerContext) =
 }
 ```
 
-# Running an editor
+## Running an editor
 
 An editor can be transformed into a [command][commands] automation; when invoked, the command will clone a repository, change the code, and push the results to GitHub as a pull request or commit.
 
@@ -52,21 +52,21 @@ export function addFileCommand(): HandleCommand {
 }
 ```
 
-## Parameters
+### Parameters
 
 Editors all need to know which repository or repositories to work on. You can get additional parameters in the invocation as well, by creating your own Parameters class that extends BaseEditorOrReviewerParameters. The same ProjectEditor function works for both.
 
 See the [UpdateCopyright example](https://github.com/atomist/automation-client-samples-ts/blob/1da17e847b8e4a55ec246dfac351334ca49f3e71/src/commands/editor/addMyFile.ts) for an example of each.
 
-## Pull requests or commits
+### Pull requests or commits
 
 The `editMode` passed in the details to `editorHandler` determines how to save the changes. Pass an instance of [PullRequest](https://atomist.github.io/automation-client-ts/classes/_operations_edit_editmodes_.pullrequest.html), or an implementation of [BranchCommit](https://atomist.github.io/automation-client-ts/interfaces/_operations_edit_editmodes_.branchcommit.html). You can also supply a function from parameters to one of these EditModes, in case you want the branch name or commit message to vary by invocation.
 
-# Testing a project editor
+## Testing a project editor
 
 ProjectEditor is a function, so it's testable. Unit testing at this level is quick and powerful.
 
-## InMemoryProject
+### InMemoryProject
 
 Construct a project as input to your ProjectEditor. The simplest way is to list all the files and their content:
 
@@ -98,14 +98,14 @@ it("adds the file", (done) => {
 });
 ```
 
-# Working with projects
+## Working with projects
 
 The [Project](https://atomist.github.io/automation-client-ts/interfaces/_project_project_.project.html) abstraction aims to provide both synchronous and asynchronous ways of changing projects. The synchronous methods simplify testing,
 while the asynchronous ones will give better performance in your automations.
 
 If you want to modify the filesystem directly in your ProjectEditor function, do what you like; find the underlying directory in `project.baseDir`.
 
-## Accessing files
+### Accessing files
 
 If you know the path to the file you want to change, get to it with `findFile`, and dig in it with `getContents`:
 
@@ -129,11 +129,11 @@ function arbitraryManipulation(oldContent: string): string {
 
 There are many more methods on Project to help manipulate one or more files.
 
-# Changing code
+## Changing code
 
 How do we change code in code? There are the tools you're used to, and then the tools unique to Atomist.
 
-## Search and replace
+### Search and replace
 
 Often, a simple search and replace is enough. Perhaps you want to change a version of a dependency. If you know the file you want to change, and the change you want to make to it. Find the file, and then use `replace` -- it's the same as JavaScript's replace.
 
@@ -154,7 +154,7 @@ function upgradeLibrary(project: Project): Promise<Project> {
 !!! tip ""
 Please import File from "@atomist/automation-client/project/File", because TypeScript has a built-in File type that's different.
 
-## Navigating language ASTs
+### Navigating language ASTs
 
 You can navigate the code in your Project based on your programming language's abstract syntax tree (AST). We include parsers for Java, Kotlin, and TypeScript; any language with an ANTLR grammar is supported.
 
@@ -174,6 +174,6 @@ export const removeAutowiredOnSoleConstructor: SimpleProjectEditor = p => {
 };
 ```
 
-# More to come
+## More to come
 
 This page describes only some of the ProjectEditor functionality. There's additional information about project editors in [@atomist/automation-client](https://github.com/atomist/automation-client-ts/blob/master/docs/ProjectEditors.md) and its [TypeDoc](https://atomist.github.io/automation-client-ts/index.html). Please come with further questions to [Slack](https://join.atomist.com); we'll be happy to answer them.
