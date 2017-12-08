@@ -6,8 +6,8 @@ This repository contains the markdown sources for the documentation
 for [Atomist][atomist].  You can find the current version of the
 Atomist documentation at [https://docs.atomist.com/][docs].
 
-[atomist]: https://www.atomist.com/
-[docs]: https://docs.atomist.com/
+[atomist]: https://atomist.com/ (Atomist)
+[docs]: https://docs.atomist.com/ (Atomist Documentation)
 
 The documentation is generated from markdown using [MkDocs][mkdocs].
 
@@ -239,5 +239,5 @@ the purpose of testing documentation changes before submitting pull
 requests to the appropriate Atomist repository.
 
 The documents produced by this build process may be published only on
-http://docs.atomist.com. They may not be published in any other form
-or on any other website without explicit permission.
+https://docs.atomist.com/ . They may not be published in any other
+form or on any other website without explicit permission.

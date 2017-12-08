@@ -44,16 +44,6 @@ function main () {
 
     [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(m|rc)\.[0-9]+)?$ ]] || return 0
 
-    # redirect hack
-    if ! mkdir -p site/user-guide/permissions/{github,slack}; then
-        err "failed to create permission redirect directories"
-        return 1
-    fi
-    if ! touch site/user-guide/permissions/{github,slack}/index.html; then
-        err "failed to create empty permission redirect files"
-        return 1
-    fi
-
     if ! s3cmd sync --delete-removed site/ s3://docs.atomist.com/; then
         err "failed to sync site to s3"
         return 1
