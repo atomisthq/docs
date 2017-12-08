@@ -107,7 +107,7 @@ If you want to modify the filesystem directly in your ProjectEditor function, do
 
 ### Accessing files
 
-If you know the path to the file you want to change, get to it with `findFile`, and dig in it with `getContents`:
+If you know the path to the file you want to change, get to it with `findFile`, and dig around in it with `getContents`:
 
 ```typescript
 import { HandlerContext } from "@atomist/automation-client";
@@ -131,11 +131,11 @@ There are many more methods on Project to help manipulate one or more files.
 
 ## Changing code
 
-How do we change code in code? There are the tools you're used to, and then the tools unique to Atomist.
+How do we change code in code? There are the tools you're used to, and then the tools Atomist provides.
 
 ### Search and replace
 
-Often, a simple search and replace is enough. Perhaps you want to change a version of a dependency. If you know the file you want to change, and the change you want to make to it. Find the file, and then use `replace` -- it's the same as JavaScript's replace.
+Often, a simple search and replace is enough. Perhaps you want to change a version of a dependency. If you know the file you want to change, and the change you want to make to it: find the file, and then use `replace`. (It's the same as JavaScript's `replace`.)
 
 The following ProjectEditor finds package.json, finds a declaration about library-of-interest, and replaces the version with `3.4.6`.
 
