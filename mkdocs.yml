@@ -70,6 +70,7 @@ pages:
       - Slack Messages: developer/slack.md
       - Working with GraphQL: developer/graphql.md
       - Creating Projects: developer/create.md
+      - Editing Projects: developer/editors.md
       - Automation Client: developer/client.md
       - Running Automation Clients: developer/run.md
   - Support: support.md

@@ -301,6 +301,8 @@ repository, with organization-standard content.
 
 [ex-add-file]: https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/editor/AddContributing.ts (Command - Add File)
 
+Learn more in [editors](editors.md).
+
 #### Change the content of a file in all repositories
 
 Why stop at just one repository? This is automation! You can change them all!
@@ -310,6 +312,8 @@ A command can [update the copyright year in all the READMEs in all your reposito
 With this handler running
 in your automation client, you can initiate PRs on all out-of-date repositories with a single invocation of
  `@atomist update README copyright year` in Slack.
+
+Learn more in [editors](editors.md).
 
 ### Inspect code across repositories
 
@@ -401,6 +405,14 @@ Unsuccessfully invoked command-handler MyCommandHandler of my-automation@0.1.0
 ```
 
 Check the logs of your automation client to figure out what went wrong.
+
+<!-- Add this in when I explain parameter objects
+### No parameters were received
+
+Check your log at startup for the registration message. Does it list the parameters for your command?
+If not, are you using a separate class for parameters? check that you provided a factory method for it in your handler.
+Also check that fields are annotated with @Parameter or @MappedParameter. 
+-->
 
 ### Something went wrong
 

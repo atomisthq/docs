@@ -7,7 +7,7 @@ your software delivery flow with automations that respond to commands
 and events.  The Atomist development automation platform provides the
 tools to make _you_ a more productive developer.
 
-[www]: https://www.atomist.com (Atomist)
+[www]: https://atomist.com/ (Atomist)
 
 ## Using Atomist
 
