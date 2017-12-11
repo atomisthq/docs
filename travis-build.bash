@@ -4,7 +4,7 @@
 set -o pipefail
 
 declare Pkg=travis-build-mkdocs
-declare Version=0.3.0
+declare Version=0.3.1
 
 function msg() {
     echo "$Pkg: $*"
@@ -44,7 +44,7 @@ function main () {
 
     [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(m|rc)\.[0-9]+)?$ ]] || return 0
 
-    local bucket=docs-atomist-com
+    local bucket=docs.atomist.com
     if ! s3cmd sync --delete-removed site/ "s3://$bucket/"; then
         err "failed to sync site to s3 bucket '$bucket'"
         return 1
