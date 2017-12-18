@@ -93,7 +93,7 @@ To set up a Docker image build, you need a `Dockerfile`. Read the
 documentation on [building Docker images][docker-build] for more
 details.
 
-```
+```docker
 FROM node:8
 
 # Create application directory
@@ -110,6 +110,8 @@ COPY . /app
 ENV SUPPRESS_NO_CONFIG_WARNING true
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_ENV production
+
+EXPOSE 2866
 
 CMD [ "npm", "start" ]
 ```
