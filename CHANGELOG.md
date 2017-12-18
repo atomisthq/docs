@@ -7,26 +7,131 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/8.0.2...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.0.9...HEAD
+
+### Changed
+
+-   Migrate from Zendesk to Intercom
+
+## [9.0.9][] - 2017-12-15
+
+[9.0.9]: https://github.com/atomist/end-user-documentation/compare/9.0.8...9.0.9
+
+Intercom release
+
+### Added
+
+-   Intercom chat widget
+
+## [9.0.8][] - 2017-12-11
+
+[9.0.8]: https://github.com/atomist/end-user-documentation/compare/9.0.7...9.0.8
+
+Bucket release
+
+### Changed
+
+-   Change underlying S3 bucket for site to docs.atomist.com
+
+## [9.0.7][] - 2017-12-08
+
+[9.0.7]: https://github.com/atomist/end-user-documentation/compare/9.0.6...9.0.7
+
+Edit-editor release
+
+### Fixed
+
+-   Tweaks to editor documentation
+
+## [9.0.6][] - 2017-12-08
+
+[9.0.6]: https://github.com/atomist/end-user-documentation/compare/9.0.5...9.0.6
+
+Editor release
+
+### Added
+
+-   Editor documentation
+
+### Changed
+
+-   Web site is https://atomist.com/
+-   Improve Travis CI build
+
+## [9.0.5][] - 2017-12-04
+
+[9.0.5]: https://github.com/atomist/end-user-documentation/compare/9.0.4...9.0.5
+
+Link release
+
+### Fixed
+
+-   Broken named link
+
+## [9.0.4][] - 2017-11-20
+
+[9.0.4]: https://github.com/atomist/end-user-documentation/compare/9.0.3...9.0.4
+
+Scopes release
+
+### Changed
+
+-   Update to reflect new scopes on GitHub personal access token
+
+## [9.0.3][] - 2017-11-17
+
+[9.0.3]: https://github.com/atomist/end-user-documentation/compare/9.0.2...9.0.3
+
+What next release
+
+### Changed
+
+-   Improved what next section on main page
+
+## [9.0.2][] - 2017-11-15
+
+[9.0.2]: https://github.com/atomist/end-user-documentation/compare/9.0.1...9.0.2
+
+Repo release
+
+### Added
+
+-   Repo/channel linking instructions
+
+### Fixed
+
+-   Repo creation link
+
+## [9.0.1][] - 2017-11-14
+
+[9.0.1]: https://github.com/atomist/end-user-documentation/compare/9.0.0...9.0.1
+
+Quick-start release
+
+### Changed
+
+-   Make quick-start guide self-contained
+
+## [9.0.0][] - 2017-11-14
+
+[9.0.0]: https://github.com/atomist/end-user-documentation/compare/8.0.2...9.0.0
+
+Automation release
+
+### Changed
+
+-   **Major rewrite** - Update documentation for automation API and client
+-   Update theme
 
 ## [8.0.2][] - 2017-10-02
 
-[8.0.2]: https://github.com/atomist/end-user-documentation/compare/8.0.1...8.0.2
+[8.0.2]: https://github.com/atomist/end-user-documentation/compare/8.0.0...8.0.2
 
 Less Rug release
 
 ### Changed
 
--  Remove references to Rug in introductory material
-
-## [8.0.1][] - 2017-10-02
-
-[8.0.1]: https://github.com/atomist/end-user-documentation/compare/8.0.0...8.0.1
-
-No CLI release
-
-### Changed
-
+-   Remove references to Rug in introductory material
 -   Removed more references to CLI and other cleanup
 
 ## [8.0.0][] - 2017-10-02
