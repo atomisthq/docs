@@ -28,6 +28,7 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - js/intercom.js
+  - js/mixpanel.js
 google_analytics:
   - UA-74966852-1
   - auto
