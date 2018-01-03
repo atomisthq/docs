@@ -7,7 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.1.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.2.0...HEAD
+
+## [9.2.0][] - 2018-01-03
+
+[9.2.0]: https://github.com/atomist/end-user-documentation/compare/9.1.0...9.2.0
+
+Mixpanel release
+
+### Added
+
+-   Mixpanel
+
+### Fixed
+
+-   Updated command example to use `atomist` CLI
 
 ## [9.1.0][] - 2017-12-18
 
