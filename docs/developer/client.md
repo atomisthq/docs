@@ -190,7 +190,7 @@ Here's an example startup command for production environments:
 
 ```
 node $NODE_DEBUG_OPTION --trace-warnings --expose_gc --optimize_for_size \
-    --always_compact --max_old_space_size=384 node_modules/.bin/atomist-client
+    --always_compact --max_old_space_size=384 node_modules/.bin/atomist start
 ```
 
 See `node --help` and `node --v8-options` for more detail on these
