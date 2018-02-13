@@ -1,7 +1,7 @@
 site_name: The Atomist Documentation
 site_description: Documentation for the Atomist Development Automation Platform
 site_author: The Atomist Team
-copyright: '&copy; 2017 Atomist, Inc.'
+copyright: '&copy; 2018 Atomist, Inc.'
 extra:
   main_site_url: https://www.atomist.com/
 theme:
@@ -14,6 +14,7 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  custom_dir: 'theme'
 extra:
   social:
     - type: medium
@@ -29,9 +30,12 @@ extra_css:
 extra_javascript:
   - js/intercom.js
   - js/mixpanel.js
-google_analytics:
-  - UA-74966852-1
-  - auto
+#google_analytics:
+#  - UA-74966852-1
+#  - auto
+#google:
+#  tag_manager:
+#    container_id: GTM-MZ8NMFS
 markdown_extensions:
   - markdown_include.include:
       base_path: "docs/common"
