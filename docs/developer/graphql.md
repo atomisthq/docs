@@ -22,16 +22,16 @@ data. It also provides access to the data model's documentation.
 After installation you need to configure the endpoint and authentication in GraphiQL.
 
 To setup authentication, click on _Edit HTTP Headers_ and select _+ Add Header_.
-Enter `Authorization` as _Header name_ and `Bearer <token>` as _Header value_.
-Replace `<token>` with a GitHub personal access token that has _org:read_ scope.
+Enter `Authorization` as _Header name_ and `token <TOKEN>` as _Header value_.
+Replace `<TOKEN>` with a GitHub personal access token that has _org:read_ scope.
 
 !!! note
     Create and manage GitHub personal access tokens at:
     https://github.com/settings/tokens
 
-Next, enter `https://automation.atomist.com/graphql/team/<teamId>` as _GraphQL
-Endpoint_ replacing `<teamId>` with your Slack team ID. See the Setup section
-on how to obtain your Slack team ID.
+Next, enter `https://automation.atomist.com/graphql/team/<TEAM_ID>` as _GraphQL
+Endpoint_ replacing `<TEAM_ID>` with your Atomist team ID. See the Setup section
+on how to obtain your Atomist team ID. The query method should be set to `POST`. 
 
 Now you are ready to create queries and explore the possibilities of the
 Atomist data model. Don't miss the schema documentation on the right hand side
