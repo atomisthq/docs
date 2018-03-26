@@ -15,11 +15,51 @@
 
 This is a step by step guide to setting up Atomist's built-in
 automations to see and control your development flow
-from [Slack][slack].  To write your own automations, see the
+from the web or [Slack][slack].  To write your own automations, see the
 full [developer guide][dev].
 
 [slack]: https://slack.com/ (Slack)
 [dev]: ../developer/index.md (Atomist Developer Guide)
+
+## Create a Workspace
+
+An Atomist _workspace_ contains the code, automations, and configurations that you and your team can work with.
+
+To create one, log in with GitHub and then authorize Atomist to see the GitHub organizations of your choice. At this point, you're only defining the organizations that Atomist can see. 
+
+Next, tell Atomist exactly which repositories you want to see. There are two choices.
+
+#
+### Organization webhooks
+
+GitHub organization members that have the [owner role][owners], are
+allowed to configure organization webhooks.  This is convenient
+because it only has to be configured once; however, you will require a
+user who has the `Owner` role in your GitHub organization.
+
+```
+you> @atomist enroll org
+```
+
+When you choose to enroll a GitHub organization, you will most likely
+be prompted to authorize a new scope (Atomist only asks for new scopes
+when explicitly required).  The *admin:org_hook* is required when
+enrolling a new GitHub organization.
+
+![GitHub Authorize Organization Webhook](img/authorize-org-hook.png)
+
+If you are a member of more than one GitHub organization, Atomist
+asks you to choose which organization to enroll.
+
+
+
+[owners]: https://help.github.com/articles/permission-levels-for-an-organization/
+
+### Repository webhooks
+
+If your team does not use a GitHub organization account, you can
+choose to configure webhooks on individual repositories owned by your
+user account.
 
 ## Slack
 
@@ -35,7 +75,7 @@ your Slack team.
 </div>
 
 Slack's default configuration allows all team members to add new Slack applications.
-However, your team's admins may decide to restrict the set of applications that can
+However, your team's admins may restrict the applications that can
 can be added in your team.  The [permissions management page][manage-permissions] has
 an "Approved Apps" setting to control this.
 
@@ -65,21 +105,6 @@ Currently the authorization process asks you to authorize two things:
     first authorizes Atomist.
 
 [create-project]: ../developer/create.md (Create Project with Atomist)
-
-### Slack team ID
-
-Some operations, like [connecting your CI with Atomist][ci], need you to pass
-in your Slack team ID. To get your Slack team ID, send `team` to the Atomist
-bot.
-
-```
-you> /invite @atomist
-you> @atomist team
-atomist> The Slack id for team your-slack-team is T1L0V3JTP
-         16 of 24 users in this team have authorized themselves
-```
-
-[ci]: #continuous-integration (Connecting Atomist with Continuous Integration Platforms)
 
 ### Removing Atomist from Slack
 
@@ -130,52 +155,7 @@ you> @atomist github
 Atomist will send a direct message to this user with their current
 GitHub authorization status.
 
-### Organization webhooks
 
-GitHub organization members that have the [owner role][owners], are
-allowed to configure organization webhooks.  This is convenient
-because it only has to be configured once; however, you will require a
-user who has the `Owner` role in your GitHub organization.
-
-```
-you> @atomist enroll org
-```
-
-When you choose to enroll a GitHub organization, you will most likely
-be prompted to authorize a new scope (Atomist only asks for new scopes
-when explicitly required).  The *admin:org_hook* is required when
-enrolling a new GitHub organization.
-
-![GitHub Authorize Organization Webhook](img/authorize-org-hook.png)
-
-If you are a member of more than one GitHub organization, Atomist will
-ask you to choose which organization to enroll.
-
-![Choose GitHub Organization](img/choose-org.png)
-
-Finally, you will be presented with a button to configure the organization webhook.
-
-![Install GitHub Webhook](img/install-webhook.png)
-
-[owners]: https://help.github.com/articles/permission-levels-for-an-organization/
-
-### Repository webhooks
-
-If your team does not use a GitHub organization account, you can
-choose to configure webhooks on individual repositories owned by your
-user account.
-
-```
-you> @atomist install webhook
-```
-
-The bot now asks for the `owner` of the repository.  This question is
-skipped if there is only one valid choice (your user account).  Next the bot
-asks you to select the repository to receive the new webhook.
-
-<div style="text-align:center;">
-  <img alt="Choose GitHub Repository" height="137" width="528" src="img/choose-repo.png" />
-</div>
 
 ## Linking Slack & GitHub
 
@@ -205,7 +185,7 @@ this capability, just add the desired Atomist CI
 webhook URL to your CI configuration.
 
 !!! note
-    In the examples below, replace `TEAM_ID` with your Slack team ID.
+    In the examples below, replace `TEAM_ID` with your workspace ID.
 
 ### CircleCI
 
