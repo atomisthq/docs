@@ -1,18 +1,3 @@
-<script>
-	/**
-	* Function that tracks a click on an outbound link in Analytics.
-	* This function takes a valid URL string as an argument, and uses that URL string
-	* as the event label. Setting the transport method to 'beacon' lets the hit be sent
-	* using 'navigator.sendBeacon' in browser that support it.
-	*/
-	var trackOutboundLink = function(url) {
-		ga('send', 'event', 'outbound', 'click', url, {
-			'transport': 'beacon',
-			'hitCallback': function(){document.location = url;}
-		});
-	}
-</script>
-
 This is a step by step guide to setting up Atomist's built-in
 automations to see and control your development flow
 from the web or [Slack][slack].  To write your own automations, see the
@@ -23,13 +8,16 @@ full [developer guide][dev].
 
 ## Create a Workspace
 
-An Atomist _workspace_ contains the code, automations, and configurations that you and your team can work with.
+An Atomist _workspace_ contains the code, automations, and
+configurations that you and your team can work with.
 
-To create one, log in with GitHub and then authorize Atomist to see the GitHub organizations of your choice. At this point, you're only defining the organizations that Atomist can see. 
+To create one, log in with GitHub and then authorize Atomist to see
+the GitHub organizations of your choice. At this point, you're only
+defining the organizations that Atomist can see.
 
-Next, tell Atomist exactly which repositories you want to see. There are two choices.
+Next, tell Atomist exactly which repositories you want to see. There
+are two choices.
 
-#
 ### Organization webhooks
 
 GitHub organization members that have the [owner role][owners], are
@@ -50,8 +38,6 @@ enrolling a new GitHub organization.
 
 If you are a member of more than one GitHub organization, Atomist
 asks you to choose which organization to enroll.
-
-
 
 [owners]: https://help.github.com/articles/permission-levels-for-an-organization/
 
@@ -270,3 +256,18 @@ notifications:
 ```
 
 [travisci]: https://travis-ci.org (Travis CI)
+
+<script>
+	/**
+	* Function that tracks a click on an outbound link in Analytics.
+	* This function takes a valid URL string as an argument, and uses that URL string
+	* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+	* using 'navigator.sendBeacon' in browser that support it.
+	*/
+	var trackOutboundLink = function(url) {
+		ga('send', 'event', 'outbound', 'click', url, {
+			'transport': 'beacon',
+			'hitCallback': function(){document.location = url;}
+		});
+	}
+</script>
