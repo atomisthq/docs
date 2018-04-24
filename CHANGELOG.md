@@ -7,7 +7,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.2.0...HEAD
+[Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.4.1...HEAD
+
+## [9.4.1][] - 2018-04-24
+
+[9.4.1]: https://github.com/atomist/end-user-documentation/compare/9.4.0...9.4.1
+
+TOC release
+
+### Fixed
+
+-   Internal table of contents on Using Atomist page
+
+## [9.4.0][] - 2018-03-26
+
+[9.4.0]: https://github.com/atomist/end-user-documentation/compare/9.3.0...9.4.0
+
+Dashboard release
+
+### Added
+
+-   Information about Atomist dashboard
+
+## [9.3.0][] - 2018-03-02
+
+[9.3.0]: https://github.com/atomist/end-user-documentation/compare/9.2.0...9.3.0
+
+Tag Manager release
+
+### Changed
+
+-   Replace Google UA with Tag Manager
 
 ## [9.2.0][] - 2018-01-03
 
