@@ -52,7 +52,7 @@ admonition styles:
 
 Items on the same line create a visually equivalent admonition.
 
-[admonition]: https://pythonhosted.org/Markdown/extensions/admonition.html
+[admonition]: https://python-markdown.github.io/extensions/admonition/
 
 <!-- to recreate the above image
 !!! tldr "summary tldr"

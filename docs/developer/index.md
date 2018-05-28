@@ -1,3 +1,24 @@
+Atomist is a flexible platform, enabling you to build your own
+automations or use those provided by Atomist or third parties.  An
+Atomist Software Delivery Machine (SDM) provides a high-level
+interface for you to take action when things happen.  In much the same
+way your CI build kicks off when you push to your SCM, Atomist can
+execute tasks like security scans, documentation publication, release
+creation, and deployment when different events occur within your
+development environment.  Because you're using a real programming
+language, not YAML or Bash, and you have access to a real ecosystem,
+Node.js, you can create a richer delivery experience than you've even
+imagined.
+
+A SDM demonstrates Atomist as the *API for software*, exposing:
+
+-   *What we know*: The Atomist cortex, accessible through GraphQL
+    queries and subscription joins
+-   *What just happened*: An event, triggered by a GraphQL
+    subscription, which is contextualized with the existing knowledge
+-   *What you're working on*: A library that enables you to comprehend
+    and manipulate the source code you're working on.
+
 The Atomist development automation platform ingests events from your
 software development systems:
 
@@ -11,7 +32,7 @@ software development systems:
 -   Runtime platforms like [Kubernetes][k8] and [Cloud Foundry][cf]
 -   Custom events from _any_ other system you use
 
-and makes them available via an automation API.
+and makes them available via the Atomist API for software.
 
 As Atomist ingests events, typically via webhook JSON payloads, it
 automatically correlates them to each other: commits to pushes to
@@ -85,19 +106,15 @@ interruptions in connectivity.
 
 ---
 
-## Automations
-
-The rest of this section describes how to develop and run your own
-automations.
-
-### Get started
+## Get started
 
 -   [Setting up your system][prereq] to develop and run
-    automations
+    automations like SDMs
+-   [Software Delivery Machine][sdm]
 -   [Commands][command]
 -   [Events][event]
 
-### In-depth topics
+## In-depth topics
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
@@ -109,6 +126,7 @@ you need to eliminate the pain points in your development and delivery
 processes.
 
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
+[sdm]: sdm.md (Atomist Software Delivery Machine)
 [command]: commands.md (Atomist Command Automations)
 [event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)

@@ -1,78 +1,90 @@
+# Atomist - How Teams Deliver Software
+
 <img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
-[Atomist][www] is a powerful automation platform that unifies events
-across your software development and delivery tools into a cohesive
-model of code, people, and process.  Gain visibility and control over
-your software delivery flow with automations that respond to commands
-and events.  The Atomist development automation platform provides the
-tools to make _you_ a more productive developer.
+[Atomist][www] is a platform for delivering software, _your way_.
+Atomist unifies activity across your software development and delivery
+tools into a cohesive model of code, people, and process.  Atomist
+empowers your team to gain visibility and control over your software
+delivery flow with your own Software Delivery Machine (SDM).
 
-[www]: https://atomist.com/ (Atomist)
+[www]: https://atomist.com/ (Atomist - How Teams Deliver Software)
 
-## Using Atomist
+## What is a Software Delivery Machine?
 
-You can use Atomist's out-of-the-box automations or you can
-write your own.
+A **software delivery machine** (SDM) is a development process in a
+box.  Rather than using YAML and Bash scripts to manage your builds,
+static analysis checks, testing, and deployments, an SDM, connected to
+the Atomist platform, gives you the ability to codify and execute your
+entire delivery flow using real, testable code.  Working with and
+augmenting your existing development and delivery tools and platforms
+like SCM and CI, an SDM automates all steps in the flow from commit to
+production, and many other actions, using the consistent model
+provided by the Atomist *API for software*.
 
-### Atomist automations
+!!! important "Realize your delivery blueprint"
+    Many teams have a blueprint in their mind for how they'd like to
+    deliver software and ease their day to day work, but find it hard to
+    realize.  A Software Delivery Machine makes it possible.
 
-Invite the Atomist bot into your Slack team and use the built-in
-automations.  The bot sends you relevant, actionable messages that
-enable you to control your development flow from Slack, from project
-creation to deployment to monitoring.
+These concepts are explained in detail in Rod Johnson's blog [Why you
+need a Software Delivery Machine][sdm-blog]. This [video][sdm-video]
+shows an SDM in action:
 
-### Custom automations
+<iframe src="https://player.vimeo.com/video/260496136" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/260496136">Atomist: How Teams Deliver Software</a> from <a href="https://vimeo.com/atomist">Atomist</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
-You can customize Atomist's built-in automations or write wholly new
-ones.
+!!! important "Use code to deliver code"
+    Atomist is about developing your development experience by using
+    your coding skills.  Change the code, restart, and see your new
+    automations and changed behavior across all your projects, within
+    seconds.
 
-Atomist provides an automation API with integrations for your
-development tools and runtime platforms, native Slack notifications
-and commands, and an open source client and command-line interface.
-
-Custom automations can be used to further streamline development:
-
--   Notify team members about events such as pushes, pull requests,
-    build failures, crash looping Kubernetes pods and more.
--   Create custom bot commands for fun and profit. Search
-    StackOverflow from Slack or exchange banter with other teams -
-    it's up to you.
--   Automate your release process - rather than delegating it to your
-    build system - so you can release with a single button press in
-    Slack.
--   Merge pull requests automatically as soon as the required checks
-    and reviews pass.
--   Auto-close issues when a fix is deployed to production.
--   Roll back automatically: identify a commit that caused a
-    regression in production, revert the commit, and release the "new"
-    version
+[sdm-blog]: https://the-composition.com/why-you-need-a-software-delivery-machine-85e8399cdfc0 (Why you need a Software Delivery Machine - The Composition)
+[sdm-video]: https://vimeo.com/260496136
 
 ## Concepts
 
-Atomist is all about making you more productive by helping you to
-automate away all the things that slow you down.  The following
+Atomist is all about making you more productive by helping you to go
+from idea to production as quickly as possible.  The following
 concepts describe the pieces Atomist provides to make it easy for you
-to create automations that reduce repetitive work and distractions.
+use your software development skills to improve how you manage your
+software delivery, from project creation to build to test to
+deployment to runtime.
+
+### Software Delivery Machine
+
+The Software Delivery Machine, or SDM, is your interface for using
+Atomist to deliver your software your way, but better.  The SDM
+TypeScript package provides a high-level API for automating
+development and delivery tasks in response to typical software
+development events like creating a new repository, pushing commits,
+creating/commenting/closing issues and pull requests, deploying
+services, releasing artifacts, etc.  Want to run a security scanning
+tool on every push of every project in your organization?  Want to
+change the Docker registry for all your projects?  Re-platforming from
+WebLogic to Kubernetes?  It's easy to do with an SDM.
 
 ### Development automation platform
 
 Atomist's development automation platform is powered by a service that
 ingests and correlates events from your software development flow.  At
 the heart of the service is a single coherent model: code, people, and
-processes.  You query that model using [GraphQL][gql] when you write
-your own automations.
+processes.  You query that model, Atomist's API for software, using
+[GraphQL][gql] when you write your own SDM or other automation.
 
 [gql]: http://graphql.org/ (GraphQL)
 
 ### Automation client
 
-Automations are written and run within an
-Atomist [automation client][client], which interacts with the Atomist
-platform using primarily GraphQL.  Each client hosts automations that
-can be invoked via the Atomist bot, Slack buttons, or when events
-occur.  A client can host any number of automations, and can be hosted
-wherever the author likes: locally during testing, inside a corporate
-firewall, or on a public cloud or PaaS.
+Automations are written and run within an Atomist [automation
+client][client], which interacts with the Atomist platform using
+primarily GraphQL.  An SDM is a type of Atomist automation client.
+Each client hosts automations that can be invoked via the Atomist bot,
+Slack buttons, or when events occur.  A client can host any number of
+automations, and can be hosted wherever the author likes: locally
+during testing, inside a corporate firewall, or on a public cloud or
+PaaS.
 
 [client]: developer/client.md (Atomist Automation Client)
 
@@ -137,10 +149,9 @@ with other events.
     integration system.
 
 -   If you already are using Atomist and are interested in writing
-    your own automations, you can begin with
-    the [Developer Quick Start][quick-start] or go straight to
-    the [Developer Guide][dev-guide] to learn how to create and run
-    your own automations.
+    your own automations, you can go to the [Developer
+    Guide][dev-guide] to learn how to create and run your own
+    automations.
 
 [user]: user/index.md (Atomist User Guide)
 [quick-start]: quick-start.md (Atomist Developer Quick Start)

@@ -1,7 +1,7 @@
 Before you begin developing and running your own automations, you need
-to have Atomist [set up in your Slack team][setup].
+an [Atomist workspace][getting-started].
 
-[setup]: ../user/index.md (Atomist Setup)
+[getting-started]: ../user/index.md (Atomist - Getting Started)
 
 ## Node.js
 
@@ -37,15 +37,15 @@ npm install -g @atomist/automation-client
 
 ## GitHub token
 
-The Atomist automation API client uses
-a [GitHub personal access token][token] to register with the Atomist
-API.  The Atomist API uses the token to confirm you are in a GitHub
-organization connected to the Slack team in which you are running your
-automations.  The token needs _read:org_ [scope][] to see what GitHub
-organizations your GitHub user is in.  In addition, we recommend you
-include the _repo_ scope in the token you use since many automations
-interact with GitHub repositories and require _repo_ scope to do their
-work, e.g., comment on issues, create PRs, and create repositories.
+The Atomist automation API client uses a [GitHub personal access
+token][token] to register with the Atomist API.  The Atomist API uses
+the token to confirm you are in a GitHub organization connected to the
+Atomist workspace in which you are running your automations.  The
+token needs _read:org_ [scope][] to see what GitHub organizations your
+GitHub user is in.  In addition, we recommend you include the _repo_
+scope in the token you use since many automations interact with GitHub
+repositories and require _repo_ scope to do their work, e.g., comment
+on issues, create PRs, and create repositories.
 
 !!! warn
     If you created your token before 2017-11-20, it may have been
@@ -67,11 +67,11 @@ is to use the Atomist CLI's `config` command.
 atomist config
 ```
 
-The `atomist config` command will prompt you for your Slack team ID
-and your GitHub credentials.  Your GitHub credentials are only used to
-authenticate to GitHub so the personal access token can be created.
-Atomist does not retain your GitHub credentials and the generated
-personal access token is only stored on your local system.
+The `atomist config` command will prompt you for your Atomist
+workspace ID and your GitHub credentials.  Your GitHub credentials are
+only used to authenticate to GitHub so the personal access token can
+be created.  Atomist does not retain your GitHub credentials and the
+generated personal access token is only stored on your local system.
 
 ### The hard way
 
@@ -96,22 +96,22 @@ md %USERPROFILE%\.atomist && type nul > %USERPROFILE%\.atomist\client.config.jso
 ```
 
 Open the `client.config.json` file you just created in your favorite
-text editor and add the following contents, replacing `TEAM_ID` with
-your Slack team ID and `GITHUB_TOKEN` with the GitHub personal access
-token you just created.
+text editor and add the following contents, replacing `WORKSPACE_ID`
+with your Atomist workspace ID and `GITHUB_TOKEN` with the GitHub
+personal access token you just created.
 
 ```json
 {
   "token": "GITHUB_TOKEN",
   "teamIds": [
-    "TEAM_ID"
+    "WORKSPACE_ID"
   ]
 }
 ```
 
-If you are in multiple Slack teams and want to run your automations in
-all of them, simply add all of their team IDs to the `teamIds` array
-in the client configuration file.
+If you are in multiple Atomist workspaces and want to run your
+automations in all of them, simply add all of their workspace IDs to
+the `teamIds` array in the client configuration file.
 
 [token]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
 [new-token]: https://github.com/settings/tokens/new (GitHub New Personal Access Token)

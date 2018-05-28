@@ -1,9 +1,9 @@
-site_name: The Atomist Documentation
-site_description: Documentation for the Atomist Development Automation Platform
+site_name: Atomist Documentation
+site_description: Documentation for Atomist - How Teams Deliver Software
 site_author: The Atomist Team
 copyright: '&copy; 2018 Atomist, Inc.'
 extra:
-  main_site_url: https://www.atomist.com/
+  main_site_url: https://atomist.com/
 theme:
   name: material
   favicon: 'img/favicon.ico'
@@ -57,15 +57,20 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-# repo_name: Rug
-# repo_url: https://github.com/atomist/rug
+# repo_name: Atomist Software Delivery Machine
+# repo_url: https://github.com/atomist/sdm
 pages:
   - Introduction: index.md
-  - Using Atomist: user/index.md
-  - Developer Quick Start: quick-start.md
+  - Using Atomist:
+      - Getting Started: user/index.md
+      - GitHub: user/github.md
+      - Slack: user/slack.md
+      - Continuous Integration: user/ci.md
+      - Kubernetes: user/kubernetes.md
   - Developer Guide:
       - Overview: developer/index.md
       - Prerequisites: developer/prerequisites.md
+      - Software Delivery Machine: developer/sdm.md
       - Commands: developer/commands.md
       - Events: developer/events.md
       - Slack Messages: developer/slack.md
