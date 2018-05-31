@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.4.1...HEAD
 
+### Added
+
+-   Software Delivery Machine docs
+-   Generic build webhook payload instructions
+-   Kubernetes instructions
+
 ## [9.4.1][] - 2018-04-24
 
 [9.4.1]: https://github.com/atomist/end-user-documentation/compare/9.4.0...9.4.1

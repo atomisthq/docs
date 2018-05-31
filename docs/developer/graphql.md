@@ -31,7 +31,7 @@ Replace `<TOKEN>` with a GitHub personal access token that has _org:read_ scope.
 
 Next, enter `https://automation.atomist.com/graphql/team/<TEAM_ID>` as _GraphQL
 Endpoint_ replacing `<TEAM_ID>` with your Atomist team ID. See the Setup section
-on how to obtain your Atomist team ID. The query method should be set to `POST`. 
+on how to obtain your Atomist team ID. The query method should be set to `POST`.
 
 Now you are ready to create queries and explore the possibilities of the
 Atomist data model. Don't miss the schema documentation on the right hand side
@@ -166,7 +166,7 @@ mutations available to handlers in automation clients.
 | `setTeamPreference` | Set preference data on the team entity |
 | `setUserPreference` | Set preference data on the user entity |
 
-[repo-link]: ../user/index.md#linking-slack-github (Link GitHub Repository to Slack Channel)
+[repo-link]: ../user/slack.md (Link GitHub Repository to Slack Channel)
 
 Like queries, mutations can be loaded from files and executed with the
 `GraphClient`. Here is an example showing how to create a new channel in Slack.

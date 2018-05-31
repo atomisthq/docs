@@ -227,8 +227,8 @@ The available Mapped Parameters are:
 !!! note
     Mapped Parameters are available in Command Handlers but _not_ Event Handlers.
 
-[repo-link]: ../user/index.md#linking-slack-github (Link GitHub Repository to Slack Channel)
-[github-org]: ../user/index.md#organization-webhooks (Link GitHub Organization to Atomist)
+[repo-link]: ../user/slack.md (Link GitHub Repository to Slack Channel)
+[github-org]: ../user/github.md (Link GitHub Organization to Atomist)
 
 ## Examples
 
@@ -411,7 +411,7 @@ Check the logs of your automation client to figure out what went wrong.
 
 Check your log at startup for the registration message. Does it list the parameters for your command?
 If not, are you using a separate class for parameters? check that you provided a factory method for it in your handler.
-Also check that fields are annotated with @Parameter or @MappedParameter. 
+Also check that fields are annotated with @Parameter or @MappedParameter.
 -->
 
 ### Something went wrong
