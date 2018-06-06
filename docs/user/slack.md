@@ -51,12 +51,12 @@ by revoking access to the "Atomist" application.  We certainly hope it
 doesn't come to this!
 
 The [App Manage page][slack-app-settings] has a "Remove App" button at
-the bottom of the page.  Please [let us know][support-email] if
-there's anything we can do to clarify how the bot works within your
-Slack team.
+the bottom of the page.  Please <a class="contact"
+href="mailto:support@atomist.com" title="Contact Atomist">let us
+know</a> if there's anything we can do to clarify how the bot works
+within your Slack team.
 
 [slack-app-settings]: https://slack.com/apps/A0HM83NCC-atomist?page=1
-[support-email]: mailto:support@atomist.com
 
 ## Linking repositories & Slack channels
 

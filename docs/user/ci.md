@@ -96,12 +96,22 @@ notifications:
 
 If you use a different CI tool than those listed above, you can send
 your build payload to Atomist using its generic build payload webhook
-endpoint.  Below is an example of how to send the necessary JSON
-payload using [curl][].
+endpoint.  Atomist provides a helper Bash script you can call from
+your CI solution to post webhook payloads to Atomist.  The
+[script][webhook-script] can be found in the Atomist [utiliites][]
+repository and can be invoked as follows:
+
+```
+bash atomist-post-webhook.bash build WORKSPACE_ID
+```
+
+If your CI platform is not supported by the above script or you prefer
+to use your own script, below is an example of how to send the
+necessary JSON payload using [curl][].
 
 ```
 curl -s -f -X POST -H "Content-Type: application/json" \
-    --data-binary "{\"type\":\"TRIGGER\",\"repository\":{\"owner_name\":\"REPO_OWNER\",\"name\":\"REPO_NAME\"},\"commit\":\"SHA\",\"status\":\"STATE\"}" \
+    --data-binary "{\"branch\":\"BRANCH\",\"repository\":{\"owner_name\":\"REPO_OWNER\",\"name\":\"REPO_NAME\"},\"commit\":\"SHA\",\"status\":\"STATUS\",\"type\":\"TYPE\"}" \
     https://webhook.atomist.com/atomist/build/teams/WORKSPACE_ID
 ```
 
@@ -110,26 +120,32 @@ follows:
 
 String | Description
 -------|------------
-`TRIGGER` | Build trigger: "cron", "pull_request", "push", "tag", "manual"
+`BRANCH` | Branch of commit being built, required if build type is "push"
 `REPO_OWNER` | Owner, i.e., organization or user, of repository
 `REPO_NAME` | Name of repository
 `SHA` | Full commit SHA
-`STATE` | Build state: "started", "failed", "error", "passed", "canceled"
+`STATUS` | Build status: "started", "failed", "error", "passed", "canceled"
+`TYPE` | Build trigger: "push", "pull_request", "tag", "cron", "manual"
 
 In addition to the above required payload JSON properties, you can
 also include the following optional top-level properties in your JSON
 payload:
 
-Property | Description
----------|------------
-`number` | Unique build number
-`name` | Unique name for build
-`compare_url` | Commit comparison URL showing changes
-`pull_request_number` | If build trigger is "pull_request", its number
-`build_url` | Web URL for build report/log
-`id` | Unique build ID
-`tag` | If build trigger is "tag", the tag
-`branch` | Commit branch
-`provider` | Name of CI provider
+Property | JSON Type | Description
+---------|------|------------
+`build_url` | string | Web URL for build report/log
+`compare_url` | string | Commit comparison URL showing changes
+`id` | string | Build ID, must be unique among all builds associated with a given repository
+`name` | string | Name for build
+`number` | number | Build number
+`provider` | string | Name of CI provider
+`pull_request_number` | number | Pull request number, only valid and required if build type is "pull_request"
+`tag` | string | Tag being build, only valid and required if build type is "tag"
 
+See the [build webhook documentation][build-webhook-docs] for more
+details.
+
+[webhook-script]: https://raw.githubusercontent.com/atomist/utilities/master/atomist-post-webhook.bash (Atomist Webhook Utility Script)
+[utilities]: https://github.com/atomist/utilities (Atomist Utilities Repository)
 [curl]: https://curl.haxx.se/ (curl)
+[build-webhook-docs]: https://atomisthq.github.io/build.html (Atomist Build Webhook Documentation)

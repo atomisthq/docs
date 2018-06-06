@@ -13,10 +13,10 @@ model of how your team provides value: delivering great solutions.
 You must have a Git source code management account, either GitHub.com,
 GitHub Enterprise (GHE), or BitBucket.  If you want to use Atomist
 with GHE or BitBucket, please <a class="contact"
-href="mailto:support@atomist.com">contact Atomist</a>.  The remainder
-of these instructions assume you have a GitHub.com account.  If you do
-not already have a GitHub.com account, you can [create
-one][github-create].
+href="mailto:support@atomist.com" title="Contact Atomist">contact
+Atomist</a>.  The remainder of these instructions assume you have a
+GitHub.com account.  If you do not already have a GitHub.com account,
+you can [create one][github-create].
 
 For the whole shebang, it helps to have a GitHub organization and a
 [Slack][slack] team.  You can create these for free and have full
