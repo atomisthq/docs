@@ -13,8 +13,8 @@ Node.js is to go to the [Node.js web site][node] and follow the
 installation instructions for your platform.  This makes the
 `node` and `npm` programs available on your system.
 
-Alternatively, macOS users with [Homebrew][brew]
-can install Node.js with the following command:
+Alternatively, macOS users with [Homebrew][brew] can install Node.js
+with the following command:
 
 ```
 brew install node
@@ -24,6 +24,12 @@ brew install node
 [js]: https://developer.mozilla.org/en-US/docs/Web/JavaScript (JavaScript)
 [node]: https://nodejs.org/ (Node.js)
 [brew]: https://brew.sh/ (Homebrew)
+
+## Git
+
+You must have the [Git CLI installed][git-download].
+
+[git-download]: https://git-scm.com/downloads
 
 ## Atomist CLI
 
@@ -47,6 +53,8 @@ scope in the token you use since many automations interact with GitHub
 repositories and require _repo_ scope to do their work, e.g., comment
 on issues, create PRs, and create repositories.
 
+You will create a suitable GitHub token in the following section.
+
 !!! warn
     If you created your token before 2017-11-20, it may have been
     created with just the _read:org_ scope.  If this is the case, the
@@ -57,6 +65,11 @@ on issues, create PRs, and create repositories.
     your [existing Atomist API token(s)][token].
 
 [scope]: https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/ (GitHub Token Scopes)
+
+## Configure
+
+There are a few ways you can configure Atomist API clients.  Choose
+one of the options below and follow the instructions.
 
 ### The easy way
 
@@ -73,7 +86,7 @@ only used to authenticate to GitHub so the personal access token can
 be created.  Atomist does not retain your GitHub credentials and the
 generated personal access token is only stored on your local system.
 
-### The hard way
+### Configuration file
 
 If you prefer to create the GitHub personal access token yourself, you
 can do so on your GitHub.com [new personal access token][new-token]
@@ -115,3 +128,24 @@ the `teamIds` array in the client configuration file.
 
 [token]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
 [new-token]: https://github.com/settings/tokens/new (GitHub New Personal Access Token)
+
+### Environment variables
+
+Set the following environment variables in the same shell where you
+will be running an Atomist API client.  Be sure to replace
+`WORKSPACE_ID` with your Atomist workspace/team ID and `GITHUB_TOKEN`
+with your GitHub personal access token.
+
+```
+$ export ATOMIST_TEAMS=WORKSPACE_ID
+$ export ATOMIST_TOKEN=GITHUB_TOKEN
+```
+
+If you have multiple Atomist workspaces and want to run a single SDM
+in multiple Atomist workspace, supply all of their IDs as a
+comma-delimited list as the value of the `ATOMIST_TEAMS` environment
+variable.
+
+```
+$ export ATOMIST_TEAMS=WORKSPACE_ID0,WORKSPACE_ID1,WORKSPACE_ID2
+```

@@ -1,5 +1,6 @@
-You interact with the Atomist development automation API via a
-client [WebSocket][ws] connection.  WebSocket connections are
+When running a Software Delivery Machine (SDM) or lower-level Atomist
+API client, you interact with the Atomist development automation API
+via a client [WebSocket][ws] connection.  WebSocket connections are
 persistent, providing bidirectional communication between the client
 and the API.  As such, the client process is a persistent process with
 a lifecycle that is more like a traditional _server_ process.  This
@@ -14,10 +15,12 @@ Before you can build and run your own automation client,
 
 ## Creating a client project
 
-An automation client project is any project that connects to the
+An Atomist API client project is any project that connects to the
 Atomist development automation API.  The reference implementation of
 the automation client is the [automation-client-ts][client-ts]
-library, which is written in [TypeScript][ts].  The combination of
+library, which is written in [TypeScript][ts].  Client projects, like
+any SDM, depends on the automation-client library and uses its
+interface to connect to the Atomist API.  The combination of
 TypeScript and [GraphQL][gql] provides an excellent development
 experience, with excellent tooling and debugging support.
 
@@ -327,3 +330,8 @@ and [power-assert][].
 <!--
 ## Debugging with Visual Studio Code
 -->
+
+## Stop
+
+Control-C will stop the client.  Restart it after code changes with
+`atomist start` again.
