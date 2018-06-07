@@ -72,14 +72,7 @@ then your Kubernetes user does not have administrative privileges on
 your cluster/namespace.  You will either need to ask someone who has
 admin privileges on the cluster/namespace to create the RBAC resources
 or try to escalate your privileges in the cluster/namespace.  In the
-following commands, replace `USER` with your Kubernetes user name.  If
-you are running on GKE, you can supply your user name using the
-`gcloud` utility:
-
-```
-kubectl create ... --user=$(gcloud config get-value account)
-```
-
+following commands, replace `USER` with your Kubernetes user name.
 To attempt to provide your Kubernetes user with cluster admin
 privileges, run:
 
@@ -93,10 +86,23 @@ privileges, run:
 
 ```
 kubectl create --namespace=NAMESPACE rolebinding USER-admin-binding \
-    --clusterrole=admin --user USER
+    --clusterrole=admin --user=USER
 ```
 
 Then run the command to deploy the Atomist utilities again.
+
+!!! hint "GKE and RBAC"
+    By default, the user you authenticate with a GKE cluster does not have
+    sufficient permissions to install the Atomist Kubernetes utilities.
+    To grant your user the necessary permissions, run the cluster-wide command
+    above replacing `USER` in the commands above with
+    `$(gcloud config get-value account)`:
+
+    ```
+    kubectl create clusterrolebinding \
+        $(gcloud config get-value account)-cluster-admin-binding \
+        --clusterrole=cluster-admin --user=$(gcloud config get-value account)
+    ```
 
 If you are running an older version of Kubernetes that does not
 support RBAC, either upgrade your Kubernetes cluster or <a
@@ -140,28 +146,13 @@ mode or admin role privileges within a namespace to run in
 namespace-scoped mode.  If you do not have access to a Kubernetes
 cluster, you can create one on your local system using [minikube][].
 
-!!! hint "GKE and RBAC"
-    By default, the user you authenticate with a GKE cluster does not have
-    sufficient permissions to install the Atomist Kubernetes utilities.
-    To grant your user the necessary permissions, run the following
-    command.
-
-    ```
-    kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin \
-        --user $(gcloud config get-value account)
-    ```
-
 [minikube]: https://kubernetes.io/docs/getting-started-guides/minikube/ (Running Kubernetes Locally via Minikube)
 
 ## Installation
 
-<!--
-
 Several different methods for installing the Atomist Kubernetes
 utilities are supported.  Choose the one that makes sense for your
 situation.
-
--->
 
 Before you proceed, make sure you have installed and configured the
 Atomist CLI.  You can do so with the following commands.
@@ -173,10 +164,27 @@ atomist config
 
 See the [developer documentation][dev-doc] for more details.
 
-!!! note
-    In the commands below, replace `WORKSPACE_ID` with your Atomist
-    workspace/team ID and `TOKEN` with your GitHub personal access token
-    having at least "read:org" scope.
+The commands below use values which are specific to your setup.  To
+make copy-and-pasting easier, it is helpful to set some variables
+before proceeding.  In the commands below, replace `WORKSPACE_ID` with
+your Atomist workspace/team ID, `TOKEN` with your GitHub personal
+access token having at least "read:org" scope, and `CLUSTER_ENV` with
+a meaningful name for your cluster/namespace, e.g., "production" or
+"internal".
+
+```
+workspace_id=WORKSPACE_ID
+token=TOKEN
+cluster_env=CLUSTER_ENV
+```
+
+If you are deploying in namespace-scoped mode, also set the following
+variable, replacing `NAMESPACE` with the name of the _existing_
+namespace to which you are deploying.
+
+```
+namespace=NAMESPACE
+```
 
 [dev-doc]: ../developer/prerequisites.md (Atomist Developer Prerequisites)
 
@@ -217,24 +225,24 @@ proper configuration using the following commands.
 
 ##### k8-automation
 
-To deploy k8-automation in cluster-wide mode and have it manage all
-namespaces, run the following command.
+To deploy k8-automation in cluster-wide mode with the ability to
+manage applications in all namespaces, run the following command.
 
 ```
 kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/cluster-wide.yaml
 kubectl create secret --namespace=k8-automation generic automation \
-    --from-literal=config='{"teamIds":["WORKSPACE_ID"],"token":"TOKEN"}'
+    --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\"}"
 ```
 
-To deploy k8-automation in cluster-wide mode and have it manage a
-subset of namespaces, run the following command, replacing `NS0`,
-`NS1`, etc.  with the namespaces to manage as a comma-delimited list
-of double-quotes namespace name strings.
+To deploy k8-automation in cluster-wide mode with the ability to
+manage applications in a subset of namespaces, run the following
+command, replacing `NS0`, `NS1`, etc.  with the namespaces to manage
+as a comma-delimited list of double-quoted namespace name strings.
 
 ```
 kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/cluster-wide.yaml
 kubectl create secret --namespace=k8-automation generic automation \
-    --from-literal=config='{"teamIds":["WORKSPACE_ID"],"token":"TOKEN","kubernetes":{"mode":"cluster","namespaces":["NS0","NS1","NS2"]}}'
+    --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\",\"kubernetes\":{\"mode\":\"cluster\",\"namespaces\":[\"NS0\",\"NS1\",\"NS2\"]}}"
 ```
 
 ##### k8vent
@@ -246,8 +254,8 @@ or "end-user".
 
 ```
 kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/cluster-wide.yaml
-kubectl create secret --namespace=k8vent generic k8vent --from-literal=environment=CLUSTER_ENV \
-    --from-literal=webhooks=https://webhook.atomist.com/atomist/kube/teams/WORKSPACE_ID
+kubectl create secret --namespace=k8vent generic k8vent --from-literal=environment="$cluster_env" \
+    --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/$workspace_id"
 ```
 
 k8vent cannot be deployed in a cluster-wide mode only listening to a
@@ -256,9 +264,6 @@ it in each namespace you want reported on.
 
 #### Namespace-scoped mode
 
-In the following commands, replace `NAMESPACE` with the name of the
-_existing_ namespace in which you have admin role privileges.
-
 ##### k8-automation
 
 To deploy k8-automation in namespace-scoped mode such that it will
@@ -266,9 +271,9 @@ only deploy and update resources in a single Kubernetes cluster
 namespace, run the following commands.
 
 ```
-kubectl create secret --namespace=NAMESPACE generic automation \
-    --from-literal=config='{"teamIds":["WORKSPACE_ID"],"token":"TOKEN","kubernetes":{"mode":"namespace"}}'
-kubectl apply --namespace=NAMESPACE \
+kubectl create secret --namespace="$namespace" generic automation \
+    --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\",\"kubernetes\":{\"mode\":\"namespace\"}}"
+kubectl apply --namespace="$namespace" \
     --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/namespace-scoped.yaml
 ```
 
@@ -280,25 +285,16 @@ commands, replacing `CLUSTER_ENV` with an informative name for your
 Kubernetes cluster namespace, e.g., "production" or "testing".
 
 ```
-kubectl create secret --namespace=NAMESPACE generic k8vent --from-literal=environment=CLUSTER_ENV \
-    --from-literal=webhooks=https://webhook.atomist.com/atomist/kube/teams/WORKSPACE_ID
-kubectl apply --namespace=NAMESPACE \
+kubectl create secret --namespace="$namespace" generic k8vent --from-literal=environment="$cluster_env" \
+    --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/$workspace_id"
+kubectl apply --namespace="$namespace" \
     --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/namespace-scoped.yaml
 ```
-
-<!--
 
 ### Helm
 
 If you manage resources in your Kubernetes cluster with [Helm][helm],
-you can install the Atomist Kubernetes utilities with the following
-commands.
-
-```
-helm upgrade --install --namespace=k8-automation k8-automation \
-    --set=secret.token="TOKEN" --set=config.teamIds="{WORKSPACE_ID}" \
-    https://raw.githubusercontent.com/atomist/k8-automation/master/assets/helm/
-```
+you can install the Atomist Kubernetes utilities using Helm.
 
 !!! bug "Helm and Minikube"
     Due to a bug in the default minikube bootstrapper localkube,
@@ -319,6 +315,72 @@ helm upgrade --install --namespace=k8-automation k8-automation \
 
 [helm]: https://helm.sh/ (Helm Package Manager for Kubernetes)
 [localkube-bug]: https://github.com/kubernetes/helm/issues/3135#issuecomment-344291890
+
+#### Cluster-wide mode
+
+##### k8-automation
+
+To install k8-automation in cluster-wide mode and have the ability to
+manage applications in all namespaces, run the following Helm command.
+
+```
+helm upgrade --install --namespace=k8-automation k8-automation \
+    --set=secret.token="$token" --set=config.teamIds="{$workspace_id}" \
+    --set=config.environment="$cluster_env" \
+    --repo https://atomist.github.io/helm-charts k8-automation
+```
+
+To deploy k8-automation in cluster-wide mode with the ability to
+manage applications in a subset of namespaces, run the following
+command, replacing `NS0`, `NS1`, etc.  with the namespaces to manage
+as a comma-delimited list of namespace names.
+
+```
+helm upgrade --install --namespace=k8-automation k8-automation \
+    --set=secret.token="$token" --set=config.teamIds="{$workspace_id}" \
+    --set=config.environment="$cluster_env" \
+    --set=config.kubernetes.namespaces="{NS0,NS1,NS2}" \
+    --repo https://atomist.github.io/helm-charts k8-automation
+```
+
+##### k8vent
+
+To install k8vent in cluster-wide mode using Helm, run the following
+command.
+
+```
+helm upgrade --install --namespace=k8vent k8vent \
+    --set=teamIds="{$workspace_id}" --set=environment="$cluster_env" \
+    --repo https://atomist.github.io/helm-charts k8vent
+```
+
+#### Namespace-scoped mode
+
+##### k8-automation
+
+To install k8-automation in namespace-scoped mode, run the following
+Helm command.
+
+```
+helm upgrade --install --namespace="$namespace" k8-automation-ns \
+    --set=secret.token="$token" --set=config.teamIds="{$workspace_id}" \
+    --set=config.kubernetes.mode=namespace \
+    --repo https://atomist.github.io/helm-charts k8-automation
+```
+
+##### k8vent
+
+To install k8vent in namespace-scoped mode using Helm, run the
+following command.
+
+```
+helm upgrade --install --namespace="$namespace" k8vent-ns \
+    --set=teamIds="{$workspace_id}" --set=environment="$cluster_env" \
+    --set=mode=namespace \
+    --repo https://atomist.github.io/helm-charts k8vent
+```
+
+<!--
 
 ### ksonnet
 

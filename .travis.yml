@@ -33,7 +33,7 @@ notifications:
     on_error: always
     on_cancel: always
     urls:
-    - https://webhook.atomist.com/travis
+    - https://webhook.atomist.com/atomist/travis/teams/T29E48P34
 cache:
   pip: true
   directories:
