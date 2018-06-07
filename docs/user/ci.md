@@ -26,48 +26,107 @@ notify:
 You can send events from [Jenkins][jenkins] to Atomist using
 the [notification plugin][not-plugin], configuring it to send its
 payload to
-`https://webhook.atomist.com/atomist/jenkins/teams/WORKSPACE_ID`.
+`https://webhook.atomist.com/atomist/jenkins/teams/WORKSPACE_ID`,
+replacing `WORKSPACE_ID` with your Atomist team/workspace ID.
 
 If you configure your build using a [`Jenkinsfile`][jenkinsfile], add
-these functions to your `Jenkinsfile`.  Don't forget to replace
-`WORKSPACE_ID` with your Slack team ID.
+the following function to your `Jenkinsfile`.
 
 ```groovy
 import groovy.json.JsonOutput
 
-def getSCMInformation() {
-    def gitUrl = sh(returnStdout: true, script: 'git config --get remote.origin.url').trim()
-    def gitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-    def gitBranch = sh(returnStdout: true, script: 'git name-rev --always --name-only HEAD').trim().replace('remotes/origin/', '')
-    return [ url: gitUrl, branch: gitBranch, commit: gitSha ]
-}
-
-def notifyAtomist(buildStatus, buildPhase="FINALIZED",
-                  endpoint="https://webhook.atomist.com/atomist/jenkins/teams/WORKSPACE_ID") {
-
-    def payload = JsonOutput.toJson([
-        name: env.JOB_NAME,
-        duration: currentBuild.duration,
-        build: [
-            number: env.BUILD_NUMBER,
-            phase: buildPhase,
-            status: buildStatus,
-            full_url: env.BUILD_URL,
-            scm: getSCMInformation()
+/**
+ * Notify the Atomist services about the status of a build based from a
+ * git repository.
+ */
+def notifyAtomist(String teamIds, String buildStatus, String buildPhase="FINALIZED") {
+    if (!teamIds) {
+        echo 'No Atomist team IDs, not sending build notification'
+        return
+    }
+    def payload = JsonOutput.toJson(
+        [
+            name: env.JOB_NAME,
+            duration: currentBuild.duration,
+            build: [
+                number: env.BUILD_NUMBER,
+                phase: buildPhase,
+                status: buildStatus,
+                full_url: env.BUILD_URL,
+                scm: [
+                    url: env.GIT_URL,
+                    branch: env.COMMIT_BRANCH,
+                    commit: env.COMMIT_SHA
+                ]
+            ]
         ]
-    ])
-    sh "curl --silent -XPOST -H 'Content-Type: application/json' -d '${payload}' ${endpoint}"
+    )
+    teamIds.split(',').each { teamId ->
+        String endpoint = "https://webhook.atomist.com/atomist/jenkins/teams/${teamId}"
+        sh "curl --silent -X POST -H 'Content-Type: application/json' -d '${payload}' ${endpoint}"
+    }
 }
 ```
+
+Ensure your build has an environment variable named `ATOMIST_TEAMS`
+whose value is your Atomist workspace/team ID or, if you want to send
+the event to more than one Atomist workspace, the value should be a
+comma-separated list of your Atomist workspace/team IDs.
 
 Then call `notifyAtomist` when the build starts (in the first
 stage) and ends (in the `post` block), sending the appropriate
 status and phase.
 
--   Start: `notifyAtomist("STARTED", "STARTED")`
--   Succesful: `notifyAtomist("SUCCESS")`
--   Unstable: `notifyAtomist("UNSTABLE")`
--   Failure: `notifyAtomist("FAILURE")`
+-   Start: `notifyAtomist(env.ATOMIST_TEAMS, "STARTED", "STARTED")`
+-   Succesful: `notifyAtomist(env.ATOMIST_TEAMS, "SUCCESS")`
+-   Unstable: `notifyAtomist(env.ATOMIST_TEAMS, "UNSTABLE")`
+-   Failure: `notifyAtomist(env.ATOMIST_TEAMS, "FAILURE")`
+
+Here is a simple example `Jenkinsfile` pipeline that sends the
+appropriate webhook payloads at the appropriate time.
+
+```groovy
+/**
+ * Simple Jenkins pipeline for Maven builds
+ */
+pipeline {
+    agent any
+
+    environment {
+        MVN = 'mvn -B -V'
+    }
+
+    stages {
+        stage('Notify') {
+            steps {
+                echo 'Sending build start...'
+                notifyAtomist(env.ATOMIST_TEAMS, 'STARTED', 'STARTED')
+            }
+        }
+
+        stage('Set version') {
+            steps {
+                echo 'Setting version...'
+                sh "${env.MVN} versions:set -DnewVersion=${env.COMMIT_SHA} versions:commit"
+            }
+        }
+
+        stage('Build, Test, and Package') {
+            steps {
+                echo 'Building, testing, and packaging...'
+                sh "${env.MVN} clean package"
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Post notification...'
+            notifyAtomist(env.ATOMIST_TEAMS, currentBuild.currentResult)
+        }
+    }
+}
+```
 
 [jenkins]: https://jenkins.io/ (Jenkins)
 [not-plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin (Jenkins Notification Plugin)
@@ -120,27 +179,32 @@ follows:
 
 String | Description
 -------|------------
-`BRANCH` | Branch of commit being built, required if build type is "push"
+`BRANCH` | Branch of commit being built
 `REPO_OWNER` | Owner, i.e., organization or user, of repository
 `REPO_NAME` | Name of repository
 `SHA` | Full commit SHA
 `STATUS` | Build status: "started", "failed", "error", "passed", "canceled"
 `TYPE` | Build trigger: "push", "pull_request", "tag", "cron", "manual"
 
-In addition to the above required payload JSON properties, you can
-also include the following optional top-level properties in your JSON
-payload:
+There are other optional elements you can include in your webhook POST
+payload.  Here is the complete list of build payload elements.
 
 Property | JSON Type | Description
 ---------|------|------------
+`branch` | string | Branch of commit _(required if build type is "push")_
 `build_url` | string | Web URL for build report/log
+`commit` | string | Full commit SHA _(required)_
 `compare_url` | string | Commit comparison URL showing changes
 `id` | string | Build ID, must be unique among all builds associated with a given repository
 `name` | string | Name for build
 `number` | number | Build number
 `provider` | string | Name of CI provider
-`pull_request_number` | number | Pull request number, only valid and required if build type is "pull_request"
+`pull_request_number` | number | Pull request number _(only valid and required if build type is "pull_request")_
+`repository.owner_name` | string | Owner, i.e., organization or user, of repository _(required)_
+`repository.name` | string | Name of repository _(required)_
+`status` | string | Build status: "started", "failed", "error", "passed", "canceled" _(required)_
 `tag` | string | Tag being build, only valid and required if build type is "tag"
+`type` | string | Build trigger: "push", "pull_request", "tag", "cron", "manual" _(required)_
 
 See the [build webhook documentation][build-webhook-docs] for more
 details.
