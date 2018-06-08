@@ -122,6 +122,7 @@ For more detailed information about customizing event handling, see the full doc
 for [events][event].
 
 [repo-link]: user/index.md#linking-slack-github (Link GitHub Repository to Slack Channel)
+[repo-link]: user/slack.md#linking-repositories-slack-channels (Link GitHub Repository to Slack Channel)
 
 ## Dive in
 

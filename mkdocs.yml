@@ -67,6 +67,7 @@ pages:
       - Slack: user/slack.md
       - Continuous Integration: user/ci.md
       - Kubernetes: user/kubernetes.md
+  - Developer Quick Start: quick-start.md
   - Developer Guide:
       - Overview: developer/index.md
       - Prerequisites: developer/prerequisites.md
