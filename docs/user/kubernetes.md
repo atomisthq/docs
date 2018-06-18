@@ -234,17 +234,6 @@ kubectl create secret --namespace=k8-automation generic automation \
     --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\"}"
 ```
 
-To deploy k8-automation in cluster-wide mode with the ability to
-manage applications in a subset of namespaces, run the following
-command, replacing `NS0`, `NS1`, etc.  with the namespaces to manage
-as a comma-delimited list of double-quoted namespace name strings.
-
-```
-kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/cluster-wide.yaml
-kubectl create secret --namespace=k8-automation generic automation \
-    --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\",\"kubernetes\":{\"mode\":\"cluster\",\"namespaces\":[\"NS0\",\"NS1\",\"NS2\"]}}"
-```
-
 ##### k8vent
 
 To deploy k8vent in cluster-wide mode and have it report on changes to
@@ -258,11 +247,11 @@ kubectl create secret --namespace=k8vent generic k8vent --from-literal=environme
     --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/$workspace_id"
 ```
 
-k8vent cannot be deployed in a cluster-wide mode only listening to a
-subset of namespaces.  To achieve this configuration, you must deploy
-it in each namespace you want reported on.
-
 #### Namespace-scoped mode
+
+If you want the Atomist utilities manage and report on multiple, but
+not all, namespaces, deploy them in namespace-scoped mode in each of
+the namespaces you want it to manage/report on.
 
 ##### k8-automation
 
@@ -285,7 +274,8 @@ commands, replacing `CLUSTER_ENV` with an informative name for your
 Kubernetes cluster namespace, e.g., "production" or "testing".
 
 ```
-kubectl create secret --namespace="$namespace" generic k8vent --from-literal=environment="$cluster_env" \
+kubectl create secret --namespace="$namespace" generic k8vent \
+    --from-literal=environment="$cluster_env" \
     --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/$workspace_id"
 kubectl apply --namespace="$namespace" \
     --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/namespace-scoped.yaml
@@ -318,66 +308,30 @@ you can install the Atomist Kubernetes utilities using Helm.
 
 #### Cluster-wide mode
 
-##### k8-automation
-
-To install k8-automation in cluster-wide mode and have the ability to
-manage applications in all namespaces, run the following Helm command.
+To install all of the Atomist Kubernetes utilities in cluster-wide
+mode, run the following `helm` command.
 
 ```
-helm upgrade --install --namespace=k8-automation k8-automation \
-    --set=secret.token="$token" --set=config.teamIds="{$workspace_id}" \
-    --set=config.environment="$cluster_env" \
-    --repo https://atomist.github.io/helm-charts k8-automation
-```
-
-To deploy k8-automation in cluster-wide mode with the ability to
-manage applications in a subset of namespaces, run the following
-command, replacing `NS0`, `NS1`, etc.  with the namespaces to manage
-as a comma-delimited list of namespace names.
-
-```
-helm upgrade --install --namespace=k8-automation k8-automation \
-    --set=secret.token="$token" --set=config.teamIds="{$workspace_id}" \
-    --set=config.environment="$cluster_env" \
-    --set=config.kubernetes.namespaces="{NS0,NS1,NS2}" \
-    --repo https://atomist.github.io/helm-charts k8-automation
-```
-
-##### k8vent
-
-To install k8vent in cluster-wide mode using Helm, run the following
-command.
-
-```
-helm upgrade --install --namespace=k8vent k8vent \
-    --set=teamIds="{$workspace_id}" --set=environment="$cluster_env" \
-    --repo https://atomist.github.io/helm-charts k8vent
+helm upgrade --install --namespace=atomist atomist-utilities \
+    --repo=https://atomist.github.io/helm-charts atomist-utilities \
+    --set=global.atomist.token="$token" \
+    --set=global.atomist.teamIds="{$workspace_id}" \
+    --set=global.atomist.environment="$cluster_env"
 ```
 
 #### Namespace-scoped mode
 
-##### k8-automation
-
-To install k8-automation in namespace-scoped mode, run the following
-Helm command.
-
-```
-helm upgrade --install --namespace="$namespace" k8-automation-ns \
-    --set=secret.token="$token" --set=config.teamIds="{$workspace_id}" \
-    --set=config.kubernetes.mode=namespace \
-    --repo https://atomist.github.io/helm-charts k8-automation
-```
-
-##### k8vent
-
-To install k8vent in namespace-scoped mode using Helm, run the
-following command.
+To install all of the Atomist Kubernetes utilities in namespace-scoped
+mode, run the following `helm` command for each namespace you want to
+deploy them to.
 
 ```
-helm upgrade --install --namespace="$namespace" k8vent-ns \
-    --set=teamIds="{$workspace_id}" --set=environment="$cluster_env" \
-    --set=mode=namespace \
-    --repo https://atomist.github.io/helm-charts k8vent
+helm upgrade --install --namespace="$namespace" "atomist-utilities-$namespace" \
+    --repo=https://atomist.github.io/helm-charts atomist-utilities \
+    --set=global.atomist.token="$token" \
+    --set=global.atomist.teamIds="{$workspace_id}" \
+    --set=global.atomist.environment="$cluster_env" \
+    --set=global.atomist.mode=namespace
 ```
 
 <!--
@@ -391,13 +345,16 @@ Coming soon.
 ## Updating
 
 You can update to a new version of the Atomist Kubernetes utilities
-using standard Kubernetes approaches.  For example, using `kubectl`
-you can run the following commands, replacing `NAMESPACE` and `M.N.P`
-as appropriate.
+using standard Kubernetes approaches.  If you are using Helm, you can
+simply re-run the commands you ran to install the Atomist Kubernetes
+utilities.  If you are using `kubectl` you can run the following
+commands, replacing `NAMESPACE` and `M.N.P` as appropriate.
 
 ```
-kubectl set image --namespace=NAMESPACE deployment/k8vent k8vent=atomist/k8vent:M.N.P
-kubectl set image --namespace=NAMESPACE deployment/k8-automation k8-automation=atomist/k8-automation:M.N.P
+kubectl set image --namespace=NAMESPACE \
+    deployment/k8vent k8vent=atomist/k8vent:M.N.P
+kubectl set image --namespace=NAMESPACE \
+    deployment/k8-automation k8-automation=atomist/k8-automation:M.N.P
 ```
 
 You can always find the latest versions of

@@ -8,6 +8,11 @@ tools into a cohesive model of code, people, and process.  Atomist
 empowers your team to gain visibility and control over your software
 delivery flow with your own Software Delivery Machine (SDM).
 
+!!! tldr "Escape Bash and YAML!!!"
+    Tired of managing CI/CD Bash scripts and YAML config across dozens
+    of repositories?  Use Atomist to tame the complexity and execute
+    your best delivery process across all your repositories.
+
 [www]: https://atomist.com/ (Atomist - How Teams Deliver Software)
 
 ## What is a Software Delivery Machine?
