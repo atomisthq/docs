@@ -125,6 +125,34 @@ If your Kubernetes user has neither cluster-admin or admin role
 access, you will need to ask someone who does to install the Atomist
 utilities in your cluster.
 
+### Cluster environment
+
+The Atomist Kubernetes utilities use the concept of a _cluster
+environment_.  While the cluster environment is an arbitrary
+description of the Kubernetes cluster to which you are deploying the
+Atomist Kubernetes utilities, it is used to link application
+deployment requests and cluster activity to the other activity in your
+development flow.  Therefore it should be meaningful to you and your
+team and unique across your organization's Kubernetes clusters.
+Examples of good cluster environments are "production", "end-user",
+"uat", "staging", etc.
+
+The cluster environment you provide when installing the Atomist
+Kubernetes utilities will be used when reporting on Kubernetes pod
+container activity in development lifecycle messages.  For example,
+the following image shows the containers that are running a specific
+Docker image from a specific commit and build in various namespaces in
+the Kubernetes cluster environment "gke-int-demo".
+
+![Kubernetes Development Lifecycle Message](img/kubernetes-lifecycle.png)
+
+The cluster environment is used by k8-automation and your software
+delivery machine (SDM) to coordinate application deployments and
+upgrades.  Since you may be deploying k8-automation to multiple
+Kubernetes clusters, the cluster environment is used as part of the
+application deployment/update request to select the Kubernetes
+cluster.
+
 ## Prerequisites
 
 Before you connect Atomist and your Kubernetes cluster(s), you need a
