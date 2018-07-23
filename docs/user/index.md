@@ -27,9 +27,11 @@ admin powers, if you want to experiment.
 
 ## Hello Atomist
 
-Visit [atomist.com][www] and click "Sign Up."  You'll be asked to
-authenticate with GitHub.
+Follow the instructions in the sign up or trial invitation email you
+received. If you would like an Atomist account, visit [atomist.com][www] 
+and click "Request Trial."  
 
+When you first sign up, you'll be asked to authenticate with GitHub.
 Once you've authenticated, you'll create a new Atomist workspace.
 Associate a GitHub organization or some repositories with the Atomist
 workspace to start getting events.  Atomist will ask your permission
