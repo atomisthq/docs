@@ -209,7 +209,7 @@ export interface SdmContext {
 
     /**
      * If available, provides a way to address the channel(s) related to this event.
-     * This is usually, but not always, the channels linked to a
+     * This is usually, but not always, the channels linked to a repo
      * In some cases, such as repo creation or a push to a repo where there is no linked channel,
      * addressChannels will go to dev/null without error.
      */
