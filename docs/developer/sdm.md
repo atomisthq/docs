@@ -264,7 +264,7 @@ The [`Project` interface][project] is defined in
 [@atomist/automation-client][client]. It provides an abstraction to
 the present repository, with Atomist taking care of Git cloning and
 (if necessary) writing back any changes via a push. It is abstracted
-from the file system, making it easy to unit listeners accessing
+from the file system, making it easy to unit test with mocked
 repository contents, using the `InMemoryProject` and `InMemoryFile`
 classes.
 
