@@ -157,7 +157,7 @@ If you use a different CI tool than those listed above, you can send
 your build payload to Atomist using its generic build payload webhook
 endpoint.  Atomist provides a helper Bash script you can call from
 your CI solution to post webhook payloads to Atomist.  The
-[script][webhook-script] can be found in the Atomist [utiliites][]
+[script][webhook-script] can be found in the Atomist [utilities][]
 repository and can be invoked as follows:
 
 ```
