@@ -27,7 +27,7 @@ You can send events from [Jenkins][jenkins] to Atomist using
 the [notification plugin][not-plugin], configuring it to send its
 payload to
 `https://webhook.atomist.com/atomist/jenkins/teams/WORKSPACE_ID`,
-replacing `WORKSPACE_ID` with your Atomist team/workspace ID.
+replacing `WORKSPACE_ID` with your Atomist workspace ID.
 
 If you configure your build using a [`Jenkinsfile`][jenkinsfile], add
 the following function to your `Jenkinsfile`.
@@ -39,9 +39,9 @@ import groovy.json.JsonOutput
  * Notify the Atomist services about the status of a build based from a
  * git repository.
  */
-def notifyAtomist(String teamIds, String buildStatus, String buildPhase="FINALIZED") {
-    if (!teamIds) {
-        echo 'No Atomist team IDs, not sending build notification'
+def notifyAtomist(String workspaceIds, String buildStatus, String buildPhase="FINALIZED") {
+    if (!workspaceIds) {
+        echo 'No Atomist workspace IDs, not sending build notification'
         return
     }
     def payload = JsonOutput.toJson(
@@ -61,26 +61,26 @@ def notifyAtomist(String teamIds, String buildStatus, String buildPhase="FINALIZ
             ]
         ]
     )
-    teamIds.split(',').each { teamId ->
-        String endpoint = "https://webhook.atomist.com/atomist/jenkins/teams/${teamId}"
+    workspaceIds.split(',').each { workspaceId ->
+        String endpoint = "https://webhook.atomist.com/atomist/jenkins/teams/${workspaceId}"
         sh "curl --silent -X POST -H 'Content-Type: application/json' -d '${payload}' ${endpoint}"
     }
 }
 ```
 
-Ensure your build has an environment variable named `ATOMIST_TEAMS`
-whose value is your Atomist workspace/team ID or, if you want to send
+Ensure your build has an environment variable named `ATOMIST_WORKSPACES`
+whose value is your Atomist workspace ID or, if you want to send
 the event to more than one Atomist workspace, the value should be a
-comma-separated list of your Atomist workspace/team IDs.
+comma-separated list of your Atomist workspace IDs.
 
 Then call `notifyAtomist` when the build starts (in the first
 stage) and ends (in the `post` block), sending the appropriate
 status and phase.
 
--   Start: `notifyAtomist(env.ATOMIST_TEAMS, "STARTED", "STARTED")`
--   Succesful: `notifyAtomist(env.ATOMIST_TEAMS, "SUCCESS")`
--   Unstable: `notifyAtomist(env.ATOMIST_TEAMS, "UNSTABLE")`
--   Failure: `notifyAtomist(env.ATOMIST_TEAMS, "FAILURE")`
+-   Start: `notifyAtomist(env.ATOMIST_WORKSPACES, "STARTED", "STARTED")`
+-   Succesful: `notifyAtomist(env.ATOMIST_WORKSPACES, "SUCCESS")`
+-   Unstable: `notifyAtomist(env.ATOMIST_WORKSPACES, "UNSTABLE")`
+-   Failure: `notifyAtomist(env.ATOMIST_WORKSPACES, "FAILURE")`
 
 Here is a simple example `Jenkinsfile` pipeline that sends the
 appropriate webhook payloads at the appropriate time.
@@ -100,7 +100,7 @@ pipeline {
         stage('Notify') {
             steps {
                 echo 'Sending build start...'
-                notifyAtomist(env.ATOMIST_TEAMS, 'STARTED', 'STARTED')
+                notifyAtomist(env.ATOMIST_WORKSPACES, 'STARTED', 'STARTED')
             }
         }
 
@@ -122,7 +122,7 @@ pipeline {
     post {
         always {
             echo 'Post notification...'
-            notifyAtomist(env.ATOMIST_TEAMS, currentBuild.currentResult)
+            notifyAtomist(env.ATOMIST_WORKSPACES, currentBuild.currentResult)
         }
     }
 }

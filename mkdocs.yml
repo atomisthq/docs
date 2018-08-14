@@ -75,7 +75,7 @@ pages:
       - Commands: developer/commands.md
       - Events: developer/events.md
       - Slack Messages: developer/slack.md
-      - Working with GraphQL: developer/graphql.md
+      - GraphQL: developer/graphql.md
       - Creating Projects: developer/create.md
       - Editing Projects: developer/editors.md
       - Automation Client: developer/client.md

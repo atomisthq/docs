@@ -205,7 +205,7 @@ Supply one argument to that decorator to tell it which of the MappedParameters y
 public slackUserName: string;
 ```
 
-In Slack, if the value is ambiguous based on your team and channel, Atomist asks the user.
+In Slack, if the value is ambiguous based on your workspace and channel, Atomist asks the user.
 
 In Slack buttons, the automation that defines the button can provide values for these.
 
@@ -217,7 +217,7 @@ The available Mapped Parameters are:
 | MappedParameters.SlackUser | The ID of the Slack user who invoked the command. For instance: U6L3BGG01; |
 | MappedParameters.SlackChannelName | The name of the channel where the command was invoked. |
 | MappedParameters.SlackChannel | The ID of the channel where the command was invoked. For instance: C3NGYQF6Y |
-| MappedParameters.SlackTeam | The ID of your Slack team. For instance: T6MFSPUDL |
+| MappedParameters.SlackTeam | The ID of your Slack workspace. For instance: T6MFSPUDL |
 | MappedParameters.GitHubRepository | If the command was invoked in a [channel linked to exactly one repository][repo-link], this is the name of it. Otherwise, prompt for one of the repository names in your team. |
 | MappedParameters.GitHubOwner | If your team has one [linked organization][github-org], this is it. If the command was invoked in a [channel linked to exactly one repository][repo-link], this is the owner of that repository. Otherwise, prompt for one of the organizations linked to your team. |
 | MappedParameters.GitHubUrl | This is https://github.com unless you're on GitHub Enterprise. |

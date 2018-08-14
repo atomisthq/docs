@@ -5,19 +5,65 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased][]
+## [Unreleased](https://github.com/atomist/end-user-documentation/compare/10.4.0...HEAD)
 
-[Unreleased]: https://github.com/atomist/end-user-documentation/compare/9.4.1...HEAD
+## [10.4.0](https://github.com/atomist/end-user-documentation/compare/10.3.1...10.4.0) - 2018-08-13
+
+### Changed
+
+-   Replaced team with workspace as appropriate.
+-   Replaced token with API key as appropriate.
+-   Updated query, subscription, and mutate docs.
+
+### Fixed
+
+-   Added named link to fix CI link.
+
+## [10.3.1](https://github.com/atomist/end-user-documentation/compare/10.3.0...10.3.1) - 2018-07-27
+
+### Changed
+
+-   Updated getting started introduction.
+
+### Fixed
+
+-   Fixed some typos.
+
+## [10.3.0](https://github.com/atomist/end-user-documentation/compare/10.2.0...10.3.0) - 2018-06-18
+
+### Added
+
+-   Add description of Kubernetes cluster environment.
+
+### Changed
+
+-   Update Kubernetes Helm instructions.
+
+## [10.2.0](https://github.com/atomist/end-user-documentation/compare/10.1.0...10.2.0) - 2018-06-07
+
+### Added
+
+-   Restored quick start page.
+
+### Changes
+
+-   Improved Jenkins instructions.
+
+## [10.1.0](https://github.com/atomist/end-user-documentation/compare/10.0.0...10.1.0) - 2018-06-07
+
+### Added
+
+-   Provide Helm instructions for Kubernetes utilities.
+
+## [10.0.0](https://github.com/atomist/end-user-documentation/compare/9.4.1...10.0.0) - 2018-06-06
 
 ### Added
 
 -   Software Delivery Machine docs
--   Generic build webhook payload instructions
--   Kubernetes instructions
+-   Add Generic build webhook payload instructions.
+-   Provide Kubernetes instructions.
 
-## [9.4.1][] - 2018-04-24
-
-[9.4.1]: https://github.com/atomist/end-user-documentation/compare/9.4.0...9.4.1
+## [9.4.1](https://github.com/atomist/end-user-documentation/compare/9.4.0...9.4.1) - 2018-04-24
 
 TOC release
 

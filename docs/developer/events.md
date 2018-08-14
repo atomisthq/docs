@@ -8,11 +8,10 @@ to react to.  The sample event handler below notifies you in Slack when
 a new GitHub issue is created.
 
 When writing an event handler, you need to understand the events
-involved. You
-can
-[use GraphiQL to query for events][gql-access]
-their properties, and their relationships.  For example, this query
-shows the issue number and title for all your issues.
+involved. You can [use Graph<i>i</i>QL to query for
+events][gql-access] their properties, and their relationships.  For
+example, this query shows the issue number and title for all your
+issues.
 
 ```
 {
@@ -211,7 +210,7 @@ describe("IssueNotification", () => {
             }
         }
         const ctx: HandlerContext = {
-            teamId: "teamId1",
+            workspaceId: "workspaceId1",
             correlationId: "correlationId1",
             invocationId: guid(),
             graphClient: undefined,

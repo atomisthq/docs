@@ -148,9 +148,9 @@ with other events.
     learn more about Atomist and how we can help you and your team
     deliver better software faster.
 
--   If you want to get started using Atomist, go to
-    the [Using Atomist][user] page to get Atomist installed in your
-    Slack team, authorized in GitHub, and connected to your continuous
+-   If you want to get started using Atomist, go to the [Using
+    Atomist][user] page to get Atomist installed in your Slack
+    workspace, authorized in GitHub, and connected to your continuous
     integration system.
 
 -   If you already are using Atomist and are interested in writing

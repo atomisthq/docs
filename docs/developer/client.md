@@ -95,18 +95,17 @@ file that will look something like:
 
 ```json
 {
-  "token": "abcdef0123456789abcdef0123456789abcdef01",
-  "teamIds": [
-    "TK421WAYA",
+  "apiKey": "ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789",
+  "workspaceIds": [
+    "A0421WAYA",
   ]
 }
 ```
 
-The `token` is your [GitHub personal access token][token] and the
-`teamIds` are the Slack teams where you want to run your automations.
-If you want to change the token or add/remove teams, you can just edit
-this file directly.  Remember, whatever token you use, it must have at
-least _read:org_ and we recommend it also have the _repo_ scope.
+The `apiKey` is your Atomist API key and `workspaceIds` are the
+Atomist IDs of the workspaces where you want to run your automations.
+If you want to change the API key or add/remove workspaces, you can
+just edit this file directly.
 
 If you are managing several automation client projects for different
 teams, you can override your user-level configuration using the
@@ -116,27 +115,14 @@ look like this:
 
 ```typescript
 import { Configuration } from "@atomist/automation-client/configuration";
-import * as appRoot from "app-root-path";
-
-// tslint:disable-next-line:no-var-requires
-const pj = require(`${appRoot}/package.json`);
-
-const token = process.env.GITHUB_TOKEN;
 
 export const configuration: Configuration = {
-    name: pj.name,
-    version: pj.version,
-    teamIds: [],
-    token,
+    // configuration you want to override
 };
 ```
 
-If the `teamIds` array exists and its length is greater than zero (0),
-the value in the project configuration will be used.  If the
-environment variable `GITHUB_TOKEN` exists and has non-zero length, it
-will be used.  For more complex configurations, e.g., different teams
-and tokens for different environments, you can use the [config][]
-Node.js package to supply values for `teamIds` and `token`.
+The configuration values in the `atomist.config.ts` file will override
+those from your user configuration.
 
 By default, all automations in your project will be registered with
 the automation API when the client starts up (see [lifecycle][]).  If
@@ -149,10 +135,6 @@ import { HelloWorld } from "./commands/HelloWorld";
 import { NotifyOnPush } from "./events/NotifyOnPush";
 
 export const configuration: Configuration = {
-    name: pj.name,
-    version: pj.version,
-    teamIds: [],
-    token,
     commands: [
         HelloWorld,
     ],
@@ -205,19 +187,16 @@ The automation client lifecycle will be familiar to those developing
 persistent applications.
 
 1.  **Authentication** - When the automation client starts up, it
-    connects to the automation API and authenticates using
-    the [GitHub personal access token][token] you have provided in
-    your client configuration file.  This token has _read:org_ scope,
-    allowing the automation API to establish who you are and your
-    GitHub organization memberships.
+    connects to the automation API and authenticates using the API key
+    you have provided in your client configuration file.
 
 2.  **Registration** - Once your identity has been established, the
     client registers its automations, i.e., the bot commands it
-    provides and the events it wants to receive, with the Slack teams
-    specified in your client configuration.  If Atomist does not
-    recognize your Slack team or your GitHub identity is not connected
-    to any member of that Slack team, registration will fail and the
-    client will exit with an unsuccessful status.
+    provides and the events it wants to receive, with the Atomist
+    workspaces specified in your client configuration.  If Atomist
+    does not recognize your workspace ID or the provided API key is
+    not connected to any member of that workspace, registration will
+    fail and the client will exit with an unsuccessful status.
 
 3.  **Listening** - After authentication and registration is completed
     successfully, the WebSocket connection is established and the
@@ -228,7 +207,47 @@ persistent applications.
     typically `SIGINT` delivered by the PaaS or `Ctrl-C`, it
     de-registers with the API and gracefully shuts down.
 
-[token]: prerequisites.md#github-token
+## Client state
+
+A client, once registered, will continue to receive all the events it
+has subscribed to until shuts down or one of the following scenarios
+occurs.
+
+### Multiple identical clients register
+
+If another client with the same name and version, typically obtained
+from the `package.json` "name" and "version" properties, registers,
+then all of the registered identical clients will receive the events
+in a round-robin fashion.  Each event will only be sent to one of the
+identical clients.  This allows you to horizontally scale Atomist API
+clients.
+
+### A different version registers
+
+If another client having the same name but different version
+registers, it will begin receiving all of the events for the client
+and any previously registered versions cease receiving events.  Note
+that no version comparisons are done, the _last registration wins_.
+
+If the new client has registered with a policy of "ephemeral" and the
+prior client was registered with a policy of "durable", then when the
+new client shuts down, events again be sent to the "durable"
+registration clients.
+
+The reason for this logic is to allow for production, testing, and
+local use to all coexist without taking the same action multiple
+times.  For example, if you are running an SDM in production but want
+to test something, you can run it locally, steal events for a bit,
+kill the local client, and then traffic will return to the production
+instance.
+
+If you want the same events to be sent to multiple clients, just make
+sure the clients have different names.
+
+!!! note "Custom Ingestion"
+    Any custom ingestion types can only be registered once within an
+    Atomist workspace.  Therefore it is recommended to register these
+    in a dedicated client.
 
 ## Project structure
 

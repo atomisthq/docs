@@ -1,16 +1,27 @@
-Before you begin developing and running your own automations, you need
-an [Atomist workspace][getting-started].
+Before you begin developing and running your own software deliver
+machine (SDM) or other Atomist API client, you need an [Atomist
+account][getting-started] and several other prerequisites.
 
 [getting-started]: ../user/index.md (Atomist - Getting Started)
+
+## Atomist workspace
+
+As part of creating an account with Atomist, you created an Atomist
+workspace.  To run SDMs or other Atomist API clients, you will need
+the ID of your Atomist workspace.  You can find your Atomist workspace
+ID on your workspace's settings page in the [Atomist web
+application][atomist-app].
+
+[atomist-app]: https://app.atomist.com/ (Atomist Web App)
 
 ## Node.js
 
 The reference implementation of the Atomist automation API client is
-implemented in [TypeScript][ts], a superset of [JavaScript][js].  To develop and
-run automations using the reference implementation of the automation
-client, you must install Node.js.  The easiest way to install
-Node.js is to go to the [Node.js web site][node] and follow the
-installation instructions for your platform.  This makes the
+implemented in [TypeScript][ts], a superset of [JavaScript][js].  To
+develop and run automations using the reference implementation of the
+automation client, you must install Node.js.  The easiest way to
+install Node.js is to go to the [Node.js web site][node] and follow
+the installation instructions for your platform.  This makes the
 `node` and `npm` programs available on your system.
 
 Alternatively, macOS users with [Homebrew][brew] can install Node.js
@@ -20,6 +31,13 @@ with the following command:
 brew install node
 ```
 
+Once you have `node` and `npm` available, it is a good idea to update
+to the latest version of NPM using the following command.
+
+```
+npm install -g npm
+```
+
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [js]: https://developer.mozilla.org/en-US/docs/Web/JavaScript (JavaScript)
 [node]: https://nodejs.org/ (Node.js)
@@ -27,7 +45,10 @@ brew install node
 
 ## Git
 
-You must have the [Git CLI installed][git-download].
+Atomist supports software development using Git and uses the Git
+command-line tool to perform many of its actions.  You must have the
+[Git CLI installed][git-download] for Atomist tools to function
+properly.
 
 [git-download]: https://git-scm.com/downloads
 
@@ -35,117 +56,116 @@ You must have the [Git CLI installed][git-download].
 
 The Atomist CLI performs several useful functions that are referred to
 throughout this documentation.  Once you have Node.js installed,
-install the CLI with the following command:
+install the Atomist CLI with the following command:
 
 ```
-npm install -g @atomist/automation-client
+npm install -g @atomist/cli
 ```
 
-## GitHub token
+!!! note "Installation on GNU/Linux"
+    On GNU/Linux systems, including when running in a Docker environment,
+    you may need to add the `--unsafe-perm=true --allow-root` command-line
+    options to the above command to avoid permission errors and
+    successfully install.
 
-The Atomist automation API client uses a [GitHub personal access
-token][token] to register with the Atomist API.  The Atomist API uses
-the token to confirm you are in a GitHub organization connected to the
-Atomist workspace in which you are running your automations.  The
-token needs _read:org_ [scope][] to see what GitHub organizations your
-GitHub user is in.  In addition, we recommend you include the _repo_
-scope in the token you use since many automations interact with GitHub
-repositories and require _repo_ scope to do their work, e.g., comment
-on issues, create PRs, and create repositories.
+## Atomist API key
 
-You will create a suitable GitHub token in the following section.
+To start your own SDM or other automation client, you will need an
+Atomist API key so the client can properly register with the API.  You
+can generate an Atomist API key on the [API key page of the Atomist
+web application][app-api-key].  You will need an Atomist API key in
+the next section when running configure.
 
-!!! warn
-    If you created your token before 2017-11-20, it may have been
-    created with just the _read:org_ scope.  If this is the case, the
-    token can be used to register automations with the automation API
-    but automations that require access to GitHub repositories may
-    fail since the token does not have _repo_ scope.  You can remedy
-    this issue by adding _repo_ scope to
-    your [existing Atomist API token(s)][token].
-
-[scope]: https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps/ (GitHub Token Scopes)
+[app-api-key]: https://app.atomist.com/apiKeys (Atomist API Key)
 
 ## Configure
 
-There are a few ways you can configure Atomist API clients.  Choose
-one of the options below and follow the instructions.
+There are a few ways you can configure Atomist API clients.  While any
+of the approaches below will work in any scenario, some approaches are
+better for some use cases than others.  If you are developing an SDM
+and running it locally on your workstation or laptop, [user
+configuration](#user-configuration) is likely your best choice.  If
+you are running an SDM or other automation client on a server in a
+testing or production environment, you will likely want to use the
+[environment variable](#environment-variable) approach.
 
-### The easy way
+Regardless of the approach you take, the minimum information required
+to successfully start an API client is an [API key](#atomist-api-key)
+and a [workspace ID](#atomist-workspace).  Depending on the SDM or
+other client you are trying to run, you may need to provide more
+configuration values.
 
-The easiest way to create the appropriate GitHub personal access token
-is to use the Atomist CLI's `config` command.
+### User configuration
+
+If you have a user configuration file on your system, it will be read
+and merged with any client-specific configuration whenever you start
+an SDM or other API client.  In other words, it serves as a base
+configuration for all API clients you run on your system.
+
+Run the following command to create and persist a user configuration
+on your local system.
 
 ```
 atomist config
 ```
 
-The `atomist config` command will prompt you for your Atomist
-workspace ID and your GitHub credentials.  Your GitHub credentials are
-only used to authenticate to GitHub so the personal access token can
-be created.  Atomist does not retain your GitHub credentials and the
-generated personal access token is only stored on your local system.
+The above command will prompt you for your Atomist API key and
+workspace ID.  The user configuration is a JSON-formatted object saved
+in the file `$HOME/.atomist/client.config.json` on Unix-like operating
+systems including macOS and
+`%USERPROFILE%\.atomist\client.config.json` on MS Windows operating
+systems.
 
-### Configuration file
-
-If you prefer to create the GitHub personal access token yourself, you
-can do so on your GitHub.com [new personal access token][new-token]
-page.  Give the token a descriptive name, like "My manually created
-Atomist token", and ensure _read:org_ and _repo_ scopes are selected
-before clicking the "Generate token" button.  Copy the generated
-token.  Finally, manually create your local Atomist configuration
-file.
-
-_On UNIX-like systems:_
-
-```
-( umask 077 && mkdir -p "$HOME/.atomist" && touch "$HOME/.atomist/client.config.json" )
-```
-
-_On MS Windows:_
-
-```
-md %USERPROFILE%\.atomist && type nul > %USERPROFILE%\.atomist\client.config.json
-```
-
-Open the `client.config.json` file you just created in your favorite
-text editor and add the following contents, replacing `WORKSPACE_ID`
-with your Atomist workspace ID and `GITHUB_TOKEN` with the GitHub
-personal access token you just created.
+After running the above command, the contents of the user
+configuration file will look something like:
 
 ```json
 {
-  "token": "GITHUB_TOKEN",
-  "teamIds": [
+  "apiKey": "API_KEY",
+  "workspaceIds": [
     "WORKSPACE_ID"
   ]
 }
 ```
 
-If you are in multiple Atomist workspaces and want to run your
-automations in all of them, simply add all of their workspace IDs to
-the `teamIds` array in the client configuration file.
+with `API_KEY` and `WORKSPACE_ID` replaced with your Atomist API key
+and workspace ID, respectively.  If you are in multiple Atomist
+workspaces and want to run your clients in all of them, simply add all
+of their workspace IDs to the `workspaceIds` array in the user
+configuration file.
 
-[token]: https://github.com/settings/tokens (GitHub Personal Access Tokens)
-[new-token]: https://github.com/settings/tokens/new (GitHub New Personal Access Token)
+### Environment variable
 
-### Environment variables
-
-Set the following environment variables in the same shell where you
-will be running an Atomist API client.  Be sure to replace
-`WORKSPACE_ID` with your Atomist workspace/team ID and `GITHUB_TOKEN`
-with your GitHub personal access token.
-
-```
-$ export ATOMIST_TEAMS=WORKSPACE_ID
-$ export ATOMIST_TOKEN=GITHUB_TOKEN
-```
-
-If you have multiple Atomist workspaces and want to run a single SDM
-in multiple Atomist workspace, supply all of their IDs as a
-comma-delimited list as the value of the `ATOMIST_TEAMS` environment
+When running an SDM or other API client on a server, especially when
+running in a containerized environment, it is typically better to
+provide the necessary configuration using environment variables.  When
+a client starts up, it will attempt to parse a JSON-formatted
+configuration object from the `ATOMIST_CONFIG` environment variable
+and from the file provided by the `ATOMIST_CONFIG_PATH` environment
 variable.
 
+For example, to use the `ATOMIST_CONFIG` environment variable to
+provide the same configuration as that shown above in the user
+configuration section, you could run the following commands to set the
+environment variable and start the client.
+
 ```
-$ export ATOMIST_TEAMS=WORKSPACE_ID0,WORKSPACE_ID1,WORKSPACE_ID2
+export ATOMIST_CONFIG='{"apiKey":"API_KEY","workspaceIds":["WORKSPACE_ID"]}'
+atomist start
 ```
+
+Similarly, if you created a file with the same contents as that show
+above in the user configuration section at `/opt/sdm/sdm-config.json`,
+then you tell the API client to load that file by setting the
+following environment variable prior to starting the client.
+
+```
+export ATOMIST_CONFIG_PATH=/opt/sdm/sdm-config.json
+atomist start
+```
+
+If both environment variables are defined, their configuration values
+are merged with values in the `ATOMIST_CONFIG` environment variable
+taking precedence over those defined in the `ATOMIST_CONFIG_PATH`
+file.  If the user configuration file also exists, its values are also
+merged in with lower precedence than either environment variable.

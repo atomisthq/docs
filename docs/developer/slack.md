@@ -1,12 +1,19 @@
-Atomist supports sending _rich_, _actionable_ and _updatable_ Slack messages. Messages can be sent by an event handler or a command handler.
+Atomist supports sending _rich_, _actionable_ and _updatable_ Slack
+messages. Messages can be sent by an event handler or a command
+handler.
 
-* _Rich_ messages take full advantage of Slack's native message formatting capabilities
-* _Actionable_ messages contain buttons and menus that trigger new commands on behalf of the user who clicked them
-* _Updatable_ messages can be rewritten with new content over time in response to new events
-and actions. This helps reduce the number of messages from the Atomist bot in a Slack channel.
+*   _Rich_ messages take full advantage of Slack's native message
+    formatting capabilities
+*   _Actionable_ messages contain buttons and menus that trigger new
+    commands on behalf of the user who clicked them
+*   _Updatable_ messages can be rewritten with new content over time
+    in response to new events and actions. This helps reduce the
+    number of messages from the Atomist bot in a Slack channel.
 
-Here's an example of a message with different [`Attachments`](https://api.slack.com/docs/message-attachments) and
-[`Actions`](https://api.slack.com/interactive-messages) from the Atomist open source community Slack team.
+Here's an example of a message with different
+[`Attachments`](https://api.slack.com/docs/message-attachments) and
+[`Actions`](https://api.slack.com/interactive-messages) from the
+Atomist open source community Slack workspace.
 
 ![Push Lifecycle](../img/push-lifecycle.png)
 
@@ -65,11 +72,11 @@ providing one or more names of Slack users. To send a message to one
 or more channels, call the `addressChannels` method.
 
 !!! note
-    If you want to send a direct message to a user in your Slack team, use the
-    `addressUsers` method with the user name of the recipient.
+    If you want to send a direct message to a user in your Slack workspace,
+    use the `addressUsers` method with the user name of the recipient.
 
 Here is an example of sending a simple message into the `#general` channel of
-your Slack team:
+your Slack workspace:
 
 ```typescript
 export class HelloWorld implements HandleCommand {
@@ -264,7 +271,7 @@ interface and what they can be used for. But first, here is the interface:
 export interface MessageOptions {
 
     /**
-     * Unique message id per channel and team. This is required
+     * Unique message id per channel and workspace. This is required
      * if you wish to re-write a message at a later time.
      */
     id?: string;

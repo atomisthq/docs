@@ -19,7 +19,7 @@ GitHub.com account.  If you do not already have a GitHub.com account,
 you can [create one][github-create].
 
 For the whole shebang, it helps to have a GitHub organization and a
-[Slack][slack] team.  You can create these for free and have full
+[Slack][slack] workspace.  You can create these for free and have full
 admin powers, if you want to experiment.
 
 [github-create]: https://github.com/join (Join GitHub)
@@ -28,8 +28,8 @@ admin powers, if you want to experiment.
 ## Hello Atomist
 
 Follow the instructions in the sign up or trial invitation email you
-received. If you would like an Atomist account, visit [atomist.com][www] 
-and click "Request Trial."  
+received. If you would like an Atomist account, visit
+[atomist.com][www] and click "Request Trial."
 
 When you first sign up, you'll be asked to authenticate with GitHub.
 Once you've authenticated, you'll create a new Atomist workspace.
@@ -49,7 +49,7 @@ issue and pull request activity, from GitHub.
 
 Now that you have an Atomist workspace, you can
 
--   Connect Atomist with your [Slack team][atomist-slack]
+-   Connect Atomist with your [Slack workspace][atomist-slack]
 -   Connect Atomist with your [continuous integration][atomist-ci]
     solution
 -   Connect Atomist with your [Kubernetes clusters][atomist-kube]

@@ -125,6 +125,11 @@ If your Kubernetes user has neither cluster-admin or admin role
 access, you will need to ask someone who does to install the Atomist
 utilities in your cluster.
 
+If you want the Atomist Kubernetes utilities to report on and manage
+resources in several but not all namespaces, you can deploy the
+Atomist utilities using namespace-scoped mode multiple times, one time
+for each namespace you want reported on and managed.
+
 ### Cluster environment
 
 The Atomist Kubernetes utilities use the concept of a _cluster
@@ -180,76 +185,71 @@ cluster, you can create one on your local system using [minikube][].
 
 Several different methods for installing the Atomist Kubernetes
 utilities are supported.  Choose the one that makes sense for your
-situation.
-
-Before you proceed, make sure you have installed and configured the
-Atomist CLI.  You can do so with the following commands.
-
-```
-npm install -g @atomist/automation-client
-atomist config
-```
-
-See the [developer documentation][dev-doc] for more details.
-
-The commands below use values which are specific to your setup.  To
-make copy-and-pasting easier, it is helpful to set some variables
-before proceeding.  In the commands below, replace `WORKSPACE_ID` with
-your Atomist workspace/team ID, `TOKEN` with your GitHub personal
-access token having at least "read:org" scope, and `CLUSTER_ENV` with
-a meaningful name for your cluster/namespace, e.g., "production" or
-"internal".
-
-```
-workspace_id=WORKSPACE_ID
-token=TOKEN
-cluster_env=CLUSTER_ENV
-```
-
-If you are deploying in namespace-scoped mode, also set the following
-variable, replacing `NAMESPACE` with the name of the _existing_
-namespace to which you are deploying.
-
-```
-namespace=NAMESPACE
-```
-
-[dev-doc]: ../developer/prerequisites.md (Atomist Developer Prerequisites)
-
-<!--
+situation.  If you aren't sure how to proceed, try the [Atomist
+CLI](#atomist-cli) approach as it is the easiest.
 
 ### Atomist CLI
 
-If you have the `kubectl` command line utility installed and
-configured to access your Kubernetes cluster with the needed
-privileges, you can install the needed Atomist utilities with the
-proper configuration using one the following command.
+To use the Atomist CLI to install the Atomist Kubernetes utilities,
+you must have the [Atomist CLI installed and configured][dev-prereq].
+You will also need the Kubernetes `kubectl` command-line utility
+installed and configured to access your Kubernetes cluster with the
+needed privileges.
+
+Once you have the Atomist and Kubernetes CLIs installed and
+configured, you can install the Atomist Kubernetes utilities one the
+following commands.  Be sure to replace `CLUSTER_ENV` with a
+meaningful name for you Kubernetes cluster/namespace and, if deploying
+in namespace-scoped mode, `NAMESPACE` with the _existing_ namespace
+you want to deploy the utilities to.
+
+[dev-prereq]: ../developer/prerequisites.md (Atomist Developer Prerequisites)
 
 #### Cluster-wide mode
 
+To install the Atomist Kubernetes utilities in cluster-wide mode, able
+to report on and manage resources in all namespaces, run the following
+command.
+
 ```
-atomist kube
+atomist kube --environment="CLUSTER_ENV"
 ```
 
 #### Namespace-scoped mode
 
-Replace `NAMESPACE` with the namespace you want to deploy into and
-have the Atomist utilities work in.
+To install the Atomist Kubernetes utilities in namespace-scoped mode,
+run the following command for each namespace you want to deploy
+them to.  Replace `NAMESPACE` with the namespace you want to deploy
+the utilities to.
 
 ```
-atomist kube --namespace=NAMESPACE
+atomist kube --namespace="NAMESPACE" --environment="CLUSTER_ENV"
 ```
-
--->
 
 ### Kubernetes CLI
 
-If you have the `kubectl` command line utility installed and
+If you have the `kubectl` command-line utility installed and
 configured to access your Kubernetes cluster with the needed
 privileges, you can install the needed Atomist utilities with the
-proper configuration using the following commands.
+proper configuration using the following commands.  Be sure to replace
+`CLUSTER_ENV` with a meaningful name for you Kubernetes
+cluster/namespace, `WORKSPACE_ID` with your Atomist workspace ID, and
+`API_KEY` with a valid Atomist API key.  See the [developer
+prerequisites][dev-prereq] for more information on Atomist workspace
+IDs and API keys.
 
 #### Cluster-wide mode
+
+##### k8vent
+
+To deploy k8vent in cluster-wide mode and have it report on changes to
+all pod containers, run the following command.
+
+```
+kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/cluster-wide.yaml
+kubectl create secret --namespace=k8vent generic k8vent --from-literal=environment="CLUSTER_ENV" \
+    --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/WORKSPACE_ID"
+```
 
 ##### k8-automation
 
@@ -259,27 +259,27 @@ manage applications in all namespaces, run the following command.
 ```
 kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/cluster-wide.yaml
 kubectl create secret --namespace=k8-automation generic automation \
-    --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\"}"
-```
-
-##### k8vent
-
-To deploy k8vent in cluster-wide mode and have it report on changes to
-all pod containers, run the following command, replacing `CLUSTER_ENV`
-with an informative name for your Kubernetes cluster, e.g., "internal"
-or "end-user".
-
-```
-kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/cluster-wide.yaml
-kubectl create secret --namespace=k8vent generic k8vent --from-literal=environment="$cluster_env" \
-    --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/$workspace_id"
+    --from-literal=config="{\"workspaceIds\":[\"WORKSPACE_ID\"],\"apiKey\":\"API_KEY\",\"environment\":\"CLUSTER_ENV\"}"
 ```
 
 #### Namespace-scoped mode
 
-If you want the Atomist utilities manage and report on multiple, but
-not all, namespaces, deploy them in namespace-scoped mode in each of
-the namespaces you want it to manage/report on.
+In the commands below, replace `NAMESPACE` with the namespace you want
+to deploy the utilities to.
+
+##### k8vent
+
+To deploy k8vent in namespace-scoped mode such that it will only
+report on pod containers in a single namespace, run the following
+commands.
+
+```
+kubectl create secret --namespace="NAMESPACE" generic k8vent \
+    --from-literal=environment="CLUSTER_ENV" \
+    --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/WORKSPACE_ID"
+kubectl apply --namespace="NAMESPACE" \
+    --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/namespace-scoped.yaml
+```
 
 ##### k8-automation
 
@@ -288,31 +288,19 @@ only deploy and update resources in a single Kubernetes cluster
 namespace, run the following commands.
 
 ```
-kubectl create secret --namespace="$namespace" generic automation \
-    --from-literal=config="{\"teamIds\":[\"$workspace_id\"],\"token\":\"$token\",\"environment\":\"$cluster_env\",\"kubernetes\":{\"mode\":\"namespace\"}}"
-kubectl apply --namespace="$namespace" \
+kubectl create secret --namespace="NAMESPACE" generic automation \
+    --from-literal=config="{\"workspaceIds\":[\"WORKSPACE_ID\"],\"apiKey\":\"API_KEY\",\"environment\":\"CLUSTER_ENV\",\"kubernetes\":{\"mode\":\"namespace\"}}"
+kubectl apply --namespace="NAMESPACE" \
     --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/namespace-scoped.yaml
-```
-
-##### k8vent
-
-To deploy k8vent in namespace-scoped mode such that it will only
-report on pod containers in a single namespace, run the following
-commands, replacing `CLUSTER_ENV` with an informative name for your
-Kubernetes cluster namespace, e.g., "production" or "testing".
-
-```
-kubectl create secret --namespace="$namespace" generic k8vent \
-    --from-literal=environment="$cluster_env" \
-    --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/$workspace_id"
-kubectl apply --namespace="$namespace" \
-    --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/namespace-scoped.yaml
 ```
 
 ### Helm
 
 If you manage resources in your Kubernetes cluster with [Helm][helm],
-you can install the Atomist Kubernetes utilities using Helm.
+you can install the Atomist Kubernetes utilities using Helm.  Replace
+`API_KEY` with an Atomist API key, `WORKSPACE_ID` with your Atomist
+workspace ID, and `CLUSTER_ENV` with a meaningful name for your
+Kubernetes cluster/namespace.
 
 !!! bug "Helm and Minikube"
     Due to a bug in the default minikube bootstrapper localkube,
@@ -342,41 +330,35 @@ mode, run the following `helm` command.
 ```
 helm upgrade --install --namespace=atomist atomist-utilities \
     --repo=https://atomist.github.io/helm-charts atomist-utilities \
-    --set=global.atomist.token="$token" \
-    --set=global.atomist.teamIds="{$workspace_id}" \
-    --set=global.atomist.environment="$cluster_env"
+    --set=global.atomist.apiKey="API_KEY" \
+    --set=global.atomist.workspaceIds="{WORKSPACE_ID}" \
+    --set=global.atomist.environment="CLUSTER_ENV"
 ```
 
 #### Namespace-scoped mode
 
 To install all of the Atomist Kubernetes utilities in namespace-scoped
 mode, run the following `helm` command for each namespace you want to
-deploy them to.
+deploy them to.  Replace `NAMESPACE` with the namespace you want to
+deploy the utilities to.
 
 ```
-helm upgrade --install --namespace="$namespace" "atomist-utilities-$namespace" \
+helm upgrade --install --namespace="NAMESPACE" "atomist-utilities-NAMESPACE" \
     --repo=https://atomist.github.io/helm-charts atomist-utilities \
-    --set=global.atomist.token="$token" \
-    --set=global.atomist.teamIds="{$workspace_id}" \
-    --set=global.atomist.environment="$cluster_env" \
+    --set=global.atomist.apiKey="API_KEY" \
+    --set=global.atomist.workspaceIds="{WORKSPACE_ID}" \
+    --set=global.atomist.environment="CLUSTER_ENV" \
     --set=global.atomist.mode=namespace
 ```
-
-<!--
-
-### ksonnet
-
-Coming soon.
-
--->
 
 ## Updating
 
 You can update to a new version of the Atomist Kubernetes utilities
-using standard Kubernetes approaches.  If you are using Helm, you can
-simply re-run the commands you ran to install the Atomist Kubernetes
-utilities.  If you are using `kubectl` you can run the following
-commands, replacing `NAMESPACE` and `M.N.P` as appropriate.
+using standard Kubernetes approaches.  If you installed the Atomist
+utilities using the Atomist CLI or Helm, simply re-run the same
+command you ran to install them.  If you are using `kubectl` you can
+run the following commands, replacing `NAMESPACE` and `M.N.P` as
+appropriate.
 
 ```
 kubectl set image --namespace=NAMESPACE \

@@ -52,18 +52,18 @@ user account.
 
 ## GitHub user authorization
 
-When the Atomist bot first arrives in a team, it will send a direct
-message to the authorizing user, requesting that they authorize
-Atomist to access GitHub on their behalf.
+When the Atomist bot first arrives in a Slack workspace, it will send
+a direct message to the authorizing user, requesting that they
+authorize Atomist to access GitHub on their behalf.
 
 ![GitHub Authorization](img/github-auth.png)
 
 This same dialog will be shown to users anytime Atomist detects that
-an automation needs to access GitHub as that user.  Every user on the
-team must individually opt in.  Atomist will display this option each
-time an un-authorized user runs a command that requires a GitHub
-authorization.  Users can ask for their current GitHub authorization
-status by running:
+an automation needs to access GitHub as that user.  Every member of
+the workspace must individually opt in.  Atomist will display this
+option each time an un-authorized user runs a command that requires a
+GitHub authorization.  Users can ask for their current GitHub
+authorization status by running:
 
 ```
 you> @atomist github

@@ -4,7 +4,7 @@ power of ChatOps.
 ## Enroll Slack bot
 
 Click the "Add to Slack" button below to invite the Atomist bot into
-your Slack team.
+your Slack workspace.
 
 <div style="text-align:center;">
   <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
@@ -12,23 +12,24 @@ your Slack team.
   </a>
 </div>
 
-Slack's default configuration allows all team members to add new Slack applications.
-However, your team's admins may restrict the applications that can
-can be added in your team.  The [permissions management page][manage-permissions] has
-an "Approved Apps" setting to control this.
+Slack's default configuration allows all workspace members to add new
+Slack applications.  However, your workspaces' admins may restrict the
+applications that can can be added in your workspace.  The
+[permissions management page][manage-permissions] has an "Approved
+Apps" setting to control this.
 
 [manage-permissions]: https://slack.com/apps/manage/permissions
 
 ![Slack Approved Apps](img/ApprovedApps.png)
 
-If your team requires approval for new apps and you're not a Slack
-administrator, Slack helps you request approval from your Slack team's
-administrators to install the Atomist application.
+If your workspace requires approval for new apps and you're not a
+Slack administrator, Slack helps you request approval from your Slack
+workspace' administrators to install the Atomist application.
 
 Currently the authorization process asks you to authorize two things:
 
-1.  The Atomist app adds a bot user named "@atomist" to your team.
-    Your team can `\invite` the Atomist bot to channels to access the
+1.  The Atomist app adds a bot user named "@atomist" to your workspace.
+    Members can `\invite` the Atomist bot to channels to access the
     full functionality of Atomist.  Bot users cannot create channels,
     cannot join channels unless they are invited by a non-bot channel
     member, and cannot see messages in channels where they are not a
@@ -54,7 +55,7 @@ The [App Manage page][slack-app-settings] has a "Remove App" button at
 the bottom of the page.  Please <a class="contact"
 href="mailto:support@atomist.com" title="Contact Atomist">let us
 know</a> if there's anything we can do to clarify how the bot works
-within your Slack team.
+within your Slack workspace.
 
 [slack-app-settings]: https://slack.com/apps/A0HM83NCC-atomist?page=1
 

@@ -2,7 +2,7 @@ Develop your first automations: a bot command and an event handler.
 
 ## Set up
 
-First, be sure someone in your Slack team has completed
+First, be sure someone in your Slack workspace has completed
 the [setup][setup].  Then, install [Node.js][node]
 
 ```
@@ -12,7 +12,7 @@ brew install node
 install the Atomist CLI
 
 ```
-npm install -g @atomist/automation-client
+npm install -g @atomist/cli
 ```
 
 and configure Atomist on your local system
@@ -45,30 +45,18 @@ git clone https://github.com/atomist-blogs/sof-command.git sof-command \
     the same steps as any other standard TypeScript or JavaScript
     project.
 
-Next install the project dependencies.
+Next, use the Atomist CLI to install project dependencies, build the
+project, and start the [client][].
 
 ```
-npm install
+atomist start
 ```
 
-Then build the project.
-
-```
-npm run build
-```
-
-Finally, start the client process on your local system.
-
-```
-npm start
-```
-
-This last command will start up the [client][client], register the "search so"
-bot command in your Slack team, and begin writing its logs to your
-terminal.
-
-Go ahead and test it by going to a channel in your Slack team that the
-Atomist bot has been invited to and send the bot the command's intent.
+The above command will log its activity to the terminal.  Once the
+client startup is complete, the "search so" bot command will be
+available in your Slack workspace.  Go ahead and test it by going to a
+channel in your Slack workspace that the Atomist bot has been invited to
+and send the bot the command's intent.
 
 ```
 @atomist search so q="spring 5"
@@ -99,14 +87,13 @@ Let's add an event handler that notifies us in Slack when a commit is pushed
 to a repository - but only if the commit message contains
 a string like "Crushed #77!".
 
-This code is in a different automation client, but you get it and run it the same way:
+This code is in a different automation client, but you get it and run
+it the same way:
 
 ```
 git clone git@github.com:atomist-blogs/event-handler.git event-handler \
     && cd event-handler \
-    && npm install \
-    && npm run build \
-    && npm start
+    && atomist start
 ```
 
 Next, trigger this event handler by making a commit in

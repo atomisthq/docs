@@ -203,7 +203,7 @@ export interface SdmContext {
     /**
      * Context of the Atomist EventHandler invocation. Use to run GraphQL
      * queries, use the messageClient directly and find
-     * the team and correlation id
+     * the workspace and correlation id
      */
     context: HandlerContext;
 
