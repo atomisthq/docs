@@ -5,6 +5,9 @@ Besides being a great query language, GraphQL provides great tool support based
 on strongly-typed schemas, type generation for TypeScript, and many other
 advantages.
 
+The Atomist SDM includes many of the GraphQL queries that are most useful in 
+automating software delivery. You can also create your own.
+
 The following sections tell you how to use GraphQL to query your data,
 how to use subscriptions to get notifications when new data is ingested, and
 how to mutate data.
@@ -145,7 +148,7 @@ export class FailedBuildHandler implements HandleEvent<any> { ... }
 
 Most of the data in the Atomist platform is ingested via Webhooks and
 is read-only.  There are however a small number of very useful GraphQL
-mutations available to handlers in automation clients.
+mutations available.
 
 | Mutation | Description |
 |----------|-------------|
