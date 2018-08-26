@@ -17,7 +17,7 @@ Before you can build and run your own SDM,
 ## Creating an SDM project
 
 An Atomist API client project is any project that connects to the
-Atomist development automation API.  The reference implementation is the [automation-client-ts][client-ts]
+Atomist development automation API.  The reference implementation is the [sdm-core][sdm-core]
 library, which is written in [TypeScript][ts]. Any SDM
  depends on the @atomist/automation-client library and uses its
 interface to connect to the Atomist API.  The combination of
@@ -26,9 +26,9 @@ experience with excellent tooling and debugging support.
 
 There are a few ways to create a new SDM project.  We
 suggest using the [blank-sdm-seed][seed] project as a seed for
-your automation client project. You can do this localluy with the Atomist CLI: `atomist create sdm`.
+your project. You can do this localluy with the Atomist CLI: `atomist create sdm`.
 
-[client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
+[sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [gql]: http://graphql.org/ (GraphQL)
 [seed]: https://github.com/atomist/blank-sdm-seed (Blank SDM Seed Project)
@@ -115,9 +115,9 @@ export const configuration: Configuration = {
 The configuration values in the `atomist.config.ts` file will override
 those from your user configuration.
 
-[prereq]: prerequisites.md (Atomist Automation Client Prerequisites)
+[prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [config]: https://www.npmjs.com/package/config (config Node.js package)
-[lifecycle]: #client-lifecycle (Atomist Automation Client Lifecycle)
+[lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
 
 ## Starting a client
 
