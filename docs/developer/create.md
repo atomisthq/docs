@@ -17,7 +17,7 @@ Then take a look at [a generator](https://github.com/atomist-blogs/spring5-kotli
 it [declares a starting point](https://github.com/atomist-blogs/spring5-kotlin/blob/45cac17bf6ed4238188d3f79b78c6f7432da7ff7/src/commands/KotlinSpring5.ts#L54) and
  [customizes that code](https://github.com/atomist-blogs/spring5-kotlin/blob/45cac17bf6ed4238188d3f79b78c6f7432da7ff7/src/commands/KotlinSpring5.ts#L65).
 
-The automation client hooks your generator up to Slack. You can also
+The SDM hooks your generator up to Slack. You can also
 add a custom form to serve project creation to your team or organization.
 
 A generator is one kind of [command handler](commands.md), so you can 
