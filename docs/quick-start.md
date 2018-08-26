@@ -6,4 +6,6 @@ The latest getting-started tutorials are over at [developer-tutorials](https://g
 
 Warning: while these should be smooth on MacOS or Linux, we're still working through some issues on Windows. Please let us know if something doesn't work for you.
 
-When you're ready to put your SDM to work for your whole team, continue with [setup](setup.md).
+When you're ready to put your SDM to work for your whole team, continue with [setup][setup].
+
+[setup]: user/index.md (Atomist Setup)
