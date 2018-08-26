@@ -1,19 +1,19 @@
-# Running Automation Clients
+# Running Software Delivery Machines
 
-You can run automation clients in many different environments, ranging from your laptop
+You can run Software Delivery Machines (SDMs) in many different environments, ranging from your laptop
 or data center to Platform-as-a-Service offerings like Heroku and Pivotal Cloud Foundry.
 
-Atomist also supports running clients as Docker containers. This allows you
+Atomist also supports running SDMs as Docker containers. This allows you
 to operate them in Kubernetes clusters or Google Container Engine, for example.
 
-This document explains various ways to run automation clients.
+This document explains various ways to run SDMs.
 
 ## Running locally
 
-The easiest way to run an automation client is to start it up on your local
+The easiest way to run an SDM is to start it up on your local
 development machine.
 
-Running the automation client locally is extremely helpful
+Running the SDM locally is extremely helpful
 during development of your automations.
 
 -   You can debug commands and event handlers using local development
@@ -21,21 +21,27 @@ during development of your automations.
 -   You can iterate rapidly because there is no deployment and only a
     minimal build process.
 
-If you bootstrapped your client project using an Atomist seed and
-generator, start the client by running the following commands:
+To connect to the Atomist API and respond to events in your team and commands in your team chat,
+ start the SDM by running the following commands:
 
 ```
 npm run compile && npm start
 ```
 
 !!! note
-    The automation client requires an open internet connection to
-    `https://automation.atomist.com` to successfully and register event
+    The SDM requires an open internet connection to
+    `https://automation.atomist.com` to successfully register event
     subscriptions and commands.
+
+To receive only your personal commits and commands that you initiate in your terminal, run in local mode:
+
+```
+npm run compile && npm start --local
+```
 
 ## Cloud Foundry
 
-To push your automation client to an instance of Pivotal Cloud
+To push your SDM to an instance of Pivotal Cloud
 Foundry, you need an account on the instance you want to target and
 you must have the [Cloud Foundry CLI][cf-cli] installed.
 
@@ -44,15 +50,15 @@ the [Cloud Foundry documentation][cf-docs].
 
 A push to Cloud Foundry needs some additional metadata in your
 project.  First you need to create a [`manifest.yml`][cf-manifest]
-file in the root of your client:
+file in the root of your SDM project:
 
 ```yaml
 applications:
-- name: lifecycle-automation
-  command: node node_modules/.bin/atomist-client
+- name: my-sdm
+  command: node node_modules/.bin/atm-start
   memory: 128M
   routes:
-  - route: lifecycle.atomist.io
+  - route: my-sdm.mycompany.net
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
   env:
     SUPPRESS_NO_CONFIG_WARNING: true
@@ -85,7 +91,7 @@ cf push
 
 ## Docker
 
-Shipping your automation client as a Docker image allows you to package
+Shipping your SDM as a Docker image allows you to package
 up all required tools and dependencies. This is especially useful if you
 plan on reusing existing scripts or command line tools in your automations.
 
