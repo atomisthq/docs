@@ -1,5 +1,11 @@
+You can run a Software Delivery Machine (SDM) locally without any signup or authentication.
+See the [Developer Quick Start](../quick-start.md) to get started.
+
+This document describes the prerequisites for running an SDM for your whole team,
+connecting to your source control manager, chat system, and continuous integration tools.
+
 Before you begin developing and running your own software deliver
-machine (SDM) or other Atomist API client, you need an [Atomist
+machine (SDM), you need an [Atomist
 account][getting-started] and several other prerequisites.
 
 [getting-started]: ../user/index.md (Atomist - Getting Started)
@@ -7,7 +13,7 @@ account][getting-started] and several other prerequisites.
 ## Atomist workspace
 
 As part of creating an account with Atomist, you created an Atomist
-workspace.  To run SDMs or other Atomist API clients, you will need
+workspace.  To run SDMs, you will need
 the ID of your Atomist workspace.  You can find your Atomist workspace
 ID on your workspace's settings page in the [Atomist web
 application][atomist-app].
@@ -16,10 +22,9 @@ application][atomist-app].
 
 ## Node.js
 
-The reference implementation of the Atomist automation API client is
+The reference implementation of the Atomist SDM is
 implemented in [TypeScript][ts], a superset of [JavaScript][js].  To
-develop and run automations using the reference implementation of the
-automation client, you must install Node.js.  The easiest way to
+develop and run it, you must install Node.js.  The easiest way to
 install Node.js is to go to the [Node.js web site][node] and follow
 the installation instructions for your platform.  This makes the
 `node` and `npm` programs available on your system.
@@ -70,7 +75,7 @@ npm install -g @atomist/cli
 
 ## Atomist API key
 
-To start your own SDM or other automation client, you will need an
+To start your own SDM, you will need an
 Atomist API key so the client can properly register with the API.  You
 can generate an Atomist API key on the [API key page of the Atomist
 web application][app-api-key].  You will need an Atomist API key in
@@ -80,17 +85,17 @@ the next section when running configure.
 
 ## Configure
 
-There are a few ways you can configure Atomist API clients.  While any
+There are a few ways you can configure Atomist SDMs.  While any
 of the approaches below will work in any scenario, some approaches are
 better for some use cases than others.  If you are developing an SDM
 and running it locally on your workstation or laptop, [user
 configuration](#user-configuration) is likely your best choice.  If
-you are running an SDM or other automation client on a server in a
+you are running an SDM on a server in a
 testing or production environment, you will likely want to use the
 [environment variable](#environment-variable) approach.
 
 Regardless of the approach you take, the minimum information required
-to successfully start an API client is an [API key](#atomist-api-key)
+to successfully start an SDM is an [API key](#atomist-api-key)
 and a [workspace ID](#atomist-workspace).  Depending on the SDM or
 other client you are trying to run, you may need to provide more
 configuration values.
@@ -99,8 +104,8 @@ configuration values.
 
 If you have a user configuration file on your system, it will be read
 and merged with any client-specific configuration whenever you start
-an SDM or other API client.  In other words, it serves as a base
-configuration for all API clients you run on your system.
+an SDM.  In other words, it serves as a base
+configuration for all SDMs you run on your system.
 
 Run the following command to create and persist a user configuration
 on your local system.
@@ -130,16 +135,16 @@ configuration file will look something like:
 
 with `API_KEY` and `WORKSPACE_ID` replaced with your Atomist API key
 and workspace ID, respectively.  If you are in multiple Atomist
-workspaces and want to run your clients in all of them, simply add all
+workspaces and want to run your SDMs in all of them, simply add all
 of their workspace IDs to the `workspaceIds` array in the user
 configuration file.
 
 ### Environment variable
 
-When running an SDM or other API client on a server, especially when
+When running an SDM on a server, especially when
 running in a containerized environment, it is typically better to
 provide the necessary configuration using environment variables.  When
-a client starts up, it will attempt to parse a JSON-formatted
+an SDM starts up, it will attempt to parse a JSON-formatted
 configuration object from the `ATOMIST_CONFIG` environment variable
 and from the file provided by the `ATOMIST_CONFIG_PATH` environment
 variable.
@@ -156,8 +161,8 @@ atomist start
 
 Similarly, if you created a file with the same contents as that show
 above in the user configuration section at `/opt/sdm/sdm-config.json`,
-then you tell the API client to load that file by setting the
-following environment variable prior to starting the client.
+then you tell the SDM to load that file by setting the
+following environment variable prior to starting the SDM.
 
 ```
 export ATOMIST_CONFIG_PATH=/opt/sdm/sdm-config.json

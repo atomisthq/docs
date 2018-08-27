@@ -80,18 +80,18 @@ processes.  You query that model, Atomist's API for software, using
 
 [gql]: http://graphql.org/ (GraphQL)
 
-### Automation client
+### Software Delivery Machine
 
-Automations are written and run within an Atomist [automation
-client][client], which interacts with the Atomist platform using
-primarily GraphQL.  An SDM is a type of Atomist automation client.
-Each client hosts automations that can be invoked via the Atomist bot,
-Slack buttons, or when events occur.  A client can host any number of
+Automations are written and run within an Atomist [Software Delivery Machine (SDM)][sdm],
+ which interacts with the Atomist platform using
+primarily GraphQL. 
+Each SDM hosts automations that can be invoked via the Atomist bot,
+Slack buttons, or when events occur.  An SDM can host any number of
 automations, and can be hosted wherever the author likes: locally
 during testing, inside a corporate firewall, or on a public cloud or
 PaaS.
 
-[client]: developer/client.md (Atomist Automation Client)
+[sdm]: developer/client.md (Atomist SDM)
 
 ### Commands
 

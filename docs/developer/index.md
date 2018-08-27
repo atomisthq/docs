@@ -43,16 +43,18 @@ the necessary context so your automations can always do the right
 thing.
 
 The development automation platform also provides a simple yet
-powerful interface for implementing custom chat bot commands.  Atomist
+powerful interface for implementing custom chat bot commands, 
+also executable from your command line.  Atomist
 provides all the infrastructure needed to recognize commands, collect
 parameters, execute the code, and respond.  This lets you focus on
-writing your bot command code, not boilerplate code and ceremony
-around running bots.
+writing your command code, not boilerplate code and ceremony
+around running bots. Instead of shell scripts that are useful to you, write commands
+that help your whole team.
 
 The Atomist automation API can be accessed via any compliant client.
 The reference implementation of the client is open source, written
 in [TypeScript][ts], and available in
-the [automation-client-ts][client-ts] GitHub repository and
+the [sdm-core][sdm-core] GitHub repository and
 via [NPM][aac].  The reference client provides local testing tools, a
 CLI, interactive querying of the data model, and interfaces for
 implementing your own automations.
@@ -68,10 +70,16 @@ implementing your own automations.
 [k8]: https://kubernetes.io/ (Kubernetes)
 [cf]: https://www.cloudfoundry.org/ (Cloud Foundry)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
-[client-ts]: https://github.com/atomist/automation-client-ts (Atomist Automation Client - TypeScript)
-[aac]: https://www.npmjs.com/package/@atomist/automation-client (Atomist Automation Client Node Module)
+[sdm]: https://github.com/atomist/sdm (Atomist SDM - TypeScript)
+[sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
+[aac]: https://www.npmjs.com/package/@atomist/sdm (Atomist SDM Node Module)
 
 ![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
+
+## Local
+While the SDM is most valuable when it is coordinating delivery and performing commands for your whole team,
+you can also test and operate an SDM in local mode, on your laptop, without connecting to the Atomist API. Check the [Developer Quick Start](../quick-start.md) for 
+instructions to get started locally. 
 
 ## GraphQL
 
@@ -89,17 +97,17 @@ You can use GraphQL with the Atomist automation API for:
 
 ## WebSockets
 
-Unlike most API clients, an Atomist automation client must maintain
+An Atomist SDM must maintain
 contact with the API server so that it can receive the events and
 commands it's interested in as they occur.
 
-Automation clients access the Atomist automation API via
+SDMs access the Atomist automation API via
 a [WebSocket][ws] connection.  WebSockets allow the API server to send
-events and commands to the client without constant polling via HTTP
-calls and without requiring clients to open up firewall holes. The
-WebSocket connection is initiated by the automation client when it
+events and commands to the SDM without constant polling via HTTP
+calls. The
+WebSocket connection is initiated by the SDM when it
 starts up, establishing a persistent two-way communication channel
-between the automation client and API that is resilient to
+between the SDM and API that is resilient to
 interruptions in connectivity.
 
 [ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
@@ -118,8 +126,8 @@ interruptions in connectivity.
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
--   Creating, building, and starting an [automation client][client]
--   [Running an automation client][run].
+-   Creating, building, and starting an [SDM][client]
+-   [Running anSDM][run].
 
 Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
@@ -131,5 +139,5 @@ processes.
 [event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
-[client]: client.md (Atomist Automation Client)
-[run]: run.md (Running an Atomist Automation Client)
+[client]: client.md (Atomist SDM)
+[run]: run.md (Running an Atomist SDM)

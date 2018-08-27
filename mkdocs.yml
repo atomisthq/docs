@@ -78,6 +78,6 @@ pages:
       - GraphQL: developer/graphql.md
       - Creating Projects: developer/create.md
       - Editing Projects: developer/editors.md
-      - Automation Client: developer/client.md
-      - Running Automation Clients: developer/run.md
+      - Deeper workings of the SDM: developer/client.md
+      - Running SDMs: developer/run.md
   - Support: support.md
