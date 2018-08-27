@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist/end-user-documentation/compare/10.4.0...HEAD)
+## [Unreleased](https://github.com/atomist/end-user-documentation/compare/11.0.1...HEAD)
+
+## [11.0.1](https://github.com/atomist/end-user-documentation/compare/11.0.0...11.0.1) - 2018-08-27
+
+### Added
+
+-   Add content to developer quick start.
+
+## [11.0.0](https://github.com/atomist/end-user-documentation/compare/10.4.0...11.0.0) - 2018-08-27
+
+### Changed
+
+-   Update to reflect focus on SDM.
 
 ## [10.4.0](https://github.com/atomist/end-user-documentation/compare/10.3.1...10.4.0) - 2018-08-13
 
