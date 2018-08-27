@@ -22,7 +22,7 @@ In this guide you'll create MyCommandHandler, which responds to "do my thing".
 Command handlers are classes with a `handle` method and some
 decorators that supply metadata.  Store them anywhere in the `src`
 directory; your automation client discovers them on startup
-(or [specify them yourself](client.md#client-configuration)).
+(or [specify them yourself](client.md#sdm-configuration)).
 
 You can add a class to any file,
 or make a new TypeScript file anywhere in the `src` directory,
@@ -391,9 +391,9 @@ If you can't tell, consider changing the name of your automation client
 (in package.json) to something you'll recognize.
 
 If your automation client is listed but your automation is not,
-perhaps it is not included in [`atomist.config.ts`][client-config].
+perhaps it is not included in [`atomist.config.ts`][sdm-config].
 
-[client-config]: client.md#client-configuration
+[sdm-config]: client.md#sdm-configuration
 
 ### Command was invoked unsuccessfully
 
