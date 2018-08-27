@@ -1,5 +1,5 @@
 When running a Software Delivery Machine (SDM) or lower-level Atomist
-API client, you interact with the Atomist development automation API
+API client, you interact with the Atomist API for Software
 via a [WebSocket][ws] connection.  WebSocket connections are
 persistent, providing bidirectional communication between the client
 and the API. The SDM subscribes to events published by the API.
@@ -17,16 +17,20 @@ Before you can build and run your own SDM,
 ## Creating an SDM project
 
 An Atomist API client project is any project that connects to the
-Atomist development automation API.  The reference implementation is the [sdm-core][sdm-core]
+Atomist API for Software.  The reference implementation is the [sdm-core][sdm-core]
 library, which is written in [TypeScript][ts]. Any SDM
- depends on the @atomist/automation-client library and uses its
+depends on the @atomist/automation-client library and uses its
 interface to connect to the Atomist API.  The combination of
 TypeScript and [GraphQL][gql] provides a development
 experience with excellent tooling and debugging support.
 
 There are a few ways to create a new SDM project.  We
 suggest using the [blank-sdm-seed][seed] project as a seed for
-your project. You can do this localluy with the Atomist CLI: `atomist create sdm`.
+your project. You can do this locally with the Atomist CLI: 
+
+```
+atomist create sdm
+```
 
 [sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
@@ -245,12 +249,18 @@ Command | Description
 `npm start` | start the SDM
 `npm test` | run tests
 
-### config
+### lib
 
-The `config` directory is optional, used only when you use
-the [config][config-js] Node.js package.
+The `lib` directory contains the TypeScript source code.
 
-[config-js]: https://www.npmjs.com/package/config (Node-config)
+#### atomist.config.ts
+
+The `lib/atomist.config.ts` file contains 
+project-specific configuration. This is the starting point when you want to look at what this SDM might do.
+See [SDM Configuration][sdm-config] for more details.
+
+[sdm-config]: client.md#sdm-configuration (Atomist SDM Configuration)
+
 
 ### lib/graphql
 
@@ -260,6 +270,11 @@ directory is optional, as you can define your GraphQL in strings
 within the source code.  That said, it is recommended that you define
 your GraphQL in `.graphql` files so you can realize the full benefit
 of its type bindings in TypeScript.
+
+#### lib/typings
+
+The `lib/typings` directory contains the auto-generated TypeScript
+types for your GraphQL queries, subscriptions, and mutations.
 
 ### node_modules
 
@@ -274,23 +289,6 @@ CI, publishing the project as an Node.js package, and publishing the
 project's [TypeDoc][typedoc].
 
 [typedoc]: http://typedoc.org/ (TypeDoc)
-
-### lib
-
-The `lib` directory contains the TypeScript source code.
-
-#### atomist.config.ts
-
-The `atomist.config.ts` file contains 
-project-specific configuration. This is the starting point when you want to look at what this SDM might do.
-See [SDM Configuration][sdm-config] for more details.
-
-[sdm-config]: client.md#sdm-configuration (Atomist SDM Configuration)
-
-#### typings
-
-The `lib/typings` directory contains the auto-generated TypeScript
-types for your GraphQL queries, subscriptions, and mutations.
 
 ### test
 

@@ -1,5 +1,5 @@
 You can run a Software Delivery Machine (SDM) locally without any signup or authentication.
-See the [Developer Quick Start](../quick-start.md) to get started.
+See the [Developer Quick Start][quick-start] to get started.
 
 This document describes the prerequisites for running an SDM for your whole team,
 connecting to your source control manager, chat system, and continuous integration tools.
@@ -8,6 +8,7 @@ Before you begin developing and running your own software deliver
 machine (SDM), you need an [Atomist
 account][getting-started] and several other prerequisites.
 
+[quick-start]: ../quick-start.md (Developer Quick Start)
 [getting-started]: ../user/index.md (Atomist - Getting Started)
 
 ## Atomist workspace
