@@ -10,7 +10,7 @@ this page will help you add a command handler to it.
 
 You'll need
 
--   An [automation client](client.md) of your own
+-   An [SDM](sdm-project.md) of your own
 -   A task you want to automate, even if it's just saying "Hello, World!"
 -   A phrase that people can say in Slack to trigger it, i.e., the commands _intent_
 -   A name for the command handler
@@ -20,16 +20,16 @@ In this guide you'll create MyCommandHandler, which responds to "do my thing".
 ## Command handler
 
 Command handlers are classes with a `handle` method and some
-decorators that supply metadata.  Store them anywhere in the `src`
-directory; your automation client discovers them on startup
-(or [specify them yourself](client.md#sdm-configuration)).
+decorators that supply metadata.  Store them anywhere in the `lib`
+directory; your automation client discovers them on startup (or
+[specify them yourself][sdm-config]).
 
 You can add a class to any file,
-or make a new TypeScript file anywhere in the `src` directory,
-like `src/commands/MyCommandHandler.ts`.
+or make a new TypeScript file anywhere in the `lib` directory,
+like `lib/commands/MyCommandHandler.ts`.
 
 Start by copying the content of
-[the HelloWorld sample](https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/simple/HelloWorld.ts)
+[the HelloWorld sample](https://github.com/atomist/automation-seed-ts/blob/master/lib/commands/HelloWorld.ts)
 into a new file to start with.
 
 A command handler class implements `HandleCommand`, with a `handle`
@@ -301,7 +301,9 @@ repository, with organization-standard content.
 
 [ex-add-file]: https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/editor/AddContributing.ts (Command - Add File)
 
-Learn more in [editors](editors.md).
+Learn more in [project editing][edit].
+
+[edit]: edit.md (Atomist Editing Projects)
 
 #### Change the content of a file in all repositories
 
@@ -313,7 +315,7 @@ With this handler running
 in your automation client, you can initiate PRs on all out-of-date repositories with a single invocation of
  `@atomist update README copyright year` in Slack.
 
-Learn more in [editors](editors.md).
+Learn more in [project editing][edit].
 
 ### Inspect code across repositories
 
@@ -378,14 +380,15 @@ If you're running locally, these logs go to stdout.
 
 When you tell Atomist to do the thing, and it responds with
 
-```Hmm, I don't understand 'do my thing'. How about: ...```
+```
+Hmm, I don't understand 'do my thing'. How about: ...
+```
 
 It'll guess at nearby commands. This means it didn't find your intent.
 
-To see everything available, try `@atomist show skills`.
-This lists commands registered by automation client.
- Is your automation client listed?
-If not, perhaps it is not running.
+To see everything available, try `@atomist show skills`.  This lists
+commands registered by automation client.  Is your automation client
+listed?  If not, perhaps it is not running.
 
 If you can't tell, consider changing the name of your automation client
 (in package.json) to something you'll recognize.
@@ -393,7 +396,7 @@ If you can't tell, consider changing the name of your automation client
 If your automation client is listed but your automation is not,
 perhaps it is not included in [`atomist.config.ts`][sdm-config].
 
-[sdm-config]: client.md#sdm-configuration
+[sdm-config]: sdm-project.md#sdm-configuration
 
 ### Command was invoked unsuccessfully
 

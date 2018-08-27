@@ -1,12 +1,92 @@
-# Develop your first Software Delivery Machine
+The easiest way to get started with Atomist is to start on your
+laptop, working with local commits.  You'll need [Git][git] and
+[Node.js][node] installed.
 
-The easiest way to get started with Atomist is to start on your laptop, working with local commits. Then register your SDM with our service, integrating with Slack, your source control management, and your existing continuous integration tools.
+[git]: https://git-scm.com/downloads  (Install Git)
+[node]: https://nodejs.org/ (Node.js)
 
-The latest getting-started tutorials are over at [developer-tutorials][tutorials] for now. Issues and contributions welcome.
+## Quick start
 
-Warning: while these should be smooth on MacOS or Linux, we're still working through some issues on Windows. Please let us know if something doesn't work for you.
+1.  Install the Atomist command-line utility.
 
-When you're ready to put your SDM to work for your whole team, continue with [setup][setup].
+        npm install -g @atomist/cli
+
+2.  Create a local software delivery machine (SDM).
+
+        atomist create sdm
+
+    Select the default machine, `spring`.  When prompted for the name
+    of the target repository, enter `quick-sdm`.  When prompted for a
+    target owner, enter your user name.
+
+3.  Change into the newly created SDM project.
+
+        cd ~/atomist/<your user name>/quick-sdm
+
+4.  Start your local SDM.
+
+        atomist start --local
+
+    The above command will install the project dependencies using NPM,
+    compile the TypeScript, and start your SDM.
+
+5.  In another terminal, start up the SDM feed so you can see what the
+    SDM is doing.
+
+        atomist feed
+
+6.  In another terminal, create a [Spring Boot][spring-boot] project.
+
+        atomist create spring
+
+    This command will connect to your locally running SDM and use its
+    capabilities to create a new Spring Boot project for you.  When
+    prompted for the target repository, enter `quick-spring`.  When
+    prompted for group identifier and root package, enter `com.me` and
+    `com.me.spring`, respectively.  When prompted for the target
+    owner, enter your user name again.
+
+    If you look in the terminal with the Atomist feed, you will see
+    the SDM cloning the seed repository, cloning it locally, building
+    it, and deploying it locally.
+
+    ![Atomist Feed for Create Spring Project](img/atomist-feed-create-spring.png)
+
+    You can go to the URL provided for the local deployment and verify
+    that your new Spring Boot application is running.
+
+    ![Locally Deployed Spring Boot Application](img/spring-boot-service.png)
+
+7.  Change into your newly created Spring Boot project.
+
+        cd ~/atomist/<your user name>/quick-spring
+
+8.  Change the message in your Spring Boot application.  Edit
+    `src/main/java/com/me/spring/QuickSpringController.java`, changing
+    "world" to your location.  Then commit your change.
+
+        git add src/main/java/com/me/spring/QuickSpringController.java
+        git commit -m 'Update location'
+
+9.  Go back to the Atomist feed to observe your locally running SDM
+    noticing your commit and respond by building and deploying your
+    latest version.
+
+    ![Atomist Feed for Commit](img/atomist-feed-commit.png)
+
+    Go to the URL again and verify the message contains your location.
+
+    ![Updated Locally Deployed Spring Boot Application](img/spring-boot-service-location.png)
+
+[spring-boot]: https://spring.io/projects/spring-boot (Spring Boot)
+
+## Next steps
+
+Learn more about what you can do with an SDM by going through the
+[Atomist developer tutorials][tutorials].
+
+When you're ready to put your SDM to work for your whole team,
+continue with [setup][].
 
 [setup]: user/index.md (Atomist Setup)
-[tutorials]: https://github.com/atomist/developer-tutorials/blob/master/README.md (Local SDM Developer Tutorials)
+[tutorials]: https://github.com/atomist/developer-tutorials#readme (Atomist Developer Tutorials)

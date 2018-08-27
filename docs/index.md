@@ -82,16 +82,15 @@ processes.  You query that model, Atomist's API for software, using
 
 ### Software Delivery Machine
 
-Automations are written and run within an Atomist [Software Delivery Machine (SDM)][sdm],
- which interacts with the Atomist platform using
-primarily GraphQL. 
-Each SDM hosts automations that can be invoked via the Atomist bot,
-Slack buttons, or when events occur.  An SDM can host any number of
-automations, and can be hosted wherever the author likes: locally
-during testing, inside a corporate firewall, or on a public cloud or
-PaaS.
+Automations are written and run within an Atomist [Software Delivery
+Machine (SDM)][sdm], which interacts with the Atomist platform using
+primarily GraphQL.  Each SDM hosts automations that can be invoked
+via the Atomist bot, Slack buttons, or when events occur.  An SDM can
+host any number of automations, and can be hosted wherever the author
+likes: locally during testing, inside a corporate firewall, or on a
+public cloud or PaaS.
 
-[sdm]: developer/client.md (Atomist SDM)
+[sdm]: developer/sdm.md (Atomist SDM)
 
 ### Commands
 

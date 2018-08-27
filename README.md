@@ -1,4 +1,4 @@
-# Atomist 'end-user-documentation'
+# Atomist documentation
 
 [![Build Status](https://travis-ci.org/atomist/end-user-documentation.svg?branch=master)](https://travis-ci.org/atomist/end-user-documentation)
 

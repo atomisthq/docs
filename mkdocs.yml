@@ -1,21 +1,9 @@
 site_name: Atomist Documentation
 site_description: Documentation for Atomist - How Teams Deliver Software
 site_author: The Atomist Team
-copyright: '&copy; 2018 Atomist, Inc.'
+copyright: "&copy; 2018 Atomist, Inc."
 extra:
   main_site_url: https://atomist.com/
-theme:
-  name: material
-  favicon: 'img/favicon.ico'
-  logo: img/atomist-logo-horiz-reversed.svg
-  palette:
-    primary: blue grey
-    accent: blue
-  font:
-    text: Roboto
-    code: Roboto Mono
-  custom_dir: 'theme'
-extra:
   social:
     - type: medium
       link: https://the-composition.com/
@@ -25,6 +13,17 @@ extra:
       link: https://twitter.com/atomist
     - type: slack
       link: https://join.atomist.com/
+theme:
+  name: material
+  favicon: "img/favicon.ico"
+  logo: img/atomist-logo-horiz-reversed.svg
+  palette:
+    primary: blue grey
+    accent: blue
+  font:
+    text: Roboto
+    code: Roboto Mono
+  custom_dir: "theme"
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
@@ -72,12 +71,12 @@ pages:
       - Overview: developer/index.md
       - Prerequisites: developer/prerequisites.md
       - Software Delivery Machine: developer/sdm.md
+      - SDM Project: developer/sdm-project.md
+      - Running SDMs: developer/run.md
+      - Creating Projects: developer/create.md
+      - Editing Projects: developer/edit.md
       - Commands: developer/commands.md
       - Events: developer/events.md
       - Slack Messages: developer/slack.md
       - GraphQL: developer/graphql.md
-      - Creating Projects: developer/create.md
-      - Editing Projects: developer/editors.md
-      - Deeper workings of the SDM: developer/client.md
-      - Running SDMs: developer/run.md
   - Support: support.md

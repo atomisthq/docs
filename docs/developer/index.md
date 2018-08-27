@@ -43,7 +43,7 @@ the necessary context so your automations can always do the right
 thing.
 
 The development automation platform also provides a simple yet
-powerful interface for implementing custom chat bot commands, 
+powerful interface for implementing custom chat bot commands,
 also executable from your command line.  Atomist
 provides all the infrastructure needed to recognize commands, collect
 parameters, execute the code, and respond.  This lets you focus on
@@ -77,9 +77,14 @@ implementing your own automations.
 ![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
 
 ## Local
-While the SDM is most valuable when it is coordinating delivery and performing commands for your whole team,
-you can also test and operate an SDM in local mode, on your laptop, without connecting to the Atomist API. Check the [Developer Quick Start](../quick-start.md) for 
-instructions to get started locally. 
+
+While the SDM is most valuable when it is coordinating delivery and
+performing commands for your whole team, you can also test and operate
+an SDM in local mode, on your laptop, without connecting to the
+Atomist API.  Check the [Developer Quick Start][quick-start] for
+instructions to get started locally.
+
+[quick-start]: ../quick-start.md (Atomist Developer Quick Start)
 
 ## GraphQL
 
@@ -139,5 +144,5 @@ processes.
 [event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
-[client]: client.md (Atomist SDM)
+[client]: sdm-project.md (Atomist SDM Project)
 [run]: run.md (Running an Atomist SDM)

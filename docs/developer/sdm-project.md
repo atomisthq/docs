@@ -5,7 +5,7 @@ persistent, providing bidirectional communication between the client
 and the API. The SDM subscribes to events published by the API.
  As such, the SDM is a persistent process with
 a lifecycle that is more like a traditional _server_ process.  This
-section documents creating, building, and running an SDM, 
+section documents creating, building, and running an SDM,
 discusses each part of the SDM lifecycle, and details the
 structure and organization of a typical SDM project.
 
@@ -26,7 +26,7 @@ experience with excellent tooling and debugging support.
 
 There are a few ways to create a new SDM project.  We
 suggest using the [blank-sdm-seed][seed] project as a seed for
-your project. You can do this locally with the Atomist CLI: 
+your project. You can do this locally with the Atomist CLI:
 
 ```
 atomist create sdm
@@ -39,7 +39,7 @@ atomist create sdm
 
 ### Slack
 
-If you use the Atomist service and Slack integration, 
+If you use the Atomist service and Slack integration,
 you can create your very own SDM project using the
 Atomist bot. This will make a repository in your SCM (GitHub, BitBucket, or GitLab).
  You can run this bot command, which itself is
@@ -255,11 +255,12 @@ The `lib` directory contains the TypeScript source code.
 
 #### atomist.config.ts
 
-The `lib/atomist.config.ts` file contains 
-project-specific configuration. This is the starting point when you want to look at what this SDM might do.
-See [SDM Configuration][sdm-config] for more details.
+The `lib/atomist.config.ts` file contains project-specific
+configuration. This is the starting point when you want to look at
+what this SDM might do.  See [SDM Configuration][sdm-config] for more
+details.
 
-[sdm-config]: client.md#sdm-configuration (Atomist SDM Configuration)
+[sdm-config]: #sdm-configuration (Atomist SDM Configuration)
 
 
 ### lib/graphql
