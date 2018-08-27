@@ -3,8 +3,19 @@ our web console; see consolidated event notifications.  Add ChatOps
 with Slack if you have it.  Spawn your own software delivery machine,
 and integrate with other tools as you choose.
 
-This page describes enrollment with Atomist, specifically how to
-create an Atomist _workspace_.  An Atomist workspace connects your
+This page describes enrollment with Atomist as a service. When you enroll in 
+the Atomist service, you get built-in automations such as Lifecycle Messages 
+(Slack notifications on code push, PR, issue etc with action buttons)
+ and commands like "create issue". And your own Software Delivery Machines will
+ work on events and commands from your whole organization.
+
+You can also use a Software Delivery Machine (SDM) on your laptop, individually,
+without enrolling in the service. To get going with a Local SDM, check the 
+[Developer Quick Start][quick-start].
+
+[quick-start]: ../quick-start.md (Quick Start)
+
+This page describes how to create an Atomist _workspace_.  An Atomist workspace connects your
 code, build, deployment, and runtime platforms into a single, cohesive
 model of how your team provides value: delivering great solutions.
 

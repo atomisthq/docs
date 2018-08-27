@@ -1,4 +1,4 @@
-Develop your first Software Delivery Machine
+# Develop your first Software Delivery Machine
 
 The easiest way to get started with Atomist is to start on your laptop, working with local commits. Then register your SDM with our service, integrating with Slack, your source control management, and your existing continuous integration tools.
 
