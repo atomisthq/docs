@@ -1,13 +1,12 @@
 # Atomist documentation
 
-[![Build Status](https://travis-ci.org/atomist/end-user-documentation.svg?branch=master)](https://travis-ci.org/atomist/end-user-documentation)
+[![Build Status](https://travis-ci.org/atomist/docs.svg?branch=master)](https://travis-ci.org/atomist/docs)
 
 This repository contains the markdown sources for the documentation
 for [Atomist][atomist].  You can find the current version of the
-Atomist documentation at [https://docs.atomist.com/][docs].
+Atomist documentation at [https://docs.atomist.com/][atomist-doc].
 
-[atomist]: https://atomist.com/ (Atomist)
-[docs]: https://docs.atomist.com/ (Atomist Documentation)
+[atomist-doc]: https://docs.atomist.com/ (Atomist Documentation)
 
 The documentation is generated from markdown using [MkDocs][mkdocs].
 
@@ -23,7 +22,7 @@ locally.
 
 [doc-style]: https://developers.google.com/style/ (Google Developer Documentation Style Guide)
 
-## Content Reuse
+## Content reuse
 
 Sometimes it's desirable to have certain content repeated in a page or duplicated
 across pages. This project uses a [markdown-include][markdown-include] plugin to
@@ -86,13 +85,14 @@ Items on the same line create a visually equivalent admonition.
 
 When a push is made to the master branch of this repository, the
 entire documentation is built again via a [Travis][travis] job and
-published to http://atomist.github.io/end-user-documentation/ .
+published to [GitHub Pages][gh].
 
-[travis]: https://travis-ci.com/atomisthq/end-user-documentation
+[travis]: https://travis-ci.org/atomist/docs
+[gh]: http://atomist.github.io/docs/
 
 If the build is triggered by a tag of the form `M.N.P`, the site will
 be pushed to the docs.atomist.com S3 bucket hosting
-https://docs.atomist.com .
+[https://docs.atomist.com/][atomist-doc].
 
 ## Build and serve the documentation locally
 
@@ -183,7 +183,7 @@ Finally, install HTMLProofer.
 $ bundle install
 ```
 
-### Testing and Serving
+### Testing and serving
 
 Every time you want to work on this repository, you need to activate
 the Python virtualenv in your working terminal:
@@ -211,7 +211,7 @@ $ mkdocs serve
 and browse the documentation at http://127.0.0.1:8000 .  To stop the
 server, press `Ctrl-C` in the terminal.
 
-### Updating Dependencies
+### Updating dependencies
 
 The `requirements.txt` file sets specific versions for the packages.
 To update to new versions, you can use the following command:
@@ -221,6 +221,12 @@ $ ( cut -d = -f 1 requirements.txt > req.txt && \
       cat req.txt | xargs -n 1 pip install -U && \
       pip freeze -r req.txt > requirements.txt ) ; \
     rm req.txt
+```
+
+To update html-proofer and its dependencies:
+
+```
+$ bundle update
 ```
 
 ### Shortcut
@@ -239,5 +245,13 @@ the purpose of testing documentation changes before submitting pull
 requests to the appropriate Atomist repository.
 
 The documents produced by this build process may be published only on
-https://docs.atomist.com/ . They may not be published in any other
-form or on any other website without explicit permission.
+[https://docs.atomist.com/][atomist-doc].  They may not be published
+in any other form or on any other website without explicit permission.
+
+---
+
+Created by [Atomist][atomist].
+Need Help?  [Join our Slack workspace][slack].
+
+[atomist]: https://atomist.com/ (Atomist - How Teams Deliver Software)
+[slack]: https://join.atomist.com/ (Atomist Community Slack)
