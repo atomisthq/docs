@@ -1,25 +1,25 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist/end-user-documentation/compare/11.0.1...HEAD)
+## [Unreleased](https://github.com/atomist/docs/compare/11.0.1...HEAD)
 
-## [11.0.1](https://github.com/atomist/end-user-documentation/compare/11.0.0...11.0.1) - 2018-08-27
+## [11.0.1](https://github.com/atomist/docs/compare/11.0.0...11.0.1) - 2018-08-27
 
 ### Added
 
 -   Add content to developer quick start.
 
-## [11.0.0](https://github.com/atomist/end-user-documentation/compare/10.4.0...11.0.0) - 2018-08-27
+## [11.0.0](https://github.com/atomist/docs/compare/10.4.0...11.0.0) - 2018-08-27
 
 ### Changed
 
 -   Update to reflect focus on SDM.
 
-## [10.4.0](https://github.com/atomist/end-user-documentation/compare/10.3.1...10.4.0) - 2018-08-13
+## [10.4.0](https://github.com/atomist/docs/compare/10.3.1...10.4.0) - 2018-08-13
 
 ### Changed
 
@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Added named link to fix CI link.
 
-## [10.3.1](https://github.com/atomist/end-user-documentation/compare/10.3.0...10.3.1) - 2018-07-27
+## [10.3.1](https://github.com/atomist/docs/compare/10.3.0...10.3.1) - 2018-07-27
 
 ### Changed
 
@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Fixed some typos.
 
-## [10.3.0](https://github.com/atomist/end-user-documentation/compare/10.2.0...10.3.0) - 2018-06-18
+## [10.3.0](https://github.com/atomist/docs/compare/10.2.0...10.3.0) - 2018-06-18
 
 ### Added
 
@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Update Kubernetes Helm instructions.
 
-## [10.2.0](https://github.com/atomist/end-user-documentation/compare/10.1.0...10.2.0) - 2018-06-07
+## [10.2.0](https://github.com/atomist/docs/compare/10.1.0...10.2.0) - 2018-06-07
 
 ### Added
 
@@ -61,13 +61,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Improved Jenkins instructions.
 
-## [10.1.0](https://github.com/atomist/end-user-documentation/compare/10.0.0...10.1.0) - 2018-06-07
+## [10.1.0](https://github.com/atomist/docs/compare/10.0.0...10.1.0) - 2018-06-07
 
 ### Added
 
 -   Provide Helm instructions for Kubernetes utilities.
 
-## [10.0.0](https://github.com/atomist/end-user-documentation/compare/9.4.1...10.0.0) - 2018-06-06
+## [10.0.0](https://github.com/atomist/docs/compare/9.4.1...10.0.0) - 2018-06-06
 
 ### Added
 
@@ -75,7 +75,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Add Generic build webhook payload instructions.
 -   Provide Kubernetes instructions.
 
-## [9.4.1](https://github.com/atomist/end-user-documentation/compare/9.4.0...9.4.1) - 2018-04-24
+## [9.4.1](https://github.com/atomist/docs/compare/9.4.0...9.4.1) - 2018-04-24
 
 TOC release
 
@@ -85,7 +85,7 @@ TOC release
 
 ## [9.4.0][] - 2018-03-26
 
-[9.4.0]: https://github.com/atomist/end-user-documentation/compare/9.3.0...9.4.0
+[9.4.0]: https://github.com/atomist/docs/compare/9.3.0...9.4.0
 
 Dashboard release
 
@@ -95,7 +95,7 @@ Dashboard release
 
 ## [9.3.0][] - 2018-03-02
 
-[9.3.0]: https://github.com/atomist/end-user-documentation/compare/9.2.0...9.3.0
+[9.3.0]: https://github.com/atomist/docs/compare/9.2.0...9.3.0
 
 Tag Manager release
 
@@ -105,7 +105,7 @@ Tag Manager release
 
 ## [9.2.0][] - 2018-01-03
 
-[9.2.0]: https://github.com/atomist/end-user-documentation/compare/9.1.0...9.2.0
+[9.2.0]: https://github.com/atomist/docs/compare/9.1.0...9.2.0
 
 Mixpanel release
 
@@ -119,7 +119,7 @@ Mixpanel release
 
 ## [9.1.0][] - 2017-12-18
 
-[9.1.0]: https://github.com/atomist/end-user-documentation/compare/9.0.9...9.1.0
+[9.1.0]: https://github.com/atomist/docs/compare/9.0.9...9.1.0
 
 Support release
 
@@ -129,7 +129,7 @@ Support release
 
 ## [9.0.9][] - 2017-12-15
 
-[9.0.9]: https://github.com/atomist/end-user-documentation/compare/9.0.8...9.0.9
+[9.0.9]: https://github.com/atomist/docs/compare/9.0.8...9.0.9
 
 Intercom release
 
@@ -139,7 +139,7 @@ Intercom release
 
 ## [9.0.8][] - 2017-12-11
 
-[9.0.8]: https://github.com/atomist/end-user-documentation/compare/9.0.7...9.0.8
+[9.0.8]: https://github.com/atomist/docs/compare/9.0.7...9.0.8
 
 Bucket release
 
@@ -149,7 +149,7 @@ Bucket release
 
 ## [9.0.7][] - 2017-12-08
 
-[9.0.7]: https://github.com/atomist/end-user-documentation/compare/9.0.6...9.0.7
+[9.0.7]: https://github.com/atomist/docs/compare/9.0.6...9.0.7
 
 Edit-editor release
 
@@ -159,7 +159,7 @@ Edit-editor release
 
 ## [9.0.6][] - 2017-12-08
 
-[9.0.6]: https://github.com/atomist/end-user-documentation/compare/9.0.5...9.0.6
+[9.0.6]: https://github.com/atomist/docs/compare/9.0.5...9.0.6
 
 Editor release
 
@@ -174,7 +174,7 @@ Editor release
 
 ## [9.0.5][] - 2017-12-04
 
-[9.0.5]: https://github.com/atomist/end-user-documentation/compare/9.0.4...9.0.5
+[9.0.5]: https://github.com/atomist/docs/compare/9.0.4...9.0.5
 
 Link release
 
@@ -184,7 +184,7 @@ Link release
 
 ## [9.0.4][] - 2017-11-20
 
-[9.0.4]: https://github.com/atomist/end-user-documentation/compare/9.0.3...9.0.4
+[9.0.4]: https://github.com/atomist/docs/compare/9.0.3...9.0.4
 
 Scopes release
 
@@ -194,7 +194,7 @@ Scopes release
 
 ## [9.0.3][] - 2017-11-17
 
-[9.0.3]: https://github.com/atomist/end-user-documentation/compare/9.0.2...9.0.3
+[9.0.3]: https://github.com/atomist/docs/compare/9.0.2...9.0.3
 
 What next release
 
@@ -204,7 +204,7 @@ What next release
 
 ## [9.0.2][] - 2017-11-15
 
-[9.0.2]: https://github.com/atomist/end-user-documentation/compare/9.0.1...9.0.2
+[9.0.2]: https://github.com/atomist/docs/compare/9.0.1...9.0.2
 
 Repo release
 
@@ -218,7 +218,7 @@ Repo release
 
 ## [9.0.1][] - 2017-11-14
 
-[9.0.1]: https://github.com/atomist/end-user-documentation/compare/9.0.0...9.0.1
+[9.0.1]: https://github.com/atomist/docs/compare/9.0.0...9.0.1
 
 Quick-start release
 
@@ -228,7 +228,7 @@ Quick-start release
 
 ## [9.0.0][] - 2017-11-14
 
-[9.0.0]: https://github.com/atomist/end-user-documentation/compare/8.0.2...9.0.0
+[9.0.0]: https://github.com/atomist/docs/compare/8.0.2...9.0.0
 
 Automation release
 
@@ -239,7 +239,7 @@ Automation release
 
 ## [8.0.2][] - 2017-10-02
 
-[8.0.2]: https://github.com/atomist/end-user-documentation/compare/8.0.0...8.0.2
+[8.0.2]: https://github.com/atomist/docs/compare/8.0.0...8.0.2
 
 Less Rug release
 
@@ -250,7 +250,7 @@ Less Rug release
 
 ## [8.0.0][] - 2017-10-02
 
-[8.0.0]: https://github.com/atomist/end-user-documentation/compare/7.11.4...8.0.0
+[8.0.0]: https://github.com/atomist/docs/compare/7.11.4...8.0.0
 
 New jack release
 
@@ -261,18 +261,18 @@ New jack release
 
 ## [7.11.4][] - 2017-09-07
 
-[7.11.4]: https://github.com/atomist/end-user-documentation/compare/7.11.3...7.11.4
+[7.11.4]: https://github.com/atomist/docs/compare/7.11.3...7.11.4
 
 ### Fixed
 
 -   Remove deprecated `add skills` and `refresh skills` commands from tutorial
     [#198][198]
 
-[198]: https://github.com/atomist/end-user-documentation/issues/198
+[198]: https://github.com/atomist/docs/issues/198
 
 ## [7.11.3][] - 2017-08-29
 
-[7.11.3]: https://github.com/atomist/end-user-documentation/compare/7.11.2...7.11.3
+[7.11.3]: https://github.com/atomist/docs/compare/7.11.2...7.11.3
 
 ### Changed
 
@@ -281,19 +281,19 @@ New jack release
 
 ## [7.11.2][] - 2017-08-21
 
-[7.11.2]: https://github.com/atomist/end-user-documentation/compare/7.11.0...7.11.2
+[7.11.2]: https://github.com/atomist/docs/compare/7.11.0...7.11.2
 
 Add list of excluded file to seed docs
 
 ## [7.11.0][] - 2017-07-28
 
-[7.11.0]: https://github.com/atomist/end-user-documentation/compare/7.10.1...7.11.0
+[7.11.0]: https://github.com/atomist/docs/compare/7.10.1...7.11.0
 
 Update generator user guide
 
 ## [7.10.1][] - 2017-07-28
 
-[7.10.1]: https://github.com/atomist/end-user-documentation/compare/7.10.0...7.10.1
+[7.10.1]: https://github.com/atomist/docs/compare/7.10.0...7.10.1
 
 Generator update release
 
@@ -301,11 +301,11 @@ Generator update release
 
 -   Outdated examples in generator user guide [#182][182]
 
-[182]: https://github.com/atomist/end-user-documentation/issues/182
+[182]: https://github.com/atomist/docs/issues/182
 
 ## [7.7.0] - 2017-06-30
 
-[7.7.0]: https://github.com/atomist/end-user-documentation/compare/7.6.0...7.7.0
+[7.7.0]: https://github.com/atomist/docs/compare/7.6.0...7.7.0
 
 Nanogrammar release
 
@@ -318,7 +318,7 @@ Nanogrammar release
 
 ## [7.6.0] - 2017-06-21
 
-[7.6.0]: https://github.com/atomist/end-user-documentation/compare/7.5.0...7.6.0
+[7.6.0]: https://github.com/atomist/docs/compare/7.5.0...7.6.0
 
 De-manifest release
 
@@ -329,7 +329,7 @@ De-manifest release
 
 ## [7.5.0] - 2017-06-06
 
-[7.5.0]: https://github.com/atomist/end-user-documentation/compare/7.4.0...7.5.0
+[7.5.0]: https://github.com/atomist/docs/compare/7.4.0...7.5.0
 
 Package release
 
@@ -339,7 +339,7 @@ Package release
 
 ## [7.4.0] - 2017-06-06
 
-[7.4.0]: https://github.com/atomist/end-user-documentation/compare/7.3.0...7.4.0
+[7.4.0]: https://github.com/atomist/docs/compare/7.3.0...7.4.0
 
 Break out release
 
@@ -355,7 +355,7 @@ Break out release
 
 ## [7.3.0] - 2017-05-25
 
-[7.3.0]: https://github.com/atomist/end-user-documentation/compare/7.2.0...7.3.0
+[7.3.0]: https://github.com/atomist/docs/compare/7.2.0...7.3.0
 
 ### Added
 
@@ -363,7 +363,7 @@ Break out release
 
 ## [7.2.0] - 2017-05-01
 
-[7.2.0]: https://github.com/atomist/end-user-documentation/compare/7.1.0...7.2.0
+[7.2.0]: https://github.com/atomist/docs/compare/7.1.0...7.2.0
 
 Existing release
 
@@ -381,13 +381,13 @@ Existing release
 
 -   TypeScript setup tutorial [#162][162]
 
-[163]: https://github.com/atomist/end-user-documentation/issues/163
-[161]: https://github.com/atomist/end-user-documentation/issues/161
-[162]: https://github.com/atomist/end-user-documentation/issues/162
+[163]: https://github.com/atomist/docs/issues/163
+[161]: https://github.com/atomist/docs/issues/161
+[162]: https://github.com/atomist/docs/issues/162
 
 ## [7.1.0] - 2017-04-29
 
-[7.1.0]: https://github.com/atomist/end-user-documentation/compare/7.0.0...7.1.0
+[7.1.0]: https://github.com/atomist/docs/compare/7.0.0...7.1.0
 
 HTMLProofer release
 
@@ -399,11 +399,11 @@ HTMLProofer release
 
 -   HTMLProofer checking
 
-[160]: https://github.com/atomist/end-user-documentation/issues/160
+[160]: https://github.com/atomist/docs/issues/160
 
 ## [7.0.0] - 2017-04-25
 
-[7.0.0]: https://github.com/atomist/end-user-documentation/compare/6.3.1...7.0.0
+[7.0.0]: https://github.com/atomist/docs/compare/6.3.1...7.0.0
 
 Tutorials release
 
@@ -413,6 +413,6 @@ Tutorials release
 
 ## [0.1.0] - 2017-03-23
 
-[0.1.0]: https://github.com/atomist/end-user-documentation/tree/0.1.0
+[0.1.0]: https://github.com/atomist/docs/tree/0.1.0
 
 Initial release
