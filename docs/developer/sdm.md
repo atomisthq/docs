@@ -268,7 +268,7 @@ from the file system, making it easy to unit test with mocked
 repository contents, using the `InMemoryProject` and `InMemoryFile`
 classes.
 
-[project]: https://atomist.github.io/automation-client-ts/interfaces/_project_project_.project.html (Atomist Automation Client TypeScript - Project)
+[project]: https://atomist.github.io/automation-client-ts/interfaces/_lib_project_project_.project.html (Atomist Automation Client TypeScript - Project)
 [client]: https://github.com/atomist/automation-client-ts (Atomist Automation Client TypeScript)
 
 !!! Note
@@ -362,7 +362,7 @@ When a new issue is created, you may want to notify people or perform an action.
 
 #### Listener interfaces
 
-1. `NewIssueListener`: [NewIssueListener](https://github.com/atomist/sdm/blob/master/src/api/listener/NewIssueListener.ts)
+1. `NewIssueListener`: [NewIssueListener](https://github.com/atomist/sdm/blob/master/lib/api/listener/NewIssueListener.ts)
 
 #### Examples
 
@@ -402,9 +402,9 @@ tag it with GitHub topics based on its contents.
 There are two scenarios to consider:
 
 1.  The creation of a new repository. `RepoCreationListener`:
-    [RepoCreationListener](https://github.com/atomist/sdm/blob/master/src/api/listener/RepoCreationListener.ts)
+    [RepoCreationListener](https://github.com/atomist/sdm/blob/master/lib/api/listener/RepoCreationListener.ts)
 2.  The first push to a repository, which uses the more generic
-    [ProjectListener](https://github.com/atomist/sdm/blob/master/src/api/listener/PushListener.ts)
+    [ProjectListener](https://github.com/atomist/sdm/blob/master/lib/api/listener/PushListener.ts)
 
 The second scenario is usually more important, as it is possible to
 create a repository without any source code or a master branch, which

@@ -60,7 +60,7 @@ See the [UpdateCopyright example](https://github.com/atomist/automation-client-s
 
 ### Pull requests or commits
 
-The `editMode` passed in the details to `editorHandler` determines how to save the changes. Pass an instance of [PullRequest](https://atomist.github.io/automation-client-ts/classes/_operations_edit_editmodes_.pullrequest.html), or an implementation of [BranchCommit](https://atomist.github.io/automation-client-ts/interfaces/_operations_edit_editmodes_.branchcommit.html). You can also supply a function from parameters to one of these EditModes, in case you want the branch name or commit message to vary by invocation.
+The `editMode` passed in the details to `editorHandler` determines how to save the changes. Pass an instance of [PullRequest](https://atomist.github.io/automation-client-ts/classes/_lib_operations_edit_editmodes_.pullrequest.html), or an implementation of [BranchCommit](https://atomist.github.io/automation-client-ts/interfaces/_lib_operations_edit_editmodes_.branchcommit.html). You can also supply a function from parameters to one of these EditModes, in case you want the branch name or commit message to vary by invocation.
 
 ## Testing a project editor
 
@@ -100,7 +100,7 @@ it("adds the file", (done) => {
 
 ## Working with projects
 
-The [Project](https://atomist.github.io/automation-client-ts/interfaces/_project_project_.project.html) abstraction aims to provide both synchronous and asynchronous ways of changing projects. The synchronous methods simplify testing,
+The [Project](https://atomist.github.io/automation-client-ts/interfaces/_lib_project_project_.project.html) abstraction aims to provide both synchronous and asynchronous ways of changing projects. The synchronous methods simplify testing,
 while the asynchronous ones will give better performance in your automations.
 
 If you want to modify the filesystem directly in your ProjectEditor function, do what you like; find the underlying directory in `project.baseDir`.

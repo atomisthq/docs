@@ -83,7 +83,7 @@ contains the following useful members:
 When you need more information, define [parameters](#parameters)
 in your command handler.
 
-[handler-context]: https://atomist.github.io/automation-client-ts/interfaces/_handlercontext_.handlercontext.html (Reference Documentation - Handler Context)
+[handler-context]: https://atomist.github.io/automation-client-ts/interfaces/_lib_handlercontext_.handlercontext.html (Reference Documentation - Handler Context)
 
 ### Handler return
 

@@ -1,9 +1,10 @@
 The easiest way to get started with Atomist is to start on your
-laptop, working with local commits.  You'll need [Git][git] and
-[Node.js][node] installed.
+laptop, working with local commits.  You'll need [Git][git],
+[Node.js][node], and the [Java JDK][jdk] installed.
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [node]: https://nodejs.org/ (Node.js)
+[jdk]: https://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html (Java JDK Downloads)
 
 ## Quick start
 
@@ -28,7 +29,8 @@ laptop, working with local commits.  You'll need [Git][git] and
         atomist start --local
 
     The above command will install the project dependencies using NPM,
-    compile the TypeScript, and start your SDM.
+    compile the TypeScript, and start your SDM.  Depending on your
+    network connect, this may take a minute or more.
 
 5.  In another terminal, start up the SDM feed so you can see what the
     SDM is doing.
@@ -48,7 +50,9 @@ laptop, working with local commits.  You'll need [Git][git] and
 
     If you look in the terminal with the Atomist feed, you will see
     the SDM cloning the seed repository, cloning it locally, building
-    it, and deploying it locally.
+    it, and deploying it locally.  The first time you run this, it may
+    take a few minutes as it downloads all the Maven and project
+    dependencies.
 
     ![Atomist Feed for Create Spring Project](img/atomist-feed-create-spring.png)
 

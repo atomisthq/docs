@@ -21,7 +21,7 @@ If you're not familiar with the main concepts of Slack message formatting, you m
 
 ## MessageClient interface
 
-Let's take a look at the [`MessageClient`](https://github.com/atomist/automation-client-ts/blob/master/src/spi/message/MessageClient.ts) interface.
+Let's take a look at the [`MessageClient`](https://github.com/atomist/automation-client-ts/blob/master/lib/spi/message/MessageClient.ts) interface.
 
 ```typescript
 export interface MessageClient {
