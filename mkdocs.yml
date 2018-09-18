@@ -75,6 +75,7 @@ pages:
       - Running SDMs: developer/run.md
       - Creating Projects: developer/create.md
       - Editing Projects: developer/edit.md
+      - Inspecting Projects: developer/inspect.md
       - Commands: developer/commands.md
       - Events: developer/events.md
       - Slack Messages: developer/slack.md
