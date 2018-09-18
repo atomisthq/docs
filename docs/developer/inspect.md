@@ -59,7 +59,7 @@ async function onInspectionResults(
     results: CodeInspectionResult<FilesWithTooManyLines>[],
     inv: CommandListenerInvocation) {
     const message = results.map(r =>
-        `${r.repoId.owner}/${r.repoId.repo}@${r.repoId.sha} ${summarizeResult(r.result)}`).join("\n");
+        `${r.repoId.owner}/${r.repoId.repo} ${summarizeResult(r.result)}`).join("\n");
     return inv.addressChannels(message);
 }
 
@@ -97,4 +97,5 @@ Recompile and restart your SDM. Depending on the context where you run `@atomist
 
 For local mode: run it within a repository directory to inspect one project, or one directory up (within an owner directory) to inspect all repositories under that owner, or anywhere else to inspect all repositories.
 
-For team mode, in Slack: address Atomist in a channel linked to a repository to inspect that repository, or anywhere else to run for all repositories.
+For team mode, in Slack: address Atomist in a channel linked to a repository to inspect that repository: `@atomist inspect file lengths`.
+Or, specify a regular expression of repository names to check them all:`@atomist inspect file lengths targets.repos=".*"`.
