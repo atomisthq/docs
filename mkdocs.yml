@@ -69,6 +69,7 @@ pages:
       - Kubernetes: user/kubernetes.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
+      - About Atomist: developer/index.md
       - Running an SDM:
         - About the SDM: developer/sdm.md
         - Prerequisites: developer/prerequisites.md
@@ -104,6 +105,8 @@ pages:
          - Issue: pack/issue.md
          - Fingerprints: pack/fingerprint.md
       - Advanced:
+         - SDM Concepts: developer/sdm-concepts.md
          - Custom GraphQL Queries: developer/graphql.md
          - Chat Messages: developer/slack.md
+         - Deploying your SDM: developer/sdm-deploy.md
   - Support: support.md
