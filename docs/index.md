@@ -52,7 +52,7 @@ shows an SDM in action:
 
 Atomist is all about making you more productive by helping you to go
 from idea to production as quickly as possible.  The following
-concepts describe the pieces Atomist provides to make it easy for you
+concepts describe the pieces Atomist provides lets you
 use your software development skills to improve how you manage your
 software delivery, from project creation to build to test to
 deployment to runtime.
@@ -68,7 +68,7 @@ creating/commenting/closing issues and pull requests, deploying
 services, releasing artifacts, etc.  Want to run a security scanning
 tool on every push of every project in your organization?  Want to
 change the Docker registry for all your projects?  Re-platforming from
-WebLogic to Kubernetes?  It's easy to do with an SDM.
+WebLogic to Kubernetes?  It's all possible with an SDM.
 
 ### Development automation platform
 

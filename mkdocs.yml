@@ -62,22 +62,38 @@ pages:
   - Introduction: index.md
   - Using Atomist:
       - Getting Started: user/index.md
-      - GitHub: user/github.md
-      - Slack: user/slack.md
-      - Continuous Integration: user/ci.md
+      - Chat Integration: lifecycle.md
+      - Spring: user/spring.md
       - Kubernetes: user/kubernetes.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
-      - Overview: developer/index.md
-      - Prerequisites: developer/prerequisites.md
-      - Software Delivery Machine: developer/sdm.md
-      - SDM Project: developer/sdm-project.md
-      - Running SDMs: developer/run.md
-      - Creating Projects: developer/create.md
-      - Editing Projects: developer/edit.md
-      - Inspecting Projects: developer/inspect.md
-      - Commands: developer/commands.md
-      - Events: developer/events.md
-      - Slack Messages: developer/slack.md
-      - GraphQL: developer/graphql.md
-  - Support: support.md
+      - Running an SDM: 
+        - Team Mode: developer/team.md
+        - Local Mode: developer/local.md
+        - Commands: developer/command.md
+        - Events: developer/event.md
+      - Project Generators: developer/generator.md
+      - Goals: developer/goal.md
+          - Push Events: developer/push.md
+          - Setting Goals: developer/set-goals.md
+          - Custom Goals: developer/custom-goal.md
+      - Code Transforms:
+          - Transforms: developer/transform.md
+          - Autofixes: developer/autofix.md
+      - Code Inspections: developer/inspect.md
+      - Builds: developer/build.md
+      - Deploys: developer/deploy.md
+      - Extensions:
+         - Extension Packs: pack/index.md
+         - Spring: pack/spring.md
+         - Kubernetes: pack/kubernetes.md
+         - Cloud Foundry: pack/pcf.md
+         - Node
+         - Sonarqube
+         - Checkstyle
+         - Dock
+         - Lines of Code
+         - Changelog
+         - Issue
+         - Fingerprints          
+  - Support: support  -[].md
