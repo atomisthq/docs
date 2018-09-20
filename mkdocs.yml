@@ -73,7 +73,8 @@ pages:
         - Commands: developer/command.md
         - Events: developer/event.md
       - Project Generators: developer/generator.md
-      - Goals: developer/goal.md
+      - Goals:
+          - Introduction: developer/goal.md
           - Push Events: developer/push.md
           - Setting Goals: developer/set-goals.md
           - Custom Goals: developer/custom-goal.md
@@ -88,12 +89,12 @@ pages:
          - Spring: pack/spring.md
          - Kubernetes: pack/kubernetes.md
          - Cloud Foundry: pack/pcf.md
-         - Node
-         - Sonarqube
-         - Checkstyle
-         - Dock
-         - Lines of Code
-         - Changelog
-         - Issue
-         - Fingerprints         
+         - Node: pack/node.md
+         - Sonarqube: pack/sonarqube.md
+         - Checkstyle: pack/checkstyle.md
+         - Docker: pack/docker.md
+         - Lines of Code: pack/sloc.md
+         - Changelog: pack/changelog.md
+         - Issue: pack/issue.md
+         - Fingerprints: pack/fingerprint.md 
   - Support: support.md
