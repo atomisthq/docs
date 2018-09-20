@@ -153,10 +153,10 @@ with other events.
     integration system.
 
 -   If you already are using Atomist and are interested in writing
-    your own automations, you can go to the [Developer
+    your own SDM, you can go to the [Developer
     Guide][dev-guide] to learn how to create and run your own
-    automations.
+    SDM.
 
 [user]: user/index.md (Atomist User Guide)
 [quick-start]: quick-start.md (Atomist Developer Quick Start)
-[dev-guide]: developer/index.md (Atomist Automations Developer Guide)
+[dev-guide]: developer/sdm.md (Atomist Automations Developer Guide)

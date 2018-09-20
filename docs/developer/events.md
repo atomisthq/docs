@@ -70,7 +70,7 @@ comments and more using GraphQL may give you additional ideas for
 event handlers to build.  For now, let's use this query to write our
 event handler.
 
-[client]: sdm-project.md (Atomist SDM Project)
+[client]: sdm.md (Atomist SDM Project)
 [gql-access]: graphql.md#accessing-data-with-graphiql (Accessing Data with GraphiQL)
 
 ## Event handler structure

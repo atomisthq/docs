@@ -75,4 +75,4 @@ Delivery machine!
 [atomist-slack]: slack.md (Atomist and Slack)
 [atomist-ci]: ci.md (Atomist and Continuous Integration)
 [atomist-kube]: kubernetes.md (Atomist and Kubernetes)
-[dev]: ../developer/index.md (Atomist Developer Guide)
+[dev]: ../developer/sdm.md (Atomist Developer Guide)

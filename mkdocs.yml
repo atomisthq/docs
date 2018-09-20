@@ -62,19 +62,23 @@ pages:
   - Introduction: index.md
   - Using Atomist:
       - Getting Started: user/index.md
-      - Chat Integration: lifecycle.md
+      - Source Control: user/github.md
+      - Slack: user/slack.md
+      - Built-in Chat Integrations: lifecycle.md
       - Spring: user/spring.md
       - Kubernetes: user/kubernetes.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
-      - Running an SDM: 
-        - Team Mode: developer/team.md
+      - Running an SDM:
+        - About the SDM: developer/sdm.md
+        - Prerequisites: developer/prerequisites.md
+        - Team Mode: user/index.md
         - Local Mode: developer/local.md
-        - Commands: developer/command.md
-        - Events: developer/event.md
-      - Project Generators: developer/generator.md
+        - Commands: developer/commands.md
+        - Events: developer/events.md
+      - Project Generators: developer/create.md
       - Goals:
-          - Introduction: developer/goal.md
+          - About Goals: developer/goal.md
           - Push Events: developer/push.md
           - Setting Goals: developer/set-goals.md
           - Custom Goals: developer/custom-goal.md
@@ -82,7 +86,9 @@ pages:
           - Transforms: developer/transform.md
           - Autofixes: developer/autofix.md
       - Code Inspections: developer/inspect.md
-      - Builds: developer/build.md
+      - Builds:
+         - Build Goal: developer/build.md
+         - Integrations: user/ci.md
       - Deploys: developer/deploy.md
       - Extensions:
          - Extension Packs: pack/index.md
@@ -96,5 +102,8 @@ pages:
          - Lines of Code: pack/sloc.md
          - Changelog: pack/changelog.md
          - Issue: pack/issue.md
-         - Fingerprints: pack/fingerprint.md 
+         - Fingerprints: pack/fingerprint.md
+      - Advanced:
+         - Custom GraphQL Queries: developer/graphql.md
+         - Chat Messages: developer/slack.md
   - Support: support.md

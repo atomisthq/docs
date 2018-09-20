@@ -35,5 +35,5 @@ Change code could link to [project editors](https://github.com/atomist/automatio
 
 -->
 
-[sdm-project]: sdm-project.md (Atomist SDM Project)
+[sdm-project]: sdm.md (Atomist SDM Project)
 [command]: commands.md (Atomist SDM Commands)

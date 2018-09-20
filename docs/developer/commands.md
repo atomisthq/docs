@@ -10,7 +10,7 @@ this page will help you add a command handler to it.
 
 You'll need
 
--   An [SDM](sdm-project.md) of your own
+-   An [SDM](sdm.md) of your own
 -   A task you want to automate, even if it's just saying "Hello, World!"
 -   A phrase that people can say in Slack to trigger it, i.e., the commands _intent_
 -   A name for the command handler
@@ -289,7 +289,7 @@ under [Slack Messages](slack.md), including how to add buttons.
 
 Atomist lets developers automate their work, and that includes
 changing code.  The `@atomist/automation-client` module that you can
-find in your automation client has tools for creating and editing
+find in your automation client has tools for creating and transforming
 projects.
 
 For instance, you might want to:
@@ -301,9 +301,9 @@ repository, with organization-standard content.
 
 [ex-add-file]: https://github.com/atomist/automation-client-samples-ts/blob/master/src/commands/editor/AddContributing.ts (Command - Add File)
 
-Learn more in [project editing][edit].
+Learn more in [Code Transforms][transform].
 
-[edit]: edit.md (Atomist Editing Projects)
+[transform]: transform.md (Atomist Code Transforms)
 
 #### Change the content of a file in all repositories
 
@@ -312,10 +312,10 @@ Why stop at just one repository? This is automation! You can change them all!
 A command can [update the copyright year in all the READMEs in all your repositories](https://github.com/atomist/automation-client-samples-ts/tree/master/src/commands/editor/UpdateCopyright.ts).
 
 With this handler running
-in your automation client, you can initiate PRs on all out-of-date repositories with a single invocation of
+in your SDM, you can initiate PRs on all out-of-date repositories with a single invocation of
  `@atomist update README copyright year` in Slack.
 
-Learn more in [project editing][edit].
+Learn more in [code transforms][transform].
 
 ### Inspect code across repositories
 
@@ -342,7 +342,7 @@ adds a collaborator
 ### Commands in the wild
 
 There's a [repository full of sample automations][samples-ts] with
-example commands, including editors and generators.
+example commands, including transforms and generators.
 
 The built-in GitHub and build notifications, along with commands like
 `create issue`, live in [lifecycle-automation][lifecycle].
@@ -396,7 +396,7 @@ If you can't tell, consider changing the name of your automation client
 If your automation client is listed but your automation is not,
 perhaps it is not included in [`atomist.config.ts`][sdm-config].
 
-[sdm-config]: sdm-project.md#sdm-configuration
+[sdm-config]: sdm.md#sdm-configuration
 
 ### Command was invoked unsuccessfully
 
