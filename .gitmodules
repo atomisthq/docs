@@ -1,8 +1,0 @@
-[submodule "docs/common/doc-rugs"]
-	path = docs/common/doc-rugs
-	url = https://github.com/atomist/doc-rugs.git
-
-[submodule "docs/common/samples-ts"]
-	path = docs/common/samples-ts
-	url = https://github.com/atomist/automation-client-samples-ts.git
-	branch = master
