@@ -99,3 +99,24 @@ For local mode: run it within a repository directory to inspect one project, or 
 
 For team mode, in Slack: address Atomist in a channel linked to a repository to inspect that repository: `@atomist inspect file lengths`.
 Or, specify a regular expression of repository names to check them all:`@atomist inspect file lengths targets.repos=".*"`.
+
+## Create an AutoInspect
+
+You may use your inspection to find places in the code that need to change, and then change them. But how will you know when the file lengths creep back up?
+
+Make an AutoInspect run on every push. (Or in local mode, on every commit.) Then you can point out when a file has reached 1000 lines. You can point this out with a message, or by failing the goal, or by asking people to push a button to approve the unorthodox file length.
+
+### Create an AutoInspect goal
+
+If you already have an AutoInspect goal set up, then skip this section; proceed to AutoInspectRegistration.
+
+In a Software Delivery Machine, we set goals on each push, then execute those goals.
+
+Somewhere in your SDM, you'll want to instantiate an AutoCodeInspection goal.
+
+```
+export const AutoInspectionGoal = new AutoCodeInspection();
+```
+
+Then, set that goal on every push:
+
