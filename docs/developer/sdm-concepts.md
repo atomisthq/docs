@@ -111,14 +111,6 @@ simple internal DSL. For example, the following rules use `PushTest`
 predicates such as `ToDefaultBranch` and `IsMaven` to determine what
 goals to set for incoming pushes:
 
-```typescript
-whenPushSatisfies(ToDefaultBranch, IsMaven, HasSpringBootApplicationClass, HasCloudFoundryManifest,
-    	ToPublicRepo, not(NamedSeedRepo), not(FromAtomist), IsDeployEnabled)
-    .setGoals(HttpServiceGoals),
-whenPushSatisfies(IsMaven, HasSpringBootApplicationClass, not(FromAtomist))
-    .itMeans("Spring Boot service local deploy")
-    .setGoals(LocalDeploymentGoals),
-```
 
 Push test predicates are easy to write using the Atomist API. For example:
 
