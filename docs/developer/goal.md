@@ -85,7 +85,7 @@ You can register any number of inspections. You can call `with` on the goal at a
 
 If no inspections are registered, the goal will succeed. If any registration's `onInspectionResult` returns "fail", the goal will fail. If none return "fail" but one returns "require approval", the goal will go to Waiting for Approval state until someone clicks the Approve button in Slack or on the Atomist dashboard. 
 
-[AutoInspectRegistration]: sdm.github.io/TODO (AutoInspectRegistration API Doc)
+[AutoInspectRegistration]: https://atomist.github.io/sdm/interfaces/_lib_api_registration_autoinspectregistration_.autoinspectregistration.html (AutoInspectRegistration API Doc)
 [inspection]: inspect.md (Automatic Code Inspections)
 
 ### Autofix
