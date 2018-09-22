@@ -131,8 +131,6 @@ interruptions in connectivity.
 
 -   Crafting sophisticated [Slack messages][slack]
 -   Using [GraphQL with the automation API][graphql-api]
--   Creating, building, and starting an [SDM][client]
--   [Running anSDM][run].
 
 Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
@@ -144,5 +142,3 @@ processes.
 [event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
-[client]: sdm-project.md (Atomist SDM Project)
-[run]: run.md (Running an Atomist SDM)

@@ -52,4 +52,46 @@ this is a Maven project (identified by having a pom.xml), we do the build as wel
     ));
 ```
 
+## Built-in Goals
 
+A goal object has some identifying information, code to fulfill the goal, and sometimes preconditions (goals that need to complete before this one can go). Some common ones have their own constructors:
+
+### AutoInspect
+
+Run an inspection on the code; if the code doesn't pass, you can fail the goals or require approval (a button push). To use it, you'll need to create one, set it on each push, and register inspections on it.
+
+Instantiate an empty one:
+
+```typescript
+export const CodeInspectionGoal = new AutoCodeInspection();
+```
+
+And set it when you want it to run on a push. Here's the shortest way to run this goal on every push:
+
+```typescript
+    sdm.addGoalContributions(goalContributors(
+        onAnyPush().setGoals(goals("Inspections").plan(CodeInspectionGoal))))
+```
+
+Now the fun part: register inspections on it. Check the [Inspections][inspection] page for more on how to write inspections.
+Once you have an [AutoInspectRegistration][AutoInspectRegistration], register it on your goal:
+
+```typescript
+CodeInspectionGoal.with(MyAutoInspectRegistration)
+    .with(AnotherInspectRegistration);
+```
+
+You can register any number of inspections. You can call `with` on the goal at any point in SDM configuration.
+
+If no inspections are registered, the goal will succeed. If any registration's `onInspectionResult` returns "fail", the goal will fail. If none return "fail" but one returns "require approval", the goal will go to Waiting for Approval state until someone clicks the Approve button in Slack or on the Atomist dashboard. 
+
+[AutoInspectRegistration]: sdm.github.io/TODO (AutoInspectRegistration API Doc)
+[inspection]: inspect.md (Automatic Code Inspections)
+
+### Autofix
+
+### PushImpact
+
+
+
+## Custom Goals

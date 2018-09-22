@@ -3,9 +3,9 @@ measure how closely standards are followed. Run them on one repository or all re
 
 ## Installing an inspection from a Pack
 
-Some code inspections are available as part of published SDM functionality.
+Some code inspections are available as part of published SDM functionality. TODO: list some
 
-## Adding an inspection to an SDM
+## Custom Inspections
 
 An inspection looks at a repository and produces some report. It is implemented as a function from Project to an inspection result, plus a separate function to react to these results. You decide what an inspection result contains, how to populate it, and how to react to them.
 
@@ -32,11 +32,11 @@ For instance, this one gathers all the file paths where the content is over 1000
 ```typescript
 const InspectFileLengths: CodeInspection<FilesWithTooManyLines, NoParameters> =
     async (p: Project) => {
-        // this sample code returns the paths to files with over 1000 lines
+        // this sample code returns the paths to TypeScript files with over 1000 lines
         const longFiles = await gatherFromFiles(p, "**/*.ts", async f => {
             const c = await f.getContent();
             const lineCount = c.split("\n").length;
-            if (lineCount > 1000)) {
+            if (lineCount > 1000) {
                 return f.path;
             } else {
                 return undefined;
@@ -59,12 +59,9 @@ async function onInspectionResults(
     results: CodeInspectionResult<FilesWithTooManyLines>[],
     inv: CommandListenerInvocation) {
     const message = results.map(r =>
-        `${r.repoId.owner}/${r.repoId.repo} ${summarizeResult(r.result)}`).join("\n");
+        `${r.repoId.owner}/${r.repoId.repo} There are ${r.result.length} files with too many lines`)
+        .join("\n");
     return inv.addressChannels(message);
-}
-
-function summarizeResult(r: FilesWithTooManyLines): string {
-    return `There are ${r.length} files with too many lines`;
 }
 ```
 
@@ -73,7 +70,7 @@ function summarizeResult(r: FilesWithTooManyLines): string {
 Combine the inspection and the reaction into an object, a command registration. The `intent` is what you'll type to get Atomist to run the inspection.
 
 ```typescript
-export const InspectFileLengthsCommand: CodeInspectionRegistration<NoAxiosForYouInspectionResult, NoParameters> = {
+export const InspectFileLengthsCommand: CodeInspectionRegistration<FilesWithTooManyLines, NoParameters> = {
     name: "InspectFileLengths",
     description: "Files should be under 1000 lines",
     intent: "inspect file lengths",
@@ -88,7 +85,7 @@ Finally, teach the SDM about your command. In `machine.ts`, or
 wherever you configure your SDM, add 
 
 ```typescript
-sdm.addCodeInspectionCommand(InspectFileLengths);
+sdm.addCodeInspectionCommand(InspectFileLengthsCommand);
 ```
 
 ### Run the inspection
@@ -106,17 +103,48 @@ You may use your inspection to find places in the code that need to change, and 
 
 Make an AutoInspect run on every push. (Or in local mode, on every commit.) Then you can point out when a file has reached 1000 lines. You can point this out with a message, or by failing the goal, or by asking people to push a button to approve the unorthodox file length.
 
-### Create an AutoInspect goal
+### Decide what should happen: onInspectionResult
 
-If you already have an AutoInspect goal set up, then skip this section; proceed to AutoInspectRegistration.
+What qualifies as a failed inspection? and what should happen when an inspection fails?
 
-In a Software Delivery Machine, we set goals on each push, then execute those goals.
+Decide this in a function from your inspection result type to a PushReactionResponse: "proceed", "fail", or "require approval".
 
-Somewhere in your SDM, you'll want to instantiate an AutoCodeInspection goal.
+You also get access to an invocation object, in case you want to post a message as well.
 
+```typescript
+async function failIfAnyFileIsTooLong(result: FilesWithTooManyLines,
+    inv: ParametersInvocation<NoParameters>) {
+    if (result.length === 0) {
+        return PushReactionResponse.proceed;
+    }
+    await inv.addressChannels("The following files have more than 1000 lines:\n" + result.join("\n"));
+    return PushReactionResponse.failGoals;
+}
 ```
-export const AutoInspectionGoal = new AutoCodeInspection();
+
+### AutoInspectRegistration
+
+Assemble the inspection and the onInspectionResult into a registration:
+
+```typescript
+export const AutoInspectFileLengths: AutoInspectRegistration<FilesWithTooManyLines, NoParameters> = {
+    name: "AutoInspectFileLengths",
+    inspection: inspectFileLengths,
+    onInspectionResult: failIfAnyFileIsTooLong,
+}
 ```
 
-Then, set that goal on every push:
+### AutoInspect goal
+
+Finally, register this on your AutoCodeInspection goal:
+
+```typescript
+    const CodeInspectionGoal = new AutoCodeInspection();
+
+    CodeInspectionGoal.with(AutoInspectFileLengths);
+```
+
+Activate your AutoCodeInspection by setting the goal when a push happens. See [AutoInspect goal][autoinspect-goal] for details. 
+
+[autoinspect-goal]: goal.md#autoinspect (AutoInspect Goal) 
 

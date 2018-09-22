@@ -80,9 +80,7 @@ pages:
       - Project Generators: developer/create.md
       - Goals:
           - About Goals: developer/goal.md
-          - Push Events: developer/push.md
           - Setting Goals: developer/set-goals.md
-          - Custom Goals: developer/custom-goal.md
       - Code Transforms:
           - Transforms: developer/transform.md
           - Autofixes: developer/autofix.md
