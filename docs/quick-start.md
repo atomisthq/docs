@@ -1,6 +1,6 @@
 The easiest way to get started with Atomist is to start on your
 laptop, working with local commits.  You'll need [Git][git],
-[Node.js][node], and the [Java JDK][jdk] installed.
+[Node.js][node], and the [Java JDK][jdk] installed. (Java because the sample SDM creates and builds Java services.)
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [node]: https://nodejs.org/ (Node.js)
@@ -87,10 +87,11 @@ laptop, working with local commits.  You'll need [Git][git],
 ## Next steps
 
 Learn more about what you can do with an SDM by going through the
-[Atomist developer tutorials][tutorials].
+[Developer Guide][developer-guide] or [developer tutorials][tutorials].
 
 When you're ready to put your SDM to work for your whole team,
 continue with [setup][].
 
+[developer-guide]: developer/index.md (Atomist Developer Guide)
 [setup]: user/index.md (Atomist Setup)
 [tutorials]: https://github.com/atomist/developer-tutorials#readme (Atomist Developer Tutorials)

@@ -11,6 +11,38 @@ global automations, such as Atomist _lifecycle_ messages showing
 commit, pull request, and other activity through actionable messages
 in your chat client.
 
+
+### GraphQL
+
+The Atomist automation API provides you access to the events and data
+from your development platforms using [GraphQL][graphql], a
+widely-used query language and runtime for APIs.
+
+You can use GraphQL with the Atomist automation API for:
+
+1.  Queries that fetch data directly
+2.  Subscriptions to register the types of events you want to receive
+3.  Mutations to change data and make connections
+
+[graphql]: http://graphql.org/ (GraphQL)
+
+### WebSockets
+
+An Atomist SDM must maintain
+contact with the API server so that it can receive the events and
+commands it's interested in as they occur.
+
+SDMs access the Atomist automation API via
+a [WebSocket][ws] connection.  WebSockets allow the API server to send
+events and commands to the SDM without constant polling via HTTP
+calls. The
+WebSocket connection is initiated by the SDM when it
+starts up, establishing a persistent two-way communication channel
+between the SDM and API that is resilient to
+interruptions in connectivity.
+
+[ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
+
 ### Events
 
 The heart of Atomist is its event handling. As your code flows from
@@ -880,7 +912,7 @@ can integrate with third-party tools to execute goals and commands.
 
 ### Integrating CI tools
 
-One of the tools you are most likely to integrate is CI. For example,
+One of the tools you are most likely to integrate is Continuous Integration (CI). For example,
 you can integrate Jenkins, Travis or Circle CI with Atomist so that
 these tools are responsible for build. This has potential advantages
 in terms of scheduling and repeatability of environments.

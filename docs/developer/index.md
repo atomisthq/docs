@@ -37,10 +37,11 @@ and makes them available via the Atomist API for software.
 As Atomist ingests events, typically via webhook JSON payloads, it
 automatically correlates them to each other: commits to pushes to
 builds to deployments to running containers. This results in a data
-model that represents your development flow.  You can subscribe to
+model that represents your development flow.  The Software Delivery Machine subscribes to the most important events,
+like a push to source control and a completed build. You can subscribe to more
 events and take action when they occur, with the data model providing
 the necessary context so your automations can always do the right
-thing.
+thing. 
 
 The development automation platform also provides a simple yet
 powerful interface for implementing custom chat bot commands,
@@ -55,9 +56,8 @@ The Atomist automation API can be accessed via any compliant client.
 The reference implementation of the client is open source, written
 in [TypeScript][ts], and available in
 the [sdm-core][sdm-core] GitHub repository and
-via [NPM][aac].  The reference client provides local testing tools, a
-CLI, interactive querying of the data model, and interfaces for
-implementing your own automations.
+via [NPM][aac]. Start with our Software Delivery Machines for clean interfaces to
+useful automations like delivery, maintaining code standards, and responding to builds.
 
 [gh]: https://github.com (GitHub.com)
 [ghe]: https://enterprise.github.com/home (GitHub Enterprise)
@@ -86,36 +86,6 @@ instructions to get started locally.
 
 [quick-start]: ../quick-start.md (Atomist Developer Quick Start)
 
-## GraphQL
-
-The Atomist automation API provides you access to the events and data
-from your development platforms using [GraphQL][graphql], a
-widely-used query language and runtime for APIs.
-
-You can use GraphQL with the Atomist automation API for:
-
-1.  Queries that fetch data directly
-2.  Subscriptions to register the types of events you want to receive
-3.  Mutations to change data and make connections
-
-[graphql]: http://graphql.org/ (GraphQL)
-
-## WebSockets
-
-An Atomist SDM must maintain
-contact with the API server so that it can receive the events and
-commands it's interested in as they occur.
-
-SDMs access the Atomist automation API via
-a [WebSocket][ws] connection.  WebSockets allow the API server to send
-events and commands to the SDM without constant polling via HTTP
-calls. The
-WebSocket connection is initiated by the SDM when it
-starts up, establishing a persistent two-way communication channel
-between the SDM and API that is resilient to
-interruptions in connectivity.
-
-[ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
 
 ---
 
@@ -125,7 +95,7 @@ interruptions in connectivity.
     automations like SDMs
 -   [Software Delivery Machine][sdm]
 -   [Commands][command]
--   [Events][event]
+-   [Goals][goal]
 
 ## In-depth topics
 
@@ -136,6 +106,7 @@ Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
 processes.
 
+[goal]: goal.md (Goals)
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
 [sdm]: sdm.md (Atomist Software Delivery Machine)
 [command]: commands.md (Atomist Command Automations)
