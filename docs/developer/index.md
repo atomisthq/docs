@@ -2,7 +2,7 @@ Atomist is a flexible platform, enabling you to build your own
 automations or use those provided by Atomist or third parties.  An
 Atomist Software Delivery Machine (SDM) provides a high-level
 interface for you to take action when things happen.  In much the same
-way your CI build kicks off when you push to your SCM, Atomist can
+way your CI build kicks off when you push to your repository, Atomist can
 execute tasks like security scans, documentation publication, release
 creation, and deployment when different events occur within your
 development environment.  Because you're using a real programming

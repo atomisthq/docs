@@ -41,7 +41,7 @@ atomist create sdm
 
 If you use the Atomist service and Slack integration,
 you can create your very own SDM project using the
-Atomist bot. This will make a repository in your SCM (GitHub, BitBucket, or GitLab).
+Atomist bot. This will make a repository in your version control (GitHub, BitBucket, or GitLab).
  You can run this bot command, which itself is
 implemented as a command handler, with the following message to the
 Atomist bot:

@@ -23,7 +23,8 @@ static analysis checks, testing, and deployments, an SDM, connected to
 the Atomist platform, gives you the ability to codify and execute your
 entire delivery flow using real, testable code.  Working with and
 augmenting your existing development and delivery tools and platforms
-like SCM and CI, an SDM automates all steps in the flow from commit to
+like version control and continuous integration, an SDM automates 
+all steps in the flow from commit to
 production, and many other actions, using the consistent model
 provided by the Atomist *API for software*.
 
