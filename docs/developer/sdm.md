@@ -1,24 +1,24 @@
 The software delivery machine is a service that runs automations in response to events
 like pushes and builds. It is most useful when running for your whole team, connected 
-to the Atomist API for software, Slack, and your version control. Run it on your laptop while you're testing and modifying the SDM, then in your favorite production environment (on-prem or in the cloud)
+to the Atomist API for software, Slack, and your version control. Run it on your laptop 
+while you're testing and modifying the SDM, then in your favorite production environment (on-prem or in the cloud)
 for ongoing use.
 
-// TODO: diagram
+![Atomist SDM in Team mode](img/sdm-team.png)
 
-If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc, you're in luck! Run your SDM in local mode, on your own machine. Receive push events from your own local commits, get messages in a terminal feed, and run trigger commands on the command line.
+If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc, 
+you're in luck! Run your SDM in local mode, on your own machine. Receive push events from your own local commits,
+ get messages in a terminal feed, and run trigger commands on the command line.
 
-// TODO: diagram
+![Atomist SDM in Local mode](img/sdm-local.png)
 
-An SDM can also run locally, on your laptop. From there, either connect to the Atomist API for software (team mode), or run in local mode: respond to git commits 
+An SDM can also run locally, on your laptop. From there, either connect to the Atomist API for software (team mode), 
+or run in local mode: respond to git commits, see messages in a terminal running `atomist feed`, and send
+commands to Atomist from the command line.
 
+The SDM is a persistent process that runs in the background, whether in local or team mode.
 
-When running a Software Delivery Machine (SDM) or lower-level Atomist
-API client, you interact with the Atomist API for Software
-via a [WebSocket][ws] connection.  WebSocket connections are
-persistent, providing bidirectional communication between the client
-and the API. The SDM subscribes to events published by the API.
- As such, the SDM is a persistent process with
-a lifecycle that is more like a traditional _server_ process.  This
+This
 section documents creating, building, and running an SDM,
 discusses each part of the SDM lifecycle, and details the
 structure and organization of a typical SDM project.
@@ -26,17 +26,7 @@ structure and organization of a typical SDM project.
 Before you can build and run your own SDM,
 {!prereq-items.md!}
 
-[ws]: https://en.wikipedia.org/wiki/WebSocket (WebSocket)
-
 ## Creating an SDM project
-
-An Atomist API client project is any project that connects to the
-Atomist API for Software.  The reference implementation is the [sdm-core][sdm-core]
-library, which is written in [TypeScript][ts]. Any SDM
-depends on the @atomist/automation-client library and uses its
-interface to connect to the Atomist API.  The combination of
-TypeScript and [GraphQL][gql] provides a development
-experience with excellent tooling and debugging support.
 
 There are a few ways to create a new SDM project.  We
 suggest using the [blank-sdm][seed] project as a seed for
@@ -45,6 +35,9 @@ your project. You can do this locally with the Atomist CLI:
 ```
 atomist create sdm
 ```
+
+Choose "blank" to start with an empty SDM, or "spring" to start with
+an SDM that does useful things for Java Spring services.
 
 [sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
@@ -56,8 +49,7 @@ atomist create sdm
 If you use the Atomist service and Slack integration,
 you can create your very own SDM project using the
 Atomist bot. This will make a repository in your version control (GitHub, BitBucket, or GitLab).
- You can run this bot command, which itself is
-implemented as a command handler, with the following message to the
+ You can run this bot command with the following message to the
 Atomist bot:
 
 ```
