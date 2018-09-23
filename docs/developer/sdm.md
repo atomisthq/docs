@@ -1,3 +1,17 @@
+The software delivery machine is a service that runs automations in response to events
+like pushes and builds. It is most useful when running for your whole team, connected 
+to the Atomist API for software, Slack, and your version control. Run it on your laptop while you're testing and modifying the SDM, then in your favorite production environment (on-prem or in the cloud)
+for ongoing use.
+
+// TODO: diagram
+
+If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc, you're in luck! Run your SDM in local mode, on your own machine. Receive push events from your own local commits, get messages in a terminal feed, and run trigger commands on the command line.
+
+// TODO: diagram
+
+An SDM can also run locally, on your laptop. From there, either connect to the Atomist API for software (team mode), or run in local mode: respond to git commits 
+
+
 When running a Software Delivery Machine (SDM) or lower-level Atomist
 API client, you interact with the Atomist API for Software
 via a [WebSocket][ws] connection.  WebSocket connections are
@@ -25,7 +39,7 @@ TypeScript and [GraphQL][gql] provides a development
 experience with excellent tooling and debugging support.
 
 There are a few ways to create a new SDM project.  We
-suggest using the [blank-sdm-seed][seed] project as a seed for
+suggest using the [blank-sdm][seed] project as a seed for
 your project. You can do this locally with the Atomist CLI:
 
 ```
@@ -123,7 +137,7 @@ those from your user configuration.
 [config]: https://www.npmjs.com/package/config (config Node.js package)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
 
-## Starting a client
+## Starting an SDM
 
 There are a few different ways to start the SDM,
 depending on how you are running it.  If you are running the
