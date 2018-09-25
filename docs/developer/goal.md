@@ -52,6 +52,10 @@ this is a Maven project (identified by having a pom.xml), we do the build as wel
     ));
 ```
 
+Check the page about [Setting Goals][setting-goals] for more details.
+
+[setting-goals]: set-goals.md (Setting Goals in an SDM)
+
 ## Built-in Goals
 
 A goal object has some identifying information, code to fulfill the goal, and sometimes preconditions (goals that need to complete before this one can go). Some common ones have their own constructors:
@@ -92,6 +96,9 @@ If no inspections are registered, the goal will succeed. If any registration's `
 
 ### PushImpact
 
+### Build
 
+### Fingerprint
 
 ## Custom Goals
+

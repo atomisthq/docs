@@ -81,6 +81,7 @@ pages:
       - Goals:
           - About Goals: developer/goal.md
           - Setting Goals: developer/set-goals.md
+          - Registrations: developer/registration.md
       - Code Transforms:
           - Transforms: developer/transform.md
           - Autofixes: developer/autofix.md
@@ -104,6 +105,7 @@ pages:
          - Fingerprints: pack/fingerprint.md
       - Advanced:
          - SDM Concepts: developer/sdm-concepts.md
+         - SDM Configuration: developer/config.md
          - Custom GraphQL Queries: developer/graphql.md
          - Chat Messages: developer/slack.md
          - Deploying your SDM: developer/sdm-deploy.md

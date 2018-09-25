@@ -63,7 +63,7 @@ it.
 ### GitHub
 
 If you prefer the manual route, fixing up the project metadata
-yourself, you can always just fork the [blank-sdm-seed][seed]
+yourself, you can always just fork the [blank-sdm][seed]
 project on GitHub.
 
 ## Building an SDM
@@ -86,48 +86,6 @@ npm run build
 ```
 
 [node]: https://nodejs.org/en/ (Node.js)
-
-## SDM configuration
-
-The SDM will use the configuration you created when you
-ran `atomist config` as part of the [prerequisites][prereq].  The
-configuration file, typically located under your home/user profile
-directory at `.atomist/client.config.json`.  It is a standard JSON
-file that will look something like:
-
-```json
-{
-  "apiKey": "ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789",
-  "workspaceIds": [
-    "A0421WAYA",
-  ]
-}
-```
-
-The `apiKey` is your Atomist API key and `workspaceIds` are the
-Atomist IDs of the workspaces where you want to run your team SDMs.
-If you want to change the API key or add/remove workspaces, you can edit this file directly.
-
-If you are managing several SDMs for different
-teams, you can override your user-level configuration using the
-project-level configuration in each project, typically located at
-`src/atomist.config.ts`.  A typical project configuration file will
-look like this:
-
-```typescript
-import { Configuration } from "@atomist/automation-client/configuration";
-
-export const configuration: Configuration = {
-    // configuration you want to override
-};
-```
-
-The configuration values in the `atomist.config.ts` file will override
-those from your user configuration.
-
-[prereq]: prerequisites.md (Atomist SDM Prerequisites)
-[config]: https://www.npmjs.com/package/config (config Node.js package)
-[lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
 
 ## Starting an SDM
 

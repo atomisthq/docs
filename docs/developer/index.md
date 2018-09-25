@@ -86,7 +86,6 @@ instructions to get started locally.
 
 [quick-start]: ../quick-start.md (Atomist Developer Quick Start)
 
-
 ---
 
 ## Get started

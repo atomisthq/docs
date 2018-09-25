@@ -7,10 +7,11 @@ Atomist *API for software*.
 ## Core Concepts
 
 An SDM builds on other Atomist core functionality available from
-global automations, such as Atomist _lifecycle_ messages showing
+global automations, such as Atomist [lifecycle messages][lifecycle] showing
 commit, pull request, and other activity through actionable messages
 in your chat client.
 
+[lifecycle]: ../lifecycle.md (Atomist Lifecycle Messages in chat)
 
 ### GraphQL
 
@@ -123,220 +124,13 @@ project provides a framework above this infrastructure that makes
 typical tasks far easier, while not preventing you from breaking out
 into lower level functionality.
 
-### Goals and Listeners
-
-The most important higher level SDM functionality relates to what
-happens on a push to a repository. An SDM allows you to process a push
-in any way you choose, but typically you want it to initiate a
-delivery flow.
-
-#### Goals
-
-An SDM allows you to set **goals** on push. Goals correspond to the
-actions that make up a delivery flow, such as build and
-deployment. Goals are not necessarily sequential--some may be executed
-in parallel--but certain goals, such as deployment, have preconditions
-(goals that must have previously completed successfully).
-
-Goals are set using **rules**, which are typically expressed in a
-simple internal DSL. For example, the following rules use `PushTest`
-predicates such as `ToDefaultBranch` and `IsMaven` to determine what
-goals to set for incoming pushes:
-
-
-Push test predicates are easy to write using the Atomist API. For example:
-
-```typescript
-export const IsMaven: PredicatePushTest = predicatePushTest(
-    "Is Maven",
-    async p => !!(await p.getFile("pom.xml")));
-```
-
-Goals are defined as follows:
-
-```typescript
-export const HttpServiceGoals = new Goals(
-    "HTTP Service",
-    FingerprintGoal,
-    AutofixGoal,
-    ReviewGoal,
-    PushReactionGoal,
-    BuildGoal,
-    ArtifactGoal,
-    StagingDeploymentGoal,
-    StagingEndpointGoal,
-    StagingVerifiedGoal,
-    ProductionDeploymentGoal,
-    ProductionEndpointGoal);
-```
-
-It is possible to define new goals with accompanying implementations,
-`making this approach highly extensible.
 
 #### Listeners
 
 We'll return to push tests shortly, but first let's consider the SDM
 listener concept.
 
-While the goals set drive the delivery process, domain specific
-**listeners** help in goal implementation and allow observation of the
-process as it unfolds. Listener **registrations** allow selective
-listener firing, on only particular pushes. A registration includes a
-name (for diagnostics) and a `PushTest`, narrowing on particular
-pushes.
 
-For example, the following listener registration causes an automatic
-fix to be made on every push to a Node project, adding a license file
-if none is found:
-
-```typescript
- sdm.addAutofixes({
-        name: "fix me",
-        pushTest: IsNode,
-        action: async cri => {
-            const license = await axios.get("https://www.apache.org/licenses/LICENSE-2.0.txt");
-            return cri.project.addFile("LICENSE", license.data);
-        },
-    })
-
-```
-
-The following listener observes a build, notifying any linked Slack
-channels of its status:
-
-```typescript
-sdm.addBuildListeners(async br =>
-        br.addressChannels(`Build of ${br.id.repo} has status ${br.build.status}`));
-```
-
-!!! Summary
-    SDM listeners are a layer above GraphQL subscriptions and event
-    handlers that simplify common scenarios, and enable most functionality
-    to be naturally expressed in terms of the problem domain. Listener
-    implementations are also easily testable.
-
-##### Common Listener Context
-
-As with all good frameworks, we've tried to make the API
-consistent. All listener invocations include at least the following
-generally useful information:
-
-```typescript
-export interface SdmContext {
-
-    /**
-     * Context of the Atomist EventHandler invocation. Use to run GraphQL
-     * queries, use the messageClient directly and find
-     * the workspace and correlation id
-     */
-    context: HandlerContext;
-
-    /**
-     * If available, provides a way to address the channel(s) related to this event.
-     * This is usually, but not always, the channels linked to a repo
-     * In some cases, such as repo creation or a push to a repo where there is no linked channel,
-     * addressChannels will go to dev/null without error.
-     */
-    addressChannels: AddressChannels;
-
-    /**
-     * Credentials for use with source control hosts such as GitHub
-     */
-    credentials: ProjectOperationCredentials;
-
-}
-```
-
-Most events concern a specific repository, and hence most listener
-invocations extend `RepoContext`:
-
-```typescript
-export interface RepoContext extends SdmContext {
-
-    /**
-     * The repo this relates to
-     */
-    id: RemoteRepoRef;
-
-}
-```
-
-Many repo-specific listeners are given access to the repository
-source, via the `Project` abstraction:
-
-```typescript
-export interface ProjectListenerInvocation extends RepoListenerInvocation {
-
-    /**
-     * The project to which this event relates. It will have been cloned
-     * prior to this invocation. Modifications made during listener invocation will
-     * not be committed back to the project (although they are acceptable if necessary, for
-     * example to run particular commands against the project).
-     * As well as working with
-     * project files using the Project superinterface, we can use git-related
-     * functionality fro the GitProject subinterface: For example to check
-     * for previous shas.
-     * We can also easily run shell commands against the project using its baseDir.
-     */
-    project: GitProject;
-
-}
-
-```
-
-The [`Project` interface][project] is defined in
-[@atomist/automation-client][client]. It provides an abstraction to
-the present repository, with Atomist taking care of Git cloning and
-(if necessary) writing back any changes via a push. It is abstracted
-from the file system, making it easy to unit test with mocked
-repository contents, using the `InMemoryProject` and `InMemoryFile`
-classes.
-
-[project]: https://atomist.github.io/automation-client-ts/interfaces/_lib_project_project_.project.html (Atomist Automation Client TypeScript - Project)
-[client]: https://github.com/atomist/automation-client-ts (Atomist Automation Client TypeScript)
-
-!!! Note
-    The Project API and sophisticated parsing functionality available on
-    top of it is a core Atomist capability. Many events can only be
-    understood in the context of the impacted code, and many actions are
-    achieved by modifying code.
-
-Push listeners also have access to the details of the relevant push:
-
-```typescript
-export interface PushListenerInvocation extends ProjectListenerInvocation {
-
-	 /**
-     * Information about the push, including repo and commit
-     */
-    readonly push: OnPushToAnyBranch.Push;
-
-}
-```
-
-##### Available Listener Interfaces
-
-The following listener interfaces are available:
-
--   `ArtifactListener`: Invoked when a new binary has been created
--   `BuildListener`: Invoked when a build is complete.
--   `ChannelLinkListenerInvocation`: Invoked when a channel is linked to a repo
--   `ClosedIssueListener`: Invoked when an issue is closed
--   `PushReactionListener`: Invoked in response to a code change
--   `DeploymentListener`: Invoked when a deployment has succeeded
--   `FingerprintDifferenceListener`: Invoked when a fingerprint has changed
--   `GoalsSetListener`: Invoked when goals are set on a push
--   `Listener`: Superinterface for all listeners
--   `NewIssueListener`: Invoked when an issue has been created
--   `ProjectListener`: Superinterface for all listeners that relate to a project and make the cloned project available
--   `PullRequestListener`: Invoked when a pull request is raised
--   `PushListener`: Superinterface for listeners to push events
--   `RepoCreationListener`: Invoked when a repository has been created
--   `SupersededListener`: Invoked when a commit has been superseded by a subsequent commit
--   `TagListener`: Invoked when a repo is created
--   `UpdatedIssueListener`: Invoked when an issue has been updated
--   `UserJoiningChannelListener`: Invoked when a user joins a channel
--   `VerifiedDeploymentListener`: Invoked when an endpoint has been verified
 
 
 #### Push Mappings
