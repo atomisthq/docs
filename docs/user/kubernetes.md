@@ -104,12 +104,21 @@ Then run the command to deploy the Atomist utilities again.
         --clusterrole=cluster-admin --user=$(gcloud config get-value account)
     ```
 
-If you are running an older version of Kubernetes that does not
-support RBAC, either upgrade your Kubernetes cluster or <a
-class="contact" href="mailto:support@atomist.com" title="Contact
-Atomist">contact us</a> for help in deploying the Atomist utilities.
-
 [rbac]: https://kubernetes.io/docs/admin/authorization/rbac/ (Kubernetes - Using RBAC Authorization)
+
+If you see errors like the following when you try to deploy the
+Atomist utilities to your Kubernetes cluster,
+
+```
+unable to decode "https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/cluster-wide.yaml": no kind "ClusterRole" is registered for version "rbac.authorization.k8s.io/v1beta1"
+unable to decode "https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/cluster-wide.yaml": no kind "ClusterRoleBinding" is registered for version "rbac.authorization.k8s.io/v1beta1"
+```
+
+then either your `kubectl` CLI, Kubernetes cluster, or both are too
+old and do not support RBAC.  Upgrade your `kubectl` CLI and
+Kubernetes cluster or <a class="contact"
+href="mailto:support@atomist.com" title="Contact Atomist">contact
+us</a> for help in deploying the Atomist utilities.
 
 ### Cluster vs. namespace
 
