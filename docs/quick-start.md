@@ -4,7 +4,7 @@ laptop, working with local commits.  You'll need [Git][git],
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [node]: https://nodejs.org/ (Node.js)
-[jdk]: https://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html (Java JDK Downloads)
+[jdk]: http://jdk.java.net/ (Java JDK)
 
 ## Quick start
 
