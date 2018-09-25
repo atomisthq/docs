@@ -1,21 +1,6 @@
+Markdown==2.6.10
 markdown-include==0.5.1
-mkdocs==1.0.4
-mkdocs-material==3.0.4
+mkdocs==0.17.1
+mkdocs-material==2.0.4
 Pygments==2.2.0
 pymdown-extensions==5.0
-## The following requirements were added by pip freeze:
-backports-abc==0.5
-certifi==2017.1.23
-click==6.7
-futures==3.2.0
-Jinja2==2.9.5
-livereload==2.5.1
-Markdown==3.0
-MarkupSafe==1.0
-mercurial==4.7.1
-PyYAML==3.12
-rug-pygments==0.1.0
-singledispatch==3.4.0.3
-six==1.10.0
-tornado==5.1.1
-virtualenv==15.0.2

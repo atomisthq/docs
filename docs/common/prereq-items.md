@@ -9,9 +9,9 @@ the [prerequisites][prereq-prereq].  Specifically, be sure you have
 -   [Run `atomist config`][prereq-atomist-config]
 
 [prereq-setup]: ../user/index.md (Atomist Setup)
-[prereq-prereq]: prerequisites.md (Atomist Automation Prerequisites)
+[prereq-prereq]: ../developer/prerequisites.md (Atomist Automation Prerequisites)
 [prereq-add-slack]: ../user/slack.md (Add Atomist to Slack)
 [prereq-auth-github]: ../user/github.md (Authorize Atomist in GitHub)
-[prereq-install-node]: prerequisites.md#nodejs (Install Node.js)
-[prereq-install-cli]: prerequisites.md#atomist-cli (Install the Atomist CLI)
-[prereq-atomist-config]: prerequisites.md#configure (Configure Atomist)
+[prereq-install-node]: ../developer/prerequisites.md#nodejs (Install Node.js)
+[prereq-install-cli]: ../developer/prerequisites.md#atomist-cli (Install the Atomist CLI)
+[prereq-atomist-config]: ../developer/prerequisites.md#configure (Configure Atomist)

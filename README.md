@@ -109,7 +109,7 @@ are instructions to install them in a non-obtrusive way.
 
 #### MkDocs
 
-First [install Python][py-install] using [Homebrew][brew] on Mac OS X.
+First [install Python 3][py-install] using [Homebrew][brew] on Mac OS X.
 
 [py-install]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
 [brew]: https://brew.sh/
