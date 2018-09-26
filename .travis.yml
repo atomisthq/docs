@@ -2,28 +2,28 @@ dist: trusty
 sudo: false
 language: python
 python:
-- 3.5
+  - 3.5
 addons:
   apt:
     packages:
-    - libcurl3-dev
-    - s3cmd
+      - python-magic
+      - s3cmd
 branches:
   except:
-  - gh-pages
-  - "/\\+travis\\.\\d+$/"
+    - gh-pages
+    - "/\\+travis\\.\\d+$/"
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-  - secure: EO1TtdhykNQx7tj+sS5/EcGsyyfMRuw9Yci25h4Mpi6I9G4XOvZHE7kLmslTr9V+Fc9NojdgLjasFJYSDxZGblRfNcMvp6BLZlWNZKtJ6EqEB/UUjuxuuvVXCJI9LGzXfsIyuNf4jHnIuHeJ34cCfZgbbMzFB2a3zNf2XuXlskGKSAAYY7Eg2C1taVA8FZHuqUezpUHGXVcIUbWuzN++KSKznzDcQwGdgtqBF4R8iay+NdU3GG7IJYDkfsFshNbpRcmqP/HxmcDOYHMQzGzhEoCHyHL/8UzO3Zh2eVqa12yLAC3bbh6+2HN8YFEP70V5E4esArIkB1SmQIZrMfgfkmClOVbPx57VfvyTgihRU7p/lRN4exQ878r3PwdPFfpm4NtPQY+YWULWL4Zcnw64GjR0lR0sf8V6BDYXTYBHpY1ggBLrqIE+iJBlM3Fv59R4X+ePO31aiZ5XGyy4+it/NlFVWLp6QGIeq9YXoyuAosNhuCwaS7EsS+9UK43j4kSZwe8qVYaiyQDE7NmXwLihN5ps0+d4JhnADrVhfpqReXb/2S02HpQZXIE+vnRnVgtR9XbJABwX7a/u/TGpn+d90WLYSS5iZbQ/9NV6NFp8wmRU1RgEyYHt58l8AH6UTZ9afA0DeIBYJ/t8F70u2uqbMd8hUZIWR2400E5xlvGYFsU=
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - secure: EO1TtdhykNQx7tj+sS5/EcGsyyfMRuw9Yci25h4Mpi6I9G4XOvZHE7kLmslTr9V+Fc9NojdgLjasFJYSDxZGblRfNcMvp6BLZlWNZKtJ6EqEB/UUjuxuuvVXCJI9LGzXfsIyuNf4jHnIuHeJ34cCfZgbbMzFB2a3zNf2XuXlskGKSAAYY7Eg2C1taVA8FZHuqUezpUHGXVcIUbWuzN++KSKznzDcQwGdgtqBF4R8iay+NdU3GG7IJYDkfsFshNbpRcmqP/HxmcDOYHMQzGzhEoCHyHL/8UzO3Zh2eVqa12yLAC3bbh6+2HN8YFEP70V5E4esArIkB1SmQIZrMfgfkmClOVbPx57VfvyTgihRU7p/lRN4exQ878r3PwdPFfpm4NtPQY+YWULWL4Zcnw64GjR0lR0sf8V6BDYXTYBHpY1ggBLrqIE+iJBlM3Fv59R4X+ePO31aiZ5XGyy4+it/NlFVWLp6QGIeq9YXoyuAosNhuCwaS7EsS+9UK43j4kSZwe8qVYaiyQDE7NmXwLihN5ps0+d4JhnADrVhfpqReXb/2S02HpQZXIE+vnRnVgtR9XbJABwX7a/u/TGpn+d90WLYSS5iZbQ/9NV6NFp8wmRU1RgEyYHt58l8AH6UTZ9afA0DeIBYJ/t8F70u2uqbMd8hUZIWR2400E5xlvGYFsU=
 before_install:
-- openssl aes-256-cbc -K $encrypted_68f27be61f88_key -iv $encrypted_68f27be61f88_iv
-  -in .s3cfg.enc -out $HOME/.s3cfg -d
+  - openssl aes-256-cbc -K $encrypted_68f27be61f88_key -iv $encrypted_68f27be61f88_iv
+    -in .s3cfg.enc -out $HOME/.s3cfg -d
 install:
-- pip install -r requirements.txt
-- bundle install
+  - pip install -r requirements.txt
+  - bundle install
 script:
-- bash travis-build.bash
+  - bash travis-build.bash
 notifications:
   email: false
   webhooks:
@@ -33,24 +33,24 @@ notifications:
     on_error: always
     on_cancel: always
     urls:
-    - https://webhook.atomist.com/atomist/travis/teams/T29E48P34
+      - https://webhook.atomist.com/atomist/travis/teams/T29E48P34
 cache:
   pip: true
   directories:
-  - "~/.rvm/gems"
+    - "~/.rvm/gems"
 before_deploy:
-- touch site/.nojekyll
+  - touch site/.nojekyll
 deploy:
-- provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: site
-  email: travis-ci@atomist.com
-  name: Atomist Travis CI
-  on:
-    branch: master
-- provider: releases
-  api_key: "$GITHUB_TOKEN"
-  on:
-    tags: true
-    condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$"
+  - provider: pages
+    skip_cleanup: true
+    github_token: "$GITHUB_TOKEN"
+    local_dir: site
+    email: travis-ci@atomist.com
+    name: Atomist Travis CI
+    on:
+      branch: master
+  - provider: releases
+    api_key: "$GITHUB_TOKEN"
+    on:
+      tags: true
+      condition: "$TRAVIS_TAG =~ ^[0-9]+\\.[0-9]+\\.[0-9]+$"
