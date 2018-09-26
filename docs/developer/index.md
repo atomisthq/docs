@@ -19,6 +19,12 @@ A SDM demonstrates Atomist as the *API for software*, exposing:
 -   *What you're working on*: A library that enables you to comprehend
     and manipulate the source code you're working on.
 
+When a push occurs, the SDM gets all this context and the code. It decides what
+delivery actions to take, and sets a goal for each one.
+
+![SDM Receives a Push](img/sdm-reacts-to-push.png)
+
+A push is not the only event that matters in our software development.
 The Atomist development automation platform ingests events from your
 software development systems:
 
@@ -42,6 +48,8 @@ like a push to source control and a completed build. You can subscribe to more
 events and take action when they occur, with the data model providing
 the necessary context so your automations can always do the right
 thing. 
+
+![SDM Receives Commands and Events](img/sdm-reacts-to-more.png)
 
 The development automation platform also provides a simple yet
 powerful interface for implementing custom chat bot commands,
