@@ -45,7 +45,7 @@ received.
 
 When you first sign up, you'll be asked to authenticate with GitHub.
 Once you've authenticated, you'll create a new Atomist workspace.
-Associate a GitHub organization or some repositories with the Atomist
+Associate a GitHub organization with the Atomist
 workspace to start getting events.  Atomist will ask your permission
 to create the needed webhook(s).  For more information on how Atomist
 integrates with GitHub, see the [GitHub integration][atomist-github]
