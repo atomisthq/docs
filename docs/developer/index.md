@@ -60,12 +60,6 @@ writing your command code, not boilerplate code and ceremony
 around running bots. Instead of shell scripts that are useful to you, write commands
 that help your whole team.
 
-The Atomist automation API can be accessed via any compliant client.
-The reference implementation of the client is open source, written
-in [TypeScript][ts], and available in
-the [sdm-core][sdm-core] GitHub repository and
-via [NPM][aac]. Start with our Software Delivery Machines for clean interfaces to
-useful automations like delivery, maintaining code standards, and responding to builds.
 
 [gh]: https://github.com (GitHub.com)
 [ghe]: https://enterprise.github.com/home (GitHub Enterprise)
@@ -82,8 +76,6 @@ useful automations like delivery, maintaining code standards, and responding to 
 [sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
 [aac]: https://www.npmjs.com/package/@atomist/sdm (Atomist SDM Node Module)
 
-![Atomist Development Automation Platform Architecture](img/atomist-architecture.png)
-
 ## Local
 
 While the SDM is most valuable when it is coordinating delivery and
@@ -96,7 +88,30 @@ instructions to get started locally.
 
 ---
 
-## Get started
+# About this guide
+
+With this guide, we aim to provide all the information you need to create and customize
+a software delivery machine for your organization's needs. When the information here
+is not clear or not sufficient, we appreciate your perspective. Ask us questions through the chat icon
+in the lower-right of this page; or on the [Atomist community Slack][slack]. You can also contribute
+to this guide by creating issues or pull requests on [the docs repository][docs].
+
+If you want to learn by doing, run through the [Developer Quick Start][quick-start] first.
+If you want to start from higher-level concepts, begin reading [about the SDM][sdm].
+
+This guide should help you make your SDM:
+
+-   [Build your repositories][build]
+-   [Deploy your code][deploy]
+-   [Inspect your code][inspect], across projects and automatically on push
+-   Transform your code, across projects and automatically on push
+-   Respond to builds, from the SDM or external build systems
+-   Implement custom commands
+-   Create new projects according to your own standards
+
+To do all this, these higher-level concepts are relevant:
+
+-   
 
 -   [Setting up your system][prereq] to develop and run
     automations like SDMs
@@ -113,6 +128,10 @@ Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
 processes.
 
+[build]: build.md (Builds in the SDM)
+[deploy]: deploy.md (Deploys in the SDM)
+[inspect]: inspect.md (Code Inspections)
+[docs]: https://github.com/atomist/docs (Atomist Documentation Repository)
 [goal]: goal.md (Goals)
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
 [sdm]: sdm.md (Atomist Software Delivery Machine)
