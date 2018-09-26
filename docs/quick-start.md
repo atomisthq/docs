@@ -30,7 +30,7 @@ laptop, working with local commits.  You'll need [Git][git],
 
     The above command will install the project dependencies using NPM,
     compile the TypeScript, and start your SDM.  Depending on your
-    network connect, this may take a minute or more.
+    network connection, this may take a minute or more.
 
 5.  In another terminal, start up the SDM feed so you can see what the
     SDM is doing.
