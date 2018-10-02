@@ -101,28 +101,28 @@ If you want to start from higher-level concepts, begin reading [about the SDM][s
 
 This guide should help you make your SDM:
 
--   [Build your repositories][build]
--   [Deploy your code][deploy]
+-   [Build your repositories][build], more flexibly than a pipeline
+-   [Deploy your code][deploy], with interactivity
 -   [Inspect your code][inspect], across projects and automatically on push
--   Transform your code, across projects and automatically on push
--   Respond to builds, from the SDM or external build systems
+-   [Transform your code][autofix], across projects and automatically on push
+-   [Respond to builds][build-event], from the SDM or external build systems
 -   Implement custom commands
 -   Create new projects according to your own standards
 
 To do all this, these higher-level concepts are relevant:
-
--   
 
 -   [Setting up your system][prereq] to develop and run
     automations like SDMs
 -   [Software Delivery Machine][sdm]
 -   [Commands][command]
 -   [Goals][goal]
+-   the [Project][project] interface
 
-## In-depth topics
+## Advanced topics
 
 -   Crafting sophisticated [Slack messages][slack]
--   Using [GraphQL with the automation API][graphql-api]
+-   Using [GraphQL to subscribe to events][graphql-api]
+-   [Deploying your SDM][sdm-deploy]
 
 Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
@@ -131,6 +131,7 @@ processes.
 [build]: build.md (Builds in the SDM)
 [deploy]: deploy.md (Deploys in the SDM)
 [inspect]: inspect.md (Code Inspections)
+[autofix]: autofix.md (Transforms and Autofix)
 [docs]: https://github.com/atomist/docs (Atomist Documentation Repository)
 [goal]: goal.md (Goals)
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
@@ -139,3 +140,4 @@ processes.
 [event]: events.md (Atomist Event Automations)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
+[project]: project.md

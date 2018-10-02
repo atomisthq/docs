@@ -73,7 +73,7 @@ pages:
       - Running an SDM:
         - About the SDM: developer/sdm.md
         - Prerequisites: developer/prerequisites.md
-        - Team Mode: user/index.md
+        - Team Mode: developer/sdm-deploy.md
         - Local Mode: developer/local.md
         - Commands: developer/commands.md
         - Events: developer/events.md
@@ -85,10 +85,12 @@ pages:
       - Code Transforms:
           - Transforms: developer/transform.md
           - Autofixes: developer/autofix.md
+          - Project: developer/project.md
       - Code Inspections: developer/inspect.md
       - Builds:
          - Build Goal: developer/build.md
          - Integrations: user/ci.md
+         - Reacting to Builds: developer/build-event.md
       - Deploys: developer/deploy.md
       - Extensions:
          - Extension Packs: pack/index.md

@@ -65,6 +65,7 @@ Now that you have an Atomist workspace, you can
 -   Connect Atomist with your [continuous integration][atomist-ci]
     solution
 -   Connect Atomist with your [Kubernetes clusters][atomist-kube]
+-   Configure the [built-in chat integration][configure-lifecycle]
 
 You can also customize Atomist, molding it to _your_ team's delivery
 model.  Make Atomist respond to your own events and commands by
@@ -76,3 +77,4 @@ Delivery machine!
 [atomist-ci]: ci.md (Atomist and Continuous Integration)
 [atomist-kube]: kubernetes.md (Atomist and Kubernetes)
 [dev]: ../developer/sdm.md (Atomist Developer Guide)
+[configure-lifecycle]: ../lifecycle.md (Atomist Lifecycle Messages)
