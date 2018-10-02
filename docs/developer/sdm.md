@@ -221,11 +221,7 @@ The `lib` directory contains the TypeScript source code.
 
 The `lib/atomist.config.ts` file contains project-specific
 configuration. This is the starting point when you want to look at
-what this SDM might do.  See [SDM Configuration][sdm-config] for more
-details.
-
-[sdm-config]: #sdm-configuration (Atomist SDM Configuration)
-
+what this SDM might do. 
 
 ### lib/graphql
 

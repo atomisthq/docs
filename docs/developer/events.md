@@ -234,26 +234,13 @@ not necessarily the happy path.
 
 ### Respond to new commits
 
-When commits are pushed to GitHub, a Push event is triggered.
-
-For instance, Atomist can run a linter with autofix, and commit the result back to the branch! We run
-[this handler](https://github.com/atomist/automation-client-samples-ts-docker/blob/master/src/handlers/PushToTsLinting.ts)
-in our teams.
-
-This
-[simple handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/events/NotifyOnPush.ts)
-sends a message in Slack about a push.
+Use a CodeReaction to respond to new commits in an SDM.
 
 ### Comment on an issue
 
-[This handler](https://github.com/atomist/automation-client-samples-ts/blob/master/src/events/CommentOnIssue.ts)
-also watches for new or updated GitHub issues. It makes a comment on issues created by you, the runner of the automation
-client.
 
 ### React to a failed build
 
-One of Atomist's built-in automations sends a DM to the person whose commit
-[failed a build.](https://github.com/atomist/lifecycle-automation/blob/master/src/handlers/event/build/NotifyPusherOnBuild.ts)
 
 ## Troubleshooting
 

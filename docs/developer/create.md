@@ -31,7 +31,7 @@ Other links that might be useful: [this code](https://github.com/atomist/initial
 makes a custom form somehow, in our spring initializr automation.
 (I don't know exactly how)
 
-Change code could link to [project editors](https://github.com/atomist/automation-client-ts/blob/master/docs/ProjectEditors.md)
+Change code could link to [project editors](https://github.com/atomist/automation-client/blob/master/docs/ProjectEditors.md)
 
 -->
 

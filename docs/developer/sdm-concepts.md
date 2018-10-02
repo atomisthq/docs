@@ -259,7 +259,7 @@ sdm.addNewRepoWithCodeActions(
 
 ##### ReviewerRegistration
 
-`ProjectReviewer` is a type defined in `automation-client-ts`. It
+`ProjectReviewer` is a type defined in `automation-client`. It
 allows a structured review to be returned. The review comments can
 localize the file path, line and column if such information is
 available, and also optionally include a link to a "fix" command to
@@ -575,7 +575,7 @@ sdm.addEditors(
 More elaborate editors use helper APIs on top of the `Project` API
 such as Atomist's
 [microgrammar](https://github.com/atomist/microgrammar) API and
-[ANTLR](https://github.com/atomist/antlr-ts) integration.
+[ANTLR](https://github.com/atomist/antlr) integration.
 
 There's also an important capability called "dry run editing":
 Performing an edit on a branch, and then either raising either a PR or
