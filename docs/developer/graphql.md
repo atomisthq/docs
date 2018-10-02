@@ -27,8 +27,8 @@ the data model documentation.
 
 You can execute queries from command and event handlers when running
 an Atomist API client using the `GraphClient.query()` function.  A
-`GraphClient` is available from the `HandlerContext` object passed to
-all command and event handlers via its `graphClient` property.
+`GraphClient` is available from the `HandlerContext` included in listener invocations
+ via its `graphClient` property.
 
 The `query()` function takes a single argument: a `QueryOptions`
 object.  The actual GraphQL query can be supplied as a string via the
@@ -72,17 +72,12 @@ Once the query is defined, you can use it with the `GraphClient` to execute
 a query.
 
 ```typescript
-public handle(ctx: HandlerContext): Promise<HandlerResult> {
 
-    ctx.graphClient.query({
+    const result = await invocation.context.graphClient.query({
         name: "PushesWithFailedBuilds",
         variables: { name: "demo-service" },
     })
-        .then(result => {
-            // Do something with the query result
-        }, failure);
 
-    // ....
 }
 ```
 
@@ -91,13 +86,17 @@ of its first parameter.  The name provided matches that in the GraphQL
 file. The `variables` property in the above example is used to provide
 the value for the query variable.
 
+# Custom Event Handlers
+
+TODO: document
+
 ## Subscriptions
 
 As detailed in the section on event handlers, GraphQL subscriptions can be used
 to _subscribe_ to events as they get ingested into the Atomist platform.
 
 Subscriptions can't be executed with the `GraphClient`; instead they can only
-be used from the `@EventHandler` decorator.
+be used from an event handler. Many of these are included in the SDM.
 
 There are two ways to declare subscriptions on event handlers: either
 by embedded strings or by referencing external files, which is more reusable.
@@ -129,22 +128,11 @@ event, navigating the data model's properties and relationships to
 connect related data elements like pushes, repositories, and CI
 builds.
 
-To use the above GraphQL subscription in an event handler, save the
-subscription to a file named
-`graphql/subscription/pushesWithFailedBuilds.graphql`, relative to the
-directory of the event handler TypeScript file.
-
-```typescript
-import * as GraphQL from "@atomist/automation-client/graph/graphQL";
-
-@EventHandler("Notify on broken builds",
-    GraphQL.subscription({ path: "pushesWithFailedBuilds" }))
-export class FailedBuildHandler implements HandleEvent<any> { ... }
 ```
 !!! note
     When specifying the filename, the `.graphql` extension is optional.
 
-## Mutations
+# Mutations
 
 Most of the data in the Atomist platform is ingested via Webhooks and
 is read-only.  There are however a small number of very useful GraphQL
@@ -177,11 +165,10 @@ mutation CreateSlackChannel($name: String!) {
 This invokes the mutation from the GraphQL file:
 
 ```typescript
-ctx.graphClient.mutate({
+await invocation.context.graphClient.mutate({
     name: "CreateSlackChannel",
     variables: { name: "random" },
 })
-    .then(...)
 ```
 
 ## Strongly-typed GraphQL queries
@@ -198,39 +185,16 @@ Now you can change the earlier query to use those types:
 ```typescript
 import * as graphql from "./typings/types";
 
-public handle(ctx: HandlerContext): Promise<HandlerResult> {
+//...
 
-    ctx.graphClient.query<
+    const result = await invocation.context.graphClient.query<
         graphql.PushesWithFailedBuilds.Query,
         graphql.PushesWithFailedBuilds.Variables>({
             name: "PushesWithFailedBuilds",
             variables: { name: "demo-service" },
-    })
-        .then(result => {
-            // Do something with the query result
-        }, failure);
+    });
 
     // ....
 }
 ```
 
-The event handler example from earlier can also now use types:
-
-```typescript
-import * as GraphQL from "@atomist/automation-client/graph/graphQL";
-import * as graphql from "./typings/types";
-
-@EventHandler("Notify on broken builds",
-    GraphQL.subscription({ path: "pushesWithFailedBuilds" }))
-export class FailedBuildHandler
-    implements HandleEvent<graphql.PushesWithFailedBuilds.Subscription> {
-
-    public handle(event: EventFired<graphql.PushesWithFailedBuilds.Subscription>) {
-
-        // Now accessing properties is strongly typed
-        const builds = event.data.Push[0].builds;
-
-        // ...
-    }
-}
-```

@@ -171,7 +171,7 @@ The button specification is defined by Slack in the [field guide](https://api.sl
 Here is an example of a button with a confirmation pop-up:
 
 ```typescript
-import { ButtonSpecification } from "@atomist/automation-client/spi/message/MessageClient";
+import { ButtonSpecification } from "@atomist/sdm";
 
 const buttonSpec: ButtonSpecification = {
     text: "Search Again",
@@ -199,7 +199,7 @@ button by calling the `buttonForCommand` function, passing the
 `ButtonSpecification` and the command handler instance:
 
 ```typescript
-import { buttonForCommand } from "@atomist/automation-client/spi/message/MessageClient";
+import { buttonForCommand } from "@atomist/sdm";
 
 const message: slack.SlackMessage = {
     attachments: [{
@@ -230,7 +230,7 @@ and option groups.
 See the following example:
 
 ```typescript
-import { MenuSpecification } from "@atomist/automation-client/spi/message/MessageClient";
+import { MenuSpecification } from "@atomist/sdm";
 
 const menuSpec: MenuSpecification = {
     text: "Issue Labels",

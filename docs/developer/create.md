@@ -25,15 +25,5 @@ add a custom form to serve project creation to your team or organization.
 A generator is one kind of [command handler][command], so you can
 make it do as much as you want.
 
-<!--
-
-Other links that might be useful: [this code](https://github.com/atomist/initializr-atomist/blob/master/src/web/initializerHandoff.ts)
-makes a custom form somehow, in our spring initializr automation.
-(I don't know exactly how)
-
-Change code could link to [project editors](https://github.com/atomist/automation-client/blob/master/docs/ProjectEditors.md)
-
--->
-
 [sdm-project]: sdm.md (Atomist SDM Project)
 [command]: commands.md (Atomist SDM Commands)

@@ -126,7 +126,6 @@ repository contents, using the `InMemoryProject` and `InMemoryFile`
 classes.
 
 [project]: https://atomist.github.io/automation-client/interfaces/_lib_project_project_.project.html (Atomist Automation Client TypeScript - Project)
-[client]: https://github.com/atomist/automation-client (Atomist Automation Client TypeScript)
 
 !!! Note
     The Project API and sophisticated parsing functionality available on
