@@ -106,8 +106,8 @@ This guide should help you make your SDM:
 -   [Inspect your code][inspect], across projects and automatically on push
 -   [Transform your code][autofix], across projects and automatically on push
 -   [Respond to builds][build-event], from the SDM or external build systems
--   Implement custom commands
--   Create new projects according to your own standards
+-   Implement [custom commands][command]
+-   [Create new projects][create] according to your own standards
 
 To do all this, these higher-level concepts are relevant:
 
@@ -141,3 +141,4 @@ processes.
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [project]: project.md
+[create]: create.md
