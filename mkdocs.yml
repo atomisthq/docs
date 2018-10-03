@@ -69,29 +69,30 @@ pages:
       - Kubernetes: user/kubernetes.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
-      - About Atomist: developer/index.md
+      - About this guide: developer/index.md
+      - Architecture: developer/architecture.md
       - Running an SDM:
         - About the SDM: developer/sdm.md
         - Prerequisites: developer/prerequisites.md
         - Team Mode: developer/sdm-deploy.md
         - Local Mode: developer/local.md
-        - Commands: developer/commands.md
-        - Events: developer/events.md
-      - Project Generators: developer/create.md
+        - Deploying your SDM: developer/sdm-deploy.md
       - Goals:
           - About Goals: developer/goal.md
           - Setting Goals: developer/set-goals.md
           - Registrations: developer/registration.md
-      - Code Transforms:
+      - Builds:
+        - Build Goal: developer/build.md
+        - Integrations: user/ci.md
+        - Reacting to Builds: developer/build-event.md
+      - Deploys: developer/deploy.md
+      - Code Inspections: developer/inspect.md
+      - Code Transform:
           - Transforms: developer/transform.md
           - Autofixes: developer/autofix.md
           - Project: developer/project.md
-      - Code Inspections: developer/inspect.md
-      - Builds:
-         - Build Goal: developer/build.md
-         - Integrations: user/ci.md
-         - Reacting to Builds: developer/build-event.md
-      - Deploys: developer/deploy.md
+      - Commands: developer/commands.md
+      - Project Generators: developer/create.md
       - Extensions:
          - Extension Packs: pack/index.md
          - Spring: pack/spring.md
@@ -108,7 +109,8 @@ pages:
       - Advanced:
          - SDM Concepts: developer/sdm-concepts.md
          - SDM Configuration: developer/config.md
+         - Events: developer/events.md
          - Custom GraphQL Queries: developer/graphql.md
          - Chat Messages: developer/slack.md
-         - Deploying your SDM: developer/sdm-deploy.md
+         
   - Support: support.md

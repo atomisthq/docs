@@ -1,25 +1,9 @@
 The software delivery machine is a service that runs automations in response to events
-like pushes and builds. It is most useful when running for your whole team, connected 
-to the Atomist API for software, Slack, and your version control. Run it on your laptop 
-while you're testing and modifying the SDM, then in your favorite production environment (on-prem or in the cloud)
-for ongoing use.
+like pushes and builds. See [architecture][] for a high-level view.
 
-![Atomist SDM in Team mode](img/sdm-team.png)
+[architecture]: architecture.md (Atomist SDM Architecture)
 
-If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc, 
-you're in luck! Run your SDM in local mode, on your own machine. Receive push events from your own local commits,
- get messages in a terminal feed, and run trigger commands on the command line.
-
-![Atomist SDM in Local mode](img/sdm-local.png)
-
-An SDM can also run locally, on your laptop. From there, either connect to the Atomist API for software (team mode), 
-or run in local mode: respond to git commits, see messages in a terminal running `atomist feed`, and send
-commands to Atomist from the command line.
-
-The SDM is a persistent process that runs in the background, whether in local or team mode.
-
-This
-section documents creating, building, and running an SDM,
+This section documents creating, building, and running an SDM,
 discusses each part of the SDM lifecycle, and details the
 structure and organization of a typical SDM project.
 
