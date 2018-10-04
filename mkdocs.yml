@@ -85,7 +85,7 @@ pages:
         - Reacting to Builds: developer/build-event.md
       - Deploys: developer/deploy.md
       - Code Inspections: developer/inspect.md
-      - Code Transform:
+      - Code Transforms:
           - Transforms: developer/transform.md
           - Autofixes: developer/autofix.md
           - Project: developer/project.md

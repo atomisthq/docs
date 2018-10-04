@@ -53,3 +53,4 @@ processes.
 [architecture]: architecture.md (Atomist SDM Architecture)
 [quick-start]: ../quick-start.md (Atomist Developer Quick Start)
 [cli]: cli.md (Atomist Command Line Interface)
+[sdm-deploy]: sdm-deploy.md (Deploying the SDM)
