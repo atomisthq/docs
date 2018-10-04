@@ -19,16 +19,16 @@ from [a Spring SDM](https://github.com/atomist-seeds/spring-sdm/blob/master/lib/
 You can instantiate create goals and add implementations to them. Here, an Autofix goal has one autofix registered on it; it will add license headers to any 
 code file that doesn't have one yet, and make a commit.
 
-```
-    const AutofixGoal = new Autofix().with(AddLicenseFile);
+```typescript
+    const autofix = new Autofix().with(AddLicenseFile);
 ```
 
 You can group goals into sets. Here, two goals are grouped: code inspection (but no code inspections are registered) and the Autofix goal.
 
-```
+```typescript
     const BaseGoals = goals("checks")
         .plan(new AutoCodeInspection())
-        .plan(AutofixGoal);
+        .plan(autofix);
 ```
 
 You can specify ordering, if some goals should wait for others to succeed. Here, we don't want to start the build until after Autofixes have completed.
@@ -36,8 +36,8 @@ If the autofixes do anything, they'll make a new commit, and we don't bother bui
 
 ```
     const BuildGoals = goals("build")
-        .plan(new Build().with({ name: "Maven", builder: new MavenBuilder(sdm) }))
-        .after(AutofixGoal);
+        .plan(new Build().with({ builder: mavenBuilder() }))
+        .after(autofix);
 ```
 
 Finally, you can tell the SDM which goal sets to run on . Here, we set the BaseGoals (inspection and autofix) on every push. Then if 
@@ -65,21 +65,21 @@ Run an inspection on the code; if the code doesn't pass, you can fail the goals 
 Instantiate an empty one:
 
 ```typescript
-export const CodeInspectionGoal = new AutoCodeInspection();
+export const codeInspection = new AutoCodeInspection();
 ```
 
 And set it when you want it to run on a push. Here's the shortest way to run this goal on every push:
 
 ```typescript
     sdm.addGoalContributions(goalContributors(
-        onAnyPush().setGoals(goals("Inspections").plan(CodeInspectionGoal))))
+        onAnyPush().setGoals(goals("Inspections").plan(codeInspection))))
 ```
 
 Now the fun part: register inspections on it. Check the [Inspections][inspection] page for more on how to write inspections.
 Once you have an [AutoInspectRegistration][AutoInspectRegistration], register it on your goal:
 
 ```typescript
-CodeInspectionGoal.with(MyAutoInspectRegistration)
+codeInspection.with(MyAutoInspectRegistration)
     .with(AnotherInspectRegistration);
 ```
 

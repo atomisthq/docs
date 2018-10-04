@@ -139,9 +139,9 @@ export const AutoInspectFileLengths: AutoInspectRegistration<FilesWithTooManyLin
 Finally, register this on your AutoCodeInspection goal:
 
 ```typescript
-    const CodeInspectionGoal = new AutoCodeInspection();
+    const codeInspection = new AutoCodeInspection();
 
-    CodeInspectionGoal.with(AutoInspectFileLengths);
+    codeInspection.with(AutoInspectFileLengths);
 ```
 
 Activate your AutoCodeInspection by setting the goal when a push happens. See [AutoInspect goal][autoinspect-goal] for details. 
