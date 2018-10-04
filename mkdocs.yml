@@ -30,6 +30,8 @@ extra_javascript:
   - js/intercom.js
   - js/mixpanel.js
 markdown_extensions:
+  - markdown_include.include:
+      base_path: "docs/common"
   - admonition
   - codehilite:
       guess_lang: false

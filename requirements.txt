@@ -1,4 +1,5 @@
 Markdown==2.6.10
+markdown-include==0.5.1
 mkdocs==0.17.1
 mkdocs-material==2.0.4
 Pygments==2.2.0
