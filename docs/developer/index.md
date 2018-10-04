@@ -24,8 +24,8 @@ This guide should help you make your SDM:
 
 To do all this, these higher-level concepts are relevant:
 
--   [Setting up your system][prereq] to develop and run
-    automations like SDMs
+-   [Setting up your system][prereq] to develop and run SDMs
+-   the `atomist` [command line tool][cli]
 -   [Software Delivery Machine][sdm] organization
 -   [Commands][command]
 -   [Goals][goal]
@@ -57,3 +57,4 @@ processes.
 [create]: create.md
 [architecture]: architecture.md (Atomist SDM Architecture)
 [quick-start]: ../quick-start.md (Atomist Developer Quick Start)
+[cli]: cli.md (Atomist Command Line Interface)

@@ -112,5 +112,6 @@ pages:
          - Events: developer/events.md
          - Custom GraphQL Queries: developer/graphql.md
          - Chat Messages: developer/slack.md
+         - Command Line Interface: developer/cli.md
          
   - Support: support.md
