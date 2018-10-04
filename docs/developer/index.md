@@ -1,7 +1,7 @@
 With this guide, we aim to provide all the information you need to create and customize
 a software delivery machine for your organization's needs. When the information here
 is not clear or not sufficient, we appreciate your perspective. Ask us questions through the chat icon
-in the lower-right of this page, or on the [Atomist community Slack][slack]. You can also contribute
+in the lower-right of this page, or on the [Atomist community Slack][join]. You can also contribute
 to this guide by creating issues or pull requests on [the docs repository][docs].
 
 If you want to learn by doing, run through the [Developer Quick Start][quick-start] first.
@@ -54,3 +54,4 @@ processes.
 [quick-start]: ../quick-start.md (Atomist Developer Quick Start)
 [cli]: cli.md (Atomist Command Line Interface)
 [sdm-deploy]: sdm-deploy.md (Deploying the SDM)
+[join]: https://join.atomist.com (Atomist Community Slack)

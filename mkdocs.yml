@@ -113,5 +113,6 @@ pages:
          - Custom GraphQL Queries: developer/graphql.md
          - Chat Messages: developer/slack.md
          - Command Line Interface: developer/cli.md
+         - Delete This: developer/sample.md
          
   - Support: support.md
