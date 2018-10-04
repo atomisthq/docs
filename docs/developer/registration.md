@@ -1,4 +1,4 @@
-# Registrations on Goals
+## Registrations on Goals
 
 Many of the provided goals accept registrations as specific instructions of what to do.
 
@@ -6,7 +6,7 @@ A registration includes a
 name (for diagnostics), and some specific action (a transform, an inspection, or a listener, depending on the built-in goal). Many registrations also include an optional `PushTest`, narrowing on particular
 pushes.
 
-# Listeners
+## Listeners
 
 Some actions can be triggered by something other than goals. These listeners can be registered
 directly on the SDM. Each listener is an asynchronous function from an invocation to a Promise of some type (usually `any`).
@@ -44,7 +44,7 @@ The following listener interfaces are available:
 -   `UpdatedIssueListener`: Invoked when an issue has been updated
 -   `UserJoiningChannelListener`: Invoked when a user joins a channel
 
-# Invocations
+## Invocations
 
 These objects, passed to listener functions, contain properties useful for learning about
 the project and for sending messages.

@@ -1,5 +1,3 @@
-# Architecture
-
 It all starts with a software delivery machine of your very own.  An
 Atomist Software Delivery Machine (SDM) provides a high-level
 interface for you to take action when things happen.  In much the same

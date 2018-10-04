@@ -1,8 +1,3 @@
-
----
-
-# About this guide
-
 With this guide, we aim to provide all the information you need to create and customize
 a software delivery machine for your organization's needs. When the information here
 is not clear or not sufficient, we appreciate your perspective. Ask us questions through the chat icon

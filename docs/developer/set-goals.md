@@ -1,5 +1,3 @@
-# Setting Goals
-
 The most important higher level SDM functionality relates to what
 happens on a push to a repository. An SDM allows you to process a push
 in any way you choose, but typically you want it to initiate a

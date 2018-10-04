@@ -1,6 +1,3 @@
-
-# SDM configuration
-
 Configure your SDM with connection parameters for the Atomist API for software,
 and for anything else that your particular delivery automations need.
 

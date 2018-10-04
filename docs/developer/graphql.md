@@ -86,7 +86,7 @@ of its first parameter.  The name provided matches that in the GraphQL
 file. The `variables` property in the above example is used to provide
 the value for the query variable.
 
-# Custom Event Handlers
+## Custom Event Handlers
 
 TODO: document
 
@@ -132,7 +132,7 @@ builds.
 !!! note
     When specifying the filename, the `.graphql` extension is optional.
 
-# Mutations
+## Mutations
 
 Most of the data in the Atomist platform is ingested via Webhooks and
 is read-only.  There are however a small number of very useful GraphQL

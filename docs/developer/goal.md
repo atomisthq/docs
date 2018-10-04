@@ -3,8 +3,6 @@ happens on a push to a repository. An SDM allows you to process a push
 in any way you choose, but typically you want it to initiate a
 delivery flow.
 
-# Goals
-
 An SDM allows you to set **goals** on push. Goals correspond to the
 actions that make up a delivery flow, such as build and
 deployment. Goals are not necessarily sequential--some may be executed
