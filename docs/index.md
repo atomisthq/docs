@@ -53,7 +53,7 @@ shows an SDM in action:
 
 Atomist is all about making you more productive by helping you to go
 from idea to production as quickly as possible.  The following
-concepts describe the pieces Atomist provides lets you
+concepts describe the pieces Atomist provides so that you can
 use your software development skills to improve how you manage your
 software delivery, from project creation to build to test to
 deployment to runtime.

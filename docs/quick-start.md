@@ -18,7 +18,7 @@ You'll need [Git][git],
         npm install -g @atomist/cli
 
 2.  Create a local software delivery machine (SDM). This is going to create a new project
-in the Atomist projects directory (which defaults to `$HOME/atomist/`). Projects are grouped by user.
+ in the Atomist projects directory (which defaults to `$HOME/atomist/`). Projects are grouped by user.
 
         atomist create sdm
 
