@@ -1,10 +1,15 @@
 The easiest way to get started with Atomist is to start on your
-laptop, working with local commits.  You'll need [Git][git],
-[Node.js][node], and the [Java JDK][jdk] installed. (Java because the sample SDM creates and builds Java services.)
+laptop in [local mode][local], working with local commits. Get your own software delivery machine,
+ and then customize it. This Quick Start begins with an SDM for
+ delivering and maintaining Java Spring Boot web services.
+
+You'll need [Git][git],
+[Node.js][node], and the [Java JDK][jdk] installed.
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [node]: https://nodejs.org/ (Node.js)
 [jdk]: http://jdk.java.net/ (Java JDK)
+[local]: developer/local.md (SDM Local Mode)
 
 ## Quick start
 
@@ -12,13 +17,14 @@ laptop, working with local commits.  You'll need [Git][git],
 
         npm install -g @atomist/cli
 
-2.  Create a local software delivery machine (SDM).
+2.  Create a local software delivery machine (SDM). This is going to create a new project
+in the Atomist projects directory (which defaults to `$HOME/atomist/`). Projects are grouped by user.
 
         atomist create sdm
 
     Select the default machine, `spring`.  When prompted for the name
     of the target repository, enter `quick-sdm`.  When prompted for a
-    target owner, enter your user name.
+    target owner, enter your user name (on GitHub or anywhere).
 
 3.  Change into the newly created SDM project.
 
@@ -32,10 +38,19 @@ laptop, working with local commits.  You'll need [Git][git],
     compile the TypeScript, and start your SDM.  Depending on your
     network connection, this may take a minute or more.
 
-5.  In another terminal, start up the SDM feed so you can see what the
+    Leave this terminal window open. Logs will print to this screen.
+
+
+6.  In another terminal, check what your SDM can do. This will print a list of commands supported by your running quick-sdm.
+
+        atomist show skills
+
+5.  Start up the SDM feed so you can see what the
     SDM is doing.
 
         atomist feed
+
+    Leave this terminal window open. Messages will print here.
 
 6.  In another terminal, create a [Spring Boot][spring-boot] project.
 
@@ -86,12 +101,11 @@ laptop, working with local commits.  You'll need [Git][git],
 
 ## Next steps
 
-Learn more about what you can do with an SDM by going through the
-[Developer Guide][developer-guide] or [developer tutorials][tutorials].
+Learn more about what you can do with an SDM in the
+[Developer Guide][developer-guide].
 
 When you're ready to put your SDM to work for your whole team,
 continue with [setup][].
 
 [developer-guide]: developer/index.md (Atomist Developer Guide)
 [setup]: user/index.md (Atomist Setup)
-[tutorials]: https://github.com/atomist/developer-tutorials#readme (Atomist Developer Tutorials)

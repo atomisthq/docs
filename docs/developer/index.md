@@ -26,7 +26,7 @@ To do all this, these higher-level concepts are relevant:
 
 -   [Setting up your system][prereq] to develop and run
     automations like SDMs
--   [Software Delivery Machine][sdm]
+-   [Software Delivery Machine][sdm] organization
 -   [Commands][command]
 -   [Goals][goal]
 -   the [Project][project] interface
@@ -56,3 +56,4 @@ processes.
 [project]: project.md
 [create]: create.md
 [architecture]: architecture.md (Atomist SDM Architecture)
+[quick-start]: ../quick-start.md (Atomist Developer Quick Start)
