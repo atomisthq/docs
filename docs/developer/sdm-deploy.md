@@ -39,6 +39,21 @@ To receive only your personal commits and commands that you initiate in your ter
 npm run compile && npm start --local
 ```
 
+## Production 
+
+When running in a production environment, you typically want to avoid
+NPM and run Node.js directly to ensure signals get delivered properly
+and you can provide guidance to Node.js's memory management subsystem.
+Here's an example startup command for production environments:
+
+```
+node $NODE_DEBUG_OPTION --trace-warnings --expose_gc --optimize_for_size \
+    --always_compact --max_old_space_size=384 node_modules/.bin/atomist start
+```
+
+See `node --help` and `node --v8-options` for more detail on these
+options.
+
 ## Cloud Foundry
 
 To push your SDM to an instance of Pivotal Cloud

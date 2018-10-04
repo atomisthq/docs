@@ -74,7 +74,7 @@ pages:
       - Running an SDM:
         - About the SDM: developer/sdm.md
         - Prerequisites: developer/prerequisites.md
-        - Team Mode: developer/sdm-deploy.md
+        - Team Mode: developer/team.md
         - Local Mode: developer/local.md
         - Deploying your SDM: developer/sdm-deploy.md
       - Goals:

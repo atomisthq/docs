@@ -2,36 +2,31 @@ The software delivery machine is a service that runs automations in response to 
 like pushes and builds. See [architecture][] for a high-level view.
 
 [architecture]: architecture.md (Atomist SDM Architecture)
+[local]: local.md (Atomist SDM Local Mode)
+[team]: team.md (Atomist SDM Team Mode)
 
 This section documents creating, building, and running an SDM,
 discusses each part of the SDM lifecycle, and details the
 structure and organization of a typical SDM project.
 
-Before you can build and run your own SDM,
-be sure someone in your Slack workspace has completed
-the [setup][prereq-setup] and you have satisfied
-the [prerequisites][prereq-prereq].  Specifically, be sure you have
+To get started in [local mode][local], make sure you have:
 
--   [Added the Atomist bot the your Slack workspace][prereq-add-slack]
--   [Authorized Atomist to access GitHub][prereq-auth-github]
+-   [Git][]
 -   [Installed Node.js][prereq-install-node]
 -   [Installed the Atomist CLI][prereq-install-cli]
--   [Run `atomist config`][prereq-atomist-config]
 
-[prereq-setup]: ../user/index.md (Atomist Setup)
+Before you run in [team mode][team], check the [prerequisites][prereq-prereq] page.
+
+[git]: https://git-scm.com/downloads  (Install Git)
 [prereq-prereq]: ../developer/prerequisites.md (Atomist Automation Prerequisites)
-[prereq-add-slack]: ../user/slack.md (Add Atomist to Slack)
-[prereq-auth-github]: ../user/github.md (Authorize Atomist in GitHub)
 [prereq-install-node]: ../developer/prerequisites.md#nodejs (Install Node.js)
 [prereq-install-cli]: ../developer/prerequisites.md#atomist-cli (Install the Atomist CLI)
-[prereq-atomist-config]: ../developer/prerequisites.md#configure (Configure Atomist)
-
 
 ## Creating an SDM project
 
 There are a few ways to create a new SDM project.  We
 suggest using the [blank-sdm][seed] project as a seed for
-your project. You can do this locally with the Atomist CLI:
+your project. You can do this [locally][local] with the Atomist CLI:
 
 ```
 atomist create sdm
@@ -47,7 +42,7 @@ an SDM that does useful things for Java Spring services.
 
 ### Slack
 
-If you use the Atomist service and Slack integration,
+If [your team][team] uses the Atomist service and Slack integration,
 you can create your very own SDM project using the
 Atomist bot. This will make a repository in your version control (GitHub, BitBucket, or GitLab).
  You can run this bot command with the following message to the
@@ -64,7 +59,7 @@ it.
 ### GitHub
 
 If you prefer the manual route, fixing up the project metadata
-yourself, you can always just fork the [blank-sdm][seed]
+yourself, you can always fork the [blank-sdm][seed]
 project on GitHub.
 
 ## Building an SDM
@@ -88,6 +83,8 @@ npm run build
 
 [node]: https://nodejs.org/en/ (Node.js)
 
+## Looking at the code
+
 ## Starting an SDM
 
 There are a few different ways to start the SDM,
@@ -101,25 +98,16 @@ npm start
 
 If you are writing your own SDMs, you probably want a more
 responsive testing environment, having the client restart any time you
-make changes to the source code.  This fairly standard development
+make changes to the source code.  This development
 flow is available with the `autostart` command.
 
 ```
 npm run autostart
 ```
 
-When running in a production environment, you typically want to avoid
-NPM and run Node.js directly to ensure signals get delivered properly
-and you can provide guidance to Node.js's memory management subsystem.
-Here's an example startup command for production environments:
+When you deploy your SDM to production, check the recommendations under [Deploying your SDM][prod].
 
-```
-node $NODE_DEBUG_OPTION --trace-warnings --expose_gc --optimize_for_size \
-    --always_compact --max_old_space_size=384 node_modules/.bin/atomist start
-```
-
-See `node --help` and `node --v8-options` for more detail on these
-options.
+[prod]: sdm-deploy.md#production (SDM Production Deployment Considerations)
 
 ## SDM process lifecycle
 
