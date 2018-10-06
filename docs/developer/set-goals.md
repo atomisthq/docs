@@ -30,5 +30,9 @@ export const IsMaven: PredicatePushTest = predicatePushTest(
 
 ## Goal Sets
 
+{!tbd.md!}
+
 ## Preconditions
+
+{!tbd.md!}
 

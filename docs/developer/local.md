@@ -13,6 +13,8 @@ Everything is open source. This SDM can:
 
 ## Directory structure
 
+{!tbd.md!}
+
 
 ## Differences from team mode
 

@@ -7,11 +7,19 @@ the messages have buttons that make them useful.
 
 ### Push 
 
+{!tbd.md!}
+
 ### Pull Request
+
+{!tbd.md!}
 
 ### Issue
 
+{!tbd.md!}
+
 ### Issue Comment
+
+{!tbd.md!}
 
 ### Build
 
@@ -19,3 +27,5 @@ Build status is included on the push notification.
 If a build fails, the person who made the commit gets a private message with a link to the log.
 
 ## Configuring messages
+
+{!tbd.md!}

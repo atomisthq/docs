@@ -92,11 +92,21 @@ If no inspections are registered, the goal will succeed. If any registration's `
 
 ### Autofix
 
+{!tbd.md!}
+
 ### PushImpact
+
+{!tbd.md!}
 
 ### Build
 
+{!tbd.md!}
+
 ### Fingerprint
 
+{!tbd.md!}
+
 ## Custom Goals
+
+{!tbd.md!}
 

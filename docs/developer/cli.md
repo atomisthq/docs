@@ -19,8 +19,14 @@ To find out what you can show, use `atomist show --help`.
 
 ## atomist start
 
+{!tbd.md!}
+
 ## atomist feed
+
+{!tbd.md!}
 
 ## 
 
 [local]: local.md (Atomist SDM Local Mode)
+
+{!tbd.md!}
