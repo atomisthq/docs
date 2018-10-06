@@ -77,6 +77,7 @@ pages:
         - Team Mode: developer/team.md
         - Local Mode: developer/local.md
         - Deploying your SDM: developer/sdm-deploy.md
+        - Debugging an SDM: developer/sdm-debug.md
       - Goals:
           - About Goals: developer/goal.md
           - Setting Goals: developer/set-goals.md
