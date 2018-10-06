@@ -19,12 +19,12 @@ function site-build() {
         err "mkdocs build failed"
         return 1
     fi
-
+    
     local i
     for (( i=0; i < 4; i++ )); do
         # the logo img is added by material theme, so ignore it not having alt
         if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
-                  --url-ignore https://api.github.com --url-ignore https://jenkins.io
+        --url-ignore "/api.github.com/,/jenkins.io/"
         then
             return 0
         else
@@ -37,19 +37,19 @@ function site-build() {
 # usage: main "$@"
 function main () {
     msg "branch: $TRAVIS_BRANCH"
-
+    
     site-build || return 1
-
+    
     [[ $TRAVIS_PULL_REQUEST == false ]] || return 0
-
+    
     [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(m|rc)\.[0-9]+)?$ ]] || return 0
-
+    
     local bucket=docs.atomist.com
     if ! s3cmd sync --delete-removed site/ "s3://$bucket/"; then
         err "failed to sync site to s3 bucket '$bucket'"
         return 1
     fi
-
+    
     if ! git config --global user.email "travis-ci@atomist.com"; then
         err "failed to set git user email"
         return 1
