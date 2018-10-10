@@ -71,13 +71,18 @@ tool on every push of every project in your organization?  Want to
 change the Docker registry for all your projects?  Re-platforming from
 WebLogic to Kubernetes?  It's all possible with an SDM.
 
+Your software delivery machine runs on your infrastructure. Keep your code inside your network, and call internal APIs as part of your delivery.
+
 ### Development automation platform
 
 Atomist's development automation platform is powered by a service that
 ingests and correlates events from your software development flow.  At
 the heart of the service is a single coherent model: code, people, and
-processes.  You query that model, Atomist's API for software, using
-[GraphQL][gql] when you write your own SDM or other automation.
+processes.  Your SDM queries that model, Atomist's API for software, using
+[GraphQL][gql].
+
+The Atomist service also provides interactive chat integration. For instance, send messages to the developer who pushed the commit
+when a build failed, including action buttons that tell your SDM what to do.
 
 [gql]: http://graphql.org/ (GraphQL)
 
