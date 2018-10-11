@@ -1,18 +1,26 @@
-# Atomist - How Teams Deliver Software
+# Atomist
+
+## How Teams Deliver Software
+
+#### The need
 
 Custom software is crucial to competitive advantage in business. And advantage in custom software
 comes with a custom development experience, including delivery to a unique combination of production environments,
 in your ideal flow.
 
 Every serious business has its own development and delivery experience. Most of them
-aren't what we want. We want to spend our time and focus on delivering business value, but to do that well, 
+aren't what we want. We want to spend our time and focus solving problems for the business, but to do that well, 
 we need to enact our own blueprint for software delivery.
+
+#### The reality
 
 So far, enterprises piece together pipeline tools, configured by a plethora of YAML or by hand in a GUI. For
 anything interesting, we resort to a Bash script, the lowest common denominator of programming. 
-We enroll myriad chatbots to spam our channels. We write how-to Wiki pages and distribute hand-me-down scripts.
+We enroll myriad chatbots to spam our channels. We write how-to wiki pages and distribute hand-me-down scripts.
 As our practices improve, older projects languish in prior standards. Meanwhile we shake our heads wistfully over 
 the elegant flow of shiny new delivery tools -- they will never fit our real-world environment.
+
+#### The ray of hope
 
 <img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
