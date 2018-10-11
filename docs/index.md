@@ -1,26 +1,14 @@
-# Atomist
-
-## How Teams Deliver Software
-
-#### The need
-
-Custom software is crucial to competitive advantage in business. And advantage in custom software
-comes with a custom development experience, including delivery to a unique combination of production environments,
-in your ideal flow.
+# Atomist - How Teams Deliver Software
 
 Every serious business has its own development and delivery experience. Most of them
 aren't what we want. We want to spend our time and focus solving problems for the business, but to do that well, 
 we need to enact our own blueprint for software delivery.
-
-#### The reality
 
 So far, enterprises piece together pipeline tools, configured by a plethora of YAML or by hand in a GUI. For
 anything interesting, we resort to a Bash script, the lowest common denominator of programming. 
 We enroll myriad chatbots to spam our channels. We write how-to wiki pages and distribute hand-me-down scripts.
 As our practices improve, older projects languish in prior standards. Meanwhile we shake our heads wistfully over 
 the elegant flow of shiny new delivery tools -- they will never fit our real-world environment.
-
-#### The ray of hope
 
 <img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
@@ -45,7 +33,7 @@ consistent execution of tedious tasks is for programs.
 
 Atomist lets you construct your delivery process in code -- but not too much code.
 A service, a framework, and some libraries take care of the pieces that are common to every
-development organization. It works atop your existing toolchain, adding functionality 
+development organization. Atomist works atop your existing toolchain, adding functionality 
 and smoothing your experience; then you're free to improve it.
 
 The crux of your development experience lives in your **software delivery machine** (SDM).
@@ -57,7 +45,7 @@ All of this is open source.
 
 While you can run an SDM independently and in private to help only yourself, the magic happens
 when it connects to the Atomist service to respond to your whole team or organization.
-The service provides triggering with rich events and custom commands; interactive chat integration;
+The service provides triggering with rich events and custom commands, interactive chat integration,
 and [built-in automations][lifecycle] like sweet chat messages for standard events like
 code push and issue creation. These chat messages get _updated_ when new information comes in. They include
 useful buttons to take action: raise a PR, label an issue, or approve the next step in the deploy process.
@@ -74,7 +62,7 @@ never limited to plugins, nor to anyone else's idea of the correct delivery mech
 as you wish. Tie these together with an SDM, plus bonuses like [automatic CHANGELOG management][changelog-pack].
 
 Your SDM gives you something else: the ability to manipulate code across all your projects with one command. 
-Atomist libraries help you write code transforms -- functions that operate on code -- and the API for Software
+Atomist libraries help you write code transforms--functions that operate on code--and the API for Software
 turns those into branches, pull requests, or automatic commits on every deviating push. Bring code up to standards
 and then keep it there.
 
@@ -82,22 +70,23 @@ Your SDM gives you something else: start new projects with the right code and se
 start from a real, working project and use code transforms to construct a starting point in a new repository. Set up
 any other 
 
-Your SDM can respond to [more events], and to custom events that you send. You can query your correlated events
+Your SDM can respond to [more events][events], and to custom events that you send. You can query your correlated events
 using GraphQL. You can build chat commands, with updating messages and adding action buttons. 
 You can [add integrations][pack]
 and commands written by Atomist and the community, and contribute your own.
 
-[changelog-pack]: pack/changelog.md
-[pack]: pack/index.md
-[favorite-tools-blog]: https://the-composition.com/one-great-delivery-experience-your-favorite-tools-7f390f57d896 (One Great Delivery Experience, Your Favorite Tools)
+[changelog-pack]: pack/changelog.md (Changelog Pack)
+[events]: developer/events.md (Events Documentation)
+[pack]: pack/index.md (List of Packs)
+[favorite-tools-blog]: https://the-composition.com/one-great-delivery-experience-your-favorite-tools-7f390f57d896 (One Great Delivery Experience, Your Favorite Tools blog)
 
 ## Stories
 
 Check out some samples of what an Atomist SDM can do:
 
-*  [Deploy Spring Boot to Kubernetes][spring-boot-to-k8s-blog], and generate new projects, and manage versions of existing projects ([video][spring-one])
 *  [Upgrade test files to a new standard][autofix-blog-test]
 *  [Enforce custom code formatting][autofix-blog-stars]
+*  [Deploy Spring Boot to Kubernetes][spring-boot-to-k8s-blog], and generate new projects, and manage versions of existing projects ([video][spring-one])
 *  [Convert a migration script into a Slack command][schema-deploy-blog]
 
 [spring-one]: https://www.youtube.com/watch?v=VDCHnTPknsI (Rod Johnson speaks at Spring One 2018)
