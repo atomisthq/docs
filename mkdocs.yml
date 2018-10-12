@@ -31,7 +31,7 @@ extra_javascript:
   - js/mixpanel.js
 markdown_extensions:
   - markdown_include.include:
-      base_path: "docs/common"
+      base_path: "common"
   - admonition
   - codehilite:
       guess_lang: false
