@@ -196,9 +196,7 @@ After making changes, you can test them by building the documentation
 in strict mode and running HTMLProofer on the resulting site.
 
 ```
-$ mkdocs build --strict && \
-    bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
-        --url-ignore https://api.github.com
+$ mkdocs build --strict && ./htmlproof.bash
 ```
 
 To review your changes in a browser, you can serve the documentation

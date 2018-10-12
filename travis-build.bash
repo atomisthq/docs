@@ -2,6 +2,7 @@
 # test and publish rug archive
 
 set -o pipefail
+set -x
 
 declare Pkg=travis-build-mkdocs
 declare Version=0.3.1
@@ -20,18 +21,10 @@ function site-build() {
         return 1
     fi
     
-    local i
-    for (( i=0; i < 4; i++ )); do
-        # the logo img is added by material theme, so ignore it not having alt
-        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
-        --url-ignore "/api.github.com/,/jenkins.io/"
-        then
-            return 0
-        else
-            err "HTMLProofer attempt $i failed"
-        fi
-    done
-    return 1
+    if ! ./htmlproof.bash; then
+        err "htmlproofing failed"
+        return 1
+    fi
 }
 
 # usage: main "$@"
