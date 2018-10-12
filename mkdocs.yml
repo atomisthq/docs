@@ -41,7 +41,6 @@ markdown_extensions:
       linenums: false
   - smarty
 repo_url: https://github.com/atomist/docs/
-edit_uri: edit/master/docs/
 nav:
   - Introduction: index.md
   - Using Atomist:
