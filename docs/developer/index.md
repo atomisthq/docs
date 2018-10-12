@@ -1,3 +1,5 @@
+## How to use this guide
+
 With this guide, we aim to provide all the information you need to create and customize
 a software delivery machine for your organization's needs. When the information here
 is not clear or not sufficient, we appreciate your perspective. Ask us questions through the chat icon
@@ -6,6 +8,8 @@ to this guide by creating issues or pull requests on [the docs repository][docs]
 
 If you want to learn by doing, run through the [Developer Quick Start][quick-start] first.
 If you want to start from higher-level concepts, begin reading [about the architecture][architecture].
+
+## New superpowers
 
 This guide should help you make your SDM:
 
@@ -16,6 +20,8 @@ This guide should help you make your SDM:
 -   [Respond to builds][build], from the SDM or external build systems
 -   Implement [custom commands][command]
 -   [Create new projects][create] according to your own standards
+
+## Underlying concepts
 
 To do all this, these higher-level concepts are relevant:
 
