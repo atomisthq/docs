@@ -1,0 +1,15 @@
+{% if config.extra.social %}
+{% set better_base_url = base_url %}
+{% if better_base_url == '/' %}
+<!-- This is a bug in mkdocs.
+ That is never the right base_url but the 404 page receives that. -->
+{% set better_base_url = '.' %}
+{% endif %}
+<div class="md-footer-social">
+    Hello there. The base URL is {{ better_base_url }} right?
+    <link rel="stylesheet" href="{{ better_base_url }}/assets/fonts/font-awesome.css">
+    {% for social in config.extra.social %}
+    <a href="{{ social.link }}" class="md-footer-social__link fa fa-{{ social.type }}"></a>
+    {% endfor %}
+</div>
+{% endif %}
