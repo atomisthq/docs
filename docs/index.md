@@ -29,7 +29,7 @@ consistent execution of tedious tasks is for programs.
 
 [www]: https://atomist.com/ (Atomist - How Teams Deliver Software)
 
-## What is this better way??
+## What is this better way?
 
 Atomist lets you construct your delivery process in code -- but not too much code.
 A service, a framework, and some libraries take care of the pieces that are common to every
