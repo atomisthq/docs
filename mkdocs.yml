@@ -1,6 +1,9 @@
 site_name: Atomist Documentation
 site_description: Documentation for Atomist - How Teams Deliver Software
 site_author: The Atomist Team
+repo_name: GitHub
+repo_url: https://github.com/atomist/docs
+edit_uri: edit/master/docs/
 copyright: "&copy; 2018 Atomist, Inc."
 extra:
   main_site_url: https://atomist.com/
@@ -56,10 +59,9 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-# repo_name: Atomist Software Delivery Machine
-repo_url: https://github.com/atomist/docs/
+repogs_url: https://github.com/atomist/docs/
 edit_uri: edit/master/docs/
-pages:
+nav:
   - Introduction: index.md
   - Using Atomist:
       - Getting Started: user/index.md
