@@ -1,154 +1,114 @@
 # Atomist - How Teams Deliver Software
 
+Every serious business has its own development and delivery experience. Most of them
+aren't what we want. We want to spend our time and focus solving problems for the business, but to do that well, 
+we need to enact our own blueprint for software delivery.
+
+So far, enterprises piece together pipeline tools, configured by a plethora of YAML or by hand in a GUI. For
+anything interesting, we resort to a Bash script, the lowest common denominator of programming. 
+We enroll myriad chatbots to spam our channels. We write how-to wiki pages and distribute hand-me-down scripts.
+As our practices improve, older projects languish in prior standards. Meanwhile we shake our heads wistfully over 
+the elegant flow of shiny new delivery tools -- they will never fit our real-world environment.
+
 <img style="float:left; margin-top:7px; margin-right:10px; margin-bottom:10px; margin-left:0px;" src="img/atomist-logo.png" height="100px" width="100px" alt="Atomist logo"/>
 
-[Atomist][www] is a platform for delivering software, _your way_.
-Atomist unifies activity across your software development and delivery
-tools into a cohesive model of code, people, and process.  Atomist
-empowers your team to gain visibility and control over your software
-delivery flow with your own Software Delivery Machine (SDM).
+Atomist says, there is a better way. A world beyond pipelines, a world of little YAML and Bash,
+a world where we code our way to an appropriate delivery experience, with higher coding standards, 
+up-to-date application suites, and continual improvement.
+And this way begins where we are, not with a big migration.
 
-!!! tldr "Escape Bash and YAML!!!"
+The new world is driven by events, not configuration, and we specify our reactions in a modern programming language.
+These events are correlated to each other into a coherent model, an API for Software.
+Developers and automations work together, coordinating in chat. Decisions are for people;
+consistent execution of tedious tasks is for programs.
+
+!!! tldr "Escape Bash and YAML"
     Tired of managing CI/CD Bash scripts and YAML config across dozens
     of repositories?  Use Atomist to tame the complexity and execute
     your best delivery process across all your repositories.
 
 [www]: https://atomist.com/ (Atomist - How Teams Deliver Software)
 
-## What is a Software Delivery Machine?
+## What is this better way??
 
-A **software delivery machine** (SDM) is a development process in a
-box.  Rather than using YAML and Bash scripts to manage your builds,
-static analysis checks, testing, and deployments, an SDM, connected to
-the Atomist platform, gives you the ability to codify and execute your
-entire delivery flow using real, testable code.  Working with and
-augmenting your existing development and delivery tools and platforms
-like version control and continuous integration, an SDM automates 
-all steps in the flow from commit to
-production, and many other actions, using the consistent model
-provided by the Atomist *API for software*.
+Atomist lets you construct your delivery process in code -- but not too much code.
+A service, a framework, and some libraries take care of the pieces that are common to every
+development organization. Atomist works atop your existing toolchain, adding functionality 
+and smoothing your experience; then you're free to improve it.
 
-!!! important "Realize your delivery blueprint"
-    Many teams have a blueprint in their mind for how they'd like to
-    deliver software and ease their day to day work, but find it hard to
-    realize.  A Software Delivery Machine makes it possible.
+The crux of your development experience lives in your **software delivery machine** (SDM).
+This is a service that runs wherever you choose to run it. Start with one of ours,
+then make it yours. Your SDM is in TypeScript (or JavaScript works too), and comes with
+a framework designed for software delivery and development automation. Write functions to make decisions
+or take action, with access to all the code plus the context of the push or build or issue event.
+All of this is open source.
 
-These concepts are explained in detail in Rod Johnson's blog [Why you
-need a Software Delivery Machine][sdm-blog]. This [video][sdm-video]
-shows an SDM in action:
+While you can run an SDM independently and in private to help only yourself, the magic happens
+when it connects to the Atomist service to respond to your whole team or organization.
+The service provides triggering with rich events and custom commands, interactive chat integration,
+and [built-in automations][lifecycle] like sweet chat messages for standard events like
+code push and issue creation. These chat messages get _updated_ when new information comes in. They include
+useful buttons to take action: raise a PR, label an issue, or approve the next step in the deploy process.
 
-<iframe src="https://player.vimeo.com/video/260496136" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/260496136">Atomist: How Teams Deliver Software</a> from <a href="https://vimeo.com/atomist">Atomist</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+![Push Lifecycle](./img/push-notice.png)
 
-!!! important "Use code to deliver code"
-    Atomist is about developing your development experience by using
-    your coding skills.  Change the code, restart, and see your new
-    automations and changed behavior across all your projects, within
-    seconds.
+## But wait, there's more!
 
-[sdm-blog]: https://the-composition.com/why-you-need-a-software-delivery-machine-85e8399cdfc0 (Why you need a Software Delivery Machine - The Composition)
-[sdm-video]: https://vimeo.com/260496136
+I've talked about how your delivery flow can be defined in code instead of Bash, 
+in one open place instead of many narrow pipelines. I mentioned custom commands, where you can ensconce 
+common developer activities in a convenient location, accessible from chat. These commands are code:
+consistent, shared, versioned. You might have gleaned that because your Software Delivery Machine is code, you're
+never limited to plugins, nor to anyone else's idea of the correct delivery mechanism; your SDM can integrate with your existing tools. [Keep the tools that are working for you][favorite-tools-blog], and integrate new ones
+as you wish. Tie these together with an SDM, plus bonuses like [automatic CHANGELOG management][changelog-pack].
 
-## Concepts
+Your SDM gives you something else: the ability to manipulate code across all your projects with one command. 
+Atomist libraries help you write code transforms--functions that operate on code--and the API for Software
+turns those into branches, pull requests, or automatic commits on every deviating push. Bring code up to standards
+and then keep it there.
 
-Atomist is all about making you more productive by helping you to go
-from idea to production as quickly as possible.  The following
-concepts describe the pieces Atomist provides so that you can
-use your software development skills to improve how you manage your
-software delivery, from project creation to build to test to
-deployment to runtime.
+Your SDM gives you something else: start new projects with the right code and setup, every time. Atomist generators
+start from a real, working project and use code transforms to construct a starting point in a new repository. Set up
+any other 
 
-### Software Delivery Machine
+Your SDM can respond to [more events][events], and to custom events that you send. You can query your correlated events
+using GraphQL. You can build chat commands, with updating messages and adding action buttons. 
+You can [add integrations][pack]
+and commands written by Atomist and the community, and contribute your own.
 
-The Software Delivery Machine, or SDM, is your interface for using
-Atomist to deliver your software your way, but better.  The SDM
-TypeScript package provides a high-level API for automating
-development and delivery tasks in response to typical software
-development events like creating a new repository, pushing commits,
-creating/commenting/closing issues and pull requests, deploying
-services, releasing artifacts, etc.  Want to run a security scanning
-tool on every push of every project in your organization?  Want to
-change the Docker registry for all your projects?  Re-platforming from
-WebLogic to Kubernetes?  It's all possible with an SDM.
+[changelog-pack]: pack/changelog.md (Changelog Pack)
+[events]: developer/events.md (Events Documentation)
+[pack]: pack/index.md (List of Packs)
+[favorite-tools-blog]: https://the-composition.com/one-great-delivery-experience-your-favorite-tools-7f390f57d896 (One Great Delivery Experience, Your Favorite Tools blog)
 
-### Development automation platform
+## Stories
 
-Atomist's development automation platform is powered by a service that
-ingests and correlates events from your software development flow.  At
-the heart of the service is a single coherent model: code, people, and
-processes.  You query that model, Atomist's API for software, using
-[GraphQL][gql] when you write your own SDM or other automation.
+Check out some samples of what an Atomist SDM can do:
 
-[gql]: http://graphql.org/ (GraphQL)
+*  [Upgrade test files to a new standard][autofix-blog-test]
+*  [Enforce custom code formatting][autofix-blog-stars]
+*  [Deploy Spring Boot to Kubernetes][spring-boot-to-k8s-blog], and generate new projects, and manage versions of existing projects ([video][spring-one])
+*  [Convert a migration script into a Slack command][schema-deploy-blog]
 
-### Software Delivery Machine
+[spring-one]: https://www.youtube.com/watch?v=VDCHnTPknsI (Rod Johnson speaks at Spring One 2018)
+[spring-boot-to-k8s-blog]: https://the-composition.com/deploy-your-spring-boot-application-to-kubernetes-in-3-mins-fdd37a212c6c (Christian Dupuis's Spring Boot to Kubernetes Blog)
+[autofix-blog-test]: https://the-composition.com/making-change-stick-with-code-transforms-and-autofixes-587d19e0ba1b (Rod blogs about upgrading test file names)
+[autofix-blog-stars]: https://the-composition.com/align-the-stars-programmatically-35dc5625f97d (Jess blogs about autofixing comment formatting)
+[schema-deploy-blog]: https://the-composition.com/automation-story-graphql-schema-deployment-7893eb55ed18 (Jess blogs about graphql schema deploy)
 
-Automations are written and run within an Atomist [Software Delivery
-Machine (SDM)][sdm], which interacts with the Atomist platform using
-primarily GraphQL.  Each SDM hosts automations that can be invoked
-via the Atomist bot, Slack buttons, or when events occur.  An SDM can
-host any number of automations, and can be hosted wherever the author
-likes: locally during testing, inside a corporate firewall, or on a
-public cloud or PaaS.
+## You might want to know
 
-[sdm]: developer/sdm.md (Atomist SDM)
+*  [Existing integrations][integrations]
+*  [Architecture][]
+*  [Security model][security]
 
-### Commands
+[integrations]: user/integrations.md (Existing Atomist Integrations)
+[security]: developer/security.md (Atomist Security Model)
+[architecture]: developer/architecture.md (Atomist Architecture)
 
-[Commands][command] perform actions when invoked by users sending the
-Atomist bot messages, clicking buttons in Slack, or running the
-Atomist CLI.
-
-Examples of commands include the bot command `create issue` and the
-"merge pull request" command that users invoke by pressing a button in
-Slack.
-
-[command]: developer/commands.md (Atomist - Commands)
-
-### Events
-
-[Events][event] can be sourced from anywhere: commits, pushes, CI
-builds, deployments, stack traces in production logs, etc.  When an
-event is ingested, Atomist relates it to other events to build up
-contextual information: a push containing commits triggers a CI build,
-creating an artifact that gets deployed.  Atomist is able to take
-automated action on any and all of these events along the chain.
-
-How does an automation know what event it should act on?  GraphQL
-subscriptions are used to define the trigger criteria.  For example,
-you can create a subscription to receive an event whenever a
-Kubernetes deployment results in a pod crash looping, providing an
-automation that automatically rolls that deployment back and notifies
-the committers of the failure.
-
-[event]: developer/events.md (Atomist - Events)
-
-### Integrations
-
-Atomist receives events from and performs operations on many systems,
-including version control, CI systems, Slack, and more.
-
-Atomist uses the native integration technology for each platform or
-tool.  For example, to integrate with GitHub and Travis CI, Atomist
-uses webhooks; to integrate with Slack it uses their native real-time
-messaging (RTM) API.  For each platform Atomist integrates with, it
-requests the minimal set of permissions required.
-
-If you use a system or tool Atomist does not natively support, you can
-implement your own integrations.  You can use whatever tools and
-libraries you want to communicate with your systems, and then register
-these custom event types with Atomist so it can properly connect them
-with other events.
-
----
-
-## What next?
-
--   If you're new to Atomist, visit the [Atomist web site][www] to
-    learn more about Atomist and how we can help you and your team
-    deliver better software faster.
-
--   If you want to get started using Atomist, go to the [Using
+## Try it out
+ 
+-   If you want to get started using Atomist in your team, with the [built-in
+    chat integrations][lifecycle], go to the [Using
     Atomist][user] page to get Atomist installed in your Slack
     workspace, authorized in GitHub, and connected to your continuous
     integration system.
@@ -161,3 +121,4 @@ with other events.
 [user]: user/index.md (Atomist User Guide)
 [quick-start]: quick-start.md (Atomist Developer Quick Start)
 [dev-guide]: developer/sdm.md (Atomist Automations Developer Guide)
+[lifecycle]: lifecycle.md (Built-in Chat Integrations)
