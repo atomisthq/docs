@@ -57,7 +57,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 # repo_name: Atomist Software Delivery Machine
-# repo_url: https://github.com/atomist/sdm
+repo_url: https://github.com/atomist/docs
+edit_uri: edit/master/docs/
 pages:
   - Introduction: index.md
   - Using Atomist:
