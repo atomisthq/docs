@@ -67,7 +67,7 @@ pages:
       - Built-in Chat Integrations: lifecycle.md
       - Spring: user/spring.md
       - Kubernetes: user/kubernetes.md
-      - Supported Integrations: integrations.md
+      - Supported Integrations: user/integrations.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
       - About this guide: developer/index.md

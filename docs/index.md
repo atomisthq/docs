@@ -101,7 +101,7 @@ Check out some samples of what an Atomist SDM can do:
 *  [Architecture][]
 *  [Security model][security]
 
-[integrations]: integrations.md (Existing Atomist Integrations)
+[integrations]: user/integrations.md (Existing Atomist Integrations)
 [security]: developer/security.md (Atomist Security Model)
 [architecture]: developer/architecture.md (Atomist Architecture)
 
