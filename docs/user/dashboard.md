@@ -7,5 +7,9 @@ Atomist workspace.
 
 ## GraphQL
 
+{!tbd.md!}
+
 ## Administration
+
+{!tbd.md!}
 

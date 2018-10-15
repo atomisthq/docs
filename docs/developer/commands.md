@@ -17,13 +17,23 @@ This page starts after you have [created][create] a Software Delivery Machine (S
 
 ### Test your command
 
+{!tbd.md!}
+
 ### Register your command
+
+{!tbd.md!}
 
 ### Run your command
 
+{!tbd.md!}
+
 ## Respond in chat
 
+{!tbd.md!}
+
 ## Wrap a shell script
+
+{!tbd.md!}
 
 ## Command parameters
 
