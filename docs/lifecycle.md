@@ -3,6 +3,10 @@ fewer and far more useful when they're correlated by Atomist. You get one messag
 that message updates as new information comes in. Less spam in your channels! Even better, 
 the messages have buttons that make them useful.
 
+## Linked Channels
+
+{!tbd.md!}
+
 ## Messages
 
 ### Push 
