@@ -1,5 +1,13 @@
 #!/bin/bash
 
+function msg() {
+    echo "$Pkg: $*"
+}
+
+function err() {
+    msg "$*" 1>&2
+}
+
 function main() {
     # This is a bug in mkdocs, combined with mkdocs-material
     # When at least one of those upgrades, try taking this out and
