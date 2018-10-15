@@ -2,7 +2,6 @@
 # test and publish rug archive
 
 set -o pipefail
-set -x
 
 declare Pkg=travis-build-mkdocs
 declare Version=0.3.1
