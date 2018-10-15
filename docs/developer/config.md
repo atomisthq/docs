@@ -25,3 +25,5 @@ those from your user configuration.
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
+
+## Project root
