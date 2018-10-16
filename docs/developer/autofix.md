@@ -1,9 +1,17 @@
-Once you know how to write a [code transform command](transform.md), you can then have that transform run automatically whenever a push happens on your project.
+Autofixes keep your source code in the state you like it, without nagging people.
+An Autofix checks every push, and if the code doesn't look like you want it to, changes it
+and makes a commit.
+
+The instructions in this page apply after:
+*  You have an SDM that [sets goals][goals]
+*  You have a [code transform command](transform.md).
 
 This page shows how to:
 
-* Change a code transform into a autofix
-* Add the autofix goal to your goalset
+* Turn a code transform into an autofix
+* Skip some pushes
+
+[goals](set-goals.md)
 
 ## Change a code transform into an autofix
 
@@ -17,7 +25,7 @@ export const AddApacheLicenseFileTransform: CodeTransform<NoParameters> = async 
 };
 ```
 
-Instead of a `CodeTransformRegistration` we now create an `AutofixRegistration`.
+We can create an `AutofixRegistration`.
 
 ``` typescript
 export const AddApacheLicenseFileAutofix: AutofixRegistration = {
@@ -31,22 +39,50 @@ export const AddApacheLicenseFileAutofix: AutofixRegistration = {
 };
 ```
 
-An `AutofixRegistration` references the code transform (or array of code transforms), but can also define a `PushTest` that determines whether the code transform needs to run as a result of a push. In this case we have the following `PushTest` that checks whether a project contains a license file.
+An `AutofixRegistration` references the code transform (or an array of code transforms).
+
+Each autofix will make its own commit, and the `name` appears in the commit message:
+
+``` text
+Autofix: <name of the autofix>
+```
+
+See also: [AutofixRegistration API Docs](https://atomist.github.io/sdm/interfaces/_lib_api_registration_autofixregistration_.autofixregistration.html)
+
+### Skip some pushes
+
+The optional `PushTest` field limits when the Autofix will be applied. If the test returns false, Atomist will skip this Autofix. 
+Here, we only want to add a license file to pushes that do not currently have one. We have the following `PushTest` that checks whether a project contains a license file.
 
 ``` typescript
 hasFile("LICENSE")
 ```
 
-The `AutofixRegistration` then uses the `not` function in order to invert the result of the test, so that the transform will only run when there is no `LICENSE` file present in the project.
+`hasFile` returns true if a file is present in the code. The `not` function inverts the result, so the Autofix will only run when there is no `LICENSE` file present in the project after a push.
 
-You can also define a set of options on the registration:
+For more push tests, see [Push Tests][push-test].
 
-* `ignoreFailure`: failures in the transform will cause other additional autofixes to not be applied if set to `false`
+
+[push-test]: push-test.md (Atomist Push Tests)
+
+### Autofix Registration options
+
+You can define a set of options on the registration:
+
+* `ignoreFailure`: failures in the transform will cause other later autofixes to not be applied if set to `false`
 * `considerOnlyChangedFiles`: the code transform will only be applied to files that have been changed in the push if set to `true`
+
+<!-- TODO: are these required? What are the defaults? -->
 
 ## Add the autofix goal to your goalset
 
-Adding autofixes to your goal set is accomplished by adding the `Autofix` goal to your SDM goal contributors and adding the registrations to that goal. First you define the goal itself and add the `AutofixRegistration`s to it.
+If you already have an Autofix goal, register your new autofix on it:
+
+``` typescript
+autofixGoal.with(AddApacheLicenseFileAutofix);
+```
+
+If not, get one. First you instantiate the goal itself and add the `AutofixRegistration` to it.
 
 ``` typescript
 const autofixGoal = new Autofix().with(AddApacheLicenseFileAutofix);
@@ -58,15 +94,9 @@ Then you add the goal to your goal set. For example, if you want to add the goal
 sdm.addGoalContributions(goalContributors(onAnyPush().setGoals(autofix)));
 ```
 
-When autofixes are applied as a result of a push, the rest of the goal set will be cancelled.
-
 ## Commit behavior of autofixes
+
+When autofixes are applied as a result of a push, the rest of the goal set will be cancelled, since they should run on the fixed code instead.
 
 Each autofix will result in a separate commit, but all autofix commits will be pushed at the same time. This push will then trigger a
 new goal set execution.
-
-The format of the commit message for autofixes is:
-
-``` text
-Autofix: <name of the autofix>
-```
