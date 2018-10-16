@@ -37,7 +37,7 @@ function main () {
     [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+(-(m|rc)\.[0-9]+)?$ ]] || return 0
     
     local bucket=docs.atomist.com
-    if ! s3cmd sync --delete-removed site/ "s3://$bucket/"; then
+    if ! s3cmd sync --guess-mime-type --delete-removed site/ "s3://$bucket/"; then
         err "failed to sync site to s3 bucket '$bucket'"
         return 1
     fi
