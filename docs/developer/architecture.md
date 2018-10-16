@@ -20,7 +20,8 @@ An SDM links up to the *API for software*, exposing:
     and manipulate the source code you're working on.
 
 When a push occurs, the SDM gets all this context and the code. It decides what
-delivery actions to take, and sets [goals][] accordingly.
+delivery actions to take, and sets [goals][] accordingly. Instead of a static pipeline, you get to 
+choose the delivery flow for each commit.
 
 ![SDM Receives a Push](img/sdm-reacts-to-push.png)
 
