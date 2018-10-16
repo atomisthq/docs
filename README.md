@@ -135,7 +135,7 @@ $ pip3 install virtualenv
 $ mkdir ~/.venvs
 $ echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
 $ source ~/.bashrc
-$ virtualenv -p `which python3` ~/.venvs/userdocs
+$ virtualenv -p python3.6 ~/.venvs/userdocs
 ```
 
 With the virtual environment created, activate it in the current
