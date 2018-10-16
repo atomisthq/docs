@@ -12,7 +12,7 @@ whole organization.
 
 You can also use a Software Delivery Machine (SDM) on your laptop,
 individually, without enrolling in the service.  To get going with a
-Local SDM, see the [quick start guide][quick-start].
+Local SDM, skip to the [quick start guide][quick-start].
 
 This page describes how to create an Atomist _workspace_.  An Atomist
 workspace connects your code, build, deployment, and runtime platforms
