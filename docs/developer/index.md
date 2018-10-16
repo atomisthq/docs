@@ -1,3 +1,7 @@
+# Developer Guide
+
+When you're ready to craft your own delivery and development automation, this is the place to be.
+
 ## How to use this guide
 
 With this guide, we aim to provide all the information you need to create and customize
