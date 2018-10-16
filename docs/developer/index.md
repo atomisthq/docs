@@ -44,7 +44,7 @@ To do all this, these higher-level concepts are relevant:
 
 Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery
-processes.
+processes. Or if you don't, please let us know! We are available in the [Atomist community Slack][join], or through the chat icon at the bottom of this page.
 
 [build]: build.md (Builds in the SDM)
 [deploy]: deploy.md (Deploys in the SDM)
