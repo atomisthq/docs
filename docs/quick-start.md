@@ -1,7 +1,10 @@
 The easiest way to get started with Atomist is to start on your
 laptop in [local mode][local], working with local commits. Get your own software delivery machine,
- and then customize it. This Quick Start begins with an SDM for
- delivering and maintaining Java Spring Boot web services.
+ and then customize it. 
+ 
+An Atomist SDM can run any delivery process, and many other things besides, but for exploration we have to start somewhere.
+Let's pretend your team operates several web services, you write them in Java using Spring Boot, and you like build them with maven.
+Since this SDM is for your personal use on your laptop, "deployment" means starting the service up locally.
 
 You'll need [Git][git],
 [Node.js][node], and the [Java JDK][jdk] installed.
