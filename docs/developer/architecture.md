@@ -3,11 +3,10 @@ Atomist Software Delivery Machine (SDM) provides a high-level
 interface for you to take action when things happen.  In much the same
 way your CI build kicks off when you push to your repository, Atomist can
 execute tasks like security scans, documentation publication, release
-creation, and deployment when different events occur within your
-development environment.  Because you're using a real programming
+creation, and deployment.  Because you're using a real programming
 language, not YAML or Bash, and you have access to a real ecosystem,
-Node.js, you can create a richer delivery experience than you've even
-imagined.
+Node.js, you can create the richest delivery experience you can
+imagine.
 
 ## API for Software
 
