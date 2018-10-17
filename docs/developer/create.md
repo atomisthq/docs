@@ -25,3 +25,7 @@ make it do as much as you want.
 
 [sdm-project]: sdm.md (Atomist SDM Project)
 [command]: commands.md (Atomist SDM Commands)
+
+## Seed
+
+## Generator

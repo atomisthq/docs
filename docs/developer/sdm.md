@@ -1,5 +1,6 @@
 The software delivery machine is a service that runs automations in response to events
-like pushes and builds. See [architecture][] for a high-level view.
+like pushes and builds. See [architecture][] for a high-level view. Your SDM is in TypeScript.
+Start with our code and add what you choose.
 
 [architecture]: architecture.md (Atomist SDM Architecture)
 [local]: local.md (Atomist SDM Local Mode)
@@ -12,55 +13,92 @@ structure and organization of a typical SDM project.
 To get started in [local mode][local], make sure you have:
 
 -   [Git][]
--   [Installed Node.js][prereq-install-node]
--   [Installed the Atomist CLI][prereq-install-cli]
+-   [Node.js][prereq-install-node]
+-   [the Atomist CLI][prereq-install-cli]
 
-Before you run in [team mode][team], check the [prerequisites][prereq-prereq] page.
+Before you run in [team mode][team], you'll need the [prerequisites][prereq-prereq] page.
+
+This page will help you:
+
+*  create an SDM project
+*  spin up your SDM
+*  know where to add functionality to your SDM
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [prereq-prereq]: ../developer/prerequisites.md (Atomist Automation Prerequisites)
 [prereq-install-node]: ../developer/prerequisites.md#nodejs (Install Node.js)
 [prereq-install-cli]: ../developer/prerequisites.md#atomist-cli (Install the Atomist CLI)
+[quick-start]: ../quick-start.md (Developer Quick Start)
+
+For the quickest path to seeing an SDM do something, use the [Quick Start][quick-start] instead.
 
 ## Creating an SDM project
 
-There are a few ways to create a new SDM project.  We
-suggest using the [blank-sdm][seed] project as a seed for
-your project. You can do this [locally][local] with the Atomist CLI:
+The Atomist CLI will generate an empty SDM for you. We
+suggest using the [empty-sdm][seed] project as a [seed](create.md#seed) for
+your project. 
 
 ```
 atomist create sdm
 ```
 
-Choose "blank" to start with an empty SDM, or "spring" to start with
+For "Type of SDM to create, "Choose "blank" to start with an empty SDM, or "spring" to start with
 an SDM that does useful things for Java Spring services.
+
+For "name of the target repository" enter a name for your SDM.
+
+For "target-owner"
+Choose a name for your SDM, and an organization (this corresponds to the GitHub/GitLab organization or BitBucket project you would put the repository under).
+The "create sdm" [generator](create.md#generator) will transform the [seed][] according
+to your answers. Because this generator operates in local mode, it will create a project on your
+filesystem.
+
+Look in $HOME/atomist/<your org>/<name> for the new SDM.
 
 [sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [gql]: http://graphql.org/ (GraphQL)
-[seed]: https://github.com/atomist/blank-sdm-seed (Blank SDM Seed Project)
-
-### Slack
-
-If [your team][team] uses the Atomist service and Slack integration,
-you can create your very own SDM project using the
-Atomist bot. This will make a repository in your version control (GitHub, BitBucket, or GitLab).
- You can run this bot command with the following message to the
-Atomist bot:
-
-```
-@atomist create sdm
-```
-
-The bot will ask you where you want to create it and what you want to
-name it. Once creation is complete, the bot will tell you where you can find
-it.
+[seed]: https://github.com/atomist-seeds/empty-sdm (Blank SDM Seed Project)
 
 ### GitHub
 
-If you prefer the manual route, fixing up the project metadata
-yourself, you can always fork the [blank-sdm][seed]
+If you prefer the manual route, you can always fork the [empty-sdm][seed]
 project on GitHub.
+
+## Looking at the code
+
+You can use whatever editor or IDE you like. We recommend [VSCode][] because
+it is built for TypeScript (among other languages), it's a good IDE, and it's free.
+With TypeScript and an IDE like VSCode, you get autocompletion that helps you discover
+functionality in the SDM framework.
+
+Run `npm install` first so that your IDE will see library code. In Node, all dependencies
+are stored within the project, under the directory `node_modules`. `npm` is the dependency manager 
+that gets them there. This directory is listed in `.gitignore`, so it won't be committed.
+
+### index.ts
+
+Start your inquiry in `index.ts`.  When an SDM starts up, it looks here to find its configuration.
+The `configuration` object has opportunities for many, many configuration options. Click into the Configuration type
+or check the [API Docs][configuration-api-doc] if you're curious.
+
+The important part, where you're going to add to your personal SDM, is the function passed to `configureSdm` in `configuration.postProcessors`. 
+Unless you change it that function is called `machine`.
+
+## machine.ts
+
+Click into the `machine` function in your IDE, or open `lib/machine/machine.ts` to find it. This function instantiates
+and the returns a SoftwareDeliveryMachine([API docs][sdm-api-doc]).
+
+Inside this function, add functionality to your SDM. You can:
+
+*  Add [Goals](goal.md) to choose a flow to respond to code push
+*  Add listeners to various other [events](events.md)
+*  Bring in [extension packs](../pack/index.md)
+
+[sdm-api-doc]: https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html (API Docs for SoftwareDeliveryMachine)
+[configuration-api-doc]: https://atomist.github.io/automation-client/interfaces/_lib_configuration_.configuration.html (API Docs for Configuration type)
+[vscode]: https://code.visualstudio.com/ (VS Code IDE)
 
 ## Building an SDM
 
@@ -82,10 +120,6 @@ npm run build
 ```
 
 [node]: https://nodejs.org/en/ (Node.js)
-
-## Looking at the code
-
-{!tbd.md!}
 
 ## Starting an SDM
 
@@ -110,73 +144,6 @@ npm run autostart
 When you deploy your SDM to production, check the recommendations under [Deploying your SDM][prod].
 
 [prod]: sdm-deploy.md#production (SDM Production Deployment Considerations)
-
-## SDM process lifecycle
-
-The SDM lifecycle will be familiar to those developing
-persistent applications.
-
-1.  **Authentication** - When the SDM starts up, it
-    connects to the Atomist API and authenticates using the API key
-    you have provided in your configuration file.
-
-2.  **Registration** - Once your identity has been established, the
-    client registers its automations, i.e., the bot commands it
-    provides and the events it wants to receive, with the Atomist
-    workspaces specified in your configuration.  If Atomist
-    does not recognize your workspace ID or the provided API key is
-    not connected to any member of that workspace, registration will
-    fail and the SDM will exit with an unsuccessful status.
-
-3.  **Listening** - After authentication and registration is completed
-    successfully, the WebSocket connection is established and the
-    client begins listening for incoming messages from the API: bot
-    commands and events fired.
-
-4.  **Shutdown** - When the client receives a shutdown signal,
-    typically `SIGINT` delivered by the PaaS or `Ctrl-C`, it
-    de-registers with the API and gracefully shuts down.
-
-## SDM state
-
-An SDM, once registered, will continue to receive all the events it
-has subscribed to until shuts down or one of the following scenarios
-occurs.
-
-### Multiple identical SDMs register
-
-If another client with the same name and version (typically obtained
-from the `package.json` "name" and "version" properties) registers,
-then all of the registered identical SDMs will receive the events
-in a round-robin fashion.  Each event will only be sent to one of the
-identical SDMs.  This allows you to horizontally scale.
-
-### A different version registers
-
-If another SDM having the same name but different version
-registers, it will begin receiving all of the events for the client
-and any previously registered versions cease receiving events.  Note
-that no version comparisons are done: the _last registration wins_.
-
-If the new client has registered with a policy of "ephemeral" and the
-prior client was registered with a policy of "durable", then when the
-new client shuts down, events again be sent to the "durable"
-registration clients.
-
-The reason for this logic is to allow for production, testing, and
-local use to all coexist without taking the same action multiple
-times.  For example, if you are running an SDM in production but want
-to test something, you can run it locally, steal events for a bit,
-kill the local process, and then traffic will return to the production
-instance.
-
-If you want the same events to be sent to multiple SDMs, just make
-sure the SDMs have different names.
-
-!!! note "Custom Ingestion"
-    Any custom ingestion types can only be registered once within an
-    Atomist workspace.  Therefore it is recommended to register these
-    in a dedicated API client.
 
 ## Project structure
 
@@ -208,10 +175,9 @@ Command | Description
 
 The `lib` directory contains the TypeScript source code.
 
-#### atomist.config.ts
+#### index.ts
 
-The `lib/atomist.config.ts` file contains project-specific
-configuration. This is the starting point when you want to look at
+This is the starting point when you want to look at
 what this SDM might do. 
 
 ### lib/graphql

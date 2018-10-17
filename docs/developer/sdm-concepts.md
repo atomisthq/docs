@@ -124,14 +124,74 @@ project provides a framework above this infrastructure that makes
 typical tasks far easier, while not preventing you from breaking out
 into lower level functionality.
 
+## SDM process lifecycle
 
-#### Listeners
+The SDM lifecycle will be familiar to those developing
+persistent applications.
 
-We'll return to push tests shortly, but first let's consider the SDM
-listener concept.
+1.  **Authentication** - When the SDM starts up, it
+    connects to the Atomist API and authenticates using the API key
+    you have provided in your configuration file.
 
+2.  **Registration** - Once your identity has been established, the
+    client registers its automations, i.e., the bot commands it
+    provides and the events it wants to receive, with the Atomist
+    workspaces specified in your configuration.  If Atomist
+    does not recognize your workspace ID or the provided API key is
+    not connected to any member of that workspace, registration will
+    fail and the SDM will exit with an unsuccessful status.
 
+3.  **Listening** - After authentication and registration is completed
+    successfully, the WebSocket connection is established and the
+    client begins listening for incoming messages from the API: bot
+    commands and events fired.
 
+4.  **Shutdown** - When the client receives a shutdown signal,
+    typically `SIGINT` delivered by the PaaS or `Ctrl-C`, it
+    de-registers with the API and gracefully shuts down.
+
+## SDM state
+
+An SDM, once registered, will continue to receive all the events it
+has subscribed to until shuts down or one of the following scenarios
+occurs.
+
+### Multiple identical SDMs register
+
+If another client with the same name and version (typically obtained
+from the `package.json` "name" and "version" properties) registers,
+then all of the registered identical SDMs will receive the events
+in a round-robin fashion.  Each event will only be sent to one of the
+identical SDMs.  This allows you to horizontally scale.
+
+### A different version registers
+
+If another SDM having the same name but different version
+registers, it will begin receiving all of the events for the client
+and any previously registered versions cease receiving events.  Note
+that no version comparisons are done: the _last registration wins_.
+
+If the new client has registered with a policy of "ephemeral" and the
+prior client was registered with a policy of "durable", then when the
+new client shuts down, events again be sent to the "durable"
+registration clients.
+
+The reason for this logic is to allow for production, testing, and
+local use to all coexist without taking the same action multiple
+times.  For example, if you are running an SDM in production but want
+to test something, you can run it locally, steal events for a bit,
+kill the local process, and then traffic will return to the production
+instance.
+
+If you want the same events to be sent to multiple SDMs, just make
+sure the SDMs have different names.
+
+!!! note "Custom Ingestion"
+    Any custom ingestion types can only be registered once within an
+    Atomist workspace.  Therefore it is recommended to register these
+    in a dedicated API client.
+
+## SDM Framework concepts
 
 #### Push Mappings
 
@@ -172,7 +232,7 @@ A `PushTest` is simply a `PushMapping` that returns `boolean`.
 
 ## Code Examples
 
-Let's look at some examples of listeners.
+Let's look at some examples.
 
 ### Issue Creation
 
