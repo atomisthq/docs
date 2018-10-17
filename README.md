@@ -196,7 +196,7 @@ After making changes, you can test them by building the documentation
 in strict mode and running HTMLProofer on the resulting site.
 
 ```
-$ mkdocs build --strict && ./htmlproof.bash
+$ mkdocs build --strict && ./htmlproof.sh
 ```
 
 To review your changes in a browser, you can serve the documentation
