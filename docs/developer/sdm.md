@@ -47,13 +47,14 @@ an SDM that does useful things for Java Spring services.
 
 For "name of the target repository" enter a name for your SDM.
 
-For "target-owner"
-Choose a name for your SDM, and an organization (this corresponds to the GitHub/GitLab organization or BitBucket project you would put the repository under).
+For "target-owner", enter a name for the owner of your project. This corresponds to the 
+GitHub/GitLab organization or BitBucket project you would put the repository under.
+
 The "create sdm" [generator](create.md#generator) will transform the [seed][] according
 to your answers. Because this generator operates in local mode, it will create a project on your
 filesystem.
 
-Look in $HOME/atomist/<your org>/<name> for the new SDM.
+Look in $HOME/atomist/_target-owner_/_name_ for the new SDM.
 
 [sdm-core]: https://github.com/atomist/sdm-core (Atomist SDM - TypeScript)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
