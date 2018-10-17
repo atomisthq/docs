@@ -28,4 +28,8 @@ make it do as much as you want.
 
 ## Seed
 
+{!tbd.md!}
+
 ## Generator
+
+{!tbd.md!}
