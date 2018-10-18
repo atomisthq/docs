@@ -1,11 +1,148 @@
-.md-header {
-    background-color: #172330;
-}
-
 .md-nav__link:active {
     color: #172330;
 }
 
 .md-nav__link:hover {
     color: #172330;
+}
+
+/* OVERRIDES OF MATERIAL THEME IN LIEU OF CUSTOM THEME */
+
+h1, h2, h3, h4, h5 {
+	color: #484848 !important;
+	font-weight: 500 !important;
+}
+
+h1 {
+	margin-bottom: 20px !important;
+}
+
+.md-header {
+	box-shadow: none !important;
+	height: 75px !important;
+}
+
+.md-header-nav {
+	height: 75px !important;
+}
+
+.visit-main-site {
+	font-size: 14px;
+	line-height: 75px;
+	padding-right: 25px;
+	text-align: right;
+}
+
+.md-logo {
+	padding-top: 15px !important;
+	width: 100% !important;
+}
+
+.md-search {
+ padding: 0 !important;
+}
+
+.md-search__inner {
+	padding: 0 !important;
+}
+
+.md-search__input {
+	background-color: #fafafa !important;
+	border-left: 1px solid #e4e4e4;
+	border-right: 1px solid #e4e4e4;
+	font-size: 14px !important;
+	height: 47px;
+	margin-top: 1px !important;
+}
+
+.md-search__icon {
+	top: 13px !important;
+}
+
+.md-header-nav__title {
+	font-size: 14px !important;
+	line-height: 50px !important;
+}
+
+.title-and-search-bar {
+	background-color: #fafafa;
+	border-bottom: 1px solid #e4e4e4;
+	border-top: 1px solid #e4e4e4;
+	height: 50px;
+}
+
+.md-container {
+	padding-top: 75px !important;
+}
+
+.md-main__inner {
+	padding-top: 50px !important;
+}
+
+.md-sidebar {
+	padding: 40px 0 0 0 !important;
+}
+
+.md-sidebar--primary {
+	border-right: 1px solid #e4e4e4;
+}
+
+.md-sidebar--primary .md-nav__item {
+	font-family: brandon-grotesque, sans-serif !important;
+	font-size: 13px !important;
+	font-weight: 700 !important;
+	letter-spacing: 1.5px !important;
+	margin-bottom: 25px;
+	text-transform: uppercase !important;
+}
+
+.md-nav__item--nested .md-nav .md-nav__list {
+	margin-top: 15px !important;
+}
+
+.md-nav__item--nested .md-nav .md-nav__list .md-nav__item {
+	font-family: aktiv-grotesk, sans-serif !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0px !important;
+	margin-bottom: 10px;
+	text-transform: none !important;
+}
+
+.md-nav--secondary {
+	border-left: 5px solid #eaeaea;
+	padding-left: 15px !important;
+}
+
+.md-nav--secondary .md-nav__link {
+	color: #227F7E !important;
+}
+
+.md-nav__title {
+	font-family: brandon-grotesque, sans-serif !important;
+	font-size: 13px !important;
+	font-weight: 700 !important;
+	letter-spacing: 1.5px !important;
+	margin-bottom: 25px;
+	text-transform: uppercase !important;
+}
+
+.md-nav__link--active {
+	color: #227F7E !important;
+}
+
+.md-content__inner {
+	padding: 30px !important;
+}
+
+/* OVERRIDES FOR RESPONSIVE ISSUES INTRODUCED WITH OVERRIDES */
+
+@media only screen and (max-width: 76.1875em) {
+	.md-nav__title {
+		margin-bottom: 0px !important;
+	}
+
+	.md-nav__item {
+		margin-bottom: 0px !important;
+	}
 }

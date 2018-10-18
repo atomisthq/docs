@@ -6,38 +6,47 @@
           {% if config.theme.logo.icon %}
           <i class="md-icon">{{ config.theme.logo.icon }}</i>
           {% else %}
-          <img src="{{ config.theme.logo | url }}" width="24" height="24">
+          <img src="{{ config.theme.logo | url }}">
           {% endif %}
         </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
+
+      <div class="md-flex__cell md-flex__cell--stretch visit-main-site">
+        <a href="https://www.atomist.com" target="_blank">Visit Atomist.com &raquo;</a>
+      </div>
+    </div>
+  </nav>
+  <div class="title-and-search-bar">
+    <div class="md-grid">
+      <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          {% block site_name %}
-          {% if config.site_name == page.title %}
-          {{ config.site_name }}
-          {% else %}
-          <span class="md-header-nav__topic">
+          <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+            {% block site_name %}
+            {% if config.site_name == page.title %}
             {{ config.site_name }}
-          </span>
-          <span class="md-header-nav__topic">
-            {{ page.title }}
-          </span>
+            {% else %}
+            <span class="md-header-nav__topic">
+              {{ config.site_name }}
+            </span>
+            <span class="md-header-nav__topic">
+              {{ page.title }}
+            </span>
+            {% endif %}
+            {% endblock %}
+          </div>
+        </div>
+        <div class="md-flex__cell md-flex__cell--shrink">
+          {% block search_box %}
+          {% if "search" in config["plugins"] %}
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          {% include "partials/search.html" %}
           {% endif %}
           {% endblock %}
         </div>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        {% block search_box %}
-        {% if "search" in config["plugins"] %}
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-        {% include "partials/search.html" %}
-        {% endif %}
-        {% endblock %}
-      </div>
-      <!-- Jess: I don't want to display the GitHub repo link. Only the edit link. -->>
     </div>
-  </nav>
+  </div>
 </header>

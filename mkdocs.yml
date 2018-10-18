@@ -19,12 +19,12 @@ extra:
 theme:
   name: material
   favicon: "img/favicon.ico"
-  logo: img/atomist-logo-horiz-reversed.svg
+  logo: img/atomist-developer-docs-logo.svg
   palette:
-    primary: blue grey
-    accent: blue
+    primary: white
+    accent: teal
   font:
-    text: Roboto
+    text: aktiv-grotesk
     code: Roboto Mono
   custom_dir: "theme"
 extra_css:
@@ -102,5 +102,5 @@ nav:
          - Chat Messages: developer/slack.md
          - Command Line Interface: developer/cli.md
          - Security Model: developer/security.md
-         
+
   - Support: support.md
