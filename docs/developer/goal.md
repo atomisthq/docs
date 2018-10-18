@@ -34,7 +34,7 @@ You can group goals into sets. Here, two goals are grouped: code inspection (but
 You can specify ordering, if some goals should wait for others to succeed. Here, we don't want to start the build until after Autofixes have completed.
 If the autofixes do anything, they'll make a new commit, and we don't bother building this one.
 
-```
+```typescript
     const BuildGoals = goals("build")
         .plan(new Build().with({ builder: mavenBuilder() }))
         .after(autofix);
@@ -43,7 +43,7 @@ If the autofixes do anything, they'll make a new commit, and we don't bother bui
 Finally, you can tell the SDM which goal sets to run on . Here, we set the BaseGoals (inspection and autofix) on every push. Then if 
 this is a Maven project (identified by having a pom.xml), we do the build as well.
 
-```
+```typescript
     sdm.addGoalContributions(goalContributors(
         onAnyPush().setGoals(BaseGoals),
         whenPushSatisfies(IsMaven).setGoals(BuildGoals),
