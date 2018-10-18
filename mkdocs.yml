@@ -19,7 +19,7 @@ extra:
 theme:
   name: material
   favicon: "img/favicon.ico"
-  logo: img/atomist-developer-docs-logo.svg
+  logo: img/atomist-developer-docs-logo.png
   palette:
     primary: white
     accent: teal
