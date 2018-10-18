@@ -8,6 +8,10 @@
 
 /* OVERRIDES OF MATERIAL THEME IN LIEU OF CUSTOM THEME */
 
+body, input {
+    font-family: aktiv-grotesk,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 h1, h2, h3 {
 	color: #484848 !important;
 	font-weight: 500 !important;

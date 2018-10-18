@@ -23,9 +23,6 @@ theme:
   palette:
     primary: white
     accent: teal
-  font:
-    text: aktiv-grotesk
-    code: source-code-pro
   custom_dir: "theme"
 extra_css:
   - stylesheets/extra.css
