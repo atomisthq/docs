@@ -17,6 +17,10 @@ h1 {
 	margin-bottom: 20px !important;
 }
 
+.md-typeset a {
+	color: #227F7E !important;
+}
+
 .md-header {
 	box-shadow: none !important;
 	height: 75px !important;
@@ -135,9 +139,86 @@ h1 {
 	padding: 30px !important;
 }
 
+.md-footer-nav {
+	background-color: #1b2937 !important;
+}
+
+.md-footer-nav__direction {
+	font-family: brandon-grotesque, sans-serif !important;
+	font-size: 11px !important;
+	font-weight: 500 !important;
+	letter-spacing: 1.5px !important;
+	text-transform: uppercase !important;
+}
+
+.md-footer-meta {
+	background-color: #162330 !important;
+	padding: 30px 15px !important;
+	text-align: left;
+}
+
+.md-footer-copyright {
+	color: rgba(255, 255, 255, 0.5) !important;
+	font-family: brandon-grotesque, sans-serif !important;
+	font-size: 11px !important;
+	font-weight: 500 !important;
+	letter-spacing: 1.5px !important;
+	text-transform: uppercase !important;
+}
+
+html .md-footer-meta.md-typeset a.md-footer-social__link {
+	color: rgba(255, 255, 255, 0.7) !important;
+	font-size: 21px;
+	margin-left: 5px;
+}
+
 /* OVERRIDES FOR RESPONSIVE ISSUES INTRODUCED WITH OVERRIDES */
 
+@media only screen and (max-width: 44.9375em) {
+	.md-footer-meta {
+		text-align: center;
+	}
+}
+
 @media only screen and (max-width: 76.1875em) {
+
+	.md-nav__item--nested .md-nav .md-nav__list {
+		margin-top: 0px !important;
+	}
+
+	.md-nav--primary .md-nav__link {
+		padding: 20px 40px 20px 20px !important;
+	}
+
+	.md-nav__source {
+		padding-bottom: 15px !important;
+		padding-top: 15px !important;
+	}
+
+	html .md-nav--primary .md-nav__title {
+		height: auto;
+		line-height: 1;
+		padding: 22px 20px 22px 50px;
+	}
+
+	html .md-nav--primary .md-nav__title--site {
+		background-color: #227F7E !important;
+		color: white !important;
+		padding-left: 20px !important;
+	}
+
+	.visit-main-site {
+		display: none;
+	}
+
+	.md-icon--menu {
+		padding: 20px 5px !important;
+	}
+
+	.md-header-nav__button.md-icon--home, .md-header-nav__button.md-logo {
+		display: inline-block !important;
+	}
+
 	.md-nav__title {
 		margin-bottom: 0px !important;
 	}
