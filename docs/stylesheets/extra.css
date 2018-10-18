@@ -48,10 +48,12 @@ h1 {
 
 .md-logo {
 	padding-top: 15px !important;
+	width: 100% !important;
 }
 
 .md-logo img {
 	height: 35px !important;
+	max-width: 300px !important;
 }
 
 .md-search {
