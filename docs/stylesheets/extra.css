@@ -8,9 +8,14 @@
 
 /* OVERRIDES OF MATERIAL THEME IN LIEU OF CUSTOM THEME */
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3 {
 	color: #484848 !important;
 	font-weight: 500 !important;
+}
+
+h4, h5 {
+	color: #484848 !important;
+	font-weight: 700 !important;
 }
 
 h1 {
@@ -137,6 +142,26 @@ h1 {
 
 .md-content__inner {
 	padding: 30px !important;
+}
+
+.md-typeset .admonition {
+	border-left-color: #217f7e !important;
+}
+
+.md-typeset .admonition.summary > .admonition-title, .md-typeset details.summary > .admonition-title, .md-typeset .admonition.tldr > .admonition-title, .md-typeset details.tldr > .admonition-title, .md-typeset .admonition.summary > summary, .md-typeset details.summary > summary, .md-typeset .admonition.tldr > summary, .md-typeset details.tldr > summary, .md-typeset .admonition.abstract > .admonition-title, .md-typeset details.abstract > .admonition-title, .md-typeset .admonition.abstract > summary, .md-typeset details.abstract > summary {
+	background-color: rgba(34, 127, 126, 0.1) !important;
+}
+
+.md-typeset .admonition > .admonition-title, .md-typeset details > .admonition-title, .md-typeset .admonition > summary, .md-typeset details > summary {
+	background-color: rgba(34, 127, 126, 0.1) !important;
+}
+
+.md-typeset .admonition.summary > .admonition-title::before, .md-typeset details.summary > .admonition-title::before, .md-typeset .admonition.tldr > .admonition-title::before, .md-typeset details.tldr > .admonition-title::before, .md-typeset .admonition.summary > summary::before, .md-typeset details.summary > summary::before, .md-typeset .admonition.tldr > summary::before, .md-typeset details.tldr > summary::before, .md-typeset .admonition.abstract > .admonition-title::before, .md-typeset details.abstract > .admonition-title::before, .md-typeset .admonition.abstract > summary::before, .md-typeset details.abstract > summary::before {
+	color: #217f7e !important;
+}
+
+.md-typeset .admonition > .admonition-title::before, .md-typeset details > .admonition-title::before, .md-typeset .admonition > summary::before, .md-typeset details > summary::before {
+	color: #217f7e !important;
 }
 
 .md-footer-nav {

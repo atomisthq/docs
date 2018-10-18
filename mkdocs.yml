@@ -25,7 +25,7 @@ theme:
     accent: teal
   font:
     text: aktiv-grotesk
-    code: Roboto Mono
+    code: source-code-pro
   custom_dir: "theme"
 extra_css:
   - stylesheets/extra.css
