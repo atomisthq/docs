@@ -105,16 +105,16 @@ Check out some samples of what an Atomist SDM can do:
 [security]: developer/security.md (Atomist Security Model)
 [architecture]: developer/architecture.md (Atomist Architecture)
 
-## Try it out
+## What to do
  
--   If you want to get started using Atomist in your team, with the [built-in
-    chat integrations][lifecycle], go to the [Using
+-   If you want bring the Atomist into your team, you'll get [built-in
+    chat integrations][lifecycle] immediately. Proceed to the [Using
     Atomist][user] page to get Atomist installed in your Slack
     workspace, authorized in GitHub, and connected to your continuous
     integration system.
 
--   If you already are using Atomist and are interested in writing
-    your own SDM, you can go to the [Developer
+-   If you want to develop with Atomist, either for your team or for your
+    own local use (with no enrollment), please skip to the [Developer
     Guide][dev-guide] to learn how to create and run your own
     SDM.
 
