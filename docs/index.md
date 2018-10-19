@@ -105,7 +105,7 @@ Check out some samples of what an Atomist SDM can do:
 [security]: developer/security.md (Atomist Security Model)
 [architecture]: developer/architecture.md (Atomist Architecture)
 
-## What to do
+## How to proceed
  
 -   If you want bring the Atomist into your team, you'll get [built-in
     chat integrations][lifecycle] immediately. Proceed to the [Using

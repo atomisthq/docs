@@ -74,6 +74,7 @@ nav:
           - Project: developer/project.md
       - Commands: developer/commands.md
       - Project Generators: developer/create.md
+      - Fingerprints: developer/fingerprint.md
       - Advanced:
          - SDM Concepts: developer/sdm-concepts.md
          - SDM Configuration: developer/config.md
@@ -96,5 +97,4 @@ nav:
     - Lines of Code: pack/sloc.md
     - Changelog: pack/changelog.md
     - Issue: pack/issue.md
-    - Fingerprints: pack/fingerprint.md
   - Support: support.md

@@ -3,7 +3,7 @@ measure how closely standards are followed. Run them on one repository or all re
 
 ## Installing an inspection from a Pack
 
-Some code inspections are available as part of published SDM functionality. TODO: list some
+{!tbd.md!}
 
 ## Custom Inspections
 
@@ -17,7 +17,7 @@ Start by deciding what your inspection wants to say about a repository. For inst
 Your result might contain the paths of files that have too many lines in them.
 Here, the type is defined as a string array.
 
-```typescript
+```typescript 
 export type FilesWithTooManyLines = string[];
 ```
 
