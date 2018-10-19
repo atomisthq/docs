@@ -382,3 +382,93 @@ their release pages.
 
 [k8-automation-latest]: https://github.com/atomist/k8-automation/releases/latest (k8-automation Latest Release)
 [k8vent-latest]: https://github.com/atomist/k8vent/releases/latest (k8vent Latest Release)
+
+<!--
+
+### Kubernetes
+
+This automation works with [Kubernetes][kube], so you need a
+Kubernetes cluster with a functioning ingress controller, such as
+[ingress-nginx][].
+
+If you do not have access to a Kubernetes cluster, you can create one
+on your local system using [minikube][].  Once you have minikube
+running, you can create an ingress controller in the cluster using the
+ingress add-on.
+
+```console
+$ minikube start
+$ minikube addons enable ingress
+```
+
+[kube]: https://kubernetes.io/ (Kubernetes)
+[ingress-nginx]: https://github.com/kubernetes/ingress-nginx (Ingress nginx)
+[minikube]: https://kubernetes.io/docs/getting-started-guides/minikube/ (Minikube)
+
+## Configuration
+
+You can run k8-sdm in either "cluster-wide" mode or
+"namespace-scoped" mode.  In cluster-wide mode, k8-sdm is able
+to deploy and update applications in any namespace but it requires a
+user with cluster-admin role privileges to install it.  If you only
+have access to admin role privileges in a namespace, you can install
+k8-sdm in namespace-scoped mode, where it will only be able to
+deploy and update resources in that namespace.
+
+## Running
+
+See the [Atomist Kubernetes documentation][atomist-kube] for detailed
+instructions on using Atomist with Kubernetes.  Briefly, if you
+already have an [Atomist workspace][atomist-getting-started], you can
+run the following commands to create the necessary resources in your
+Kubernetes cluster.  Replace `WORKSPACE_ID` with your Atomist
+workspace/team ID and `TOKEN` with a GitHub token with "read:org"
+scopes for a user within the GitHub organization linked to your
+Atomist workspace.
+
+```
+$ kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8-sdm/master/assets/kubectl/cluster-wide.yaml
+$ kubectl create secret --namespace=k8-sdm generic automation \
+    --from-literal=config='{"teamIds":["WORKSPACE_ID"],"token":"TOKEN"}'
+```
+
+[atomist-kube]: https://docs.atomist.com/user/kubernetes/ (Atomist - Kubernetes)
+[atomist-getting-started]: https://docs.atomist.com/user/ (Atomist - Getting Started)
+
+## SDM interface
+
+The KubeDeploy event handler triggers off an SDM Goal with the
+following properties:
+
+JSON Path | Value
+----------|------
+`fulfillment.name` | @atomist/k8-sdm
+`fulfillment.method` | side-effect
+`state` | requested
+
+In addition, it expects the SDM Goal to have a `data` property that
+when parsed as JSON has a `kubernetes` property whose value is an
+object with the following properties:
+
+Property | Required | Description
+---------|----------|------------
+`name` | Yes | Name of the resources that will be created
+`environment` | Yes | Must equal the value of the running k8-sdm instance's `configuration.environment`
+`ns` | No | Namespace to create the resources in, default is "default"
+`imagePullSecret` | No | Name of the Kubernetes image pull secret, if omitted the deployment spec is not provided an image pull secret
+`port` | No | Port the container service listens on, if omitted the deployment spec will have no configured liveness or readiness probe and no service will be created
+`path` | No | Absolute path under the hostname the ingress controller should use for this service, if omitted no ingress rule is created
+`host` | No | Host name to use in ingress rule, only has effect if `path` is provided, if omitted when `path` is provided, the rule is created under the wildcard host
+`protocol` | No | Scheme to use when setting the URL for the service endpoint, "https" or "http", default is "https" if `tlsSecret` is provided, "http" otherwise
+`replicas` | No | Number of replicas (pods) deployment should have
+`tlsSecret` | No | Name of existing [Kubernetes TLS secret][kube-tls] to use when configuring the ingress
+`deploymentSpec` | No | Stringified JSON Kubernetes deployment spec to overlay on top of default deployment spec, it only needs to contain the properties you want to add or override from the default
+`serviceSpec` | No | Stringified JSON Kubernetes service spec to overlay on top of default service spec, it only needs to contain the properties you want to add or override from the default
+
+Full details for the `kubernetes` property can be found in the TypeDoc
+for [`KubeApplication`][kube-app].
+
+[kube-tls]: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls (Kubernetes Ingress TLS)
+[kube-app]: https://atomist.github.io/k8-sdm/interfaces/_lib_k8_.kubeapplication.html (Atomist - KubeApplication - TypeDoc)
+
+-->
