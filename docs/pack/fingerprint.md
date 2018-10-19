@@ -123,4 +123,8 @@ Here, the `sha` field contains whatever you put in the `sha` field of your finge
 
 ## Report on fingerprints
 
+{!tbd.md!}
+
 ## React to changes
+
+{!tbd.md!}
