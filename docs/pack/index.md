@@ -1,4 +1,10 @@
-{!tbd.md!}
+Extension packs bring ready-made integrations for your Atomist SDM.
+
+They are libraries; bring them in with `npm install`.
+
+Create your own with `atomist create extension pack`.
+
+Each pack has its own set of functionality, so check the page for each one for details.
 
 <!--
 ## Example usage

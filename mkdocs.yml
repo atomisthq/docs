@@ -45,8 +45,6 @@ nav:
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: lifecycle.md
-      - Spring: user/spring.md
-      - Kubernetes: user/kubernetes.md
       - Supported Integrations: user/integrations.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
@@ -76,19 +74,6 @@ nav:
           - Project: developer/project.md
       - Commands: developer/commands.md
       - Project Generators: developer/create.md
-      - Extensions:
-         - Extension Packs: pack/index.md
-         - Spring: pack/spring.md
-         - Kubernetes: pack/kubernetes.md
-         - Cloud Foundry: pack/pcf.md
-         - Node: pack/node.md
-         - Sonarqube: pack/sonarqube.md
-         - Checkstyle: pack/checkstyle.md
-         - Docker: pack/docker.md
-         - Lines of Code: pack/sloc.md
-         - Changelog: pack/changelog.md
-         - Issue: pack/issue.md
-         - Fingerprints: pack/fingerprint.md
       - Advanced:
          - SDM Concepts: developer/sdm-concepts.md
          - SDM Configuration: developer/config.md
@@ -99,5 +84,17 @@ nav:
          - Chat Messages: developer/slack.md
          - Command Line Interface: developer/cli.md
          - Security Model: developer/security.md
-
+  - Extensions:
+    - Extension Packs: pack/index.md
+    - Spring: pack/spring.md
+    - Kubernetes: pack/kubernetes.md
+    - Cloud Foundry: pack/pcf.md
+    - Node: pack/node.md
+    - Sonarqube: pack/sonarqube.md
+    - Checkstyle: pack/checkstyle.md
+    - Docker: pack/docker.md
+    - Lines of Code: pack/sloc.md
+    - Changelog: pack/changelog.md
+    - Issue: pack/issue.md
+    - Fingerprints: pack/fingerprint.md
   - Support: support.md
