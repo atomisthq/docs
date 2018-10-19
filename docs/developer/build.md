@@ -9,7 +9,11 @@ This page shows how to
 
 ## The Build goal
 
-Atomist provides a goal out of the box that is designed to handle building software: the `Build` goal. The build goal does a couple of things
+Atomist provides a goal that is designed to handle building software: the `Build` goal. 
+
+It lives in the [Build Pack][build-pack], so run `npm install @atomist/sdm-pack-build` to get it.
+
+The build goal does a couple of things
 
 * Invoke a builder that builds your project
 * Link the built artifact
@@ -32,6 +36,7 @@ Builders implement the logic that is needed to build your software. Out of the b
 
 * [Maven](#maven)
 * [Gradle](#gradle)
+* [build-pack]: ../pack/build.md
 * NodeJS using [NPM](#npm)
 * Generic builder that calls a terminal script
 
