@@ -87,6 +87,7 @@ nav:
          - Security Model: developer/security.md
   - Extensions:
     - Extension Packs: pack/index.md
+    - Build: pack/build.md
     - Spring: pack/spring.md
     - Kubernetes: pack/kubernetes.md
     - Cloud Foundry: pack/pcf.md
