@@ -45,7 +45,7 @@ This page starts after you have [created][create] a Software Delivery Machine (S
 What is missing from this page? Please tell me! There's a #docs channel in [Atomist community Slack][join], 
 or you can create an issue on [this repository][this-repo].
 
-[join]: join.atomist.com (Atomist community Slack)
+[join]: https://join.atomist.com (Atomist community Slack)
 [this-repo]: https://github.com/atomist/docs (Docs repository)
 [create]: sdm.md#creating-an-sdm-project (Create an SDM)
 [SDM]: sdm.md
