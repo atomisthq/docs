@@ -45,7 +45,7 @@ nav:
       - Atomist Dashboard: user/dashboard.md
       - Source Control: user/github.md
       - Slack: user/slack.md
-      - Built-in Chat Integrations: lifecycle.md
+      - Built-in Chat Integrations: user/lifecycle.md
       - Supported Integrations: user/integrations.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:

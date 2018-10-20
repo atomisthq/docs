@@ -77,4 +77,4 @@ Delivery machine!
 [atomist-ci]: ci.md (Atomist and Continuous Integration)
 [atomist-kube]: ../pack/kubernetes.md (Atomist and Kubernetes)
 [dev]: ../developer/sdm.md (Atomist Developer Guide)
-[configure-lifecycle]: ../lifecycle.md (Atomist Lifecycle Messages)
+[configure-lifecycle]: ../user/lifecycle.md (Atomist Lifecycle Messages)

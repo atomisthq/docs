@@ -121,4 +121,4 @@ Check out some samples of what an Atomist SDM can do:
 [user]: user/index.md (Atomist User Guide)
 [quick-start]: quick-start.md (Atomist Developer Quick Start)
 [dev-guide]: developer/sdm.md (Atomist Automations Developer Guide)
-[lifecycle]: lifecycle.md (Built-in Chat Integrations)
+[lifecycle]: user/lifecycle.md (Built-in Chat Integrations)

@@ -108,7 +108,7 @@ See also:
 
 *  [Invoking commands](commands.md#run-your-command)
 
-[link]:../lifecycle.md#linked-channels (Linked Channels)
+[link]:../user/lifecycle.md#linked-channels (Linked Channels)
 [project-root]: config.md#project-root (Atomist project root configuration)
 
 ## Adding parameters to the code transform command

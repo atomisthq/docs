@@ -11,7 +11,7 @@ global automations, such as Atomist [lifecycle messages][lifecycle] showing
 commit, pull request, and other activity through actionable messages
 in your chat client.
 
-[lifecycle]: ../lifecycle.md (Atomist Lifecycle Messages in chat)
+[lifecycle]: ../user/lifecycle.md (Atomist Lifecycle Messages in chat)
 
 ### GraphQL
 
