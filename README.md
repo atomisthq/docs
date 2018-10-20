@@ -121,9 +121,9 @@ $ brew install python3
 or on GNU/Linux
 
 ```
-$ sudo apt-get install python3
+$ sudo apt-get install python3.6
 $ curl -O https://bootstrap.pypa.io/get-pip.py
-$ sudo python3.5 get-pip.py
+$ sudo python3.6 get-pip.py
 ```
 
 Then create a [virtual environment][venv] to host the dependencies:
