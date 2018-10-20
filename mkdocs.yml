@@ -86,6 +86,7 @@ nav:
          - Chat Messages: developer/slack.md
          - Command Line Interface: developer/cli.md
          - Security Model: developer/security.md
+      - Troubleshooting: developer/troubleshoot.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Build: pack/build.md

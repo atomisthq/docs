@@ -15,6 +15,21 @@ Everything is open source. This SDM can:
 
 {!tbd.md!}
 
+## atomist feed
+
+When your SDM is running in local mode in the background, it wants to send you messages. When it hears about a commit
+to one of your projects, it sends messages about that. When you run a command with the `atomist` CLI, it sends messages
+both to where you ran the command and to the feed.
+
+Type `atomist feed` to start up a terminal-based message receiver.
+
+Some of these messages contain action-links. These correspond to buttons on chat messages. In iTerm2 on Mac, I can Ctrl-click
+on these to open them, which triggers my SDM to run the action. It also works to paste the link into the browser.
+In the browser, you'll see the JSON response. Check your `atomist feed` window to see messages about the results of the action.
+
+See also:
+
+*  [troubleshooting](troubleshoot.md#atomist-feed)
 
 ## Differences from team mode
 
