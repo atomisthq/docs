@@ -13,7 +13,7 @@ Atomist provides a goal that is designed to handle building software: the `Build
 
 It lives in the [Build Pack][build-pack], so run `npm install @atomist/sdm-pack-build` to get it.
 
-The build goal does a couple of things
+The build goal does a couple things:
 
 * Invoke a builder that builds your project
 * Link the built artifact
@@ -30,13 +30,14 @@ const build = new Build().with({
 This goal defines a build that will be handled by Maven.
 Be sure to add the goal to your [goal set](set-goals.md)
 
+[build-pack]: ../pack/build.md
+
 ## Builders
 
 Builders implement the logic that is needed to build your software. Out of the box, Atomist provides a couple of builders for:
 
 * [Maven](#maven)
 * [Gradle](#gradle)
-* [build-pack]: ../pack/build.md
 * NodeJS using [NPM](#npm)
 * Generic builder that calls a terminal script
 
@@ -107,7 +108,7 @@ The Maven builder will issue a `gradle clean build` (or use `gradlew` if that's 
 
 ### NPM
 
-If you want to build NodeJS projects using NPM, Atomist can certainly help you with that. In order to do so, define your `Build` goal like this, using the `nodeBuilder` available in `sdm-pack-node`:
+If you want to build NodeJS projects using NPM, Atomist can certainly help you with that. In order to do so, define your `Build` goal like this, using the `nodeBuilder` available in `@atomist/sdm-pack-node`:
 
 ``` typescript
 const build = new Build().with({
