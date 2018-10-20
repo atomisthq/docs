@@ -8,5 +8,5 @@ function die(){
 . ~/.venvs/userdocs/bin/activate || die "virtual env activation failed"
 pip install -r requirements.txt || die "pip install failed"
 mkdocs build --strict || die "mkdocs build failed"
-./htmlproof.bash || die "HTMLProofer failed"
+./htmlproof.sh || die "HTMLProofer failed"
 mkdocs serve

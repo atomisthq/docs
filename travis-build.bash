@@ -25,7 +25,7 @@ function site-build() {
     # Give them all different names than they had that day.
     ./rename-css.sh
     
-    if ! ./htmlproof.bash; then
+    if ! ./htmlproof.sh; then
         err "htmlproofing failed"
         return 1
     fi
