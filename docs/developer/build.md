@@ -121,6 +121,8 @@ In this case the builder will execute an `npm run build` command in the root of 
 
 ## Storing build logs
 
+{!tbd.md!}
+
 ## Linking the artifact produced by the build
 
 In order to capture the output deliverable of a build you can use the `Artifact` goal.
