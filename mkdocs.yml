@@ -80,6 +80,7 @@ nav:
          - SDM Concepts: developer/sdm-concepts.md
          - SDM Configuration: developer/config.md
          - Push Tests: developer/push-test.md
+         - Generic Builder: developer/spawn-builder.md
          - HTTP Calls in an SDM: developer/http.md
          - Events: developer/events.md
          - Custom GraphQL Queries: developer/graphql.md

@@ -39,7 +39,7 @@ Builders implement the logic that is needed to build your software. Out of the b
 * [Maven](#maven)
 * [Gradle](#gradle)
 * NodeJS using [NPM](#npm)
-* Generic builder that calls a terminal script
+* [Generic builder](spawn-builder.md) that calls a terminal script
 
 <!-- TODO: link to pages that detail each -->
 
@@ -119,12 +119,10 @@ const build = new Build().with({
 
 In this case the builder will execute an `npm run build` command in the root of your project.
 
-### Generic builder that calls a terminal script
-
-{!tbd.md!}
+## Storing build logs
 
 ## Linking the artifact produced by the build
 
 In order to capture the output deliverable of a build you can use the `Artifact` goal.
- When added to a goalset, it will be fulfilled by the `Build` goal after successful completion of a build and is able to store the artifact in a more permanent store. 
+ When added to a goalset, it will be fulfilled by the `Build` goal after successful completion of a build that is able to store the artifact in a more permanent store. 
 The `Artifact` goal will also contain a link to the deliverable, which will be displayed next to the goal indicator in the messaging channel.
