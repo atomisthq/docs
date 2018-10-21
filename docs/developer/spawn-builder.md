@@ -4,9 +4,19 @@ This page describes creating a generic builder for your [Build Goal][build-goal]
 You can construct a Builder around any shell command that can run in whatever environment your SDM runs in.
 This uses the Node `child_process` library to spawn another process for each command you supply.
 
+For instance, this documentation site uses a builder that runs these commands:
+
+``` typescript
+[
+    "pip install -r requirements.txt",
+    "mkdocs build",
+]
+```
+
 ## spawnBuilder
 
-To do this, use the`spawnBuilder` function in the Build pack. It accepts a [SpawnBuilderOptions][sbo-apidoc] object,
+To turn a set of operating system commands into a Builder, use the`spawnBuilder` function in the Build pack. 
+It accepts a [SpawnBuilderOptions][sbo-apidoc] object,
 with the following necessary properties:
 
 * name: a string that helps you identify the builder
@@ -20,14 +30,14 @@ The `commands` property contains a list of SpawnCommands to run, sequentially, i
 
 If the command you want to run has no quotes or spaces in their arguments, pass a string to `asSpawnCommand`:
 
-`asSpawnCommand("make compile")`
+`asSpawnCommand("pip install -r requirements.txt")`
 
 Otherwise, create a [SpawnCommand][sc-apidoc] object for each command, with a single-word `command` and the arguments separated:
 
 ``` typescript
 { 
-    command: "make", 
-    argument: ["compile"],
+    command: "pip", 
+    argument: ["install", "-r", "requirements.txt"],
 }
 ```
 
