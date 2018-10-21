@@ -28,7 +28,7 @@ const build = new Build().with({
 ```
 
 This goal defines a build that will be handled by Maven.
-Be sure to add the goal to your [goal set](set-goals.md)
+Be sure to add the goal to your [goal set](set-goals.md).
 
 [build-pack]: ../pack/build.md
 
