@@ -5,7 +5,16 @@ delivery flow.
 
 An SDM allows you to set **goals** on push. Goals correspond to the
 actions that make up a delivery flow, such as build and
-deployment. Goals are not necessarily sequential--some may be executed
+deployment. 
+
+The goals set on a push are not the same every time. The delivery flow is not the same
+for every change! 
+
+Goals aren't configured per repository. They are chosen dynamically, in response to any
+push in any repository, based on the code and the context. What kind of project is it?
+What branch was pushed? Is there a pull request? Which files changed?
+
+Goals are not necessarily sequential--by default they execute
 in parallel--but certain goals, such as deployment, have preconditions
 (goals that must have previously completed successfully).
 
@@ -13,46 +22,35 @@ In Slack, a push notification with several goals looks like this:
 
 ![Push Notification With Goals](img/push-notification-with-goals.png)
 
-Set goals wherever you configure your SDM, probably in `lib/machine/machine.ts`. This example comes
-from [a Spring SDM](https://github.com/atomist-seeds/spring-sdm/blob/master/lib/machine/machine.ts).
+This page shows how to
+*  create goals
+*  teach them what to do
+*  require approval
 
-You can instantiate create goals and add implementations to them. Here, an Autofix goal has one autofix registered on it; it will add license headers to any 
+The next page describes how to [set goals for each push][setting-goals].
+
+
+[setting-goals]: set-goals.md (Setting Goals in an SDM)
+
+## Create goals
+
+Set up goals wherever you configure your SDM, probably in `lib/machine/machine.ts`. This example comes
+from [an SDM for Java Spring Boot web services](https://github.com/atomist-seeds/spring-sdm/blob/master/lib/machine/machine.ts).
+
+A [Goal][goal-apidoc] object supplies its name, descriptions for its various possible states, and an implementation.
+
+[goal-apidoc]: https://atomist.github.io/sdm/classes/_lib_api_goal_goal_.goal.html "API docs for Goal"
+
+There are several built-in goal implementations, or you can [create your own](#custom-goals.md). 
+
+For instance, an Autofix goal has one autofix registered on it; it will add license headers to any 
 code file that doesn't have one yet, and make a commit.
 
 ```typescript
     const autofix = new Autofix().with(AddLicenseFile);
 ```
 
-You can group goals into sets. Here, two goals are grouped: code inspection (but no code inspections are registered) and the Autofix goal.
-
-```typescript
-    const BaseGoals = goals("checks")
-        .plan(new AutoCodeInspection())
-        .plan(autofix);
-```
-
-You can specify ordering, if some goals should wait for others to succeed. Here, we don't want to start the build until after Autofixes have completed.
-If the autofixes do anything, they'll make a new commit, and we don't bother building this one.
-
-```typescript
-    const BuildGoals = goals("build")
-        .plan(new Build().with({ builder: mavenBuilder() }))
-        .after(autofix);
-```
-
-Finally, you can tell the SDM which goal sets to run on . Here, we set the BaseGoals (inspection and autofix) on every push. Then if 
-this is a Maven project (identified by having a pom.xml), we do the build as well.
-
-```typescript
-    sdm.addGoalContributions(goalContributors(
-        onAnyPush().setGoals(BaseGoals),
-        whenPushSatisfies(IsMaven).setGoals(BuildGoals),
-    ));
-```
-
-Check the page about [Setting Goals][setting-goals] for more details.
-
-[setting-goals]: set-goals.md (Setting Goals in an SDM)
+After you've created some goals, [choose when to set them][setting-goals].
 
 ## Built-in Goals
 
@@ -108,5 +106,24 @@ If no inspections are registered, the goal will succeed. If any registration's `
 
 ## Custom Goals
 
-{!tbd.md!}
+Define your own goal, with a name and descriptions and a function for how to execute it.
+
+Use the `createGoal` function from @atomist/sdm; pass it an object with a `displayName` and as many properties out of [GoalDefinition][goaldef-apidoc] as you choose.
+Also pass a function to call when it's time to execute the goal. That function can return void or an [ExecuteGoalResult][egr-apidoc].
+
+For example:
+
+``` typescript
+const releaseDocs = createGoal(
+    { displayName: "Release Docs", preApprovalRequired: true }, 
+    async (inv: GoalInvocation) => {
+        // do what is needed
+        return { code: 0, targetUrl: "https://where-i-put-them" };
+    });
+```
+
+[goaldef-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_goal_.goaldefinition.html (GoalDefinition API Doc)
+[egr-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_executegoalresult_.executegoalresult.html (ExecuteGoalResult API Doc)
+
+### Requiring approval
 
