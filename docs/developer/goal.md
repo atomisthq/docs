@@ -23,6 +23,7 @@ In Slack, a push notification with several goals looks like this:
 ![Push Notification With Goals](img/push-notification-with-goals.png)
 
 This page shows how to
+
 *  create goals
 *  teach them what to do
 *  require approval
@@ -41,7 +42,7 @@ A [Goal][goal-apidoc] object supplies its name, descriptions for its various pos
 
 [goal-apidoc]: https://atomist.github.io/sdm/classes/_lib_api_goal_goal_.goal.html "API docs for Goal"
 
-There are several built-in goal implementations, or you can [create your own](#custom-goals.md). 
+There are several built-in goal implementations, or you can [create your own](#custom-goals). 
 
 For instance, an Autofix goal has one autofix registered on it; it will add license headers to any 
 code file that doesn't have one yet, and make a commit.
