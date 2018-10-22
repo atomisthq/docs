@@ -67,8 +67,7 @@ turns those into branches, pull requests, or automatic commits on every deviatin
 and then keep it there.
 
 Your SDM gives you something else: start new projects with the right code and setup, every time. Atomist generators
-start from a real, working project and use code transforms to construct a starting point in a new repository. Set up
-any other 
+start from a real, working project and use code transforms to construct a starting point in a new repository. 
 
 Your SDM can respond to [more events][events], and to custom events that you send. You can query your correlated events
 using GraphQL. You can build chat commands, with updating messages and adding action buttons. 
