@@ -56,7 +56,7 @@ and puts the result in a new repository.
 
 #### push event
 
-{!tbd.md!}
+the most important event in delivery automation, a push represents new code arriving in a repository. Normally (in team mode) this is triggered when someone pushes commits to the central version control repository. In local mode, a push event is triggered on a commit.
 
 #### seed
  the starting point for a generator. A seed is a real project that serves as a model for new projects.
