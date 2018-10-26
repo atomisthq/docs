@@ -128,7 +128,6 @@ event, navigating the data model's properties and relationships to
 connect related data elements like pushes, repositories, and CI
 builds.
 
-```
 !!! note
     When specifying the filename, the `.graphql` extension is optional.
 
