@@ -1,9 +1,11 @@
+This page describes enrollment with Atomist as a service.
+
 Atomist is here to help you smooth your development flow.  Start with
 our web console; see consolidated event notifications.  Add ChatOps
 with Slack if you have it.  Spawn your own software delivery machine,
 and integrate with other tools as you choose.
 
-This page describes enrollment with Atomist as a service. When you
+When you
 enroll in the Atomist service, you get built-in automations such as
 Lifecycle Messages (Slack notifications on code push, PR, issue etc
 with action buttons) and commands like "create issue". And your own

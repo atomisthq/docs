@@ -5,6 +5,8 @@ Atomist workspace.
 
 ![See the nice buttons for GraphQL and Workspace Settings](img/dashboard-overview.png)
 
+## Workspace
+
 ## GraphQL
 
 {!tbd.md!}

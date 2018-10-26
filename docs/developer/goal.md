@@ -30,7 +30,6 @@ This page shows how to
 
 The next page describes how to [set goals for each push][setting-goals].
 
-
 [setting-goals]: set-goals.md (Setting Goals in an SDM)
 
 ## Create goals
