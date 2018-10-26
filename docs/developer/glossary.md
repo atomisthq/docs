@@ -58,8 +58,8 @@ Other examples include [project creation](create.md), [issue creation](../user/l
  this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](local.md#directory-structure)
 
 #### dashboard
- there are many dashboards in the world. This one lives at [app.atomist.com](https
-//app.atomist.com), and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
+ there are many dashboards in the world. This one lives at [app.atomist.com](https://app.atomist.com), 
+and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
 
 #### skills
  another name for commands. Skills are things Atomist knows how to do.
