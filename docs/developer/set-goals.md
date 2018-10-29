@@ -40,7 +40,9 @@ this is a Maven project (identified by having a pom.xml), we do the build as wel
     );
 ```
 
-## Push Tests
+## PushRule
+
+## PushTest
 
 Push test predicates are easy to write using the Atomist API. For example:
 

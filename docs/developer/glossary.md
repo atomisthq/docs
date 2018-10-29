@@ -1,20 +1,16 @@
 #### Atomist
  1. the company that produces this spectacular glossary. 
- 2. a development automation platform, consisting of a service, a framework, and libraries to help you automate your software delivery (among other things)
+ 2. a development automation platform, consisting of a service, a framework, and libraries to help you automate your software delivery, your way.
 
-#### Atomist projects directory
- this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](local.md#directory-structure)
+#### projects directory
+ (or "Atomist projects directory") this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](local.md#directory-structure)
 
 #### Atomist service
  the part of the Atomist platform that is operated by Atomist the company
  the event hub, GraphQL endpoint, and dashboard. Check [architecture]() page for more information.
 
-#### This includes delivery automation
- getting new code through all its checkpoints and into production. 
-Other examples include [project creation](create.md), [issue creation](../user/lifecycle.md#issue), and code [maintenance](transform.md).
-
-#### atomist command line utility (CLI)
- a program that you install on your computer in order to run an SDM. It also does various other atomist-related things, especially in local mode. [more info](cli.md)
+#### command line utility (CLI)
+ (or "atomist command line") a program that you install on your computer in order to run an SDM. It also does various other atomist-related things, especially in local mode. [more info](cli.md)
 
 #### code transform
  a function that operates on a project, changing the code inside it. [more info](transform.md)
@@ -33,7 +29,10 @@ and it gives you access to some notifications and the settings for your Atomist 
  in this guide, delivery is about moving new code into production, through each of the fixes, checks, builds, publishments, deployments, and approvals that are necessary in your organization.
 
 #### development automation
- programs that make the work of software development smoother. 
+ programs that make the work of software development smoother. This includes delivery automation: 
+ getting new code through all its checkpoints and into production. 
+ Other examples include [project creation](create.md), [issue creation](../user/lifecycle.md#issue),
+  and code [maintenance](transform.md).
 
 #### feed
  (or "atomist feed" or "SDM feed") a place for a local-mode SDM to send you messages and updates, since it does not have access to chat. [more info](cli.md#atomist-feed)
@@ -83,3 +82,86 @@ a production environment within your network. [more info](team.md)
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist. [more info](../user/dashboard.md#workspace)
+
+#### community Slack
+this Slack workspace is free for everyone to [join](https://join.atomist.com). Here, you can see Atomist in action
+ on our own [open source projects](https://github.com/atomist). Ask us questions and discuss what you'd like to do 
+ or see with Atomist.
+
+#### code inspection
+
+like an of automated code review; a function that looks at the code in a project and produces comments. Atomist can run them
+after every push. [more info](inspect.md)
+
+#### goals
+
+steps to execute after a push. These are set by a software delivery machine. [more info](goal.md)
+
+#### cortex
+
+a database where Atomist stores correlated events 
+
+#### code transform 
+
+an automated code change. Write a function to change code, and apply it to one project or many projects, or after every commit. [more info](transform.md)
+
+#### automations
+
+in general, an automation is anything that a program does so that you don't have to. In this guide, an automation is something that Atomist runs for you. You can create automations (functions) and then have 
+Atomist run them when events happen or on demand.
+
+#### lifecycle
+
+in general, lifecycle means the stages in any process. In this guide, we talk about automations triggered in different parts of the software development lifecycle. _Lifecycle messages_ are the built-in notifications that the Atomist bot sends to chat 
+to describe issue, pull request, issue comment, and push events (along with build, goal, and other events correlated with the push). [more info](../user/lifecycle.md)
+
+#### listener
+
+the SDM framework lets you register listeners to various useful events. [check the whole list](registration.md#listeners)
+
+#### extension pack
+
+a collection of integrations or useful functions that can be added to an SDM. [more info](../pack/index.md)
+
+#### autofix
+
+a code transform that is applied every push. [more info](autofix.md)
+
+#### fingerprint
+
+a distilled piece of important information about the code at a particular time. They can be compared to notice when a
+change is significant in a particular way. [more info](fingerprint.md)
+
+#### push impact
+
+a function that reacts to a change in code. It can do anything: send a message to chat, for instance. [more info](goal.md#pushimpact)
+
+#### goal approval
+
+goals can pause the work on a particular delivery flow, pending a human telling them to proceed.
+A button appears on the push notification in chat. [more info](goal.md#requiring-approval)
+
+#### push notification
+
+the message that atomist bot sends to chat after each push event. It gets updated to include information about builds, goal, tags, deployments, and more. [more info](../user/lifecycle.md#push)
+
+#### registration
+
+an object that provides instructions to an SDM or a goal. [more info](registration.md)
+
+#### PushRule
+
+a specification for goals to set on a given push. [more info](set-goals.md#pushrule)
+
+#### PushTest
+
+a function that decides whether a particular push is relevant. It can look at the code and return a boolean. [more info](set-goals.md#pushtest)
+
+#### goal preconditions
+
+one goal can wait for another goal (or goals) to complete before starting. [more info](set-goals.md#preconditions)
+
+#### channel link
+
+inside a chat channel, you can link a repository to that channel. The Atomist bot will then send messages about 
+that repository to the channel. [more info](../user/lifecycle.md#linked-channels)

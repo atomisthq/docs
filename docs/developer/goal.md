@@ -94,7 +94,38 @@ If no inspections are registered, the goal will succeed. If any registration's `
 
 ### PushImpact
 
-{!tbd.md!}
+This allows you to react to the code, with information
+about the changes in the given push.
+
+For example, the following function lists changed files to any linked
+Slack channels for the repo:
+
+```typescript
+export const listChangedFiles: PushImpactRegistration = {
+    action(i: PushImpactListenerInvocation) {
+        return i.addressChannels(`Files changed:\n${i.filesChanged.map(n => "- `" + n + "`").join("\n")}`);
+    },
+    name: "List files changed",
+};
+```
+
+If you don't have a custom name or PushTest, you can use the following shorthand:
+
+
+```typescript
+export const listChangedFiles = i => i.addressChannels(`Files changed:\n${i.filesChanged.map(n => "- `" + n + "`").join("\n")}`);
+
+```
+
+Add then create a goal:
+
+```typescript
+const pushImpactGoal = new PushImpact().with(listChangedFiles)
+```
+
+> If your reaction is essentially a review--for example, it's associated
+> with a known problem in a particular file location--use a
+> `CodeInspectionRegistration` rather than a `PushImpactRegistration`.
 
 ### Build
 

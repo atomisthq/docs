@@ -31,7 +31,7 @@ To do all this, these higher-level concepts are relevant:
 
 -   [Setting up your system][prereq] to develop and run SDMs
 -   the `atomist` [command line tool][cli]
--   [Software Delivery Machine][sdm] organization
+-   your [Software Delivery Machine][sdm]
 -   [Commands][command]
 -   [Goals][goal]
 -   the [Project][project] interface

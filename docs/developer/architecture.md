@@ -1,10 +1,13 @@
-It all starts with a software delivery machine of your very own.  An
+It all starts with a software delivery machine of your very own. That can be 
+for your team or for you personally--one of each is good.
+
+ An
 Atomist Software Delivery Machine (SDM) provides a high-level
 interface for you to take action when things happen.  In much the same
-way your CI build kicks off when you push to your repository, Atomist can
+way your continuous integration build kicks off when you push to your repository, Atomist can
 execute tasks like security scans, documentation publication, release
 creation, and deployment.  Because you're using a real programming
-language, not YAML or Bash, and you have access to a real ecosystem,
+language, not YAML or Bash, and because you have access to a real ecosystem,
 Node.js, you can create the richest delivery experience you can
 imagine.
 
@@ -58,7 +61,7 @@ also executable from your command line.  Atomist
 provides all the infrastructure needed to recognize commands, collect
 parameters, execute the code, and respond.  This lets you focus on
 writing your command code, not boilerplate code and ceremony
-around running bots. Instead of shell scripts that are useful to you, write commands
+around running bots. Instead of shell scripts that are useful only to you, write commands
 that help your whole team.
 
 

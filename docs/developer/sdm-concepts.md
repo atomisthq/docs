@@ -288,7 +288,7 @@ The second scenario is usually more important, as it is possible to
 create a repository without any source code or a master branch, which
 isn't enough to work with for common actions.
 
-#### Examples
+#### Example
 
 The following example publishes a message to the `#general` channel in
 Slack when a new repo has been created:
@@ -316,44 +316,6 @@ sdm.addNewRepoWithCodeActions(
       suggestAddingCloudFoundryManifest,
       PublishNewRepo)
 ```
-
-##### CodeActionRegistration interface
-
-This registration allows you to react to the code, with information
-about the changes in the given push.
-
-For example, the following function lists changed files to any linked
-Slack channels for the repo:
-
-```typescript
-export const listChangedFiles: PushReactionRegistration = {
-    action(i: PushImpactListenerInvocation) {
-        return i.addressChannels(`Files changed:\n${i.filesChanged.map(n => "- `" + n + "`").join("\n")}`);
-    },
-    name: "List files changed",
-};
-```
-
-If you don't have a custom name or PushTest, you can use the following shorthand:
-
-
-```typescript
-export const listChangedFiles = i => i.addressChannels(`Files changed:\n${i.filesChanged.map(n => "- `" + n + "`").join("\n")}`);
-
-```
-
-Add in an SDM definition as follows:
-
-```typescript
-sdm.addPushReactions(listChangedFiles)
-```
-
-> If your reaction is essentially a review--for example, it's associated
-> with a known problem in a particular file location--use a
-> `ReviewerRegistration` rather than a `PushReactionRegistration`.
-
-!!! important
-    You must have set a `PushReactionGoal` for push reactions to be invoked
 
 ## Generators
 

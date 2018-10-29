@@ -7,7 +7,7 @@ Start with our code and add what you choose.
 [team]: team.md (Atomist SDM Team Mode)
 
 This section documents creating, building, and running an SDM,
-discusses each part of the SDM lifecycle, and details the
+and details the
 structure and organization of a typical SDM project.
 
 To get started in [local mode][local], make sure you have:
@@ -34,9 +34,7 @@ For the quickest path to seeing an SDM do something, use the [Quick Start][quick
 
 ## Creating an SDM project
 
-The Atomist CLI will generate an empty SDM for you. We
-suggest using the [empty-sdm][seed] project as a [seed](create.md#seed) for
-your project. 
+The [Atomist CLI][cli] will generate a starter SDM for you.
 
 ```
 atomist create sdm
@@ -47,7 +45,7 @@ an SDM that does useful things for Java Spring services.
 
 For "name of the target repository" enter a name for your SDM.
 
-For "target-owner", enter a name for the owner of your project. This corresponds to the 
+For "target-owner" enter a name for the owner of your project. This corresponds to the 
 GitHub/GitLab organization or BitBucket project you would put the repository under.
 
 The "create sdm" [generator](create.md#generator) will transform the [seed][] according
@@ -75,7 +73,7 @@ functionality in the SDM framework.
 
 Run `npm install` first so that your IDE will see library code. In Node, all dependencies
 are stored within the project, under the directory `node_modules`. `npm` is the dependency manager 
-that gets them there. This directory is listed in `.gitignore`, so it won't be committed.
+that gets them there. The node_modules directory is listed in `.gitignore`, so it won't be committed.
 
 ### index.ts
 
@@ -84,7 +82,7 @@ The `configuration` object has opportunities for many, many configuration option
 or check the [API Docs][configuration-api-doc] if you're curious.
 
 The important part, where you're going to add to your personal SDM, is the function passed to `configureSdm` in `configuration.postProcessors`. 
-Unless you change it that function is called `machine`.
+Unless you change it, that function is called `machine`.
 
 ## machine.ts
 
@@ -145,6 +143,11 @@ npm run autostart
 When you deploy your SDM to production, check the recommendations under [Deploying your SDM][prod].
 
 [prod]: sdm-deploy.md#production (SDM Production Deployment Considerations)
+
+## Stop
+
+Control-C will stop the client.  Restart it after code changes with
+`atomist start` again.
 
 ## Project structure
 
@@ -215,14 +218,11 @@ The `test` directory contains the automated tests for the project.
 Typically these are unit tests written using [mocha][]
 and [power-assert][].
 
+## Next steps
+
+Proceed to [add some functionality][add-functionality] to your SDM.
+
 [mocha]: https://mochajs.org/ (Mocha)
 [power-assert]: https://github.com/power-assert-js/power-assert#readme (power-assert)
-
-<!--
-## Debugging with Visual Studio Code
--->
-
-## Stop
-
-Control-C will stop the client.  Restart it after code changes with
-`atomist start` again.
+[cli]: cli.md (Atomist command-line utility)
+[add-functionality]: sdm-construct.md (Adding Functionality)
