@@ -3,7 +3,11 @@ In team mode, your SDM connects to the Atomist service.
 
 ## What team mode gives you
 
+{!tbd.md!}
+
 ## What is necessary to enable team mode
+
+{!tbd.md!}
 
 ## See your SDM registration
 
