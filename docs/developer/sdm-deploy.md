@@ -154,6 +154,19 @@ docker run --rm --mount source=$HOME/.atomist,target=/root/.atomist,type=bind yo
 The Dockerfile supplied in the seeds runs the SDM in development mode. Change NODE_ENV to [production][#production-mode] and rebuild the container
 for production deployment, so that when your SDM goes down or restarts, events will be queued.
 
+#### Deploying to Kubernetes
+
+If you deploy to kubernetes, you'll need kubectl installed. Add this to your Dockerfile:
+
+```
+RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.8.12/bin/linux/amd64/kubectl \
+    && chmod +x /usr/local/bin/kubectl \
+    && kubectl version --client
+```
+
+You may prefer a later release of kubectl. I won't keep this documentation up-to-date on that.
+
+
 [docker-build]: https://docs.docker.com/engine/reference/builder/ (Dockerfile Reference)
 [dockerfile-in-seed]: https://github.com/atomist-seeds/empty-sdm/blob/master/Dockerfile (Dockerfile from an SDM seed)
 [dockerignore-in-seed]: https://github.com/atomist-seeds/empty-sdm/blob/master/.dockerignore (dockerignore from an SDM seed)
