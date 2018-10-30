@@ -6,8 +6,8 @@
  (or "Atomist projects directory") this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](local.md#directory-structure)
 
 #### Atomist service
- the part of the Atomist platform that is operated by Atomist the company
- the event hub, GraphQL endpoint, and dashboard. Check [architecture]() page for more information.
+ the part of the Atomist platform that is operated by Atomist the company:
+ the event hub, GraphQL endpoint, and dashboard. [more info][architecture]
 
 #### command line utility (CLI)
  (or "atomist command line") a program that you install on your computer in order to run an SDM. It also does various other atomist-related things, especially in local mode. [more info](cli.md)
@@ -165,3 +165,7 @@ one goal can wait for another goal (or goals) to complete before starting. [more
 
 inside a chat channel, you can link a repository to that channel. The Atomist bot will then send messages about 
 that repository to the channel. [more info](../user/lifecycle.md#linked-channels)
+
+#### durable
+
+when an SDM is configured as durable, then when it is no longer connected, the Atomist event hub will queue events for it until it comes back up.

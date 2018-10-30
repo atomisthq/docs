@@ -40,6 +40,21 @@ npm run compile && npm start --local
 
 ## Production 
 
+### Production mode
+
+Set the environment variable 
+
+```
+NODE_ENV=production
+```
+
+This has two effects: 
+
+* it tells NPM to install only runtime dependencies, not dev-dependencies.
+* it changes the default config in the SDM to run in `durable` mode.
+
+### Node
+
 When running in a production environment, you typically want to avoid
 NPM and run Node.js directly to ensure signals get delivered properly
 and you can provide guidance to Node.js's memory management subsystem.
@@ -113,49 +128,33 @@ To set up a Docker image build, you need a `Dockerfile`. Read the
 documentation on [building Docker images][docker-build] for more
 details.
 
-```docker
-FROM node:8
+Your SDM probably already has a Dockerfile in it, from the [Dockerfile in the seed][dockerfile-in-seed]. If not, copy that one in.
 
-# Create application directory
-RUN mkdir -p /app
-WORKDIR /app
+You should also have [.dockerignore][dockerignore-in-seed].
 
-# Install application dependencies
-COPY package.json /app/
-RUN npm install
+### Running in Docker locally
 
-# Bundle app source
-COPY . /app
+In Docker, the SDM will only run in team mode. Local mode does not work yet. [Vote here if you want it.][upvote-local-mode-in-docker]
 
-ENV SUPPRESS_NO_CONFIG_WARNING true
-ENV NPM_CONFIG_LOGLEVEL warn
-ENV NODE_ENV production
-
-EXPOSE 2866
-
-CMD [ "npm", "start" ]
-```
-
-Be sure to create `.dockerignore` to exclude files
-and directories that aren't needed at runtime.
-
-```
-/node_modules
-```
-
-With the `Dockerfile` in place, you can now start the
-actual Docker build:
+With the `Dockerfile` in place, you can now start the Docker build. Change the name and version of the tag in this command:
 
 ```
 npm run compile && \
-    docker build . -t lifecycle-automation:0.1.0
+    docker build . -t your-sdm:0.1.0
 ```
 
-After the build completes successfully, you can push the
-image to any Docker image registry:
+Start by running the Docker container locally. This command lets it use the configuration set up when you ran `atomist config`:
 
 ```
-docker push lifecycle-automation:0.1.0
+docker run --rm --mount source=$HOME/.atomist,target=/root/.atomist,type=bind your-sdm
 ```
+
+### Deploying with Docker
+
+The Dockerfile supplied in the seeds runs the SDM in development mode. Change NODE_ENV to [production][#production-mode] and rebuild the container
+for production deployment, so that when your SDM goes down or restarts, events will be queued.
 
 [docker-build]: https://docs.docker.com/engine/reference/builder/ (Dockerfile Reference)
+[dockerfile-in-seed]: https://github.com/atomist-seeds/empty-sdm/blob/master/Dockerfile (Dockerfile from an SDM seed)
+[dockerignore-in-seed]: https://github.com/atomist-seeds/empty-sdm/blob/master/.dockerignore (dockerignore from an SDM seed)
+[upvote-local-mode-in-docker]: https://github.com/atomist/docs/issues/257 (Upvote this issue if you want local mode in Docker)
