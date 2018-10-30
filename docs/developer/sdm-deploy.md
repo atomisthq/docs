@@ -51,7 +51,11 @@ NODE_ENV=production
 This has two effects: 
 
 * it tells NPM to install only runtime dependencies, not dev-dependencies.
-* it changes the default config in the SDM to run in `durable` mode.
+* it changes the default config in the SDM to [production defaults][prod-default-config-apidoc] run in `durable` mode.
+
+If you want the NPM effect, but not the Atomist configuration change, then set ATOMIST_ENV to "testing" or "development". This will override NODE_ENV for that purpose. 
+
+[prod-default-config-apidoc: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#productiondefaultconfiguration (APIdoc for ProductionDefaultConfig)
 
 ### Node
 
@@ -139,7 +143,7 @@ In Docker, the SDM will only run in team mode. Local mode does not work yet. [Vo
 With the `Dockerfile` in place, you can now start the Docker build. Change the name and version of the tag in this command:
 
 ```
-npm run compile && \
+npm run build && \
     docker build . -t your-sdm:0.1.0
 ```
 
@@ -151,7 +155,7 @@ docker run --rm --mount source=$HOME/.atomist,target=/root/.atomist,type=bind yo
 
 ### Deploying with Docker
 
-The Dockerfile supplied in the seeds runs the SDM in development mode. Change NODE_ENV to [production][#production-mode] and rebuild the container
+The Dockerfile supplied in the seeds runs the SDM in development mode. Change ATOMIST_ENV to [production][#production-mode] and rebuild the container
 for production deployment, so that when your SDM goes down or restarts, events will be queued.
 
 [docker-build]: https://docs.docker.com/engine/reference/builder/ (Dockerfile Reference)

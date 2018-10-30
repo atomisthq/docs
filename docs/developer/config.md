@@ -20,11 +20,14 @@ The `apiKey` is your Atomist API key and `workspaceIds` are the
 Atomist IDs of the workspaces where you want to run your team SDMs.
 If you want to change the API key or add/remove workspaces, you can edit this file directly.
 
-The configuration values in the `atomist.config.ts` file will override
+The configuration values in your `index.ts` file will override
 those from your user configuration.
+
+For the full list of configuration sources, see the [API doc][configuration-apidoc].
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
+[configuration-apidoc]: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#loadconfiguration (API doc for loadConfiguration)
 
 ## Project root
 

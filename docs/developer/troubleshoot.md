@@ -1,5 +1,18 @@
 This page contains a collection of troubleshooting techniques.
 
+## SDM registration
+
+To answer questions like:
+
+* Where is my SDM running?
+* What version of my SDM is running?
+
+You can gather information in multiple ways:
+
+*  Check the [dashboard](team.md#See-your-SDM-registration) 
+*  run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
+*  run the command: "show skills"
+
 ## atomist feed
 
 ### Lifecycle listener is already running

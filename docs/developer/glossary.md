@@ -73,7 +73,7 @@ and it gives you access to some notifications and the settings for your Atomist 
 
 #### durable
 
-when an SDM is configured as durable, then when it is no longer connected, the Atomist event hub will queue events for it until it comes back up.
+when an SDM is configured as durable, then when it is no longer connected, the Atomist event hub will queue events for it until it comes back up. [more info](team.md#durable-subscriptions)
 
 #### extension pack
 
