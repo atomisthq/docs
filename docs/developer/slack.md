@@ -265,44 +265,22 @@ messages; the `MessageOptions` interface provides important options to handle
 and tune message updates and rewrites in Slack.
 
 The following section describes the properties on the `MessageOptions`
-interface and what they can be used for. But first, here is the interface:
+interface and what they can be used for. See also: [APIDoc][message-options-apidoc]
 
-```typescript
-export interface MessageOptions {
+For example:
 
-    /**
-     * Unique message id per channel and workspace. This is required
-     * if you wish to re-write a message at a later time.
-     */
-    id?: string;
-
-    /**
-     * Timestamp of the message. The timestamp needs to be
-     * sortable lexicographically. Should be in milliseconds and
-     * defaults to Date.now().
-     *
-     * This is only applicable if id is set too.
-     */
-    ts?: number;
-
-    /**
-     * Time to live for a posted message. If ts + ttl of the
-     * existing message with ts is < as a new incoming message
-     * with the same id, the message will be re-written.
-     */
-    ttl?: number;
-
-    /**
-     * If update_only is given, this message will only be posted
-     * if a previous message with the same id exists.
-     */
-    post?: "update_only" | "always";
+```
+const messageOptions = {
+    id: `build-summary/${owner}/${repo}/${sha}`, // sending another message with this ID will update this one
+    ts: Date.now(),
+    ttl: 60 * 60 * 1000, // update this message for up to one hour; after that, post anew
+    post: "always", // if this message didn't exist, create it
 }
 ```
 
 The `id` property uniquely identifies a message in a channel or
-direct message. It therefore must be unique in the scope of a channel
-or direct message.
+direct message. But it's optional! Use it if you want to update
+this message later. Otherwise we'll generate something unique. 
 
 `ts` specifies the time in milliseconds of the message. If not set, it
 defaults to the current time. This property is important to maintain correct
@@ -310,7 +288,9 @@ order of messages: the Atomist bot will not post a message with a `ts`
 if there is a message for the same `id` but a later `ts` already in the channel
 or direct message.
 
-`ttl` or time-to-live defines the amount of time in milliseconds that a message can be updated, after which a new instance of the message is posted to the bottom of the Slack stream. So, when a message is received by the bot,
+`ttl` or time-to-live defines the amount of time in milliseconds that a message 
+can be updated, after which a new instance of the message is posted to the bottom of the Slack stream.
+ So, when a message is received by the bot,
 it compares the `ts + ttl` of the existing message with `ts` of the new
 message; if `ts + ttl` is smaller, a new message ia posted to the bottom
 of the Slack stream and the existing message is not rewritten. As long `ts + ttl`
@@ -321,3 +301,6 @@ it is an update to a previously posted message with the same `id`. If
 `post === "always"`, the message is always posted as a new message and never rewrites
 a previous message.
 will never rewrite a previous message.
+
+[message-options-apidoc]: https://atomist.github.io/automation-client/interfaces/_lib_spi_message_messageclient_.messageoptions.html (APIdoc
+for Message Options)
