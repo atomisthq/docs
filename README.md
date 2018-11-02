@@ -20,7 +20,25 @@ the [Google Developer Documentation Style Guide][doc-style].
 See [below][build-serve] for instructions on how to test your changes
 locally.
 
+*You are not required to test your changes locally in order to contribute.* Edit right on GitHub,
+and let the build take care of it.
+
 [doc-style]: https://developers.google.com/style/ (Google Developer Documentation Style Guide)
+
+## Contribution criteria
+
+Pull requests will be merged if they are better than the existing text. They don't need to be perfect.
+
+Here's how I define better:
+
+* Out-of-date information is the worst.
+* Emptiness is better than inaccurate information.
+* Placeholders are better than emptiness.
+* Any (accurate) information is better than none.
+
+Additional links and information is great.
+
+We (jessitron) will move toward a consistent style and tone after merging.
 
 ## Content reuse
 
