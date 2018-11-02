@@ -183,40 +183,7 @@ const buttonSpec: ButtonSpecification = {
     },
 };
 ```
-
-With the following, you're preparing a [command handler][command] and its parameter to be
-bound to the button. This example uses the `SearchStackOverflow`
-command handler from the Atomist [blog series](https://the-composition.com/extending-your-slack-bot-part-1-commands-aaa4dbd47933).
-
-```typescript
-const handler = new SearchStackOverflow();
-handler.q = "atomist";
-```
-
-Now that you have the `ButtonSpecification` and the command handler, you can bring this
-all together into a Slack message button and send the message. Create the action
-button by calling the `buttonForCommand` function, passing the
-`ButtonSpecification` and the command handler instance:
-
-```typescript
-import { buttonForCommand } from "@atomist/sdm";
-
-const message: slack.SlackMessage = {
-    attachments: [{
-        // ...
-    }, {
-        fallback: "Show more...",
-        title: "Show more...",
-        title_link: "http://stackoverflow.com/search?order=desc&sort=relevance&q=atomist",
-        actions: [
-          buttonForCommand(buttonSpec, handler),
-        ],
-    }],
-};
-
-return ctx.messageClient.respond(message)
-    .then(() => Success, failure);
-```
+#### buttonForCommand 
 
 ### Adding message menus
 
