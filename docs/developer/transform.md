@@ -31,8 +31,8 @@ export const AddApacheLicenseFileTransform: CodeTransform<NoParameters> = async 
 
 See also: 
 
-* [HTTP calls in an SDM][http]
-* [the Project interface][project]
+* [the Project interface][project] (the API for modifying files in the project)
+* [HTTP calls in an SDM][http] (if you're curious why that example uses DefaultHttpClientFactory)
 
 [http]: http.md (Why the SDM uses its own HTTP client)
 [project]: project.md (the SDM's Project type)
