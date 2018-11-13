@@ -7,7 +7,26 @@ In team mode, your SDM connects to the Atomist service.
 
 ## What is necessary to enable team mode
 
-{!tbd.md!}
+You'll need an Atomist workspace for your team or organization. See [Getting started](../user/index.md) to sign up, 
+or ask your Atomist administrator to invite you to the team's workspace.
+
+You'll need the workspace ID and an API key.
+
+### Find the workspace ID
+
+On the [dashboard][], you can find the Workspace ID on the settings page (click the gear).
+
+### Get an API key
+
+You'll need an API key that identifies you to the Atomist service. [Get one here](https://app.atomist.com/apiKeys)
+Obtain this from the [dashboard][], by clicking on your username in the upper right.
+
+[dashboard]: ../user/dashboard.md (Atomist Dashboard documentation)
+
+### Provide the API key to the SDM
+
+Supply the API in [configuration](config.md) -- the easiest way is by running `atomist config` in your terminal, or by
+populating the API key in your `$HOME/.atomist/client.config.json` file.
 
 ## See your SDM registration
 
