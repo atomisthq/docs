@@ -43,7 +43,7 @@ You'll need [Git][git],
 
 3.  Change into the newly created SDM project.
 
-        cd $HOME/atomist/<target owner>/quick-sdm
+        cd $HOME/atomist/projects/<target owner>/quick-sdm
 
 4.  Start your local SDM.
 
