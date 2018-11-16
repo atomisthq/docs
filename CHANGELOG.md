@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist/docs/compare/11.0.1...HEAD)
 
+### Added
+
+-   Add docs for commands. [#260](https://github.com/atomist/docs/issues/260)
+
 ### Fixed
 
 -   Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
