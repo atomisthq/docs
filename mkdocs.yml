@@ -49,7 +49,7 @@ nav:
       - Supported Integrations: user/integrations.md
   - Developer Quick Start: quick-start.md
   - Developer Guide:
-      - About this guide: developer/index.md
+      - What you can do: developer/index.md
       - Architecture: developer/architecture.md
       - Running an SDM:
         - About the SDM: developer/sdm.md
