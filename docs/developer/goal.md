@@ -90,7 +90,25 @@ If no inspections are registered, the goal will succeed. If any registration's `
 
 ### Autofix
 
-{!tbd.md!}
+This goal tells the SDM to check each push and create commits on top of it to correct fixable
+violations in the code.
+
+ Instantiate the goal:
+
+``` typescript
+const autofixGoal = new Autofix().with(AddApacheLicenseFileAutofix);
+```
+
+Add autofix registrations: see the [autofix documentation](autofix.md).
+
+Then you add the goal to your goal set. For example, if you want to add the goal to each push:
+
+``` typescript
+sdm.addPushRules(onAnyPush().setGoals(autofix));
+```
+
+Each autofix registration can include a [push test](push-test.md) to select the projects it
+can operate on.
 
 ### PushImpact
 
