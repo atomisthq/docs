@@ -147,7 +147,7 @@ const pushImpactGoal = new PushImpact().with(listChangedFiles)
 
 ### Build
 
-{!tbd.md!}
+This one has its [own section](build.md).
 
 ### Fingerprint
 
