@@ -133,4 +133,4 @@ const build = new Build().with({
 
 Within Atomist, we use this pack extensively in the [node support](https://github.com/atomist/atomist-sdm/blob/master/lib/machine/nodeSupport.ts) within our [own SDM][atomist-sdm]. 
 
-[atomist-sdm](https://github.com/atomist/atomist-sdm)
+[atomist-sdm]: https://github.com/atomist/atomist-sdm
