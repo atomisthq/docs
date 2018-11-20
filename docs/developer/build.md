@@ -30,7 +30,10 @@ const build = new Build().with({
 This goal defines a build that will be handled by Maven.
 Be sure to add the goal to your [goal set](set-goals.md).
 
+The trick is: you need a [Builder][].
+
 [build-pack]: ../pack/build.md
+[builder]: https://atomist.github.io/sdm-pack-build/modules/_lib_support_build_executebuild_.html#builder (API Doc for Builder)
 
 ## Builders
 
