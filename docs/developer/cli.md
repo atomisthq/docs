@@ -19,7 +19,20 @@ To find out what you can show, use `atomist show --help`.
 
 ## atomist start
 
-{!tbd.md!}
+Run your SDM! In your SDM's project directory, `atomist start` will start it up. By default, it
+starts in [team mode](team.md). Here are some important options:
+
+*--local* Run in local mode
+
+*--no-compile* By default, `atomist start` will compile the project. Use this option to skip that step.
+
+*--change-dir &gt;dir&lt;* Run an SDM that's in another directory.
+
+After you start an SDM, leave it running in that terminal. The logs print to the screen.
+
+## atomist config
+
+This will prompt you to set up the connection parameters for an SDM in team mode. See [Configuration](prerequisites.md#user-configuration) for more.
 
 ## atomist feed
 
@@ -31,8 +44,19 @@ In chat, messages from Atomist can have buttons. The buttons trigger more comman
 gives you URLs instead. Open them (command-click if you're in iTerm2 on a Mac) to "push the button". When the button-links
 open in a browser, the browser displays only an acknowledgement; the useful responses to the command show up in the feed again.
 
-## 
+## atomist clone
+
+`atomist clone <git url>`: clone a repository into the right place in the Atomist project root (~/atomist/projects/OWNER/REPO) and install git hooks that send commit events to an SDM running in local mode.
+
+## atomist add git hooks
+
+In an existing cloned project, this adds git hooks to send commit events to an SDM running in local mode. The project still needs to in the right directory location.
+
+If you already have git hooks, this will add to them. If you didn't have any, this creates the files
+in `.git/hooks`.
+
+## atomist remove git hooks
+
+Remove the git hooks that atomist added, if any.
 
 [local]: local.md (Atomist SDM Local Mode)
-
-{!tbd.md!}
