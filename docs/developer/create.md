@@ -28,7 +28,13 @@ make it do as much as you want.
 
 ## Seed
 
-{!tbd.md!}
+A _seed_ is a project that works as a starting point. It is real, functional code, not a template.
+It doesn't need blanks, because we will use code transforms to get it ready for the new project,
+changing file names and contents as needed.
+
+You can use any project you already have, or craft one carefully for new projects to start from.
+
+For examples, see all the repositories in our [atomist-seeds organization](https://github.com/atomist-seeds).
 
 ## Generator
 
