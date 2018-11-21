@@ -16,6 +16,19 @@ dashboard or Slack on deployments running containers across clusters
 and namespaces in the concise, correlated manner users of Atomist
 expect.
 
+This integration has three parts: the [SDM extension pack](#sdm-extension-pack),
+a [process for executing deploys](#Deploying-and-updating-applications) and a
+ [process for transmitting events](#container-status).
+
+###  SDM Extension Pack
+
+The extension pack ([github](https://github.com/atomist/sdm-pack-k8), [API doc])
+adds functions to your [SDM](../developer/sdm.md) for deploying to Kubernetes.
+
+[apidoc](https://atomist.github.io/sdm-pack-k8/)
+
+#### Deploy Goal
+
 ### Deploying and updating applications
 
 The Atomist [k8-automation][] utility manages deploying and updating
