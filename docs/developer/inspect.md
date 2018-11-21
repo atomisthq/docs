@@ -6,7 +6,13 @@ of the code whenever they work in a repository.
 
 ## Installing an inspection from a pack
 
-{!tbd.md!}
+First, you'll need an [AutoCodeInspection goal][autoinspect-goal].
+
+Then, find inspections related to:
+
+* [Lines of code](../pack/sloc.md)
+* [Spring](../pack/spring.md)
+* [TypeScript](../pack/node.md)
 
 ## Custom inspections
 
