@@ -33,7 +33,7 @@ most generators transform the code first.
 You can use any project you already have, or craft one carefully for new projects to start 
 from. This makes a canonical "best starting point" for your organization.
 
-For examples, see all the repositories in our [atomist-seeds organization](https://github.com/atomist-seeds).d
+For examples, see all the repositories in our [atomist-seeds organization](https://github.com/atomist-seeds).
 
 ## Generator Registration
 
