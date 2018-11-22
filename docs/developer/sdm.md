@@ -86,13 +86,16 @@ Unless you change it, that function is called `machine`.
 
 ## machine.ts
 
-Click into the `machine` function in your IDE, or open `lib/machine/machine.ts` to find it. This function instantiates
-and the returns a SoftwareDeliveryMachine([API docs][sdm-api-doc]).
+Click into the `machine` function in your IDE, or open `lib/machine/machine.ts` to find it. 
+This function instantiates
+and then returns a SoftwareDeliveryMachine([API docs][sdm-api-doc]).
 
 Inside this function, add functionality to your SDM. You can:
 
 *  Add [Goals](goal.md) to choose a flow to respond to code push
 *  Add listeners to various other [events](events.md)
+*  Add [commands](commands.md)
+*  Add [project generators](create.md)
 *  Bring in [extension packs](../pack/index.md)
 
 [sdm-api-doc]: https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html (API Docs for SoftwareDeliveryMachine)

@@ -32,9 +32,9 @@ useful information to the command, like how to respond to the person
 who invoked the command.
 
 Command listeners are asynchronous functions, returning a `Promise`.
-The value of the `Promise` should be an object with at least a `code`
-property, whose value is a `number`.  If the value is `0` (zero), the
-command execution is considered successful.  If it is non-zero, the
+The `Promise` contains an object with at least a `code`
+property, whose value is a `number`.  A code of zero means success.
+  If the code is non-zero, the
 command execution is considered unsuccessful.
 
 Armed with this information, we can write our command listener
@@ -44,14 +44,15 @@ function.
 import { HandlerResult, NoParameters } from "@atomist/automation-client";
 import { CommandListenerInvocation } from "@atomist/sdm";
 export async function helloWorldListener(ci: CommandListenerInvocation<NoParameters>): Promise<HandlerResult> {
-    await ci.context.messageClient.respond("Hello, world");
+    await ci.addressChannels("Hello, world");
     return { code: 0 };
 }
 ```
 
-You can see the `CommandListenerInvocation` has a `context` property
-that provides a `messageClient` property that allows you to `respond`,
-which is an asynchronous function so we `await` it.
+You can see the `CommandListenerInvocation` has an `addressChannels` property,
+which sends a message to the appropriate places -- in this case, to wherever the
+command was invoked.
+This is an asynchronous function so we `await` it.
 
 ### Test your command
 
@@ -68,11 +69,7 @@ describe("helloWorldListener", () => {
     it("should respond successfully", async () => {
         let response: string;
         const ci: CommandListenerInvocation<NoParameters> = {
-            context: {
-                messageClient: {
-                    respond: async (m: string) => response = m,
-                },
-            },
+            addressChannels: async (m: string) => response = m,
         };
         const result = await helloWorldListener(ci);
         assert(result);
@@ -82,7 +79,7 @@ describe("helloWorldListener", () => {
 });
 ```
 
-We assign the message sent to the `respond` method so we can later
+We assign the message sent to the `response` property so we can later
 confirm it was the message we expected.
 
 [mocha]: https://mochajs.org/ (Mocha Test Framework)
@@ -181,7 +178,7 @@ const myScriptCommand: CommandHandlerRegistration = {
     intent: "my script",
     listener: async ci => {
         const result = await safeExec("my-script", ["its", "args"]);
-        await ci.context.messageClient.respond(result.stdout);
+        await ci.addressChannels(result.stdout);
         return { code: 0 };
     },
 };

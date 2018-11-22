@@ -7,3 +7,27 @@ See the [API Doc][apidoc-project] for details.
 ## Tips for working with Projects
 
 {!tbd.md!}
+
+## For Testing
+
+To get a project for testing, use `[InMemoryProject][apidoc-imp]`. Its `of` factory method
+accepts any number of objects. Each specifies the path and contents of a file in the project.
+
+For example:
+
+```typescript
+const input = InMemoryProject.of({
+            path: "README.me",
+            content: `# Hello There
+
+and some stuff
+`,
+}, { 
+    path: "empty.md",
+    content: "",
+});
+```
+
+This example uses TypeScript's multiline strings (delimited with backtick).
+
+[apidoc-imp]: https://atomist.github.io/automation-client/classes/_lib_project_mem_inmemoryproject_.inmemoryproject.html (API Doc for InMemoryProject)
