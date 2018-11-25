@@ -8,3 +8,5 @@ This pack contains useful automations around GitHub Issues.
 [api-doc]: https://atomist.github.io/sdm-pack-issue/ (API Docs)
 
 ## Using
+
+{!tbd.md!}
