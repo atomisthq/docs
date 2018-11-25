@@ -5,6 +5,9 @@ reviewers, and more. You can use all or part of this support.
 
 Find the full [API Doc here][apidoc].
 
+[GitHub][]
+
+[github]: https://github.com/atomist/sdm-pack-node (GitHub Repository)
 [apidoc]: https://atomist.github.io/sdm-pack-node/ (SDM Node Pack API Doc)
 
 ## Bundled automations

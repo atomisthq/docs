@@ -1,4 +1,13 @@
-{!tbd.md!}
+This pack provides automations for keeping CHANGELOG.md up-to-date.
+
+[GitHub][]
+
+[API Doc][api-doc]
+
+[github]: https://github.com/atomist/sdm-pack-changelog (GitHub Repository)
+[api-doc]: https://atomist.github.io/sdm-pack-changelog/ (API Docs)
+
+## Using
 
 <!--
 
