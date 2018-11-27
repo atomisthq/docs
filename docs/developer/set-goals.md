@@ -19,7 +19,7 @@ You can group goals into sets. Here, two goals are grouped: code inspection (but
 
 ## Dependencies
 
-You can specify ordering, if some goals should wait for others to succeed. Here, we don't want to start the build until after Autofixes have completed.
+You can specify ordering if some goals should wait for others to succeed. Here, we don't want to start the build until after Autofixes have completed.
 If the autofixes do anything, they'll make a new commit, and we don't bother building this one.
 
 ```typescript
@@ -28,10 +28,9 @@ If the autofixes do anything, they'll make a new commit, and we don't bother bui
         .after(autofix);
 ```
 
-## Set goals on push
+## Set goals on push with "push rules"
 
-Finally, you can tell the SDM which goals to run on each push. Here, we set the BaseGoals (inspection and autofix) on every push. Then if 
-this is a Maven project (identified by having a `pom.xml`), we do the build as well.
+Finally, you can tell the SDM which goals to run on each push. Here, we set the `BaseGoals` (inspection and autofix) on every push. Then if this is a Maven project (identified by having a `pom.xml`), we do the build as well.
 
 ```typescript
     sdm.withPushRules(
@@ -91,10 +90,6 @@ The example [spring-sdm](https://github.com/atomist-seeds/spring-sdm/blob/1ab4ab
 whenPushSatisfies(IsMaven).setGoals(buildGoals)
 ```
 
-## Preconditions
-
-{!tbd.md!}
-
 ## Stop setting goals
 
 Sometimes we want to stop setting goals after a particular rule evaluates to true.
@@ -109,4 +104,4 @@ sdm.withPushRules(
 );
 ```
 
-The `andLock` method causes further goal evaluation to be ignored.
+The `andLock` method on the `Goals` class causes further goal evaluation to be ignored.
