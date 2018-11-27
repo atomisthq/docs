@@ -3,12 +3,15 @@ happens on a push to a repository. An SDM allows you to process a push
 in any way you choose, but typically you want it to initiate a
 delivery flow.
 
-An SDM allows you to set **goals** on push. Goals correspond to the
+An SDM allows you to set **goals** on push. Goals are used for the
 actions that make up a delivery flow, such as build and
-deployment. 
+deployment. They can also be observational in nature; for example,
+listening to a build and exporting data about its result and duration
+to a third party system.
 
-The goals set on a push are not the same every time. The delivery flow is not the same
-for every change! 
+The goals set on a push need not be the same every time. Unlike
+the static pipelines you may be used to, with Atomist the delivery flow is not necessarily the same
+for every change.
 
 Goals aren't configured per repository. They are chosen dynamically, in response to any
 push in any repository, based on the code and the context. What kind of project is it?
@@ -54,7 +57,7 @@ After you've created some goals, [choose when to set them][setting-goals].
 
 ## Built-in Goals
 
-A goal object has some identifying information, code to fulfill the goal, and sometimes preconditions (goals that need to complete before this one can go). Some common ones have their own constructors:
+A goal object has some identifying information, code to fulfill the goal, and optional preconditions (goals that need to complete before it can start). Some common goals have their own constructors.
 
 ### AutoInspect
 
@@ -91,7 +94,8 @@ If no inspections are registered, the goal will succeed. If any registration's `
 ### Autofix
 
 This goal tells the SDM to check each push and create commits on top of it to correct fixable
-violations in the code.
+violations in the code. For example, you can use this for automatic linting or to add license headers
+where they have been omitted.
 
  Instantiate the goal:
 
@@ -112,11 +116,11 @@ can operate on.
 
 ### PushImpact
 
-This allows you to react to the code, with information
-about the changes in the given push.
+This allows you to run an arbitrary function in response to a push, with information
+about the changes in the push.
 
-For example, the following function lists changed files to any linked
-Slack channels for the repo:
+For example, the following function lists changed files to any
+Slack channels linked to a repo:
 
 ```typescript
 export const listChangedFiles: PushImpactRegistration = {
@@ -127,7 +131,8 @@ export const listChangedFiles: PushImpactRegistration = {
 };
 ```
 
-If you don't have a custom name or PushTest, you can use the following shorthand:
+If you don't have a custom name or PushTest, you can use the following shorthand, supplying only the
+`PushImpactListener` function:
 
 
 ```typescript
@@ -135,7 +140,7 @@ export const listChangedFiles = i => i.addressChannels(`Files changed:\n${i.file
 
 ```
 
-Add then create a goal:
+Ccreate a`PushImpact` goal and add listeners as follows:
 
 ```typescript
 const pushImpactGoal = new PushImpact().with(listChangedFiles)
@@ -155,7 +160,13 @@ This one has its [own section](build.md).
 
 ## Custom Goals
 
-Define your own goal, with a name and descriptions and a function for how to execute it.
+You can define your own goal to extend Atomist's out of the box capabilities. For example, you can:
+
+- Delegate to a CLI by spawning a process and waiting for its result
+- Call the API of a third party service
+- Use a Node module or Atomist's API to implement your functionality right in TypeScript
+
+To define your own goal, you must provide a name and description and a function for how to execute it.
 
 Use the `createGoal` function from @atomist/sdm; pass it an object with a `displayName` and as many properties out of [GoalDefinition][goaldef-apidoc] as you choose.
 Also pass a function to call when it's time to execute the goal. That function can return void or an [ExecuteGoalResult][egr-apidoc].
@@ -175,6 +186,14 @@ const releaseDocs = createGoal(
 [egr-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_executegoalresult_.executegoalresult.html (ExecuteGoalResult API Doc)
 
 ### Requiring approval
+
+{!tbd.md!}
+
+### Waiting on a Precondition
+
+Sometimes goals need other goals to have completed before they can start. This is handled in the push rule DSL.
+
+Sometimes they wait on external conditions, such as another service having started. This is handled with *wait rules*.
 
 {!tbd.md!}
 
