@@ -9,7 +9,7 @@ deployment. They can also be observational in nature; for example,
 listening to a build and exporting data about its result and duration
 to a third party system.
 
-The goals set on a push need not be the same every time. Unlike
+The goals set on a push don't need to be the same every time. Unlike
 the static pipelines you may be used to, with Atomist the delivery flow is not necessarily the same
 for every change.
 
@@ -140,7 +140,7 @@ export const listChangedFiles = i => i.addressChannels(`Files changed:\n${i.file
 
 ```
 
-Ccreate a`PushImpact` goal and add listeners as follows:
+Create a`PushImpact` goal and add listeners as follows:
 
 ```typescript
 const pushImpactGoal = new PushImpact().with(listChangedFiles)
