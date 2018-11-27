@@ -31,7 +31,7 @@ If the autofixes do anything, they'll make a new commit, and we don't bother bui
 ## Set goals on push
 
 Finally, you can tell the SDM which goals to run on each push. Here, we set the BaseGoals (inspection and autofix) on every push. Then if 
-this is a Maven project (identified by having a pom.xml), we do the build as well.
+this is a Maven project (identified by having a `pom.xml`), we do the build as well.
 
 ```typescript
     sdm.withPushRules(
@@ -40,9 +40,29 @@ this is a Maven project (identified by having a pom.xml), we do the build as wel
     );
 ```
 
+The rules are evaluated in order. The resulting goals are combined and de-duplicated to determine the goals
+that will be set on the push.
+
+The rules themselves are written in a simple internal DSL that aims to be human readable.
+
+The `onAnyPush()` function will return true on all pushes.
+
+The `whenPushSatisfies` function is used to combine other rules. For example, we could limit building to Java projects,
+rather than all Maven projects, as follows:
+
+```typescript
+whenPushSatisfies(IsMaven, IsJava).setGoals(BuildGoals),
+```
+
+The DSL includes support for logical operations. For example, this will build all Maven projects except Kotlin projects:
+
+```typescript
+whenPushSatisfies(IsMaven, not(IsKotlin)).setGoals(BuildGoals),
+```
+
 ## PushRule
 
-Each argument to `[sdm.withPushRules](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)`
+Each argument to [`sdm.withPushRules`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)
 is a PushRule, contributing goals on a commit if a condition is met. That condition is a PushTest.
 
 ## PushTest
@@ -77,4 +97,16 @@ whenPushSatisfies(IsMaven).setGoals(buildGoals)
 
 ## Stop setting goals
 
-{!tbd.md!}
+Sometimes we want to stop setting goals after a particular rule evaluates to true.
+
+For example, we can modify the earlier example to do nothing at all if the project has a `leaveMeAlone` file in the root directory:
+
+```typescript
+sdm.withPushRules(
+    whenPushSatisfies(async pu => pu.project.hasFile("leaveMeAlone")).setGoals(goals("none").andLock()),
+    onAnyPush().setGoals(BaseGoals),
+    whenPushSatisfies(IsMaven).setGoals(BuildGoals),
+);
+```
+
+The `andLock` method causes further goal evaluation to be ignored.
