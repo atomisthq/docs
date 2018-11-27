@@ -58,4 +58,4 @@ even if it is not up all the time. The Atomist service saves events for it (up t
 ## More info
 
 * See more about [deploying SDMs in production](sdm-deploy.md)
-* Constrast with [local mode](local.md)
+* Contrast with [local mode](local.md)
