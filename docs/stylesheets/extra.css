@@ -105,6 +105,10 @@ h1 {
 	border-right: 1px solid #e4e4e4;
 }
 
+.md-sidebar--secondary {
+	display: none;
+}
+
 .md-sidebar--primary .md-nav__item {
 	font-family: brandon-grotesque, sans-serif !important;
 	font-size: 13px !important;
@@ -208,6 +212,15 @@ html .md-footer-meta.md-typeset a.md-footer-social__link {
 
 /* OVERRIDES FOR RESPONSIVE ISSUES INTRODUCED WITH OVERRIDES */
 
+@media only screen and (min-width: 60em) {
+	.md-content {
+		margin-right: 0 !important;
+	}
+}
+
+@media only screen and (min-width: 76.25em) {
+}
+
 @media only screen and (max-width: 44.9375em) {
 	.md-footer-meta {
 		text-align: center;
@@ -246,7 +259,12 @@ html .md-footer-meta.md-typeset a.md-footer-social__link {
 	}
 
 	.md-icon--menu {
-		padding: 20px 5px !important;
+		background-color: #227f7e;
+		color: white;
+		margin: 5px 10px 5px 5px;
+		padding: 10px !important;
+		top: 10px;
+		left: 10px;
 	}
 
 	.md-header-nav__button.md-icon--home, .md-header-nav__button.md-logo {
