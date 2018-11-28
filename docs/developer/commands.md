@@ -44,45 +44,14 @@ function.
 import { HandlerResult, NoParameters } from "@atomist/automation-client";
 import { CommandListenerInvocation } from "@atomist/sdm";
 export async function helloWorldListener(ci: CommandListenerInvocation<NoParameters>): Promise<HandlerResult> {
-    await ci.addressChannels("Hello, world");
-    return { code: 0 };
+    return ci.addressChannels("Hello, world");
 }
 ```
 
 You can see the `CommandListenerInvocation` has an `addressChannels` property,
 which sends a message to the appropriate places -- in this case, to wherever the
 command was invoked.
-This is an asynchronous function so we `await` it.
-
-### Test your command
-
-Testing your command listener requires that you mock the parts of
-`CommandListenerInvocation` you use and then call your function.
-Using the [Mocha][mocha] testing framework, it would look something
-like this.
-
-```typescript
-import { NoParameters } from "@atomist/automation-client";
-import { CommandListenerInvocation } from "@atomist/sdm";
-import * as assert from "assert";
-describe("helloWorldListener", () => {
-    it("should respond successfully", async () => {
-        let response: string;
-        const ci: CommandListenerInvocation<NoParameters> = {
-            addressChannels: async (m: string) => response = m,
-        };
-        const result = await helloWorldListener(ci);
-        assert(result);
-        assert(result.code === 0);
-        assert(response === "Hello, world");
-    });
-});
-```
-
-We assign the message sent to the `response` property so we can later
-confirm it was the message we expected.
-
-[mocha]: https://mochajs.org/ (Mocha Test Framework)
+Like much of the API, this is an asynchronous function.
 
 ### Register your command
 
@@ -178,15 +147,87 @@ const myScriptCommand: CommandHandlerRegistration = {
     intent: "my script",
     listener: async ci => {
         const result = await safeExec("my-script", ["its", "args"]);
-        await ci.addressChannels(result.stdout);
-        return { code: 0 };
+        return ci.addressChannels(result.stdout);
     },
 };
 ```
 
 ## Command parameters
 
-{!tbd.md!}
+By default, commands do not require parameters. However, you can specify parameters to be gathered in chat by the Atomist bot
+or via the web interface or CLI. Such parameters can be accessed in a typesafe manner.
+
+To specify commands,  use the optional `parameters` property when creating a command. Let's make our
+hello command welcome us by name to wherever we are:
+
+```typescript
+const helloWorldCommand: CommandHandlerRegistration<{ name: string, location: string }> = {
+    name: "HelloWorld",
+    description: "Responds with a friendly greeting to everyone",
+    intent: "hello",
+    parameters: {
+      name: { description: "name", required: true, pattern: /.*/, },
+      location: {},
+    },
+    listener: async ci => {
+        return ci.context.messageClient.respond(`Welcome to ${ci.parameters.location}, ${ci.parameters.name}`);
+    },
+};
+```
+
+We will now be prompted for `name` and `location` when we invoke this command. In this case any value will be accepted,
+but we can use regular expressions to ensure that valid values are submitted.
+
+The `parameters` property is an indexed type. Each property's values describe the parameter, while the property name is the name of the parameter.
+
+In this example, the `CommandHandlerRegistration` type is parameterized by the type of the properties object.
+In this case it's the anonymous type `{ name: string, location: string }`, but in more complex scenarios we'd use an interface. 
+By default, no parameters are exposed.
+
+We access the parameter values in the listener via the `parameters` property, as in `ci.parameters.name`.
+
+We can combine parameter definitions using spreads. For example, this will also bring in some common parameters
+defined in another object constant:
+
+```typescript
+parameters: {
+    ...CommonParameters,
+    name: { description: "name", required: true, pattern: /.*/, },
+    location: {},
+  },
+```
+
+The property definition mechanism applies to all commands, so you can apply it to code inspections and code transform commands.
+
+### Test your command
+
+Testing your command listener requires that you mock the parts of
+`CommandListenerInvocation` you use and then call your function.
+Using the [Mocha][mocha] testing framework, it would look something
+like this.
+
+```typescript
+import { NoParameters } from "@atomist/automation-client";
+import { CommandListenerInvocation } from "@atomist/sdm";
+import * as assert from "assert";
+describe("helloWorldListener", () => {
+    it("should respond successfully", async () => {
+        let response: string;
+        const ci: CommandListenerInvocation<NoParameters> = {
+            addressChannels: async (m: string) => response = m,
+        };
+        const result = await helloWorldListener(ci);
+        assert(result);
+        assert(result.code === 0);
+        assert(response === "Hello, world");
+    });
+});
+```
+
+We assign the message sent to the `response` property so we can later
+confirm it was the message we expected.
+
+[mocha]: https://mochajs.org/ (Mocha Test Framework)
 
 ## What else would you like to do?
 
