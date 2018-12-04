@@ -1,10 +1,6 @@
 
 In team mode, your SDM connects to the Atomist service.
 
-## What team mode gives you
-
-{!tbd.md!}
-
 ## What is necessary to enable team mode
 
 You'll need an Atomist workspace for your team or organization. See [Getting started](../user/index.md) to sign up, 

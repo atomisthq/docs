@@ -71,13 +71,11 @@ Fingerprinters can be added to an SDM as follows:
 fingerprint.with(new PackageLockFingerprinter());
 ```
 
-Fingerprinting will only occur if `fingerprint` is a  `Fingerprint` [goal][] and it is included when
-[goals are set][set-goals].
+Fingerprinting will only occur if `fingerprint` is a  `Fingerprint` and it is included when [goals are set][set-goals].
 
 When the fingerprint goal executes, it will send the fingerprint to Atomist, where it will be attached to the commit in the graph,
 available to the API for Software.
 
-[goal]: goal.md#Fingerprint (Goals: Fingerprint)
 [set-goals]: set-goals.md (Setting Goals)
 
 ## Query a fingerprint
@@ -121,10 +119,3 @@ Here, the `sha` field contains whatever you put in the `sha` field of your finge
 
 [dashboard]: ../user/dashboard.md (About the Atomist Dashboard)
 
-## Report on fingerprints
-
-{!tbd.md!}
-
-## React to changes
-
-{!tbd.md!}

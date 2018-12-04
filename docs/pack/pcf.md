@@ -7,6 +7,3 @@ This pack provides deployment to [Cloud Foundry](https://www.cloudfoundry.org/).
 [github]: https://github.com/atomist/sdm-pack-cloudfoundry (GitHub Repository)
 [api-doc]: https://atomist.github.io/sdm-pack-cloudfoundry/ (API Docs)
 
-## Using
-
-{!tbd.md!}

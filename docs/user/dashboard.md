@@ -5,15 +5,3 @@ Atomist workspace.
 
 ![See the nice buttons for GraphQL and Workspace Settings](img/dashboard-overview.png)
 
-## Workspace
-
-{!tbd.md!}
-
-## GraphQL
-
-{!tbd.md!}
-
-## Administration
-
-{!tbd.md!}
-

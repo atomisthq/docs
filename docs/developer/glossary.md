@@ -68,7 +68,7 @@ and it gives you access to some notifications and the settings for your Atomist 
 #### development automation
  programs that make the work of software development smoother. This includes delivery automation: 
  getting new code through all its checkpoints and into production. 
- Other examples include [project creation](create.md), [issue creation](../user/lifecycle.md#issue),
+ Other examples include [project creation](create.md), [issue creation](../user/lifecycle.md,
   and code [maintenance](transform.md).
 
 #### durable
@@ -94,7 +94,7 @@ and puts the result in a new repository.
 #### goal approval
 
 goals can pause the work on a particular delivery flow, pending a human telling them to proceed.
-A button appears on the push notification in chat. [more info](goal.md#requiring-approval)
+A button appears on the push notification in chat.
 
 #### goal preconditions
 
@@ -168,4 +168,4 @@ a production environment within your network. [more info](team.md)
  like GitHub, GitLab, or BitBucket. Everyone uses git locally, right? (I know, not everyone does, but everyone who uses Atomist has to.)
 
 #### workspace
- many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist. [more info](../user/dashboard.md#workspace)
+ many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.

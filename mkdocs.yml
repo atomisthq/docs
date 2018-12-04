@@ -55,7 +55,7 @@ nav:
         - Prerequisites: developer/prerequisites.md
         - Team Mode: developer/team.md
         - Local Mode: developer/local.md
-        - Adding Functionality: developer/sdm-construct.md
+        # - Adding Functionality: developer/sdm-construct.md
         - Deploying your SDM: developer/sdm-deploy.md
         - Debugging an SDM: developer/sdm-debug.md
       - Goals:
@@ -65,7 +65,7 @@ nav:
       - Builds:
         - Build Goal: developer/build.md
         - Integrations: user/ci.md
-        - Reacting to Builds: developer/build-event.md
+        # - Reacting to Builds: developer/build-event.md
       - Deploys: developer/deploy.md
       - Code Inspections: developer/inspect.md
       - Code Transforms:
@@ -81,13 +81,13 @@ nav:
          - Push Tests: developer/push-test.md
          - RepoRef: developer/reporef.md
          - Generic Builder: developer/spawn-builder.md
-         - HTTP Calls in an SDM: developer/http.md
-         - Events: developer/events.md
+         # - HTTP Calls in an SDM: developer/http.md
+         # - Events: developer/events.md
          - Custom GraphQL Queries: developer/graphql.md
          - Path Expressions: developer/pxe.md
          - Chat Messages: developer/slack.md
          - Command Line Interface: developer/cli.md
-         - Security Model: developer/security.md
+         # - Security Model: developer/security.md
       - Glossary: developer/glossary.md
       - Troubleshooting: developer/troubleshoot.md
   - Extensions:

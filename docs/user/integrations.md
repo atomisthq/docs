@@ -46,4 +46,3 @@ We have some pre-built functionality for receiving events from:
 *  Travis CI
 *  Team City
 
-{!tbd.md!}

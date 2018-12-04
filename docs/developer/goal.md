@@ -154,10 +154,6 @@ const pushImpactGoal = new PushImpact().with(listChangedFiles)
 
 This one has its [own section](build.md).
 
-### Fingerprint
-
-{!tbd.md!}
-
 ## Custom Goals
 
 You can define your own goal to extend Atomist's out of the box capabilities. For example, you can:
@@ -185,15 +181,9 @@ const releaseDocs = createGoal(
 [goaldef-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_goal_.goaldefinition.html (GoalDefinition API Doc)
 [egr-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_executegoalresult_.executegoalresult.html (ExecuteGoalResult API Doc)
 
-### Requiring approval
-
-{!tbd.md!}
-
 ### Waiting on a Precondition
 
 Sometimes goals need other goals to have completed before they can start. This is handled in the push rule DSL.
 
 Sometimes they wait on external conditions, such as another service having started. This is handled with *wait rules*.
-
-{!tbd.md!}
 

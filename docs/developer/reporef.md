@@ -47,10 +47,6 @@ Set the branch on the returned object if you don't want the default one.
 
 For BitBucket Cloud, use `new [BitBucketRepoRef][apidoc-bbrr](...)`.
 
-### GitLab
-
-{!tbd.md!}
-
 ### For Testing
 
 You can usually use any of the concrete instances for local testing, 
