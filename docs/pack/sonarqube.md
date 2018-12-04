@@ -7,7 +7,4 @@ This pack integrates with [Sonarqube](https://www.sonarqube.org/), a code qualit
 [github]: https://github.com/atomist/sdm-pack-sonarqube (GitHub Repository)
 [api-doc]: https://atomist.github.io/sdm-pack-sonarqube/ (API Docs)
 
-## Using
-
-{!tbd.md!}
 

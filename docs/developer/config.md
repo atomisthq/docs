@@ -28,7 +28,3 @@ For the full list of configuration sources, see the [API doc][configuration-apid
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
 [configuration-apidoc]: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#loadconfiguration (API doc for loadConfiguration)
-
-## Project root
-
-{!tbd.md!}

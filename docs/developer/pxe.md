@@ -9,7 +9,3 @@ Path expressions are implemented in the [tree-path][gh-tree-path] library.
 
 [gh-tree-path]: https://github.com/atomist/tree-path (GitHub repository for tree-path)
 [w-ast]: https://en.wikipedia.org/wiki/Abstract_syntax_tree (Wikipedia AST)
-
-## Using path expressions
-
-{!tbd.md!}

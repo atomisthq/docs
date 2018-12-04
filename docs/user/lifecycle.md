@@ -22,22 +22,10 @@ Here's a sample push notification with SDM goals:
 
 <img alt="animated push notification" src="../img/push-notification.gif" height="385" width="315" >
 
-### Pull Request
-
-{!tbd.md!}
-
 ### Build
 
 Build status is included on the push notification.
 If a build fails, the person who made the commit gets a private message with a link to the log.
-
-### Issue
-
-{!tbd.md!}
-
-### Issue Comment
-
-{!tbd.md!}
 
 ## Linked Channels
 
@@ -84,6 +72,3 @@ Say `@atomist configure lifecycle` to see your options.
 
 Say `@atomist repos` to get a list of linked repositories; push the "Unlink" button on the one you want to remove.
 
-## Configuring messages
-
-{!tbd.md!}

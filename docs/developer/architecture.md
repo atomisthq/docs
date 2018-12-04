@@ -1,8 +1,7 @@
 It all starts with a software delivery machine of your very own. That can be 
 for your team or for you personally--one of each is good.
 
- An
-Atomist Software Delivery Machine (SDM) provides a high-level
+An Atomist Software Delivery Machine (SDM) provides a high-level
 interface for you to take action when things happen.  In much the same
 way your continuous integration build kicks off when you push to your repository, Atomist can
 execute tasks like security scans, documentation publication, release

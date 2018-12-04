@@ -7,6 +7,3 @@ This pack contains useful automations around GitHub Issues.
 [github]: https://github.com/atomist/sdm-pack-issue (GitHub Repository)
 [api-doc]: https://atomist.github.io/sdm-pack-issue/ (API Docs)
 
-## Using
-
-{!tbd.md!}

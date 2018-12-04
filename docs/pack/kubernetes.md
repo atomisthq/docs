@@ -27,10 +27,6 @@ adds functions to your [SDM](../developer/sdm.md) for deploying to Kubernetes.
 
 [apidoc](https://atomist.github.io/sdm-pack-k8/)
 
-#### Deploy Goal
-
-{!tbd.md!}
-
 ### Deploying and updating applications
 
 The Atomist [k8-automation][] utility manages deploying and updating
