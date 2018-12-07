@@ -65,7 +65,7 @@ const helloWorldCommand: CommandHandlerRegistration = {
     description: "Responds with a friendly greeting to everyone",
     intent: "hello",
     listener: async ci => {
-        await ci.context.messageClient.respond("Hello, world");
+        await ci.addressChannels("Hello, world");
         return { code: 0 };
     },
 };
@@ -154,37 +154,66 @@ const myScriptCommand: CommandHandlerRegistration = {
 
 ## Command parameters
 
-By default, commands do not require parameters. However, you can specify parameters to be gathered in chat by the Atomist bot
-or via the web interface or CLI. Such parameters can be accessed in a typesafe manner.
+Command parameters give you extra information that can be different each time
+the command runs. 
+
+By default, commands not require parameters. However, you can specify parameters to be gathered in chat by the Atomist bot
+or via the web interface or CLI. These parameters can be accessed in a typesafe manner.
 
 To specify commands,  use the optional `parameters` property when creating a command. Let's make our
-hello command welcome us by name to wherever we are:
+hello command welcome us by name to wherever we are.
+
+### Defining parameters
+
+Start by defining the parameters. A parameter definition object maps the name of each
+parameter to optional details. Pass it to the command registration so that it will know
+what parameters to gather.
 
 ```typescript
+const helloWorldParametersDefinition = {
+      name: { description: "name", 
+              required: true,
+              pattern: /.*/, },
+      location: {},
+    };
+
 const helloWorldCommand: CommandHandlerRegistration<{ name: string, location: string }> = {
     name: "HelloWorld",
     description: "Responds with a friendly greeting to everyone",
     intent: "hello",
-    parameters: {
-      name: { description: "name", required: true, pattern: /.*/, },
-      location: {},
-    },
+    parameters: helloWorldParametersDefinition,
     listener: async ci => {
-        return ci.context.messageClient.respond(`Welcome to ${ci.parameters.location}, ${ci.parameters.name}`);
+        return ci.addressChannels(`Welcome to ${ci.parameters.location}, ${ci.parameters.name}`);
     },
 };
 ```
 
-We will now be prompted for `name` and `location` when we invoke this command. In this case any value will be accepted,
+Atomist will now prompt anyone who invokes this command for `name` and `location`. In this case 
+any value will be accepted,
 but we can use regular expressions to ensure that valid values are submitted.
 
-The `parameters` property is an indexed type. Each property's values describe the parameter, while the property name is the name of the parameter.
+The `helloWorldParametersDefinition` object has one property for each parameter. Each property's name is the
+name of the parameter, and its value describes the parameter. These options are available in the [parameter definition][apidoc-parameterdef]
+(all optional):
 
-In this example, the `CommandHandlerRegistration` type is parameterized by the type of the properties object.
-In this case it's the anonymous type `{ name: string, location: string }`, but in more complex scenarios we'd use an interface. 
-By default, no parameters are exposed.
 
-We access the parameter values in the listener via the `parameters` property, as in `ci.parameters.name`.
+| attribute    |  type  | description | default |
+| -------------| ------ | ----------- | ------- |
+| description  | string | short description | same as name |
+| pattern | RegExp | regular expression that the parameter's value must match | match any string |
+| required | boolean | is the parameter required? | false |
+| displayName | string | name to display; may contain spaces | same as name |
+| validInput | string | describe what makes a valid parameter value | blank |
+| displayable | boolean | whether to show a parameter value after it's been entered | true |
+| maxLength | number | maximum number of characters to accept | no maximum |
+| minLength | number | minmum number of characters needed | 0 |
+| type | ParameterType | string, boolean, number, or [Chooser][chooser-apidoc] | string |
+| order | number | when prompting, ask for smaller 'order' parameters first | order doesn't matter |
+| group | Group | when prompting, put parameters in the same Group together | none |
+| control | "input" or "textarea" | input type for string parameters in dialogues | "input" |
+
+[chooser-apidoc]: https://atomist.github.io/automation-client/interfaces/_lib_metadata_automationmetadata_.chooser.html (API doc for Chooser)
+[apidoc-parameterdef]: https://atomist.github.io/automation-client/interfaces/_lib_internal_metadata_decoratorsupport_.parameter.html (API doc for Parameter definition)
 
 We can combine parameter definitions using spreads. For example, this will also bring in some common parameters
 defined in another object constant:
@@ -198,6 +227,20 @@ parameters: {
 ```
 
 The property definition mechanism applies to all commands, so you can apply it to code inspections and code transform commands.
+
+### Accessing parameters in the command
+
+The `CommandHandlerRegistration` type is parameterized by the type of the properties object.
+In this case it's the anonymous type `{ name: string, location: string }`, but in more complex scenarios we'd use an interface. 
+By default, no parameters are exposed.
+
+We access the parameter values in the listener via the `parameters` property, as in `ci.parameters.name`:
+
+```typescript
+    listener: async ci => {
+        return ci.addressChannels(`Welcome to ${ci.parameters.location}, ${ci.parameters.name}`);
+    },
+```
 
 ### Test your command
 
