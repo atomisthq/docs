@@ -16,7 +16,7 @@ It lives in the [Build Pack][build-pack], so run `npm install @atomist/sdm-pack-
 The build goal does a couple things:
 
 * Invoke a builder that builds your project
-* Link the built artifact
+* Link the built artifact, associating it to the commit
 
 Configuring the `BuildGoal` looks like this
 
@@ -68,6 +68,13 @@ You can find more detailed information on how to hook up existing CI systems on 
 
 
 ## Atomist builders
+
+Atomist does not build your software. You have a build tool that does that. Atomist
+spawns a process to call your build tool.
+
+The [Builder][] knows the command to run, along with how to parse the log file.
+Here are some handy builders that are already available. For anything else, start
+with a general [spawnBuilder](spawn-builder.md).
 
 ### Maven
 
@@ -122,9 +129,7 @@ const build = new Build().with({
 
 In this case the builder will execute an `npm run build` command in the root of your project.
 
-## Storing build logs
-
-{!tbd.md!}
+<!-- TODO ## Storing build logs -->
 
 ## Linking the artifact produced by the build
 
