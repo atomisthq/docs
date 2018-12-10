@@ -121,8 +121,8 @@ Register this builder on a [build goal](../developer/goal.md#build) to use it:
 ```typescript
 import { Build } from "@atomist/sdm-pack-build";
 
-const build = new Build().with({
-    name: "npm-run-build",
+const build = new Build({ displayName: "npm compile and test" }).with({
+    name: "npm-build",
     builder: nodeBuilder("npm run compile", "npm test"),
     pushTest: IsNode,
 });
