@@ -9,7 +9,7 @@ This page shows how to
 
 ## The Build goal
 
-Atomist provides a goal that is designed to handle building software: the `Build` goal. 
+Atomist provides a [goal](goal.md) that is designed to handle building software: the `Build` goal. 
 
 It lives in the [Build Pack][build-pack], so run `npm install @atomist/sdm-pack-build` to get it.
 
