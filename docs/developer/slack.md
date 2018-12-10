@@ -118,7 +118,7 @@ More details on Slack text formatting can be found their the [documentation](htt
 ### Rich messages
 
 For more complex, rich messages, Atomist provides the [`SlackMessage`](https://github.com/atomist/slack-messages) type as
-part of the _@atomist/slack-messages_ NPM module.
+part of the _@atomist/slack-messages_ npm module.
 
 The `SlackMessage` type can have `Attachments` and `Actions`. More details
 on those concepts can be found in the [Slack documentation](https://api.slack.com/docs/message-attachments).

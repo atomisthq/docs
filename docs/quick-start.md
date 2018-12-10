@@ -49,7 +49,7 @@ You'll need [Git][git],
 
         atomist start --local
 
-    The above command will install the project dependencies using NPM,
+    The above command will install the project dependencies using npm,
     compile the TypeScript, and start your SDM.  Depending on your
     network connection, this may take a minute or more.
 

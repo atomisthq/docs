@@ -39,7 +39,7 @@ brew install node
 ```
 
 Once you have `node` and `npm` available, it is a good idea to update
-to the latest version of NPM using the following command.
+to the latest version of npm using the following command.
 
 ```
 npm install -g npm

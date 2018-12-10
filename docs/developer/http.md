@@ -9,4 +9,4 @@ You have access to these as well. I recommend the [DefaultHttpClientFactory][api
 , which is backed by [axios][].
 
 [apidoc-dhcf]: https://atomist.github.io/automation-client/modules/_lib_spi_http_httpclient_.html#defaulthttpclientoptions (API Doc for DefaultHttpClientFactory)
-[axios]: https://www.npmjs.com/package/axios (NPM package Axios)
+[axios]: https://www.npmjs.com/package/axios (npm package Axios)

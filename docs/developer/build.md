@@ -41,7 +41,7 @@ Builders implement the logic that is needed to build your software. Out of the b
 
 * [Maven](#maven)
 * [Gradle](#gradle)
-* NodeJS using [NPM](#npm)
+* NodeJS using [npm](#npm)
 * [Generic builder](spawn-builder.md) that calls a terminal script
 
 <!-- TODO: link to pages that detail each -->
@@ -109,9 +109,9 @@ const build = new Build().with({
 
 The Maven builder will issue a `gradle clean build` (or use `gradlew` if that's available in the project) command to build your project.
 
-### NPM
+### npm
 
-If you want to build NodeJS projects using NPM, Atomist can certainly help you with that. In order to do so, define your `Build` goal like this, using the `nodeBuilder` available in `@atomist/sdm-pack-node`:
+If you want to build NodeJS projects using npm, Atomist can certainly help you with that. In order to do so, define your `Build` goal like this, using the `nodeBuilder` available in `@atomist/sdm-pack-node`:
 
 ``` typescript
 const build = new Build().with({

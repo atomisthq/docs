@@ -50,17 +50,17 @@ NODE_ENV=production
 
 This has two effects: 
 
-* it tells NPM to install only runtime dependencies, not dev-dependencies.
+* it tells npm to install only runtime dependencies, not dev-dependencies.
 * it changes the default config in the SDM to [production defaults][prod-default-config-apidoc] run in `durable` mode.
 
-If you want the NPM effect, but not the Atomist configuration change, then set ATOMIST_ENV to "testing" or "development". This will override NODE_ENV for that purpose. 
+If you want the npm effect, but not the Atomist configuration change, then set ATOMIST_ENV to "testing" or "development". This will override NODE_ENV for that purpose. 
 
 [prod-default-config-apidoc: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#productiondefaultconfiguration (APIdoc for ProductionDefaultConfig)
 
 ### Node
 
 When running in a production environment, you typically want to avoid
-NPM and run Node.js directly to ensure signals get delivered properly
+npm and run Node.js directly to ensure signals get delivered properly
 and you can provide guidance to Node.js's memory management subsystem.
 Here's an example startup command for production environments:
 

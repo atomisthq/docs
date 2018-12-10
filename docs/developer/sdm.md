@@ -138,7 +138,7 @@ npm run build
 
 There are a few different ways to start the SDM,
 depending on how you are running it.  If you are running the
-SDM locally, you can use the standard NPM `start`
+SDM locally, you can use the standard npm `start`
 command.
 
 ```
@@ -171,9 +171,9 @@ TypeScript project.
 ### package.json
 
 The `package.json` file defines the metadata and dependencies for the
-project.  In addition, this file defines the standard "NPM package
+project.  In addition, this file defines the standard "npm package
 scripts", i.e., `npm run` commands, typically available in Node.js
-projects.  Here's a summary of the NPM package scripts available in
+projects.  Here's a summary of the npm package scripts available in
 most SDM projects.
 
 Command | Description
@@ -215,7 +215,7 @@ types for your GraphQL queries, subscriptions, and mutations.
 ### node_modules
 
 The `node_modules` directory contains all the project dependencies, as
-defined in the `package.json` and installed by NPM.
+defined in the `package.json` and installed by npm.
 
 ### scripts
 

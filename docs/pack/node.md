@@ -130,7 +130,7 @@ const build = new Build().with({
 
 ### npm publish
 
-[executePublish](https://atomist.github.io/sdm-pack-node/modules/_lib_build_executepublish_.html#executepublish) as a GoalExecutor; you can use it to create a custom goal that publishes to NPM. 
+[executePublish](https://atomist.github.io/sdm-pack-node/modules/_lib_build_executepublish_.html#executepublish) as a GoalExecutor; you can use it to create a custom goal that publishes to npm. 
 
 ## Examples of this pack in action
 
