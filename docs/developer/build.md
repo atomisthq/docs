@@ -18,10 +18,13 @@ The build goal does a couple things:
 * Invoke a builder that builds your project
 * Link the built artifact, associating it to the commit
 
-Configuring the `BuildGoal` looks like this
+Get one by calling the [`Build`](apidoc-build) constructor. Pass it a name that is
+unique among your goals.
+
+<!-- TODO: or you could pass FulfillableGoalDetails -->
 
 ``` typescript
-const build = new Build().with({
+const build = new Build("maven build").with({
     name: "maven",
     builder: mavenBuilder(),
 });
@@ -34,6 +37,7 @@ The trick is: you need a [Builder][].
 
 [build-pack]: ../pack/build.md
 [builder]: https://atomist.github.io/sdm-pack-build/modules/_lib_support_build_executebuild_.html#builder (API Doc for Builder)
+[apidoc-build]: https://atomist.github.io/sdm-pack-build/classes/_lib_build_.build.html (API Doc for Build class)
 
 ## Builders
 
@@ -58,7 +62,7 @@ A builder is a function that gets a `GoalInvocation` and a build number and retu
 In addition to handling the CI lifecycle itself, Atomist can also defer the build to external systems like your existing CI lifecycle. To achieve this, you need to define your build goal like this:
 
 ``` typescript
-const build = new Build().with({
+const build = new Build("maven build in Travis").with({
     name: "maven",
     externalTool: "travis"
 });
