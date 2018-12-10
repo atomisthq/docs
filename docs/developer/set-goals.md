@@ -9,24 +9,45 @@ This page assumes you have [created some goals][create-goals]. It shows how to:
 
 ## Grouping goals
 
-You can group goals into sets. Here, two goals are grouped: code inspection (but no code inspections are registered) and the Autofix goal.
+You can group goals into sets. Start creating a goal set with the [`goals`][apidoc-goalsbuilder] method; give it a name. Add goals to the set
+with the `plan` method.
+
+[apidoc-goalsbuilder]: https://atomist.github.io/sdm/modules/_lib_api_goal_goals_.html#goals-1 (API Doc for goals builder)
 
 ```typescript
     const BaseGoals = goals("checks")
-        .plan(new AutoCodeInspection())
+        .plan(codeInspection)
         .plan(autofix);
 ```
 
+The `plan` method accepts one or more goals. The code below is equivalent to the code above:
+
+```typescript
+    const BaseGoals = goals("checks")
+        .plan(codeInspection, autofix);
+```
+
+
 ## Dependencies
 
-You can specify ordering if some goals should wait for others to succeed. Here, we don't want to start the build until after Autofixes have completed.
-If the autofixes do anything, they'll make a new commit, and we don't bother building this one.
+By default, all goals execute in parallel. If some goals should wait for others to succeed, you can give them *preconditions* as you add them to a plan. To do this, call the `after` method immediately after `plan`.
+
+The following example constructs a goal set called "build" with three goals: `autofix`, `codeInspection`, and `mavenBuild`. 
+The `mavenBuild` goal will execute only after `autofix` completes successfully.
 
 ```typescript
     const BuildGoals = goals("build")
-        .plan(new Build().with({ builder: mavenBuilder() }))
+        .plan(autofix, codeInspection)
+        .plan(mavenBuild)
         .after(autofix);
 ```
+
+Note that the `after` method affects only the goals in the last call to `plan`. Here, the `mavenBuild` goal gets
+a precondition that the `autofix` goal must complete successfully.
+
+The goals listed in `after` can be part of this goal set, but they don't have to be. They could be in another
+goal set that is also added to the push. If the goal in `after` is not attached to a particular push at all, then the
+precondition is ignored. See the next section for how to attach goal sets to a push.
 
 ## Set goals on push with "push rules"
 

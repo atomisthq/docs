@@ -98,7 +98,7 @@ A button appears on the push notification in chat.
 
 #### goal preconditions
 
-one goal can wait for another goal (or goals) to complete before starting. [more info](set-goals.md)
+one goal can wait for another goal (or goals) to complete before starting. [more info](set-goals.md#dependencies)
 
 #### goals
 
