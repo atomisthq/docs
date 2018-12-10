@@ -28,11 +28,7 @@ with the following necessary properties:
 
 The `commands` property contains a list of SpawnCommands to run, sequentially, in a separate process in the project directory.
 
-If the command you want to run has no quotes or spaces in their arguments, pass a string to `asSpawnCommand`:
-
-`asSpawnCommand("pip install -r requirements.txt")`
-
-Otherwise, create a [SpawnCommand][sc-apidoc] object for each command, with a single-word `command` and the arguments separated:
+Create a [SpawnCommand][sc-apidoc] object for each command, with a single-word `command` and the arguments separated:
 
 ``` typescript
 { 
@@ -41,7 +37,7 @@ Otherwise, create a [SpawnCommand][sc-apidoc] object for each command, with a si
 }
 ```
 
-You can add `options` to either of these calls, and they're the options received by the `child_process` npm package.
+You can add `options` to the SpawnCommand, and they'll be passed on to the `child_process` npm package.
 
 ## LogInterpreter
 
