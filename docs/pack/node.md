@@ -16,8 +16,8 @@ You can install a chunk of node support by installing the pack with:
 
 ```typescript
 sdm.addExtensionPack(nodeSupport({
-    inspectGoal,
-    autofixGoal,
+    inspectGoal codeInspection,
+    autofixGoal autofix,
     review: { typescriptErrors: true },
     autofix: { typescriptErrors: true },
 }))
