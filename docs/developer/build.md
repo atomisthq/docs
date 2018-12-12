@@ -18,7 +18,7 @@ The build goal does a couple things:
 * Invoke a builder that builds your project
 * Link the built artifact, associating it to the commit
 
-Get one by calling the [`Build`](apidoc-build) constructor. If you want it to
+Get one by calling the [`Build`][apidoc-build] constructor. If you want it to
 appear as something more specific than "build", pass a `displayName` in its options.
 
 <!-- TODO: or you could pass FulfillableGoalDetails -->
@@ -112,7 +112,7 @@ In addition to the same options as the in-process Maven builder, the dockerized 
 Atomist also provide support for building projects using Gradle. At the moment, only single module projects are supported. To use the Gradle integration, configure your `Build` goal like this using the `gradleSingleModuleBuilder` in `sdm-pack-spring`:
 
 ``` typescript
-const build = new Build({ displayName: "gradle build" }).with({
+const build = new Build().with({
     name: "gradle build",
     builder: gradleSingleModuleBuilder(),
 });
@@ -125,7 +125,7 @@ The Maven builder will issue a `gradle clean build` (or use `gradlew` if that's 
 If you want to build NodeJS projects using npm, Atomist can certainly help you with that. In order to do so, define your `Build` goal like this, using the `nodeBuilder` available in `@atomist/sdm-pack-node`:
 
 ``` typescript
-const build = new Build({ displayName: "npm build" }).with({
+const build = new Build().with({
     name: "npm",
     builder: nodeBuilder("run", "build"),
 });
