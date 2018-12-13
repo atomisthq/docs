@@ -78,6 +78,7 @@ nav:
       - Advanced:
          - SDM Concepts: developer/sdm-concepts.md
          - SDM Configuration: developer/config.md
+         - Running External Commands: developer/spawn.md
          - Push Tests: developer/push-test.md
          - RepoRef: developer/reporef.md
          - Generic Builder: developer/spawn-builder.md

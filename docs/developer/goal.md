@@ -169,7 +169,7 @@ Also pass a function to call when it's time to execute the goal. That function c
 
 For example:
 
-``` typescript
+```typescript
 const releaseDocs = createGoal(
     { displayName: "Release Docs", preApprovalRequired: true }, 
     async (inv: GoalInvocation) => {
