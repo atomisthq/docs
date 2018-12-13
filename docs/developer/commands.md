@@ -12,7 +12,7 @@ This page will show you how to:
 *  create a command
 *  test your command
 *  respond to the person who invoked the command
-*  wrap a shell script in a command
+*  [wrap a shell script](#wrap-a-shell-script) in a command
 *  define parameters for your command
 
 This page starts after you have [created][create] an SDM.
@@ -153,6 +153,8 @@ const myScriptCommand: CommandHandlerRegistration = {
     },
 };
 ```
+
+See also: [Running external commands](spawn.md)
 
 ## Command parameters
 

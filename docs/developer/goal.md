@@ -173,10 +173,12 @@ For example:
 const releaseDocs = createGoal(
     { displayName: "Release Docs", preApprovalRequired: true }, 
     async (inv: GoalInvocation) => {
-        const result = await spawnAndLog(inv.progressLog, "release-command");
-        return { ...result, targetUrl: "https://where-i-put-them" };
+        // do stuff
+        return { code: 0, targetUrl: "https://where-i-put-them" };
     });
 ```
+
+If you want to run an external command in your goal, [check this example](spawn.md#running-a-command-in-a-project).
 
 [goaldef-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_goal_.goaldefinition.html (GoalDefinition API Doc)
 [egr-apidoc]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_executegoalresult_.executegoalresult.html (ExecuteGoalResult API Doc)
