@@ -135,18 +135,20 @@ and it will respond back to you in the channel.
 ## Wrap a shell script
 
 If you want to turn a shell script into a bot command, just call that
-shell script from a command listener.  You can use the `safeExec`
+shell script from a command listener.  You can use the [`execPromise`][apidoc-execpromise]
 helper to capture the output and respond back with it.
 
+[apidoc-execpromise]: https://atomist.github.io/automation-client/modules/_lib_util_child_process_.html#execpromise (API doc for execPromise)
+
 ```typescript
-import { safeExec } from "@atomist/automation-client";
+import { execPromise } from "@atomist/automation-client";
 import { CommandHandlerRegistration } from "@atomist/sdm";
 const myScriptCommand: CommandHandlerRegistration = {
     name: "MyScript",
     description: "Run my-script and respond with its stdout",
     intent: "my script",
     listener: async ci => {
-        const result = await safeExec("my-script", ["its", "args"]);
+        const result = await execPromise("my-script", ["its", "args"]);
         return ci.addressChannels(result.stdout);
     },
 };

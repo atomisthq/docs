@@ -173,8 +173,8 @@ For example:
 const releaseDocs = createGoal(
     { displayName: "Release Docs", preApprovalRequired: true }, 
     async (inv: GoalInvocation) => {
-        // do what is needed
-        return { code: 0, targetUrl: "https://where-i-put-them" };
+        const result = await spawnAndLog(inv.progressLog, "release-command");
+        return { ...result, targetUrl: "https://where-i-put-them" };
     });
 ```
 
