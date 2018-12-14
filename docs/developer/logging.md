@@ -9,7 +9,7 @@ Then there are logs for the SDM itself, where it outputs information about its o
 ## Goal Progress Logs
 
 In [local mode](local.md), goal progress logs all go to a single file in `$HOME/.atomist/log`. When a goal fails, 
-that file's path is printed to the [feed](cli.md#atomist-feed.md).
+that file's path is printed to the [feed](cli.md#atomist-feed).
 
 In [team mode](team.md), goal progress logs are sent to Atomist's log service. Each goal, as reported in chat
 or on the dashboard, links to its progress log. To see it, you must be logged in to the Atomist dashboard.
@@ -22,7 +22,7 @@ To send goal progress logs somewhere else, implement [`ProgressLogFactory`](http
 and then set `logFactory` in SDM Configuration. In `index.ts`:
 
 ```typescript
-const configuration: Configuration = {
+const configuration: Configuration & Partial<SoftwareDeliveryMachineOptions> = {
     //...
     sdm: {
         logFactory: new MySpecialProgressLogFactory();
@@ -59,8 +59,8 @@ You can enable logging to a file at a different level; see [API Docs](https://at
 
 If you want to send operational SDM logs to a place of your choosing, you can add a custom log transport.
 
-There is an example in [spring-sdm](https://github.com/atomist/spring-sdm). To add logzio support,
- it registers a postProcessor, which gets called after the SDM configuration is loaded, 
- and can modify the configuration: [code](https://github.com/atomist/spring-sdm/blob/47086a50426bd459a75ab3a28e0b5d49a0237602/src/atomist.config.ts#L25).
+There is an example in Atomist's own SDM. To add logzio support,
+ it registers a postProcessor, which gets called after the SDM configuration is loaded: [code](https://github.com/atomist/atomist-sdm/blob/master/index.ts#L40),
+This can modify the configuration: [code](https://github.com/atomist/spring-sdm/blob/47086a50426bd459a75ab3a28e0b5d49a0237602/src/atomist.config.ts#L25).
 In that postProcessor, a new custom logging transport is added: [code](https://github.com/atomist/automation-client-ext-logzio/blob/8eb116aa6954344811f05938a81f0a25b4d8b8c5/lib/logzio.ts#L231).
 That postProcessor also adds a listener to SDM operational events.
