@@ -18,3 +18,5 @@ In [VSCode][debug-vscode], the debug configuration looks like:
 If you want the SDM to run in local mode, put "local" in the ATOMIST_MODE environment variable.
 
 [debug-vscode]: https://code.visualstudio.com/docs/editor/debugging (Debugging in VSCode)
+
+See also: [Logging in an SDM](logging.md)
