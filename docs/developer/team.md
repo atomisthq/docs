@@ -1,6 +1,14 @@
 
 In team mode, your SDM connects to the Atomist service.
 
+You get:
+
+* triggering, on GraphQL subscriptions. Events are [saved up](#durable-subscriptions) while your SDM is down or restarting.
+* chat integration. The `addressChannels`  function on listener and goal [invocations](registration.md#invocations)
+sends messages to [linked channels](../user/lifecycle.md#linked-channels) in Slack or MS Teams.
+* queries to a persistent model. Execute GraphQL against the history of your commits, deployments, builds, etc.
+* linkable [goal progress logs](logging.md#goal-progress-logs)
+
 ## What is necessary to enable team mode
 
 You'll need an Atomist workspace for your team or organization. See [Getting started](../user/index.md) to sign up, 
