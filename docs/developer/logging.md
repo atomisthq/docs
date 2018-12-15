@@ -9,7 +9,7 @@ Then there are logs for the SDM itself, where it outputs information about its o
 ## Goal Progress Logs
 
 To write to these within a goal execution, call `invocation.progressLog.write("stuff")`. You can also [send output from
-an external command](spawn.md#send-command-output-to-a-log).
+an external command](spawn.md#send-command-output-to-the-log).
 
 In [local mode](local.md), goal progress logs all go to a single file in `$HOME/.atomist/log`. When a goal fails, 
 that file's path is printed to the [feed](cli.md#atomist-feed).

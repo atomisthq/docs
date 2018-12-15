@@ -4,19 +4,79 @@ is common and important, the Atomist SDM has wrapped other Node.js libraries
 to make running commands and handling errors easier from within TypeScript, 
 in async functions.
 
+This page describes how to run an externam command
+
+* [when you implement a goal](#in-a-goal)
+* and [anywhere else](#anywhere-else) in an SDM
+
 Any of the options below accepts an optional last argument for options that are 
 passed through to the underlying libraries. You can pass any of the options documented
-in the [underlying Node library][apidoc-SpawnSyncOptions]. The most important of these is `cwd`,
-the directory to run the command in. See [running inside your Project](#running-a-command-in-a-project) below.
+in the [underlying Node library][apidoc-SpawnSyncOptions].
+
+## In a goal
+
+If you're implementing a custom [goal](goal.md), then you're writing a function of type [`ExecuteGoal`](https://atomist.github.io/sdm/modules/_lib_api_goal_goalinvocation_.html#executegoal), which receives a `GoalInvocation`.
+To run external commands within your function, wrap it in `doWithProject`. Then your function can receive `ProjectAwareGoalInvocation`, which has convenience methods to run an external command in your project's directory.
+
+### Send command output to the log
+
+If you want the output of the command to go to the goal's [progress log](logging.md#goal-progress-logs),
+then use `spawn`. It returns an object that includes information on whether the command succeeded, so check it.
+This will send stderr and stdout to the goal's log.
+
+Here is an example with error handling:
+
+```typescript
+
+export const executeMkdocsStrict: ExecuteGoal = doWithProject(async (inv: ProjectAwareGoalInvocation) => {
+
+    const mkdocsResult = await inv.spawn("mkdocs", ["build", "--strict"]);
+    if (mkdocsResult.code !== 0) {
+        const message = mkdocsResult.error ? mkdocsResult.error.message : "See the log for output";
+        return { code: mkdocsResult.status || 2, message };
+    }
+
+    return { code: 0 };
+});
+```
+
+If the success of the command depends on its output, then consider providing an [`errorFinder`](https://atomist.github.io/sdm/interfaces/_lib_api_helper_misc_child_process_.spawnlogoptions.html#errorfinder)
+ option to `spawn`.
+
+### Get the command output back
+
+If you want to analyze the command output instead of sending it to the log, then use `exec`.
+It returns an object containing `stdout` and `stderr` strings. If the command fails, the returned Promise is rejected
+with an `ExecPromiseError`.
+
+Here is an example with error handling:
+
+```typescript
+export const executeMkdocsStrict: ExecuteGoal = doWithProject(async (inv: ProjectAwareGoalInvocation) => {
+    try {
+        const mkdocsResult = await inv.exec("mkdocs", ["build", "--strict"]);
+        inv.progressLog.write(mkdocsResult.stdout);
+        inv.progressLog.write(mkdocsResult.stderr);
+        // do stuff with output
+        return { code: 0 };
+    } catch (e) {
+        const epe = e as ExecPromiseError;
+        inv.addressChannels(`mkdocs --strict failed on ${inv.id.sha} on ${inv.id.branch}: ${epe.message}`);
+        return { code: epe.status || 1, message: epe.message };
+    }
+});
+```
 
 [apidoc-SpawnSyncOptions]: https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback (Docs for options to spawn)
 
-## Run a command
+## Anywhere else
 
 The simplest way to run an external command is with [execPromise][apidoc-execpromise].
 Pass the command as a string and its parameters as an array of strings.
 It returns a Promise of an object containing the output of the command in `stderr` and `stdout`.
 If the command fails (including if it exits with an error code), the Promise is rejected.
+
+Unless you provide a `cwd` option, this will run in the SDM's root directory.
 
 ```typescript
 await execPromise("docker", ["push", "anImageTag"]);
@@ -45,36 +105,6 @@ async function demoExecPromise() {
 }
 ```
 
-### Send command output to a log
-
-If you're running the command as part of executing a goal, then you might want its output
-to go to the goal's progressLog. Use [`spawnAndLog`][apidoc-spawnandlog] for this.
-
-Pass the progress log, then the command as a string and its parameters as an array of strings. This function will not
-reject its returned Promise even if the command fails, so check the result.
-
-This example demonstrates error handling:
-
-```typescript
-import { spawnAndLog, GoalInvocation } from "@atomist/sdm";
-
-async function demoSpawnAndLog(inv: GoalInvocation) {
-    const dockerPushResult = await spawnAndLog(inv.progressLog, "docker", ["push", "anImageTag"]);
-    if (dockerPushResult.error) {
-        return {
-            code: 1,
-            message: dockerPushResult.error.message
-        }
-    }
-    if (dockerPushResult.status !== 0) {
-        return {
-            code: dockerPushResult.status,
-            message: "See the log for output",
-        }
-    }
-}
-```
-
 ## A little more flexibility
 
 You can also use [`spawnPromise`][apidoc-spawnpromise].
@@ -82,7 +112,6 @@ This function will always give you data back, and you can check it for errors. Y
 output back in `stderr` and `stdout`, *or* you can pass a `log` in the options. Use a log when
 the command might produce a lot of output.
 
-<!-- This many examples before the Project bit gets excessive
 Here's an example with error handling, where we both write the (short) output to the log
 and use it for error reporting. 
 
@@ -104,19 +133,20 @@ async function demoSpawnPromise(inv: GoalInvocation) {
     // do stuff with output
 }
 ```
--->
 
 ## Running a command in a Project
 
 Most of the time you'll want to run in the directory of your project. The trick is to add
 `{ cwd: project.baseDir }` to any call to any of the above methods. When you write a function
 to describe a custom [build](build.md) or [autofix](autofix.md), you'll have access to the Project.
-When [creating a goal](goal.md#custom-goals), clone the project explicitly using `inv.configuration.sdm.projectLoader.doWithProject`. Here is a full example:
+When [creating a goal](goal.md#custom-goals), use [`doWithProject`](#in-a-goal) (easier!), or you can 
+clone the project explicitly using the SDM's configured ProjectLoader.
+
+Here is a full example.  In this code, `configuration` is the
+second argument passed to your SDM configuration function, typically in `machine.ts`.
 
 ```typescript
-
-export const executeMkdocsStrict: ExecuteGoal = async (inv: GoalInvocation) => {
-    return inv.configuration.sdm.projectLoader.doWithProject({
+    inv.configuration.sdm.projectLoader.doWithProject({
         credentials: inv.credentials,
         id: inv.id,
         readOnly: true, // tell it whether it can reuse this clone later
