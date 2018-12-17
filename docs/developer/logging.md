@@ -67,3 +67,7 @@ There is an example in Atomist's own SDM. To add logzio support,
 This can modify the configuration: [code](https://github.com/atomist/spring-sdm/blob/47086a50426bd459a75ab3a28e0b5d49a0237602/src/atomist.config.ts#L25).
 In that postProcessor, a new custom logging transport is added: [code](https://github.com/atomist/automation-client-ext-logzio/blob/8eb116aa6954344811f05938a81f0a25b4d8b8c5/lib/logzio.ts#L231).
 That postProcessor also adds a listener to SDM operational events.
+
+## Logging in tests
+
+If you want to turn on logging in a mocha test, put `before(() => configureLogging(MinimalLogging));` within the the outermost `describe`.

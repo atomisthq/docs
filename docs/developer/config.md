@@ -23,7 +23,28 @@ If you want to change the API key or add/remove workspaces, you can edit this fi
 The configuration values in your `index.ts` file will override
 those from your user configuration.
 
+You can list environment variables in your configuration. The SDM will substitute environment 
+variable values in expressions when you write them like `${ENV_VAR}`.
+For example:
+
+```json
+{
+  ...
+  "sdm": {
+    "docker": {
+      "host": "registry.hub.docker.com",
+      "password": "${DOCKER_PASSWORD}"
+    }
+  }
+}
+```
+
+
 For the full list of configuration sources, see the [API doc][configuration-apidoc].
+
+The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html). 
+
+<!-- TODO: Adding own config values. See `atomist-sdm` index.ts. -->
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
