@@ -317,167 +317,47 @@ sdm.addNewRepoWithCodeActions(
       PublishNewRepo)
 ```
 
-## Generators
+## Project Generators
 
 Another important concern is project creation. Consistent project
 creation is important to governance and provides a way of sharing
 knowledge across a team.
 
-Atomist's [unique take on project
-generation](https://the-composition.com/no-more-copy-paste-bf6c7f96e445)
-starts from a **seed project**--a kind of golden master, that is
-version controlled using your regular repository hosting solution. A
-seed project doesn't need to include template content: It's a regular
-project in whatever stack, and Atomist transforms it to be a unique,
-custom project based on the parameters supplied at the time of project
-creation. This allows freedom to evolve the seed project with regular
-development tools.
+See the [Project Creation](create.md) page.
 
-Generators can be registered with an SDM as follows:
+## Code Transforms
 
-```typescript
-sdm.addGenerators(() => springBootGenerator({
-    ...CommonJavaGeneratorConfig,
-    seedRepo: "spring-rest-seed",
-    intent: "create spring",
-}))
-```
-
-The `springBootGenerator` function used here is provided in
-`sample-sdm`, but it's easy enough to write your own transformation
-using the `Project` API. Here's most of the code in our real Node
-generator:
-
-```typescript
-export function nodeGenerator(config: GeneratorConfig,
-                              details: Partial<GeneratorCommandDetails<NodeProjectCreationParameters>> = {}): HandleCommand {
-    return generatorHandler<NodeProjectCreationParameters>(
-        transformSeed,
-        () => new NodeProjectCreationParameters(config),
-        `nodeGenerator-${config.seedRepo}`,
-        {
-            tags: ["node", "typescript", "generator"],
-            ...details,
-            intent: config.intent,
-        });
-}
-
-function transformSeed(params: NodeProjectCreationParameters, ctx: HandlerContext) {
-    return chainEditors(
-        updatePackageJsonIdentification(params.appName, params.target.description,
-            params.version,
-            params.screenName,
-            params.target),
-        updateReadmeTitle(params.appName, params.target.description),
-    );
-}
-```
-
-You can invoke such a generator from Slack, like this:
-
-![Create Sample](img/create-sample.png)
-
-Note how the repo was automatically tagged with GitHub topics after
-creation. This was the work of a listener, specified as follows:
-
-```typescript
-sdm.addNewRepoWithCodeActions(
-    tagRepo(springBootTagger),
-);
-```
-
-With Atomist ChatOps supports, you can follow along in a linked
-channel like this:
-
-![Sample Channel](img/sample-channel.png)
-
-Note the suggestion to add a Cloud Foundry manifest.  This is the work
-of another listener, which reacts to finding new code in a repo.
-Listeners and commands such as generators work hand in hand for
-Atomist.
-
-## Editors
-
-Another core concept is a project **editor**. An editor is a command
+Another core concept is a **code transform**. This is a command
 that transforms project content. Atomist infrastructure can help
 persist such transformations through branch commits or pull requests,
 with clean diffs.
 
-### A Simple Editor
+See the [Code Transform](transform.md) page.
 
-As you'd expect, editors also use th `Project` API.
-
-Here's an example of a simple editor that takes as a parameter the
-path of a file to remove from a repository.
-
-```typescript
-@Parameters()
-export class RemoveFileParams {
-
-    @Parameter()
-    public path: string;
-}
-
-export const removeFileEditor: HandleCommand = editorCommand<RemoveFileParams>(
-    () => removeFile,
-    "remove file",
-    RemoveFileParams,
-    {
-        editMode: params => commitToMaster(`You asked me to remove file ${params.path}!`),
-    });
-
-async function removeFile(p: Project, ctx: HandlerContext, params: RemoveFileParams) {
-    return p.deleteFile(params.path);
-}
-```
-
-Editors can be registered with an SDM as follows:
-
-```typescript
-sdm.addEditors(
-    () => removeFileEditor,
-);
-```
-
-### Dry Run Editors
-
-More elaborate editors use helper APIs on top of the `Project` API
+More elaborate transforms use helper APIs on top of the `Project` API
 such as Atomist's
 [microgrammar](https://github.com/atomist/microgrammar) API and
 [ANTLR](https://github.com/atomist/antlr) integration.
 
-There's also an important capability called "dry run editing":
-Performing an edit on a branch, and then either raising either a PR or
+### Dry Run Transforms
+
+There's also an important capability called "dry run transform":
+Performing a transform on a branch, and then either raising either a PR or
 an issue, depending on build success or failure. This allows us to
-safely apply edits across many repositories. There's a simple wrapper
+safely apply transforms across many repositories. There's a simple wrapper
 function to enable this:
 
-```typescript
-export const tryToUpgradeSpringBootVersion: HandleCommand = dryRunEditor<UpgradeSpringBootParameters>(
-    params => setSpringBootVersionEditor(params.desiredBootVersion),
-    UpgradeSpringBootParameters,
-    "boot-upgrade", {
-        description: `Upgrade Spring Boot version`,
-        intent: "try to upgrade Spring Boot",
-    },
-);
-```
-
-This editor will upgrade the Spring Boot version in one or more
-projects, then wait to see if the builds succeed. Output will look
-like this (in the case of success):
-
-![Dry Run Upgrade](img/dry-run-upgrade.png)
+<!-- TODO: document how -->
 
 !!! tip
-    Dry run editing is another example of how commands and events can work
+    Dry run transforms are another example of how commands and events can work
     hand in hand with Atomist to provide a uniquely powerful solution.
 
 ## Arbitrary Commands
 
-Both generators and editors are special cases of Atomist **command
+Both generators and transforms are special cases of Atomist **command
 handlers**, which can be invoked via Slack or HTTP. You can write
-commands to ensure that anything that needs to be repeated gets done
+[commands](#commands.md) to ensure that anything that needs to be repeated gets done
 the right way each time, and that the solution isn't hidden on
 someone's machine.
 
