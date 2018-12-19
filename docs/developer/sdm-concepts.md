@@ -357,7 +357,7 @@ function to enable this:
 
 Both generators and transforms are special cases of Atomist **command
 handlers**, which can be invoked via Slack or HTTP. You can write
-[commands](#commands.md) to ensure that anything that needs to be repeated gets done
+[commands](commands.md) to ensure that anything that needs to be repeated gets done
 the right way each time, and that the solution isn't hidden on
 someone's machine.
 
