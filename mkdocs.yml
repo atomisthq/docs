@@ -62,6 +62,7 @@ nav:
           - Create Goals: developer/goal.md
           - Setting Goals: developer/set-goals.md
           - Registrations: developer/registration.md
+      - Event Listeners: developer/listeners.md
       - Builds:
         - Build Goal: developer/build.md
         - Integrations: user/ci.md
