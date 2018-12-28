@@ -62,10 +62,6 @@ a database where Atomist stores correlated events
  better known as the Atomist web interface, this lives at [app.atomist.com](https://app.atomist.com), 
 and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
 
-#### web interface
- the Atomist web interface lives at [app.atomist.com](https://app.atomist.com), 
-and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
-
 #### delivery
  in this guide, delivery is about moving new code into production, through each of the fixes, checks, builds, publishments, deployments, and approvals that are necessary in your organization.
 
@@ -170,6 +166,10 @@ a production environment within your network. [more info](team.md)
 #### version control
  in this guide, "version control" refers to the place where you push code to share it with your team
  like GitHub, GitLab, or BitBucket. Everyone uses git locally, right? (I know, not everyone does, but everyone who uses Atomist has to.)
+
+#### web interface
+ the Atomist web interface lives at [app.atomist.com](https://app.atomist.com), 
+and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.
