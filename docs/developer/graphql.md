@@ -49,8 +49,24 @@ query MyBranches {
 
 This will show you all the branches where you are the last commit author,
 most recent first. This is handy for finding in-progress work.
+
+This query demonstrates several features of Atomist's GraphQL interface:
+
+* Each node has a Query type, so you can access branch, commit, repo, build, etc. directly.
+However, it is strongly
+recommended to start with either something that aren't many of (like branches) or select by a unique identifier
+(like `Commit(sha: "abcdef...") {...}`).
+* You can order by almost any field or fields, using `orderBy`. Pass it an array of order criteria (you'll get a popup to select them from).
+* Each node can be selected by almost any field, as in `author(login: "jessitron") {...}`
+* If you add `@required` (this is a custom GraphQL directive) to a subfield, then you won't see
+nodes that don't have that field, or where that field doesn't meet your selection criteria.
+
+Check the schema browser in Graph<i>i</i>QL for all the different Query types, properties, and selection options.
+
 Try adding `pullRequests` as a field, with `number` and `state` properties,
 to find out which branches have open PRs.
+
+<!-- todo: how does paging work? -->
 
 ## Queries
 
