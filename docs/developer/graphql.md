@@ -22,6 +22,35 @@ shape of the resulting data.  Graph<i>i</i>QL also provides access to
 the data model documentation.
 
 [atomist-app]: https://app.atomist.com/ (Atomist Web Application)
+[dashboard]: ../user/dashboard.md (Atomist Dashboard docs)
+
+### Try This
+
+Log in to the [Atomist app][atomist-app] and [click on the GraphQL link][dashboard]
+to get to the interactive Graph<i>i</i>QL client.
+
+Enter this query (substitute your version control login):
+
+```graphql
+query MyBranches {
+  Branch(orderBy: [timestamp_desc]) {
+    commit @required {
+      author(login: "YOUR-GITHUB-LOGIN") @required {
+        login
+      }
+    }
+    name
+    repo {
+      name
+    }
+  }
+}
+```
+
+This will show you all the branches where you are the last commit author,
+most recent first. This is handy for finding in-progress work.
+Try adding `pullRequests` as a field, with `number` and `state` properties,
+to find out which branches have open PRs.
 
 ## Queries
 
