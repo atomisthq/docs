@@ -1,11 +1,11 @@
 Atomist helps you work with GitHub in two ways:
 
 1.  Atomist surfaces your team's development activity, such as pushes,
-    pull requests, or issues, in the Atomist dashboard in chat.  This
+    pull requests, or issues, in the Atomist web interface in chat.  This
     visibility is enabled via webhooks.
 2.  Atomist allows you to take action in your repositories, creating
     issues, merging pull requests, even releasing services to
-    production, from the Atomist dashboard or in chat.  To release the
+    production, from the Atomist web interface or in chat.  To release the
     full ChatOps power of Atomist, each user on your team will
     independently authorize Atomist -- this means that your users
     remain within the boundaries of the existing GitHub security

@@ -12,7 +12,7 @@ Before getting started, it is helpful to provide some information
 about how Atomist interacts with Kubernetes.  Atomist is able to
 deploy and update applications to Kubernetes as well as report back on
 the health of those applications, providing feedback in the Atomist
-dashboard or Slack on deployments running containers across clusters
+web interface or Slack on deployments running containers across clusters
 and namespaces in the concise, correlated manner users of Atomist
 expect.
 

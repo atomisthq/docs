@@ -41,7 +41,7 @@ nav:
   - Introduction: index.md
   - Using Atomist:
       - Getting Started: user/index.md
-      - Atomist Dashboard: user/dashboard.md
+      - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md

@@ -15,7 +15,7 @@ In [local mode](local.md), goal progress logs all go to a single file in `$HOME/
 that file's path is printed to the [feed](cli.md#atomist-feed).
 
 In [team mode](team.md), goal progress logs are sent to Atomist's log service. Each goal, as reported in chat
-or on the dashboard, links to its progress log. To see it, you must be logged in to the Atomist dashboard.
+or on the web interface, links to its progress log. To see it, you must be logged in to the Atomist web interface.
 
 When goal output is short, it is also sent to the SDM logs.
 

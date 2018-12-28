@@ -18,14 +18,14 @@ You'll need the workspace ID and an API key.
 
 ### Find the workspace ID
 
-On the [dashboard][], you can find the Workspace ID on the settings page (click the gear).
+On the [web interface][dashboard], you can find the Workspace ID on the settings page (click the gear).
 
 ### Get an API key
 
 You'll need an API key that identifies you to the Atomist service. [Get one here](https://app.atomist.com/apiKeys)
-Obtain this from the [dashboard][], by clicking on your username in the upper right.
+Obtain this from the [web interface][dashboard], by clicking on your username in the upper right.
 
-[dashboard]: ../user/dashboard.md (Atomist Dashboard documentation)
+[dashboard]: ../user/dashboard.md (Atomist web interface documentation)
 
 ### Provide the API key to the SDM
 
@@ -34,15 +34,15 @@ populating the API key in your `$HOME/.atomist/client.config.json` file.
 
 ## See your SDM registration
 
-When your SDM registers with the Atomist service, you can see this registration in the Atomist dashboard. 
+When your SDM registers with the Atomist service, you can see this registration in the Atomist web interface. 
 
 Go to [app.atomist.com](https://app.atomist.com), log in, and make sure your team is selected. Then click on the little "Settings" gear.
 
-![Settings button in the dashboard](img/settings.png)]
+![Settings button in the web interface](img/settings.png)]
 
 Choose "Automation Clients" from the tab. (This includes SDMs.) This will show you a list of registered SDMs and built-in automations. Click the little down arrow to expand information.
 
-![Client list in the dashboard](img/clients.png)]
+![Client list in the web interface](img/clients.png)]
 
 The detailed information on the registered SDM includes commands, event subscriptions, and a metadata section. The metadata section has clues about where it's running, such as the `system.hostname`. It also shows the `atomist.policy`: durable or ephemeral.
 
@@ -51,7 +51,7 @@ The detailed information on the registered SDM includes commands, event subscrip
 An SDM that starts up as durable (usually because you ran it with ATOMIST_ENV=production) will get all the events it subscribes to,
 even if it is not up all the time. The Atomist service saves events for it (up to a point).
  This registration will remain active even when the SDM is down. Every unique name/version combination will 
- remain active until you delete the registration in the dashboard.
+ remain active until you delete the registration in the web interface.
 
  Click "delete" to remove a durable registration. You'll need to do this when you upgrade your SDM to a new version, after you shut down the old version.
 

@@ -82,7 +82,7 @@ available to the API for Software.
 
 Verify that your fingerprint worked by finding it in GraphQL.
 
-In the Atomist [dashboard][] (at [https://app.atomist.com]()), once you are logged in, click on the GraphQL icon. Here's a query:
+In the Atomist [web interface][] (at [https://app.atomist.com]()), once you are logged in, click on the GraphQL icon. Here's a query:
 
 ``` graphql
 query Fingerprint {

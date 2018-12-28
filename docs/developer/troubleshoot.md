@@ -9,7 +9,7 @@ To answer questions like:
 
 You can gather information in multiple ways:
 
-*  Check the [dashboard](team.md#See-your-SDM-registration) 
+*  Check the [web interface](team.md#See-your-SDM-registration) 
 *  run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
 *  run the command: "show skills"
 

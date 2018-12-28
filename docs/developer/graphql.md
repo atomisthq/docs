@@ -22,7 +22,7 @@ shape of the resulting data.  Graph<i>i</i>QL also provides access to
 the data model documentation.
 
 [atomist-app]: https://app.atomist.com/ (Atomist Web Application)
-[dashboard]: ../user/dashboard.md (Atomist Dashboard docs)
+[dashboard]: ../user/dashboard.md (Atomist web interface docs)
 
 ### Try This
 

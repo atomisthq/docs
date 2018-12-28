@@ -59,7 +59,7 @@ to perform tasks such as:
 
 The Atomist correlated event model also enables Atomist to provide you
 with visibility throughout the commit to deployment flow, in Slack or
-through the Atomist web dashboard.  See [Events][events] for more
+through the Atomist web interface.  See [Events][events] for more
 information.
 
 [events]: events.md (Atomist - Events)
