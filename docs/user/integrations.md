@@ -39,10 +39,25 @@ Atomist receives events for issue and issue comment creation and update.
 
 #### CI Integrations
 
-Any build system can be integrated with Atomist.
-We have some pre-built functionality for receiving events from:
+Atomist can receive build notifications from:
 
 *  Jenkins
 *  Travis CI
-*  Team City
+*  TeamCity
+*  Circle CI
+*  any other build system, as a POST to our webhook
+
+<!-- todo: make these into links -->
+
+### Running other programs from Atomist
+
+In response to events, you can trigger actions on other systems from your Atomist automations.
+Some of the ones already implemented include:
+
+* Checkstyle
+* TSLint
+* Sonarqube
+* anything you can run from a shell or command prompt
+
+<!-- TODO: add more integrations and make these into links to the packs -->
 

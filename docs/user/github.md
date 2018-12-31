@@ -1,3 +1,5 @@
+<!-- TODO: make this say stuff about other source control! -->
+
 Atomist helps you work with GitHub in two ways:
 
 1.  Atomist surfaces your team's development activity, such as pushes,

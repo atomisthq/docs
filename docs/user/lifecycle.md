@@ -76,4 +76,6 @@ Say `@atomist configure lifecycle` to see your options.
 
 Say `@atomist repos` to get a list of linked repositories; push the "Unlink" button on the one you want to remove.
 
-<!-- TODO: Direct messages -->
+<!-- TODO: Direct messages and configuring them -->
+
+<!-- TODO: how to configure the other messages -->

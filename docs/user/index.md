@@ -1,5 +1,7 @@
 This page describes enrollment with Atomist as a service.
 
+<!-- ** TODO: in real life what do they need to do here? can they just enroll, or contact us? -->
+
 Atomist is here to help you smooth your development flow.  Start with
 our web console; see consolidated event notifications.  Add ChatOps
 with Slack if you have it.  Spawn your own software delivery machine,
