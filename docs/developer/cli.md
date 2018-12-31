@@ -34,6 +34,8 @@ After you start an SDM, leave it running in that terminal. The logs print to the
 
 This will prompt you to set up the connection parameters for an SDM in team mode. See [Configuration](prerequisites.md#user-configuration) for more.
 
+<!-- TODO: there is more here now, and also there's like 'connect' or 'login' or something... ask @dd -->
+
 ## atomist feed
 
 When an SDM runs in local mode, it cannot send messages to people in chat. Instead, it sends them to the *feed*. 
