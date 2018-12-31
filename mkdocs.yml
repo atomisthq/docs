@@ -90,7 +90,7 @@ nav:
          - Path Expressions: developer/pxe.md
          - Chat Messages: developer/slack.md
          - Command Line Interface: developer/cli.md
-         # - Security Model: developer/security.md
+         - Security Model: developer/security.md
       - Glossary: developer/glossary.md
       - Troubleshooting: developer/troubleshoot.md
   - Extensions:

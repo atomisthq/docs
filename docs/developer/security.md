@@ -1,7 +1,7 @@
 When you run automations in Atomist, they run on your network, and connect to our service
 through a websocket for triggering, chat integration, and querying data in the graph of your events.
 
-The Atomist service receives and stores high-level data about repositories, commits, pull requests, GitHub issues, builds, and any custom events you send. Your code is accessed only in your [software delivery machine (SDM)](../developer/sdm.md).
+The Atomist service receives and stores high-level data about repositories, commits, pull requests, GitHub issues, builds, and any custom events you send. Your code is accessed only in your [software delivery machine (SDM)](sdm.md).
 
 ## Where do SDMs run?
 
@@ -9,7 +9,7 @@ Your software delivery happens in an SDM running inside your network. You have c
 SDM runs and what it does, in code.
 
 The SDM needs access to your source control manager; it will clone the code to decide what delivery 
-[goals](../developer/goal.md) to set for each push.
+[goals](goal.md) to set for each push.
 <!-- todo: change 'version control' to 'source control' everywhere? -->
 
 The SDM needs external network access to the Atomist service; it opens a websocket and registers. This
@@ -53,7 +53,7 @@ command; later if the same user invokes something else, they may need to extend 
 These individual GitHub tokens are used by automations and SDMs to carry out actions
 as the user who requested the action. These are not handed to every SDM that connects, however; if you
 run an SDM locally, in team mode, your SDM will carry out its work on GitHub as you.
-The individual tokens are used by the [built-in chat automations](lifecycle.md).
+The individual tokens are used by the [built-in chat automations](../user/lifecycle.md).
 
 ## Data
 
