@@ -139,8 +139,10 @@ async function demoSpawnPromise(inv: GoalInvocation) {
 Most of the time you'll want to run in the directory of your project. The trick is to add
 `{ cwd: project.baseDir }` to any call to any of the above methods. When you write a function
 to describe a custom [build](build.md) or [autofix](autofix.md), you'll have access to the Project.
-When [creating a goal](goal.md#custom-goals), use [`doWithProject`](#in-a-goal) (easier!), or you can 
+When [creating a goal][create-goal], use [`doWithProject`](#in-a-goal) (easier!), or you can 
 clone the project explicitly using the SDM's configured ProjectLoader.
+
+[create-goal]:../developer/goal.md#creating-a-goal (Creating a Goal)
 
 Here is a full example.  In this code, `configuration` is the
 second argument passed to your SDM configuration function, typically in `machine.ts`.
