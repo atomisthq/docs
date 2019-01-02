@@ -96,15 +96,15 @@ nav:
   - Extensions:
     - Extension Packs: pack/index.md
     - Build: pack/build.md
-    - Spring: pack/spring.md
-    - Kubernetes: pack/kubernetes.md
-    - Cloud Foundry: pack/pcf.md
-    - Node: pack/node.md
-    - Markdown: pack/markdown.md
-    - Sonarqube: pack/sonarqube.md
-    - Checkstyle: pack/checkstyle.md
-    - Docker: pack/docker.md
-    - Lines of Code: pack/sloc.md
     - Changelog: pack/changelog.md
+    - Checkstyle: pack/checkstyle.md
+    - Cloud Foundry: pack/pcf.md
+    - Docker: pack/docker.md
+    - Kubernetes: pack/kubernetes.md
     - Issue: pack/issue.md
+    - Lines of Code: pack/sloc.md
+    - Markdown: pack/markdown.md
+    - Node: pack/node.md
+    - Sonarqube: pack/sonarqube.md
+    - Spring: pack/spring.md
   - Support: support.md
