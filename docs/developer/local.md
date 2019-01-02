@@ -1,28 +1,32 @@
 When you run an SDM in local mode, it operates in the privacy of your laptop.
 Everything is open source. This SDM can:
 
--  run goals in respond to a commit.
+-  *run goals in respond to a commit*
    - the SDM can run your tests in the background
    - deploy locally, and be sure that you're doing manual testing on committed code
    - apply autofixes directly in your repository
    - check code inspections and tell you when you've violated them
--  execute commands
+-  *execute commands*
    - generate new projects
    - perform transforms on one repository or on many repositories
    - do inspections on one or many repositories
+   
+In local mode, events come in from local commits (with git hooks) and from within the SDM.
+
+![Atomist SDM in Local mode](img/sdm-local.png)
 
 ## Directory structure
 
 In local mode, an SDM looks for projects on your filesystem. It looks in only one place: the Atomist projects root.
-This defaults to `$HOME/atomist/projects`. Override it by setting an `ATOMIST_ROOT` environment variable (it'll still expect
+This defaults to `$HOME/atomist/projects`. Override this location by setting an `ATOMIST_ROOT` environment variable 
+(it'll still expect
 a `projects` directory under it), or by providing `local.repositoryOwnerParentDirectory` in your SDM's [configuration](config.md).
 
 Underneath the projects root directory are directories for each project owner (GitHub user or organization; BitBucket project). Underneath each owner directory are all the projects belonging to it. Each project is a directory and a git repository.
 
-
 ## atomist clone
 
-When you run `atomist clone <clone url>`, atomist will put the cloned project under the projects directory, under its owner. It also installs
+When you run `atomist clone <clone url>`, atomist puts the cloned project under the projects directory, under its owner. It also installs
 git hooks so that commits to that project will trigger push events.
 
 ## atomist feed
@@ -48,3 +52,4 @@ See also:
 -  Repositories are cloned from the local filesystem
 -  Messages go to the terminal running `atomist feed` (and for commands, also where you ran them)
 -  Nothing happens in GitHub, only locally
+-  Some events are not available. See the list of [listeners](listeners.md) for the full list.
