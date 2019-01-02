@@ -12,7 +12,8 @@ imagine.
 
 ## API for Software
 
-An SDM links up to the *API for software*, implemented by the Atomist service, exposing:
+
+The SDM is a persistent process that runs in the background. An SDM links up to the *API for software*, implemented by the Atomist service, exposing:
 
 -   *What we know*: The Atomist cortex, accessible through GraphQL
     queries and subscription joins
@@ -94,8 +95,8 @@ You can configure the whole pack, or use functions from the pack in your own set
 
 Atomist maintains two implementations of the API for Software:
 
--  Team mode: a complete, cloud-based service,
--  Local mode: an open-source, filesystem-based version that runs on your laptop.
+-  [Team mode](team.md): a complete, cloud-based service,
+-  [Local mode](local.md): an open-source, filesystem-based version that runs on your laptop.
 
 An SDM is most useful when running for your whole team, connected 
 to the Atomist API for software, Slack, and your version control. Run it on your laptop 
@@ -105,21 +106,11 @@ for ongoing use.
 ![Atomist SDM in Team mode](img/sdm-team.png)
 
 If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc, 
-you're in luck! Run your SDM in local mode, on your own machine. Receive push events from your own local commits,
- get messages in a terminal feed, and run trigger commands on the command line.
+you're in luck! Run your SDM in [local mode](local.md), on your own machine. Receive push events from your own local commits,
+ get messages in a terminal feed, and trigger commands on the command line. 
 
 ![Atomist SDM in Local mode](img/sdm-local.png)
 
-An SDM can also run locally, on your laptop. From there, either connect to the Atomist API for software (team mode), 
-or run in local mode: respond to git commits, see messages in a terminal running `atomist feed`, and send
-commands to Atomist from the command line.
-
-The SDM is a persistent process that runs in the background, whether in local or team mode.
-
-While the SDM is most valuable when it is coordinating delivery and
-performing commands for your whole team, you can also test and operate
-an SDM in local mode, on your laptop, without connecting to the
-Atomist API.  Check the [Developer Quick Start][quick-start] for
-instructions to get started locally.
+Check the [Developer Quick Start][quick-start] for instructions to get started in local mode.
 
 [quick-start]: ../quick-start.md (Atomist Developer Quick Start)
