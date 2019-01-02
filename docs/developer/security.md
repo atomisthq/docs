@@ -41,7 +41,7 @@ Once you have access to the web application, you can create an API key, and then
 <!-- TODO can anyone in the workspace run an SDM? who can make a key that will get real tokens? -->
 
 
-{!tbd.md!}
+{!tbd.md!} <!-- add authorization section about permission levels -->
 
 ## Individual GitHub authorization for commands
 
