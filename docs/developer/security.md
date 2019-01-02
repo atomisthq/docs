@@ -1,7 +1,7 @@
 When you run automations in Atomist, they run on your network, and connect to our service
 through a websocket for triggering, chat integration, and querying data in the graph of your events.
 
-The Atomist service receives and stores high-level data about repositories, commits, pull requests, GitHub issues, builds, and any custom events you send. Your code is accessed only in your [software delivery machine (SDM)](sdm.md).
+The Atomist service receives and stores high-level data about repositories, commits, pull requests, issues, builds, and any custom events you send. Your code is accessed only in your [software delivery machine (SDM)](sdm.md).
 
 ## Where do SDMs run?
 
@@ -25,7 +25,7 @@ as your SDM does not connect to Atomist.
 
 The authentication and authorization points are:
 
-*  can you access to the Atomist web application?
+*  can you access the Atomist web application?
 *  do you have administrative access in the Atomist web application?
 *  is an SDM authorized to connect?
 *  does a connected SDM have access to act as the person who invoked the command, or only as the person who 
@@ -41,14 +41,14 @@ Once you have access to the web application, you can create an API key, and then
 <!-- TODO can anyone in the workspace run an SDM? who can make a key that will get real tokens? -->
 
 
-<!-- #authorization {!tbd.md!} -->
+{!tbd.md!}
 
 ## Individual GitHub authorization for commands
 
 Certain commands and buttons, like creating a pull request or pushing "Close" on a GitHub Issue notification,
 can be performed on GitHub _as the user invoking the command_. This requires their authentication on GitHub.
 The Atomist bot will prompt them for this authorization. It will request the minimum authorization for this
-command; later if the same user invokes something else, they may need to extend this authorization. These tokens are stored by Atomist in Vault. 
+command; later if the same user invokes something else, they may need to extend this authorization. These tokens are stored by Atomist in a secure secret store. 
 
 These individual GitHub tokens are used by automations and SDMs to carry out actions
 as the user who requested the action. These are not handed to every SDM that connects, however; if you
