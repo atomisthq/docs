@@ -67,10 +67,6 @@ In your SDM definition where you have access to the SDM instance, add the follow
 sdm.addCodeTransformCommand(AddApacheLicenseFile);
 ```
 
-See also:
-
-*  [Adding functionality to your SDM](sdm-construct.md)
-
 ## Calling the command
 
 ### Local

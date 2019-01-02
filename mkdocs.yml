@@ -55,7 +55,6 @@ nav:
         - Prerequisites: developer/prerequisites.md
         - Team Mode: developer/team.md
         - Local Mode: developer/local.md
-        # - Adding Functionality: developer/sdm-construct.md
         - Deploying your SDM: developer/sdm-deploy.md
         - Debugging an SDM: developer/sdm-debug.md
       - Goals:

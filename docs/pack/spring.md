@@ -137,7 +137,7 @@ This support pack will add the following:
 
 ## Specific push tests
 
-The Spring support also provides a couple of [push tests](push-test.md), like `IsMaven`, to support Spring-specific applications. These are:
+The Spring support also provides a couple of [push tests](../developer/push-test.md), like `IsMaven`, to support Spring-specific applications. These are:
 
 * `HasSpringBootPom`: whether the POM of the project has a dependency to Spring Boot
 * `HasSpringBootApplicationClass`: whether the project has a class that is annotated with `@SpringBootApplication`

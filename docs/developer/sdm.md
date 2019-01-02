@@ -239,4 +239,3 @@ Proceed to [add some functionality][add-functionality] to your SDM.
 [mocha]: https://mochajs.org/ (Mocha)
 [power-assert]: https://github.com/power-assert-js/power-assert#readme (power-assert)
 [cli]: cli.md (Atomist command-line utility)
-[add-functionality]: sdm-construct.md (Adding Functionality)
