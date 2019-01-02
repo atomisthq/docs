@@ -12,7 +12,7 @@ imagine.
 
 ## API for Software
 
-An SDM links up to the *API for software*, exposing:
+An SDM links up to the *API for software*, implemented by the Atomist service, exposing:
 
 -   *What we know*: The Atomist cortex, accessible through GraphQL
     queries and subscription joins
