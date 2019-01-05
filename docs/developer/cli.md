@@ -36,7 +36,11 @@ This will prompt you to set up the connection parameters for an SDM in team mode
 
 <!-- TODO: there is more here now, and also there's like 'connect' or 'login' or something... ask @dd -->
 
-## atomist feed
+## Local Mode
+
+These commands are relevant to running SDMs in local mode, along with `atomist start --local`.
+
+### atomist feed
 
 When an SDM runs in local mode, it cannot send messages to people in chat. Instead, it sends them to the *feed*. 
 The feed is an instance of the Atomist command line (run as `atomist feed`) that stays open listening for messages
@@ -46,19 +50,32 @@ In chat, messages from Atomist can have buttons. The buttons trigger more comman
 gives you URLs instead. Open them (command-click if you're in iTerm2 on a Mac) to "push the button". When the button-links
 open in a browser, the browser displays only an acknowledgement; the useful responses to the command show up in the feed again.
 
-## atomist clone
+### Projects in the Atomist projects root
+
+Local SDMs work with projects in the Atomist projects root (usually `$HOME/atomist/projects`). For an SDM to respond to commits,
+these projects also need git hooks installed. Fetch a project with `atomist clone` to get it in the right place with the right
+hooks. Or if you've already cloned a project, use `atomist add git hooks` to set up triggering.
+
+#### atomist clone
 
 `atomist clone <git url>`: clone a repository into the right place in the Atomist project root (~/atomist/projects/OWNER/REPO) and install git hooks that send commit events to an SDM running in local mode.
 
-## atomist add git hooks
+#### atomist add git hooks
 
 In an existing cloned project, this adds git hooks to send commit events to an SDM running in local mode. The project still needs to in the right directory location.
 
 If you already have git hooks, this will add to them. If you didn't have any, this creates the files
 in `.git/hooks`.
 
-## atomist remove git hooks
+#### atomist remove git hooks
 
 Remove the git hooks that atomist added, if any.
+
+#### atomist replay post-commit
+
+This sends a notification to any running SDMs about the most recent commit, as if you had just committed it. This is useful if your
+SDM was not running when that commit happened. It's also great for testing your SDM repeatedly.
+
+
 
 [local]: local.md (Atomist SDM Local Mode)

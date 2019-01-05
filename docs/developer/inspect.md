@@ -54,7 +54,7 @@ import {
     NoParameters,
     Project,
     projectUtils,
-} from "@atomist/autiomation-client";
+} from "@atomist/automation-client";
 const InspectFileLengths: CodeInspection<FilesWithTooManyLines, NoParameters> =
     async (p: Project) => {
         // this sample code returns the paths to TypeScript files with over 1000 lines
@@ -170,7 +170,7 @@ import {
     ProjectReview,
     projectUtils,
     ReviewComment,
-} from "@atomist/autiomation-client";
+} from "@atomist/automation-client";
 const InspectFileLengths: CodeInspection<ProjectReview, NoParameters> =
     async (p: Project) => {
         const longFiles = await projectUtils.gatherFromFiles(p, "**/*.ts", async f => {
