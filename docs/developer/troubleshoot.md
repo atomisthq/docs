@@ -13,6 +13,24 @@ You can gather information in multiple ways:
 *  run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
 *  run the command: "show skills"
 
+## Running SDM locally in team mode
+
+When you run an SDM locally with `atomist start`, you get to test your local version on real events.
+
+### providing token
+
+If you see this error during goal or command execution:
+
+`Error: Neither 'orgToken' nor 'clientToken' has been injected. Please add a repo-scoped GitHub token to your configuration.`
+
+then add a `token` property at the top level in `$HOME/.atomist/client.config.json` containing your 
+GitHub token. For example, mine is in an environment variable called GITHUB_TOKEN, so I added this:
+
+`"token": "${GITHUB_TOKEN}",`
+
+You need this because goal execution (for autofixes, for instance, which push commits) require GitHub
+authorization, and while in production your SDM gets the token from Atomist, by default Atomist does not send secrets like that to your locally-running SDM. Instead, provide your own GitHub token in configuration.
+
 ## atomist feed
 
 ### Lifecycle listener is already running
