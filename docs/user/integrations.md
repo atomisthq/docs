@@ -47,7 +47,6 @@ Atomist can receive build notifications from:
 *  Circle CI
 *  any other build system, as a POST to our webhook
 
-<!-- todo: make these into links -->
 
 ### Running other programs from Atomist
 
@@ -59,5 +58,4 @@ Some of the ones already implemented include:
 * Sonarqube
 * anything you can run from a shell or command prompt
 
-<!-- TODO: add more integrations and make these into links to the packs -->
 

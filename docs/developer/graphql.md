@@ -66,7 +66,6 @@ Check the schema browser in Graph<i>i</i>QL for all the different Query types, p
 Try adding `pullRequests` as a field, with `number` and `state` properties,
 to find out which branches have open PRs.
 
-<!-- todo: how does paging work? -->
 
 ## Queries
 
@@ -133,7 +132,6 @@ the value for the query variable.
 
 ## Custom Event Handlers
 
-TODO: document
 
 ## Subscriptions
 

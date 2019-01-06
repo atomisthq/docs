@@ -28,8 +28,6 @@ Build status is included on the push notification, right next to the commit mess
 performed by your Atomist SDM or by another build system like Jenkins, Travis, TeamCity, etc. 
 If a build fails, the person who made the commit gets a private message with a link to the log.
 
-<!-- TODO: Pull Request -->
-<!-- TODO: Issue and Issue Comment -->
 
 ## Linked Channels
 
@@ -76,6 +74,3 @@ Say `@atomist configure lifecycle` to see your options.
 
 Say `@atomist repos` to get a list of linked repositories; push the "Unlink" button on the one you want to remove.
 
-<!-- TODO: Direct messages and configuring them -->
-
-<!-- TODO: how to configure the other messages -->

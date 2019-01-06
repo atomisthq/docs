@@ -36,15 +36,12 @@ This page shows how to
 *  teach them what to do
 *  require approval
 
-<!-- ** TODO: say how to require approval -->
 
 The next page describes how to [set goals for each push][setting-goals].
 
 [setting-goals]: set-goals.md (Setting Goals in an SDM)
 
-<!-- TODO: separate Goal Overview from Create goals -->
 
-<!-- TODO: diagram showing goals created in an SDM, sent as events to Atomist, displayed in Slack -->
 
 ## Create goals
 
@@ -104,7 +101,6 @@ Sometimes goals need other goals to have completed before they can start. This i
 
 Sometimes they wait on external conditions, such as another service having started. This is handled with *wait rules*.
 
-<!-- * TODO: document wait rules -->
 
 ## Built-in Goals
 

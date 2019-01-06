@@ -347,7 +347,6 @@ an issue, depending on build success or failure. This allows us to
 safely apply transforms across many repositories. There's a simple wrapper
 function to enable this:
 
-<!-- TODO: document how -->
 
 !!! tip
     Dry run transforms are another example of how commands and events can work
@@ -475,7 +474,6 @@ If integrating CI tools, we recommend the following:
 <!--
 ### Integrating APM tools
 
-tbd
 -->
 
 ### Integrating with Static Analysis Tools

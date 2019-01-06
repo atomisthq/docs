@@ -72,7 +72,6 @@ async (p: Project) => {
     },
 ```
 
-<!-- TODO please can we make that last one very optional -->
 
 ## Put it together
 

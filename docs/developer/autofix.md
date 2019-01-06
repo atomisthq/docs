@@ -72,7 +72,6 @@ You can define a set of options on the registration:
 * `ignoreFailure`: failures in the transform will cause other later autofixes to not be applied if set to `false`
 * `considerOnlyChangedFiles`: the code transform will only be applied to files that have been changed in the push if set to `true`
 
-<!-- TODO: are these required? What are the defaults? -->
 
 ## Add the autofix goal to your goalset
 

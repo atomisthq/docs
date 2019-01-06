@@ -1,4 +1,3 @@
-<!-- TODO: make this say stuff about other source control! -->
 
 Atomist helps you work with GitHub in two ways:
 

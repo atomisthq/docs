@@ -10,7 +10,6 @@ SDM runs and what it does, in code.
 
 The SDM needs access to your source control manager; it will clone the code to decide what delivery 
 [goals](goal.md) to set for each push.
-<!-- todo: change 'version control' to 'source control' everywhere? -->
 
 The SDM needs external network access to the Atomist service; it opens a websocket and registers. This
 registration includes an authorization key, which can be generated in the Atomist web application.
@@ -37,11 +36,8 @@ other team members to the Atomist workspace, which gives them access to the web 
 
 Once you have access to the web application, you can create an API key, and then use that to run your SDM.
 
-<!-- TODO what gives them admin access? -->
-<!-- TODO can anyone in the workspace run an SDM? who can make a key that will get real tokens? -->
 
 
-{!tbd.md!} <!-- add authorization section about permission levels -->
 
 ## Individual GitHub authorization for commands
 

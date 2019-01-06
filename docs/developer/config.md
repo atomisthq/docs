@@ -44,7 +44,6 @@ For the full list of configuration sources, see the [API doc][configuration-apid
 
 The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html). 
 
-<!-- TODO: Adding own config values. See `atomist-sdm` index.ts. -->
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)

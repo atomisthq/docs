@@ -21,7 +21,6 @@ The build goal does a couple things:
 Get one by calling the [`Build`][apidoc-build] constructor. If you want it to
 appear as something more specific than "build", pass a `displayName` in its options.
 
-<!-- TODO: or you could pass FulfillableGoalDetails -->
 
 ``` typescript
 const build = new Build({ displayName: "maven build" }).with({
@@ -48,7 +47,6 @@ Builders implement the logic that is needed to build your software. Out of the b
 * NodeJS using [npm](#npm)
 * [Generic builder](spawn-builder.md) that calls a terminal script
 
-<!-- TODO: link to pages that detail each -->
 
 You can also create your own.
 A builder is a function that gets a `GoalInvocation` and a build number and return a `Promise<BuildInProgress>`
@@ -133,7 +131,6 @@ const build = new Build().with({
 
 In this case the builder will execute an `npm run build` command in the root of your project.
 
-<!-- TODO ## Storing build logs -->
 
 ## Linking the artifact produced by the build
 
