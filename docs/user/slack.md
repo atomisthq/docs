@@ -1,6 +1,8 @@
 Atomist has a powerful Slack integration to help your team access the
 power of ChatOps.
 
+If you already have the Atomist bot in your Slack, skip to [Issuing commands](#issuing-commands).
+
 ## Enroll Slack bot
 
 Click the "Add to Slack" button below to invite the Atomist bot into
@@ -90,3 +92,35 @@ repositories.
 		});
 	}
 </script>
+
+## Issuing commands
+
+The Atomist bot can do many things for you. There are some commands built-in, and others
+added by automations, including your own.
+
+Issue commands either by addressing the bot in any channel it has been invited to (for example, `@atomist help`) or
+by sending a DM to atomist. When you're in a channel that is [linked](lifecycle.md#linked-channels) to a repository, and you run a command (such as `create issue`) that works on a repository, Atomist recognizes the context and runs the command on that repository.
+
+### Finding commands
+
+Get a short list of commands to try from `@atomist help`.
+
+Get the full list of commands with `@atomist list skills`.
+
+Get the details of a particular command with `@atomist describe skill <skill>` where "skill" is replaced
+by the skill text: for instance, `@atomist describe skill create issue`.
+
+### Parameters
+
+When a command needs parameters, Atomist will prompt you for them. For instance, "create issue" requires an issue title and accepts an optional issue body.
+
+You can also provide parameters in the command invocation. For example: `@atomist create issue title="Say hello please" body="I want it to say hello"`
+
+If you provide all required parameters on the command line, most commands will immediately execute.
+Others will give you an opportunity to change any of the parameters before submission.
+
+Sometimes all parameters are optional, and the only way to override them is on the command line. 
+For instance: `@atomist reset goals branch=my-branch` will trigger goal-setting on your branch instead
+of on the master branch.
+
+To see all the parameters, use `@atomist describe skill <skill>`.
