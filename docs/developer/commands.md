@@ -204,7 +204,7 @@ name of the parameter, and its value describes the parameter. These options are 
 | attribute    |  type  | description | default |
 | -------------| ------ | ----------- | ------- |
 | description  | string | short description | same as name |
-| pattern | RegExp | regular expression that the parameter's value must match | match any string |
+| pattern | RegExp | regular expression that the parameter's value must match | match any single line string (`^.*$`) |
 | required | boolean | is the parameter required? | false |
 | displayName | string | name to display; may contain spaces | same as name |
 | validInput | string | describe what makes a valid parameter value | blank |
@@ -226,6 +226,7 @@ defined in another object constant:
 parameters: {
     ...CommonParameters,
     name: { description: "name", required: true, pattern: /.*/, },
+    body: { description: "multi line body text", required: true, pattern: /[\s\S]*/, control: "textarea" }
     location: {},
   },
 ```
