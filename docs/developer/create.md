@@ -71,6 +71,15 @@ Use a pointer to a repository in version control - see [RepoRef](reporef.md) for
 
 ## Parameters
 
+Generator commands work the same way as [command parameters](commands.md#command-parameters).
 
+In addition, a generator command automatically gets some parameters that every generator needs:
+
+
+| attribute    |  type  | description | default |
+| -------------| ------ | ----------- | ------- |
+| target.description | string | description for the new repository | "" |
+| target.repo | string | new repository name | none |
+| target.visibility | "public" or "private" | what kind of visibility a new repository gets | "private" |
 
 [apidoc-generator-registration]: https://atomist.github.io/sdm/interfaces/_lib_api_registration_generatorregistration_.generatorregistration.html (API Doc for GeneratorRegistration)
