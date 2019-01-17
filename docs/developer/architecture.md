@@ -39,7 +39,7 @@ software development systems:
     like [Travis CI][travis], [CircleCI][circle],
     and [Jenkins][jenkins]
 -   Application frameworks like [Spring][spring]
--   Runtime platforms like [Kubernetes][k8] and [Cloud Foundry][cf]
+-   Runtime platforms like [Kubernetes][k8s] and [Cloud Foundry][cf]
 -   Custom events from _any_ other system you use
 
 and makes them available via the Atomist API for software.
@@ -73,7 +73,7 @@ that help your whole team.
 [circle]: https://circleci.com (CircleCI)
 [jenkins]: https://jenkins.io/ (Jenkins)
 [spring]: https://spring.io/ (Spring)
-[k8]: https://kubernetes.io/ (Kubernetes)
+[k8s]: https://kubernetes.io/ (Kubernetes)
 [cf]: https://www.cloudfoundry.org/ (Cloud Foundry)
 [ts]: https://www.typescriptlang.org/ (TypeScript)
 [sdm]: https://github.com/atomist/sdm (Atomist SDM - TypeScript)

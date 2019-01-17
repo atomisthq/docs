@@ -22,10 +22,10 @@ a [process for executing deploys](#Deploying-and-updating-applications) and a
 
 ###  SDM Extension Pack
 
-The extension pack ([github](https://github.com/atomist/sdm-pack-k8), [API doc])
+The extension pack ([github](https://github.com/atomist/sdm-pack-k8s), [API doc])
 adds functions to your [SDM](../developer/sdm.md) for deploying to Kubernetes.
 
-[apidoc](https://atomist.github.io/sdm-pack-k8/)
+[apidoc](https://atomist.github.io/sdm-pack-k8s/)
 
 ### Deploying and updating applications
 
