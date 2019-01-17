@@ -31,6 +31,31 @@ GitHub token. For example, mine is in an environment variable called GITHUB_TOKE
 You need this because goal execution (for autofixes, for instance, which push commits) require GitHub
 authorization, and while in production your SDM gets the token from Atomist, by default Atomist does not send secrets like that to your locally-running SDM. Instead, provide your own GitHub token in configuration.
 
+## Running SDM in local mode
+
+Basic diagnostics:
+
+When you run the SDM with `atomist start --local`, it will print that it has
+"<span style="color: gray">started in</span> <span style="color: green">local mode</span>".
+
+If you have `atomist feed` running in another terminal, then you'll see a message there when
+a local-mode SDM starts or stops. It looks something like: `# general 2019-01-17 12:55:39 My Software Delivery Machine java-refactor-demo-sdm:0.1.0 is now connected`.
+
+To see which SDMs are available to the command line, run `atomist show sdms`. To see the
+commands they supply, run `atomist show skills`.
+
+### the CLI does not see my local SDM
+
+If your SDM does not show in `atomist show sdms`, perhaps it chose the wrong port. The command line looks for SDMs at ports 2866-2876.
+
+See the [section on SDM logging](logging.md#Configuring-SDM-Logs) for how to set log level to "debug". Then restart your SDM, and search its output for the log statement revealing the port where it listens: `running at 'http://127.0.0.1:2866'` (or similar).
+
+If yours is running on a port not in 2866-2876, you might have a PORT environment
+variable set. Try removing that or setting it to something in that range.
+
+The hostname defaults to 127.0.0.1, and can be overridden by a config value 
+`"local": { "hostname": "your-local-hostname-goes-here" }` in either the `configuration` object in the SDM's `index.ts` or in your `$HOME/atomist/client.config.json`.
+
 ## atomist feed
 
 ### Lifecycle listener is already running
