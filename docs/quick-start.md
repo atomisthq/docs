@@ -1,22 +1,29 @@
-This page shows you how to start building your own development automations using Atomist.
-Use this to explore, whether or not you have access to the Atomist service, and whether
-or not your team has other SDMs running.
+This page shows you how to start building your own development
+automations using Atomist.  Use this to explore, whether or not you
+have access to the Atomist service, and whether or not your team has
+other SDMs running.
 
-The easiest way to get started with Atomist is to work on your
-laptop in [local mode][local].
-You will create your own software delivery machine, use it,
- and then customize it, all in the privacy of your machine. Later, you can connect your SDM to the Atomist service,
-  and then it will work with your team's version control and chat.
- 
-An Atomist SDM can run any delivery process, and many other things besides--but for exploration we have to start somewhere.
-Let's pretend your team operates several web services, you write them in Java using Spring Boot, and you like build them with maven.
-Since this SDM is for your personal use on your laptop, "deployment" means starting the service up locally.
+The easiest way to get started with Atomist is to work on your laptop
+in [local mode][local].  You will create your own software delivery
+machine, use it, and then customize it, all in the privacy of your
+machine. Later, you can connect your SDM to the Atomist service, and
+then it will work with your team's version control and chat.
 
-We are going to create a new SDM project, build it, run it, and then use it: we will create a new Spring web service,
-make commits to it, and see it deployed. 
+An Atomist SDM can run any delivery process, and many other things
+besides--but for exploration we have to start somewhere.  Let's
+pretend your team operates several web services, you write them in
+Java using Spring Boot, and you like build them with maven.  Since
+this SDM is for your personal use on your laptop, "deployment" means
+starting the service up locally.
 
-You'll need [Git][git],
-[Node.js][node] (this comes with `npm`), and the [Java JDK][jdk] installed. Run the listed commands in a terminal on Mac or Linux, or in Bash on Windows (git-bash, cygwin, or turn on bash support).
+We are going to create a new SDM project, build it, run it, and then
+use it: we will create a new Spring web service, make commits to it,
+and see it deployed.
+
+You'll need [Git][git], [Node.js][node] (this comes with `npm`), and
+the [Java JDK][jdk] installed.  Run the listed commands in a terminal
+on Mac or Linux, or in Bash on Windows (git-bash, cygwin, or turn on
+bash support).
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [node]: https://nodejs.org/ (Node.js)
@@ -26,12 +33,19 @@ You'll need [Git][git],
 
 ## Quick start
 
-1.  Install the Atomist command-line utility. We will use this to create a new SDM project and to start it up.
+1.  Install the Atomist command-line utility.  We will use this to
+    create a new SDM project and to start it up.  Using
+    [Homebrew][brew] on macOS:
+
+        brew install atomist-cli
+
+    On other platforms, install [Node.js][node] and then run:
 
         npm install -g @atomist/cli
 
-2.  Create a local software delivery machine (SDM). This is going to create a new project
- in the Atomist projects directory (which defaults to `$HOME/atomist/projects`).
+2.  Create a local software delivery machine (SDM). This is going to
+    create a new project in the Atomist projects directory (which
+    defaults to `$HOME/atomist/projects`).
 
         atomist create sdm
 
@@ -67,7 +81,7 @@ You'll need [Git][git],
 
     Leave this terminal window open. Messages will print here.
 
-6.  Now it is time to use your SDM. While it is running, the atomist command line utility can send your commands to it. 
+6.  Now it is time to use your SDM. While it is running, the atomist command line utility can send your commands to it.
 
     In another terminal, create a [Spring Boot][spring-boot] project.
 
@@ -77,9 +91,8 @@ You'll need [Git][git],
     capabilities to create a new Spring Boot project for you.  When
     prompted for the target repository, enter `quick-spring`.  When
     prompted for group identifier and root package, enter `com.me` and
-    `com.me.spring`, respectively. (These are maven concepts.) 
-     When prompted for the target
-    owner, enter your user name again.
+    `com.me.spring`, respectively. (These are maven concepts.)  When
+    prompted for the target owner, enter your user name again.
 
     If you look in the terminal with the Atomist feed, you will see
     the SDM cloning the seed repository, cloning it locally, building
@@ -114,6 +127,9 @@ You'll need [Git][git],
     Go to the URL again and verify the message contains your location.
 
     ![Updated Locally Deployed Spring Boot Application](img/spring-boot-service-location.png)
+
+[brew]: https://brew.sh/ (Homebrew - The missing package manager for macOS)
+[node]: https://nodejs.org/ (Node.js)
 
 [spring-boot]: https://spring.io/projects/spring-boot (Spring Boot)
 
