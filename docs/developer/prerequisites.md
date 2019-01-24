@@ -75,6 +75,15 @@ npm install -g @atomist/cli
     options to the above command to avoid permission errors and
     successfully install.
 
+If you are using [Homebrew][brew] on macOS, you can install the
+Atomist CLI with the following command:
+
+```
+brew install atomist-cli
+```
+
+[brew]: https://brew.sh/ (Homebrew - The missing package manager for macOS)
+
 ## Atomist API key
 
 To start your own SDM, you will need an
