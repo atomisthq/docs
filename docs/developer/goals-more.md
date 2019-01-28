@@ -5,7 +5,7 @@ Here are some things you can do with these:
 * Perform a preparatory action after checking out code, with GoalProjectListeners
 
 [apidoc-fulfillablegoal]: https://atomist.github.io/sdm/classes/_lib_api_goal_goalwithfulfillment_.fulfillablegoal.html (API doc for FulfillableGoal)
-[built-in-goals]: goals.md#built-in (Built-in Goals)
+[built-in-goals]: goal.md#built-in-goals (Built-in Goals)
 [apidoc-goal]: https://atomist.github.io/sdm/modules/_lib_api_goal_goalwithfulfillment_.html#goal (API doc for goal function)
 
 ## GoalProjectListeners: Prepare the checked out code

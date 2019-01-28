@@ -136,7 +136,7 @@ Code is more than text. Change code in place based on contextual understanding. 
 ## Saving modifications
 
 If you're writing a [code transform](transform.md), your changes will be saved for you,
-by a commit in an [autofix](autofix.md) or in a pull request in a [transform command](transform.md#Creating-a-command-for-a-transform).
+by a commit in an [autofix](autofix.md) or in a pull request in a [transform command](transform.md#creating-a-command-for-a-transform).
 
 If you're writing a custom goal of some kind, and working with a clone that you requested,
 then check the [GitProject][apidoc-gitproject] interface for methods like:
