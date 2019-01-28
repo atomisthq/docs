@@ -9,7 +9,7 @@ To answer questions like:
 
 You can gather information in multiple ways:
 
-*  Check the [web interface](team.md#See-your-SDM-registration) 
+*  Check the [web interface](team.md#see-your-sdm-registration) 
 *  run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
 *  run the command: "show skills"
 
@@ -48,7 +48,7 @@ commands they supply, run `atomist show skills`.
 
 If your SDM does not show in `atomist show sdms`, perhaps it chose the wrong port. The command line looks for SDMs at ports 2866-2876.
 
-See the [section on SDM logging](logging.md#Configuring-SDM-Logs) for how to set log level to "debug". Then restart your SDM, and search its output for the log statement revealing the port where it listens: `running at 'http://127.0.0.1:2866'` (or similar).
+See the [section on SDM logging](logging.md#configuring-sdm-logs) for how to set log level to "debug". Then restart your SDM, and search its output for the log statement revealing the port where it listens: `running at 'http://127.0.0.1:2866'` (or similar).
 
 If yours is running on a port not in 2866-2876, you might have a PORT environment
 variable set. Try removing that or setting it to something in that range.

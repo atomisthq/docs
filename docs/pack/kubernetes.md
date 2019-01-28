@@ -17,7 +17,7 @@ and namespaces in the concise, correlated manner users of Atomist
 expect.
 
 This integration has three parts: the [SDM extension pack](#sdm-extension-pack),
-a [process for executing deploys](#Deploying-and-updating-applications) and a
+a [process for executing deploys](#deploying-and-updating-applications) and a
  [process for transmitting events](#container-status).
 
 ###  SDM Extension Pack
