@@ -76,15 +76,15 @@ You can define your own goal to extend Atomist's out of the box capabilities. Fo
 
 To define your own goal, you must provide a name and description and a function for how to execute it.
 
-### Using the `createGoal` function
+### Using the `goal` function
 
-Use the `createGoal` function from @atomist/sdm; pass it an object with a `displayName` and as many properties out of [GoalDefinition][goaldef-apidoc] as you choose.
+Use the `goal` function from @atomist/sdm; pass it an object with a `displayName` and as many properties out of [GoalDefinition][goaldef-apidoc] as you choose.
 Also pass a function to call when it's time to execute the goal. That function can return void or an [ExecuteGoalResult][egr-apidoc].
 
 For example:
 
 ``` typescript
-const releaseDocs = createGoal(
+const releaseDocs = goal(
     { displayName: "My new goal"}, 
     async (inv: GoalInvocation) => {
         // do what is needed
