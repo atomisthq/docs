@@ -24,11 +24,6 @@ function site-build() {
     # and now they are screwy in caches across the interwebs.
     # Give them all different names than they had that day.
     ./rename-css.sh
-    
-    if ! ./htmlproof.sh; then
-        err "htmlproofing failed"
-        return 1
-    fi
 }
 
 # usage: main "$@"
