@@ -5,7 +5,7 @@ The SDM:
 
 * is **event driven**: the SDM performs actions in response to events. The most significant event
 is a code push. The response to this event is defined by [goals](goal.md). The response to
-other events (repository or issue creation, for instance) is defined by [listeners](registration.md#listeners).
+other events (repository or issue creation, for instance) is defined by [listeners](event.md).
 * uses **common APIs** across different automation scenarios. These let you write the important code
 specifying what you want to do, while calling APIs for the common work. For instance, the [Project](project.md) API lets
 you inspect and update the repository contents.
@@ -104,7 +104,7 @@ and then returns a SoftwareDeliveryMachine([API docs][sdm-api-doc]).
 Inside this function, add functionality to your SDM. You can:
 
 *  Add [Goals](goal.md) to choose a flow to respond to code push
-*  Add listeners to various other [events](events.md)
+*  Add listeners to various other [events](event.md)
 *  Add [commands](commands.md)
 *  Add [project generators](create.md)
 *  Bring in [extension packs](../pack/index.md)

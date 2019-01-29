@@ -60,13 +60,11 @@ nav:
       - Goals:
           - Create Goals: developer/goal.md
           - Setting Goals: developer/set-goals.md
-          - Registrations: developer/registration.md
           - Doing More with Goals: developer/goals-more.md
-      - Event Listeners: developer/listeners.md
+      - Event Listeners: developer/event.md
       - Builds:
         - Build Goal: developer/build.md
         - Integrations: user/ci.md
-        # - Reacting to Builds: developer/build-event.md
       - Deploys: developer/deploy.md
       - Code Inspections: developer/inspect.md
       - Code Transforms:
@@ -85,7 +83,6 @@ nav:
          - RepoRef: developer/reporef.md
          - Generic Builder: developer/spawn-builder.md
          - HTTP Calls in an SDM: developer/http.md
-         # - Events: developer/events.md
          - Custom GraphQL Queries: developer/graphql.md
          - Path Expressions: developer/pxe.md
          - Chat Messages: developer/slack.md

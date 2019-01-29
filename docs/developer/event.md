@@ -1,3 +1,6 @@
+
+## SDM supported events
+
 In an SDM, there are several built-in events that you can take action on.
 You can also make a custom event subscription.
 
@@ -5,7 +8,7 @@ Most of these work only in team mode; the local SDM only hears about push events
 Goal-related listeners do work in local mode.
 
 To respond to these events, register a listener with a function to run in response.
-Each listener function receives a [ListenerInvocation](registration.md#invocations) containing general context
+Each listener function receives a [ListenerInvocation](invocation.md) containing general context
 and specific information about that event.
 
 This page shows you how to:
@@ -185,7 +188,7 @@ This is different from most of the listener invocations. It is an [AdminCommunic
 [apidoc-admincommunicationcontext]: https://atomist.github.io/sdm/interfaces/_lib_api_context_admincommunicationcontext_.admincommunicationcontext.html (API doc for AdminCommunicationContext)
 
 Pass this function to [`sdm.addStartupListener`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#addstartuplistener).
-two
+
 ## Tag
 
 *(team mode only)* When a tag is added to a repository, you have the opportunity to respond.

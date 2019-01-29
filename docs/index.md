@@ -75,7 +75,7 @@ You can [add integrations][pack]
 and commands written by Atomist and the community, and contribute your own.
 
 [changelog-pack]: pack/changelog.md (Changelog Pack)
-[events]: developer/events.md (Events Documentation)
+[events]: developer/event.md (SDM Events)
 [pack]: pack/index.md (List of Packs)
 [favorite-tools-blog]: https://the-composition.com/one-great-delivery-experience-your-favorite-tools-7f390f57d896 (One Great Delivery Experience, Your Favorite Tools blog)
 

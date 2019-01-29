@@ -55,7 +55,7 @@ processes. Or if you don't, please let us know! We are available in the [Atomist
 [prereq]: prerequisites.md (Atomist Automation Prerequisites)
 [sdm]: sdm.md (Atomist Software Delivery Machine)
 [command]: commands.md (Atomist Command Automations)
-[event]: events.md (Atomist Event Automations)
+[event]: event.md (Software Delivery Machine Events)
 [slack]: slack.md (Atomist Automation Slack Messages)
 [graphql-api]: graphql.md (Atomist Automation GraphQL)
 [project]: project.md

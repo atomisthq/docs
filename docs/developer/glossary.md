@@ -114,7 +114,7 @@ to describe issue, pull request, issue comment, and push events (along with buil
 
 #### listener
 
-the SDM framework lets you register listeners to various useful events. [check the whole list](registration.md#listeners)
+the SDM framework lets you register listeners to various useful events. [check the whole list](event.md)
 
 #### local mode
  when an SDM runs on your laptop, working only on code that's on your laptop, sending messages only to your laptop. [more info](local.md)
@@ -142,7 +142,7 @@ the message that atomist bot sends to chat after each push event. It gets update
 
 #### registration
 
-an object that provides instructions to an SDM or a goal. [more info](registration.md)
+an object that provides instructions to an SDM or a goal. A registration includes a name (for diagnostics), and some specific action (a transform, an inspection, or a listener, depending on the built-in goal). Many registrations also include an optional PushTest, narrowing on particular pushes.
 
 #### seed
  the starting point for a generator. A seed is a real project that serves as a model for new projects.

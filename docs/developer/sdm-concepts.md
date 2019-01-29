@@ -62,7 +62,7 @@ with visibility throughout the commit to deployment flow, in Slack or
 through the Atomist web interface.  See [Events][events] for more
 information.
 
-[events]: events.md (Atomist - Events)
+[events]: event.md (Atomist - Events)
 
 Event handlers subscribe to events using [GraphQL][graphql]
 subscriptions against the Atomist cortex. The following GraphQL

@@ -52,4 +52,4 @@ See also:
 -  Repositories are cloned from the local filesystem
 -  Messages go to the terminal running `atomist feed` (and for commands, also where you ran them)
 -  Nothing happens in GitHub, only locally
--  Some events are not available. See the list of [listeners](listeners.md) for the full list.
+-  Some events are not available. See the list of [listeners](event.md) for the full list.

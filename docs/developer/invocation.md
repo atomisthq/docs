@@ -1,48 +1,5 @@
-## Registrations on Goals
 
-Many of the provided goals accept registrations as specific instructions of what to do.
-
-A registration includes a
-name (for diagnostics), and some specific action (a transform, an inspection, or a listener, depending on the built-in goal). Many registrations also include an optional `PushTest`, narrowing on particular
-pushes.
-
-## Listeners
-
-Some actions can be triggered by something other than goals. These listeners can be registered
-directly on the SDM. Each listener is an asynchronous function from an invocation to a Promise of some type (usually `any`).
-
-For example, the following listener observes a build, notifying any linked Slack
-channels of its status:
-
-```typescript
-sdm.addBuildListeners(async br =>
-        br.addressChannels(`Build of ${br.id.repo} has status ${br.build.status}`));
-```
-
-!!! Summary
-    SDM listeners are a layer above GraphQL subscriptions and event
-    handlers that simplify common scenarios, and enable most functionality
-    to be naturally expressed in terms of the problem domain. Listener
-    implementations are also testable.
-
-
-##### Available Listener Interfaces
-
-The following listener interfaces are available:
-
--   `ArtifactListener`: Invoked when a new binary has been created
--   `BuildListener`: Invoked when a build is complete.
--   `ChannelLinkListenerInvocation`: Invoked when a channel is linked to a repo
--   `ClosedIssueListener`: Invoked when an issue is closed
--   `DeploymentListener`: Invoked when a deployment has succeeded
--   `FingerprintDifferenceListener`: Invoked when a fingerprint has changed
--   `GoalsSetListener`: Invoked when goals are set on a push
--   `NewIssueListener`: Invoked when an issue has been created
--   `PullRequestListener`: Invoked when a pull request is raised
--   `RepoCreationListener`: Invoked when a repository has been created
--   `TagListener`: Invoked when a repo is created
--   `UpdatedIssueListener`: Invoked when an issue has been updated
--   `UserJoiningChannelListener`: Invoked when a user joins a channel
+Invocation objects provide information to your implementations of [goals](goal.md) and [event listeners](event.md).
 
 ## Invocations
 
