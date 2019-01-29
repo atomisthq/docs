@@ -172,7 +172,13 @@ export const AddApacheLicenseFile: CodeTransformRegistration<AddApacheLicenseFil
 };
 ```
 
-This will cause the transform to be run on the `license-file` branch and the resulting pull request have `Add license file` as a title. 
+This will cause the transform to be run on the `license-file` branch and the resulting pull request have `Add license file` as a title. You can also specify the body of the pull request, and more. Check the docs on [new PullRequest][apidoc-pr] for more.
+
+[apidoc-pr]: https://atomist.github.io/automation-client/classes/_lib_operations_edit_editmodes_.pullrequest.html#constructor (API doc for PullRequest)
+
+If you don't want a pull request, you can specify that the transform should be applied as a [commit](https://atomist.github.io/automation-client/classes/_lib_operations_edit_editmodes_.commit.html#constructor) to any branch.
+
+In [local mode](local.md), there is no such thing as a pull request, so you'll see a branch in your repository.
 
 ## Defer pull request creation based on build outcome
 
