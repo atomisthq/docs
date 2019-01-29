@@ -20,7 +20,6 @@ before_install:
     -in .s3cfg.enc -out $HOME/.s3cfg -d
 install:
   - pip install -r requirements.txt
-  - bundle install
 script:
   - bash travis-build.bash
 notifications:
