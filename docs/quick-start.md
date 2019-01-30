@@ -61,6 +61,7 @@ bash support).
 
 4.  Start your local SDM.
 
+        npm install
         atomist start --local
 
     The above command will install the project dependencies using npm,
