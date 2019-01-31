@@ -18,7 +18,8 @@ After that, you might want to make your code transform into an [Autofix](autofix
 ## Create a code transform
 
 Code transforms are functions that receive the project as an input and changes the content of the project as a result.
-Assume we want to add an Apache licence file to the project.
+
+For a quick example, assume we want to add an Apache licence file to the project.
 The transform would retrieve the license content and add a `LICENSE` file with that content.
 
 ``` typescript
@@ -29,10 +30,14 @@ export const AddApacheLicenseFileTransform: CodeTransform<NoParameters> = async 
 };
 ```           
 
-See also: 
+When you want to do more in a code transform, you might want to:
 
-* [the Project interface][project] (the API for modifying files in the project)
-* [HTTP calls in an SDM][http] (if you're curious why that example uses DefaultHttpClientFactory)
+* To add or remove files, you can use [the Project interface][project] (the API for modifying files in the project).
+* To do basic operations (like a text replacement) on multiple files, check out [projectUtils](projectutils.md)
+* To change code based on a language's abstract syntax tree (AST), try [astUtils](astutils.md)
+* To change code based on a more intuitive selection criteria, try the microgrammars
+in [parseUtils](parseutils.md).
+* make [HTTP calls in an SDM][http] (if you're curious why that example uses DefaultHttpClientFactory)
 
 [http]: http.md (Why the SDM uses its own HTTP client)
 [project]: project.md (the SDM's Project type)
