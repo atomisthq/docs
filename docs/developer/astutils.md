@@ -29,48 +29,38 @@ See more details on path expression syntax in the [tree-path library docs](https
 
 [apidoc-astutils]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html (API Doc for astUtils)
 
-## finding code instances in a project
+## finding and changing code instances in a project
 
-Given a parser and a path expression, you can find all matching code using [`astUtils.findMatches`][apidoc-findmatches].
+Given a parser and a path expression, you can find all matching code using [`astUtils.matchIterator`][apidoc-matchiterator].
 
 This uses the path expression discussed above to find all the method names called
 in all the Java files:
 
 ```typescript
-    const matches = await astUtils.findMatches(project, Java9FileParser, "**/*.java",
-        `/compilationUnit//methodInvocation_lfno_primary/identifier/Identifier`);
-    
-    const allMethodCallsEverywhere = matches.map(m => m.$value);
-```
-
-The matches returned are an array of [TreeNode][apidoc-treenode]. Check the `$value`
-property for the string that matched. 
-
-[apidoc-treenode]: https://atomist.github.io/tree-path/interfaces/_lib_treenode_.treenode.html (API Doc for TreeNode)
-
-If you want information about the file that the code is in, try [`astUtils.findFileMatches`][api-findfilematches].
-
-[api-findfilematches]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#findfilematches (API Doc for findFileMatches)
-[apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#findmatches (API Doc for findMatches)
-
-## changing code in a project
-
-If you want make updates in a [code transform](transform.md), then pass that 
-updating action to [`astUtils.doWithAllMatches`][apidoc-dowithallmatches].
-You can set the `$value` of a match to some new string.
-
-For instance, this code will find only method calls to `oldBoringMethod` and
-with change them to `newExcitingMethod`:
-
-```typescript
-    return project => astUtils.doWithAllMatches(project, Java9FileParser, "**/*.java",
-        `/compilationUnit//methodInvocation_lfno_primary/identifier/Identifier[@value='oldBoringMethod']`,
-        matchResult => {
-            matchResult.$value = "newExcitingMethod";
+       const matchIterable = await astUtils.matchIterator(project, {
+            parseWith: Java9FileParser,
+            globPatterns: "**/*.java",
+            pathExpression: `/compilationUnit//methodInvocation_lfno_primary/identifier/Identifier`,
         });
+
+        const words: { [k: string]: number } = {};
+        for await (const m of matchIterable) {
+            console.log("Found a call to " + m.$value + "\nChanging it to foo!");
+            // you can change it! 
+            m.$value="foo";
+        }
 ```
 
-[apidoc-dowithallmatches]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#dowithallmatches (API Doc for doWithAllMatches)
+You get an AsyncIterable of [MatchResult][apidoc-matchresult]s. Use the `for await(...of...)` syntax to access each match result. Check the `$value`
+property for the string that matched. Update the $value property to change that string
+in the file, when you are writing a [code transform](transform.md).
+
+If you want information about the file that the code is in, try [`astUtils.fileHitIterator`][api-filehititerator].
+
+[api-filehititerator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#filehititerator (API Doc for fileHitIterator)
+[apidoc-matchresult]: https://atomist.github.io/automation-client/interfaces/_lib_tree_ast_filehits_.matchresult.html (API Doc for MatchResult)
+[apidoc-matchiterator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#matchiterator (API Doc for matchIterator)
+
 
 ## See also:
 * the [Project API](project.md)
