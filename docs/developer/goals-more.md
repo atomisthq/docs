@@ -1,14 +1,17 @@
-Any [built-in goal][built-in-goals], plus any goal created with the [`goal`][apidoc-goal] function, implements [`FulfillableGoal`][apidoc-fulfillablegoal]. 
 
-Here are some things you can do with these:
 
-* Perform a preparatory action after checking out code, with GoalProjectListeners
+Here are some more things you can do with goals:
+
+* [Perform a preparatory action](#prepare-the-checked-out-code) after checking out code and before executing the goal, with GoalProjectListeners
+* [Reset goals](#reset-goals) on the latest commit, to have your SDM try again.
 
 [apidoc-fulfillablegoal]: https://atomist.github.io/sdm/classes/_lib_api_goal_goalwithfulfillment_.fulfillablegoal.html (API doc for FulfillableGoal)
 [built-in-goals]: goal.md#built-in-goals (Built-in Goals)
 [apidoc-goal]: https://atomist.github.io/sdm/modules/_lib_api_goal_goalwithfulfillment_.html#goal (API doc for goal function)
 
-## GoalProjectListeners: Prepare the checked out code
+## Prepare the checked out code
+
+Any [built-in goal][built-in-goals], plus any goal created with the [`goal`][apidoc-goal] function, implements [`FulfillableGoal`][apidoc-fulfillablegoal]. These can have GoalProjectListeners.
 
 Say you want to run tests as a separate goal. But you have to run a build
 before the tests can run. By default, the goal will execute in a fresh
@@ -66,6 +69,20 @@ Call this when you create the goal. For instance, here is a possible custom test
 
 [apidoc-goalprojectlistener]: https://atomist.github.io/sdm/modules/_lib_api_goal_goalinvocation_.html#goalprojectlistener (API doc for GoalProjectListener)
 
+## Reset goals
 
+Your SDM can have a command to reset goals on the last commit. Add the `goalState` extension pack to your SDM:
 
+```typescript
+import { goalState } from "@atomist/sdm-core";
+
+  sdm.addExtensionPacks(
+        goalState(),
+    );
+```
+
+Then send `@atomist reset goals <name of your SDM>`, where "name of your sdm" is the name property in package.json, minus any `@` characters.
+
+You can add `branch=my-branch` and/or `sha=<40-character SHA>` to change which commit gets 
+a new set of goals.
 

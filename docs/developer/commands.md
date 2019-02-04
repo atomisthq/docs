@@ -132,6 +132,9 @@ to the Atomist bot
 
 and it will respond back to you in the channel.
 
+In chat, you can send `@atomist describe skill "hello"` 
+to see details of your command and its parameters.
+
 ## Wrap a shell script
 
 If you want to turn a shell script into a bot command, just call that
