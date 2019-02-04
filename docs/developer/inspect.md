@@ -4,11 +4,25 @@ are followed.  Run them on one repository or all repositories.  Run
 them after every commit, so that developers are notified of the status
 of the code whenever they work in a repository.
 
+For instance, when I make a commit to docs-sdm, a code inspection
+creates a GitHub issue for
+all the tslint violations in the branch. [That issue](https://github.com/atomist/docs-sdm/issues/8) looks like this:
+
+<img src="../img/github-issue-from-inspection.png" alt="GitHub Issue from Inspection" 
+   style="max-width:60%;"
+   />
+
+Code inspections can instead send messages to Slack. They can block further progress in goals, so you can prevent deploy of noncompliant code. They can also require specific approval before proceeding with other goals.
+
+Prerequisite: First, you'll need an [AutoCodeInspection goal][autoinspect-goal].
+
+
 ## Installing an inspection from a pack
 
-First, you'll need an [AutoCodeInspection goal][autoinspect-goal].
+You can find inspections in packs, and register them on your
+ [AutoCodeInspection goal][autoinspect-goal].
 
-Then, find inspections related to:
+ Find inspections related to:
 
 * [Lines of code](../pack/sloc.md)
 * [Spring](../pack/spring.md)
@@ -17,14 +31,16 @@ Then, find inspections related to:
 ## Custom inspections
 
 An inspection looks at a repository and produces some report.  It is
-implemented as a function from Project to an inspection result, plus a
+implemented as a function from [`Project`](project.md) to an inspection result, plus a
 separate function to react to these results.  You decide what an
 inspection result contains, how to populate it, and how to react to
 them.
 
-Create your inspection and a command to run it on demand in any
-project or projects.  Then you can add it as an automatic inspection to
-every commit, if you like.
+This page shows you how to:
+
+* Create your inspection
+* Create a command to run it on demand in any project or projects
+* [Add it as an automatic inspection](#automatically-run-your-code-inspection) to every commit.
 
 ### Declare a result type
 
@@ -40,11 +56,11 @@ type FilesWithTooManyLines = string[];
 
 ### Create an inspection function
 
-The CodeInspection is a function from a project (and optionally,
-inspection parameters) to an inspection result.  The Project is an
-Atomist abstraction over a repository directory and the files inside
-it.  Your inspection can call functions on the Project to determine
+The [CodeInspection][apidoc-codeinspection] is a function from a project (and optionally,
+inspection parameters) to an inspection result. Your inspection can call functions on the [`Project`](project.md) to determine
 the result.
+
+[apidoc-codeinspection]:https://atomist.github.io/sdm/modules/_lib_api_registration_codeinspectionregistration_.html#codeinspection (API Doc for CodeInspection)
 
 For instance, this one gathers all the file paths where the content is
 over 1000 lines:
@@ -71,13 +87,15 @@ const InspectFileLengths: CodeInspection<FilesWithTooManyLines, NoParameters> =
     };
 ```
 
+See also: [projectUtils](projectutils.md)
+
 ### Create a function to react to this result
 
 Usually when you run a code inspection, you want to report back to
 yourself or your team what the results were.  Since your inspection
 returns a custom type, you have to define what to do with it.
 
-We need a function that reacts to the inspection results.  It takes an
+We need a function that reacts to the inspection results.  It takes as
 input an array of CodeInspectionResult which includes information
 about the repository that was inspected and the results of the
 inspection.
@@ -134,12 +152,12 @@ Recompile and restart your SDM.  Depending on the context where you run
 `@atomist inspect file lengths`, you'll receive a response for one or
 many projects.
 
-For local mode: run it within a repository directory to inspect one
+For [local mode](local.md): run it within a repository directory to inspect one
 project, or one directory up (within an owner directory) to inspect
 all repositories under that owner, or anywhere else to inspect all
 repositories.
 
-For team mode, in Slack: address Atomist in a channel linked to a
+For [team mode](team.md), in Slack: address Atomist in a channel linked to a
 repository to inspect that repository: `@atomist inspect file
 lengths`.  Or, specify a regular expression of repository names to
 check them all: `@atomist inspect file lengths targets.repos=".*"`.
@@ -218,6 +236,17 @@ const failGoalsIfCommentsReviewListener: ReviewListener = async rli => {
     return PushImpactResponse.proceed;
 };
 ```
+
+There are some handy ReviewListeners available:
+
+* [`slackReviewListenerRegistration`][apidoc-srlr] sends messages to Slack 
+about the review. By default, the goal proceeeds after sending the message. 
+To change this, send `{ pushReactionResponse: PushImpactResponse.failGoals }` (for instance) in its options.
+* [`singleIssueManagingReviewListener`][apidoc-sirl] and friends create GitHub issues
+per category or per branch. You'll need the [sdm-pack-issue](../pack/issue.md) extension pack.
+
+[apidoc-srlr]: https://atomist.github.io/sdm/modules/_lib_api_helper_code_review_slackreviewlistener_.html#slackreviewlistenerregistration (API Doc for slackReviewListenerRegistration)
+[apidoc-sirl]: https://atomist.github.io/sdm-pack-issue/modules/_lib_review_issuemanagingreviewlisteners_.html#singleissuemanagingreviewlistener (API Doc for singleIssueManagingReviewListener)
 
 ### Update the registrations
 

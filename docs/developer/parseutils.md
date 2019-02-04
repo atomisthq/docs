@@ -15,7 +15,6 @@ the whole file), in a way that's more bearable than regular expressions at a med
 The parseUtils collection of functions helps you work with a [Project](project.md) using microgrammars.
 
 [microgrammar library](https://github.com/atomist/microgrammar)
-
 [parseUtils API Doc](https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html)
 
 ## Writing a microgrammar
