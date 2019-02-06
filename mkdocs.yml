@@ -89,6 +89,7 @@ nav:
          - Command Line Interface: developer/cli.md
          - Security Model: developer/security.md
       - Glossary: developer/glossary.md
+      - TypeScript Hints: developer/typescript.md
       - Troubleshooting: developer/troubleshoot.md
   - Extensions:
     - Extension Packs: pack/index.md
