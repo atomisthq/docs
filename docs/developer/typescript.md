@@ -46,6 +46,7 @@ User settings I always change:
 ```
 
    * I like the window title to show the whole path to the file, not just its name. `"window.title": "${rootName}${separator}${activeEditorMedium}"`
+   * Remember more lines the terminal log (useful while debugging): `"terminal.integrated.scrollback": 10000`
 
 ### VSCode Plugins
 
