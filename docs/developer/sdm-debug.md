@@ -13,8 +13,7 @@ In [VSCode][debug-vscode], the debug configuration looks like:
   "env": {
       "ATOMIST_MODE": ""
   },
-  "console": "integratedTerminal",
-  "internalConsoleOptions": "neverOpen",
+  "outputCapture": "std",
 }     
 ```
 
