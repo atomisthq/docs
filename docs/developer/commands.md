@@ -13,7 +13,7 @@ This page will show you how to:
 *  test your command
 *  respond to the person who invoked the command
 *  [wrap a shell script](#wrap-a-shell-script) in a command
-*  define parameters for your command
+*  define [parameters](#command-parameters) for your command
 
 This page starts after you have [created][create] an SDM.
 
