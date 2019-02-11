@@ -177,7 +177,7 @@ install htmlproofer as a global executable.
 
 `sudo gem install html-proofer`
 
-Then you can run: `htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' --url-ignore "/api.github.com/`
+Then you can run: `./htmlproof.sh`
 
 ### Testing and serving
 
