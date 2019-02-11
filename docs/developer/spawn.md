@@ -4,7 +4,7 @@ is common and important, the Atomist SDM has wrapped other Node.js libraries
 to make running commands and handling errors easier from within TypeScript, 
 in async functions.
 
-This page describes how to run an externam command
+This page describes how to run an external command
 
 * [when you implement a goal](#in-a-goal)
 * and [anywhere else](#anywhere-else) in an SDM
