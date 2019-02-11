@@ -31,6 +31,21 @@ GitHub token. For example, mine is in an environment variable called GITHUB_TOKE
 You need this because goal execution (for autofixes, for instance, which push commits) require GitHub
 authorization, and while in production your SDM gets the token from Atomist, by default Atomist does not send secrets like that to your locally-running SDM. Instead, provide your own GitHub token in configuration.
 
+### Required configuration values
+
+When you see something like: 
+
+`Failed to load /path/to/your/sdm/lib/atomist.config.js.configuration: Required @Value 'sdm.some.config.value' not available`
+
+then your SDM is looking for a configuration value. You can the requested one to the `config` in your `$HOME/.atomist/client.config.json` file.
+It's OK to put an empty string in it, if you aren't going to use the particular automation that needs it.
+
+I've also seen this error when I used `configurationValue`[apidoc-configurationvalue] in the initialization of a top-level constant. Calling that function before the SDM
+has started up creates a required value before the configuration has been loaded, which prevents the SDM from starting at all. I moved the call
+to `configurationValue` in to my goal executor function, and then it had access to what it needed.
+
+[apidoc-configurationvalue]: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#configurationvalue (API Doc for configurationValue)
+
 ## Running SDM in local mode
 
 Basic diagnostics:
