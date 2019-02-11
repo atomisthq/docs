@@ -23,7 +23,7 @@ function main() {
     local i
     for (( i=0; i < 4; i++ )); do
         # the logo img is added by material theme, so ignore it not having alt
-        if bundle exec htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
+        if htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' \
         --url-ignore "/api.github.com/,$jenkins_does_not_accept_connections_from_travis,$invalid_skip_to_content_links,$font_loading_preconnect_from_material"
         then
             return 0
