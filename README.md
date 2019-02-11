@@ -171,35 +171,13 @@ $ pip install -r requirements.txt
 
 #### HTMLProofer
 
-Install [HTMLProofer][html-proofer] using [rbenv][].  First install
-rbenv.
+The Atomist [docs-sdm](https://github.com/atomist/docs-sdm) will run Htmlproofer over
+this repository to check the links. If you would like to test the links locally, you can
+install htmlproofer as a global executable.
 
-[rbenv]: https://github.com/rbenv/rbenv
+`sudo gem install html-proofer`
 
-```
-$ brew install rbenv
-$ eval "$(rbenv init -)"
-```
-
-Install a recent version of Ruby using rbenv and then set that as the
-version to be used in this project.
-
-```
-$ rbenv install 2.4.1
-$ rbenv local 2.4.1
-```
-
-Install the bundler gem.
-
-```
-$ gem install bundler
-```
-
-Finally, install HTMLProofer.
-
-```
-$ bundle install
-```
+Then you can run: `htmlproofer ./site --alt-ignore '/.*\/atomist-logo-horiz-reversed.svg$/' --url-ignore "/api.github.com/`
 
 ### Testing and serving
 
