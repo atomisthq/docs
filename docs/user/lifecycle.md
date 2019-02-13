@@ -74,3 +74,6 @@ Say `@atomist configure lifecycle` to see your options.
 
 Say `@atomist repos` to get a list of linked repositories; push the "Unlink" button on the one you want to remove.
 
+## Configuration
+
+You can turn on and off some of these messages, plus custom emoji for nicer icons, with `@atomist configure lifecycle`.
