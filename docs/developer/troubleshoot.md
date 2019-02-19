@@ -71,6 +71,14 @@ variable set. Try removing that or setting it to something in that range.
 The hostname defaults to 127.0.0.1, and can be overridden by a config value 
 `"local": { "hostname": "your-local-hostname-goes-here" }` in either the `configuration` object in the SDM's `index.ts` or in your `$HOME/atomist/client.config.json`.
 
+### I turned up the log level but it still isn't logging enough
+
+The full list of where SDM configuration, and therefore logging, can be set is [here](https://atomist.github.io/automation-client/modules/_lib_configuration_.html?_ga=2.189235115.1635154328.1550526486-1203552146.1527824248#loadconfiguration).
+If you set `configuration.logging.level` in `index.ts` but you're still seeing the default (info):
+
+* check your `$HOME/.atomist/client.config.json` to see if it is defined there.
+This has higher preference.
+
 ## atomist feed
 
 ### Lifecycle listener is already running
