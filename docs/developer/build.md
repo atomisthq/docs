@@ -124,15 +124,17 @@ If you want to build NodeJS projects using npm, Atomist can certainly help you w
 
 ``` typescript
 import { Build } from "@atomist/sdm-pack-build";
-import { nodeBuilder } from "@atomist/sdm-pack-node";
+import { nodeBuilder, NodeModulesProjectListener } from "@atomist/sdm-pack-node";
 
 const build = new Build().with({
     name: "npm",
-    builder: nodeBuilder("run", "build"),
-});
+    builder: nodeBuilder({ command: "npm", args: ["run", "build"] }),
+}).withProjectListener(NodeModulesProjectListener);
 ```
 
-In this case the builder will execute an `npm run build` command in the root of your project.
+Here, the nodeBuilder will execute `npm run build`. But first, `NodeModulesProjectListener` is a 
+[GoalProjectListener](goals-more.md#prepare-the-checked-out-code) that will make sure `npm install` 
+happens before the goal runs and after the project is cloned. 
 
 
 ## Linking the artifact produced by the build
