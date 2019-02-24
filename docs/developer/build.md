@@ -123,6 +123,9 @@ The Maven builder will issue a `gradle clean build` (or use `gradlew` if that's 
 If you want to build NodeJS projects using npm, Atomist can certainly help you with that. In order to do so, define your `Build` goal like this, using the `nodeBuilder` available in `@atomist/sdm-pack-node`:
 
 ``` typescript
+import { Build } from "@atomist/sdm-pack-build";
+import { nodeBuilder } from "@atomist/sdm-pack-node";
+
 const build = new Build().with({
     name: "npm",
     builder: nodeBuilder("run", "build"),
