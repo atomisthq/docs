@@ -1,0 +1,4 @@
+IgnoreURLs: 
+  - "https://fonts.gstatic.com"
+IgnoreDirectoryMissingTrailingSlash: true
+DirectoryPath: "site"
