@@ -48,7 +48,9 @@ additional options. We have the following in our package.json:
 
 ### Add Build Script
 
-Our node build goals expect every project to have a "build" script in package.json. The [AddBuildScript](https://atomist.github.io/sdm-pack-node/modules/_lib_autofix_addbuildscript_.html#addbuildscript) autofix adds one if you don't have it.
+Our node build goals expect every project to have a "build" script in package.json. The
+ [AddBuildScript](https://atomist.github.io/sdm-pack-node/modules/_lib_autofix_addbuildscript_.html#addbuildscript)
+ autofix adds one if you don't have it.
 
 The build script will echo something about "build goes here," 
 giving you a placeholder.
