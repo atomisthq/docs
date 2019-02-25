@@ -39,6 +39,21 @@ For example:
 }
 ```
 
+## Caching
+
+If you want to cache downloads or other data between goal executions, then configure `sdm.cache.enabled` to true, and set 
+`sdm.cache.path` to point to a directory
+that is accessible wherever your SDM is running (defaults to `/opt/data`). The SDM will automatically 
+clear out old files from this directory if they are more than two hours old when the SDM starts up.
+
+There is an example of how to put files in and out of this directory in our
+[node pack](https://github.com/atomist/sdm-pack-node/blob/1d6bcd93d458a03513161393688cc6aa7f774b6a/lib/build/npmBuilder.ts#L161-L209). 
+That example zips up the `node_modules` directory and stores it there for each commit.This lets goal executions be stateless, 
+without downloading the world every time.
+
+
+## Everything Else
+
 
 For the full list of configuration sources, see the [API doc][configuration-apidoc].
 
