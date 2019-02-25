@@ -82,7 +82,7 @@ available to the API for Software.
 
 Verify that your fingerprint worked by finding it in GraphQL.
 
-In the Atomist [web interface][] (at [https://app.atomist.com]()), once you are logged in, click on the GraphQL icon. Here's a query:
+In the Atomist [web interface][webapp] (at [https://app.atomist.com][webapp]), once you are logged in, click on the GraphQL icon. Here's a query:
 
 ``` graphql
 query Fingerprint {
@@ -94,6 +94,8 @@ query Fingerprint {
   }
 }
 ```
+
+[webapp]: https://app.atomist.com
 
 After the SDM is running with the new fingerprint registered, and a push is made, then substitute the 40-character git SHA of the last pushed commit
 for the string in the above query.
