@@ -165,7 +165,22 @@ button to it.
 With Atomist, it's easy to bind Slack action buttons to command handlers. Such a
 binding consists of three parts: the specification of the button as required by
 Slack, a reference to the [command handler][command], and optional parameters that should be
-pre-populated when invoking the command.
+pre-populated when invoking the command. Pass these to [`buttonForCommand`][apidoc-button]. Put the output in the `actions` array
+of an Attachment, and put that in the `attachments` array of a SlackMessage.
+
+[apidoc-button]: https://atomist.github.io/automation-client/modules/_lib_spi_message_messageclient_.html#buttonforcommand (APIDoc for buttonForCommand)
+
+Here's a simple SlackMessage with a button that invokes a command by name:
+
+```typescript
+{
+    attachments: [{
+        text: "Push the button",
+        fallback: "Push the button", 
+        actions: [buttonForCommand({ text: "Press Here" }, "NameOfCommandToRun")]
+    }]
+}
+```
 
 The button specification is defined by Slack in the [field guide](https://api.slack.com/docs/interactive-message-field-guide).
 Here is an example of a button with a confirmation pop-up:
@@ -183,6 +198,8 @@ const buttonSpec: ButtonSpecification = {
     },
 };
 ```
+
+
 ### Adding message menus
 
 Message menus are very similar to message buttons in the way they are created and
