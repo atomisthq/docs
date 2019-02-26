@@ -94,31 +94,9 @@ the next section when running configure.
 
 [app-api-key]: https://app.atomist.com/apiKeys (Atomist API Key)
 
-## Configure
+## Minimal Configuration
 
-There are a few ways you can configure Atomist SDMs.  While any
-of the approaches below will work in any scenario, some approaches are
-better for some use cases than others.  If you are developing an SDM
-and running it locally on your workstation or laptop, [user
-configuration](#user-configuration) is likely your best choice.  If
-you are running an SDM on a server in a
-testing or production environment, you will likely want to use the
-[environment variable](#environment-variable) approach.
-
-Regardless of the approach you take, the minimum information required
-to successfully start an SDM is an [API key](#atomist-api-key)
-and a [workspace ID](#atomist-workspace).  Depending on the SDM or
-other client you are trying to run, you may need to provide more
-configuration values.
-
-### User configuration
-
-If you have a user configuration file on your system, it will be read
-and merged with any client-specific configuration whenever you start
-an SDM.  In other words, it serves as a base
-configuration for all SDMs you run on your system.
-
-Run the following command to create and persist a user configuration
+To get started quickly, run the following command to create and persist a user configuration
 on your local system.
 
 ```
@@ -145,43 +123,7 @@ configuration file will look something like:
 ```
 
 with `API_KEY` and `WORKSPACE_ID` replaced with your Atomist API key
-and workspace ID, respectively.  If you are in multiple Atomist
-workspaces and want to run your SDMs in all of them, simply add all
-of their workspace IDs to the `workspaceIds` array in the user
-configuration file.
+and workspace ID, respectively. 
 
-### Environment variable
+For configuring SDMs to run on a server, see [SDM Configuration](config.md) for more options.
 
-When running an SDM on a server, especially when
-running in a containerized environment, it is typically better to
-provide the necessary configuration using environment variables.  When
-an SDM starts up, it will attempt to parse a JSON-formatted
-configuration object from the `ATOMIST_CONFIG` environment variable
-and from the file provided by the `ATOMIST_CONFIG_PATH` environment
-variable.
-
-For example, to use the `ATOMIST_CONFIG` environment variable to
-provide the same configuration as that shown above in the user
-configuration section, you could run the following commands to set the
-environment variable and start the client.
-
-```
-export ATOMIST_CONFIG='{"apiKey":"API_KEY","workspaceIds":["WORKSPACE_ID"]}'
-atomist start
-```
-
-Similarly, if you created a file with the same contents as that show
-above in the user configuration section at `/opt/sdm/sdm-config.json`,
-then you tell the SDM to load that file by setting the
-following environment variable prior to starting the SDM.
-
-```
-export ATOMIST_CONFIG_PATH=/opt/sdm/sdm-config.json
-atomist start
-```
-
-If both environment variables are defined, their configuration values
-are merged with values in the `ATOMIST_CONFIG` environment variable
-taking precedence over those defined in the `ATOMIST_CONFIG_PATH`
-file.  If the user configuration file also exists, its values are also
-merged in with lower precedence than either environment variable.

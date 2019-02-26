@@ -32,7 +32,7 @@ After you start an SDM, leave it running in that terminal. The logs print to the
 
 ## atomist config
 
-This will prompt you to set up the connection parameters for an SDM in team mode. See [Configuration](prerequisites.md#user-configuration) for more.
+This will prompt you to set up the connection parameters for an SDM in team mode. See [Configuration](prerequisites.md#minimal-configuration) for more.
 
 
 ## Local Mode
