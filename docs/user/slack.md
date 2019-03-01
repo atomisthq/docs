@@ -9,7 +9,7 @@ Click the "Add to Slack" button below to invite the Atomist bot into
 your Slack workspace.
 
 <div style="text-align:center;">
-  <a href="https://atm.st/2wiDlUe" onclick="trackOutboundLink('https://atm.st/2wiDlUe'); return false;" target="_blank">
+  <a href="https://atm.st/2wiDlUe" target="_blank">
     <img alt="Add to Slack" height="50" width="174" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
   </a>
 </div>
