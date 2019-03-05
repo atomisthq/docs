@@ -75,7 +75,7 @@ nav:
             - Path Expressions: developer/pxe.md
         - Commands: developer/commands.md
         - Project Generators: developer/create.md
-      - Security Model: developer/security.md
+        - Security Model: developer/security.md
         - More Details:
           - Fingerprints: developer/fingerprint.md
           - SDM Configuration: developer/config.md
