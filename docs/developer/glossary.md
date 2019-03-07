@@ -100,6 +100,10 @@ A button appears on the push notification in chat.
 
 one goal can wait for another goal (or goals) to complete before starting. [more info](set-goals.md#dependencies)
 
+#### goal project listener
+ A prerequisite to running a goal. This happens after a project is cloned and before the goal
+ is executed. [see more](goals-more.md#prepare-the-checked-out-code)
+
 #### goals
 
 steps to execute after a push. These are set by a software delivery machine. [more info](goal.md)
@@ -173,7 +177,3 @@ and it gives you access to some notifications and the settings for your Atomist 
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.
-
-#### goal project listener
- A prerequisite to running a goal. This happens after a project is cloned and before the goal
- is executed. [see more](goals-more.md#prepare-the-checked-out-code)
