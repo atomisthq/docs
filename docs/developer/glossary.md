@@ -173,3 +173,7 @@ and it gives you access to some notifications and the settings for your Atomist 
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.
+
+#### goal project listener
+ A prerequisite to running a goal. This happens after a project is cloned and before the goal
+ is executed. [see more](goals-more.md#prepare-the-checked-out-code)
