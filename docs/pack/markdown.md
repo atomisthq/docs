@@ -10,7 +10,7 @@ Markdown files. The automation around this docs site uses this pack.
 
 ## Parsing
 
-Use the `RemarkFileParser` when evaluating [path expressions][../developer/pxe.md]
+Use the `RemarkFileParser` when evaluating [path expressions](../developer/pxe.md)
 to transform Markdown files.
 
 ## Code Transforms
