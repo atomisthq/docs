@@ -132,7 +132,7 @@ to the Atomist bot
 
 and it will respond back to you in the channel.
 
-In chat, you can send `@atomist describe skill "hello"` 
+In chat, you can send `@atomist describe skill "hello"`
 to see details of your command and its parameters.
 
 ## Wrap a shell script
@@ -162,7 +162,7 @@ See also: [Running external commands](spawn.md)
 ## Command parameters
 
 Command parameters give you extra information that can be different each time
-the command runs. 
+the command runs.
 
 By default, commands not require parameters. However, you can specify parameters to be gathered in chat by the Atomist bot
 or via the web interface or CLI. These parameters can be accessed in a typesafe manner.
@@ -178,7 +178,7 @@ what parameters to gather.
 
 ```typescript
 const helloWorldParametersDefinition = {
-      name: { description: "name", 
+      name: { description: "name",
               required: true,
               pattern: /.*/, },
       location: {},
@@ -195,7 +195,7 @@ const helloWorldCommand: CommandHandlerRegistration<{ name: string, location: st
 };
 ```
 
-Atomist will now prompt anyone who invokes this command for `name` and `location`. In this case 
+Atomist will now prompt anyone who invokes this command for `name` and `location`. In this case
 any value will be accepted,
 but we can use regular expressions to ensure that valid values are submitted.
 
@@ -239,7 +239,7 @@ The property definition mechanism applies to all commands, so you can apply it t
 ### Accessing parameters in the command
 
 The `CommandHandlerRegistration` type is parameterized by the type of the properties object.
-In this case it's the anonymous type `{ name: string, location: string }`, but in more complex scenarios we'd use an interface. 
+In this case it's the anonymous type `{ name: string, location: string }`, but in more complex scenarios we'd use an interface.
 By default, no parameters are exposed.
 
 We access the parameter values in the listener via the `parameters` property, as in `ci.parameters.name`:

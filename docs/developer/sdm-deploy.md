@@ -38,22 +38,22 @@ To receive only your personal commits and commands that you initiate in your ter
 npm run compile && npm start --local
 ```
 
-## Production 
+## Production
 
 ### Production mode
 
-Set the environment variable 
+Set the environment variable
 
 ```
 NODE_ENV=production
 ```
 
-This has two effects: 
+This has two effects:
 
 * it tells npm to install only runtime dependencies, not dev-dependencies.
 * it changes the default config in the SDM to [production defaults][prod-default-config-apidoc] run in `durable` mode.
 
-If you want the npm effect, but not the Atomist configuration change, then set ATOMIST_ENV to "testing" or "development". This will override NODE_ENV for that purpose. 
+If you want the npm effect, but not the Atomist configuration change, then set ATOMIST_ENV to "testing" or "development". This will override NODE_ENV for that purpose.
 
 [prod-default-config-apidoc: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#productiondefaultconfiguration (APIdoc for ProductionDefaultConfig)
 

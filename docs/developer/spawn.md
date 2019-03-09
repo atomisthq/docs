@@ -1,7 +1,7 @@
 From within your automations, every other tool is also at your disposal.
 You can trigger any operating system command from within Node.js. Since this
 is common and important, the Atomist SDM has wrapped other Node.js libraries
-to make running commands and handling errors easier from within TypeScript, 
+to make running commands and handling errors easier from within TypeScript,
 in async functions.
 
 This page describes how to run an external command
@@ -9,7 +9,7 @@ This page describes how to run an external command
 * [when you implement a goal](#in-a-goal)
 * and [anywhere else](#anywhere-else) in an SDM
 
-Any of the options below accepts an optional last argument for options that are 
+Any of the options below accepts an optional last argument for options that are
 passed through to the underlying libraries. You can pass any of the options documented
 in the [underlying Node library][apidoc-SpawnSyncOptions].
 
@@ -91,7 +91,7 @@ import { execPromise, ExecPromiseError } from "@atomist/sdm";
 async function demoExecPromise() {
     try {
         const dockerPushResult = await execPromise("docker", ["push", "anImageTag"]);
-        const description = `docker push completed successfully. 
+        const description = `docker push completed successfully.
             Stdout: ${dockerPushResult.stdout}
             Stderr: ${dockerPushResult.stderr}`;
     } catch (e) {
@@ -113,7 +113,7 @@ output back in `stderr` and `stdout`, *or* you can pass a `log` in the options. 
 the command might produce a lot of output.
 
 Here's an example with error handling, where we both write the (short) output to the log
-and use it for error reporting. 
+and use it for error reporting.
 
 ```typescript
 import { spawnPromise, GoalInvocation } from "@atomist/sdm";
@@ -127,7 +127,7 @@ async function demoSpawnPromise(inv: GoalInvocation) {
         inv.addressChannels(`docker push failed on ${inv.id.sha} on ${inv.id.branch}: ${dockerPushResult.stderr}`);
         return { code: dockerPushResult.status || 1, message: dockerPushResult.stderr }
     }
-    const description = `docker push completed successfully. 
+    const description = `docker push completed successfully.
             Stdout: ${dockerPushResult.stdout}
             Stderr: ${dockerPushResult.stderr}`;
     // do stuff with output
@@ -139,7 +139,7 @@ async function demoSpawnPromise(inv: GoalInvocation) {
 Most of the time you'll want to run in the directory of your project. The trick is to add
 `{ cwd: project.baseDir }` to any call to any of the above methods. When you write a function
 to describe a custom [build](build.md) or [autofix](autofix.md), you'll have access to the Project.
-When [creating a goal][create-goal], use [`doWithProject`](#in-a-goal) (easier!), or you can 
+When [creating a goal][create-goal], use [`doWithProject`](#in-a-goal) (easier!), or you can
 clone the project explicitly using the SDM's configured ProjectLoader.
 
 [create-goal]:../developer/goal.md#creating-a-goal (Creating a Goal)
@@ -175,7 +175,7 @@ second argument passed to your SDM configuration function, typically in `machine
 }
 ```
 
-[apidoc-execpromise]: https://atomist.github.io/automation-client/modules/_lib_util_child_process_.html#execpromise (API doc for execPromise) 
+[apidoc-execpromise]: https://atomist.github.io/automation-client/modules/_lib_util_child_process_.html#execpromise (API doc for execPromise)
 
 [apidoc-spawnpromise]: https://atomist.github.io/automation-client/modules/_lib_util_child_process_.html#spawnpromise (API doc for spawnPromise)
 

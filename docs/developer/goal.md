@@ -7,8 +7,8 @@ Goals are reusable parts of functionality used within a CI/CD context. Think of 
 The most important SDM functionality relates to what
 happens on a push to a repository. An SDM allows you to process a push
 in any way you choose, but typically you want it to initiate a
-delivery flow. In short, an SDM allows you to set **goals** on as a response to 
-an event, for example a push. 
+delivery flow. In short, an SDM allows you to set **goals** on as a response to
+an event, for example a push.
 
 Goals can be completed by an SDM or elsewhere; for example, the SDM can recognize that a goal
 is complete when a build finishes in an external system.
@@ -85,7 +85,7 @@ For example:
 
 ``` typescript
 const releaseDocs = goal(
-    { displayName: "My new goal"}, 
+    { displayName: "My new goal"},
     async (inv: GoalInvocation) => {
         // do what is needed
         return { code: 0 };
@@ -133,7 +133,7 @@ codeInspection.with(MyAutoInspectRegistration)
 
 You can register any number of inspections. You can call `with` on the goal at any point in SDM configuration.
 
-If no inspections are registered, the goal will succeed. If any registration's `onInspectionResult` returns "fail", the goal will fail. If none return "fail" but one returns "require approval", the goal will go to Waiting for Approval state until someone clicks the Approve button in Slack or on the Atomist web interface. 
+If no inspections are registered, the goal will succeed. If any registration's `onInspectionResult` returns "fail", the goal will fail. If none return "fail" but one returns "require approval", the goal will go to Waiting for Approval state until someone clicks the Approve button in Slack or on the Atomist web interface.
 
 [AutoInspectRegistration]: https://atomist.github.io/sdm/interfaces/_lib_api_registration_autoinspectregistration_.autoinspectregistration.html (AutoInspectRegistration API Doc)
 [inspection]: inspect.md (Automatic Code Inspections)

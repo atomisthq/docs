@@ -23,9 +23,9 @@ Encapsulate that "thing that needs to happen before the goal runs" in a GoalProj
 
 ### Create a GoalProjectListener
 
-A [`GoalProjectListener`][apidoc-goalprojectlistener] function accepts a Project, 
+A [`GoalProjectListener`][apidoc-goalprojectlistener] function accepts a Project,
 a [`GoalInvocation`][apidoc-goalinvocation], and a GoalProjectListenerEvent ("before" or "after").
-The important part is the [Project](project.md); this is the checked-out repository that needs built 
+The important part is the [Project](project.md); this is the checked-out repository that needs built
 (or whatever preparation you are encapsulating).
 
 ```typescript
@@ -57,7 +57,7 @@ const BuildCheckedOutCodeFirst: GoalProjectListenerRegistration = {
 
 ### Register the GoalProjectListener on goals
 
-Any `FulfillableGoal` can accept a GoalProjectListenerRegistration with its `withProjectListener` method. 
+Any `FulfillableGoal` can accept a GoalProjectListenerRegistration with its `withProjectListener` method.
 Call this when you create the goal. For instance, here is a possible custom test goal:
 
 ```typescript
@@ -83,6 +83,6 @@ import { goalState } from "@atomist/sdm-core";
 
 Then send `@atomist reset goals <name of your SDM>`, where "name of your sdm" is the name property in package.json, minus any `@` characters.
 
-You can add `branch=my-branch` and/or `sha=<40-character SHA>` to change which commit gets 
+You can add `branch=my-branch` and/or `sha=<40-character SHA>` to change which commit gets
 a new set of goals.
 

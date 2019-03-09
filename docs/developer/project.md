@@ -13,7 +13,7 @@ for related helpers.
 ## Obtaining a Project
 
 The SDM has many APIs where you define a function that receives a Project as an argument.
-For instance, [code transforms](transform.md) and [code inspections](inspect.md) receive 
+For instance, [code transforms](transform.md) and [code inspections](inspect.md) receive
 already-cloned projects. A [push test](push-test.md) gets a Project to look at, which is cloned
 lazily if the push test uses it.
 
@@ -34,7 +34,7 @@ const input = InMemoryProject.of({
 
 and some stuff
 `,
-}, { 
+}, {
     path: "empty.md",
     content: "",
 });
@@ -58,7 +58,7 @@ There is also [hasDirectory](https://atomist.github.io/automation-client/interfa
 
 #### What is in a file?
 
-Call `getFile` and then `getContent`. 
+Call `getFile` and then `getContent`.
 
 ```typescript
 const myFile = await project.getFile("path/to/file");
@@ -86,7 +86,7 @@ const result = await projectUtils.fileExists(project,
 
 Use [projectUtils.gatherFromFiles](https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#gatherfromfiles)
 to extract information from all the files with matching names.
-Pass the project, a [glob](#file-globs), and a function from [File](https://atomist.github.io/automation-client/interfaces/_lib_project_file_.file.html) to whatever it is 
+Pass the project, a [glob](#file-globs), and a function from [File](https://atomist.github.io/automation-client/interfaces/_lib_project_file_.file.html) to whatever it is
 you want to get back.
 
 This example returns an array with the first line of every Java file:

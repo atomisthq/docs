@@ -41,11 +41,11 @@ These commands are relevant to running SDMs in local mode, along with `atomist s
 
 ### atomist feed
 
-When an SDM runs in local mode, it cannot send messages to people in chat. Instead, it sends them to the *feed*. 
+When an SDM runs in local mode, it cannot send messages to people in chat. Instead, it sends them to the *feed*.
 The feed is an instance of the Atomist command line (run as `atomist feed`) that stays open listening for messages
 from local-mode SDMs and printing them. When you run commands or make commits locally, the feed prints information.
 
-In chat, messages from Atomist can have buttons. The buttons trigger more commands. In the terminal, the feed 
+In chat, messages from Atomist can have buttons. The buttons trigger more commands. In the terminal, the feed
 gives you URLs instead. Open them (command-click if you're in iTerm2 on a Mac) to "push the button". When the button-links
 open in a browser, the browser displays only an acknowledgement; the useful responses to the command show up in the feed again.
 

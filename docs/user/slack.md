@@ -82,7 +82,7 @@ repositories.
 <script>
 	/**
 	* Function that tracks a click on an outbound link in Analytics.
-	* 
+	*
   * We want to track clicks on 'Add to Slack'
 	*/
 	var trackOutboundLink = function(url) {
@@ -119,7 +119,7 @@ You can also provide parameters in the command invocation. For example: `@atomis
 If you provide all required parameters on the command line, most commands will immediately execute.
 Others will give you an opportunity to change any of the parameters before submission.
 
-Sometimes all parameters are optional, and the only way to override them is on the command line. 
+Sometimes all parameters are optional, and the only way to override them is on the command line.
 For instance: `@atomist reset goals branch=my-branch` will trigger goal-setting on your branch instead
 of on the master branch.
 

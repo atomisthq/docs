@@ -54,7 +54,7 @@ TSLint: I like to set `"tslint.alwaysShowRuleFailuresAsWarnings": true` so that 
 real compile errors show in red.
 
 Mocha Sidebar: it is not spectacular with TypeScript. I can't get it to run tests in a way that shows me the output.
-I have in my settings: 
+I have in my settings:
 ```json
     "mocha.options": {
         "compilers": {
@@ -106,7 +106,7 @@ for TypeScript development. It is generally better at refactoring than VSCode. I
 
 ## Mocha
 
-[Mocha](https://mochajs.org/) is a JavaScript testing framework that can work for TypeScript too. 
+[Mocha](https://mochajs.org/) is a JavaScript testing framework that can work for TypeScript too.
 
 To run Mocha on TypeScript tests, you need to pass it an argument that lets it compile TypeScript on the fly. If you like extra detailed failure messages that give you a breakdown of the discrepancy between actual and expected output, use espower:
 

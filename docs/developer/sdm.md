@@ -1,5 +1,5 @@
 The software delivery machine is a service that runs automations in response to events
-like pushes and builds. See [architecture][] for a high-level view. 
+like pushes and builds. See [architecture][] for a high-level view.
 
 The SDM:
 
@@ -56,7 +56,7 @@ an SDM that does useful things for Java Spring services.
 
 For "name of the target repository" enter a name for your SDM.
 
-For "target-owner" enter a name for the owner of your project. This corresponds to the 
+For "target-owner" enter a name for the owner of your project. This corresponds to the
 GitHub/GitLab organization or BitBucket project you would put the repository under.
 
 The "create sdm" [generator](create.md#generator) will transform the [seed][] according
@@ -83,7 +83,7 @@ With TypeScript and an IDE like VSCode, you get autocompletion that helps you di
 functionality in the SDM framework.
 
 Run `npm install` first so that your IDE will see library code. In Node, all dependencies
-are stored within the project, under the directory `node_modules`. `npm` is the dependency manager 
+are stored within the project, under the directory `node_modules`. `npm` is the dependency manager
 that gets them there. The node_modules directory is listed in `.gitignore`, so it won't be committed.
 
 ### index.ts
@@ -92,12 +92,12 @@ Start your inquiry in `index.ts`.  When an SDM starts up, it looks here to find 
 The `configuration` object has opportunities for many, many configuration options. Click into the Configuration type
 or check the [API Docs][configuration-api-doc] if you're curious.
 
-The important part, where you're going to add to your personal SDM, is the function passed to `configureSdm` in `configuration.postProcessors`. 
+The important part, where you're going to add to your personal SDM, is the function passed to `configureSdm` in `configuration.postProcessors`.
 Unless you change it, that function is called `machine`.
 
 ## machine.ts
 
-Click into the `machine` function in your IDE, or open `lib/machine/machine.ts` to find it. 
+Click into the `machine` function in your IDE, or open `lib/machine/machine.ts` to find it.
 This function instantiates
 and then returns a SoftwareDeliveryMachine([API docs][sdm-api-doc]).
 
@@ -196,7 +196,7 @@ The `lib` directory contains the TypeScript source code.
 #### index.ts
 
 This is the starting point when you want to look at
-what this SDM might do. 
+what this SDM might do.
 
 ### lib/graphql
 

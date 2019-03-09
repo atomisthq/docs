@@ -14,7 +14,7 @@ In [VSCode][debug-vscode], the debug configuration looks like:
       "ATOMIST_MODE": ""
   },
   "outputCapture": "std",
-}     
+}
 ```
 
 If you want the SDM to run in local mode, put "local" in the ATOMIST_MODE environment variable.

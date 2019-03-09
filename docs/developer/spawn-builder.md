@@ -15,12 +15,12 @@ For instance, this documentation site uses a builder that runs these commands:
 
 ## spawnBuilder
 
-To turn a set of operating system commands into a Builder, use the`spawnBuilder` function in the Build pack. 
+To turn a set of operating system commands into a Builder, use the`spawnBuilder` function in the Build pack.
 It accepts a [SpawnBuilderOptions][sbo-apidoc] object,
 with the following necessary properties:
 
 * name: a string that helps you identify the builder
-* commands: an array of SpawnCommands to run as child processes. 
+* commands: an array of SpawnCommands to run as child processes.
 * logInterpreter: a function to pull out the interesting bit of the log
 * projectToAppInfo: determine a name and version based on the code.
 
@@ -31,8 +31,8 @@ The `commands` property contains a list of SpawnCommands to run, sequentially, i
 Create a [SpawnCommand][sc-apidoc] object for each command, with a single-word `command` and the arguments separated:
 
 ``` typescript
-{ 
-    command: "pip", 
+{
+    command: "pip",
     argument: ["install", "-r", "requirements.txt"],
 }
 ```

@@ -16,7 +16,7 @@ characteristics of the commit. Fingerprinting is valuable because:
     is happening to code quality metrics over time?
 
 Atomist extension packs include some out of the box fingerprints, such as Maven and
-`npm` dependency fingerprints. 
+`npm` dependency fingerprints.
 
 This page describes how to:
 *   Create a custom fingerprint

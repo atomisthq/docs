@@ -1,6 +1,6 @@
-When you want to look for or change a particular piece of code, 
+When you want to look for or change a particular piece of code,
 we have our algorithms for that when we're using our eyes.
-For instance, "I want to find all files that import this class, so 
+For instance, "I want to find all files that import this class, so
 I will look at the top of a file for lines that start with 'import' and
 include the class's name or its package."
 
@@ -9,7 +9,7 @@ But regular expressions don't work well across lines, they're cryptic as all get
 and their complexity scales exponentially with their intricacy.
 
 Atomist lets you seek out and update code with a relatively intuitive parsing
-language, that asks you to describe only the piece of code you want to see (not 
+language, that asks you to describe only the piece of code you want to see (not
 the whole file), in a way that's more bearable than regular expressions at a medium scale.
 
 The parseUtils collection of functions helps you work with a [Project](project.md) using microgrammars.
@@ -97,7 +97,7 @@ Notice that here, the `microgrammar` constructor function accepts a type paramet
 that describes the terms on the microgrammar. If this type matches the structure of
 the grammar, then those properties will exist on the returned match.
 
-If you also want information on the file that each match is in, then check out 
+If you also want information on the file that each match is in, then check out
 [`parseUtils.findFileMatches`][apidoc-findfilematches].
 
 [apidoc-findfilematches]: https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html#findfilematches (API Doc for findFileMatches)

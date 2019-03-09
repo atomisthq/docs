@@ -52,7 +52,7 @@ Our node build goals expect every project to have a "build" script in package.js
  [AddBuildScript](https://atomist.github.io/sdm-pack-node/modules/_lib_autofix_addbuildscript_.html#addbuildscript)
  autofix adds one if you don't have it.
 
-The build script will echo something about "build goes here," 
+The build script will echo something about "build goes here,"
 giving you a placeholder.
 
 ## Code Inspections
@@ -71,7 +71,7 @@ This inspection makes that an error.
 
 ## PushTests
 
-[Push Tests][push-test] measure qualities of a project or push, 
+[Push Tests][push-test] measure qualities of a project or push,
 so that you can
 decide whether goals or operations apply to them. This pack includes:
 [push-test]: ../developer/push-test.md (Push Tests)
@@ -110,7 +110,7 @@ This pack includes some useful parts to build your own goals. I recommend lookin
 
 ### nodeBuilder
 
-Supply a list of commands to run your build. This builder adds 
+Supply a list of commands to run your build. This builder adds
 
 -  error finding: if the log includes "ERR!" or "[error]" the build fails
 -  log interpretation: pulls out the relevant bits of the log for some npm errors and mocha test failures
@@ -130,10 +130,10 @@ const build = new Build().with({
 
 ### npm publish
 
-[executePublish](https://atomist.github.io/sdm-pack-node/modules/_lib_build_executepublish_.html#executepublish) as a GoalExecutor; you can use it to create a custom goal that publishes to npm. 
+[executePublish](https://atomist.github.io/sdm-pack-node/modules/_lib_build_executepublish_.html#executepublish) as a GoalExecutor; you can use it to create a custom goal that publishes to npm.
 
 ## Examples of this pack in action
 
-Within Atomist, we use this pack extensively in the [node support](https://github.com/atomist/atomist-sdm/blob/master/lib/machine/nodeSupport.ts) within our [own SDM][atomist-sdm]. 
+Within Atomist, we use this pack extensively in the [node support](https://github.com/atomist/atomist-sdm/blob/master/lib/machine/nodeSupport.ts) within our [own SDM][atomist-sdm].
 
 [atomist-sdm]: https://github.com/atomist/atomist-sdm

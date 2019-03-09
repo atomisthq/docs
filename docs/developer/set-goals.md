@@ -32,7 +32,7 @@ The `plan` method accepts one or more goals. The code below is equivalent to the
 
 By default, all goals execute in parallel. If some goals should wait for others to succeed, you can give them *preconditions* as you add them to a plan. To do this, call the `after` method immediately after `plan`.
 
-The following example constructs a goal set called "build" with three goals: `autofix`, `codeInspection`, and `mavenBuild`. 
+The following example constructs a goal set called "build" with three goals: `autofix`, `codeInspection`, and `mavenBuild`.
 The `mavenBuild` goal will execute only after `autofix` completes successfully.
 
 ```typescript
@@ -99,10 +99,10 @@ export const IsMaven: PredicatePushTest = predicatePushTest(
     p => p.hasFile("pom.xml"));
 ```
 
-To establish a PushTest for whether a project uses Maven as a build tool, 
+To establish a PushTest for whether a project uses Maven as a build tool,
 [this code](https://github.com/atomist/sdm-pack-spring/blob/3fcadc309231e45fa25a8ccde0cf25587ade6d71/lib/maven/pushtest/pushTests.ts#L33)
 calls a constructor function
-[predicatePushTest](https://atomist.github.io/sdm/modules/_lib_api_mapping_pushtest_.html#predicatepushtest-1) 
+[predicatePushTest](https://atomist.github.io/sdm/modules/_lib_api_mapping_pushtest_.html#predicatepushtest-1)
 with a name for the PushTest and a function from a Project to a `Promise<Boolean>`.
 
 The example [spring-sdm](https://github.com/atomist-seeds/spring-sdm/blob/1ab4ab06086e61f0e3395b1b7114a91a59d8939d/lib/machine/machine.ts#L84) uses this PushTest to create a PushRule, which sets build goals only on Maven projects:

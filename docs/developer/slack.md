@@ -176,7 +176,7 @@ Here's a simple SlackMessage with a button that invokes a command by name:
 {
     attachments: [{
         text: "Push the button",
-        fallback: "Push the button", 
+        fallback: "Push the button",
         actions: [buttonForCommand({ text: "Press Here" }, "NameOfCommandToRun")]
     }]
 }
@@ -262,7 +262,7 @@ const messageOptions = {
 
 The `id` property uniquely identifies a message in a channel or
 direct message. But it's optional! Use it if you want to update
-this message later. Otherwise we'll generate something unique. 
+this message later. Otherwise we'll generate something unique.
 
 `ts` specifies the time in milliseconds of the message. If not set, it
 defaults to the current time. This property is important to maintain correct
@@ -270,7 +270,7 @@ order of messages: the Atomist bot will not post a message with a `ts`
 if there is a message for the same `id` but a later `ts` already in the channel
 or direct message.
 
-`ttl` or time-to-live defines the amount of time in milliseconds that a message 
+`ttl` or time-to-live defines the amount of time in milliseconds that a message
 can be updated, after which a new instance of the message is posted to the bottom of the Slack stream.
  So, when a message is received by the bot,
 it compares the `ts + ttl` of the existing message with `ts` of the new

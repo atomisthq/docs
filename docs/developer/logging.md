@@ -1,7 +1,7 @@
 Logging inside an SDM comes in two varieties.
 
 
-The important logs are the progress logs of goal executions. These are transmitted to a logging service, so that 
+The important logs are the progress logs of goal executions. These are transmitted to a logging service, so that
 the goals can link to them.
 
 Then there are logs for the SDM itself, where it outputs information about its operation. These go to stdout.
@@ -11,7 +11,7 @@ Then there are logs for the SDM itself, where it outputs information about its o
 To write to these within a goal execution, call `invocation.progressLog.write("stuff")`. You can also [send output from
 an external command](spawn.md#send-command-output-to-the-log).
 
-In [local mode](local.md), goal progress logs all go to a single file in `$HOME/.atomist/log`. When a goal fails, 
+In [local mode](local.md), goal progress logs all go to a single file in `$HOME/.atomist/log`. When a goal fails,
 that file's path is printed to the [feed](cli.md#atomist-feed).
 
 In [team mode](team.md), goal progress logs are sent to Atomist's log service. Each goal, as reported in chat
@@ -36,8 +36,8 @@ const configuration: Configuration & Partial<SoftwareDeliveryMachineOptions> = {
 
 ## SDM Logs
 
-To log to the operational SDM logs, import `logger` from automation-client. 
-This wraps the [winston](https://github.com/winstonjs/winston) library. 
+To log to the operational SDM logs, import `logger` from automation-client.
+This wraps the [winston](https://github.com/winstonjs/winston) library.
 
 ```typescript
 

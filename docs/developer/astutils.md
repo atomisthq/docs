@@ -8,9 +8,9 @@ update those bits of code without changing the rest of the file at all.
 
 There are functions in [`astUtils`][apidoc-astutils] to help you access the AST.
 For this, you'll need a parser for your language. Parsers for Java, TypeScript
-(which can parse JavaScript), and Markdown are provided already. Creating a 
+(which can parse JavaScript), and Markdown are provided already. Creating a
 compatible parser
-for another language is easy if an [ANTLR](https://github.com/antlr/antlr4) grammar already exists. More on that in 
+for another language is easy if an [ANTLR](https://github.com/antlr/antlr4) grammar already exists. More on that in
 our [@atomist/antlr](https://github.com/atomist/antlr) library.
 
 The ASTs for most languages are deep and complicated. To access portions of the
@@ -46,7 +46,7 @@ in all the Java files:
         const words: { [k: string]: number } = {};
         for await (const m of matchIterable) {
             console.log("Found a call to " + m.$value + "\nChanging it to foo!");
-            // you can change it! 
+            // you can change it!
             m.$value="foo";
         }
 ```

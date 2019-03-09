@@ -1,4 +1,4 @@
-Getting your projects built is one of the most important parts of a CI lifecycle. 
+Getting your projects built is one of the most important parts of a CI lifecycle.
 As a full-featured CI solution, Atomist provides the functionality needed to perform builds.
 Or, integrate with your existing build tools. With Atomist, you can start where you are and then have the flexibility to move where you want to go.
 
@@ -9,7 +9,7 @@ This page shows how to
 
 ## The Build goal
 
-Atomist provides a [goal](goal.md) that is designed to handle building software: the `Build` goal. 
+Atomist provides a [goal](goal.md) that is designed to handle building software: the `Build` goal.
 
 It lives in the [Build Pack][build-pack], so run `npm install @atomist/sdm-pack-build` to get it.
 
@@ -132,13 +132,13 @@ const build = new Build().with({
 }).withProjectListener(NodeModulesProjectListener);
 ```
 
-Here, the nodeBuilder will execute `npm run build`. But first, `NodeModulesProjectListener` is a 
-[GoalProjectListener](goals-more.md#prepare-the-checked-out-code) that will make sure `npm install` 
-happens before the goal runs and after the project is cloned. 
+Here, the nodeBuilder will execute `npm run build`. But first, `NodeModulesProjectListener` is a
+[GoalProjectListener](goals-more.md#prepare-the-checked-out-code) that will make sure `npm install`
+happens before the goal runs and after the project is cloned.
 
 
 ## Linking the artifact produced by the build
 
 In order to capture the output deliverable of a build you can use the `Artifact` goal.
- When added to a goalset, it will be fulfilled by the `Build` goal after successful completion of a build that is able to store the artifact in a more permanent store. 
+ When added to a goalset, it will be fulfilled by the `Build` goal after successful completion of a build that is able to store the artifact in a more permanent store.
 The `Artifact` goal will also contain a link to the deliverable, which will be displayed next to the goal indicator in the messaging channel.

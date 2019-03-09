@@ -9,7 +9,7 @@ To answer questions like:
 
 You can gather information in multiple ways:
 
-*  Check the [web interface](team.md#see-your-sdm-registration) 
+*  Check the [web interface](team.md#see-your-sdm-registration)
 *  run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
 *  run the command: "show skills"
 
@@ -23,7 +23,7 @@ If you see this error during goal or command execution:
 
 `Error: Neither 'orgToken' nor 'clientToken' has been injected. Please add a repo-scoped GitHub token to your configuration.`
 
-then add a `token` property at the top level in `$HOME/.atomist/client.config.json` containing your 
+then add a `token` property at the top level in `$HOME/.atomist/client.config.json` containing your
 GitHub token. For example, mine is in an environment variable called GITHUB_TOKEN, so I added this:
 
 `"token": "${GITHUB_TOKEN}",`
@@ -33,7 +33,7 @@ authorization, and while in production your SDM gets the token from Atomist, by 
 
 ### Required configuration values
 
-When you see something like: 
+When you see something like:
 
 `Failed to load /path/to/your/sdm/lib/atomist.config.js.configuration: Required @Value 'sdm.some.config.value' not available`
 
@@ -68,7 +68,7 @@ See the [section on SDM logging](logging.md#configuring-sdm-logs) for how to set
 If yours is running on a port not in 2866-2876, you might have a PORT environment
 variable set. Try removing that or setting it to something in that range.
 
-The hostname defaults to 127.0.0.1, and can be overridden by a config value 
+The hostname defaults to 127.0.0.1, and can be overridden by a config value
 `"local": { "hostname": "your-local-hostname-goes-here" }` in either the `configuration` object in the SDM's `index.ts` or in your `$HOME/atomist/client.config.json`.
 
 ### I turned up the log level but it still isn't logging enough

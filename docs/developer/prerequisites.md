@@ -123,7 +123,7 @@ configuration file will look something like:
 ```
 
 with `API_KEY` and `WORKSPACE_ID` replaced with your Atomist API key
-and workspace ID, respectively. 
+and workspace ID, respectively.
 
 For configuring SDMs to run on a server, see [SDM Configuration](config.md) for more options.
 

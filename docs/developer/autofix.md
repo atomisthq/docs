@@ -51,7 +51,7 @@ See also: [AutofixRegistration API Docs](https://atomist.github.io/sdm/interface
 
 ### Skip some pushes
 
-The optional `PushTest` field limits when the Autofix will be applied. If the test returns false, Atomist will skip this Autofix. 
+The optional `PushTest` field limits when the Autofix will be applied. If the test returns false, Atomist will skip this Autofix.
 Here, we only want to add a license file to pushes that do not currently have one. We have the following `PushTest` that checks whether a project contains a license file.
 
 ``` typescript

@@ -11,7 +11,7 @@ sends messages to [linked channels](../user/lifecycle.md#linked-channels) in Sla
 
 ## What is necessary to enable team mode
 
-You'll need an Atomist workspace for your team or organization. See [Getting started](../user/index.md) to sign up, 
+You'll need an Atomist workspace for your team or organization. See [Getting started](../user/index.md) to sign up,
 or ask your Atomist administrator to invite you to the team's workspace.
 
 You'll need the workspace ID and an API key.
@@ -34,7 +34,7 @@ populating the API key in your `$HOME/.atomist/client.config.json` file.
 
 ## See your SDM registration
 
-When your SDM registers with the Atomist service, you can see this registration in the Atomist web interface. 
+When your SDM registers with the Atomist service, you can see this registration in the Atomist web interface.
 
 Go to [app.atomist.com](https://app.atomist.com), log in, and make sure your team is selected. Then click on the little "Settings" gear.
 
@@ -50,7 +50,7 @@ The detailed information on the registered SDM includes commands, event subscrip
 
 An SDM that starts up as durable (usually because you ran it with ATOMIST_ENV=production) will get all the events it subscribes to,
 even if it is not up all the time. The Atomist service saves events for it (up to a point).
- This registration will remain active even when the SDM is down. Every unique name/version combination will 
+ This registration will remain active even when the SDM is down. Every unique name/version combination will
  remain active until you delete the registration in the web interface.
 
  Click "delete" to remove a durable registration. You'll need to do this when you upgrade your SDM to a new version, after you shut down the old version.

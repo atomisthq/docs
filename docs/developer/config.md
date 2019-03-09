@@ -9,7 +9,7 @@ and running it locally on your workstation or laptop, [user
 configuration](#user-configuration) is likely your best choice.  If
 you are running an SDM on a server in a
 testing or production environment, you will likely want to use the
-[environment variable](#environment-variable) approach. 
+[environment variable](#environment-variable) approach.
 For the full list of configuration sources, see the [API doc][configuration-apidoc]. s
 
 
@@ -26,7 +26,7 @@ and merged with any client-specific configuration whenever you start
 an SDM.  In other words, it serves as a base
 configuration for all SDMs you run on your system.
 
-Initialize your SDM configuration by running `atomist config` as 
+Initialize your SDM configuration by running `atomist config` as
 instructed in [prerequisites][prereq].  The
 configuration file, typically located under your home/user profile
 directory at `.atomist/client.config.json`.  It is a standard JSON
@@ -89,7 +89,7 @@ merged in with lower precedence than either environment variable.
 The configuration values in your `index.ts` file will override
 those from your user configuration.
 
-You can list environment variables in your configuration. The SDM will substitute environment 
+You can list environment variables in your configuration. The SDM will substitute environment
 variable values in expressions when you write them like `${ENV_VAR}`.
 For example:
 
@@ -109,14 +109,14 @@ For example:
 
 ### Caching
 
-If you want to cache downloads or other data between goal executions, then configure `sdm.cache.enabled` to true, and set 
+If you want to cache downloads or other data between goal executions, then configure `sdm.cache.enabled` to true, and set
 `sdm.cache.path` to point to a directory
-that is accessible wherever your SDM is running (defaults to `/opt/data`). The SDM will automatically 
+that is accessible wherever your SDM is running (defaults to `/opt/data`). The SDM will automatically
 clear out old files from this directory if they are more than two hours old when the SDM starts up.
 
 There is an example of how to put files in and out of this directory in our
-[node pack](https://github.com/atomist/sdm-pack-node/blob/1d6bcd93d458a03513161393688cc6aa7f774b6a/lib/build/npmBuilder.ts#L161-L209). 
-That example zips up the `node_modules` directory and stores it there for each commit.This lets goal executions be stateless, 
+[node pack](https://github.com/atomist/sdm-pack-node/blob/1d6bcd93d458a03513161393688cc6aa7f774b6a/lib/build/npmBuilder.ts#L161-L209).
+That example zips up the `node_modules` directory and stores it there for each commit.This lets goal executions be stateless,
 without downloading the world every time.
 
 
@@ -124,7 +124,7 @@ without downloading the world every time.
 
 For the full list of configuration sources, see the [API doc][configuration-apidoc].
 
-The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html). 
+The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html).
 
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)

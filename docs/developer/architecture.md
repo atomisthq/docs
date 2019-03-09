@@ -1,4 +1,4 @@
-It all starts with a software delivery machine of your very own. That can be 
+It all starts with a software delivery machine of your very own. That can be
 for your team or for you personally--one of each is good.
 
 An Atomist Software Delivery Machine (SDM) provides a high-level
@@ -23,7 +23,7 @@ The SDM is a persistent process that runs in the background. An SDM links up to 
     and manipulate the source code you're working on.
 
 When a push occurs, the SDM gets all this context and the code. It decides what
-delivery actions to take, and sets [goals][] accordingly. Instead of a static pipeline, you get to 
+delivery actions to take, and sets [goals][] accordingly. Instead of a static pipeline, you get to
 choose the delivery flow for each commit.
 
 ![SDM Receives a Push](img/sdm-reacts-to-push.png)
@@ -51,7 +51,7 @@ model that represents your development flow.  The Software Delivery Machine subs
 like a push to source control and a completed build. You can subscribe to more
 events and take action when they occur, with the data model providing
 the necessary context so your automations can always do the right
-thing. 
+thing.
 
 ![SDM Receives Commands and Events](img/sdm-reacts-to-more.png)
 
@@ -98,16 +98,16 @@ Atomist maintains two implementations of the API for Software:
 -  [Team mode](team.md): a complete, cloud-based service,
 -  [Local mode](local.md): an open-source, filesystem-based version that runs on your laptop.
 
-An SDM is most useful when running for your whole team, connected 
-to the Atomist API for software, Slack, and your version control. Run it on your laptop 
+An SDM is most useful when running for your whole team, connected
+to the Atomist API for software, Slack, and your version control. Run it on your laptop
 while you're testing and modifying the SDM, then in your favorite production environment (on-prem or in the cloud)
 for ongoing use.
 
 ![Atomist SDM in Team mode](img/sdm-team.png)
 
-If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc, 
+If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc,
 you're in luck! Run your SDM in [local mode](local.md), on your own machine. Receive push events from your own local commits,
- get messages in a terminal feed, and trigger commands on the command line. 
+ get messages in a terminal feed, and trigger commands on the command line.
 
 ![Atomist SDM in Local mode](img/sdm-local.png)
 

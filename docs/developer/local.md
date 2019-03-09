@@ -10,7 +10,7 @@ Everything is open source. This SDM can:
    - generate new projects
    - perform transforms on one repository or on many repositories
    - do inspections on one or many repositories
-   
+
 In local mode, events come in from local commits (with git hooks) and from within the SDM.
 
 ![Atomist SDM in Local mode](img/sdm-local.png)
@@ -18,7 +18,7 @@ In local mode, events come in from local commits (with git hooks) and from withi
 ## Directory structure
 
 In local mode, an SDM looks for projects on your filesystem. It looks in only one place: the Atomist projects root.
-This defaults to `$HOME/atomist/projects`. Override this location by setting an `ATOMIST_ROOT` environment variable 
+This defaults to `$HOME/atomist/projects`. Override this location by setting an `ATOMIST_ROOT` environment variable
 (it'll still expect
 a `projects` directory under it), or by providing `local.repositoryOwnerParentDirectory` in your SDM's [configuration](config.md).
 

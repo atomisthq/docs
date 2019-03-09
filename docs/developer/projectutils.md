@@ -6,7 +6,7 @@ a file. When you want to work on multiple files, Atomist project utils can help.
 
 ## gathering information from files
 
-In a [code inspection](inspect.md), you might want to look at every file and 
+In a [code inspection](inspect.md), you might want to look at every file and
 put some information together. Try [`gatherFromFiles`][apidoc-gatherfromfiles].
 
 For example, this gathers the path and number of lines in every YAML file:

@@ -5,7 +5,7 @@ Besides being a great query language, GraphQL provides great tool support based
 on strongly-typed schemas, type generation for TypeScript, and many other
 advantages.
 
-The Atomist SDM includes many of the GraphQL queries that are most useful in 
+The Atomist SDM includes many of the GraphQL queries that are most useful in
 automating software delivery. You can also create your own.
 
 The following sections tell you how to use GraphQL to query your data,

@@ -4,7 +4,7 @@
 In an SDM, there are several built-in events that you can take action on.
 You can also make a custom event subscription.
 
-Most of these work only in team mode; the local SDM only hears about push events. 
+Most of these work only in team mode; the local SDM only hears about push events.
 Goal-related listeners do work in local mode.
 
 To respond to these events, register a listener with a function to run in response.
@@ -21,7 +21,7 @@ Generally, you'll configure listeners inside your [machine function](sdm.md#mach
 ## Repository Creation
 
 *(team mode only)* This fires when a repository is first created in your version control manager.
-The repository might not have code yet! If you want to respond to a repository with code in it, 
+The repository might not have code yet! If you want to respond to a repository with code in it,
 register a [first push listener](#first-push).
 
 This is a good time to add standard labels to the repository, give read-only access to your whole
@@ -44,7 +44,7 @@ that offer to upgrade it or add a deployment spec. Note that sometimes the repos
 linked to a channel yet, so `addressChannels` won't have anywhere to go.
 
 Create a function that accepts a [`PushListenerInvocation`][apidoc-pushlistenerinvocation]. In addition to the standard [`RepoContext`][apidoc-repocontext],
-this invocation has [`push`][apidoc-push-fragment] and [`project`](project.md). 
+this invocation has [`push`][apidoc-push-fragment] and [`project`](project.md).
 
 If you want to check whether there are any channels linked, you could look in `pushListenerInvocation.push.repo.channels`. If that is empty, there are no channels linked yet. You might consider implementing a [Channel Link listener](#channel-link) to send messages about a new repository.
 
@@ -93,7 +93,7 @@ Pass this function to [`sdm.addGoalExecutionListener`](https://atomist.github.io
 ### Goal Completion
 
 *(team mode only)* This fires when a goal created by your SDM is completed, even if the goal
-is implemented in another SDM. 
+is implemented in another SDM.
 In most cases, you probably want a [`goal execution listener`](#goal-execution) instead.
 
 Create a function that accepts a [`GoalCompletionListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_goalcompletionlistener_.goalcompletionlistenerinvocation.html). In addition to the standard [`RepoContext`][apidoc-repocontext],
@@ -110,10 +110,10 @@ There are also some events around chat channels that you can subscribe to in you
 
 ### Channel Link
 
-*(team mode only)* This fires when a repository is linked to a chat channel. 
+*(team mode only)* This fires when a repository is linked to a chat channel.
 
 Create a function that accepts a [`ChannelLinkListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_channellinklistenerinvocation_.channellinklistenerinvocation.html). In addition to the standard [`SdmContext`][apidoc-sdmcontext],
-this invocation has [`project`](project.md) and `newlyLinkedChannelName`. There is also a handy 
+this invocation has [`project`](project.md) and `newlyLinkedChannelName`. There is also a handy
 method to send messages: `addressNewlyLinkedChannel`.
 
 Pass this function to [`sdm.addChannelLinkListener`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#addchannellinklistener).
@@ -137,8 +137,8 @@ Currently, these events fire for GitHub issues. They work with GitHub.com and Gi
 
 ### New Issue
 
-*(team mode only)* When a new issue is created, you might want to capitalize its title, 
-or complain if it doesn't have a description. You might want to add labels to it. This is a 
+*(team mode only)* When a new issue is created, you might want to capitalize its title,
+or complain if it doesn't have a description. You might want to add labels to it. This is a
 good place to action some organizational policies.
 
 Create a function that accepts a [`NewIssueListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_newissuelistener_.newissuelistenerinvocation.html). In addition to the standard [`RepoContext`][apidoc-repocontext],
@@ -200,7 +200,7 @@ Pass this function to [`sdm.addTagListener`](https://atomist.github.io/sdm/inter
 
 ## Triggered
 
-This one is different: you can make a listener that is invoked at time intervals while your SDM is running. 
+This one is different: you can make a listener that is invoked at time intervals while your SDM is running.
 
 Create a function that accepts a [`TriggeredListenerInvocation`](https://atomist.github.io/sdm/modules/_lib_api_listener_triggeredlistener_.html#triggeredlistener).
 It is an [AdminCommunicationContext][apidoc-admincommunicationcontext], which has an `addressAdmin`

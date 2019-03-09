@@ -26,18 +26,18 @@ This page gives you enough information to
 
 ## Seed
 
-A _seed_ is a project that works as a starting point. It is real, functional code, not a 
-template. The simplest generator makes a copy of the seed in a new repository; 
+A _seed_ is a project that works as a starting point. It is real, functional code, not a
+template. The simplest generator makes a copy of the seed in a new repository;
 most generators transform the code first.
 
-You can use any project you already have, or craft one carefully for new projects to start 
+You can use any project you already have, or craft one carefully for new projects to start
 from. This makes a canonical "best starting point" for your organization.
 
 For examples, see all the repositories in our [atomist-seeds organization](https://github.com/atomist-seeds).
 
 ## Generator Registration
 
-To add a generator to your SDM, register it where you configure your SDM 
+To add a generator to your SDM, register it where you configure your SDM
 (usually [machine.ts](sdm.md#machinets)):
 
 ```typescript
@@ -65,7 +65,7 @@ The important elements of a `GeneratorRegistration` are:
 
 *  *name* of the generator. This can be any string.
 *  *intent* a string or array of strings; type this to trigger the command.
-*  *startingPoint* gives the generator a seed. 
+*  *startingPoint* gives the generator a seed.
 Use a pointer to a repository in version control - see [RepoRef](reporef.md) for options.
 *  *transform* is an array of zero or more [code transforms](transform.md) to apply.
 

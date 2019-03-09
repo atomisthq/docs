@@ -12,7 +12,7 @@ This page shows a list of notifications. You can filter it by person or reposito
 ## Web command line
 
 At the bottom of the Workspace Home screen is a place to type commands. Unlike chat, this interface
-supports tab-completion. 
+supports tab-completion.
 
 Try:
 

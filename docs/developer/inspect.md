@@ -8,7 +8,7 @@ For instance, when I make a commit to docs-sdm, a code inspection
 creates a GitHub issue for
 all the tslint violations in the branch. [That issue](https://github.com/atomist/docs-sdm/issues/8) looks like this:
 
-<img src="../img/github-issue-from-inspection.png" alt="GitHub Issue from Inspection" 
+<img src="../img/github-issue-from-inspection.png" alt="GitHub Issue from Inspection"
    style="max-width:60%;"
    />
 
@@ -239,8 +239,8 @@ const failGoalsIfCommentsReviewListener: ReviewListener = async rli => {
 
 There are some handy ReviewListeners available:
 
-* [`slackReviewListenerRegistration`][apidoc-srlr] sends messages to Slack 
-about the review. By default, the goal proceeeds after sending the message. 
+* [`slackReviewListenerRegistration`][apidoc-srlr] sends messages to Slack
+about the review. By default, the goal proceeeds after sending the message.
 To change this, send `{ pushReactionResponse: PushImpactResponse.failGoals }` (for instance) in its options.
 * [`singleIssueManagingReviewListener`][apidoc-sirl] and friends create GitHub issues
 per category or per branch. You'll need the [sdm-pack-issue](../pack/issue.md) extension pack.
