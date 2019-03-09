@@ -1,0 +1,10 @@
+{
+   "files": [
+      "docs/**/*.md"
+   ],
+   "MD013": {
+      "line_length": 200
+   },
+   "MD010": false,
+   "MD033": false
+}
