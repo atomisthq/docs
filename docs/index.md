@@ -83,10 +83,10 @@ and commands written by Atomist and the community, and contribute your own.
 
 Check out some samples of what an Atomist SDM can do:
 
-*  [Upgrade test files to a new standard][autofix-blog-test]
-*  [Enforce custom code formatting][autofix-blog-stars]
-*  [Deploy Spring Boot to Kubernetes][spring-boot-to-k8s-blog], and generate new projects, and manage versions of existing projects ([video][spring-one])
-*  [Convert a migration script into a Slack command][schema-deploy-blog]
+* [Upgrade test files to a new standard][autofix-blog-test]
+* [Enforce custom code formatting][autofix-blog-stars]
+* [Deploy Spring Boot to Kubernetes][spring-boot-to-k8s-blog], and generate new projects, and manage versions of existing projects ([video][spring-one])
+* [Convert a migration script into a Slack command][schema-deploy-blog]
 
 [spring-one]: https://www.youtube.com/watch?v=VDCHnTPknsI (Rod Johnson speaks at Spring One 2018)
 [spring-boot-to-k8s-blog]: https://the-composition.com/deploy-your-spring-boot-application-to-kubernetes-in-3-mins-fdd37a212c6c (Christian Dupuis's Spring Boot to Kubernetes Blog)
@@ -96,9 +96,9 @@ Check out some samples of what an Atomist SDM can do:
 
 ## You might want to know
 
-*  [Existing integrations][integrations]
-*  [Architecture][]
-*  [Security model][security]
+* [Existing integrations][integrations]
+* [Architecture][]
+* [Security model][security]
 
 [integrations]: user/integrations.md (Existing Atomist Integrations)
 [security]: developer/security.md (Atomist Security Model)
@@ -106,13 +106,13 @@ Check out some samples of what an Atomist SDM can do:
 
 ## How to proceed
 
--   If you want bring the Atomist into your team, you'll get [built-in
+* If you want bring the Atomist into your team, you'll get [built-in
     chat integrations][lifecycle] immediately. Proceed to the [Using
     Atomist][user] page to get Atomist installed in your Slack
     workspace, authorized in GitHub, and connected to your continuous
     integration system.
 
--   If you want to develop with Atomist, either for your team or for your
+* If you want to develop with Atomist, either for your team or for your
     own local use (with no enrollment), please skip to the [Developer
     Guide][dev-guide] to learn how to create and run your own
     SDM.

@@ -10,10 +10,10 @@ export push test constants.
 
 Examples include:
 
-*  [Is this a Java project?](https://github.com/atomist/sdm-pack-checkstyle/blob/2399fe8bb44e84b96dad38acf3c20fa437a405a1/lib/support/checkstyleReviewer.ts#L90)
-*  [Was this a push to the default branch?](https://atomist.github.io/sdm/modules/_lib_api_mapping_support_commonpushtests_.html#todefaultbranch)
-*  [Did a specific file change?](https://atomist.github.io/sdm/modules/_lib_api_mapping_support_commonpushtests_.html#hasfile)
-*  Did an important change? [isMaterialChange](https://atomist.github.io/sdm/modules/_lib_api_helper_pushtest_materialchangetest_.html#ismaterialchange)
+* [Is this a Java project?](https://github.com/atomist/sdm-pack-checkstyle/blob/2399fe8bb44e84b96dad38acf3c20fa437a405a1/lib/support/checkstyleReviewer.ts#L90)
+* [Was this a push to the default branch?](https://atomist.github.io/sdm/modules/_lib_api_mapping_support_commonpushtests_.html#todefaultbranch)
+* [Did a specific file change?](https://atomist.github.io/sdm/modules/_lib_api_mapping_support_commonpushtests_.html#hasfile)
+* Did an important change? [isMaterialChange](https://atomist.github.io/sdm/modules/_lib_api_helper_pushtest_materialchangetest_.html#ismaterialchange)
 
 A push test maps from a [PushListenerInvocation][pli] to a `Promise<boolean>`. It decides whether this push is relevant
 (true) or not relevant (false), returning a Promise so that it can invoke asynchronous operations.

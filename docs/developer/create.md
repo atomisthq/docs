@@ -63,11 +63,11 @@ export const MkdocsSiteGenerator: GeneratorRegistration = {
 
 The important elements of a `GeneratorRegistration` are:
 
-*  *name* of the generator. This can be any string.
-*  *intent* a string or array of strings; type this to trigger the command.
-*  *startingPoint* gives the generator a seed.
+* *name* of the generator. This can be any string.
+* *intent* a string or array of strings; type this to trigger the command.
+* *startingPoint* gives the generator a seed.
 Use a pointer to a repository in version control - see [RepoRef](reporef.md) for options.
-*  *transform* is an array of zero or more [code transforms](transform.md) to apply.
+* *transform* is an array of zero or more [code transforms](transform.md) to apply.
 
 ## Parameters
 

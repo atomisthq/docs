@@ -1,9 +1,9 @@
 This page assumes you have [created some goals][create-goals]. It shows how to:
 
-*  group goals
-*  set dependencies between goals
-*  choose which goals to execute on each push
-*  prevent the SDM from setting goals on a push
+* group goals
+* set dependencies between goals
+* choose which goals to execute on each push
+* prevent the SDM from setting goals on a push
 
 [create-goals]: goal.md (Goals and how to create them)
 

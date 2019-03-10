@@ -2,13 +2,13 @@ A RepoRef identifies a repository.
 
 Properties:
 
-*  *owner* the higher-level entity containing a repository. Organization, user, project - it goes by different names in different version control managers.
-*  *repo* the repository name
-*  *url* full location of this repository. Could be file:// or http(s)://
-*  *path?* if you only want to work with a directory within the repository,
+* *owner* the higher-level entity containing a repository. Organization, user, project - it goes by different names in different version control managers.
+* *repo* the repository name
+* *url* full location of this repository. Could be file:// or http(s)://
+* *path?* if you only want to work with a directory within the repository,
 put the relative path here.
-*  *sha?* commit SHA within that repository. Optional; default to the tip of the default branch
-*  *branch?* if you want to work from a branch other than the default, put its name here
+* *sha?* commit SHA within that repository. Optional; default to the tip of the default branch
+* *branch?* if you want to work from a branch other than the default, put its name here
 
 Usually Atomist works with a RemoteRepoRef, which adds `cloneUrl` and `apiUrl` for
 communicating to version control.
@@ -22,7 +22,7 @@ GitHub.com or GitHub Enterprise.
 
 Provide the usual RepoRef properties except:
 
-*  instead of *url*, provide *rawApiBase* to post to your GitHub Enterprise instance.
+* instead of *url*, provide *rawApiBase* to post to your GitHub Enterprise instance.
 
 ### BitBucket
 

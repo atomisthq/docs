@@ -7,11 +7,11 @@ Turn that into a command to run on demand, then an Autofix to run on every push.
 
 This page shows how to:
 
-*  Create a code transform that runs on-demand
-*  Require parameters to your code transform
-*  Customize the automated pull request
-*  Make Atomist wait for a build to succeed before creating the pull request
-*  Make Atomist merge the PR automatically when a build succeeds
+* Create a code transform that runs on-demand
+* Require parameters to your code transform
+* Customize the automated pull request
+* Make Atomist wait for a build to succeed before creating the pull request
+* Make Atomist merge the PR automatically when a build succeeds
 
 After that, you might want to make your code transform into an [Autofix](autofix.md).
 
@@ -61,7 +61,7 @@ pull request. The transform's `name` will appear in the branch.
 
 See also:
 
-*  [CodeTransformRegistration API doc](https://atomist.github.io/sdm/interfaces/_lib_api_registration_codetransformregistration_.codetransformregistration.html)
+* [CodeTransformRegistration API doc](https://atomist.github.io/sdm/interfaces/_lib_api_registration_codetransformregistration_.codetransformregistration.html)
 
 ## Adding the transform command to the SDM
 
@@ -110,7 +110,7 @@ add `targets.branch=other-branch-name` to the command in chat.
 
 See also:
 
-*  [Invoking commands](commands.md#run-your-command)
+* [Invoking commands](commands.md#run-your-command)
 
 [link]:../user/lifecycle.md#linked-channels (Linked Channels)
 

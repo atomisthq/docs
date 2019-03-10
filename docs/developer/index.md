@@ -17,30 +17,30 @@ If you want to start from higher-level concepts, begin reading [about the archit
 
 This guide should help you make your SDM:
 
--   [Build your repositories][build], more flexibly than a pipeline
--   [Deploy your code][deploy], with interactivity
--   [Inspect your code][inspect], across projects and automatically on push
--   [Transform your code][autofix], across projects and automatically on push
--   [Respond to builds][build], from the SDM or external build systems
--   Implement [custom commands][command]
--   [Create new projects][create] according to your own standards
+* [Build your repositories][build], more flexibly than a pipeline
+* [Deploy your code][deploy], with interactivity
+* [Inspect your code][inspect], across projects and automatically on push
+* [Transform your code][autofix], across projects and automatically on push
+* [Respond to builds][build], from the SDM or external build systems
+* Implement [custom commands][command]
+* [Create new projects][create] according to your own standards
 
 ## Underlying concepts
 
 To do all this, these higher-level concepts are relevant:
 
--   [Setting up your system][prereq] to develop and run SDMs
--   the `atomist` [command line tool][cli]
--   your [Software Delivery Machine][sdm]
--   [Commands][command]
--   [Goals][goal]
--   the [Project][project] interface
+* [Setting up your system][prereq] to develop and run SDMs
+* the `atomist` [command line tool][cli]
+* your [Software Delivery Machine][sdm]
+* [Commands][command]
+* [Goals][goal]
+* the [Project][project] interface
 
 ## Advanced topics
 
--   Crafting sophisticated [Slack messages][slack]
--   Using [GraphQL to subscribe to events][graphql-api]
--   [Deploying your SDM][sdm-deploy]
+* Crafting sophisticated [Slack messages][slack]
+* Using [GraphQL to subscribe to events][graphql-api]
+* [Deploying your SDM][sdm-deploy]
 
 Once you've finished this section, you'll have everything
 you need to eliminate the pain points in your development and delivery

@@ -3,8 +3,8 @@ An Autofix checks every push, and if the code doesn't look like you want it to, 
 and makes a commit.
 
 The instructions in this page apply after:
-*  You have an SDM that [sets goals][goals]
-*  You have a [code transform command](transform.md).
+* You have an SDM that [sets goals][goals]
+* You have a [code transform command](transform.md).
 
 This page shows how to:
 

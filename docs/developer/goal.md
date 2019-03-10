@@ -32,9 +32,9 @@ In Slack, a push notification with several goals looks like this:
 
 This page shows how to
 
-*  create goals
-*  teach them what to do
-*  require approval
+* create goals
+* teach them what to do
+* require approval
 
 
 The next page describes how to [set goals for each push][setting-goals].

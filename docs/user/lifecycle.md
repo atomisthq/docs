@@ -10,13 +10,13 @@ the messages have buttons that make them useful.
 A code push is the most recognized event in the delivery process.
 Atomist correlates all of this into a dynamic, updating push notification:
 
-*  Commit summaries, grouped by author
-*  GitHub statuses
-*  Build results
-*  SDM Goals, with approval buttons
-*  Tags
-*  Deployments
-*  Buttons: Raise PR for branches, Restart Build when it failed
+* Commit summaries, grouped by author
+* GitHub statuses
+* Build results
+* SDM Goals, with approval buttons
+* Tags
+* Deployments
+* Buttons: Raise PR for branches, Restart Build when it failed
 
 Here's a sample push notification with SDM goals:
 

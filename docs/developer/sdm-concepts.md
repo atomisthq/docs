@@ -52,9 +52,9 @@ correlates the incoming data with its previous knowledge, and invokes
 your event handlers with rich context. This enables your automations
 to perform tasks such as:
 
--   Scanning code for security or quality issues on every push
--   Driving deployments and promotion between environments
--   Performing custom actions on deployment, such as kicking off
+* Scanning code for security or quality issues on every push
+* Driving deployments and promotion between environments
+* Performing custom actions on deployment, such as kicking off
     integration test suites.
 
 The Atomist correlated event model also enables Atomist to provide you
@@ -464,11 +464,11 @@ hooks to send events around build and artifact creation.
 
 If integrating CI tools, we recommend the following:
 
--   CI tools are great for building and generating artifacts. They are
+* CI tools are great for building and generating artifacts. They are
     often abused as a PaaS for `bash`. If you find your CI usage has
     you programming in `bash` or YML, consider whether invoking such
     operations from Atomist event handlers might be a better model.
--   Use Atomist generators to create your CI files, and Atomist
+* Use Atomist generators to create your CI files, and Atomist
     editors to keep them in synch, minimizing inconsistency.
 
 <!--

@@ -9,9 +9,9 @@ To answer questions like:
 
 You can gather information in multiple ways:
 
-*  Check the [web interface](team.md#see-your-sdm-registration)
-*  run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
-*  run the command: "show skills"
+* Check the [web interface](team.md#see-your-sdm-registration)
+* run the command: "describe sdm your-sdms-name" (If you aren't sure of the name, try "describe sdm" and check the help message.)
+* run the command: "show skills"
 
 ## Running SDM locally in team mode
 

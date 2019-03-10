@@ -64,11 +64,11 @@ issue and pull request activity, from GitHub.
 
 Now that you have an Atomist workspace, you can
 
--   Connect Atomist with your [Slack workspace][atomist-slack]
--   Connect Atomist with your [continuous integration][atomist-ci]
+* Connect Atomist with your [Slack workspace][atomist-slack]
+* Connect Atomist with your [continuous integration][atomist-ci]
     solution
--   Connect Atomist with your [Kubernetes clusters][atomist-kube]
--   Configure the [built-in chat integration][configure-lifecycle]
+* Connect Atomist with your [Kubernetes clusters][atomist-kube]
+* Configure the [built-in chat integration][configure-lifecycle]
 
 You can also customize Atomist, molding it to _your_ team's delivery
 model.  Make Atomist respond to your own events and commands by

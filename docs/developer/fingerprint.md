@@ -19,10 +19,10 @@ Atomist extension packs include some out of the box fingerprints, such as Maven 
 `npm` dependency fingerprints.
 
 This page describes how to:
-*   Create a custom fingerprint
-*   Look at your fingerprints in GraphQL
-*   Report on a fingerprint
-*   React to changes in a fingerprint
+* Create a custom fingerprint
+* Look at your fingerprints in GraphQL
+* Report on a fingerprint
+* React to changes in a fingerprint
 
 ## Create a fingerprint
 

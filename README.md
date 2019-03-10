@@ -58,14 +58,14 @@ we simply add `{!handlers.md!}` to the desired location in `user-guide/rug/comma
 We use the [Admonition][admonition] extension.  Here are the available
 admonition styles:
 
--   summary tldr
--   hint important tip
--   check done success
--   attention caution warning
--   fail failure missing
--   danger error
--   bug
--   default (i.e., none of the above)
+* summary tldr
+* hint important tip
+* check done success
+* attention caution warning
+* fail failure missing
+* danger error
+* bug
+* default (i.e., none of the above)
 
 Items on the same line create a visually equivalent admonition.
 

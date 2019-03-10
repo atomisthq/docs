@@ -23,17 +23,17 @@ structure and organization of a typical SDM project.
 
 To get started in [local mode][local], make sure you have:
 
--   [Git][]
--   [Node.js][prereq-install-node]
--   [the Atomist CLI][prereq-install-cli]
+* [Git][]
+* [Node.js][prereq-install-node]
+* [the Atomist CLI][prereq-install-cli]
 
 Before you run in [team mode][team], you'll need the [prerequisites][prereq-prereq] page.
 
 This page will help you:
 
-*  create an SDM project
-*  spin up your SDM
-*  know where to add functionality to your SDM
+* create an SDM project
+* spin up your SDM
+* know where to add functionality to your SDM
 
 [git]: https://git-scm.com/downloads  (Install Git)
 [prereq-prereq]: ../developer/prerequisites.md (Atomist Automation Prerequisites)
@@ -103,11 +103,11 @@ and then returns a SoftwareDeliveryMachine([API docs][sdm-api-doc]).
 
 Inside this function, add functionality to your SDM. You can:
 
-*  Add [Goals](goal.md) to choose a flow to respond to code push
-*  Add listeners to various other [events](event.md)
-*  Add [commands](commands.md)
-*  Add [project generators](create.md)
-*  Bring in [extension packs](../pack/index.md)
+* Add [Goals](goal.md) to choose a flow to respond to code push
+* Add listeners to various other [events](event.md)
+* Add [commands](commands.md)
+* Add [project generators](create.md)
+* Bring in [extension packs](../pack/index.md)
 
 [sdm-api-doc]: https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html (API Docs for SoftwareDeliveryMachine)
 [configuration-api-doc]: https://atomist.github.io/automation-client/interfaces/_lib_configuration_.configuration.html (API Docs for Configuration type)

@@ -15,11 +15,11 @@ imagine.
 
 The SDM is a persistent process that runs in the background. An SDM links up to the *API for software*, implemented by the Atomist service, exposing:
 
--   *What we know*: The Atomist cortex, accessible through GraphQL
+* *What we know*: The Atomist cortex, accessible through GraphQL
     queries and subscription joins
--   *What just happened*: An event, triggered by a GraphQL
+* *What just happened*: An event, triggered by a GraphQL
     subscription, which is contextualized with the existing knowledge
--   *What you're working on*: A library that enables you to comprehend
+* *What you're working on*: A library that enables you to comprehend
     and manipulate the source code you're working on.
 
 When a push occurs, the SDM gets all this context and the code. It decides what
@@ -32,15 +32,15 @@ A push is not the only event that matters in our software development.
 The Atomist development automation platform ingests events from your
 software development systems:
 
--   Source code repositories like [GitHub.com][gh]
+* Source code repositories like [GitHub.com][gh]
     and [GitHub Enterprise][ghe]
--   Issue tracking systems like [GitHub][gh-issues] and [Jira][jira]
--   Continuous integration platforms
+* Issue tracking systems like [GitHub][gh-issues] and [Jira][jira]
+* Continuous integration platforms
     like [Travis CI][travis], [CircleCI][circle],
     and [Jenkins][jenkins]
--   Application frameworks like [Spring][spring]
--   Runtime platforms like [Kubernetes][k8s] and [Cloud Foundry][cf]
--   Custom events from _any_ other system you use
+* Application frameworks like [Spring][spring]
+* Runtime platforms like [Kubernetes][k8s] and [Cloud Foundry][cf]
+* Custom events from _any_ other system you use
 
 and makes them available via the Atomist API for software.
 
@@ -95,8 +95,8 @@ You can configure the whole pack, or use functions from the pack in your own set
 
 Atomist maintains two implementations of the API for Software:
 
--  [Team mode](team.md): a complete, cloud-based service,
--  [Local mode](local.md): an open-source, filesystem-based version that runs on your laptop.
+* [Team mode](team.md): a complete, cloud-based service,
+* [Local mode](local.md): an open-source, filesystem-based version that runs on your laptop.
 
 An SDM is most useful when running for your whole team, connected
 to the Atomist API for software, Slack, and your version control. Run it on your laptop

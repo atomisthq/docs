@@ -76,9 +76,9 @@ so that you can
 decide whether goals or operations apply to them. This pack includes:
 [push-test]: ../developer/push-test.md (Push Tests)
 
--  [IsTypeScript](https://atomist.github.io/sdm-pack-node/modules/_lib_pushtest_tspushtests_.html#istypescript) checks for any TypeScript files.
--  [IsNode](https://atomist.github.io/sdm-pack-node/modules/_lib_pushtest_nodepushtests_.html#isnode) checks for a package.json, which indicates a Node project.
--  [IsAtomistAutomationClient](https://atomist.github.io/sdm-pack-node/modules/_lib_pushtest_nodepushtests_.html#isatomistautomationclient)
+* [IsTypeScript](https://atomist.github.io/sdm-pack-node/modules/_lib_pushtest_tspushtests_.html#istypescript) checks for any TypeScript files.
+* [IsNode](https://atomist.github.io/sdm-pack-node/modules/_lib_pushtest_nodepushtests_.html#isnode) checks for a package.json, which indicates a Node project.
+* [IsAtomistAutomationClient](https://atomist.github.io/sdm-pack-node/modules/_lib_pushtest_nodepushtests_.html#isatomistautomationclient)
 recognizes SDM projects.
 
 ## Code Transforms
@@ -112,9 +112,9 @@ This pack includes some useful parts to build your own goals. I recommend lookin
 
 Supply a list of commands to run your build. This builder adds
 
--  error finding: if the log includes "ERR!" or "[error]" the build fails
--  log interpretation: pulls out the relevant bits of the log for some npm errors and mocha test failures
--  app info extraction: pulls the project version name and out of package.json
+* error finding: if the log includes "ERR!" or "[error]" the build fails
+* log interpretation: pulls out the relevant bits of the log for some npm errors and mocha test failures
+* app info extraction: pulls the project version name and out of package.json
 
 Register this builder on a [build goal](../developer/goal.md#build) to use it:
 

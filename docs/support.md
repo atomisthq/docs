@@ -6,11 +6,11 @@ provide any guidance we can to help you use them most effectively.  If
 you have any questions or need any help of any kind, don't hesitate to
 contact us in whatever way is most convenient for you.
 
--   <a id="contact" name="contact"></a><a class="contact" href="#contact" title="Atomist Support Chat">Chat with us right here</a>
--   [Atomist Community Slack][slack]
--   [support@atomist.com][email]
--   [Twitter][twitter]
--   Issues and pull requests on our [open source projects][github]
+* <a id="contact" name="contact"></a><a class="contact" href="#contact" title="Atomist Support Chat">Chat with us right here</a>
+* [Atomist Community Slack][slack]
+* [support@atomist.com][email]
+* [Twitter][twitter]
+* Issues and pull requests on our [open source projects][github]
 
 We exist to help you be as productive you can be.  Let us know how we
 can help you.  Happy coding!

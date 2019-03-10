@@ -24,10 +24,10 @@ as your SDM does not connect to Atomist.
 
 The authentication and authorization points are:
 
-*  can you access the Atomist web application?
-*  do you have administrative access in the Atomist web application?
-*  is an SDM authorized to connect?
-*  does a connected SDM have access to act as the person who invoked the command, or only as the person who
+* can you access the Atomist web application?
+* do you have administrative access in the Atomist web application?
+* is an SDM authorized to connect?
+* does a connected SDM have access to act as the person who invoked the command, or only as the person who
 ran this SDM?
 
 Currently, access to the Atomist web application uses GitHub as an authorization provider.

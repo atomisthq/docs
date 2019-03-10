@@ -17,35 +17,35 @@ with other events.
 
 Send messages to channels and people, receive commands, query people for command parameters, update messages, and include buttons on messages.
 
-*  Slack
-*  MS Teams (experimental)
+* Slack
+* MS Teams (experimental)
 
 #### Version Control Integrations
 
 Atomist receives events for Pushes and Pull Requests (PRs). The built-in integrations
 include action buttons to create and merge PRs and add labels, reviewers, and comments to PRs.
 
-*  GitHub
-*  GitHub Enterprise
-*  BitBucket
-*  BitBucket Cloud
-*  GitLab
+* GitHub
+* GitHub Enterprise
+* BitBucket
+* BitBucket Cloud
+* GitLab
 
 #### Issue Tracking Integrations
 
 Atomist receives events for issue and issue comment creation and update.
 
-*  GitHub Issues
+* GitHub Issues
 
 #### CI Integrations
 
 Atomist can receive build notifications from:
 
-*  Jenkins
-*  Travis CI
-*  TeamCity
-*  Circle CI
-*  any other build system, as a POST to our webhook
+* Jenkins
+* Travis CI
+* TeamCity
+* Circle CI
+* any other build system, as a POST to our webhook
 
 
 ### Running other programs from Atomist

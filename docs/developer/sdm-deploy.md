@@ -15,9 +15,9 @@ development machine.
 Running the SDM locally is extremely helpful
 during development of your automations.
 
--   You can debug commands and event handlers using local development
+* You can debug commands and event handlers using local development
     tools like Visual Studio Code and Google Chrome.
--   You can iterate rapidly because there is no deployment and only a
+* You can iterate rapidly because there is no deployment and only a
     minimal build process.
 
 To connect to the Atomist API and respond to events in your team and commands in your team chat,

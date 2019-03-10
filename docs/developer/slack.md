@@ -2,11 +2,11 @@ Atomist supports sending _rich_, _actionable_ and _updatable_ Slack
 messages. Messages can be sent by an event handler or a command
 handler.
 
-*   _Rich_ messages take full advantage of Slack's native message
+* _Rich_ messages take full advantage of Slack's native message
     formatting capabilities
-*   _Actionable_ messages contain buttons and menus that trigger new
+* _Actionable_ messages contain buttons and menus that trigger new
     commands on behalf of the user who clicked them
-*   _Updatable_ messages can be rewritten with new content over time
+* _Updatable_ messages can be rewritten with new content over time
     in response to new events and actions. This helps reduce the
     number of messages from the Atomist bot in a Slack channel.
 

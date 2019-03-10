@@ -77,10 +77,10 @@ Then call `notifyAtomist` when the build starts (in the first
 stage) and ends (in the `post` block), sending the appropriate
 status and phase.
 
--   Start: `notifyAtomist(env.ATOMIST_WORKSPACES, "STARTED", "STARTED")`
--   Succesful: `notifyAtomist(env.ATOMIST_WORKSPACES, "SUCCESS")`
--   Unstable: `notifyAtomist(env.ATOMIST_WORKSPACES, "UNSTABLE")`
--   Failure: `notifyAtomist(env.ATOMIST_WORKSPACES, "FAILURE")`
+* Start: `notifyAtomist(env.ATOMIST_WORKSPACES, "STARTED", "STARTED")`
+* Succesful: `notifyAtomist(env.ATOMIST_WORKSPACES, "SUCCESS")`
+* Unstable: `notifyAtomist(env.ATOMIST_WORKSPACES, "UNSTABLE")`
+* Failure: `notifyAtomist(env.ATOMIST_WORKSPACES, "FAILURE")`
 
 Here is a simple example `Jenkinsfile` pipeline that sends the
 appropriate webhook payloads at the appropriate time.
