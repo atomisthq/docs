@@ -112,6 +112,8 @@ If the build is triggered by a tag of the form `M.N.P`, the site will
 be pushed to the docs.atomist.com S3 bucket hosting
 [https://docs.atomist.com/][atomist-doc].
 
+[build-serve]: #build-and-serve-the-documentation-locally
+
 ## Build and serve the documentation locally
 
 Before you push changes to this repository, you should test your

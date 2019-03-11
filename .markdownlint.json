@@ -2,10 +2,15 @@
    "files": [
       "docs/**/*.md"
    ],
-   "MD013": {
+   "line-length": {
       "line_length": 200
    },
    "MD010": false,
    "MD033": false,
-   "MD026": false
+   "MD026": false,
+   "first-line-h1": false,
+   "first-heading-h1": false,
+   "list-marker-space": {
+      "ol_multi": 2
+   }
 }
