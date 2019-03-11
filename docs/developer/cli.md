@@ -34,7 +34,6 @@ After you start an SDM, leave it running in that terminal. The logs print to the
 
 This will prompt you to set up the connection parameters for an SDM in team mode. See [Configuration](prerequisites.md#minimal-configuration) for more.
 
-
 ## Local Mode
 
 These commands are relevant to running SDMs in local mode, along with `atomist start --local`.
@@ -74,7 +73,5 @@ Remove the git hooks that atomist added, if any.
 
 This sends a notification to any running SDMs about the most recent commit, as if you had just committed it. This is useful if your
 SDM was not running when that commit happened. It's also great for testing your SDM repeatedly.
-
-
 
 [local]: local.md (Atomist SDM Local Mode)

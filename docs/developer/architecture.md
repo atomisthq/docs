@@ -12,7 +12,6 @@ imagine.
 
 ## API for Software
 
-
 The SDM is a persistent process that runs in the background. An SDM links up to the *API for software*, implemented by the Atomist service, exposing:
 
 * *What we know*: The Atomist cortex, accessible through GraphQL
@@ -63,7 +62,6 @@ parameters, execute the code, and respond.  This lets you focus on
 writing your command code, not boilerplate code and ceremony
 around running bots. Instead of shell scripts that are useful only to you, write commands
 that help your whole team.
-
 
 [gh]: https://github.com (GitHub.com)
 [ghe]: https://enterprise.github.com/home (GitHub Enterprise)

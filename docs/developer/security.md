@@ -36,9 +36,6 @@ other team members to the Atomist workspace, which gives them access to the web 
 
 Once you have access to the web application, you can create an API key, and then use that to run your SDM.
 
-
-
-
 ## Individual GitHub authorization for commands
 
 Certain commands and buttons, like creating a pull request or pushing "Close" on a GitHub Issue notification,

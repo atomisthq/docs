@@ -211,4 +211,3 @@ or an `interval` in milliseconds.
 
 Pass the registration to [`sdm.addTriggeredListener`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#addtriggeredlistener).
 
-

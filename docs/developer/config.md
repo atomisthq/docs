@@ -12,7 +12,6 @@ testing or production environment, you will likely want to use the
 [environment variable](#environment-variable) approach.
 For the full list of configuration sources, see the [API doc][configuration-apidoc]. s
 
-
 Regardless of the approach you take, the minimum information required
 to successfully start an SDM is an [API key](prerequisites.md#atomist-api-key)
 and a [workspace ID](prerequisites.md#atomist-workspace).  Depending on the SDM or
@@ -119,13 +118,11 @@ There is an example of how to put files in and out of this directory in our
 That example zips up the `node_modules` directory and stores it there for each commit.This lets goal executions be stateless,
 without downloading the world every time.
 
-
 ## Everything Else
 
 For the full list of configuration sources, see the [API doc][configuration-apidoc].
 
 The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html).
-
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)

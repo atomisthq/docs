@@ -61,7 +61,6 @@ If you want information about the file that the code is in, try [`astUtils.fileH
 [apidoc-matchresult]: https://atomist.github.io/automation-client/interfaces/_lib_tree_ast_filehits_.matchresult.html (API Doc for MatchResult)
 [apidoc-matchiterator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#matchiterator (API Doc for matchIterator)
 
-
 ## See also:
 * the [Project API](project.md)
 * do simpler manipulations of file content with [projectUtils](projectutils.md)

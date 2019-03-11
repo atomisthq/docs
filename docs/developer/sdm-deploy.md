@@ -170,7 +170,6 @@ RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes
 
 You may prefer a later release of kubectl. I won't keep this documentation up-to-date on that.
 
-
 [docker-build]: https://docs.docker.com/engine/reference/builder/ (Dockerfile Reference)
 [dockerfile-in-seed]: https://github.com/atomist-seeds/empty-sdm/blob/master/Dockerfile (Dockerfile from an SDM seed)
 [dockerignore-in-seed]: https://github.com/atomist-seeds/empty-sdm/blob/master/.dockerignore (dockerignore from an SDM seed)

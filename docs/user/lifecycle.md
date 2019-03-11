@@ -28,7 +28,6 @@ Build status is included on the push notification, right next to the commit mess
 performed by your Atomist SDM or by another build system like Jenkins, Travis, TeamCity, etc.
 If a build fails, the person who made the commit gets a private message with a link to the log.
 
-
 ## Linked Channels
 
 Messages about each repository are sent to chat channels linked to that repository.

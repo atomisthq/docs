@@ -240,7 +240,7 @@ When a new issue is created, you may want to notify people or perform an action.
 
 #### Listener interfaces
 
-1. `NewIssueListener`: [NewIssueListener](https://github.com/atomist/sdm/blob/master/lib/api/listener/NewIssueListener.ts)
+1.  `NewIssueListener`: [NewIssueListener](https://github.com/atomist/sdm/blob/master/lib/api/listener/NewIssueListener.ts)
 
 #### Examples
 
@@ -346,7 +346,6 @@ Performing a transform on a branch, and then either raising either a PR or
 an issue, depending on build success or failure. This allows us to
 safely apply transforms across many repositories. There's a simple wrapper
 function to enable this:
-
 
 !!! tip
     Dry run transforms are another example of how commands and events can work

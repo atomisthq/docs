@@ -44,4 +44,3 @@ await projectUtils.doWithFiles(project, "**/*.java",
 * get at the relevant parts of files with microgrammars and [parseUtils](parseutils.md)
 * dig into the abstract syntax tree (AST) of your programming language with [astUtils](astutils.md)
 
-

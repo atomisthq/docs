@@ -36,12 +36,9 @@ This page shows how to
 * teach them what to do
 * require approval
 
-
 The next page describes how to [set goals for each push][setting-goals].
 
 [setting-goals]: set-goals.md (Setting Goals in an SDM)
-
-
 
 ## Create goals
 
@@ -100,7 +97,6 @@ const releaseDocs = goal(
 Sometimes goals need other goals to have completed before they can start. This is handled while [setting goals](set-goals.md) on a push.
 
 Sometimes they wait on external conditions, such as another service having started. This is handled with *wait rules*.
-
 
 ## Built-in Goals
 
@@ -180,7 +176,6 @@ export const listChangedFiles: PushImpactRegistration = {
 
 If you don't have a custom name or PushTest, you can use the following shorthand, supplying only the
 `PushImpactListener` function:
-
 
 ```typescript
 export const listChangedFiles = i => i.addressChannels(`Files changed:\n${i.filesChanged.map(n => "- `" + n + "`").join("\n")}`);

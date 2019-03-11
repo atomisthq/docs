@@ -62,7 +62,6 @@ hasFile("LICENSE")
 
 For more push tests, see [Push Tests][push-test].
 
-
 [push-test]: push-test.md (Atomist Push Tests)
 
 ### Autofix Registration options
@@ -71,7 +70,6 @@ You can define a set of options on the registration:
 
 * `ignoreFailure`: failures in the transform will cause other later autofixes to not be applied if set to `false`
 * `considerOnlyChangedFiles`: the code transform will only be applied to files that have been changed in the push if set to `true`
-
 
 ## Add the autofix goal to your goalset
 

@@ -150,11 +150,9 @@ then check the [GitProject][apidoc-gitproject] interface for methods like:
 
 [apidoc-gitproject]: https://atomist.github.io/automation-client/interfaces/_lib_project_git_gitproject_.gitproject.html (API Doc for GitProject)
 
-
 ## Accessing the filesystem directly
 
 If the Project is on the filesystem (usually a `GitProject`), then `project.baseDir` will give
 you its path on the filesystem.
-
 
 [apidoc-imp]: https://atomist.github.io/automation-client/classes/_lib_project_mem_inmemoryproject_.inmemoryproject.html (API Doc for InMemoryProject)

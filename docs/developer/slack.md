@@ -199,7 +199,6 @@ const buttonSpec: ButtonSpecification = {
 };
 ```
 
-
 ### Adding message menus
 
 Message menus are very similar to message buttons in the way they are created and

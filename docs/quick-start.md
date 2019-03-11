@@ -30,7 +30,6 @@ bash support).
 [jdk]: http://jdk.java.net/ (Java JDK)
 [local]: developer/local.md (SDM Local Mode)
 
-
 ## Quick start
 
 1.  Install the Atomist command-line utility.  We will use this to
@@ -69,7 +68,6 @@ bash support).
     network connection, this may take a minute or more.
 
     Leave this terminal window open. Logs will print to this screen.
-
 
 6.  In another terminal, check what your SDM can do. This will print a list of commands supported by your running quick-sdm.
 

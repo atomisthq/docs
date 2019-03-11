@@ -144,4 +144,3 @@ Note: if you want information about the file that the match is in, try [`parseUt
 * do simpler manipulations of file content with [projectUtils](projectutils.md)
 * dig into the abstract syntax tree (AST) of your programming language with [astUtils](astutils.md)
 
-

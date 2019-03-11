@@ -61,7 +61,6 @@ If you provide your own function, make it take a string(the contents of the log)
 
 Look at the content of your project and determine the name and version.Here's one implementation:
 
-
 ``` typescript
 async (p: Project) => {
         return {
@@ -71,7 +70,6 @@ async (p: Project) => {
         };
     },
 ```
-
 
 ## Put it together
 

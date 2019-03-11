@@ -203,7 +203,6 @@ The `helloWorldParametersDefinition` object has one property for each parameter.
 name of the parameter, and its value describes the parameter. These options are available in the [parameter definition][apidoc-parameterdef]
 (all optional):
 
-
 | attribute    |  type  | description | default |
 | -------------| ------ | ----------- | ------- |
 | description  | string | short description | same as name |

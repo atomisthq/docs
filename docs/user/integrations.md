@@ -47,7 +47,6 @@ Atomist can receive build notifications from:
 * Circle CI
 * any other build system, as a POST to our webhook
 
-
 ### Running other programs from Atomist
 
 In response to events, you can trigger actions on other systems from your Atomist automations.
@@ -57,5 +56,4 @@ Some of the ones already implemented include:
 * TSLint
 * Sonarqube
 * anything you can run from a shell or command prompt
-
 

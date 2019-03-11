@@ -39,7 +39,6 @@ The `DockerBuild` goal can accept the following parameters in the goal registrat
 
 A lot of times, before doing a Docker build, you need to perform a couple of actions in your codebase. Every goal in Atomist starts off from a clean codebase, so for example compiled sourcecode from a previous run of the `Build` goal is not known to the `DockerBuild` goal.
 
-
 When using the `sdm-pack-spring` a couple of goal hooks, which trigger code before the execution of a goal, have been built with this functionality in mind.
 
 ``` typescript
@@ -54,7 +53,6 @@ These listeners will:
 
 * Perform an `mvn version:set`. The version will be derived from a previous `Version` goal run result.
 * Perform an `mvn package` which will compile the code and build a JAR file that you can use in your docker file
-
 
 For NodeJS application, you can create your own listener that calls for example an NPM task.
 

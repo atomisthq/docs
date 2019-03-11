@@ -75,7 +75,6 @@ Generator commands work the same way as [command parameters](commands.md#command
 
 In addition, a generator command automatically gets some parameters that every generator needs:
 
-
 | attribute    |  type  | description | default |
 | -------------| ------ | ----------- | ------- |
 | target.description | string | description for the new repository | "" |

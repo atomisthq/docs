@@ -27,7 +27,6 @@ The `plan` method accepts one or more goals. The code below is equivalent to the
         .plan(codeInspection, autofix);
 ```
 
-
 ## Dependencies
 
 By default, all goals execute in parallel. If some goals should wait for others to succeed, you can give them *preconditions* as you add them to a plan. To do this, call the `after` method immediately after `plan`.

@@ -66,7 +66,6 @@ Check the schema browser in Graph<i>i</i>QL for all the different Query types, p
 Try adding `pullRequests` as a field, with `number` and `state` properties,
 to find out which branches have open PRs.
 
-
 ## Queries
 
 You can execute queries from command and event handlers when running
@@ -133,7 +132,6 @@ the value for the query variable.
 ## Custom Event Handlers
 
 {!tbd.md!}
-
 
 ## Subscriptions
 

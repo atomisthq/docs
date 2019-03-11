@@ -16,7 +16,6 @@ Code inspections can instead send messages to Slack. They can block further prog
 
 Prerequisite: First, you'll need an [AutoCodeInspection goal][autoinspect-goal].
 
-
 ## Installing an inspection from a pack
 
 You can find inspections in packs, and register them on your

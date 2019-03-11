@@ -21,7 +21,6 @@ The build goal does a couple things:
 Get one by calling the [`Build`][apidoc-build] constructor. If you want it to
 appear as something more specific than "build", pass a `displayName` in its options.
 
-
 ``` typescript
 const build = new Build({ displayName: "maven build" }).with({
     name: "maven",
@@ -47,7 +46,6 @@ Builders implement the logic that is needed to build your software. Out of the b
 * NodeJS using [npm](#npm)
 * [Generic builder](spawn-builder.md) that calls a terminal script
 
-
 You can also create your own.
 A builder is a function that gets a `GoalInvocation` and a build number and return a `Promise<BuildInProgress>`
 
@@ -67,7 +65,6 @@ const build = new Build({ displayName: "Travis build" }).with({
 ```
 
 You can find more detailed information on how to hook up existing CI systems on the [integrations page](../user/ci.md).
-
 
 ## Atomist builders
 
@@ -135,7 +132,6 @@ const build = new Build().with({
 Here, the nodeBuilder will execute `npm run build`. But first, `NodeModulesProjectListener` is a
 [GoalProjectListener](goals-more.md#prepare-the-checked-out-code) that will make sure `npm install`
 happens before the goal runs and after the project is cloned.
-
 
 ## Linking the artifact produced by the build
 

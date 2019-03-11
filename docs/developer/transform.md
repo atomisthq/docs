@@ -221,5 +221,3 @@ In the event of a squash, the commit message of the new commit will be the title
 !!! attention "Adding labels to Github"
     If the labels are missing in Github, issue the `@atomist add auto merge labels` command in the channel linked to a repository
 
-
-
