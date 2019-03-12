@@ -76,6 +76,8 @@ nav:
         - Commands: developer/commands.md
         - Project Generators: developer/create.md
         - Security Model: developer/security.md
+        - TypeScript Hints: developer/typescript.md
+        - Troubleshooting: developer/troubleshoot.md
         - More Details:
           - Fingerprints: developer/fingerprint.md
           - SDM Configuration: developer/config.md
@@ -89,8 +91,6 @@ nav:
           - Command Line Interface: developer/cli.md
           - SDM Concepts: developer/sdm-concepts.md
       - Glossary: developer/glossary.md
-      - TypeScript Hints: developer/typescript.md
-      - Troubleshooting: developer/troubleshoot.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Build: pack/build.md

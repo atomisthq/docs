@@ -1,4 +1,4 @@
-The software delivery machine is a service that runs automations in response to events
+Your software delivery machine is a service that runs automations in response to events
 like pushes and builds. See [architecture][] for a high-level view.
 
 The SDM:
