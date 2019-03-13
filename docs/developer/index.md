@@ -1,67 +1,41 @@
-# Developer Guide
+# Developing your Software Delivery Machine
 
 When you're ready to craft your own delivery and development automation, this is the place to be.
 
-## How to use this guide
+## Getting Started
 
-With this guide, we aim to provide all the information you need to create and customize
-a software delivery machine for your organization's needs. When the information here
-is not clear or not sufficient, we appreciate your perspective. Ask us questions through the chat icon
-in the lower-right of this page, or on the [Atomist community Slack][join]. You can also contribute
-to this guide by creating issues or pull requests on [the docs repository][docs].
+Get own software development machine by following the steps in [Developer Quick Start](../quick-start.md).
 
-If you want to learn by doing, run through the [Developer Quick Start][quick-start] first.
-If you want to start from higher-level concepts, begin reading [about the architecture][architecture].
+## Overview
 
-## New superpowers
+In your own SDM, you have many tools available to automate your organization or team's software development (including delivery). To provide all the options, while making the common work easier, we give you a few layers of abstraction.
 
-This guide should help you make your SDM:
+![Layers of libraries: Atomist Service talks to automation-client, which underlies SDM, which
+underlies all the packs](img/layers-of-libs.png)
 
-* [Build your repositories][build], more flexibly than a pipeline
-* [Deploy your code][deploy], with interactivity
-* [Inspect your code][inspect], across projects and automatically on push
-* [Transform your code][autofix], across projects and automatically on push
-* [Respond to builds][build], from the SDM or external build systems
-* Implement [custom commands][command]
-* [Create new projects][create] according to your own standards
+The Atomist service provides triggering, chat integration, and a GraphQL interface to events and the context around them. Your software delivery machine connects to that service. This connection is handled in the `@atomist/automation-client` library. That library works in terms of commands (which people trigger from chat) and events. It also interfaces with source control; it clones repositories, makes commits, pushes them, etc.
 
-## Underlying concepts
+On top of that, the `@atomist/sdm` library provides a domain model for software delivery. This library understands many of the events that people want to react to, including new issues, new repositories, and the all-important push. The push triggers PushRules, which result in Goals, which the SDM knows how to execute. The Goals include familiar activities like Build and Deploy, plus
+activities that you won't see in older build tools: AutoCodeInspect, Autofix, and Fingerprint, for instance.
 
-To do all this, these higher-level concepts are relevant:
+In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for build functionality. There are packs to help with languages like Java or Node. There are packs specific to deployment targets like Kubernetes or Cloud Foundry. You can create packs and share them with the community.
 
-* [Setting up your system][prereq] to develop and run SDMs
-* the `atomist` [command line tool][cli]
-* your [Software Delivery Machine][sdm]
-* [Commands][command]
-* [Goals][goal]
-* the [Project][project] interface
+One particularly interesting pack is the Analysis pack. This one is used by the Uhura SDM. It separates understanding a project's language and technologies from choosing what to do about it.
+This lets you create analyzers that identify technologies like Node or Spring, and also supply goals or autofixes or other functionality that gets applied dynamically and universally. This is useful
+when you have lots of combinations of technologies across your organization, and you want an SDM
+that can figure out what to do on all of the projects.
 
-## Advanced topics
+Learn more about the high-level concepts in [Architecture](architecture.md).
 
-* Crafting sophisticated [Slack messages][slack]
-* Using [GraphQL to subscribe to events][graphql-api]
-* [Deploying your SDM][sdm-deploy]
+## Tutorials
 
-Once you've finished this section, you'll have everything
-you need to eliminate the pain points in your development and delivery
-processes. Or if you don't, please let us know! We are available in the [Atomist community Slack][join], or through the chat icon at the bottom of this page.
+Once you have a local SDM up and running, here are some things you can do with it:
 
-[build]: build.md (Builds in the SDM)
-[deploy]: deploy.md (Deploys in the SDM)
-[inspect]: inspect.md (Code Inspections)
-[autofix]: autofix.md (Transforms and Autofix)
-[docs]: https://github.com/atomist/docs (Atomist Documentation Repository)
-[goal]: goal.md (Goals)
-[prereq]: prerequisites.md (Atomist Automation Prerequisites)
-[sdm]: sdm.md (Atomist Software Delivery Machine)
-[command]: commands.md (Atomist Command Automations)
-[event]: event.md (Software Delivery Machine Events)
-[slack]: slack.md (Atomist Automation Slack Messages)
-[graphql-api]: graphql.md (Atomist Automation GraphQL)
-[project]: project.md
-[create]: create.md
-[architecture]: architecture.md (Atomist SDM Architecture)
-[quick-start]: ../quick-start.md (Atomist Developer Quick Start)
-[cli]: cli.md (Atomist Command Line Interface)
-[sdm-deploy]: sdm-deploy.md (Deploying the SDM)
-[join]: https://join.atomist.com (Atomist Community Slack)
+* Add a chat command
+* Add an autofix
+* Add a code inspection
+* Add a custom goal for your team's specific need
+
+## Questions?
+
+We are available in the [Atomist community Slack][join], or through the chat icon at the bottom of this page. If you have requests or suggestions for this documentation, find me in the #docs channel.
