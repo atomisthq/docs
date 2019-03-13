@@ -100,7 +100,7 @@ const firstLines = await gatherFromFiles<string>(project, "**/*.java", async f =
 
 ### File Globs
 
-Serveral methods in [projectUtils][apidoc-projectUtils] accept a `GlobOptions` as a parameter.
+Serveral methods in [projectUtils][apidoc-pu] accept a `GlobOptions` as a parameter.
 The GlobOptions is a string or an array of strings.
 
 In a glob:
