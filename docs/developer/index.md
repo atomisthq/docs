@@ -39,3 +39,5 @@ Once you have a local SDM up and running, here are some things you can do with i
 ## Questions?
 
 We are available in the [Atomist community Slack][join], or through the chat icon at the bottom of this page. If you have requests or suggestions for this documentation, find me in the #docs channel.
+
+[join]: https://join.atomist.com/ (Atomist community Slack)
