@@ -4,7 +4,7 @@
 
 #### Atomist service
  the part of the Atomist platform that is operated by Atomist the company:
- the event hub, GraphQL endpoint, and web interface. [more info][architecture]
+ the event hub, GraphQL endpoint, and web interface. [more info](architecture.md)
 
 #### PushRule
 
