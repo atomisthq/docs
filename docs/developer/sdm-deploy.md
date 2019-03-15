@@ -1,4 +1,3 @@
-
 You can run Software Delivery Machines (SDMs) in many different environments, ranging from your laptop
 or data center to Platform-as-a-Service offerings like Heroku and Pivotal Cloud Foundry.
 
@@ -55,7 +54,7 @@ This has two effects:
 
 If you want the npm effect, but not the Atomist configuration change, then set ATOMIST_ENV to "testing" or "development". This will override NODE_ENV for that purpose.
 
-[prod-default-config-apidoc: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#productiondefaultconfiguration (APIdoc for ProductionDefaultConfig)
+[prod-default-config-apidoc]: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#productiondefaultconfiguration (APIdoc for ProductionDefaultConfig)
 
 ### Node
 

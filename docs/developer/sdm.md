@@ -232,9 +232,11 @@ The `test` directory contains the automated tests for the project.
 Typically these are unit tests written using [mocha][]
 and [power-assert][].
 
+<!--
 ## Next steps
 
 Proceed to [add some functionality][add-functionality] to your SDM.
+-->
 
 [mocha]: https://mochajs.org/ (Mocha)
 [power-assert]: https://github.com/power-assert-js/power-assert#readme (power-assert)
