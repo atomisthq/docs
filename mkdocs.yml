@@ -1,15 +1,15 @@
 site_name: Atomist Documentation
-site_description: Documentation for Atomist - How Teams Deliver Software
+site_description: Atomist Documentation
 site_author: The Atomist Team
 repo_name: GitHub
 repo_url: https://github.com/atomist/docs
 edit_uri: edit/master/docs/
-copyright: "&copy; 2018 Atomist, Inc."
+copyright: "&copy; 2019 Atomist, Inc."
 extra:
   main_site_url: https://atomist.com/
   social:
     - type: medium
-      link: https://the-composition.com/
+      link: https://blog.atomist.com/
     - type: github
       link: https://github.com/atomist
     - type: twitter
@@ -28,7 +28,6 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - js/intercom.js
-  - js/mixpanel.js
 markdown_extensions:
   - markdown_include.include:
       base_path: "common"
@@ -37,16 +36,19 @@ markdown_extensions:
       guess_lang: false
       linenums: false
   - smarty
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
 nav:
-  - Introduction: index.md
+  - Welcome: index.md
+  - Getting Started: getting-started.md
+  - Developer Quick Start: quick-start.md
   - Using Atomist:
-      - Getting Started: user/index.md
+      - Introduction: user/index.md
       - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
       - Supported Integrations: user/integrations.md
-  - Developer Quick Start: quick-start.md
   - Developer Guide:
       - What you can do: developer/index.md
       - Architecture: developer/architecture.md
