@@ -3,10 +3,11 @@ the toolchain can be confusing. Here are some of our learnings, in hopes they of
 to you.
 
 We use:
+
    * for an editor or IDE, [VSCode](#vscode) or [IntelliJ](#intellij)
    * [Mocha](#mocha) for unit tests
    * npm for dependencies and command-line utilities and running builds
-   * tslint for finding some errors and formatting nitpicks
+   * [tslint](https://palantir.github.io/tslint/) for finding some errors and formatting nitpicks
 
 ## VSCode
 We use [VSCode](https://code.visualstudio.com/), which is an excellent free IDE from Microsoft. It's highly
