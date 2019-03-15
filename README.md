@@ -138,12 +138,10 @@ First [install Python 3][py-install] using [Homebrew][brew] on Mac OS X.
 $ brew install python3
 ```
 
-or on GNU/Linux
+or on Debian-based GNU/Linux distributions
 
 ```
-$ sudo apt-get install python3.6
-$ curl -O https://bootstrap.pypa.io/get-pip.py
-$ sudo python3.6 get-pip.py
+$ sudo apt-get install python3-pip
 ```
 
 Then create a [virtual environment][venv] to host the dependencies:
@@ -155,14 +153,14 @@ $ pip3 install virtualenv
 $ mkdir ~/.venvs
 $ echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
 $ source ~/.bashrc
-$ virtualenv -p python3.6 ~/.venvs/userdocs
+$ virtualenv ~/.venvs/docs
 ```
 
 With the virtual environment created, activate it in the current
 terminal:
 
 ```
-$ . ~/.venvs/userdocs/bin/activate
+$ . ~/.venvs/docs/bin/activate
 ```
 
 and install the dependencies into it:
@@ -177,7 +175,9 @@ The Atomist [docs-sdm](https://github.com/atomist/docs-sdm) will run Htmlproofer
 this repository to check the links. If you would like to test the links locally, you can
 install htmlproofer as a global executable.
 
-`sudo gem install html-proofer`
+```
+sudo gem install html-proofer
+```
 
 Then you can run: `./htmlproof.sh`
 
@@ -187,7 +187,7 @@ Every time you want to work on this repository, you need to activate
 the Python virtualenv in your working terminal:
 
 ```
-$ . ~/.venvs/userdocs/bin/activate
+$ . ~/.venvs/docs/bin/activate
 ```
 
 After making changes, you can test them by building the documentation
