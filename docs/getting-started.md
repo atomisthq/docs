@@ -2,50 +2,50 @@
 
 The steps below are for first-time sign up, creating and delivering a project with Atomist in our Web app. You can also set up and get started using Atomist with our [command-line interface][quick-start]. If you are looking to get started developing your own Software Delivery Machine right now, see the [Developer Quick Start][quick-start].
 
-1. **Go to** [https://app.atomist.com/user/signup][web-signup]
-2. **Sign up with your GitHub account** and authorize the Atomist app on GitHub
-3. **Name and create your Atomist workspace.** A workspace is the hub for your delivery activity.
+1.  **Go to** [https://app.atomist.com/user/signup][web-signup]
+2.  **Sign up with your GitHub account** and authorize the Atomist app on GitHub
+3.  **Name and create your Atomist workspace.** A workspace is the hub for your delivery activity.
 ![Create Workspace](img/getting-started/create-workspace.png)
-4. **Create your first project.** Select one of the available project types to create.
+4.  **Create your first project.** Select one of the available project types to create.
 ![Create Project](img/getting-started/create-project.png)
 ![Creating Project](img/getting-started/creating-project.png)
-5. Atomist automatically starts delivery of the project. It gets built, tested, Docker built, and on the first commit, it will deploy to our hosted cluster. Click **Start deploy to `uhura`** button to kick off the deploy. 
+5.  Atomist automatically starts delivery of the project. It gets built, tested, Docker built, and on the first commit, it will deploy to our hosted cluster. Click **Start deploy to `uhura`** button to kick off the deploy.
 ![Delivering](img/getting-started/ready-to-deploy.png)
 You can verify that the project was deployed and is running by clicking on the `http` link in the `Deployed` goal.
 ![Verify](img/getting-started/verify.png)
 
 !!! note "Note"
-    Projects deployed to our hosted cluster run for ten minutes for the purpose of verifying delivery. 
-    After initial commit, subsequent commits will build, but not deploy to our hosted cluster. 
+    Projects deployed to our hosted cluster run for ten minutes for the purpose of verifying delivery.
+    After initial commit, subsequent commits will build, but not deploy to our hosted cluster.
     To enable deployment for future commits, configure your workspace to deploy to your own Kubernetes cluster.
 
 # Next Steps
 
-Now you have an Atomist account and workspace, and can create and deliver applications with it. The [Uhura][uhura] 
-Software Delivery Machine running in your workspace builds and delivers Node applications in Docker containers to 
-Kubernetes. 
+Now you have an Atomist account and workspace, and can create and deliver applications with it. The [Uhura][uhura]
+Software Delivery Machine running in your workspace builds and delivers Node applications in Docker containers to
+Kubernetes.
 
 Explore and do more with Atomist.
 
 * [Connect Atomist to a GitHub organization][connect-gh-org]
 * [Connect Atomist to a Slack workspace][connect-slack]. Get notifications and interact with Atomist via our Slack bot.
-* Configure deployment to your own Kubernetes cluster. 
+* Configure deployment to your own Kubernetes cluster.
 
 ## Connect Atomist to a GitHub organization
 
-1. Go to **Settings > Integrations** and click on View Integration for the GitHub integration.
-2. Click the `Authorize` button. You will be taken to GitHub to authorize Atomist for organization access.
+1.  Go to **Settings > Integrations** and click on View Integration for the GitHub integration.
+2.  Click the `Authorize` button. You will be taken to GitHub to authorize Atomist for organization access.
 ![Authorize](img/getting-started/gh-auth-org.png)
-3. Once authorized, if you are a member of any organizations, they will show in the list.
-4. Click `Connect` on the organization(s) that you would like to use Atomist with.
+3.  Once authorized, if you are a member of any organizations, they will show in the list.
+4.  Click `Connect` on the organization(s) that you would like to use Atomist with.
 ![Connect Organization](img/getting-started/connect-org.png)
 
 ## Connect Atomist to a Slack workspace
 
-1. Go to **Settings > Integrations** and click on Configure for the Slack integration.
-2. Click the `Add to Slack` button. You will need to permissions in your Slack workspace to add a bot.
+1.  Go to **Settings > Integrations** and click on Configure for the Slack integration.
+2.  Click the `Add to Slack` button. You will need to permissions in your Slack workspace to add a bot.
 ![Add to Slack](img/getting-started/slack-add.png)
-3. Follow the instructions, see [Slack in Using Atomist][slack] for more information.
+3.  Follow the instructions, see [Slack in Using Atomist][slack] for more information.
 
 ## Configure Kubernetes Deployment Target
 
@@ -65,12 +65,12 @@ Follow the prompts to authenticate with GitHub and choose your Atomist workspace
 ``` bash
 ? Enter your api key from https://app.atomist.com/apikeys
     or hit <ENTER> to select an authentication provider
-    to login with Atomist: 
+    to login with Atomist:
 
 Select one of the following authentication providers
 available to login with Atomist:
 ? Authentication Provider (Use arrow keys)
-❯ GitHub 
+❯ GitHub
 
 ? Authentication Provider GitHub
 Logged in as jrday-fc using GitHub
