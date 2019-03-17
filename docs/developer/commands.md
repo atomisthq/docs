@@ -31,8 +31,6 @@ single argument, a `CommandListenerInvocation`, which provides some
 useful information to the command, like how to respond to the person
 who invoked the command.
 
-
-
 Armed with this information, we can write our command listener
 function.
 

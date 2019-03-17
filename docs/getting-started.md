@@ -84,8 +84,8 @@ Select one or more workspaces:
 ❯ ◯ AOFOL8EI9 - ghostbusters
 ```
 * Install the necessary Atomist components ([k8s-sdm] and [k8vent]) into your cluster (Important: this will install the components into the cluster your kubectl context is pointing at).
-The [Kubernetes SDM][k8s-sdm] is a specialized software delivery machine responsible only for 
-deploying into Kubernetes, into the same cluster it is running in. 
+The [Kubernetes SDM][k8s-sdm] is a specialized software delivery machine responsible only for
+deploying into Kubernetes, into the same cluster it is running in.
 The [Kubernetes event service][k8vent] listens for Kubernetes events and transmits them to Atomist,
 so that you can see where each of your applications is running.
 
