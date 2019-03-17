@@ -4,9 +4,18 @@ When you're ready to craft your own delivery and development automation, this is
 
 ## Getting Started
 
-Get own software development machine by following the steps in [Developer Quick Start](../quick-start.md).
+Get your own software development machine (SDM) by following the steps in [Developer Quick Start](../quick-start.md).
 
-## Overview
+## Tutorials
+
+Once you have a local SDM up and running, here are some things you can do with it:
+
+* Add a chat command
+* Add an autofix
+* Add a code inspection
+* Add a custom goal for your team's specific need
+
+## Concepts
 
 In your own SDM, you have many tools available to automate your organization or team's software development (including delivery). To provide all the options, while making the common work easier, we give you a few layers of abstraction.
 
@@ -26,15 +35,6 @@ when you have lots of combinations of technologies across your organization, and
 that can figure out what to do on all of the projects.
 
 Learn more about the high-level concepts in [Architecture](architecture.md).
-
-## Tutorials
-
-Once you have a local SDM up and running, here are some things you can do with it:
-
-* Add a chat command
-* Add an autofix
-* Add a code inspection
-* Add a custom goal for your team's specific need
 
 ## Questions?
 

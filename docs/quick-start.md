@@ -1,6 +1,6 @@
 Atomist is a programmable platform for event-driven automation of
 software delivery, with native chatops support.  Developing on Atomist
-means building on a Software Delivery Machine, so let’s get started
+means building on a Software Delivery Machine (SDM), so let’s get started
 creating one! The easiest way to get started with Atomist is to work
 on your laptop.
 
@@ -13,13 +13,13 @@ on your laptop.
 $ npm install -g @atomist/cli
 ```
 
-or on a mac, if you prefer [Homebrew][brew]:
+or on a Mac, if you prefer [Homebrew][brew]:
 
 ```
 $ brew install atomist-cli
 ```
 
-Now you have the atomist command installed which is used for creating
+Now you have the `atomist` command installed, which is used for creating
 and running an SDM.
 
 [brew]: https://brew.sh/ (Homebrew)
@@ -37,7 +37,7 @@ own SDM to.
 ```
 $ atomist config
 ```
-Follow the prompts to authenticate with GitHub and choose your Atomist workspace
+Follow the prompts to authenticate with GitHub and choose your Atomist workspace (if your team already has one).
 
 ```
 ? Enter your api key from https://app.atomist.com/apikeys
@@ -58,7 +58,9 @@ Successfully wrote configuration ~/.atomist/client.config.json
 ```
 $ atomist workspace create
 ```
-Give your workspace a name and authenticate with GitHub.
+Give your workspace a name and authenticate with GitHub. When you choose GitHub organizations
+to enable, you'll be able to get notifications about repositories in that organization, and
+you can choose to enable them for delivery.
 
 ```
 Logged in as jrday-fc using GitHub
@@ -78,6 +80,10 @@ Successfully configured SCM provider GitHub.com
 $ atomist create sdm
 ```
 
+This creates a new directory, populated with the code for an SDM. You can
+start from scratch, or from the extra-smart uhura SDM. For this Quick Start,
+we recommend uhura.
+
 ```
 ? Type of SDM to create
   blank
@@ -85,10 +91,17 @@ $ atomist create sdm
 …
   Successfully created new project uhura at file:~/atomist/projects/user/uhura
 $ cd  ~/atomist/projects/user/uhura
+```
+
+### Start up the Software Delivery Machine
+
+Change into the directory where your new SDM was created. Then run:
+
+```
 $ atomist start
 ```
 
-Running `atomist start` will install and start the [Uhura
+Running `atomist start` will install (`npm install`) and start the [Uhura
 SDM][uhura]. Uhura provides the same delivery goals that are provided
 to every workspace by the Atomist service. By installing your own
 instance of Uhura, you can extend and customize its behavior.

@@ -31,11 +31,7 @@ single argument, a `CommandListenerInvocation`, which provides some
 useful information to the command, like how to respond to the person
 who invoked the command.
 
-Command listeners are asynchronous functions, returning a `Promise`.
-The `Promise` contains an object with at least a `code`
-property, whose value is a `number`.  A code of zero means success.
-  If the code is non-zero, the
-command execution is considered unsuccessful.
+
 
 Armed with this information, we can write our command listener
 function.
@@ -52,6 +48,12 @@ You can see the `CommandListenerInvocation` has an `addressChannels` property,
 which sends a message to the appropriate places -- in this case, to wherever the
 command was invoked.
 Like much of the API, this is an asynchronous function.
+
+Command listeners are asynchronous functions, returning a `Promise`.
+The `Promise` can contain nothing (`void`) or an object with at least a `code`
+property, whose value is a `number`.  A code of zero means success.
+  If the code is non-zero, the
+command execution is considered unsuccessful.
 
 ### Register your command
 
