@@ -116,5 +116,5 @@ nav:
     - Markdown: pack/markdown.md
     - Node: pack/node.md
     - Sonarqube: pack/sonarqube.md
-    - Spring: pack/spring.md
+    - Java and Spring: pack/spring.md
   - Support: support.md

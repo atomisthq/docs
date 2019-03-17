@@ -10,10 +10,10 @@ Get your own software development machine (SDM) by following the steps in [Devel
 
 Once you have a local SDM up and running, here are some things you can do with it:
 
-* Add a chat command
-* Add an autofix
-* Add a code inspection
-* Add a custom goal for your team's specific need
+* Add a [chat command](commands.md)
+* Add an [autofix](autofix.md)
+* Add a [code inspection](inspect.md)
+* Add a [custom goal](goal.md) for your team's specific need
 
 ## Concepts
 
@@ -22,14 +22,17 @@ In your own SDM, you have many tools available to automate your organization or 
 ![Layers of libraries: Atomist Service talks to automation-client, which underlies SDM, which
 underlies all the packs](img/layers-of-libs.png)
 
-The Atomist service provides triggering, chat integration, and a GraphQL interface to events and the context around them. Your software delivery machine connects to that service. This connection is handled in the `@atomist/automation-client` library. That library works in terms of commands (which people trigger from chat) and events. It also interfaces with source control; it clones repositories, makes commits, pushes them, etc.
+The Atomist service provides triggering, [chat integration](../user/slack.md), and a [GraphQL interface](graphql.md) to events and the context around them. Your software delivery machine connects to that service. This connection is handled in the `@atomist/automation-client` [library][npm-automationclient]. That library works in terms of commands (which people trigger from chat) and events. It also interfaces with source control; it clones repositories, makes commits, pushes them, etc.
 
-On top of that, the `@atomist/sdm` library provides a domain model for software delivery. This library understands many of the events that people want to react to, including new issues, new repositories, and the all-important push. The push triggers PushRules, which result in Goals, which the SDM knows how to execute. The Goals include familiar activities like Build and Deploy, plus
-activities that you won't see in older build tools: AutoCodeInspect, Autofix, and Fingerprint, for instance.
+[npm-automationclient]: https://npmjs.com/@atomist/automation-client (Automation Client library)
+[npm-sdm]: https://npmjs.com/@atomist/sdm (SDM library)
 
-In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for build functionality. There are packs to help with languages like Java or Node. There are packs specific to deployment targets like Kubernetes or Cloud Foundry. You can create packs and share them with the community.
+On top of that, the `@atomist/sdm` [library][npm-sdm] provides a domain model for software delivery. This library understands many of the events that people want to react to, including new [issues](event.md#issues), [new repositories](event.md#repository-creation), and the all-important push. The push triggers [PushRules](set-goals.md), which result in [Goals](goal.md), which the SDM knows how to execute. The Goals include familiar activities like Build and Deploy, plus
+activities that you won't see in older build tools: [AutoCodeInspect](inspect.md), [Autofix](autofix.md), and [Fingerprint](fingerprint.md), for instance.
 
-One particularly interesting pack is the Analysis pack. This one is used by the Uhura SDM. It separates understanding a project's language and technologies from choosing what to do about it.
+In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for [build](../pack/build.md) functionality. There are packs to help with languages like [Java](../pack/spring.md) or [Node](../pack/node.md). There are packs specific to deployment targets like [Kubernetes](../pack/k8s.md) or [Cloud Foundry](../pack/pcf.md). You can create packs and share them with the community.
+
+One interesting pack is the [Analysis pack](../pack/analysis.md). This one is used by the [Uhura SDM](https://github.com/atomist/uhura). It separates understanding a project's language and technologies from choosing what to do about it.
 This lets you create analyzers that identify technologies like Node or Spring, and also supply goals or autofixes or other functionality that gets applied dynamically and universally. This is useful
 when you have lots of combinations of technologies across your organization, and you want an SDM
 that can figure out what to do on all of the projects.
