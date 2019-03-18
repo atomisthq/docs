@@ -236,6 +236,8 @@ and [power-assert][].
 ## Next steps
 
 Proceed to [add some functionality][add-functionality] to your SDM.
+
+[add-functionality]: where??
 -->
 
 [mocha]: https://mochajs.org/ (Mocha)
