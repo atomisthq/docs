@@ -105,6 +105,7 @@ nav:
       - Glossary: developer/glossary.md
   - Extensions:
     - Extension Packs: pack/index.md
+    - Analysis: pack/analysis.md
     - Build: pack/build.md
     - Changelog: pack/changelog.md
     - Checkstyle: pack/checkstyle.md
