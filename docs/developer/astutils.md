@@ -72,7 +72,7 @@ The [`findMatches`][apidoc-findmatches] method returns the matches for your [pat
 const matches = await astUtils.findMatches<AnnotationAstNode>(
             p,
             Java9FileParser,
-            "src/main/java/**/*Application.java", 
+            "src/main/java/**/*Application.java",
             `//annotation[//identifier[@value='SpringBootApplication']]`,
         );
 ```
@@ -139,7 +139,6 @@ async (p: Project) => {
 ```
 
 For the various ways to add this code inspection to your SDM, check the [inspection page](inspect.md). (The sample code [registers a command][example-registration]).
-
 
 [example-test]: https://github.com/jessitron/undeprecate-sdm/blob/master/test/annotationParameters/inspection.test.ts (An example of testing a code inspection)
 [example-inspection]: https://github.com/jessitron/undeprecate-sdm/blob/master/lib/annotationParameters/inspection.ts (An example of a code inspection)
