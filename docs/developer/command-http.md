@@ -8,7 +8,7 @@ You'll need an API Key, which you can generate in the Atomist web application's 
 
 Send a POST to `https://automation.atomist.com/command?invoke=true` with a JSON body describing the [command request][].
 
-For example: 
+For example:
 
 ```bash
 curl -H "Authorization: Bearer $APIKEY" -H 'Content-Type:application/json' \
@@ -16,7 +16,7 @@ curl -H "Authorization: Bearer $APIKEY" -H 'Content-Type:application/json' \
      -d @command.json
 ```
 
-where 
+where
 
 * `$APIKEY` is the API Key you created in the web application.
 * `command.json` is a file containing JSON as described below.
@@ -27,27 +27,27 @@ where
 The command request looks like this:
 
 ```json
-{    
+{
 	"api_version": "1",
 	"command": "my-command-name",
 	"source": {
 		"user_agent": "web"
 	},
-	"team": { 
-		"id": "my-team-ID", 
-		"name": "my-team-name"  
+	"team": {
+		"id": "my-team-ID",
+		"name": "my-team-name"
 	},
 	"automation": {
-		"name": "name-of-my-sdm" 
+		"name": "name-of-my-sdm"
 	},
-	"parameters": [ 
+	"parameters": [
 		{ "name": "parameter_name_1", "value": "parameter value 1"}
 	],
-    "secrets": [ 
+    "secrets": [
         { "uri": "secret_path1", "value": "secret-value1" },
         { "uri": "secret_path2", "value": "secret-value2" }
     ],
-    "mapped_parameters": [ 
+    "mapped_parameters": [
         { "name": "mapped_parameter_name1", "value": "Mapped parameter value 1" },
         { "name": "mapped_parameter_name2", "value": "Mapped parameter value 2" }
     ]
@@ -172,7 +172,7 @@ async cli => {
     }
 ```
 
-We passed "parameter value 1" as the value of `parameter_name_1`, so we got a 
+We passed "parameter value 1" as the value of `parameter_name_1`, so we got a
 `command_response.body` of "Hello parameter value 1".
 
 Return to [commands](commands.md)
