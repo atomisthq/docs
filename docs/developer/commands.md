@@ -14,7 +14,7 @@ This page will show you how to:
 * respond to the person who invoked the command
 * [wrap a shell script](#wrap-a-shell-script) in a command
 * define [parameters](#command-parameters) for your command
-* invoke your command from [chat][] or [command line][]
+* invoke your command from [chat][], [command line][], or [HTTP][]
 
 This page starts after you have [created][create] an SDM.
 
@@ -141,6 +141,16 @@ and it will respond back to you in the channel.
 
 In chat, you can send `@atomist describe skill "hello"`
 to see details of your command and its parameters.
+
+#### Over HTTP
+[http]: #over-http
+
+You can invoke a command over HTTP. This is useful when you want to be able to call your SDM commands from scripts
+on your laptop or elsewhere, or integrate functionality in your SDM with other tools. This is superior to implementing
+the same functionality in a shell script, for instance, because you can update the code in one place, and every place
+that invokes it over HTTP will run the updated code.
+
+In team mode, invoke the command over our [automation API](command-http.md).
 
 ## Wrap a shell script
 
