@@ -10,10 +10,11 @@ consistently?
 This page will show you how to:
 
 * create a command
-* test your command
+* [test your command][]
 * respond to the person who invoked the command
 * [wrap a shell script](#wrap-a-shell-script) in a command
 * define [parameters](#command-parameters) for your command
+* invoke your command from [chat][] or [command line][]
 
 This page starts after you have [created][create] an SDM.
 
@@ -107,6 +108,9 @@ The `configuration` object should be exported from the `index.ts` of
 your SDM.
 
 ### Run your command
+[command line]: #run-your-command
+
+#### At the command line
 
 If you are running your SDM in local mode, start the SDM as you
 normally would
@@ -122,6 +126,9 @@ atomist hello
 ```
 
 and the SDM should respond in the same terminal.
+
+#### From chat
+[chat]: #from-chat
 
 In team mode, once you have started your SDM you can send the intent
 to the Atomist bot
@@ -250,6 +257,7 @@ We access the parameter values in the listener via the `parameters` property, as
 ```
 
 ### Test your command
+[test your command]: #test-your-command
 
 Testing your command listener requires that you mock the parts of
 `CommandListenerInvocation` you use and then call your function.
