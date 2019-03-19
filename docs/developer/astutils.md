@@ -29,7 +29,7 @@ See more details on path expression syntax in the [tree-path library docs](https
 
 [apidoc-astutils]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html (API Doc for astUtils)
 
-## finding and changing code instances in a project
+## Example: finding and changing code instances in a project
 
 Given a parser and a path expression, you can find all matching code using [`astUtils.matchIterator`][apidoc-matchiterator].
 
@@ -60,6 +60,90 @@ If you want information about the file that the code is in, try [`astUtils.fileH
 [api-filehititerator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#filehititerator (API Doc for fileHitIterator)
 [apidoc-matchresult]: https://atomist.github.io/automation-client/interfaces/_lib_tree_ast_filehits_.matchresult.html (API Doc for MatchResult)
 [apidoc-matchiterator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#matchiterator (API Doc for matchIterator)
+
+## Example: finding and reporting on Java annotation parameters
+
+You can find interesting bits of code in the AST and report on them in a code inspection.
+The [`findMatches`][apidoc-findmatches] method returns the matches for your [path expression](pxe.md).
+
+[apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#findmatches (API Doc for findMatches)
+
+```typescript
+const matches = await astUtils.findMatches<AnnotationAstNode>(
+            p,
+            Java9FileParser,
+            "src/main/java/**/*Application.java", 
+            `//annotation[//identifier[@value='SpringBootApplication']]`,
+        );
+```
+
+`findMatches` has a type parameter, and you can use it to specify what you expect in the structure of the matches returned.
+To find that structure, you can make a test ([example here][example-test]) and use the debugger. In this case, the Java annotation can come back with a few different structures, depending on its parameters. The type that was useful for this example is:
+
+```typescript
+interface AnnotationAstNode {
+    normalAnnotation?: {
+        elementValuePairList: TreeNode & {
+            elementValuePairs: Array<{
+                identifier: { Identifier: string },
+                elementValue: MatchResult,
+            }>,
+        },
+    };
+    singleElementAnnotation?: {
+        elementValue: TreeNode,
+    };
+}
+```
+
+Here, any object structure is also a `TreeNode`, which has a `$value` property containing the string value of the entire
+node underneath. These objects also have properties for their sub-nodes. In fact, they have two properties for each sub-node,
+just in case there are more than one of that name; add an 's' to the AST node name to get an array of values. This is where
+`elementValuePairs` comes from.
+
+Declaring this type makes it easier to use the matches. Here is the full code inspection, which puts the annotation's parameters into a [`ReviewComment`][apidoc-reviewcomment] (code is [here][example-inspection]):
+
+[apidoc-reviewcomment]: https://atomist.github.io/automation-client/interfaces/_lib_operations_review_reviewresult_.reviewcomment.html (APIdoc for ReviewComment)
+
+```typescript
+async (p: Project) => {
+
+        const matches = await astUtils.findMatches<AnnotationAstNode>(
+            p,
+            Java9FileParser,
+            "src/main/java/**/*Application.java", `//annotation[//identifier[@value='${params.annotationName}']]`,
+        );
+
+        // Create a review comment with the contents of the parameters, or else "no parameters"
+        const comments: ReviewComment[] = matches.map(m => {
+            let detail;
+            if (m.normalAnnotation) {
+                // there are multiple parameters; stick the whole list in there
+                detail = m.normalAnnotation.elementValuePairList.$value || "";
+            } else if (m.singleElementAnnotation) {
+                // there is one parameter; it defaults to be called 'value'
+                detail = "value = " + m.singleElementAnnotation.elementValue.$value;
+            } else {
+                detail = "no parameters";
+            }
+            const c: ReviewComment = {
+                detail,
+                severity: "info",
+                category: params.annotationName,
+            };
+            return c;
+        });
+
+        return { repoId: p.id, comments };
+    };
+```
+
+For the various ways to add this code inspection to your SDM, check the [inspection page](inspect.md). (The sample code [registers a command][example-registration]).
+
+
+[example-test]: https://github.com/jessitron/undeprecate-sdm/blob/master/test/annotationParameters/inspection.test.ts (An example of testing a code inspection)
+[example-inspection]: https://github.com/jessitron/undeprecate-sdm/blob/master/lib/annotationParameters/inspection.ts (An example of a code inspection)
+[example-registration]: https://github.com/jessitron/undeprecate-sdm/blob/38208f5fccdc2dbf6f0a17681405c14b6c7979ef/lib/machine/machine.ts#L50 (An example of a code inspection command registration)
 
 ## See also:
 * the [Project API](project.md)

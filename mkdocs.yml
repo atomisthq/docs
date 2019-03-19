@@ -92,6 +92,7 @@ nav:
           - Chat Messages: developer/slack.md
           - Command Line Interface: developer/cli.md
           - SDM Concepts: developer/sdm-concepts.md
+          - Working with the AST: developer/astutils.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
