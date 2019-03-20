@@ -93,7 +93,7 @@ we recommend uhura.
 $ cd  ~/atomist/projects/target-owner/uhura
 ```
 
-When it prompts you for `(mapped parameter) target-owner`, enter your GitHub organization (or your GitHub username). 
+When it prompts you for `(mapped parameter) target-owner`, enter your GitHub organization (or your GitHub username).
 A new directory will be created for the SDM in `$ATOMIST_ROOT/<target-owner>/<target repository>`. This will not create
 a repository on GitHub.
 
