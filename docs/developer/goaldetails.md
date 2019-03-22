@@ -15,7 +15,7 @@ Here you can mane some tweaks to your delivery flow.
 | isolate | If possible, run this goal in a Kubernetes job of its own? | false |
 | descriptions | Override the descriptions of various goal statuses; see table below | See table below |
 | preCondition | You can hold execution of this goal until some external condition is satisfied. See [WaitRules][apidoc-waitrules] | none |
-| environment | historically used to distinguish goals destined for test/prod/etc; use uniqueName instead | irrelevant | 
+| environment | historically used to distinguish goals destined for test/prod/etc; use uniqueName instead | irrelevant |
 
 #### Description
 

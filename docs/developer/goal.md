@@ -82,7 +82,7 @@ For example:
 
 ``` typescript
 const releaseDocs = goal(
-    { displayName: "do a thing", 
+    { displayName: "do a thing",
       uniqueName: "this-special-thing",
     },
     async (inv: GoalInvocation) => {
