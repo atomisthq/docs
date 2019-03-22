@@ -1,6 +1,6 @@
 # Repo Targeting Parameters
 
-Many commands operate on one or more repositories. For instance, all 
+Many commands operate on one or more repositories. For instance, all
 [transform](transform.md) commands run on a repository or more than one repository.
 
 If you run one of these commands in the context of a single repository -- for example, in a chat channel with one [linked repository]() -- then that repository
@@ -25,9 +25,7 @@ Run a transform on all repositories in the MyCompany organization whose names en
 @atomist update atomist dependencies --targets.owner=MyCompany --targets.repos=".*-sdm"
 ```
 
-
 ### Parameters
-
 
 These commands' parameters mix in [RepoTargetingParameters](https://atomist.github.io/sdm/interfaces/_lib_api_helper_machine_repotargetingparameters_.repotargetingparameters.html), so these parameters are common to all of them:
 
