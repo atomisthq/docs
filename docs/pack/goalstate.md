@@ -33,7 +33,7 @@ so that they don't clash with the same commands in other SDMs.
 
 ![list of goal sets](img/list-goal-sets.png)
 
-In a channel [linked](../user/lifecycle/#linked-channels) to a repository, **reset goals** on the last commit in the whatzit branch, which is handled by atomist/atomist-sdm:
+In a channel [linked](../user/lifecycle.md#linked-channels) to a repository, **reset goals** on the last commit in the whatzit branch, which is handled by atomist/atomist-sdm:
 
 `@atomist plan goals atomist/atomist-sdm --targets.branch=whatzit`
 
