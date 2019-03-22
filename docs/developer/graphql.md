@@ -129,10 +129,6 @@ of its first parameter.  The name provided matches that in the GraphQL
 file. The `variables` property in the above example is used to provide
 the value for the query variable.
 
-## Custom Event Handlers
-
-{!tbd.md!}
-
 ## Subscriptions
 
 As detailed in the section on event handlers, GraphQL subscriptions can be used
