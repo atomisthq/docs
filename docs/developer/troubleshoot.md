@@ -4,7 +4,8 @@ This page contains a collection of troubleshooting techniques.
 
 When a goal fails, click on its link to see the log.
 
-Some goal failures result in a Restart button. Look for one below the goal set.
+Some goal failures result in a Restart button. Look for one below the goal set. (If you want
+your custom goal to have a Restart button, pass the `retry` property in the [GoalDetails](goaldetails.md).)
 
 ![A push notification with a failed goal, in Slack](img/failed-goal.png)
 

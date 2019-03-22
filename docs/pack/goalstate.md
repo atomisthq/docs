@@ -19,11 +19,11 @@ so that they don't clash with the same commands in other SDMs.
 
 | Command Intent | Description | Parameters |
 |----------------|-------------|---------|
-| plan goals \<name of sdm> | add goals to a push, as if it had just come in. This adds an additional goal set. | [Repo Targeting][] |
-| reset goals \<name of sdm> | same as "plan goals" | [Repo Targeting][] |
-| set goal state \<name of sdm> | Manually change the state of a goal | [SetGoalStateParameters][apidoc-sgsp] and [Repo Targeting][] |
-| cancel goal sets \<name of sdm> | Cancel one or all goal sets on a push | *goalSetId* (optional) and [Repo Targeting][] |
-| list goal sets \<name of sdm> | List all in-process goal sets, with a "cancel" button for each | none |
+| plan goals <name of sdm\> | add goals to a push, as if it had just come in. This adds an additional goal set. | [Repo Targeting][] |
+| reset goals <name of sdm\>  | same as "plan goals" | [Repo Targeting][] |
+| set goal state <name of sdm\>  | Manually change the state of a goal | [SetGoalStateParameters][apidoc-sgsp] and [Repo Targeting][] |
+| cancel goal sets <name of sdm\>  | Cancel one or all goal sets on a push | *goalSetId* (optional) and [Repo Targeting][] |
+| list goal sets <name of sdm\>  | List all in-process goal sets, with a "cancel" button for each | none |
 
 ## Examples
 
