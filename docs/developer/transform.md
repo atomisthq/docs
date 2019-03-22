@@ -111,6 +111,7 @@ add `targets.branch=other-branch-name` to the command in chat.
 See also:
 
 * [Invoking commands](commands.md#run-your-command)
+* [Repo Targeting Parameters](repo-targeting-params.md)
 
 [link]:../user/lifecycle.md#linked-channels (Linked Channels)
 
