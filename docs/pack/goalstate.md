@@ -42,7 +42,7 @@ last commit of the default branch of the MyCompany/MyRepo repository:
 
 `@atomist plan goals my-favorite-sdm --targets.owner=MyCompany --targets.repo=MyRepo`
 
-[Repo Targeting]: ../developer/repo-target-params.md
+[Repo Targeting]: ../developer/repo-targeting-params.md
 
 [apidoc-sgsp]: https://atomist.github.io/sdm-core/classes/_pack_goal_state_setgoalstate_.setgoalstateparameters.html (API doc for SetGoalStateParameters)
 
