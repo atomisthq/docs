@@ -89,7 +89,7 @@ we recommend uhura.
   blank
 ❯ uhura
 …
-  Successfully created new project uhura at file:~/atomist/projects/user/uhura
+  Successfully created new project uhura at file:~/atomist/projects/target-owner/uhura
 $ cd  ~/atomist/projects/target-owner/uhura
 ```
 
