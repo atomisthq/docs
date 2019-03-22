@@ -3,7 +3,7 @@
 Many commands operate on one or more repositories. For instance, all
 [transform](transform.md) commands run on a repository or more than one repository.
 
-If you run one of these commands in the context of a single repository -- for example, in a chat channel with one [linked repository]() -- then that repository
+If you run one of these commands in the context of a single repository -- for example, in a chat channel with one [linked repository](../user/lifecycle.md#linked-channels) -- then that repository
 will be used. In any other context (such as a direct message to the Atomist bot),
 you'll need to supply `targets.owner` and `targets.repo` or `targets.repos`.
 
