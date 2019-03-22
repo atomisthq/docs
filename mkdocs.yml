@@ -96,6 +96,7 @@ nav:
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
+        - sdm-core: https://atomist.github.io/sdm-core
         - sdm-pack-build: https://atomist.github.io/sdm-pack-build/
         - sdm-pack-checkstyle: https://atomist.github.io/sdm-pack-checkstyle/
         - sdm-pack-cloudfoundry: https://atomist.github.io/sdm-pack-cloudfoundry/
@@ -113,6 +114,7 @@ nav:
     - Cloud Foundry: pack/pcf.md
     - Docker: pack/docker.md
     - Kubernetes: pack/kubernetes.md
+    - Goal State: pack/goalstate.md
     - Issue: pack/issue.md
     - Lines of Code: pack/sloc.md
     - Markdown: pack/markdown.md

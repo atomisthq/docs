@@ -1,5 +1,18 @@
 This page contains a collection of troubleshooting techniques.
 
+## A goal failed
+
+When a goal fails, click on its link to see the log.
+
+Some goal failures result in a Restart button. Look for one below the goal set.
+
+![A push notification with a failed goal, in Slack](img/failed-goal.png)
+
+If you want to start the goals over, try `@atomist reset goals \<name of SDM>`. (Hint: `@atomist reset goals` will list the reset goals commands that exist. The name of the SDM that set the goals is also indicated in small print below the goal set.)
+By default this will start a new goal set on the last commit to the default branch; you can pass [parameters](repo-targeting-params.md) to target a different push.
+
+If the "reset goals" command does not exist for your SDM, install the [goal state pack](../pack/goalstate.md).
+
 ## SDM registration
 
 To answer questions like:
