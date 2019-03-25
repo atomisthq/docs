@@ -15,8 +15,10 @@ The documentation is generated from markdown using [MkDocs][mkdocs].
 ## Editing
 
 Much of the documentation is hand-generated, so you can feel free to
-edit.  We try to adhere to
-the [Google Developer Documentation Style Guide][doc-style].
+edit.  
+
+We use the [Google Developer Documentation Style Guide][doc-style] as our guide and suggest the [Style guide highlights][style-highlights] for a summary.
+
 See [below][build-serve] for instructions on how to test your changes
 locally.
 
@@ -24,6 +26,7 @@ locally.
 and let the build take care of it.
 
 [doc-style]: https://developers.google.com/style/ (Google Developer Documentation Style Guide)
+[style-highlights]: https://developers.google.com/style/highlights (Google Developer Documentation Style Guide Highlights)
 
 ## Contribution criteria
 
