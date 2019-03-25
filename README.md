@@ -15,7 +15,7 @@ The documentation is generated from markdown using [MkDocs][mkdocs].
 ## Editing
 
 Much of the documentation is hand-generated, so you can feel free to
-edit.  
+edit.
 
 We use the [Google Developer Documentation Style Guide][doc-style] as our guide and suggest the [Style guide highlights][style-highlights] for a summary.
 
