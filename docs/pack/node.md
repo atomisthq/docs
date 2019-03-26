@@ -31,7 +31,7 @@ Add these autofixes to your [autofix goal](../developer/goal.md#autofix), or let
 
 ### tslint
 
-If a project is TypeScript, is Node, and has `tslint.json`, the [tslintFix](https://atomist.github.io/sdm-pack-node/modules/_lib_autofix_tslintfix_.html#tslintfix) will run
+If a project is TypeScript, is Node, and has `tslint.json`, the [TslintAutofix](https://atomist.github.io/sdm-pack-node/modules/_lib_autofix_typescript_tslintautofix_.html#tslintautofix) will run
 `npm run lint:fix` and commit the results for you.
 
 You need to define a "lint:fix" npm script in `package.json` for this to work. This lets you pass
