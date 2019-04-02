@@ -44,6 +44,7 @@ nav:
   - Developer Quick Start: quick-start.md
   - Using Atomist:
       - Introduction: user/index.md
+      - Uhura SDM: user/uhura.md
       - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
       - Slack: user/slack.md
