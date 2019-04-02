@@ -4,7 +4,7 @@ of the project and decides what to do.
 Currently the Uhura SDM knows how to build Node projects with `build`, `test`, or `lint` scripts
 defined in `package.json`. This SDM is designed to add more capabilities to deliver different stacks.
 
-Atomist operates a version of the Uhura SDM that is available to all Atomist workspaces. It can deploy 
+Atomist operates a version of the Uhura SDM that is available to all Atomist workspaces. It can deploy
 applications on Kubernetes: our Kubernetes for demo purposes, and then your Kubernetes cluster when you configure it.
 
 Uhura can:
@@ -18,7 +18,7 @@ For more information, check the Uhura project on [GitHub][].
 ## Configure Uhura to deploy to your Kubernetes cluster
 [configure-k8s]: #configure-uhura-to-deploy-to-your-kubernetes-cluster
 
-If you can deploy to Kubernetes from your computer, then you can configure the Uhura SDM to deploy your 
+If you can deploy to Kubernetes from your computer, then you can configure the Uhura SDM to deploy your
 applications there.
 
 ### Set up connections
@@ -59,7 +59,5 @@ How do you run a command? If you have integrated Atomist with [chat], you can se
 
 The next time you push code to a project that is enabled for Uhura, you'll see deploy goals for testing and production.
 When these execute, they will deploy your project into your own cluster.
-
-
 
 [github]: https://github.com/atomist/uhura
