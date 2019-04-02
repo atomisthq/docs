@@ -69,7 +69,7 @@ Part of deploying the Atomist utilities to your Kubernetes cluster is
 creating the needed RBAC resources.  To create RBAC resources, your
 Kubernetes user needs admin privileges.  If your Kubernetes user does
 not have admin privileges in the cluster or a namespace, someone whose
-Kuberetes user has those privileges will need to deploy the Atomist
+Kubernetes user has those privileges will need to deploy the Atomist
 utilities.
 
 If you see errors like the following when you try to deploy the

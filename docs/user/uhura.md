@@ -15,6 +15,16 @@ Uhura can:
 
 For more information, check the Uhura project on [GitHub][].
 
+## Create a new repository
+
+Uhura defines a [project generator]() for Node projects. This takes an existing repository as a starting point
+for a new one, modifies the code, and creates a new repository for you to build on. 
+
+To try this out, go to the [web app](https://app.atomist.com) and click the "New Project" plus icon on the left.
+
+The globally available Uhura instance offers three starting points, each in the [atomist-seeds] organization, each forked from a handy
+public Node project. 
+
 ## Configure Uhura to deploy to your Kubernetes cluster
 [configure-k8s]: #configure-uhura-to-deploy-to-your-kubernetes-cluster
 
@@ -29,14 +39,32 @@ applications there.
 
 ### Install Atomist deployment into your cluster
 
-* Run `atomist kube --environment=my-kube-env` (where my-kube-env is a string of your choice)
-
-This will install two applications into your cluster:
+Atomist needs two utilities to run inside your cluster:
 
 [`k8s-sdm`](https://github.com/atomist/k8s-sdm) is a software delivery machine that only does deployment
 of your projects. It connects to Atomist for triggering, then performs the deployments into the cluster it runs in.
 
 [`k8vent`](https://github.com/atomist/k8vent) listens to Kubernetes events and sends them to Atomist, which connects them to other events. With these, [push notifications](lifecycle.md) display services and containers running, relating commits to the environments where they are deployed.
+
+The Atomist command line can install these to your cluster for you. In the process, it will also create a service account with the necessary privileges. For full details, see our [Kubernetes Extension documentation](../pack/kubernetes.md).
+
+* First make up a name for the environment you are deploying to, e.g. "testing" or "production" or "my-kube-env". Let's say you pick "my-kube-env".
+* Run `atomist kube --environment=my-kube-env`.
+
+!!! Troubleshooting
+    You may run into an error message saying something like `forbidden: attempt to grant extra privilege`. If you do, it means your Kubernetes user doesn't have admin privileges.
+
+    If your user doesn't have admin privileges (and if you're using Google Cloud, by default it doesn't) then try to grant yourself permissions with the following command:
+
+    1. Figure out your Kubernetes username. Good luck on this one! But if you're using Google Cloud, you can try `gcloud config get-value account`. Let's say your username is `KIM@example.com`.
+
+    2. Execute the following:
+    
+    ```
+    kubectl create clusterrolebinding "cluster-admin-binding-KIM" --clusterrole cluster-admin --user KIM@example.com
+    ```
+
+    If that doesn't work, find someone who does have admin privileges and get them to install these Atomist deployment utilities into the cluster.
 
 ### Tell Uhura to deploy here
 
@@ -59,5 +87,9 @@ How do you run a command? If you have integrated Atomist with [chat], you can se
 
 The next time you push code to a project that is enabled for Uhura, you'll see deploy goals for testing and production.
 When these execute, they will deploy your project into your own cluster.
+
+## Enable Uhura delivery for existing projects
+
+Node projects created by Atomist 
 
 [github]: https://github.com/atomist/uhura
