@@ -18,12 +18,12 @@ For more information, check the Uhura project on [GitHub][].
 ## Create a new repository
 
 Uhura defines a [project generator]() for Node projects. This takes an existing repository as a starting point
-for a new one, modifies the code, and creates a new repository for you to build on. 
+for a new one, modifies the code, and creates a new repository for you to build on.
 
 To try this out, go to the [web app](https://app.atomist.com) and click the "New Project" plus icon on the left.
 
 The globally available Uhura instance offers three starting points, each in the [atomist-seeds] organization, each forked from a handy
-public Node project. 
+public Node project.
 
 ## Configure Uhura to deploy to your Kubernetes cluster
 [configure-k8s]: #configure-uhura-to-deploy-to-your-kubernetes-cluster
@@ -59,7 +59,7 @@ The Atomist command line can install these to your cluster for you. In the proce
     1. Figure out your Kubernetes username. Good luck on this one! But if you're using Google Cloud, you can try `gcloud config get-value account`. Let's say your username is `KIM@example.com`.
 
     2. Execute the following:
-    
+
     ```
     kubectl create clusterrolebinding "cluster-admin-binding-KIM" --clusterrole cluster-admin --user KIM@example.com
     ```
@@ -90,6 +90,6 @@ When these execute, they will deploy your project into your own cluster.
 
 ## Enable Uhura delivery for existing projects
 
-Node projects created by Atomist 
+Node projects created by Atomist
 
 [github]: https://github.com/atomist/uhura
