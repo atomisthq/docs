@@ -52,14 +52,14 @@ of your projects. It connects to Atomist for triggering, then performs the deplo
 
 #### How does this work inside Kubernetes?
 
-Picture your kubernetes cluster with at least four namespaces inside. One of these holds your production deployments. We usually call this one 
+Picture your kubernetes cluster with at least four namespaces inside. One of these holds your production deployments. We usually call this one
 `production`, but any namespace will do. It doesn't have to exist yet. A second namespace holds testing deployments; we usually call this one `testing`. A third namespace is created for you to hold the `k8s-sdm` utility. This is the `sdm` namespace, and you can deploy your custom SDMs here too. Finally, there is the `k8vent` namespace, created to hold the `k8vent` utility, which sends Kubernetes events to Atomist.
 
-Both `k8s-sdm` and `k8vent` make calls the Kubernetes API within the cluster. 
-To give them permissions to do this, we create 
+Both `k8s-sdm` and `k8vent` make calls the Kubernetes API within the cluster.
+To give them permissions to do this, we create
 [service accounts](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#service-account-permissions)
-for them, along with 
-[cluster roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding) 
+for them, along with
+[cluster roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding)
 and [cluster role binding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding).
  This gives `k8vent` permission to watch pod events, and it gives `k8s-sdm` permission to manipulate pods, namespaces, and more. For full details, see our [Kubernetes Extension documentation](../pack/kubernetes.md).
 
