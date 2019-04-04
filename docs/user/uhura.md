@@ -88,8 +88,4 @@ How do you run a command? If you have integrated Atomist with [chat], you can se
 The next time you push code to a project that is enabled for Uhura, you'll see deploy goals for testing and production.
 When these execute, they will deploy your project into your own cluster.
 
-## Enable Uhura delivery for existing projects
-
-Node projects created by Atomist
-
 [github]: https://github.com/atomist/uhura
