@@ -57,6 +57,8 @@ of your projects. It connects to Atomist for triggering, then performs the deplo
 Picture your Kubernetes cluster with at least four namespaces inside. One of these holds your production deployments. We usually call this one
 `production`, but any namespace will do. It doesn't have to exist yet. A second namespace holds testing deployments; we usually call this one `testing`. A third namespace is created for you to hold the `k8s-sdm` utility. This is the `sdm` namespace, and you can deploy your custom SDMs here too. Finally, there is the `k8vent` namespace, created to hold the `k8vent` utility, which sends Kubernetes events to Atomist.
 
+![the k8s cluster with four namespaces](img/k8s-with-atomist-utilities.jpg)
+
 Both `k8s-sdm` and `k8vent` make calls the Kubernetes API within the cluster.
 To give them permissions to do this, we create
 [service accounts](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#service-account-permissions)
