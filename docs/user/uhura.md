@@ -24,7 +24,7 @@ for a new one, modifies the code, and creates a new repository for you to build 
 
 To try this out, go to the [web app](https://app.atomist.com) and click the "New Project" plus icon on the left.
 
-The globally available Uhura instance offers three starting points, each in the [atomist-seeds] organization, each forked from a handy
+The globally available Uhura instance offers three starting points, each in the [atomist-seeds](https://github.com/atomist-seeds) organization, each forked from a handy
 public Node project.
 
 ## Configure Uhura to deploy to your Kubernetes cluster
