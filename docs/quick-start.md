@@ -1,8 +1,7 @@
 Atomist is a programmable platform for event-driven automation of
 software delivery, with native chatops support.  Developing on Atomist
 means building on a Software Delivery Machine (SDM), so let’s get started
-creating one! The easiest way to get started with Atomist is to work
-on your laptop.
+creating one!
 
 ## Install the Atomist Command-Line Interface
 

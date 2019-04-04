@@ -22,7 +22,9 @@ For more information, check the Uhura project on [GitHub][].
 Uhura defines a [project generator](../developer/create.md) for Node projects. This takes an existing repository as a starting point
 for a new one, modifies the code, and creates a new repository for you to build on.
 
-To try this out, go to the [web app](https://app.atomist.com) and click the "New Project" plus icon on the left.
+To try this out, go to the [web app][] and click the "New Project" plus icon on the left.
+
+[web app]: https://app.atomist.com (Atomist web app)
 
 The globally available Uhura instance offers three starting points, each in the [atomist-seeds](https://github.com/atomist-seeds) organization, each forked from a handy
 public Node project.
@@ -67,6 +69,10 @@ The Atomist command line can install these to your cluster for you:
 
 * First make up a name for the environment you are deploying to, e.g. "testing" or "production" or "my-kube-env". Let's say you pick "my-kube-env".
 * Run `atomist kube --environment=my-kube-env`.
+* To check that `k8vent` started up, run `kubectl get pods --namespace k8vent` and look for one running pod.
+* To check that `k8s-sdm` started up okay, run `kubectl get pods --namespace sdm` and look for one running pod. Also, you can find your running`k8s-sdm` in the list of SDMs in the [web app][].
+
+![See your K8s SDM in the list of running SDMs](img/list-k8s-sdm.png)
 
 !!! Troubleshooting
     You may run into an error message saying something like `forbidden: attempt to grant extra privilege`. If you do, it means your Kubernetes user doesn't have admin privileges.
@@ -83,26 +89,52 @@ The Atomist command line can install these to your cluster for you:
 
     If that doesn't work, find someone who does have admin privileges and get them to install these Atomist deployment utilities into the cluster.
 
+!!! Troubleshooting
+    If your pod never gets to running, it only says `Pending`, you may not have enough nodes in your cluster. This happened to me when I ran one node in my personal GKE cluster, with autoscaling turned off. It looked like this:
+
+    ```
+    $ kubectl get pods --namespace sdm
+    NAME                       READY     STATUS    RESTARTS   AGE
+    k8s-sdm-86f5c98d55-mcnts   o/1       Pending   0          1d
+    ```
+
+    By default, `k8s-sdm` and `k8vent` together request 200m cpu (that's 20% of a CPU) and 370Mi memory.
+    To see this, run `kubectl get deployment k8s-sdm -o json --namespace sdm` to get the spec in JSON, and look at the values in the property `spec.template.spec.containers[0].resources.requests`. Repeat for `k8vent` in the `k8vent` namespace.
+
 ### Tell Uhura to deploy here
 
-Your next objective is to run a command to configure Uhura to deploy to the environment you just defined:
+Your next objective is to run a command to configure Uhura to deploy to the environment you just defined.
 
-`configure deployment atomist uhura cluster=my-kube-env goal=testing`
-`configure deployment atomist uhura cluster=my-kube-env goal=production`
+* For the `cluster` parameter, use the value you chose for `environment` in the `atomist kube` command. The examples here use `my-kube-env`.
+* Choose a namespace within the cluster for deploying to test, and another for production. These do not to exist yet. Let's call these `my-test-ns` and `my-prod-ns`.
+* Run these two commands. Substitute your `environment` for `my-kube-env`, and when prompt
 
-where `my-kube-env` is the string you used above. You can use different clusters as testing and production targets, as long as you set them both up using the steps above.
+`configure deployment atomist/uhura cluster=my-kube-env goal=testing ns=my-test-ns`
 
-How do you run a command? If you have integrated Atomist with [chat], you can send Atomist a direct message. Otherwise:
+`configure deployment atomist/uhura cluster=my-kube-env goal=production ns=my-prod-ns`
 
-* log in to the [Atomist web app](https://app.atomist.com)
+How do you run a command? If you have integrated Atomist with [chat](slack.md), send it to Atomist as a direct message. Otherwise:
+
+* log in to the Atomist [web app][]
 * go to the SDM page
 * click on `Command Shell`
 * in the little prompt that pops up, enter the command.
-* see a response in the notification bar on the right.
+* watch for a response in the notification bar on the right.
+
+![Entering commands in the web app](img/configure-deploy-in-web-app.png)
 
 ### Try it
 
 The next time you push code to a project that is enabled for Uhura, you'll see deploy goals for testing and production.
 When these execute, they will deploy your project into your own cluster.
+
+![The push notification now has goals for test deploy (done) and prod deploy (won't start without approval), plus a list of running containers](img/configure-k8s-victory.png)
+
+If you are testing this with minikube, then you can hit your application from a browser. Otherwise, Atomist does
+not know what setup you use for ingress, and it cannot expose your application to the outside world for you.
+
+## Next Steps
+
+Customize the Uhura SDM for your team: see the [Developer Quick Start](../quick-start.md)
 
 [github]: https://github.com/atomist/uhura
