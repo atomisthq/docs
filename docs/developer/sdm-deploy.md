@@ -159,7 +159,7 @@ for production deployment, so that when your SDM goes down or restarts, events w
 
 #### Deploying to Kubernetes
 
-If you deploy to kubernetes, you'll need kubectl installed. Add this to your Dockerfile:
+If you deploy to Kubernetes, you'll need kubectl installed. Add this to your Dockerfile:
 
 ```
 RUN curl -sL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.8.12/bin/linux/amd64/kubectl \

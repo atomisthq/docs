@@ -37,7 +37,7 @@ applications there.
 
 * Install the latest version of the [Atomist CLI](../developer/cli.md) with `npm install -g @atomist/cli`.
 * Run `atomist config` to connect to your Atomist workspace with an API Key
-* Set up your own environment to deploy to kubernetes: `minikube start` if you're running Kubernetes locally, or set your context with `kubectl config`. You will need admin access to the cluster for the next step - if you don't have it, you'll find out in a minute.
+* Set up your own environment to deploy to Kubernetes: `minikube start` if you're running Kubernetes locally, or set your context with `kubectl config`. You will need admin access to the cluster for the next step - if you don't have it, you'll find out in a minute.
 
 ### Install Atomist deployment into your cluster
 
@@ -52,7 +52,7 @@ of your projects. It connects to Atomist for triggering, then performs the deplo
 
 #### How does this work inside Kubernetes?
 
-Picture your kubernetes cluster with at least four namespaces inside. One of these holds your production deployments. We usually call this one
+Picture your Kubernetes cluster with at least four namespaces inside. One of these holds your production deployments. We usually call this one
 `production`, but any namespace will do. It doesn't have to exist yet. A second namespace holds testing deployments; we usually call this one `testing`. A third namespace is created for you to hold the `k8s-sdm` utility. This is the `sdm` namespace, and you can deploy your custom SDMs here too. Finally, there is the `k8vent` namespace, created to hold the `k8vent` utility, which sends Kubernetes events to Atomist.
 
 Both `k8s-sdm` and `k8vent` make calls the Kubernetes API within the cluster.
