@@ -29,18 +29,18 @@ adds functions to your [SDM](../developer/sdm.md) for deploying to Kubernetes.
 
 ### Deploying and updating applications
 
-The Atomist [k8-automation][] utility manages deploying and updating
+The Atomist [k8s-sdm][] utility manages deploying and updating
 applications.  It is able to create deployments to manage the runtime
 of the application container, services to provide standard Kubernetes
 discovery capabilities, and ingresses to provide the properly hosted
 and secured external access to services.
 
-The k8-automation utility runs inside each Kubernetes cluster you want
+The k8s-sdm utility runs inside each Kubernetes cluster you want
 to deploy applications to, using a Kubernetes [service account][sa]
 with only the permissions needed to create, read, update, and delete
 namespaces, deployments, services, and ingresses.
 
-[k8-automation]: https://github.com/atomist/k8-automation (Atomist k8-automation)
+[k8s-sdm]: https://github.com/atomist/k8s-sdm (Atomist k8s-sdm)
 [sa]: https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/ (Kubernetes Service Accounts)
 
 ### Container status
@@ -49,7 +49,7 @@ The Atomist [k8vent][] utility watches pods in your Kubernetes cluster
 and sends change events, e.g., container started and container
 crashed, back to Atomist.
 
-Like k8-automation, the k8vent utility runs inside each Kubernetes
+Like k8s-sdm, the k8vent utility runs inside each Kubernetes
 cluster you want events from, using a Kubernetes [service account][sa]
 with only the permissions needed to watch pod events.
 
@@ -76,7 +76,7 @@ If you see errors like the following when you try to deploy the
 Atomist utilities to your Kubernetes cluster,
 
 ```
-Error from server (Forbidden): error when creating "rbac.yaml": clusterroles.rbac.authorization.k8s.io "k8-automation-clusterrole" is forbidden: attempt to grant extra privileges: [...] user=&{YOUR_USER  [system:authenticated] map[]} ownerrules=[PolicyRule{Resources:["selfsubjectaccessreviews"], APIGroups:["authorization.k8s.io"], Verbs:["create"]} PolicyRule{NonResourceURLs:["/api" "/api/*" "/apis" "/apis/*" "/healthz" "/swagger-2.0.0.pb-v1" "/swagger.json" "/swaggerapi" "/swaggerapi/*" "/version"], Verbs:["get"]}] ruleResolutionErrors=[]
+Error from server (Forbidden): error when creating "rbac.yaml": clusterroles.rbac.authorization.k8s.io "k8s-sdm-clusterrole" is forbidden: attempt to grant extra privileges: [...] user=&{YOUR_USER  [system:authenticated] map[]} ownerrules=[PolicyRule{Resources:["selfsubjectaccessreviews"], APIGroups:["authorization.k8s.io"], Verbs:["create"]} PolicyRule{NonResourceURLs:["/api" "/api/*" "/apis" "/apis/*" "/healthz" "/swagger-2.0.0.pb-v1" "/swagger.json" "/swaggerapi" "/swaggerapi/*" "/version"], Verbs:["get"]}] ruleResolutionErrors=[]
 ```
 
 then your Kubernetes user does not have administrative privileges on
@@ -171,9 +171,9 @@ the Kubernetes cluster environment "gke-int-demo".
 
 ![Kubernetes Development Lifecycle Message](img/kubernetes-lifecycle.png)
 
-The cluster environment is used by k8-automation and your software
+The cluster environment is used by k8s-sdm and your software
 delivery machine (SDM) to coordinate application deployments and
-upgrades.  Since you may be deploying k8-automation to multiple
+upgrades.  Since you may be deploying k8s-sdm to multiple
 Kubernetes clusters, the cluster environment is used as part of the
 application deployment/update request to select the Kubernetes
 cluster.
@@ -271,14 +271,14 @@ kubectl create secret --namespace=k8vent generic k8vent --from-literal=environme
     --from-literal=webhooks="https://webhook.atomist.com/atomist/kube/teams/WORKSPACE_ID"
 ```
 
-##### k8-automation
+##### k8s-sdm
 
-To deploy k8-automation in cluster-wide mode with the ability to
+To deploy k8s-sdm in cluster-wide mode with the ability to
 manage applications in all namespaces, run the following command.
 
 ```
-kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/cluster-wide.yaml
-kubectl create secret --namespace=k8-automation generic automation \
+kubectl apply --filename=https://raw.githubusercontent.com/atomist/k8s-sdm/master/assets/kubectl/cluster-wide.yaml
+kubectl create secret --namespace=k8s-sdm generic automation \
     --from-literal=config="{\"workspaceIds\":[\"WORKSPACE_ID\"],\"apiKey\":\"API_KEY\",\"environment\":\"CLUSTER_ENV\"}"
 ```
 
@@ -301,9 +301,9 @@ kubectl apply --namespace="NAMESPACE" \
     --filename=https://raw.githubusercontent.com/atomist/k8vent/master/kube/kubectl/namespace-scoped.yaml
 ```
 
-##### k8-automation
+##### k8s-sdm
 
-To deploy k8-automation in namespace-scoped mode such that it will
+To deploy k8s-sdm in namespace-scoped mode such that it will
 only deploy and update resources in a single Kubernetes cluster
 namespace, run the following commands.
 
@@ -311,7 +311,7 @@ namespace, run the following commands.
 kubectl create secret --namespace="NAMESPACE" generic automation \
     --from-literal=config="{\"workspaceIds\":[\"WORKSPACE_ID\"],\"apiKey\":\"API_KEY\",\"environment\":\"CLUSTER_ENV\",\"kubernetes\":{\"mode\":\"namespace\"}}"
 kubectl apply --namespace="NAMESPACE" \
-    --filename=https://raw.githubusercontent.com/atomist/k8-automation/master/assets/kubectl/namespace-scoped.yaml
+    --filename=https://raw.githubusercontent.com/atomist/k8s-sdm/master/assets/kubectl/namespace-scoped.yaml
 ```
 
 ### Helm
@@ -384,14 +384,14 @@ appropriate.
 kubectl set image --namespace=NAMESPACE \
     deployment/k8vent k8vent=atomist/k8vent:M.N.P
 kubectl set image --namespace=NAMESPACE \
-    deployment/k8-automation k8-automation=atomist/k8-automation:M.N.P
+    deployment/k8s-sdm k8s-sdm=atomist/k8s-sdm:M.N.P
 ```
 
 You can always find the latest versions of
-[k8-automation][k8-automation-latest] and [k8vent][k8vent-latest] on
+[k8s-sdm][k8s-sdm-latest] and [k8vent][k8vent-latest] on
 their release pages.
 
-[k8-automation-latest]: https://github.com/atomist/k8-automation/releases/latest (k8-automation Latest Release)
+[k8s-sdm-latest]: https://github.com/atomist/k8s-sdm/releases/latest (k8s-sdm Latest Release)
 [k8vent-latest]: https://github.com/atomist/k8vent/releases/latest (k8vent Latest Release)
 
 <!--
