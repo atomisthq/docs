@@ -37,7 +37,7 @@ applications there.
 
 * Install the latest version of the [Atomist CLI](../developer/cli.md) with `npm install -g @atomist/cli`.
 * Run `atomist config` to connect to your Atomist workspace with an API Key
-* Set up your own environment to deploy to kubernetes: `minikube start` if you're running Kubernetes locally, or set your context with `kubectl config`.
+* Set up your own environment to deploy to kubernetes: `minikube start` if you're running Kubernetes locally, or set your context with `kubectl config`. You will need admin access to the cluster for the next step - if you don't have it, you'll find out in a minute.
 
 ### Install Atomist deployment into your cluster
 
@@ -48,7 +48,22 @@ of your projects. It connects to Atomist for triggering, then performs the deplo
 
 [`k8vent`](https://github.com/atomist/k8vent) listens to Kubernetes events and sends them to Atomist, which connects them to other events. With these, [push notifications](lifecycle.md) display services and containers running, relating commits to the environments where they are deployed.
 
-The Atomist command line can install these to your cluster for you. In the process, it will also create a service account with the necessary privileges. For full details, see our [Kubernetes Extension documentation](../pack/kubernetes.md).
+![push notification shows deployments (done by k8s-sdm) and contatiners running (noticed by k8vent)](img/k8vent-in-action.png)
+
+#### How does this work inside Kubernetes?
+
+Picture your kubernetes cluster with at least four namespaces inside. One of these holds your production deployments. We usually call this one 
+`production`, but any namespace will do. It doesn't have to exist yet. A second namespace holds testing deployments; we usually call this one `testing`. A third namespace is created for you to hold the `k8s-sdm` utility. This is the `sdm` namespace, and you can deploy your custom SDMs here too. Finally, there is the `k8vent` namespace, created to hold the `k8vent` utility, which sends Kubernetes events to Atomist.
+
+Both `k8s-sdm` and `k8vent` make calls the Kubernetes API within the cluster. 
+To give them permissions to do this, we create 
+[service accounts](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#service-account-permissions)
+for them, along with 
+[cluster roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding) 
+and [cluster role binding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding).
+ This gives `k8vent` permission to watch pod events, and it gives `k8s-sdm` permission to manipulate pods, namespaces, and more. For full details, see our [Kubernetes Extension documentation](../pack/kubernetes.md).
+
+The Atomist command line can install these to your cluster for you:
 
 * First make up a name for the environment you are deploying to, e.g. "testing" or "production" or "my-kube-env". Let's say you pick "my-kube-env".
 * Run `atomist kube --environment=my-kube-env`.
