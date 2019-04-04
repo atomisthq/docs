@@ -25,7 +25,7 @@ a [process for executing deploys](#deploying-and-updating-applications) and a
 The extension pack ([github](https://github.com/atomist/sdm-pack-k8s), [API doc][apidoc])
 adds functions to your [SDM](../developer/sdm.md) for deploying to Kubernetes.
 
-[apidoc](https://atomist.github.io/sdm-pack-k8s/)
+[apidoc](https://atomist.github.io/sdm-pack-k8s/): API Doc for Kubernetes extension pack
 
 ### Deploying and updating applications
 
