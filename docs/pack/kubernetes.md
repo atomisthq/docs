@@ -2,7 +2,7 @@ Atomist provides the easiest and most flexible way to get from ideas
 and customer requests to a solution deployed in
 [Kubernetes][kubernetes].  Once deployed, Atomist provides feedback on
 the health of running applications and uses standard Kubernetes
-mechanism for zero-downtime deployments.
+mechanisms for zero-downtime deployments.
 
 [kubernetes]: https://kubernetes.io/ (Kubernetes)
 
@@ -19,6 +19,8 @@ expect.
 This integration has three parts: the [SDM extension pack](#sdm-extension-pack),
 a [process for executing deploys](#deploying-and-updating-applications) and a
  [process for transmitting events](#container-status).
+
+To use the [Uhura](../user/uhura.md) SDM to deploy to your Kubernetes cluster, find [instructions here](kubernetes-with-uhura.md).
 
 ###  SDM Extension Pack
 

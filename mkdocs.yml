@@ -114,7 +114,9 @@ nav:
     - Checkstyle: pack/checkstyle.md
     - Cloud Foundry: pack/pcf.md
     - Docker: pack/docker.md
-    - Kubernetes: pack/kubernetes.md
+    - Kubernetes:
+      - Atomist extensions: pack/kubernetes.md
+      - Uhura SDM: pack/kubernetes-with-uhura.md
     - Goal State: pack/goalstate.md
     - Issue: pack/issue.md
     - Lines of Code: pack/sloc.md
