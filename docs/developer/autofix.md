@@ -88,7 +88,7 @@ const autofixGoal = new Autofix().with(AddApacheLicenseFileAutofix);
 Then you add the goal to your goal set. For example, if you want to add the goal to each push, you add the following piece of code.
 
 ``` typescript
-sdm.addPushRules(onAnyPush().setGoals(autofix));
+sdm.withPushRules(onAnyPush().setGoals(autofixGoal));
 ```
 
 ## Commit behavior of autofixes
