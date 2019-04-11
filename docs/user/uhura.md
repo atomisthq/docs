@@ -109,7 +109,7 @@ Your next objective is to run a command to configure Uhura to deploy to the envi
 
 * For the `cluster` parameter, use the value you chose for `environment` in the `atomist kube` command. The examples here use `my-kube-env`.
 * Choose a namespace within the cluster for deploying to test, and another for production. These do not to exist yet. Let's call these `my-test-ns` and `my-prod-ns`.
-* Run these two commands. Substitute your `environment` for `my-kube-env`, and when prompt
+* Run these two commands. Substitute your `environment` for `my-kube-env`.
 
 `configure deployment atomist/uhura cluster=my-kube-env goal=testing ns=my-test-ns`
 
