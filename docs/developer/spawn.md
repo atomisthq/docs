@@ -96,11 +96,7 @@ async function demoExecPromise() {
             Stderr: ${dockerPushResult.stderr}`;
     } catch (e) {
         const epe = e as ExecPromiseError;
-        if (e.error) {
-            // an exception happened starting it up
-            throw e;
-        }
-        const description = `Exit code: ${e.status}, stderr: ${e.stderr}`;
+        const description = `Exit code: ${epe.status}, stderr: ${epe.stderr}`;
     }
 }
 ```
