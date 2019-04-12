@@ -85,3 +85,7 @@ describe("IsMkdocsProject", () => {
 ...
 }
 ```
+
+## Next steps
+
+Use PushTests to filter the [goals set on a push](set-goals.md).
