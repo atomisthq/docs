@@ -97,11 +97,11 @@ $ atomist kube --environment=<name_of_your_env>
 
 For testing environment:
 ```
-$ configure deployment atomist uhura cluster=@atomist/k8s-sdm_<name_of_your_env> goal=testing
+$ configure deployment atomist/uhura cluster=@atomist/k8s-sdm_<name_of_your_env> goal=testing
 ```
 Here, name_of_your_env can be `test` or `staging` or whatever you choose. For production:
 ```
-$ configure deployment atomist uhura cluster=@atomist/k8s-sdm_<name_of_your_env> goal=production
+$ configure deployment atomist/uhura cluster=@atomist/k8s-sdm_<name_of_your_env> goal=production
 ```
 You will see two sets of notifications for cluster creation and deployment configuration.
 ![k8s confirmations](img/getting-started/k8s-envs.png)
