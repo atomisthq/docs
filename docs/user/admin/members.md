@@ -1,6 +1,6 @@
 
 
-Workspace members can use any of the Atomist user interfaces with your workspace. 
+Workspace members can use any of the Atomist user interfaces with your workspace.
 
 ## Inviting a Member
 
