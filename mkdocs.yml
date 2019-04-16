@@ -43,13 +43,16 @@ nav:
   - Getting Started: getting-started.md
   - Developer Quick Start: quick-start.md
   - Using Atomist:
-      - Introduction: user/index.md
+      - Introduction: user/index.md 
       - Uhura SDM: user/uhura.md
       - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
-      - Supported Integrations: user/integrations.md
+      - Workspace Administration:
+        - Settings: user/admin/settings.md
+        - Members: user/admin/members.md
+        - Supported Integrations: user/admin/integrations/supported-integrations.md
   - Developer Guide:
       - Overview: developer/index.md
       - SDM Development:
