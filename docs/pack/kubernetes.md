@@ -24,10 +24,8 @@ To use the [Uhura](../user/uhura.md) SDM to deploy to your Kubernetes cluster, f
 
 ###  SDM Extension Pack
 
-The extension pack ([github](https://github.com/atomist/sdm-pack-k8s), [API doc][apidoc])
+The extension pack ([github](https://github.com/atomist/sdm-pack-k8s), [API doc](https://atomist.github.io/sdm-pack-k8s/)
 adds functions to your [SDM](../developer/sdm.md) for deploying to Kubernetes.
-
-[apidoc]: https://atomist.github.io/sdm-pack-k8s/ API Doc for Kubernetes extension pack
 
 ### Deploying and updating applications
 
