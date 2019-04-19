@@ -59,6 +59,8 @@ properly.
 
 [git-download]: https://git-scm.com/downloads
 
+> Note: Atomist requires Git 2.x
+
 ## Atomist CLI
 
 The Atomist CLI performs several useful functions that are referred to
