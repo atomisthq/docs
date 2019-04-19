@@ -87,7 +87,7 @@ nav:
         - Writing Push Tests: developer/push-test.md
         - Working with the AST: developer/astutils.md
         - Troubleshooting: developer/troubleshoot.md
-      - SDM Actions:
+      - What the SDM can do:
         - Commands: developer/commands.md
         - Code Inspections: developer/inspect.md
         - Code Transforms:
@@ -98,6 +98,7 @@ nav:
         - Chat Messages: developer/slack.md
         - Fingerprints: developer/fingerprint.md
         - Project Generators: developer/create.md
+        - Deliveries: developer/deliveries.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
