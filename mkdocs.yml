@@ -98,7 +98,7 @@ nav:
         - Chat Messages: developer/slack.md
         - Fingerprints: developer/fingerprint.md
         - Project Generators: developer/create.md
-        - Deliveries: developer/deliveries.md
+        - Delivery: developer/delivery.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
