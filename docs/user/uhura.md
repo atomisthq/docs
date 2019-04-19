@@ -46,11 +46,11 @@ The following commands are available from this SDM:
 |`disable atomist/uhura`|Disable uhura on a particular repository|
 |`enable org atomist/uhura`|Enable uhura on every repository for an entire organization|
 |`disable org atomist/uhura`|Disable uhura on every repository for an entire organization|
-|`enable goal atomist/uhura`|Enable a particular goal in uhura| 
+|`enable goal atomist/uhura`|Enable a particular goal in uhura|
 |`disable goal atomist/uhura`|Disable a particular goal in uhura|
-|`configure deployment atomist/uhura`|Configure deployment goals to customer provided k8s clusters| 
-|`provision workspace`|Configure your Atomist workspace to be able to host uhura based goals (for workspaces that were created before April 2019)| 
-|`cancel goal sets atomist/uhura`|Cancel all pending or in progress uhura goal sets in your workspace| 
+|`configure deployment atomist/uhura`|Configure deployment goals to customer provided k8s clusters|
+|`provision workspace`|Configure your Atomist workspace to be able to host uhura based goals (for workspaces that were created before April 2019)|
+|`cancel goal sets atomist/uhura`|Cancel all pending or in progress uhura goal sets in your workspace|
 |`list goal sets atomist/uhura`|List all pending or in progress uhura goal sets in your workspace|
 
 <!-- TODO: link to how to run a command -->
@@ -59,9 +59,9 @@ The following commands are available from this SDM:
 
 These are the goals set and run by Uhura on pushes to your projects, when they are created by Uhura's [generator][uhura-create] or enabled with a command like `enable atomist/uhura`.
 
-Uhura runs in Atomist's cloud by default. 
+Uhura runs in Atomist's cloud by default.
 
-* _Initial Push_: when you first create a project using the Uhura based generator 
+* _Initial Push_: when you first create a project using the Uhura based generator
 * _Subsequent Pushes_: all pushes to any repositories uhura is enabled on
 
 |Goal|Description|Initial Push|Subsequent Pushes|Enabled by default|
@@ -80,8 +80,8 @@ Uhura runs in Atomist's cloud by default.
 |Deploy to testing|Deploy the Docker image to a customer provided k8s cluster into the testing namespace|only if custom deployment is configured|x| |
 |Deploy to production|Deploy the Docker image to a customer provided k8s cluster into the production namespace|only if custom deployment is configured|x| |
 
-When Uhura is deploying to Atomist's Kubernetes instance, it can only deploy the initial push. 
-For more, [configure it][configure-k8s] with your Kubernetes instance, or better yet, 
+When Uhura is deploying to Atomist's Kubernetes instance, it can only deploy the initial push.
+For more, [configure it][configure-k8s] with your Kubernetes instance, or better yet,
 make Uhura yours.
 
 Customize the Uhura SDM for your team with the [Developer Quick Start](../quick-start.md).
