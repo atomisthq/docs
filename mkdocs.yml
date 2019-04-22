@@ -43,7 +43,7 @@ nav:
   - Getting Started: getting-started.md
   - Developer Quick Start: quick-start.md
   - Using Atomist:
-      - Introduction: user/index.md 
+      - Introduction: user/index.md
       - Uhura SDM: user/uhura.md
       - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
@@ -55,48 +55,50 @@ nav:
         - Supported Integrations: user/admin/integrations/supported-integrations.md
   - Developer Guide:
       - Overview: developer/index.md
-      - SDM Development:
-        - About the SDM: developer/sdm.md
+      - About the SDM:
+        - Overview: developer/sdm.md
         - Architecture: developer/architecture.md
-        - Prerequisites: developer/prerequisites.md
+        - SDM Concepts: developer/sdm-concepts.md
         - Team Mode: developer/team.md
         - Local Mode: developer/local.md
-        - Deploying your SDM: developer/sdm-deploy.md
+        - Command Line Interface: developer/cli.md
+        - Security Model: developer/security.md
+        - SDM Configuration: developer/config.md
         - Debugging an SDM: developer/sdm-debug.md
+        - Deploying your SDM: developer/sdm-deploy.md
+      - SDM Development:
+        - Prerequisites: developer/prerequisites.md
+        - Setting up TypeScript in your IDE: developer/typescript.md
+        - Event Listeners: developer/event.md
         - Goals:
             - Create Goals: developer/goal.md
             - Setting Goals: developer/set-goals.md
             - Doing More with Goals: developer/goals-more.md
-        - Event Listeners: developer/event.md
         - Builds:
           - Build Goal: developer/build.md
           - Integrations: user/ci.md
           - Generic Builder: developer/spawn-builder.md
         - Deploys: developer/deploy.md
+        - Logging: developer/logging.md
+        - Identifying a repository: developer/reporef.md
+        - Custom GraphQL Queries: developer/graphql.md
+        - Running External Commands: developer/spawn.md
+        - HTTP Calls in an SDM: developer/http.md
+        - Writing Push Tests: developer/push-test.md
+        - Working with the AST: developer/astutils.md
+        - Troubleshooting: developer/troubleshoot.md
+      - What the SDM can do:
+        - Commands: developer/commands.md
         - Code Inspections: developer/inspect.md
         - Code Transforms:
             - Transforms: developer/transform.md
             - Autofixes: developer/autofix.md
             - Project: developer/project.md
             - Path Expressions: developer/pxe.md
-        - Commands: developer/commands.md
+        - Chat Messages: developer/slack.md
+        - Fingerprints: developer/fingerprint.md
         - Project Generators: developer/create.md
-        - Security Model: developer/security.md
-        - TypeScript Hints: developer/typescript.md
-        - Troubleshooting: developer/troubleshoot.md
-        - More Details:
-          - Fingerprints: developer/fingerprint.md
-          - SDM Configuration: developer/config.md
-          - Running External Commands: developer/spawn.md
-          - Logging: developer/logging.md
-          - Push Tests: developer/push-test.md
-          - RepoRef: developer/reporef.md
-          - HTTP Calls in an SDM: developer/http.md
-          - Custom GraphQL Queries: developer/graphql.md
-          - Chat Messages: developer/slack.md
-          - Command Line Interface: developer/cli.md
-          - SDM Concepts: developer/sdm-concepts.md
-          - Working with the AST: developer/astutils.md
+        - Delivery: developer/delivery.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
@@ -108,7 +110,6 @@ nav:
         - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
         - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
-      - Glossary: developer/glossary.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md
@@ -127,4 +128,5 @@ nav:
     - Node: pack/node.md
     - Sonarqube: pack/sonarqube.md
     - Java and Spring: pack/spring.md
+  - Glossary: glossary.md
   - Support: support.md

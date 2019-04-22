@@ -4,19 +4,19 @@
 
 #### Atomist service
  the part of the Atomist platform that is operated by Atomist the company:
- the event hub, GraphQL endpoint, and web interface. [more info](architecture.md)
+ the event hub, GraphQL endpoint, and web interface. [more info](developer/architecture.md)
 
 #### PushRule
 
-a specification for goals to set on a given push. [more info](set-goals.md#pushrule)
+a specification for goals to set on a given push. [more info](developer/set-goals.md#pushrule)
 
 #### PushTest
 
-a function that decides whether a particular push is relevant. It can look at the code and return a boolean. [more info](set-goals.md#pushtest)
+a function that decides whether a particular push is relevant. It can look at the code and return a boolean. [more info](developer/set-goals.md#pushtest)
 
 #### autofix
 
-a code transform that is applied every push. [more info](autofix.md)
+a code transform that is applied every push. [more info](developer/autofix.md)
 
 #### automations
 
@@ -26,28 +26,28 @@ Atomist run them when events happen or on demand.
 #### channel link
 
 inside a chat channel, you can link a repository to that channel. The Atomist bot will then send messages about
-that repository to the channel. [more info](../user/lifecycle.md#linked-channels)
+that repository to the channel. [more info](user/lifecycle.md#linked-channels)
 
 #### code inspection
 
 like an of automated code review; a function that looks at the code in a project and produces comments. Atomist can run them
-after every push. [more info](inspect.md)
+after every push. [more info](developer/inspect.md)
 
 #### code transform
- a function that operates on a project, changing the code inside it. [more info](transform.md)
+ a function that operates on a project, changing the code inside it. [more info](developer/transform.md)
 
 #### code transform
 
-an automated code change. Write a function to change code, and apply it to one project or many projects, or after every commit. [more info](transform.md)
+an automated code change. Write a function to change code, and apply it to one project or many projects, or after every commit. [more info](developer/transform.md)
 
 #### command
- this is a thing that the Atomist bot (in team mode) or command line (in local mode) knows how to do. Each command has a phrase that triggers it, called an _intent_. As a person, send that intent to the `@atomist` bot in chat or to the `atomist` command line in the terminal. As an SDM developer, [register new commands](commands.md) to teach Atomist how to respond to these.
+ this is a thing that the Atomist bot (in team mode) or command line (in local mode) knows how to do. Each command has a phrase that triggers it, called an _intent_. As a person, send that intent to the `@atomist` bot in chat or to the `atomist` command line in the terminal. As an SDM developer, [register new commands](developer/commands.md) to teach Atomist how to respond to these.
 
 #### command line utility (CLI)
- (or "atomist command line") a program that you install on your computer in order to run an SDM. It also does various other atomist-related things, especially in local mode. [more info](cli.md)
+ (or "atomist command line") a program that you install on your computer in order to run an SDM. It also does various other atomist-related things, especially in local mode. [more info](developer/cli.md)
 
 #### command registration
- defines an intent and an implementation for a new command in an SDM. [more info](commands.md)
+ defines an intent and an implementation for a new command in an SDM. [more info](developer/commands.md)
 
 #### community Slack
 this Slack workspace is free for everyone to [join](https://join.atomist.com). Here, you can see Atomist in action
@@ -60,7 +60,7 @@ a database where Atomist stores correlated events
 
 #### dashboard
  better known as the Atomist web interface, this lives at [app.atomist.com](https://app.atomist.com),
-and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
+and it gives you access to some notifications and the settings for your Atomist workspace. [more info](user/dashboard.md)
 
 #### delivery
  in this guide, delivery is about moving new code into production, through each of the fixes, checks, builds, publishments, deployments, and approvals that are necessary in your organization.
@@ -68,24 +68,24 @@ and it gives you access to some notifications and the settings for your Atomist 
 #### development automation
  programs that make the work of software development smoother. This includes delivery automation:
  getting new code through all its checkpoints and into production.
- Other examples include [project creation](create.md), [issue creation](../user/lifecycle.md,
-  and code [maintenance](transform.md).
+ Other examples include [project creation](developer/create.md), [issue creation](user/lifecycle.md,
+  and code [maintenance](developer/transform.md).
 
 #### durable
 
-when an SDM is configured as durable, then when it is no longer connected, the Atomist event hub will queue events for it until it comes back up. [more info](team.md#durable-subscriptions)
+when an SDM is configured as durable, then when it is no longer connected, the Atomist event hub will queue events for it until it comes back up. [more info](developer/team.md#durable-subscriptions)
 
 #### extension pack
 
-a collection of integrations or useful functions that can be added to an SDM. [more info](../pack/index.md)
+a collection of integrations or useful functions that can be added to an SDM. [more info](pack/index.md)
 
 #### feed
- (or "atomist feed" or "SDM feed") a place for a local-mode SDM to send you messages and updates, since it does not have access to chat. [more info](cli.md#atomist-feed)
+ (or "atomist feed" or "SDM feed") a place for a local-mode SDM to send you messages and updates, since it does not have access to chat. [more info](developer/cli.md#atomist-feed)
 
 #### fingerprint
 
 a distilled piece of important information about the code at a particular time. They can be compared to notice when a
-change is significant in a particular way. [more info](fingerprint.md)
+change is significant in a particular way. [more info](developer/fingerprint.md)
 
 #### generator
  a particular kind of [command](#command) that creates a new project. It starts from a seed, runs some [code transforms](#code-transform),
@@ -98,15 +98,15 @@ A button appears on the push notification in chat.
 
 #### goal preconditions
 
-one goal can wait for another goal (or goals) to complete before starting. [more info](set-goals.md#dependencies)
+one goal can wait for another goal (or goals) to complete before starting. [more info](developer/set-goals.md#dependencies)
 
 #### goal project listener
  A prerequisite to running a goal. This happens after a project is cloned and before the goal
- is executed. [see more](goals-more.md#prepare-the-checked-out-code)
+ is executed. [see more](developer/goals-more.md#prepare-the-checked-out-code)
 
 #### goals
 
-steps to execute after a push. These are set by a software delivery machine. [more info](goal.md)
+steps to execute after a push. These are set by a software delivery machine. [more info](developer/goal.md)
 
 #### intent
  (or "command intent") the phrase to type to trigger a command
@@ -114,14 +114,14 @@ steps to execute after a push. These are set by a software delivery machine. [mo
 #### lifecycle
 
 in general, lifecycle means the stages in any process. In this guide, we talk about automations triggered in different parts of the software development lifecycle. _Lifecycle messages_ are the built-in notifications that the Atomist bot sends to chat
-to describe issue, pull request, issue comment, and push events (along with build, goal, and other events correlated with the push). [more info](../user/lifecycle.md)
+to describe issue, pull request, issue comment, and push events (along with build, goal, and other events correlated with the push). [more info](user/lifecycle.md)
 
 #### listener
 
-the SDM framework lets you register listeners to various useful events. [check the whole list](event.md)
+the SDM framework lets you register listeners to various useful events. [check the whole list](developer/event.md)
 
 #### local mode
- when an SDM runs on your laptop, working only on code that's on your laptop, sending messages only to your laptop. [more info](local.md)
+ when an SDM runs on your laptop, working only on code that's on your laptop, sending messages only to your laptop. [more info](developer/local.md)
 
 #### project
  in this guide, "project" refers to a git repository with code in it.
@@ -130,7 +130,7 @@ the SDM framework lets you register listeners to various useful events. [check t
  a grouping above projects. Projects are repositories, and they each belong to someone. On GitHub, the owner is a user or an organization. On BitBucket, the owner is a user or a BitBucket project.
 
 #### projects directory
- (or "Atomist projects directory") this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](local.md#directory-structure)
+ (or "Atomist projects directory") this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](developer/local.md#directory-structure)
 
 #### push event
 
@@ -138,11 +138,11 @@ the most important event in delivery automation, a push represents new code arri
 
 #### push impact
 
-a function that reacts to a change in code. It can do anything: send a message to chat, for instance. [more info](goal.md#pushimpact)
+a function that reacts to a change in code. It can do anything: send a message to chat, for instance. [more info](developer/goal.md#pushimpact)
 
 #### push notification
 
-the message that atomist bot sends to chat after each push event. It gets updated to include information about builds, goal, tags, deployments, and more. [more info](../user/lifecycle.md#push)
+the message that atomist bot sends to chat after each push event. It gets updated to include information about builds, goal, tags, deployments, and more. [more info](user/lifecycle.md#push)
 
 #### registration
 
@@ -165,7 +165,7 @@ an object that provides instructions to an SDM or a goal. A registration include
 
 #### team mode
  an SDM running in team mode connects to the Atomist service. It might run on your laptop or in
-a production environment within your network. [more info](team.md)
+a production environment within your network. [more info](developer/team.md)
 
 #### version control
  in this guide, "version control" refers to the place where you push code to share it with your team
@@ -173,7 +173,7 @@ a production environment within your network. [more info](team.md)
 
 #### web interface
  the Atomist web interface lives at [app.atomist.com](https://app.atomist.com),
-and it gives you access to some notifications and the settings for your Atomist workspace. [more info](../user/dashboard.md)
+and it gives you access to some notifications and the settings for your Atomist workspace. [more info](user/dashboard.md)
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.
