@@ -232,6 +232,8 @@ Huzzah!
 
 ## Sending messages to Slack in Team Mode
 
+{!tbd.md!}
+
 ## Conclusion
 
 https://docs.atomist.com/developer/event/
