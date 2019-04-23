@@ -43,7 +43,7 @@ nav:
   - Getting Started: getting-started.md
   - Developer Quick Start: quick-start.md
   - Using Atomist:
-      - Introduction: user/index.md 
+      - Introduction: user/index.md
       - Uhura SDM: user/uhura.md
       - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
@@ -97,6 +97,7 @@ nav:
           - Command Line Interface: developer/cli.md
           - SDM Concepts: developer/sdm-concepts.md
           - Working with the AST: developer/astutils.md
+      - Building your First Delivery: developer/first_delivery.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
