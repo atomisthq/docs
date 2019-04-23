@@ -65,7 +65,7 @@ Including this type should also `import GoalInvocation` from `@atomist/sdm`:
 import { goal, GoalInvocation } from "@atomist/sdm";
 ```
 
-Since the only task our goal needs to execute is provide a message, we can send one using `addressChannels`, which delivers messages to channels that are subscribed to this repository:
+Since the only task our goal needs to execute is to provide a message, we can send one using `addressChannels`, which delivers messages to channels that are subscribed to this repository:
 
 ```typescript
 async (goalInvocation: GoalInvocation) => {
