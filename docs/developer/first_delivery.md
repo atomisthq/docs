@@ -103,7 +103,7 @@ import { goal, GoalInvocation, pushTest } from "@atomist/sdm";
 Our `pushTest` function will take two arguments: a name, and a function which performs the filtering logic. Let's set up another skeleton function which sets up our logic:
 
 ```typescript
-const modifiesReadme = pushTest(
+export const modifiesReadme = pushTest(
   "modifiesReadme",
   async pushListenerInvocation => {
     return false;
