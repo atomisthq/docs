@@ -38,6 +38,8 @@ markdown_extensions:
   - smarty
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - toc:
+      permalink: true
 nav:
   - Welcome: index.md
   - Getting Started: getting-started.md
