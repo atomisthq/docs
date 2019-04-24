@@ -14,6 +14,8 @@ atomist clone https://github.com/<YOUR_GITHUB_HANDLE>/express-es6-rest-api
 
 This clones the project to the folder defined by the `ATOMIST_ROOT` environment variable (which defaults to `$HOME/atomist/projects`).
 
+Finally, although you can configure Atomist to work with any chat system, in this tutorial, we'll be sending our message to Slack. Make sure you're an admin of a Slack workspace, and [add the Atomist app to it](https://docs.atomist.com/user/slack/)!
+
 ## Defining your first goal
 
 A [goal](https://docs.atomist.com/developer/goal/) is a function that we want to run during certain events or within specific projects. In this case, our goal is to print a message.
@@ -230,12 +232,26 @@ In your `atomist-seeds/express-es6-rest-api` folder, make a commit that modifies
 
 Huzzah!
 
+## Setting up Team Mode
+
+Now that we know messages are being printed on commits in Local Mode, it's time to try the same behavior out for pushes on Atomist running in Team Mode. You should follow [the instructions on this page](https://docs.atomist.com/developer/team/#what-is-necessary-to-enable-team-mode), which outlines everything that you need.
+
+If you already went through the original walkthrough to set up Atomist, you should already have your workspace ID and API key configured. You can verify this by checking their presence in the `$HOME/.atomist/client.config.json` file.
+
+Once that's set up, run `atomist start` to start the SDM in Team Mode.
+
 ## Sending messages to Slack in Team Mode
 
-{!tbd.md!}
+With [the Atomist app already added to your Slack workspace](https://docs.atomist.com/user/slack/), it's time to configure it to listen to pushes to your repository.
 
-## Conclusion
+In Slack, type `@atomist repos` to get a list of repositories that the app is aware if. If you see your `express-es6-rest-api` repository already in that list, you're almost finished! Otherwise, click on the `Link Repository` button and follow the instructions to make the app aware of your repository.
 
-https://docs.atomist.com/developer/event/
+When we wrote our original goal code, we used `goalInvocation.addressChannels` which, as the name implies, addresses all the channels that a repository is associated with. Our code needs no additional changes between Local Mode printing a message to the feed and Team Mode sending a message to a chat client. With Atomist running in Team Mode, and the app configured in your Slack workspace, you're ready to test the flow out. Make a commit in your repository, and then run `git push` to get that change online.
 
-https://docs.atomist.com/pack/changelog/
+The terminal window where Atomist is running should print out some logging messages. Meanwhile, the channel where the Atomist app is configured to sit should print out that commit, as well as the congratulatory message!
+
+## What's next?
+
+There are a lot of directions to go from here, but perhaps none better than taking a look at [all the different kinds of events](https://docs.atomist.com/developer/event/) that Atomist can listen to.
+
+If you'd like to see the code for some other packs, check out [our list of open source extensions](https://docs.atomist.com/pack/) for additional inspiration!
