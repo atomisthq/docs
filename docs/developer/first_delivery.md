@@ -237,7 +237,9 @@ Once that's set up, run `atomist start` to start the SDM in Team Mode.
 
 With [the Atomist app already added to your Slack workspace](https://docs.atomist.com/user/slack/), it's time to configure it to listen to pushes to your repository.
 
-In Slack, type `@atomist repos` to get a list of repositories that the app is aware if. If you see your `express-es6-rest-api` repository already in that list, you're almost finished! Otherwise, click on the `Link Repository` button and follow the instructions to make the app aware of your repository.
+The Atomist app can sit in any channel, and, when connected to a repository, it prints messages on every comment made, so your first step should be to create a room where you don't mind having a stream of git information flowing. Once you do that, you can invite Atomist to sit in the room with `/invite @atomist`.
+
+In Slack, type `@atomist repos` to get a list of repositories that the app is aware of. If you see your `express-es6-rest-api` repository already in that list, you're almost finished! Otherwise, click on the `Link Repository` button and follow the instructions to make the app aware of your repository.
 
 When we wrote our original goal code, we used `goalInvocation.addressChannels` which, as the name implies, addresses all the channels that a repository is associated with. Our code needs no additional changes between Local Mode printing a message to the feed and Team Mode sending a message to a chat client.
 
