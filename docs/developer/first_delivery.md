@@ -68,7 +68,7 @@ Since the only task our goal needs to execute is to provide a message, we can se
 
 ```typescript
 async (goalInvocation: GoalInvocation) => {
-    goalInvocation.addressChannels("Way to update the README! 😍");
+    await goalInvocation.addressChannels("Way to update the README! 😍");
 });
 ```
 
@@ -82,7 +82,7 @@ export const messageGoal = goal(
     displayName: "Print a message!"
   },
   async (goalInvocation: GoalInvocation) => {
-      goalInvocation.addressChannels("Way to update the README! 😍");
+      await goalInvocation.addressChannels("Way to update the README! 😍");
   },
 );
 ```
