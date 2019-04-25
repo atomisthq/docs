@@ -34,21 +34,19 @@ Let's start by defining a skeleton of what the `goal` function needs:
 
 ```typescript
 export const messageGoal = goal(
-  { displayName: "display name",
-    uniqueName: "unique-name",
+  {
+    displayName: "display name"
   },
   async goalInvocation => {
-      // do what is needed
-      return { code: 0 };
+      // do something
   });
 ```
 
-The `displayName` appears as in the Atomist UI to identify your goal, while the `uniqueName` is used by Atomist's API to distinguish your goal from others. Let's give these better identifiers:
+The `displayName` appears as in the Atomist UI to identify your goal. Let's give it a better identifier:
 
 ```typescript
 {
-  displayName: "Print a message!",
-  uniqueName: "message-printer",
+  displayName: "Print a message!"
 }
 ```
 
@@ -56,8 +54,7 @@ The second argument to `goal` is the executing function. This takes a single arg
 
 ```typescript
 async (goalInvocation: GoalInvocation) => {
-    // do what is needed
-    return { code: 0 };
+    // do something
 });
 ```
 
@@ -72,7 +69,6 @@ Since the only task our goal needs to execute is to provide a message, we can se
 ```typescript
 async (goalInvocation: GoalInvocation) => {
     goalInvocation.addressChannels("Way to update the README! 😍");
-    return { code: 0 };
 });
 ```
 
@@ -87,7 +83,6 @@ export const messageGoal = goal(
   },
   async (goalInvocation: GoalInvocation) => {
       goalInvocation.addressChannels("Way to update the README! 😍");
-      return { code: 0 };
   },
 );
 ```
@@ -166,6 +161,16 @@ Let's start by importing the two functions that we defined earlier:
 import {
     messageGoal, modifiesReadme,
 } from "./message";
+```
+
+As well, we're going to need to import a function called `whenPushSatisfies` from the `@atomist/sdm"` package, which, as the name might imply, will be responsible for calling our `modifiesReadme` filtering method:
+
+```typescript
+import {
+    SoftwareDeliveryMachine,
+    SoftwareDeliveryMachineConfiguration,
+    whenPushSatisfies,
+} from "@atomist/sdm";
 ```
 
 Next, within the `machine` method, enter the following line:
