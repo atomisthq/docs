@@ -9,7 +9,7 @@ Before starting, make sure that you have installed [the atomist CLI](/quick-star
 You also need a local repository that you don't mind making dummy commits and pushes to. We'll be working with [atomist-seeds/express-es6-rest-api](https://github.com/atomist-seeds/express-es6-rest-api). Fork this repository online; to clone it locally and have Atomist's git hooks already configured, run the following command:
 
 ```
-atomist clone https://github.com/<YOUR_GITHUB_HANDLE>/express-es6-rest-api
+$ atomist clone https://github.com/<YOUR_GITHUB_HANDLE>/express-es6-rest-api
 ```
 
 This clones the project to the folder defined by the `ATOMIST_ROOT` environment variable (which defaults to `$HOME/atomist/projects`).
@@ -190,7 +190,7 @@ Now that our SDM is set up the behave just as we want it to, it's time to test e
 To associate the local `atomist-seeds/express-es6-rest-api` repository with the SDM running Local Mode, you'll need to navigate to the folder and enter:
 
 ```
-atomist enable local
+$ atomist enable local
 ```
 
 This instructs the SDM to watch for events that this repository triggers.
@@ -202,7 +202,7 @@ The next step is to test that a README altering commit prints a message to the t
 Open a new terminal window and type:
 
 ```
-atomist start --local
+$ atomist start --local
 ```
 
 This starts Atomist in Local Mode. A whole slew of logging information will be printed, but you'll know the SDM is ready when the following line is shown:
@@ -214,7 +214,7 @@ Atomist automation client startup completed
 Now, in another terminal, enter:
 
 ```
-atomist feed
+$ atomist feed
 ```
 
 This command acts as a sort of `tail` for messages that the SDM sends. Any SDM activity that has to deal with events or the execution of goals shows up here.
