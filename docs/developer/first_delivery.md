@@ -183,18 +183,6 @@ The method names provide clarity on the configuration:
 
 That's all there is to it!
 
-## Associating the SDM with your repository
-
-Now that our SDM is set up the behave just as we want it to, it's time to test everything and make sure that our code is correct. Before doing that, though, it's important to go over the differences between [Local Mode](/developer/local/) and [Team Mode](/developer/team/). Local Mode runs in the privacy of your own machine. The SDM doesn't communicate with the online Atomist service, and it behaves just like a local instance of the SDM would. Crucially, since we're operating locally, push events are simulated as coming from _commits_.
-
-To associate the local `atomist-seeds/express-es6-rest-api` repository with the SDM running Local Mode, you'll need to navigate to the folder and enter:
-
-```
-$ atomist enable local
-```
-
-This instructs the SDM to watch for events that this repository triggers.
-
 ## Testing in Local Mode
 
 The next step is to test that a README altering commit prints a message to the terminal!
