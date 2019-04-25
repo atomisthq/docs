@@ -50,7 +50,7 @@ The `displayName` appears as in the Atomist UI to identify your goal. Let's give
 }
 ```
 
-The second argument to `goal` is the executing function. This takes a single argument, `goalInvocation`, which contains context about the originating event (in this case, a push). The type of this argument is a [`GoalInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_goal_goalinvocation_.goalinvocation.html), and while TypeScript already knows this, we could also explicitly define the type for future humans to read:
+The second argument to `goal` is the executing function. This takes a single argument, `goalInvocation`, which contains context about the originating event (in this case, a push). The type of this argument is a [`GoalInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_goal_goalinvocation_.goalinvocation.html), and while TypeScript already knows this, we should also explicitly define the type for the benefit of future humans reading the code:
 
 ```typescript
 async (goalInvocation: GoalInvocation) => {
@@ -58,7 +58,7 @@ async (goalInvocation: GoalInvocation) => {
 });
 ```
 
-Including this type should also `import GoalInvocation` from `@atomist/sdm`:
+The `GoalInvocation` type also needs to be imported from `@atomist/sdm`:
 
 ```typescript
 import { goal, GoalInvocation } from "@atomist/sdm";
@@ -78,8 +78,8 @@ Our return type is [`ExecuteGoalResult`](https://atomist.github.io/sdm/interface
 import { goal, GoalInvocation } from "@atomist/sdm";
 
 export const messageGoal = goal(
-  { displayName: "do a thing",
-    uniqueName: "this-special-thing",
+  {
+    displayName: "Print a message!"
   },
   async (goalInvocation: GoalInvocation) => {
       goalInvocation.addressChannels("Way to update the README! 😍");
@@ -97,7 +97,7 @@ Within _message.ts_, import the `pushTest` function from `@atomist/sdm` package:
 import { goal, GoalInvocation, pushTest } from "@atomist/sdm";
 ```
 
-Our `pushTest` function will take two arguments: a name, and a function which performs the filtering logic. Let's set up another skeleton function which sets up our logic:
+Our `pushTest` function will take two arguments: a name (which is useful for identification with Atomist logs), and the function which performs the filtering logic. Let's set up another skeleton function which sets up our logic:
 
 ```typescript
 export const modifiesReadme = pushTest(
@@ -107,7 +107,7 @@ export const modifiesReadme = pushTest(
   });
 ```
 
-Once more, let's explicitly define the `pushListenerInvocation` type (which is [`PushListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_pushlistener_.pushlistenerinvocation.html)):
+Once again, for the sake of humans, let's explicitly define the type for the `pushListenerInvocation` parameter (which is [`PushListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_pushlistener_.pushlistenerinvocation.html)):
 
 ```typescript
 import { goal, GoalInvocation, PushListenerInvocation, pushTest } from "@atomist/sdm";
@@ -119,7 +119,7 @@ const modifiesReadme = pushTest(
   });
 ```
 
-For our latest push, we want to get a list of the files that have changed. Luckily, there's an asynchronous function we can import called `filesChangedSince` which will perform this logic for us. It also takes two arguments: the project that the push is associated with, and the push itself. Let's import this message from the `@atomist/sdm` package:
+For our latest push, we want to get a list of the files that have changed. Luckily, there's an asynchronous function we can import called `filesChangedSince` which will perform this logic for us. It also takes two arguments: the project that the push is associated with, and the push itself. Let's import this method from the `@atomist/sdm` package:
 
 ```typescript
 import { filesChangedSince, goal, GoalInvocation, PushListenerInvocation, pushTest } from "@atomist/sdm";
@@ -134,9 +134,9 @@ async (pushListenerInvocation: PushListenerInvocation) => {
 });
 ```
 
-For completeness, we may want to check for case-insensitivity when looking for `README.md`, but for this tutorial it should be enough.
+For completeness, we may want to check for case-insensitivity when looking for `README.md`, but for this tutorial this `includes` match should be enough.
 
-Our complete `pushTest` method should look like this:
+Our complete `pushTest` method looks like this:
 
 ```typescript
 import { filesChangedSince, goal, GoalInvocation, PushListenerInvocation, pushTest } from "@atomist/sdm";
@@ -180,7 +180,7 @@ sdm.withPushRules(
     whenPushSatisfies(modifiesReadme).setGoals(messageGoal));
 ```
 
-The method names provide clarity on the configuration:
+The method names provide clarity on the process:
 
 * we configure the SDM to listen to push events (`withPushRules`)
 * we test that the push in question passes our previous filter (`whenPushSatisfies`)
@@ -212,7 +212,7 @@ $ atomist feed
 
 This command acts as a sort of `tail` for messages that the SDM sends. Any SDM activity that has to deal with events or the execution of goals shows up here.
 
-In your `atomist-seeds/express-es6-rest-api` folder, make a commit that modifies the README. You should see your message printed:
+In your `express-es6-rest-api` folder, make a commit that modifies the README. You should see your message printed:
 
 ```
 # express-es6-rest-api 2019-04-23 12:31:59 atomist-seeds/express-es6-rest-api/master - c4f708d My commit message
@@ -227,7 +227,7 @@ Huzzah!
 
 ## Setting up Team Mode
 
-Now that we know messages are being printed on commits in Local Mode, it's time to try the same behavior out for pushes on Atomist running in Team Mode. You should follow [the instructions on this page](https://docs.atomist.com/developer/team/#what-is-necessary-to-enable-team-mode), which outlines everything that you need.
+Now that we know messages are being printed on commits in Local Mode, it's time to try the same behavior out for pushes on Atomist running in Team Mode. Follow [the instructions on this page](https://docs.atomist.com/developer/team/#what-is-necessary-to-enable-team-mode), which outlines everything that you need.
 
 If you already went through the original walkthrough to set up Atomist, you should already have your workspace ID and API key configured. You can verify this by checking their presence in the `$HOME/.atomist/client.config.json` file.
 
@@ -239,7 +239,9 @@ With [the Atomist app already added to your Slack workspace](https://docs.atomis
 
 In Slack, type `@atomist repos` to get a list of repositories that the app is aware if. If you see your `express-es6-rest-api` repository already in that list, you're almost finished! Otherwise, click on the `Link Repository` button and follow the instructions to make the app aware of your repository.
 
-When we wrote our original goal code, we used `goalInvocation.addressChannels` which, as the name implies, addresses all the channels that a repository is associated with. Our code needs no additional changes between Local Mode printing a message to the feed and Team Mode sending a message to a chat client. With Atomist running in Team Mode, and the app configured in your Slack workspace, you're ready to test the flow out. Make a commit in your repository, and then run `git push` to get that change online.
+When we wrote our original goal code, we used `goalInvocation.addressChannels` which, as the name implies, addresses all the channels that a repository is associated with. Our code needs no additional changes between Local Mode printing a message to the feed and Team Mode sending a message to a chat client.
+
+With Atomist running in Team Mode, and the app configured in your Slack workspace, you're ready to test the flow out. Make a commit in your repository, and then run `git push` to get that change online.
 
 The terminal window where Atomist is running should print out some logging messages. Meanwhile, the channel where the Atomist app is configured to sit should print out that commit, as well as the congratulatory message!
 
