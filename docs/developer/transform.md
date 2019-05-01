@@ -25,7 +25,6 @@ function to enable this.
     Dry run transforms are another example of how commands and events can work
     hand in hand with Atomist to provide a uniquely powerful solution.
 
-
 ## Create a code transform
 
 Code transforms are functions that receive the project as an input and changes the content of the project as a result.

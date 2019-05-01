@@ -120,7 +120,6 @@ const pm: PushMapping<Goals> = given<Goals>(IsNode)
     );
 ```
 
-
 ## PushTest
 
 Push tests are functions that look at the content of a push and decide whether this goal applies.

@@ -10,7 +10,6 @@ The second scenario is usually more important, as it is possible to
 create a repository without any source code or a master branch, which
 isn't enough to work with for common actions.
 
-
 The following example publishes a message to the `#general` channel in
 Slack when a new repo has been created:
 

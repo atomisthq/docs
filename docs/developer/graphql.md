@@ -17,7 +17,6 @@ You can use GraphQL with the Atomist automation API for:
 
 [graphql]: http://graphql.org/ (GraphQL)
 
-
 The Atomist SDM includes many of the GraphQL queries that are most useful in
 automating software delivery. You can also create your own.
 
