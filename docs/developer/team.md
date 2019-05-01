@@ -48,7 +48,7 @@ The detailed information on the registered SDM includes commands, event subscrip
 
 ### Durable subscriptions
 
-An SDM that starts up as durable (usually because you ran it with ATOMIST_ENV=production) will get all the events it subscribes to,
+An SDM that starts up as durable (usually because you ran it with `ATOMIST_ENV=production`) will get all the events it subscribes to,
 even if it is not up all the time. The Atomist service saves events for it (up to a point).
  This registration will remain active even when the SDM is down. Every unique name/version combination will
  remain active until you delete the registration in the web interface.

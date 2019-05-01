@@ -15,6 +15,17 @@ This page shows how to:
 
 After that, you might want to make your code transform into an [Autofix](autofix.md).
 
+There's also an important capability called "dry run transform":
+Performing a transform on a branch, and then either raising either a PR or
+an issue, depending on build success or failure. This allows us to
+safely apply transforms across many repositories. There's a simple wrapper
+function to enable this.
+
+!!! tip
+    Dry run transforms are another example of how commands and events can work
+    hand in hand with Atomist to provide a uniquely powerful solution.
+
+
 ## Create a code transform
 
 Code transforms are functions that receive the project as an input and changes the content of the project as a result.
@@ -222,3 +233,9 @@ In the event of a squash, the commit message of the new commit will be the title
 !!! attention "Adding labels to Github"
     If the labels are missing in Github, issue the `@atomist add auto merge labels` command in the channel linked to a repository
 
+## Advanced usage
+
+More elaborate transforms use helper APIs on top of the `Project` API
+such as Atomist's
+[microgrammar](https://github.com/atomist/microgrammar) API and
+[ANTLR](https://github.com/atomist/antlr) integration.

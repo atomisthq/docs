@@ -5,6 +5,19 @@ Besides being a great query language, GraphQL provides great tool support based
 on strongly-typed schemas, type generation for TypeScript, and many other
 advantages.
 
+The Atomist automation API provides you access to the events and data
+from your development platforms using [GraphQL][graphql], a
+widely-used query language and runtime for APIs.
+
+You can use GraphQL with the Atomist automation API for:
+
+1.  Queries that fetch data directly
+2.  Subscriptions to register the types of events you want to receive
+3.  Mutations to change data and make connections
+
+[graphql]: http://graphql.org/ (GraphQL)
+
+
 The Atomist SDM includes many of the GraphQL queries that are most useful in
 automating software delivery. You can also create your own.
 
@@ -236,3 +249,57 @@ import * as graphql from "./typings/types";
 }
 ```
 
+## Example
+
+The following GraphQL
+subscribes to completed builds, returning related data such as the
+last commit and any linked Slack channels:
+
+[graphql]: http://graphql.org (GraphQL)
+
+```graphql
+subscription OnBuildComplete {
+  Build {
+    buildId
+    buildUrl
+    compareUrl
+    name
+    status
+    commit {
+      sha
+      message
+      repo {
+        name
+        owner
+        gitHubId
+        allowRebaseMerge
+        channels {
+          name
+          id
+        }
+      }
+      statuses {
+        context
+        description
+        state
+        targetUrl
+      }
+    }
+  }
+}
+```
+
+When using TypeScript (our recommended language), an event handler can
+subscribe to such events with the benefit of strong typing. For
+example, this Atomist event handler can respond to the above GraphQL
+subscription:
+
+```typescript
+@EventHandler("Set status on build complete",
+    GraphQL.subscriptionFromFile("graphql/subscription/OnBuildComplete.graphql"))
+export class SetStatusOnBuildComplete implements HandleEvent<OnBuildComplete.Subscription> {
+
+    public async handle(event: EventFired<OnBuildComplete.Subscription>,
+    	ctx: HandlerContext,
+    	params: this): Promise<HandlerResult> {
+```
