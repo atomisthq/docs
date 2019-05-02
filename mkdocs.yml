@@ -114,6 +114,7 @@ nav:
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
   - Tutorials:
       - Building your First Delivery: developer/first_delivery.md
+      - Setting Up a Project Generator: developer/setting-up-generator.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md
