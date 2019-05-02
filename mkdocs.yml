@@ -38,6 +38,8 @@ markdown_extensions:
   - smarty
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - toc:
+      permalink: true
 nav:
   - Welcome: index.md
   - Getting Started: getting-started.md
@@ -115,6 +117,8 @@ nav:
         - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
         - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
+  - Tutorials:
+      - Building your First Delivery: developer/first_delivery.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md

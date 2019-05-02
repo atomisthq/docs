@@ -18,7 +18,7 @@ For more information, check the Uhura project on [GitHub][].
 [github]: https://github.com/atomist/uhura
 
 ## Create a new repository
-[uhura-create](#create-a-new-repository)
+[uhura-create]: #create-a-new-repository (Create a repository with Uhura)
 
 Uhura defines a [project generator](../developer/create.md) for Node projects. This takes an existing repository as a starting point
 for a new one, modifies the code, and creates a new repository for you to build on.
