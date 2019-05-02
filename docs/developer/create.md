@@ -35,40 +35,6 @@ from. This makes a canonical "best starting point" for your organization.
 
 For examples, see all the repositories in our [atomist-seeds organization](https://github.com/atomist-seeds).
 
-## Generator Registration
-
-To add a generator to your SDM, register it where you configure your SDM
-(usually [machine.ts](sdm.md#machinets)):
-
-```typescript
-sdm.addGeneratorCommand(MkdocsSiteGenerator);
-```
-
-The sample code on this page is about a generator for starting a new documentation site
- like this one.
-
-That `MkdocsSiteGenerator` is a `GeneratorRegistration][apidoc-generator-registration]:
-
-```typescript
-export const MkdocsSiteGenerator: GeneratorRegistration = {
-    name: "Mkdocs Site",
-    intent: "create mkdocs site",
-    startingPoint: GitHubRepoRef.from({
-        owner: "atomist-seeds",
-        repo: "mkdocs-site"
-    }),
-    transform: [updateTitle("README.md", "New Project")],
-}
-```
-
-The important elements of a `GeneratorRegistration` are:
-
-* *name* of the generator. This can be any string.
-* *intent* a string or array of strings; type this to trigger the command.
-* *startingPoint* gives the generator a seed.
-Use a pointer to a repository in version control - see [RepoRef](reporef.md) for options.
-* *transform* is an array of zero or more [code transforms](transform.md) to apply.
-
 ## Parameters
 
 Generator commands work the same way as [command parameters](commands.md#command-parameters).
