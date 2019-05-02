@@ -63,3 +63,5 @@ sdm.addGeneratorCommand(JavaSpringGenerator);
 That's all there is to it!
 
 ## Testing the generator
+
+{!tbd.md!}
