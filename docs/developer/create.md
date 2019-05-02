@@ -47,7 +47,7 @@ sdm.addGeneratorCommand(MkdocsSiteGenerator);
 The sample code on this page is about a generator for starting a new documentation site
  like this one.
 
-That `MkdocsSiteGenerator` is a `[GeneratorRegistration][apidoc-generator-registration]`:
+That `MkdocsSiteGenerator` is a `GeneratorRegistration][apidoc-generator-registration]:
 
 ```typescript
 export const MkdocsSiteGenerator: GeneratorRegistration = {
