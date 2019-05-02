@@ -101,7 +101,6 @@ nav:
         - Fingerprints: developer/fingerprint.md
         - Project Generators: developer/create.md
         - Delivery: developer/delivery.md
-      - Building your First Delivery: developer/first_delivery.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
@@ -113,6 +112,8 @@ nav:
         - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
         - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
+  - Tutorials:
+      - Building your First Delivery: developer/first_delivery.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md
