@@ -1,5 +1,3 @@
-# Repo Targeting Parameters
-
 Many commands operate on one or more repositories. For instance, all
 [transform](transform.md) commands run on a repository or more than one repository.
 
@@ -43,4 +41,3 @@ These commands' parameters mix in [RepoTargetingParameters](https://atomist.gith
         If not executing in a mapped channel, must identify a repo via: `targets.owner` and `targets.repo`, or a repo name regex via `targets.repos`
 
     and you did supply `targets.repos`, then it's possible it did not find any matching repositories.
-

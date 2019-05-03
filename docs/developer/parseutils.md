@@ -67,7 +67,7 @@ Handy microgrammars to compose:
 
 For more details on how to write a microgrammar, check out the [microgrammar library](https://github.com/atomist/microgrammar), especially the [string-based definition examples](https://github.com/atomist/microgrammar/blob/master/docs/stringDefs.md).
 
-## finding code that looks like this
+## Finding code that looks like this
 
 Within your SDM, you can use [`parseUtils.findMatches`][apidoc-findmatches] to locate all of the
 code that looks like your microgrammar in your entire project.
@@ -104,7 +104,7 @@ If you also want information on the file that each match is in, then check out
 [apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html#findmatches (API Doc for findMatches)
 [apidoc-termsdefinition]: https://atomist.github.io/microgrammar/modules/_lib_grammar_.html#termsdefinition (API Doc for TermsDefinition)
 
-## changing code that looks like this
+## Changing code that looks like this
 
 You can update the matched code in place. To do this, use a different function:
 [`parseUtils.doWithMatches`][apidoc-dowithmatches]. This lets you pass in an action,
@@ -143,4 +143,3 @@ Note: if you want information about the file that the match is in, try [`parseUt
 * the [Project API](project.md)
 * do simpler manipulations of file content with [projectUtils](projectutils.md)
 * dig into the abstract syntax tree (AST) of your programming language with [astUtils](astutils.md)
-

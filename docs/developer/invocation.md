@@ -1,7 +1,4 @@
-
 Invocation objects provide information to your implementations of [goals](goal.md) and [event listeners](event.md).
-
-## Invocations
 
 These objects, passed to listener functions, contain properties useful for learning about
 the project and for sending messages.
