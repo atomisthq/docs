@@ -28,7 +28,7 @@ The `GitHubRepoRef` function is going to grab a repository off of GitHub based o
 ```typescript
 export const JavaSpringGenerator: GeneratorRegistration = {
   name: "Java Spring Project",
-  intent: "create java-spring project",
+  intent: "generate-java-spring-project",
   startingPoint: GitHubRepoRef.from({
       owner: "atomist-seeds",
       repo: "spring-rest",
@@ -64,4 +64,29 @@ That's all there is to it!
 
 ## Testing the generator
 
-{!tbd.md!}
+Let's see the command in action.
+
+Start up your SDM in [Local Mode](/developer/local/):
+
+```
+$ atomist start --local
+```
+
+Amongst all the lines the scroll by, you should see one that identifies your command as having been registered:
+
+```
+> Commands
+>   Java Spring Project (Java Spring Project) generate-java-spring-project
+```
+
+In fact, if you type `atomist -h`, you'll also see your command in the output. Try running `atomist generate-java-spring-project`; you'll be asked just for the name of the new repository, and the SDM will go ahead and clone it immediately:
+
+```
+$ atomist generate-java-spring-project
+> Java Spring Project
+> ? name of the new repository my-new-java-project
+> # sdm 2019-05-03 14:37:22 Create Project
+>   Cloning seed project from starting point atomist-seeds/spring-rest at https://github.com/atomist-seeds/spring-rest
+> # sdm 2019-05-03 14:37:23 Create Project
+>   Successfully created new project user/my-new-java-project at file://Users/gjtorikian/atomist/projects/user/my-new-java-project
+```
