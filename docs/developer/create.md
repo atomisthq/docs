@@ -49,7 +49,6 @@ In addition, a generator command automatically gets some parameters that every g
 
 [apidoc-generator-registration]: https://atomist.github.io/sdm/interfaces/_lib_api_registration_generatorregistration_.generatorregistration.html (API Doc for GeneratorRegistration)
 
-
 ## Code sample
 
 Check out [our guide on setting up a generator](/developer/setting-up-generator/) for a complete example.
