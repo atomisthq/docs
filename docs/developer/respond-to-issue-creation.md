@@ -19,6 +19,6 @@ This is registed with a `SoftwareDeliveryMachine` instance as follows:
 sdm.addNewIssueListeners(requestDescription)
 ```
 
-Using the `credentials` on the `NewIssueInvocation`, you can easily
+Using the `credentials` on the `NewIssueInvocation`, you can
 use the GitHub API to modify the issue, for example correcting
 spelling errors.
