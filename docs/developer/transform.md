@@ -23,7 +23,7 @@ function to enable this.
 
 !!! tip
     Dry run transforms are another example of how commands and events can work
-    hand in hand with Atomist to provide a uniquely powerful solution.
+    hand in hand with Atomist to provide a uniquely powerful solution. The pull request is created in response to the transform command. It is merged in response to a successful build event.
 
 ## Create a code transform
 
