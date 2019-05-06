@@ -92,7 +92,7 @@ possible to bring in any state you wish. For example:
 
 ```typescript
 whenPushSatisfies(IsMaven, HasSpringBootApplicationClass,
-	deploymentsToday < 25)
+	async (inv) => deploymentsToday < 25)
     .itMeans("Not tired of deploying Spring apps yet")
     .setGoals(LocalDeploymentGoals),
 ```
