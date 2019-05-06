@@ -3,7 +3,7 @@ and other commands. All we need is something to pull it together.
 
 Your event listeners need to be invoked by Atomist handlers. The
 `SoftwareDeliveryMachine` takes care of this, ensuring that the
-correct handlers are emitted for use in `atomist.config.ts`, without
+correct handlers are emitted for use within `machine.ts`, without
 you needing to worry about the event handler registrations on
 underlying GraphQL.
 
@@ -71,14 +71,4 @@ For example:
             () => disposeProjectHandler,
         )
         .addSupportingEvents(OnDryRunBuildComplete);
-```
-
-The `SoftwareDeliveryMachine` instance will create the necessary
-Atomist event handlers to export.
-
-In `atomist.config.ts` you can bring them in simply as follows:
-
-```typescript
-commands: assembled.commandHandlers,
-events: assembled.eventHandlers,
 ```

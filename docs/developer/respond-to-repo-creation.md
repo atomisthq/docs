@@ -25,7 +25,7 @@ Tagging a repo with topics based on its content is a useful
 action. `tagRepo` is a convenient function to construct a
 `ProjectListener` for this. It tags as an argument a `Tagger`, which
 looks at the project content and returns a `Tags` object. The
-following example from `atomist.config.ts` tags Spring Boot repos,
+following example from `machine.ts` tags Spring Boot repos,
 using a `Tagger` from the `spring-automation` project, in addition to
 suggesting the addition of a Cloud Foundry manifest, and publishing
 the repo using the listener previously shown:
