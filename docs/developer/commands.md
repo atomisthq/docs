@@ -127,6 +127,8 @@ atomist hello
 
 and the SDM should respond in the same terminal.
 
+This will only work while the SDM is running in local mode. To check this, run `atomist show sdms` and see whether your SDM is in the list.
+
 #### From chat
 [chat]: #from-chat
 
