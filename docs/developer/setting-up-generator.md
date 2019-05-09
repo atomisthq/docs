@@ -88,5 +88,7 @@ $ atomist generate-java-spring-project
 > # sdm 2019-05-03 14:37:22 Create Project
 >   Cloning seed project from starting point atomist-seeds/spring-rest at https://github.com/atomist-seeds/spring-rest
 > # sdm 2019-05-03 14:37:23 Create Project
->   Successfully created new project user/my-new-java-project at file://Users/gjtorikian/atomist/projects/user/my-new-java-project
+>   Successfully created new project user/my-new-java-project at file://Users/user/atomist/projects/user/my-new-java-project
 ```
+
+If you navigate to the `~/atomist/projects/user/my-new-java-project` directory, you'll see your brand new generated project!
