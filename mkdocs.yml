@@ -71,7 +71,11 @@ nav:
       - SDM Development:
         - Prerequisites: developer/prerequisites.md
         - Setting up TypeScript in your IDE: developer/typescript.md
-        - Event Listeners: developer/event.md
+        - Events:
+          - Event Listeners: developer/event.md
+          - Code samples:
+            - "Example: Responding to repository creation": developer/respond-to-repo-creation.md
+            - "Example: Responding to issue creation": developer/respond-to-issue-creation.md
         - Goals:
             - Create Goals: developer/goal.md
             - Setting Goals: developer/set-goals.md
@@ -107,6 +111,7 @@ nav:
         - Fingerprints: developer/fingerprint.md
         - Project Generators: developer/create.md
         - Delivery: developer/delivery.md
+        - "Example: Putting it together": developer/putting-it-together.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/

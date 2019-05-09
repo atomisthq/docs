@@ -1,6 +1,3 @@
-
-## SDM supported events
-
 In an SDM, there are several built-in events that you can take action on.
 You can also make a custom event subscription.
 
@@ -210,4 +207,3 @@ Include this in a [`TriggeredListenerRegistration`](https://atomist.github.io/sd
 or an `interval` in milliseconds.
 
 Pass the registration to [`sdm.addTriggeredListener`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#addtriggeredlistener).
-

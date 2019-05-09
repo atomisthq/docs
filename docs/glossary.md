@@ -6,14 +6,6 @@
  the part of the Atomist platform that is operated by Atomist the company:
  the event hub, GraphQL endpoint, and web interface. [more info](developer/architecture.md)
 
-#### PushRule
-
-a specification for goals to set on a given push. [more info](developer/set-goals.md#pushrule)
-
-#### PushTest
-
-a function that decides whether a particular push is relevant. It can look at the code and return a boolean. [more info](developer/set-goals.md#pushtest)
-
 #### autofix
 
 a code transform that is applied every push. [more info](developer/autofix.md)
@@ -132,6 +124,11 @@ the SDM framework lets you register listeners to various useful events. [check t
 #### projects directory
  (or "Atomist projects directory") this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](developer/local.md#directory-structure)
 
+#### PushRule
+
+Each argument to [`sdm.withPushRules`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)
+is a PushRule, contributing goals on a commit if a condition is met. That condition is a [PushTest](#pushtest).
+
 #### push event
 
 the most important event in delivery automation, a push represents new code arriving in a repository. Normally (in team mode) this is triggered when someone pushes commits to the central version control repository. In local mode, a push event is triggered on a commit.
@@ -143,6 +140,10 @@ a function that reacts to a change in code. It can do anything: send a message t
 #### push notification
 
 the message that atomist bot sends to chat after each push event. It gets updated to include information about builds, goal, tags, deployments, and more. [more info](user/lifecycle.md#push)
+
+#### PushTest
+
+a function that decides whether a particular push is relevant. It can look at the code and return a boolean. [more info](developer/set-goals.md#pushtest)
 
 #### registration
 

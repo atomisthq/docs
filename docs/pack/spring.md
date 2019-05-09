@@ -86,7 +86,7 @@ These transforms use the parameters defined in `SpringProjectCreationParameterDe
 ## Fingerprinting
 
 The `MavenFingerprinter` can be used in the `Fingerprint` goal in order to create a defining fingerprint for a build. In the case of the `MavenFingerprinter`,
-it will use the dependency information in the POM to create a dependency fingerprint. This way you can easily detect whether dependencies have changed between builds and act accordingly.
+it will use the dependency information in the POM to create a dependency fingerprint. This way you can detect whether dependencies have changed between builds and act accordingly.
 
 ## Review usage of provided dependency
 
@@ -141,4 +141,3 @@ The Spring support also provides a couple of [push tests](../developer/push-test
 
 * `HasSpringBootPom`: whether the POM of the project has a dependency to Spring Boot
 * `HasSpringBootApplicationClass`: whether the project has a class that is annotated with `@SpringBootApplication`
-
