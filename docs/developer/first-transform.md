@@ -73,7 +73,6 @@ const renamePackage: CodeTransform = (p: Project, inv) => {
 
 https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#dowithfiles
 
-
 ```typescript
 import { doWithFiles } from "@atomist/automation-client/lib/project/util/projectUtils";
 ```
