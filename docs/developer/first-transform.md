@@ -1,4 +1,4 @@
-As we mentioned elsewhere, [setting up a generator](/developer/setting-up-a-generator/) is a great way to establish a repository template from which all of your newer projects can derive. There's one more powerful function you can apply when generating a project, and that's a _code transform_.
+As we mentioned elsewhere, [setting up a generator](/developer/setting-up-generator/) is a great way to establish a repository template from which all of your newer projects can derive. There's one more powerful function you can apply when generating a project, and that's a _code transform_.
 
 A code transform allows you to change any of the files in a seed repository at the time of a project's generation. You can use it to do anything from changing the copyright year in source code header licenses to manipulating the AST of the files entirely.
 
@@ -61,35 +61,51 @@ transform: [
 
 ## Renaming a package.json file
 
-For a more complicated task, let's next
+As a more advanced task, let's rename the `"key"` value in the package.json file to match the name of our new project. In order to accomplish this, we will write our own custom code transform function, and pass it into the `transform` array.
+
+At the top of the file, import the `CodeTransform` function:
 
 ```typescript
 import { CodeTransform, GeneratorRegistration } from "@atomist/sdm";
 ```
 
+Now, let's write out what the basics for our custom transform will look like:
+
 ```typescript
-const renamePackage: CodeTransform = (p: Project, inv) => {
+const renamePackage: CodeTransform = (p: Project) => {
+
+};
 ```
 
-https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#dowithfiles
+The `Project` type represents the seed we are copying from, and it's the first argument passed to a code transform function. In our case, we want to find the package.json file, read its contents, and replace a string. Fortunately, there's a single method that will do the first two tasks for us called [`doWithFiles`](https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#dowithfiles). `doWithFiles` accepts a project, a glob pattern string, and calls a provided function on every matched filename.
+
+Import `doWithFiles` at the top of your code:
 
 ```typescript
 import { doWithFiles } from "@atomist/automation-client/lib/project/util/projectUtils";
 ```
 
+An initial outline of incorporating `doWithFiles` into the code transform function might look like this:
+
 ```typescript
-const renamePackage: CodeTransform = (p: Project, inv) => {
-  return doWithFiles(p, "*.json", async f => {
+const renamePackage: CodeTransform = (p: Project) => {
+  return doWithFiles(p, "package.json", async f => {
 
   });
 };
 ```
 
+Generally speaking, you could also pass an array of patterns into this method, if you had more than one file to change. In this case, though, we know that the package.json is right at the root of the directory. The `f` argument is of the type [`File`](https://atomist.github.io/automation-client/interfaces/_lib_project_file_.file.html). This means that you can call methods returning more information, such as `f.isBinary`, but it also provides convenience methods that modify its contents, such as `setContent`. In other words, you don't get a file handler, you get an abstracted object which you can query and maniulate.
+
+Since we need to replace a string, let's use the `replace` method here:
+
 ```typescript
-return doWithFiles(p, "*.json", async f => {
-    return f .replace(/"name": "express-es6-rest-api"/, `"name": "dynamic-name"`);
+return doWithFiles(p, "package.json", async f => {
+  return f.replace(/"name": "express-es6-rest-api"/, `"name": "dynamic-name"`);
 });
 ```
+
+The final step is to remember to include this function in the `transform` array:
 
 ```typescript
 transform: [
@@ -97,6 +113,8 @@ transform: [
   renamePackage,
 ],
 ```
+
+It's important to note that code transforms are processed in sequential order, so the README.md changes before the package.json file. In this case, it doesn't matter, but keep it in mind if you have multiple transforms that depend on one another.
 
 ## Testing the generator
 
