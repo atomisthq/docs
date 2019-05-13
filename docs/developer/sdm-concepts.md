@@ -10,8 +10,8 @@ that demonstrates the strengths of an SDM over traditional CI/CD pipelines.
 
 ## SDM process lifecycle
 
-The SDM lifecycle ought to be familiar to the flow of any persistent
-application:
+The SDM lifecycle should be a familiar flow if you've worked with persistent
+applications before:
 
 1.  **Authentication** - When the SDM starts up, it
     connects to the Atomist API and authenticates using the API key
@@ -109,7 +109,7 @@ to perform tasks such as:
     integration test suites.
 
 The Atomist correlated event model also enables Atomist to provide you
-with visibility throughout the commit to deployment flow, in Slack or
+with visibility throughout the commit to deployment flow, in Slack, Microsoft Teams or
 through the Atomist web interface.
 
 Some possible events include:
