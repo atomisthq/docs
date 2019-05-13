@@ -10,8 +10,8 @@ that demonstrates the strengths of an SDM over traditional CI/CD pipelines.
 
 ## SDM process lifecycle
 
-The SDM lifecycle should be a familiar flow if you've worked with any persistent
-application:
+The SDM lifecycle should be a familiar flow if you've worked with persistent
+applications before:
 
 1.  **Authentication** - When the SDM starts up, it
     connects to the Atomist API and authenticates using the API key
