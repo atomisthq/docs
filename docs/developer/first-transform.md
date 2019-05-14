@@ -116,6 +116,22 @@ transform: [
 
 It's important to note that code transforms are processed in sequential order, so the README.md changes before the package.json file. In this case, it doesn't matter, but keep it in mind if you have multiple transforms that depend on one another.
 
+## Adding the generator
+
+Next, in your `machine.ts` file, add the following line to import the file you've just created:
+
+```typescript
+import {
+    NodeExpressGenerator,
+} from "./node_generator";
+```
+
+Within the SDM logic itself, you'll add the generator via the `addGeneratorCommand` method:
+
+```typescript
+sdm.addGeneratorCommand(NodeExpressGenerator);
+```
+
 ## Testing the generator
 
 Let's see the command in action.
