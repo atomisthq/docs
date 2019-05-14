@@ -47,17 +47,27 @@ Atomist provides a number of extensions for common tasks, and in this case, [the
 npm i @atomist/sdm-pack-markdown
 ```
 
-Next, we'll import the method called `updateTitle` from this package
+Next, we'll import the method called `updatePageTitle` from this package
 
 ```typescript
-import { updateTitle } from "@atomist/sdm-pack-markdown";
+import { updatePageTitle } from "@atomist/sdm-pack-markdown";
 ```
 
-And finally, we'll put this function as the first element in the `transform` argument, passing in the name of the file to modify and the value we want the title to become:
+For functionality this brief, we can provide an anonymous function to the `transform` argument. (In the next section, we'll show how to define and provide your own transformation).
+
+The `updatePageTitle` function takes three arguments:
+
+* your project
+* the Markdown file to change
+* the new string you want the title to become
+
+As the first element in the `transform` argument, you can provide an anonymous function like so:
 
 ```typescript
 transform: [
-  updateTitle("README.md", "dynamic name"),
+  async (project, papi) => {
+    await updatePageTitle(project, "README.md", papi.parameters.target.repoRef.repo);
+  },
 ],
 ```
 
@@ -90,7 +100,7 @@ import { doWithFiles } from "@atomist/automation-client/lib/project/util/project
 An initial outline of incorporating `doWithFiles` into the code transform function might look like this:
 
 ```typescript
-const renamePackage: CodeTransform = (p: Project) => {
+const renamePackage: CodeTransform<SeedDrivenGeneratorParameters> = (project: Project, papi: PushAwareParametersInvocation<SeedDrivenGeneratorParameters>) => {
   return doWithFiles(p, "package.json", async f => {
 
   });
@@ -103,7 +113,7 @@ Since we need to replace a string, let's use the `replace` method here:
 
 ```typescript
 return doWithFiles(p, "package.json", async f => {
-  return f.replace(/"name": "express-es6-rest-api"/, `"name": "dynamic-name"`);
+  return f.replace(/"name": "express-es6-rest-api"/, `"name": "${papi.parameters.target.repoRef.repo}"`);
 });
 ```
 
@@ -111,7 +121,9 @@ The final step is to remember to include this function in the `transform` array:
 
 ```typescript
 transform: [
-  updateTitle("README.md", "dynamic name"),
+  async (project, papi) => {
+    await updatePageTitle(project, "README.md", papi.parameters.target.repoRef.repo);
+  },
   renamePackage,
 ],
 ```
