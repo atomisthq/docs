@@ -1,4 +1,4 @@
-As we mentioned elsewhere, [setting up a generator](/developer/setting-up-generator/) is a great way to establish a repository template from which all of your newer projects can derive. There's one more powerful function you can apply when generating a project, and that's a _code transform_.
+[Setting up a generator](/developer/setting-up-generator/) is a great way to establish a repository template from which all of your newer projects can derive. There's one more powerful function you can apply when generating a project, and that's a _code transform_.
 
 A code transform allows you to change any of the files in a seed repository at the time of a project's generation. You can use it to do anything from changing the copyright year in source code header licenses to manipulating the AST of the files entirely.
 
@@ -12,7 +12,9 @@ We'll be using the [atomist-seeds/express-es6-rest-api](https://github.com/atomi
 
 ## Registering a generator
 
-Since we've already gone through this before, we'll simply provide the generic generator boilerplate to get started.  Open up your SDM, and add a new file called `lib/node_generator.ts`. Paste the following lines to get started with your generator:
+You should already be familiar with how a project generator works; if you aren't sure, [we have a guide](/developer/setting-up-generator/) on that process. For this tutorial, we'll provide a basic generator to get started with adding a transform to it.
+
+Open up your SDM, and add a new file called `lib/node_generator.ts`. Paste the following lines to get started with your generator:
 
 ```typescript
 import { GitHubRepoRef } from "@atomist/automation-client";
