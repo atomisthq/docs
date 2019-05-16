@@ -126,6 +126,7 @@ nav:
   - Tutorials:
       - Building your First Delivery: developer/first_delivery.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
+      - Defining an SDM: developer/defining-sdm.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md

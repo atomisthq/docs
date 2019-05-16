@@ -1,0 +1,64 @@
+Most of the documentation we've written assumes that you have an SDM configured, and we've shown you how to what an SDM can do by defining goals. But how does one _start_ with a completely blank SDM? In this tutorial, we're going to build an SDM entirely from scratch, executing several goals on a Git push:
+
+* Autofix and fingerprint code
+* Build an artifact
+* Deploy an artifact
+
+We'll run all of this against a Node repository. To keep things simple, these goals will only contain simple code. All of the messages will be sent to a channel, and in this case, we'll use Slack.
+
+## Getting started
+
+Run `atomist create sdm` and select "blank" as your SDM time. Feel free to name it anything you like, but in this tutorial, we're going to call it `my-blank-sdm`:
+
+```
+? Type of SDM to create blank
+Please follow the prompts to create a new SDM
+
+? name of the target repository my-blank-sdm
+? (mapped parameter) target-owner <user>
+```
+
+Navigate to the directory created for you, run `npm install` to grab the Node dependencies, and then open the folder up in your editor of choice.
+
+## Defining your goals
+
+Unlike some of our other tutorials, where we focus on the code to implement a goal, in this tutorial we're going to start from the `machine.ts` file and set up what we want our actions to be. Your editor will probably complain a bit about TypeScript warnings at first, and that's okay! We promise you'll have working, error-free code by the end. 😃
+
+To start with, we said we wanted to autofix and fingerprint new commits that were pushed. Let's start with that:
+
+``` typescript
+const autofix = new Autofix().with(quoteLinter);
+
+const fingerprint = new Fingerprint().with(packageLockFingerprinter);
+```
+
+An [autofix](https://docs.atomist.com/developer/autofix/) is a type of code transform; as its name implies, it will automatically fix code that has changed to conform to a standard you've defined. This has the role of behaving exactly as a linter might, except that individual developers on your team don't need to remember to set up or configure that behavior. For this example, we'll pass it a function called `quoteLinter` which we'll define in a bit.
+
+After that, we'll [fingerprint](https://docs.atomist.com/developer/fingerprint/) the code. This is, essentially, a snapshot. Fingerprints can be useful when generating artifacts (as we will do in this tutorial) because they allow you to reference a "point in time" of your source code. That sounds similar to a commit, and it is, except that it also refers to more than just code changes. In this example, we'll create a fingerprint for our dependencies installed by npm.
+
+Next, we will build this artifact. Normally, a build is considered to be a step performed by a compiled language, like Java, to get some output, like a jar. But a build can also be considered to be something less rigorous, such as turning Markdown files into static HTML, or, in the case of Node, turning TypeScript into JavaScript.
+
+At the top of your machine.ts file, let's import two predefined functions useful for building Node packages:
+
+```typescript
+import { Build } from "@atomist/sdm-pack-build";
+import { nodeBuilder, NodeModulesProjectListener } from "@atomist/sdm-pack-node";
+```
+
+You might not have these modules in your SDM, so be sure to install them as well:
+
+```
+npm install @atomist/sdm-pack-build
+npm install @atomist/sdm-pack-node
+```
+
+And now, let's define our build step. In this case, we'll defer just to running the `build` command defined in our `package.json` file:
+
+```typescript
+const build = new Build().with({
+    name: "npm",
+    builder: nodeBuilder({ command: "npm", args: ["run", "build"] }),
+}).withProjectListener(NodeModulesProjectListener);
+```
+
+`NodeModulesProjectListener` is an interesting nicety. It is a type of [`GoalProjectListener`](https://docs.atomist.com/developer/goals-more/#create-a-goalprojectlistener) that first identifies whether or not a project is even a Node project, and if it is, runs `npm install` before running a build. This means that the different components of your SDM can remain the same while still performing different actions depending on the language of the repository.
