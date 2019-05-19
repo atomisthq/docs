@@ -4,7 +4,7 @@ When you're ready to craft your own delivery and development automation, this is
 
 ## Getting Started
 
-Get your own software development machine (SDM) by following the steps in [Developer Quick Start](../quick-start.md).
+Get your own Software Delivery Machine (SDM) by following the steps in [Developer Quick Start](../quick-start.md).
 
 ## Tutorials
 
