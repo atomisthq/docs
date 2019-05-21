@@ -26,7 +26,7 @@ A workspace member can have one or more roles within the workspace. Only a works
 | Role | Description |
 |---|---|
 | Administrator | Has full control over all aspects of the workspace |
-| Developer | For users developing an SDM connected to this workspace |
 | Operator | For users operating an SDM connected to this workspace |
+| Developer | For users developing an SDM connected to this workspace |
 | User | User of the workspace |
 
