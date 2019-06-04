@@ -4,7 +4,7 @@ An SDM is intended to be a configurable, programmable way to deliver your softwa
 
 We're going to perform two actions in this tutorial:
 
-1. First, we'll build a JAR artifact from a Java project, using a Docker image on the [Docker Image Registry](https://www.docker.com/products/image-registry); and
+1.  First, we'll build a JAR artifact from a Java project, using a Docker image on the [Docker Image Registry](https://www.docker.com/products/image-registry); and
 2, We'll feed that JAR into [Kaniko](https://github.com/GoogleContainerTools/kaniko) in order to build the container image.
 
 ## Prerequisite
