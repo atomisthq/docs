@@ -65,5 +65,3 @@ Just some other text
 ```
 <!-- atomist:code-snippet:end-->
 
-
-
