@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 * Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
+* Fix typo. [#292](https://github.com/atomist/docs/issues/292)
 
 ## [11.0.1](https://github.com/atomist/docs/compare/11.0.0...11.0.1) - 2018-08-27
 

@@ -52,3 +52,16 @@ In addition, a generator command automatically gets some parameters that every g
 ## Code sample
 
 Check out [our guide on setting up a generator](/developer/setting-up-generator/) for a complete example.
+
+## Common generators
+
+To make a .Net generator, you could use this:
+
+Some more text to make it more interesting
+
+<!-- atomist:code-snippet:start=lib/sdm/dotnetCore.ts#dotnetGenerator -->
+```typescript
+Just some other text
+```
+<!-- atomist:code-snippet:end-->
+

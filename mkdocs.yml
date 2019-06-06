@@ -124,9 +124,10 @@ nav:
         - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
   - Tutorials:
+      - Defining an SDM: developer/defining-sdm.md
       - Building your First Delivery: developer/first_delivery.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
-      - Defining an SDM: developer/defining-sdm.md
+      - Writing your First Code Transform: developer/first-transform.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md
