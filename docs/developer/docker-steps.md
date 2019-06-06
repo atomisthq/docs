@@ -5,7 +5,7 @@ An SDM is intended to be a configurable, programmable way to deliver your softwa
 We're going to perform two actions in this tutorial:
 
 1.  First, we'll build a JAR artifact from a Java project, using a Docker image on the [Docker Image Registry](https://www.docker.com/products/image-registry); and
-2, We'll feed that JAR into [Kaniko](https://github.com/GoogleContainerTools/kaniko) in order to build the container image.
+2.  We'll feed that JAR into [Kaniko](https://github.com/GoogleContainerTools/kaniko) in order to build the container image.
 
 ## Prerequisite
 
@@ -32,8 +32,7 @@ Generally, the hardest part of performing an action through a container is ident
 Let's show the final code first and then break down what's happening line-by-line:
 
 ```typescript
-const mvnBuildJdk8 = new Container({ displayName: "Maven JDK8" })
-    .with({
+const mvnBuildJdk8 = containerRun("Maven JDK8", {
         container: {
             name: "mvn",
             image: "maven:3.3-jdk-8",
@@ -44,7 +43,7 @@ const mvnBuildJdk8 = new Container({ displayName: "Maven JDK8" })
 });
 ```
 
-The first argument, `displayName`, behaves the same as [`displayName` for any Build action](https://docs.atomist.com/developer/build/#the-build-goal): it provides a more specific identifier for logs and such.
+The first argument behaves similarly to the as [`displayName` for any Build action](https://docs.atomist.com/developer/build/#the-build-goal): it provides a more specific identifier for logs and such.
 
 After that comes the `container` argument, which is where a bulk of the logic resides. The format of the resulting command is in the form of
 
@@ -52,7 +51,7 @@ After that comes the `container` argument, which is where a bulk of the logic re
  docker run IMAGE [COMMAND] [ARG...]
  ```
 
- The `.with` function will call `docker run` and pass along the options you provide as follows:
+ The individual arguments are passed in as options that you provide:
 
 * `name` is passed along through the command-line as `--name`
 * `image` defines the base Docker image to use
@@ -73,3 +72,54 @@ return [
 ```
 
 On a push, if the repository has a `pom.xml` file, we'll set the `build` goal to our `mvnBuildJdk8` process. Otherwise, the SDM won't do anything.
+
+## Building a Docker image
+
+Now that we have a JAR, our next step will be to generate a container image from it. To do this, we'll use kaniko. kaniko doesn't require a Docker daemon to be running, so it can be idle for an environment such as an SDM.
+
+As before, let's start with the code and work our way towards understanding what's going on:
+
+```typescript
+const kanikoBuild = containerRun("Kaniko", {
+    container: {
+        name: "kaniko",
+        image: "gcr.io/kaniko-project/executor:latest",
+        args: [
+            "--dockerfile=Dockerfile",
+            "--context=dir://atm/home",
+            "--no-push",
+            "--single-snapshot",
+        ],
+    },
+    input: ["target/*.jar"],
+});
+```
+
+The `Kaniko` and `kaniko` names provide human-readable strings for the SDM and the resulting image, respectively.
+
+According to the documentation, kaniko is meant to be run as an image, so, just like above, we pass it the location of the container image we want to use as a base for this process.
+
+You can learn more about the rest of the arguments and optional flags from [the kaniko documentation](https://github.com/GoogleContainerTools/kaniko#additional-flags). In this example, we're:
+
+* passing the location of our Dockerfile (relative to the directory of the repository) (`--dockerfile`)
+* providing the path to directory that contains the Dockerfile ([`--context`](https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts))
+* indicating that we want to build the image _without_ pushing to a registry (`--no-push`)
+* taking a snapshot at the end of the build (`--single-snapshot`)
+
+And finally, since we require the artifact we built earlier to be include as part of this final image, we pass in our JAR that we create as an argument to `input`.
+
+Just as we only want to build our JAR in the Maven repositories our SDM is listening to, we only want to build our Docker image in locations with a `Dockerfile`. We will once again configure a [push rule](https://docs.atomist.com/developer/set-goals/#set-goals-on-push-with-push-rules), with one additional step: we'll make sure to run this goal _after_ we build the JAR file.
+
+```typescript
+return [
+    whenPushSatisfies(
+        hasFile("pom.xml")).setGoals(
+        goals("build").plan(mvnBuildJdk8),
+    ),
+    whenPushSatisfies(
+        hasFile("Dockerfile")).setGoals(
+        goals("docker build")
+            .plan(kanikoBuild).after(mvnBuildJdk8),
+    ),
+];
+```
