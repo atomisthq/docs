@@ -234,7 +234,7 @@ In the event of a squash, the commit message of the new commit will be the title
 
 ## Return values of code transforms
 
-Your code transform can return void, or the Project that was input, or a TransformResult. The TransformResult 
+Your code transform can return void, or the Project that was input, or a TransformResult. The TransformResult
 (also called EditResult) can describe the result of the transform and what you would like to do with the changes.
 
 * `success` tells whether the transform succeeded. If success is false, the changes will not be committed.
