@@ -1,15 +1,23 @@
 .md-nav__link:active {
-    color: #172330;
+	color: #172330;
 }
 
 .md-nav__link:hover {
-    color: #172330;
+	color: #172330;
+}
+
+/* See: docs-sdm autofix codeInline */
+
+.sample-code {
+	text-align: right;
+	font-size: 0.8em;
+	line-height: 0.5em;
 }
 
 /* OVERRIDES OF MATERIAL THEME IN LIEU OF CUSTOM THEME */
 
 body, input {
-    font-family: aktiv-grotesk,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: aktiv-grotesk, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3 {
@@ -57,7 +65,7 @@ h1 {
 }
 
 .md-search {
- padding: 0 !important;
+	padding: 0 !important;
 }
 
 .md-search__inner {
@@ -161,19 +169,19 @@ h1 {
 	border-left-color: #217f7e !important;
 }
 
-.md-typeset .admonition.summary > .admonition-title, .md-typeset details.summary > .admonition-title, .md-typeset .admonition.tldr > .admonition-title, .md-typeset details.tldr > .admonition-title, .md-typeset .admonition.summary > summary, .md-typeset details.summary > summary, .md-typeset .admonition.tldr > summary, .md-typeset details.tldr > summary, .md-typeset .admonition.abstract > .admonition-title, .md-typeset details.abstract > .admonition-title, .md-typeset .admonition.abstract > summary, .md-typeset details.abstract > summary {
+.md-typeset .admonition.summary>.admonition-title, .md-typeset details.summary>.admonition-title, .md-typeset .admonition.tldr>.admonition-title, .md-typeset details.tldr>.admonition-title, .md-typeset .admonition.summary>summary, .md-typeset details.summary>summary, .md-typeset .admonition.tldr>summary, .md-typeset details.tldr>summary, .md-typeset .admonition.abstract>.admonition-title, .md-typeset details.abstract>.admonition-title, .md-typeset .admonition.abstract>summary, .md-typeset details.abstract>summary {
 	background-color: rgba(34, 127, 126, 0.1) !important;
 }
 
-.md-typeset .admonition > .admonition-title, .md-typeset details > .admonition-title, .md-typeset .admonition > summary, .md-typeset details > summary {
+.md-typeset .admonition>.admonition-title, .md-typeset details>.admonition-title, .md-typeset .admonition>summary, .md-typeset details>summary {
 	background-color: rgba(34, 127, 126, 0.1) !important;
 }
 
-.md-typeset .admonition.summary > .admonition-title::before, .md-typeset details.summary > .admonition-title::before, .md-typeset .admonition.tldr > .admonition-title::before, .md-typeset details.tldr > .admonition-title::before, .md-typeset .admonition.summary > summary::before, .md-typeset details.summary > summary::before, .md-typeset .admonition.tldr > summary::before, .md-typeset details.tldr > summary::before, .md-typeset .admonition.abstract > .admonition-title::before, .md-typeset details.abstract > .admonition-title::before, .md-typeset .admonition.abstract > summary::before, .md-typeset details.abstract > summary::before {
+.md-typeset .admonition.summary>.admonition-title::before, .md-typeset details.summary>.admonition-title::before, .md-typeset .admonition.tldr>.admonition-title::before, .md-typeset details.tldr>.admonition-title::before, .md-typeset .admonition.summary>summary::before, .md-typeset details.summary>summary::before, .md-typeset .admonition.tldr>summary::before, .md-typeset details.tldr>summary::before, .md-typeset .admonition.abstract>.admonition-title::before, .md-typeset details.abstract>.admonition-title::before, .md-typeset .admonition.abstract>summary::before, .md-typeset details.abstract>summary::before {
 	color: #217f7e !important;
 }
 
-.md-typeset .admonition > .admonition-title::before, .md-typeset details > .admonition-title::before, .md-typeset .admonition > summary::before, .md-typeset details > summary::before {
+.md-typeset .admonition>.admonition-title::before, .md-typeset details>.admonition-title::before, .md-typeset .admonition>summary::before, .md-typeset details>summary::before {
 	color: #217f7e !important;
 }
 
@@ -218,8 +226,7 @@ html .md-footer-meta.md-typeset a.md-footer-social__link {
 	}
 }
 
-@media only screen and (min-width: 76.25em) {
-}
+@media only screen and (min-width: 76.25em) {}
 
 @media only screen and (max-width: 44.9375em) {
 	.md-footer-meta {
@@ -228,36 +235,29 @@ html .md-footer-meta.md-typeset a.md-footer-social__link {
 }
 
 @media only screen and (max-width: 76.1875em) {
-
 	.md-nav__item--nested .md-nav .md-nav__list {
 		margin-top: 0px !important;
 	}
-
 	.md-nav--primary .md-nav__link {
 		padding: 20px 40px 20px 20px !important;
 	}
-
 	.md-nav__source {
 		padding-bottom: 15px !important;
 		padding-top: 15px !important;
 	}
-
 	html .md-nav--primary .md-nav__title {
 		height: auto;
 		line-height: 1;
 		padding: 22px 20px 22px 50px;
 	}
-
 	html .md-nav--primary .md-nav__title--site {
 		background-color: #227F7E !important;
 		color: white !important;
 		padding-left: 20px !important;
 	}
-
 	.visit-main-site {
 		display: none;
 	}
-
 	.md-icon--menu {
 		background-color: #227f7e;
 		color: white;
@@ -266,15 +266,12 @@ html .md-footer-meta.md-typeset a.md-footer-social__link {
 		top: 10px;
 		left: 10px;
 	}
-
 	.md-header-nav__button.md-icon--home, .md-header-nav__button.md-logo {
 		display: inline-block !important;
 	}
-
 	.md-nav__title {
 		margin-bottom: 0px !important;
 	}
-
 	.md-nav__item {
 		margin-bottom: 0px !important;
 	}
