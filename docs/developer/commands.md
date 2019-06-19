@@ -35,13 +35,9 @@ who invoked the command.
 Armed with this information, we can write our command listener
 function.
 
-```typescript
-import { HandlerResult, NoParameters } from "@atomist/automation-client";
-import { CommandListenerInvocation } from "@atomist/sdm";
-export async function helloWorldListener(ci: CommandListenerInvocation<NoParameters>): Promise<void> {
-    return ci.addressChannels("Hello, world");
-}
-```
+<!-- atomist:code-snippet:start=lib/command/helloWorld.ts#helloWorldCommand -->
+TS goes here
+<!-- atomist:code-snippet:end -->
 
 You can see the `CommandListenerInvocation` has an `addressChannels` property,
 which sends a message to the appropriate places -- in this case, to wherever the
@@ -59,18 +55,10 @@ command execution is considered unsuccessful.
 The next thing to do is register your command in your SDM.  First, we
 create a `CommandHandlerRegistration`.
 
-```typescript
-import { CommandHandlerRegistration } from "@atomist/sdm";
-const helloWorldCommand: CommandHandlerRegistration = {
-    name: "HelloWorld",
-    description: "Responds with a friendly greeting to everyone",
-    intent: "hello",
-    listener: async ci => {
-        await ci.addressChannels("Hello, world");
-        return { code: 0 };
-    },
-};
-```
+
+<!-- atomist:code-snippet:start=lib/command/helloWorld.ts#helloWorldCommandRegistration -->
+TS goes here
+<!-- atomist:code-snippet:end -->
 
 We provide a unique name and description in the registration.  The
 value of the `intent` property defines the command you enter to invoke
@@ -81,31 +69,10 @@ the command to `helloWorldCommand.listener(ci)`.
 Once we have the registration, we can add the command to our SDM
 object.
 
-```typescript
-import { Configuration } from "@atomist/automation-client";
-import {
-    SoftwareDeliveryMachine,
-    SoftwareDeliveryMachineConfiguration,
-} from "@atomist/sdm";
-import {
-    createSoftwareDeliveryMachine,
-    configureSdm,
-} from "@atomist/sdm-core";
-function machine(configuration: SoftwareDeliveryMachineConfiguration): SoftwareDeliveryMachine {
-    const sdm = createSoftwareDeliveryMachine({
-        name: "My SDM",
-        configuration,
-    });
-    sdm.addCommand(helloWorldCommand);
-    return sdm;
-}
-export const configuration: Configuration = {
-    postProcessors: [configureSdm(machine)],
-};
-```
 
-The `configuration` object should be exported from the `index.ts` of
-your SDM.
+<!-- atomist:code-snippet:start=lib/command/helloWorld.ts#helloWorldCommandAdd -->
+TS goes here
+<!-- atomist:code-snippet:end -->
 
 ### Run your command
 [command line]: #run-your-command
