@@ -6,6 +6,14 @@
 	color: #172330;
 }
 
+/* See: docs-sdm autofix codeInline */
+
+.sample-code {
+	text-align: right;
+	font-size: 0.8em;
+	line-height: 0.5em;
+}
+
 /* OVERRIDES OF MATERIAL THEME IN LIEU OF CUSTOM THEME */
 
 body, input {
