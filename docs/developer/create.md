@@ -57,8 +57,6 @@ Check out [our guide on setting up a generator](/developer/setting-up-generator/
 
 To make a .Net generator, you could use this:
 
-Some more text to make it more interesting
-
 <!-- atomist:code-snippet:start=lib/sdm/dotnetCore.ts#dotnetGenerator -->
 ```typescript
 /**
