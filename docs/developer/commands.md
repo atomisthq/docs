@@ -36,7 +36,16 @@ Armed with this information, we can write our command listener
 function.
 
 <!-- atomist:code-snippet:start=lib/command/helloWorld.ts#helloWorldCommand -->
-TS goes here
+```typescript
+import { NoParameters } from "@atomist/automation-client";
+import { CommandListenerInvocation } from "@atomist/sdm";
+
+export async function helloWorldListener(ci: CommandListenerInvocation<NoParameters>): Promise<void> {
+    return ci.addressChannels("Hello, world");
+}
+```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'helloWorldCommand' found in https://raw.githubusercontent.com/atomist/samples/master/lib/command/helloWorld.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L28-L33" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 You can see the `CommandListenerInvocation` has an `addressChannels` property,
@@ -57,7 +66,21 @@ create a `CommandHandlerRegistration`.
 
 
 <!-- atomist:code-snippet:start=lib/command/helloWorld.ts#helloWorldCommandRegistration -->
-TS goes here
+```typescript
+import { CommandHandlerRegistration } from "@atomist/sdm";
+
+export const helloWorldCommand: CommandHandlerRegistration = {
+    name: "HelloWorld",
+    description: "Responds with a friendly greeting to everyone",
+    intent: "hello",
+    listener: async ci => {
+        await ci.addressChannels("Hello, world");
+        return { code: 0 };
+    },
+};
+```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'helloWorldCommandRegistration' found in https://raw.githubusercontent.com/atomist/samples/master/lib/command/helloWorld.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L37-L47" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 We provide a unique name and description in the registration.  The
@@ -71,7 +94,11 @@ object.
 
 
 <!-- atomist:code-snippet:start=lib/command/helloWorld.ts#helloWorldCommandAdd -->
-TS goes here
+```typescript
+sdm.addCommand(helloWorldCommand);
+```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'helloWorldCommandAdd' found in https://raw.githubusercontent.com/atomist/samples/master/lib/command/helloWorld.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L59-L59" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 ### Run your command

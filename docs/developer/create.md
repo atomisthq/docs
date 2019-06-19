@@ -61,7 +61,24 @@ Some more text to make it more interesting
 
 <!-- atomist:code-snippet:start=lib/sdm/dotnetCore.ts#dotnetGenerator -->
 ```typescript
-Just some other text
+/**
+ * .NET Core generator registration
+ */
+const DotnetCoreGenerator: GeneratorRegistration = {
+    name: "DotnetCoreGenerator",
+    intent: "create dotnet-core project",
+    description: "Creates a new .NET Core project",
+    tags: ["dotnet"],
+    autoSubmit: true,
+    startingPoint: GitHubRepoRef.from({ owner: "atomist-seeds", repo: "dotnet-core-service", branch: "master" }),
+    transform: [
+        UpdateReadmeTitle,
+        replaceSeedSlug("atomist-seeds", "dotnet-core-service"),
+        DotnetCoreProjectFileCodeTransform,
+    ],
+};
 ```
-<!-- atomist:code-snippet:end-->
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'dotnetGenerator' found in https://raw.githubusercontent.com/atomist/samples/master/lib/sdm/dotnetCore.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/sdm/dotnetCore.ts#L72-L87" target="_blank">Source</a></div>
+<!-- atomist:code-snippet:end -->
 
