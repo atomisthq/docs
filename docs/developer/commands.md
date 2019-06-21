@@ -68,6 +68,8 @@ create a `CommandHandlerRegistration`.
 ```typescript
 import { CommandHandlerRegistration } from "@atomist/sdm";
 
+
+
 export const helloWorldCommand: CommandHandlerRegistration = {
     name: "HelloWorld",
     description: "Responds with a friendly greeting to everyone",
@@ -79,7 +81,7 @@ export const helloWorldCommand: CommandHandlerRegistration = {
 };
 ```
 <!-- atomist:docs-sdm:codeSnippetInline: Snippet 'helloWorldCommandRegistration' found in https://raw.githubusercontent.com/atomist/samples/master/lib/command/helloWorld.ts -->
-<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L37-L47" target="_blank">Source</a></div>
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L37-L49" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 We provide a unique name and description in the registration.  The
@@ -96,7 +98,7 @@ object.
 sdm.addCommand(helloWorldCommand);
 ```
 <!-- atomist:docs-sdm:codeSnippetInline: Snippet 'helloWorldCommandAdd' found in https://raw.githubusercontent.com/atomist/samples/master/lib/command/helloWorld.ts -->
-<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L59-L59" target="_blank">Source</a></div>
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/helloWorld.ts#L61-L61" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 ### Run your command
