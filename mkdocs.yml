@@ -111,6 +111,7 @@ nav:
         - Fingerprints: developer/fingerprint.md
         - Project Generators: developer/create.md
         - Delivery: developer/delivery.md
+        - Automating common tasks: developer/automating-common-tasks.md
         - "Example: Putting it together": developer/putting-it-together.md
       - API Reference:
         - automation-client: https://atomist.github.io/automation-client/
