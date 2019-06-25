@@ -2,11 +2,11 @@ The Atomist SDM is event-driven, and can react to actions performed by members o
 
 ## Seed repositories
 
-Often, you will want every repository in an organization to use some set of pre-approved files. For example, perhaps every new project requires a specific software license. You can make use of Atomist's capability to generate new repositories from [a seed repository](https://docs.atomist.com/developer/create/). A seed repo can be thought of as a static template from which new repositories can be created. It's different from a regular Git fork in that the new repository is in its own network and with its own history.
+Often, you will want every repository in an organization to use some set of pre-approved files. For example, perhaps every new project requires a specific software license. You can make use of Atomist's capability to generate new repositories from [a seed repository](/developer/create/). A seed repo can be thought of as a static template from which new repositories can be created. It's different from a regular Git fork in that the new repository is in its own network and with its own history.
 
 ### Events you can use
 
-* [Repository creation](https://docs.atomist.com/developer/event/#repository-creation)
+* [Repository creation](/developer/event/#repository-creation)
 
 ### Components you can use
 
@@ -14,7 +14,7 @@ Often, you will want every repository in an organization to use some set of pre-
 
 ## Detecting files in a repository
 
-You may wish for files in a repository to conform to a set of guidelines. For example, enforcing a specific version of a package, or making sure that every project has a contributing guide and a code of conduct. Atomist allows you to [inspect repositories](https://docs.atomist.com/developer/inspect/) to detect whether files meet conditions you define.
+You may wish for files in a repository to conform to a set of guidelines. For example, enforcing a specific version of a package, or making sure that every project has a contributing guide and a code of conduct. Atomist allows you to [inspect repositories](/developer/inspect/) to detect whether files meet conditions you define.
 
 ### Events you can use
 
@@ -27,7 +27,7 @@ You may wish for files in a repository to conform to a set of guidelines. For ex
 
 ## Modifying files in a repository
 
-Atomist can also modify files via its [code transform](https://docs.atomist.com/developer/transform/) functionality. This can be useful if files needs to be linted to be rewritten to adhere to a standard.
+Atomist can also modify files via its [code transform](/developer/transform/) functionality. This can be useful if files needs to be linted to be rewritten to adhere to a standard.
 
 ### Events you can use
 
