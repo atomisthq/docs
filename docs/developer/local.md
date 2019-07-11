@@ -1,5 +1,5 @@
 When you run an SDM in local mode, it operates in the privacy of your laptop.
-Everything is open source. 
+Everything is open source.
 This SDM can:
 
 * *run goals in response to a commit*

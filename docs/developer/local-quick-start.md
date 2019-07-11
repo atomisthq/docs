@@ -91,7 +91,6 @@ bash support).
     In team mode, these messages would go to chat; in local mode,
     they print to this feed.
 
-
 From here, you can go a few different ways.
 If you want to add or test commands, you are set up. Pop over to [Creating a command](commands.md#creating-a-command) for further instructions.
 
@@ -102,11 +101,11 @@ on those commits. These repositories need to be set up to notify the SDM on comm
 
 There are three ways to set these up:
 
-*  Have Atomist clone the repository. `atomist clone <owner>/<repo>` will put the repository in the expected 
+* Have Atomist clone the repository. `atomist clone <owner>/<repo>` will put the repository in the expected
 [directory structure][] and set up the git hooks.
-*  If your repositories are already in the expected [directory structure][], then `atomist add git hooks` will set up the git hooks.
-*  Have your SDM create the repository. If your SDM has a [project generator](create.md), then running that command
-(usually `atomist create ...`) will put the new project in the right location with the right hooks. If not, you can 
+* If your repositories are already in the expected [directory structure][], then `atomist add git hooks` will set up the git hooks.
+* Have your SDM create the repository. If your SDM has a [project generator](create.md), then running that command
+(usually `atomist create ...`) will put the new project in the right location with the right hooks. If not, you can
 [make a generator](setting-up-generator.md) of your own.
 
 [directory-structure]: local.md#directory-structure (Directory Structure)
@@ -114,10 +113,8 @@ There are three ways to set these up:
 Now you can do things like [make an autofix]() that will check your code on each commit. Look for output in
 the [feed](cli.md#atomist-feed).
 
-
 [brew]: https://brew.sh/ (Homebrew - The missing package manager for macOS)
 [node]: https://nodejs.org/ (Node.js)
-
 
 When you're ready to put your SDM to work for your whole team,
 continue with [setup][].
