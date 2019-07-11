@@ -92,7 +92,7 @@ bash support).
     they print to this feed.
 
 From here, you can go a few different ways.
-If you want to add or test commands, you are set up. Pop over to 
+If you want to add or test commands, you are set up. Pop over to
 [Creating a command](commands.md#create-a-command) for further instructions.
 
 ## Hooking up repositories to your SDM
