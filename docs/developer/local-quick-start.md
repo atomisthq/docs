@@ -92,7 +92,8 @@ bash support).
     they print to this feed.
 
 From here, you can go a few different ways.
-If you want to add or test commands, you are set up. Pop over to [Creating a command](commands.md#creating-a-command) for further instructions.
+If you want to add or test commands, you are set up. Pop over to 
+[Creating a command](commands.md#create-a-command) for further instructions.
 
 ## Hooking up repositories to your SDM
 
@@ -110,8 +111,8 @@ There are three ways to set these up:
 
 [directory-structure]: local.md#directory-structure (Directory Structure)
 
-Now you can do things like [make an autofix]() that will check your code on each commit. Look for output in
-the [feed](cli.md#atomist-feed).
+Now you can do things like [make an autofix](autofix.md) that will check your code on each commit.
+Look for output in the [feed](cli.md#atomist-feed).
 
 [brew]: https://brew.sh/ (Homebrew - The missing package manager for macOS)
 [node]: https://nodejs.org/ (Node.js)
