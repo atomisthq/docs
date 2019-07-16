@@ -186,7 +186,7 @@ The button specification is defined by Slack in the [field guide](https://api.sl
 Here is an example of a button with a confirmation pop-up:
 
 ```typescript
-import { ButtonSpecification } from "@atomist/sdm";
+import { ButtonSpecification } from "@atomist/automation-client";
 
 const buttonSpec: ButtonSpecification = {
     text: "Search Again",

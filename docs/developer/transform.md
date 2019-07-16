@@ -217,7 +217,7 @@ export const AddApacheLicenseFile: CodeTransformRegistration<AddApacheLicenseFil
 
 By default, you still need to manually merge the pull request. You can however configure code transforms to auto merge on a successful goalset execution. You can achieve this by pressing the `Enable Auto Merge` button that is shown in Slack in the pull request message. This will add a certain label (`auto-merge:on-check-success`) to the pull request, which indicates to Atomist that the pull request needs to be merged on a succesful goalset execution. You can also add that label manually in Github if you want to.
 
-!!! atttention "Adding labels to Github"
+!!! attention "Adding labels to Github"
     If the labels are missing in Github, issue the `@atomist add auto merge labels` command in the channel linked to a repository
 
 ## Changing merge behavior of pull requests
@@ -231,6 +231,17 @@ In the event of a squash, the commit message of the new commit will be the title
 
 !!! attention "Adding labels to Github"
     If the labels are missing in Github, issue the `@atomist add auto merge labels` command in the channel linked to a repository
+
+## Return values of code transforms
+
+Your code transform can return void, or the Project that was input, or a TransformResult. The TransformResult
+(also called EditResult) can describe the result of the transform and what you would like to do with the changes.
+
+* `success` tells whether the transform succeeded. If success is false, the changes will not be committed.
+* `edited` tells whether the transform made any changes. If false, no commit is made.
+* `target` is the input Project.
+* `editMode` describes how to handle the changes. Use an [EditMode](https://atomist.github.io/automation-client/interfaces/_lib_operations_edit_editmodes_.editmode.html) such as BranchCommit or [PullRequest](https://atomist.github.io/automation-client/classes/_lib_operations_edit_editmodes_.pullrequest.html).
+* `error` is an exception that occurred. Use this when you set success to false.
 
 ## Advanced usage
 

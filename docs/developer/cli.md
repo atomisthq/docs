@@ -22,11 +22,11 @@ To find out what you can show, use `atomist show --help`.
 Run your SDM! In your SDM's project directory, `atomist start` will start it up. By default, it
 starts in [team mode](team.md). Here are some important options:
 
-*--local* Run in local mode
+`--local` Run in local mode
 
-*--no-compile* By default, `atomist start` will compile the project. Use this option to skip that step.
+`--no-compile` By default, `atomist start` will compile the project. Use this option to skip that step.
 
-*--change-dir &gt;dir&lt;* Run an SDM that's in another directory.
+`--change-dir <dir>` Run an SDM that's in another directory.
 
 After you start an SDM, leave it running in that terminal. The logs print to the screen.
 

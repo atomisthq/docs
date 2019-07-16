@@ -52,3 +52,31 @@ In addition, a generator command automatically gets some parameters that every g
 ## Code sample
 
 Check out [our guide on setting up a generator](/developer/setting-up-generator/) for a complete example.
+
+## Common generators
+
+To make a .Net generator, you could use this:
+
+<!-- atomist:code-snippet:start=lib/sdm/dotnetCore.ts#dotnetGenerator -->
+```typescript
+/**
+ * .NET Core generator registration
+ */
+const DotnetCoreGenerator: GeneratorRegistration = {
+    name: "DotnetCoreGenerator",
+    intent: "create dotnet-core project",
+    description: "Creates a new .NET Core project",
+    tags: ["dotnet"],
+    autoSubmit: true,
+    startingPoint: GitHubRepoRef.from({ owner: "atomist-seeds", repo: "dotnet-core-service", branch: "master" }),
+    transform: [
+        UpdateReadmeTitle,
+        replaceSeedSlug("atomist-seeds", "dotnet-core-service"),
+        DotnetCoreProjectFileCodeTransform,
+    ],
+};
+```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'dotnetGenerator' found in https://raw.githubusercontent.com/atomist/samples/master/lib/sdm/dotnetCore.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/sdm/dotnetCore.ts#L69-L84" target="_blank">Source</a></div>
+<!-- atomist:code-snippet:end -->
+

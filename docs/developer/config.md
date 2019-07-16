@@ -10,7 +10,7 @@ configuration](#user-configuration) is likely your best choice.  If
 you are running an SDM on a server in a
 testing or production environment, you will likely want to use the
 [environment variable](#environment-variable) approach.
-For the full list of configuration sources, see the [API doc][configuration-apidoc]. s
+For the full list of configuration sources, see the [API docs][configuration-apidoc].
 
 Regardless of the approach you take, the minimum information required
 to successfully start an SDM is an [API key](prerequisites.md#atomist-api-key)
