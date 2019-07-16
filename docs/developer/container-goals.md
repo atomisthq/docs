@@ -1,4 +1,4 @@
-# Creating Docker Steps
+# Creating Container Goals
 
 An SDM is intended to be a configurable, programmable way to deliver your software, and in this tutorial, we'll take a look at how you can build your own pipeline for creating a [Docker](https://www.docker.com/) image.
 
@@ -33,13 +33,13 @@ Let's show the final code first and then break down what's happening line-by-lin
 
 ```typescript
 const mvnBuildJdk8 = containerRun("Maven JDK8", {
-        container: {
-            name: "mvn",
-            image: "maven:3.3-jdk-8",
-            command: ["mvn"],
-            args: ["clean", "install", "-B", "-DskipTests=true"],
-        },
-        output: ["target/*.jar"],
+  container: {
+    name: "mvn",
+    image: "maven:3.3-jdk-8",
+    command: ["mvn"],
+    args: ["clean", "install", "-B", "-DskipTests=true"]
+  },
+  output: ["target/*.jar"]
 });
 ```
 
@@ -49,14 +49,14 @@ After that comes the `container` argument, which is where a bulk of the logic re
 
 ```
  docker run IMAGE [COMMAND] [ARG...]
- ```
+```
 
- The individual arguments are passed in as options that you provide:
+The individual arguments are passed in as options that you provide:
 
-* `name` is passed along through the command-line as `--name`
-* `image` defines the base Docker image to use
-* `command` is analogous to [`entrypoint`](https://docs.docker.com/search/?q=entrypoint), and configures the container to run as an executable
-* `args` appends any arguments to `command`, which in this case, are what Maven needs to complete its task
+- `name` is passed along through the command-line as `--name`
+- `image` defines the base Docker image to use
+- `command` is analogous to [`entrypoint`](https://docs.docker.com/search/?q=entrypoint), and configures the container to run as an executable
+- `args` appends any arguments to `command`, which in this case, are what Maven needs to complete its task
 
 Finally, `output` identifies where you'd like the resulting JAR to be located.
 
@@ -64,10 +64,9 @@ Next, we only want this logic to run on the Maven-configured projects our SDM is
 
 ```typescript
 return [
-    whenPushSatisfies(
-        hasFile("pom.xml")).setGoals(
-        goals("build").plan(mvnBuildJdk8),
-    ),
+  whenPushSatisfies(hasFile("pom.xml")).setGoals(
+    goals("build").plan(mvnBuildJdk8)
+  )
 ];
 ```
 
@@ -81,17 +80,17 @@ As before, let's start with the code and work our way towards understanding what
 
 ```typescript
 const kanikoBuild = containerRun("Kaniko", {
-    container: {
-        name: "kaniko",
-        image: "gcr.io/kaniko-project/executor:latest",
-        args: [
-            "--dockerfile=Dockerfile",
-            "--context=dir://atm/home",
-            "--no-push",
-            "--single-snapshot",
-        ],
-    },
-    input: ["target/*.jar"],
+  container: {
+    name: "kaniko",
+    image: "gcr.io/kaniko-project/executor:latest",
+    args: [
+      "--dockerfile=Dockerfile",
+      "--context=dir://atm/home",
+      "--no-push",
+      "--single-snapshot"
+    ]
+  },
+  input: ["target/*.jar"]
 });
 ```
 
@@ -101,10 +100,10 @@ According to the documentation, kaniko is meant to be run as an image, so, just 
 
 You can learn more about the rest of the arguments and optional flags from [the kaniko documentation](https://github.com/GoogleContainerTools/kaniko#additional-flags). In this example, we're:
 
-* passing the location of our Dockerfile (relative to the directory of the repository) (`--dockerfile`)
-* providing the path to directory that contains the Dockerfile ([`--context`](https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts))
-* indicating that we want to build the image _without_ pushing to a registry (`--no-push`)
-* taking a snapshot at the end of the build (`--single-snapshot`)
+- passing the location of our Dockerfile (relative to the directory of the repository) (`--dockerfile`)
+- providing the path to directory that contains the Dockerfile ([`--context`](https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts))
+- indicating that we want to build the image _without_ pushing to a registry (`--no-push`)
+- taking a snapshot at the end of the build (`--single-snapshot`)
 
 And finally, since we require the artifact we built earlier to be include as part of this final image, we pass in our JAR that we create as an argument to `input`.
 
@@ -112,14 +111,13 @@ Just as we only want to build our JAR in the Maven repositories our SDM is liste
 
 ```typescript
 return [
-    whenPushSatisfies(
-        hasFile("pom.xml")).setGoals(
-        goals("build").plan(mvnBuildJdk8),
-    ),
-    whenPushSatisfies(
-        hasFile("Dockerfile")).setGoals(
-        goals("docker build")
-            .plan(kanikoBuild).after(mvnBuildJdk8),
-    ),
+  whenPushSatisfies(hasFile("pom.xml")).setGoals(
+    goals("build").plan(mvnBuildJdk8)
+  ),
+  whenPushSatisfies(hasFile("Dockerfile")).setGoals(
+    goals("docker build")
+      .plan(kanikoBuild)
+      .after(mvnBuildJdk8)
+  )
 ];
 ```
