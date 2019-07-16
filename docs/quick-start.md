@@ -31,6 +31,10 @@ also where you connect a workspace to chat, and invite and manage
 other users of the workspace. You’ll need a workspace to connect your
 own SDM to.
 
+!!! Note
+    If you want to work on your laptop, with no connection to the Atomist service,
+    you can start in [local mode](developer/local-quick-start.md) instead.
+
 ### Configure your CLI:
 
 ```

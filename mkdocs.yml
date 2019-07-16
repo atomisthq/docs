@@ -53,99 +53,100 @@ nav:
       - Built-in Chat Integrations: user/lifecycle.md
       - Supported Integrations: user/admin/integrations/supported-integrations.md
       - Workspace Administration:
-          - Settings: user/admin/settings.md
-          - Members: user/admin/members.md
+        - Settings: user/admin/settings.md
+        - Members: user/admin/members.md
   - Developer Guide:
       - Overview: developer/index.md
       - About the SDM:
-          - Overview: developer/sdm.md
-          - Architecture: developer/architecture.md
-          - SDM Concepts: developer/sdm-concepts.md
-          - Team Mode: developer/team.md
-          - Local Mode: developer/local.md
-          - Command Line Interface: developer/cli.md
-          - Security Model: developer/security.md
-          - SDM Configuration: developer/config.md
-          - Debugging an SDM: developer/sdm-debug.md
-          - Deploying your SDM: developer/sdm-deploy.md
+        - Overview: developer/sdm.md
+        - Architecture: developer/architecture.md
+        - SDM Concepts: developer/sdm-concepts.md
+        - Team Mode: developer/team.md
+        - Local Mode: developer/local.md
+        - Command Line Interface: developer/cli.md
+        - Security Model: developer/security.md
+        - SDM Configuration: developer/config.md
+        - Debugging an SDM: developer/sdm-debug.md
+        - Deploying your SDM: developer/sdm-deploy.md
       - SDM Development:
-          - Prerequisites: developer/prerequisites.md
-          - Setting up TypeScript in your IDE: developer/typescript.md
-          - Events:
-              - Event Listeners: developer/event.md
-              - Code samples:
-                  - "Example: Responding to repository creation": developer/respond-to-repo-creation.md
-                  - "Example: Responding to issue creation": developer/respond-to-issue-creation.md
-          - Goals:
-              - Create Goals: developer/goal.md
-              - Setting Goals: developer/set-goals.md
-              - Goal Details: developer/goaldetails.md
-              - Doing More with Goals: developer/goals-more.md
-          - Builds:
-              - Build Goal: developer/build.md
-              - Integrations: user/ci.md
-              - Generic Builder: developer/spawn-builder.md
-          - Invocations: developer/invocation.md
-          - Deploys: developer/deploy.md
-          - Logging: developer/logging.md
-          - Automation API: developer/command-http.md
+        - Prerequisites: developer/prerequisites.md
+        - Setting up TypeScript in your IDE: developer/typescript.md
+        - Events:
+          - Event Listeners: developer/event.md
+          - Code samples:
+            - "Example: Responding to repository creation": developer/respond-to-repo-creation.md
+            - "Example: Responding to issue creation": developer/respond-to-issue-creation.md
+        - Goals:
+            - Create Goals: developer/goal.md
+            - Setting Goals: developer/set-goals.md
+            - Goal Details: developer/goaldetails.md
+            - Doing More with Goals: developer/goals-more.md
+        - Builds:
+          - Build Goal: developer/build.md
+          - Integrations: user/ci.md
+          - Generic Builder: developer/spawn-builder.md
+        - Invocations: developer/invocation.md
+        - Deploys: developer/deploy.md
+        - Logging: developer/logging.md
+        - Automation API: developer/command-http.md
           - Integrating Atomist into Existing Tools: developer/integrating-into-tools.md
-          - Identifying a repository: developer/reporef.md
-          - Custom GraphQL Queries: developer/graphql.md
-          - Running External Commands: developer/spawn.md
-          - Repo Targeting Parameters: developer/repo-targeting-params.md
-          - HTTP Calls in an SDM: developer/http.md
-          - Writing Push Tests: developer/push-test.md
-          - Working with the AST: developer/astutils.md
-          - Troubleshooting: developer/troubleshoot.md
+        - Identifying a repository: developer/reporef.md
+        - Custom GraphQL Queries: developer/graphql.md
+        - Running External Commands: developer/spawn.md
+        - Repo Targeting Parameters: developer/repo-targeting-params.md
+        - HTTP Calls in an SDM: developer/http.md
+        - Writing Push Tests: developer/push-test.md
+        - Working with the AST: developer/astutils.md
+        - Local mode quick start: developer/local-quick-start.md
+        - Troubleshooting: developer/troubleshoot.md
       - What the SDM can do:
-          - Commands: developer/commands.md
-          - Code Inspections: developer/inspect.md
-          - Code Transforms:
-              - Transforms: developer/transform.md
-              - Autofixes: developer/autofix.md
-              - Project: developer/project.md
-              - Path Expressions: developer/pxe.md
-              - Using microgrammars: developer/parseutils.md
-              - Modifying files: developer/projectutils.md
-          - Chat Messages: developer/slack.md
-          - Fingerprints: developer/fingerprint.md
-          - Project Generators: developer/create.md
-          - Delivery: developer/delivery.md
-          - "Example: Putting it together": developer/putting-it-together.md
+        - Commands: developer/commands.md
+        - Code Inspections: developer/inspect.md
+        - Code Transforms:
+            - Transforms: developer/transform.md
+            - Autofixes: developer/autofix.md
+            - Project: developer/project.md
+            - Path Expressions: developer/pxe.md
+            - Using microgrammars: developer/parseutils.md
+            - Modifying files: developer/projectutils.md
+        - Chat Messages: developer/slack.md
+        - Fingerprints: developer/fingerprint.md
+        - Project Generators: developer/create.md
+        - Delivery: developer/delivery.md
+        - "Example: Putting it together": developer/putting-it-together.md
       - API Reference:
-          - automation-client: https://atomist.github.io/automation-client/
-          - sdm: https://atomist.github.io/sdm/
-          - sdm-core: https://atomist.github.io/sdm-core
-          - sdm-pack-build: https://atomist.github.io/sdm-pack-build/
-          - sdm-pack-checkstyle: https://atomist.github.io/sdm-pack-checkstyle/
-          - sdm-pack-cloudfoundry: https://atomist.github.io/sdm-pack-cloudfoundry/
-          - sdm-pack-k8s: https://atomist.github.io/sdm-pack-k8s/
-          - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
-          - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
-          - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
+        - automation-client: https://atomist.github.io/automation-client/
+        - sdm: https://atomist.github.io/sdm/
+        - sdm-core: https://atomist.github.io/sdm-core
+        - sdm-pack-build: https://atomist.github.io/sdm-pack-build/
+        - sdm-pack-checkstyle: https://atomist.github.io/sdm-pack-checkstyle/
+        - sdm-pack-cloudfoundry: https://atomist.github.io/sdm-pack-cloudfoundry/
+        - sdm-pack-k8s: https://atomist.github.io/sdm-pack-k8s/
+        - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
+        - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
+        - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
   - Tutorials:
       - Defining an SDM: developer/defining-sdm.md
       - Building your First Delivery: developer/first_delivery.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
       - Writing your First Code Transform: developer/first-transform.md
   - Extensions:
-      - Extension Packs: pack/index.md
-      - Analysis: pack/analysis.md
-      - Build: pack/build.md
-      - Changelog: pack/changelog.md
-      - Checkstyle: pack/checkstyle.md
-      - Cloud Foundry: pack/pcf.md
-      - Docker: pack/docker.md
-      - Kubernetes:
-          - Atomist extensions: pack/kubernetes.md
-          - Uhura SDM: pack/kubernetes-with-uhura.md
-      - Goal State: pack/goalstate.md
-      - Issue: pack/issue.md
-      - Lines of Code: pack/sloc.md
-      - Markdown: pack/markdown.md
-      - Node: pack/node.md
-      - Sonarqube: pack/sonarqube.md
-      - Java and Spring: pack/spring.md
+    - Extension Packs: pack/index.md
+    - Analysis: pack/analysis.md
+    - Build: pack/build.md
+    - Changelog: pack/changelog.md
+    - Checkstyle: pack/checkstyle.md
+    - Cloud Foundry: pack/pcf.md
+    - Docker: pack/docker.md
+    - Kubernetes:
+      - Atomist extensions: pack/kubernetes.md
+      - Uhura SDM: pack/kubernetes-with-uhura.md
+    - Goal State: pack/goalstate.md
+    - Issue: pack/issue.md
+    - Lines of Code: pack/sloc.md
+    - Markdown: pack/markdown.md
+    - Node: pack/node.md
+    - Sonarqube: pack/sonarqube.md
+    - Java and Spring: pack/spring.md
   - Glossary: glossary.md
   - Support: support.md
