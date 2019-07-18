@@ -168,7 +168,7 @@ export const configuration = configure(async sdm => {
           }],
         }),
       ],
-      test: hasFile("Dockerfile"),
+      test: [hasFile("pom.xml"), hasFile("Dockerfile")],
       dependsOn: ["jvm"]
     }
   };
