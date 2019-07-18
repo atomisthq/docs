@@ -4,8 +4,8 @@ An SDM is intended to be a programmable way to deliver your software, no matter 
 
 Container goals allow you to specify outputs and inputs to connect goal results together. We're going to perform two steps in this tutorial:
 
-1. We'll build a JAR artifact for a Java project using an official Docker image from [Docker Hub](https://www.docker.com/products/docker-hub); then
-2. We'll feed that JAR into [Kaniko](https://github.com/GoogleContainerTools/kaniko) in order to build our application's container image.
+1.  We'll build a JAR artifact for a Java project using an official Docker image from [Docker Hub](https://www.docker.com/products/docker-hub); then
+2.  We'll feed that JAR into [Kaniko](https://github.com/GoogleContainerTools/kaniko) in order to build our application's container image.
 
 ## Prerequisite
 
