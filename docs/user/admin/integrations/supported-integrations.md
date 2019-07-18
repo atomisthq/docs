@@ -62,9 +62,9 @@ If integrating CI tools, we recommend the following:
 In response to events, you can trigger actions on other systems from your Atomist automations.
 Some of the ones we've already implemented include:
 
-* [Checkstyle](http://0.0.0.0:8000/pack/checkstyle/)
+* [Checkstyle](/pack/checkstyle/)
 * TSLint
-* [Sonarqube](http://0.0.0.0:8000/pack/sonarqube/)
+* [Sonarqube](/pack/sonarqube/)
 
 You can find a full list of the packages we support and maintain [in our GitHub org](https://github.com/atomist?utf8=%E2%9C%93&q=sdm-pack-&type=&language=).
 
