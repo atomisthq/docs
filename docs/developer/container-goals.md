@@ -189,9 +189,9 @@ According to the documentation, kaniko is meant to be run as an image. You can l
 
 And finally, just as we only want to build our JAR in the Maven repositories our SDM is listening to, we only want to build our Docker image in locations with a `Dockerfile`. We will once again configure a push test, with one additional step: we'll make sure to run this goal _after_ we build the JAR file. You'll notice we added a new property, `dependsOn`, which ensures this goal executes serially after the `jvm` goal set.
 
-### Dynamic destination
+### Providing dynamic arguments
 
-You'll notice that the destination of the resulting Docker image is a static location, which is less than ideal, because it means that you can't (easily) store multiple versions of the images. To alleviate this, container goals also have a `callback` property, which are executed right before the container goal. You can use this function to fetch information about the project the goal is executing on:
+You'll notice that the destination of the resulting Docker image is a static location, which is less than ideal, because it means that you can't (easily) store multiple versions of the images. To alleviate this, container goals also have a `callback` property, which are executed right before the container goal. A `callback` function receives information about the project the goal is executing on, and can modify either the `containers` or `volumes` keys. For example, if we wanted to create a dynamic `--destination` value, based on the project, we could do it like this:
 
 ```typescript
   return {
