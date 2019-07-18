@@ -51,7 +51,7 @@ nav:
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
-      - Supported Integrations: user/admin/integrations/supported-integrations.md
+      - Integrating into Existing Tools: user/admin/integrations/supported-integrations.md
       - Workspace Administration:
         - Settings: user/admin/settings.md
         - Members: user/admin/members.md
@@ -89,7 +89,6 @@ nav:
         - Deploys: developer/deploy.md
         - Logging: developer/logging.md
         - Automation API: developer/command-http.md
-          - Integrating Atomist into Existing Tools: developer/integrating-into-tools.md
         - Identifying a repository: developer/reporef.md
         - Custom GraphQL Queries: developer/graphql.md
         - Running External Commands: developer/spawn.md
