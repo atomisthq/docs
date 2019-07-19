@@ -229,6 +229,6 @@ You'll notice that the destination of the resulting Docker image is a static loc
 
 ## Complete sample
 
-<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'jarContainerGoals' found in https://raw.githubusercontent.com/atomist/samples/master/lib/command/jarContainerGoals.ts -->
-<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/command/jarContainerGoals.ts#L1-L62" target="_blank">Source</a></div>
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'jarContainerGoals' found in https://raw.githubusercontent.com/atomist/samples/blob/master/lib/sdm/container/jarContainerGoal.ts.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/blob/master/lib/sdm/container/jarContainerGoal.ts#L1-L62" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
