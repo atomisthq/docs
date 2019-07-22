@@ -1,4 +1,4 @@
-Atomist isn't designed to replace your CI service; rather, the goal of the SDM is to enhance all of your existing pipelines and policies through additional automation. It does so by receives and reacting to events from many systems,
+The goal of the SDM is to enhance all of your existing pipelines and policies through additional automation. It does so by receives and reacting to events from many systems,
 including version control, CI systems, Slack, and more.
 
 Atomist comes with plugins that make use of the native integration technology for each platform or
@@ -45,17 +45,18 @@ One of the tools you are most likely to integrate is Continuous Integration (CI)
 * Circle CI
 * any other build system, as a POST to our webhook
 
-Integrating a custom CI tool with Atomist is simple. Simply invoke Atomist
+You can integrate Atomist with a custom CI tool by invoking Atomist
 hooks to send events around build and artifact creation.
 
-If integrating CI tools, we recommend the following:
-
-- CI tools are great for building and generating artifacts. They are
+!!! note
+  CI tools are great for building and generating artifacts, but they're
   often abused as a PaaS for `bash`. If you find your CI usage has
   you programming in `bash` or YML, consider whether invoking such
   operations from Atomist event handlers might be a better model.
-- Use Atomist generators to create your CI files, and Atomist
-  editors to keep them in synch, minimizing inconsistency.
+
+You can also use Atomist generators to create pre-defined CI files,
+and Atomist editors to keep them in synch, minimizing inconsistency
+across all your repositories.
 
 ## Running other programs from Atomist
 
