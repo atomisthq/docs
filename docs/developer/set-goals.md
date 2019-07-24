@@ -62,7 +62,7 @@ Finally, you can tell the SDM which goals to run on each push. Here, we set the 
 The rules are evaluated in order. The resulting goals are combined and de-duplicated to determine the goals
 that will be set on the push.
 
-The rules themselves are written in a simple internal DSL that aims to be human readable.
+The rules themselves are written in an internal DSL that aims to be human readable.
 
 The `onAnyPush()` function will return true on all pushes.
 

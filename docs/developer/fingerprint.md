@@ -26,9 +26,8 @@ This page describes how to:
 
 ## Create a fingerprint
 
-But it's easy to write your
-own. Fingerprint registrations are like other listener registrations,
-specifying a name and `PushTest`. The following example is the
+Write your own fingerprint registration is just like writing other listener registrations,
+by specifying a name and `PushTest`. The following example is the
 complete code for fingerprinting dependencies specified in a
 `package-lock.json` file:
 
@@ -120,4 +119,3 @@ If it worked, the response should include something like this:
 Here, the `sha` field contains whatever you put in the `sha` field of your fingerprint result. The data of the fingerprint is not stored in the graph.
 
 [dashboard]: ../user/dashboard.md (About the Atomist Dashboard)
-

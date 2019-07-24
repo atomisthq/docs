@@ -52,7 +52,7 @@ HTML. It uses the `{!filename!}` syntax, with all filenames relative to the
 `docs/common` directory.
 
 e.g. to include the content from `docs/common/handlers.md` into `user-guide/rug/commands.md`,
-we simply add `{!handlers.md!}` to the desired location in `user-guide/rug/commands.md`.
+insert `{!handlers.md!}` to the desired location in `user-guide/rug/commands.md`.
 
 [markdown-include]: https://github.com/cmacmackin/markdown-include
 

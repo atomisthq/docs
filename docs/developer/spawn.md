@@ -71,7 +71,7 @@ export const executeMkdocsStrict: ExecuteGoal = doWithProject(async (inv: Projec
 
 ## Anywhere else
 
-The simplest way to run an external command is with [execPromise][apidoc-execpromise].
+To run an external command, you can use [execPromise][apidoc-execpromise].
 Pass the command as a string and its parameters as an array of strings.
 It returns a Promise of an object containing the output of the command in `stderr` and `stdout`.
 If the command fails (including if it exits with an error code), the Promise is rejected.

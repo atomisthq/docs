@@ -18,7 +18,7 @@ After that, you might want to make your code transform into an [Autofix](autofix
 There's also an important capability called "dry run transform":
 Performing a transform on a branch, and then either raising either a PR or
 an issue, depending on build success or failure. This allows us to
-safely apply transforms across many repositories. There's a simple wrapper
+safely apply transforms across many repositories. There's a wrapper
 function to enable this.
 
 !!! tip
