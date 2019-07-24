@@ -51,10 +51,10 @@ nav:
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
+      - Integrating into Existing Tools: user/admin/integrations/supported-integrations.md
       - Workspace Administration:
         - Settings: user/admin/settings.md
         - Members: user/admin/members.md
-        - Supported Integrations: user/admin/integrations/supported-integrations.md
   - Developer Guide:
       - Overview: developer/index.md
       - About the SDM:
