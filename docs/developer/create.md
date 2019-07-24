@@ -79,4 +79,3 @@ const DotnetCoreGenerator: GeneratorRegistration = {
 <!-- atomist:docs-sdm:codeSnippetInline: Snippet 'dotnetGenerator' found in https://raw.githubusercontent.com/atomist/samples/master/lib/sdm/dotnetCore.ts -->
 <div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/sdm/dotnetCore.ts#L69-L84" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
-

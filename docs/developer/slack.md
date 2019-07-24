@@ -39,7 +39,7 @@ export interface MessageClient {
 ```
 
 The `MessageClient` provides access to methods for sending messages to Slack. It
-allows you to address messages to users or channels by name or to simply send a
+allows you to address messages to users or channels by name or to send a
 response message.
 
 Generally the `MessageClient` is available from the `HandlerContext` parameter
@@ -75,7 +75,7 @@ or more channels, call the `addressChannels` method.
     If you want to send a direct message to a user in your Slack workspace,
     use the `addressUsers` method with the user name of the recipient.
 
-Here is an example of sending a simple message into the `#general` channel of
+Here is an example of sending a small message into the `#general` channel of
 your Slack workspace:
 
 ```typescript
@@ -89,7 +89,7 @@ export class HelloWorld implements HandleCommand {
 ```
 
 In this example, you are sending the message only to the `#general` channel. It is
-possible to send the same message into more than one channel by simply providing
+possible to send the same message into more than one channel by providing
 an array of channel names to the `addressChannels` method. The same works for
 `addressUsers`.
 
@@ -123,7 +123,7 @@ part of the _@atomist/slack-messages_ npm module.
 The `SlackMessage` type can have `Attachments` and `Actions`. More details
 on those concepts can be found in the [Slack documentation](https://api.slack.com/docs/message-attachments).
 
-In order to create a formatted Slack message, simply build an instance of
+In order to create a formatted Slack message, build an instance of
 `SlackMessage` with all desired properties. Here is an example:
 
 ```typescript
@@ -162,7 +162,7 @@ In the previous section you saw how rich messages can be created and posted to
 Slack. Now you'll see how to turn this message into an actionable message by adding a
 button to it.
 
-With Atomist, it's easy to bind Slack action buttons to command handlers. Such a
+With Atomist, you can bind Slack action buttons to command handlers. Such a
 binding consists of three parts: the specification of the button as required by
 Slack, a reference to the [command handler][command], and optional parameters that should be
 pre-populated when invoking the command. Pass these to [`buttonForCommand`][apidoc-button]. Put the output in the `actions` array
@@ -170,7 +170,7 @@ of an Attachment, and put that in the `attachments` array of a SlackMessage.
 
 [apidoc-button]: https://atomist.github.io/automation-client/modules/_lib_spi_message_messageclient_.html#buttonforcommand (APIDoc for buttonForCommand)
 
-Here's a simple SlackMessage with a button that invokes a command by name:
+Here's a sample SlackMessage with a button that invokes a command by name:
 
 ```typescript
 {
