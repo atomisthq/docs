@@ -1,4 +1,4 @@
-Goals are reusable parts of functionality used within a CI/CD context. Think of tasks like starting a build, deploying your application to Kubernetes. These goals consist primarily of:
+Goals are reusable parts of functionality used within a CI/CD context. Think of tasks like starting a build or deploying your application to Kubernetes. These goals consist primarily of:
 
 - something to identify the goal by, i.e. a unique name
 - a block of code to be executed when the task needs to be run
@@ -60,6 +60,7 @@ Or explore the built-in goal implementations:
 * [AutoInspect](#autoinspect) - inspect the new code
 * [PushImpact](#pushimpact) - run any other function as a response to the push
 * [Fingerprint](fingerprint.md) - compute a snapshot of some aspect of the code, for tracking
+* [Container Goals](#container-goals) - allow you to use Docker images within which a goal executes
 
 After you've created some goals, [choose when to set them][setting-goals].
 
@@ -198,3 +199,8 @@ const pushImpactGoal = new PushImpact().with(listChangedFiles)
 
 This one has its [own section](build.md).
 
+### Container Goals
+
+Container goals allow you to leverage Docker images to provide a context within which a goal will execute. This can be useful if your goal needs a specific environment within which to execute.
+
+We have [a complete tutorial with a code sample](/developer/container-goals) to teach you more about these sorts of goals. Note that this is an advanced tutorial which requires some previous familiarity with how the SDM works.
