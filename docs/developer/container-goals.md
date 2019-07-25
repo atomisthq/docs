@@ -228,7 +228,6 @@ You'll notice that the destination of the resulting Docker image is a static loc
 `reg` refers to the container goal registrations which are defined as the second argument to the `container` function, while `proj` is the project the SDM is running against. From the `proj`, it's possible to get the name of the underlying repository, which we can use to define a more unique resulting image, based on the SHA of the last pushed commit.
 
 ## Complete sample
-
-<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'jarContainerGoals' found in https://raw.githubusercontent.com/atomist/samples/blob/master/lib/sdm/container/jarContainerGoal.ts.ts -->
-<div class="sample-code"><a href="https://github.com/atomist/samples/blob/master/lib/sdm/container/jarContainerGoal.ts#L1-L62" target="_blank">Source</a></div>
+<!-- atomist:code-snippet:start=lib/sdm/container/jarContainerGoal.ts#completeSample -->
+Code sample will be inserted
 <!-- atomist:code-snippet:end -->
