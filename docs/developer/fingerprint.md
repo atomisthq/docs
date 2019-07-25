@@ -26,7 +26,7 @@ This page describes how to:
 
 ## Create a fingerprint
 
-Write your own fingerprint registration is just like writing other listener registrations,
+Writing your own fingerprint registration is just like writing other listener registrations,
 by specifying a name and `PushTest`. The following example is the
 complete code for fingerprinting dependencies specified in a
 `package-lock.json` file:
