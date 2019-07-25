@@ -232,9 +232,9 @@ You'll notice that the destination of the resulting Docker image is a static loc
 ```typescript
 import { hasFile } from "@atomist/sdm";
 import {
-  CompressingGoalCache,
-  configure,
-  container,
+    CompressingGoalCache,
+    configure,
+    container,
 } from "@atomist/sdm-core";
 import * as os from "os";
 import * as path from "path";
