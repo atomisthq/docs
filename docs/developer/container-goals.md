@@ -229,5 +229,79 @@ You'll notice that the destination of the resulting Docker image is a static loc
 
 ## Complete sample
 <!-- atomist:code-snippet:start=lib/sdm/container/jarContainerGoal.ts#completeSample -->
-Code sample will be inserted
+```typescript
+import { hasFile } from "@atomist/sdm";
+import {
+  CompressingGoalCache,
+  configure,
+  container,
+} from "@atomist/sdm-core";
+import * as os from "os";
+import * as path from "path";
+
+export const configuration = configure(async sdm => {
+  sdm.configuration.sdm.cache = {
+    enabled: true,
+    path: path.join(os.homedir(), ".atomist", "cache", "container"),
+    store: new CompressingGoalCache(),
+  };
+
+  const buildJar = container("build-jar", {
+    containers: [
+      {
+        image: "maven:3.3-jdk-8",
+        command: ["mvn"],
+        args: ["clean", "install", "-B"],
+        name: "maven",
+      },
+    ],
+    output: [
+      {
+        classifier: "target-jar",
+        pattern: { directory: "target/*.jar" },
+      },
+    ],
+  });
+
+  const buildImage = container("kaniko", {
+    callback: async (reg, proj) => {
+      // calculate image name from project information, removing non-alphanumeric characters
+      const safeOwner = proj.id.owner.replace(/[^a-z0-9]+/g, "");
+      const dest = `${safeOwner}/${proj.id.repo}:${proj.id.sha}`;
+      reg.containers[0].args.push(`--destination=${dest}`);
+      return reg;
+    },
+    input: ["target-jar"],
+    containers: [{
+      name: "kaniko",
+      image: "gcr.io/kaniko-project/executor:v0.10.0",
+      args: [
+        "--dockerfile=Dockerfile",
+        "--context=dir://atm/home",
+        "--no-push",
+        "--single-snapshot",
+      ],
+    }],
+  });
+
+  return {
+    jvm: {
+      goals: [
+        buildJar,
+      ],
+      test: hasFile("pom.xml"),
+    },
+    docker: {
+      goals: [
+        buildImage,
+      ],
+      test: [hasFile("pom.xml"), hasFile("Dockerfile")],
+      dependsOn: ["jvm"],
+    },
+  };
+
+}, { name: "jarContainerGoal" });
+```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'completeSample' found in https://raw.githubusercontent.com/atomist/samples/master/lib/sdm/container/jarContainerGoal.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/sdm/container/jarContainerGoal.ts#L18-L88" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
