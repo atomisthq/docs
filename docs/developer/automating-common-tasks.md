@@ -18,10 +18,11 @@ You may wish for files in a repository to conform to a set of guidelines. For ex
 
 ### Events you can use
 
-* Code pushes
+* [Code pushes](/developer/set-goals)
 
 ### Components you can use
 
+* [`PushListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_pushlistener_.pushlistenerinvocation.html)
 * [`RepoTargetingParameters`](https://atomist.github.io/sdm/interfaces/_lib_api_helper_machine_repotargetingparameters_.repotargetingparameters.html)
 * [`CodeInspection`](https://atomist.github.io/sdm/modules/_lib_api_registration_codeinspectionregistration_.html#codeinspection)
 
@@ -31,10 +32,10 @@ Atomist can also modify files via its [code transform](/developer/transform/) fu
 
 ### Events you can use
 
-* Code pushes
+* [Code pushes]((set-goals.md))
 * Pull request creation
 
 ### Components you can use
 
-* [`PushListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_pushlistener_.pushlistenerinvocation.html)
 * [`CodeTransformRegistration`](https://atomist.github.io/sdm/interfaces/_lib_api_registration_codetransformregistration_.codetransformregistration.html)
+* [`PullRequestListener`](https://atomist.github.io/sdm/modules/_lib_api_listener_pullrequestlistener_.html#pullrequestlistener)
