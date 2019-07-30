@@ -14,4 +14,4 @@ Actions can be categorized into [_goals_](/developer/goal/). For example, one go
 
 ## Goal sets
 
-Lastly, goals can be grouped into [goal sets](/developer/set-goals/) to coordinate more than one action at a time.
+Lastly, goals themselves can be grouped into [goal sets](/developer/set-goals/) to coordinate more than one action at a time. For example, goal sets run in parallel (by default), which allows you to speed up the execution of unrelated tasks. Goal sets can also run as dependencies of one another. This can be useful if, for example, you'd like to execute a `deploy` goal set only after a successful `build` goal set.
