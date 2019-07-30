@@ -146,5 +146,5 @@ For the various ways to add this code inspection to your SDM, check the [inspect
 
 ## See also:
 * the [Project API](project.md)
-* do simpler manipulations of file content with [projectUtils](projectutils.md)
+* do quick manipulations of file content with [projectUtils](projectutils.md)
 * get at the relevant parts of files with microgrammars and [parseUtils](parseutils.md)

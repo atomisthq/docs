@@ -1,5 +1,5 @@
 Code inspections and transforms work with the code inside repositories.
-You can use the [Project](project.md) API for simple actions like adding or removing
+You can use the [Project](project.md) API for minor actions like adding or removing
 a file. When you want to work on multiple files, Atomist project utils can help.
 
 [API Doc](https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html)
@@ -43,4 +43,3 @@ await projectUtils.doWithFiles(project, "**/*.java",
 * the [Project API](project.md)
 * get at the relevant parts of files with microgrammars and [parseUtils](parseutils.md)
 * dig into the abstract syntax tree (AST) of your programming language with [astUtils](astutils.md)
-

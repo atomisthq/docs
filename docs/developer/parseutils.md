@@ -30,7 +30,7 @@ TypeScript code uses, you might look for code like:
 You don't care about anything after the opening parenthesis. `lodash` is always referred to by the name `_`, by convention. And conventions are good enough, because your code inspection and transform don't have to work on all the code in the world. They only need to work on the code in your projects.
 
 Once you have that string (it's called a "phrase" here), you will want to describe what
-the contents of each variable might contain. `${functionName}` is definitely going to be a valid JavaScript function identifier. More than valid, it's going to be an ordinary one, nothing weird. We can describe it with a very simple regular expression. Do this in an object, and this object becomes a [`TermsDefinition`][apidoc-termsdefinition].
+the contents of each variable might contain. `${functionName}` is definitely going to be a valid JavaScript function identifier. More than valid, it's going to be an ordinary one, nothing weird. We can describe it with a regular expression. Do this in an object, and this object becomes a [`TermsDefinition`][apidoc-termsdefinition].
 
 ```typescript
 {
@@ -141,5 +141,5 @@ Note: if you want information about the file that the match is in, try [`parseUt
 ## See also
 
 * the [Project API](project.md)
-* do simpler manipulations of file content with [projectUtils](projectutils.md)
+* do quick manipulations of file content with [projectUtils](projectutils.md)
 * dig into the abstract syntax tree (AST) of your programming language with [astUtils](astutils.md)

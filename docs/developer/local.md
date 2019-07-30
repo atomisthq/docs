@@ -1,5 +1,6 @@
 When you run an SDM in local mode, it operates in the privacy of your laptop.
-Everything is open source. This SDM can:
+Everything is open source.
+This SDM can:
 
 * *run goals in response to a commit*
    - the SDM can run your tests in the background
@@ -14,6 +15,12 @@ Everything is open source. This SDM can:
 In local mode, events come in from local commits (with git hooks) and from within the SDM.
 
 ![Atomist SDM in Local mode](img/sdm-local.png)
+
+## How to run in local mode
+
+In an SDM repository, `atomist start --local` will compile the code and start it up in local mode.
+
+For full setup instructions, see the [local mode quick start](local-quick-start.md).
 
 ## Directory structure
 
