@@ -375,7 +375,7 @@ helm upgrade --install --namespace="NAMESPACE" "atomist-utilities-NAMESPACE" \
 
 You can update to a new version of the Atomist Kubernetes utilities
 using standard Kubernetes approaches.  If you installed the Atomist
-utilities using the Atomist CLI or Helm, simply re-run the same
+utilities using the Atomist CLI or Helm, re-run the same
 command you ran to install them.  If you are using `kubectl` you can
 run the following commands, replacing `NAMESPACE` and `M.N.P` as
 appropriate.

@@ -51,10 +51,10 @@ nav:
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
+      - Integrating into Existing Tools: user/admin/integrations/supported-integrations.md
       - Workspace Administration:
         - Settings: user/admin/settings.md
         - Members: user/admin/members.md
-        - Supported Integrations: user/admin/integrations/supported-integrations.md
   - Developer Guide:
       - Overview: developer/index.md
       - About the SDM:
@@ -96,6 +96,7 @@ nav:
         - HTTP Calls in an SDM: developer/http.md
         - Writing Push Tests: developer/push-test.md
         - Working with the AST: developer/astutils.md
+        - Local mode quick start: developer/local-quick-start.md
         - Troubleshooting: developer/troubleshoot.md
       - What the SDM can do:
         - Commands: developer/commands.md
@@ -129,6 +130,7 @@ nav:
       - Building your First Delivery: developer/first_delivery.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
       - Writing your First Code Transform: developer/first-transform.md
+      - Creating Container Goals: developer/container-goals.md
   - Extensions:
     - Extension Packs: pack/index.md
     - Analysis: pack/analysis.md

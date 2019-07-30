@@ -25,6 +25,11 @@ h1, h2, h3 {
 	font-weight: 500 !important;
 }
 
+h2:target {
+	/* This makes the title you linked to as an anchor stop hiding behind the search bar */
+	padding-top: 125px;
+}
+
 h4, h5 {
 	color: #484848 !important;
 	font-weight: 700 !important;

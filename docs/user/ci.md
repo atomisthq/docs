@@ -82,12 +82,12 @@ status and phase.
 * Unstable: `notifyAtomist(env.ATOMIST_WORKSPACES, "UNSTABLE")`
 * Failure: `notifyAtomist(env.ATOMIST_WORKSPACES, "FAILURE")`
 
-Here is a simple example `Jenkinsfile` pipeline that sends the
+Here is an example `Jenkinsfile` pipeline that sends the
 appropriate webhook payloads at the appropriate time.
 
 ```groovy
 /**
- * Simple Jenkins pipeline for Maven builds
+ * Jenkins pipeline for Maven builds
  */
 pipeline {
     agent any
