@@ -34,7 +34,7 @@ public Node project.
 [configure-k8s]: #configure-uhura-to-deploy-to-your-kubernetes-cluster
 
 If you can deploy to Kubernetes from your computer, then you can configure Uhura to deploy your
-applications there. Find [instructions here](../pack/kubernetes-with-uhura.md).
+applications there. Find [instructions here](../pack/kubernetes/uhura.md).
 
 ## Commands
 
