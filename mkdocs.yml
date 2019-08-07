@@ -114,6 +114,7 @@ nav:
         - Delivery: developer/delivery.md
         - "Example: Putting it together": developer/putting-it-together.md
       - API Reference:
+        - Packages Overview: developer/packages-overview.md
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
         - sdm-core: https://atomist.github.io/sdm-core
