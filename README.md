@@ -37,9 +37,9 @@ text. They don't need to be perfect.
 
 Here's how I define better:
 
-*   Out-of-date information is the worst.
-*   Emptiness is better than inaccurate information.
-*   Any (accurate) information is better than none.
+* Out-of-date information is the worst.
+* Emptiness is better than inaccurate information.
+* Any (accurate) information is better than none.
 
 Additional links and information are great.
 

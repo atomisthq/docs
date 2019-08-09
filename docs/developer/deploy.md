@@ -2,7 +2,7 @@ Deployment is the goal of delivery, so you probably want a deployment [goal](goa
 
 We have some pre-built ones:
 
-* [Kubernetes](../pack/kubernetes.md)
+* [Kubernetes](../pack/kubernetes/index.md)
 * [Cloud Foundry](../pack/pcf.md)
 
 Use these, fork these and change them, or program your deployment in a [custom goal][create-goal]. [Set them](../developer/set-goals.md) along with other

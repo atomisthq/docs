@@ -139,8 +139,12 @@ nav:
     - Cloud Foundry: pack/pcf.md
     - Docker: pack/docker.md
     - Kubernetes:
-      - Atomist extensions: pack/kubernetes.md
-      - Uhura SDM: pack/kubernetes-with-uhura.md
+      - Atomist & Kubernetes: pack/kubernetes/index.md
+      - Kubernetes extension pack: pack/kubernetes/pack.md
+      - Deploying applications: pack/kubernetes/deploy.md
+      - GitOps: pack/kubernetes/sync.md
+      - Installation: pack/kubernetes/install.md
+      - Uhura SDM: pack/kubernetes/uhura.md
     - Goal State: pack/goalstate.md
     - Issue: pack/issue.md
     - Lines of Code: pack/sloc.md
