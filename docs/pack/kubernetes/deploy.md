@@ -525,6 +525,80 @@ the example below after consolidating common configuration between the
 two fulfillments.
 
 <!-- atomist:code-snippet:start=lib/goal/kubernetesDeploy.ts#k8sDeploy -->
+```typescript
+import { GitProject } from "@atomist/automation-client";
+import {
+    not,
+    predicatePushTest,
+    pushTest,
+    SdmGoalEvent,
+} from "@atomist/sdm";
+import { configure } from "@atomist/sdm-core";
+import {
+    k8sSupport,
+    KubernetesApplication,
+    KubernetesDeploy,
+    KubernetesDeployDataSources,
+} from "@atomist/sdm-pack-k8s";
+
+export const configuration = configure(async sdm => {
+    // Add core Kubernetes extension pack functionality
+    sdm.addExtensionPacks(k8sSupport());
+    const sources = [KubernetesDeployDataSources.DeploymentSpec, KubernetesDeployDataSources.Dockerfile];
+    // Create Kubernetes deploy goal
+    const k8sDeploy = new KubernetesDeploy()
+        .with({
+            // Configure application
+            applicationData: (app, project, goal, event) => appData(app, project, event),
+            // Set production cluster
+            name: "@atomist/k8s-sdm_production",
+            // Select what this fulfillment applies to
+            pushTest: isDefaultBranch,
+            // Read information from project
+            dataSources: sources,
+        })
+        .with({
+            applicationData: (app, project, goal, event) => appData(app, project, event),
+            // Set testing cluster
+            name: "@atomist/k8s-sdm_testing",
+            pushTest: not(isDefaultBranch),
+            dataSources: sources,
+        });
+    // Return goal set
+    return {
+        deploy: {
+            goals: k8sDeploy,
+            test: predicatePushTest("IsNpm", async p => !!await p.getFile("package.json")),
+        },
+    };
+});
+
+const isDefaultBranch = pushTest("IsDefaultBranch",
+    async pli => pli.push.branch === pli.push.repo.defaultBranch);
+
+async function appData(app: KubernetesApplication, project: GitProject, event: SdmGoalEvent): Promise<KubernetesApplication> {
+    const prodDeploy = event.push.branch === event.push.repo.defaultBranch;
+    app.ns = prodDeploy ? "production" : event.push.branch;
+    const version = JSON.parse(await (await project.getFile("package.json")).getContent()).version;
+    const slug = `${event.repo.owner}/${event.repo.name}`;
+    app.image = `docker.example.org/${slug}:${version}`;
+    app.host = prodDeploy ? "api.example.org" : "api-testing.example.org";
+    app.port = 8080;
+    const prefix = prodDeploy ? "" : `/${event.push.branch}`;
+    app.path = `${prefix}/${slug}(/|$)(.*)`;
+    app.ingressSpec = {
+        metadata: {
+            annotations: {
+                "nginx.ingress.kubernetes.io/rewrite-target": "/$2",
+            },
+        },
+    };
+    app.serviceAccountSpec = { metadata: { name: "api" } };
+    return app;
+}
+```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'k8sDeploy' found in https://raw.githubusercontent.com/atomist/samples/master/lib/goal/kubernetesDeploy.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/goal/kubernetesDeploy.ts#L30-L99" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 [push-test]: ../../developer/set-goals.md#pushtest
