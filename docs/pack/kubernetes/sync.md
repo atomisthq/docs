@@ -51,7 +51,8 @@ export const configuration = {
                sync: {
                    repo: {
                        name: "REPO_NAME",
-                       owner: "REPO_OWNER"
+                       owner: "REPO_OWNER",
+                       branch: "REPO_BRANCH"
                    }
                }
            }
@@ -60,12 +61,13 @@ export const configuration = {
 };
 ```
 
-replacing `REPO_NAME` with the repository name and `REPO_OWNER` with
-the repository owner, i.e., user or organization. Once you start the
-SDM, it will persist application deployments made by an SDM to the
-configured Git repository and watch that repository for changes to
-Kubernetes resource spec files and applying those changes against the
-Kubernetes API.
+replacing `REPO_NAME` with the repository name, `REPO_OWNER` with the
+repository owner, i.e., user or organization, and `REPO_BRANCH` with
+the Git branch containing the Kubernetes resource specs.  Once you
+start the SDM, it will persist application deployments made by an SDM
+to the configured Git repository and watch that repository for changes
+to Kubernetes resource spec files and applying those changes against
+the Kubernetes API.
 
 ## Spec files
 
@@ -90,7 +92,8 @@ export const configuration = {
                sync: {
                    repo: {
                        name: "REPO_NAME",
-                       owner: "REPO_OWNER"
+                       owner: "REPO_OWNER",
+                       branch: "REPO_BRANCH"
                    },
                    syncFormat: "json"
                }
@@ -124,7 +127,8 @@ export const configuration = {
                sync: {
                    repo: {
                        name: "REPO_NAME",
-                       owner: "REPO_OWNER"
+                       owner: "REPO_OWNER",
+                       branch: "REPO_BRANCH"
                    },
                    secretKey: "ENCRYPTION_KEY"
                }
@@ -195,7 +199,8 @@ export const configuration = {
                sync: {
                    repo: {
                        name: "REPO_NAME",
-                       owner: "REPO_OWNER"
+                       owner: "REPO_OWNER",
+                       branch: "REPO_BRANCH"
                    },
                    intervalMinuts: 10
                }

@@ -494,7 +494,7 @@ something like:
   "apiKey": "ATOMIST_API_KEY",
   "cluster": {
     "enabled": true,
-    "workers": 2
+    "workers": 1
   },
   "name": "@atomist/k8s-sdm_testing",
   "workspaceIds": ["ATOMIST_WORKSPACE_ID"]
@@ -524,7 +524,7 @@ whether the push was to the default branch would look something like
 the example below after consolidating common configuration between the
 two fulfillments.
 
-<!-- atomist:code-snippet:start=k8sDeploy -->
+<!-- atomist:code-snippet:start=lib/goal/kubernetesDeploy.ts#k8sDeploy -->
 <!-- atomist:code-snippet:end -->
 
 [push-test]: ../../developer/set-goals.md#pushtest
