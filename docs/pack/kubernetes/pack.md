@@ -123,8 +123,8 @@ export interface KubernetesSyncOptions {
 
 Property | Type | Default | Description
 ---------|------|---------------|------------
-`repo` | _SyncRepoRef \| RemoteRepoRef_ | `false`| Repository to synchronize with Kubernetes resources
-`credentials` | _ProjectOperationCredentials_ | `false` | SCM repository credentials
+`repo` | _SyncRepoRef \| RemoteRepoRef_ | _(required)_ | Repository to synchronize with Kubernetes resources
+`credentials` | _ProjectOperationCredentials_ | `undefined` | SCM repository credentials
 `intervalMinutes` | _number_ | `undefined` | SDM Kubernetes synchonization interval in minutes
 `secretKey` | _string_ | `undefined` | Key to use when encrypting Kubernetes secret values
 `specFormat` | _"json" \| "yaml"_ | `"yaml"` | Format to use when creating Kubernetes specs
@@ -138,15 +138,15 @@ following sections.
 
 The `repo` property defines the repository to synchronize Kubernetes
 resources with.  Changes made to this repository will trigger the SDM
-to create/update/delete resources in the Kubernetes cluster.
-Deployments made by this SDM will be persisted to the repository.  See
-the section on [GitOps][sync] for more information.  The value of the
-`repo` property can be either a `SyncRepoRef` or `RemoteRepoRef`.  If
-a `SyncRepoRef` is provided, on startup cortex is queried to find the
-details of the repo needed to create a `RemoteRepoRef`.  This
-`RemoteRepoRef` is created and then used as the value of this property
-for the lifetime of the SDM.  If a `RemoteRepoRef` is provided, it is
-used as is.
+to create/update/delete resources in the Kubernetes cluster.  This is
+the only required property in the sync options.  Deployments made by
+this SDM will be persisted to the repository.  See the section on
+[GitOps][sync] for more information.  The value of the `repo` property
+can be either a `SyncRepoRef` or `RemoteRepoRef`.  If a `SyncRepoRef`
+is provided, on startup cortex is queried to find the details of the
+repo needed to create a `RemoteRepoRef`.  This `RemoteRepoRef` is
+created and then used as the value of this property for the lifetime
+of the SDM.  If a `RemoteRepoRef` is provided, it is used as is.
 
 ##### `SyncRepoRef`
 
