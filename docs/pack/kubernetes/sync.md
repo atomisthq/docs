@@ -52,12 +52,12 @@ export const configuration = {
                    repo: {
                        name: "REPO_NAME",
                        owner: "REPO_OWNER",
-                       branch: "REPO_BRANCH"
-                   }
-               }
-           }
-       }
-   }
+                       branch: "REPO_BRANCH",
+                   },
+               },
+           },
+       },
+   },
 };
 ```
 
@@ -93,13 +93,13 @@ export const configuration = {
                    repo: {
                        name: "REPO_NAME",
                        owner: "REPO_OWNER",
-                       branch: "REPO_BRANCH"
+                       branch: "REPO_BRANCH",
                    },
-                   syncFormat: "json"
-               }
-           }
-       }
-   }
+                   syncFormat: "json",
+               },
+           },
+       },
+   },
 };
 ```
 
@@ -128,13 +128,13 @@ export const configuration = {
                    repo: {
                        name: "REPO_NAME",
                        owner: "REPO_OWNER",
-                       branch: "REPO_BRANCH"
+                       branch: "REPO_BRANCH",
                    },
-                   secretKey: "ENCRYPTION_KEY"
-               }
-           }
-       }
-   }
+                   secretKey: "ENCRYPTION_KEY",
+               },
+           },
+       },
+   },
 };
 ```
 
@@ -172,7 +172,7 @@ secret spec whose data properties you want to encrypt.  Again, the
 above command only encrypts the values of the data property elements,
 it does _not_ Base64 encode them and then encrypt them.
 
-There is a corresponding `kube-descrypt` command in the Atomist CLI
+There is a corresponding `kube-decrypt` command in the Atomist CLI
 should you need to check the secret data values in the repository
 specs.
 
@@ -200,13 +200,13 @@ export const configuration = {
                    repo: {
                        name: "REPO_NAME",
                        owner: "REPO_OWNER",
-                       branch: "REPO_BRANCH"
+                       branch: "REPO_BRANCH",
                    },
-                   intervalMinuts: 10
-               }
-           }
-       }
-   }
+                   intervalMinuts: 10,
+               },
+           },
+       },
+   },
 };
 ```
 
@@ -217,6 +217,134 @@ same resource spec repeatedly has no effect other that creating a
 slight load on the Kubernetes master.  Note that applying the all the
 resource specs in a sync repository can take some time, so do not set
 the synchronization interval too be too short.
+
+## Fetching resources
+
+If you already have a Kubernetes cluster with many resources in it, it
+can be daunting to get started on your GitOps journey.  The Atomist
+CLI provides the `kube-fetch` command to assist in fetching resources
+from a Kubernetes cluster and writing their resource specs to files.
+
+```
+atomist kube-fetch
+```
+
+The above command will use your currently configured Kubernetes
+credentials to fetch a default set of resources, excluding those
+typically managed by Kubernetes itself, remove common read-only
+properties populated by the Kubernetes system, and write the resulting
+resource specs to YAML files in the current directory.  Once you have
+fetched the resource specs and modified them to suit your needs, you
+can commit them to your sync repository and fully embrace GitOps.
+
+If you prefer the resource spec files are in JSON format, you can use
+the `--output-format` command-line option to select the JSON format.
+
+```
+atomist kube-fetch --output-format=json
+```
+
+If you would like the resource spec files written to a different
+directory, you can use the `--output-dir` command-line option to
+provide a different output directory.
+
+```
+atomist kube-fetch --output-dir=OUTPUT_DIR
+```
+
+If you would like the Kubernetes secret resource data property values
+to be encrypted as described above, you can use the `--secret-key`
+command-line option to provide the same encryption key your SDM will
+use.
+
+```
+atomist kube-fetch --secret-key=SECRET_KEY
+```
+
+If you would like to customize the set of resources fetched from the
+Kubernetes cluster, you can use the `--options-file` command-line
+option to provide the path to a file containing the selection options
+for which resources to fetch.
+
+```
+atomist kube-fetch --options-file=OPTIONS_FILE
+```
+
+The `OPTIONS_FILE` should contain a JSON object with the following
+structure.
+
+```json
+{
+  "selectors": [
+    {
+      "action": "exclude" | "include",
+      "kinds": [
+        { "kind": KubernetesResourceKind },
+        …
+      ],
+      "namespace": Namespace,
+      "name": Name,
+      "labelSelector": {
+        matchExpressions: [
+          { key: LabelKey, operator: "Exists" | "DoesNotExist" },
+          { key: LabelKey, operator: "In" | "NotIn", values: [LabelValue, …] },
+          …
+        ],
+        matchLabels: {
+          LabelKey: LabelValue,
+          …
+        },
+      }
+    },
+    …
+  ]
+}
+```
+
+Each of the elements of the `selectors` array are applied in turn and
+the `action` of the first selector that matches a resource is applied
+to that resource.  If the `action` is omitted, `"include"` is the
+default.  If `kinds` is omitted and the action is `include`, a
+[default set of resource kinds][kinds-default] is populated.  If
+`kinds` is omitted and `action` is `exclude`, the kinds are not
+considered in the match.  If any of the other properties are omitted,
+they are not considered when matching.  The `name` and `namespace`
+properties are considered matching when the `string` is an exact
+match.  The `labelSelector` property behaves just like the
+[selector][] does in the Kubernetes API.
+
+Below is an example of an options file that only fetches deployments,
+ingresses, secrets, and services from the `important` namespace, along
+with the `important` namespace itself.
+
+```json
+{
+  "selectors": [
+    {
+      "action": "include",
+      "kinds": [{ "kind": "Namespace" }],
+      "name": "important"
+    },
+    {
+      "action": "include",
+      "kinds": [
+        { "kind": "Deployment" },
+        { "kind": "Ingress" },
+        { "kind": "Secret" },
+        { "kind": "Service" }
+      ],
+      "namespace": "important"
+    }
+  ]
+}
+```
+
+See the [Kubernetes fetch options API documentation][fetch-options]
+for more details on the structure of the fetch options object.
+
+[kinds-default]: https://atomist.github.io/sdm-pack-k8s/modules/_lib_kubernetes_fetch_.html#defaultkubernetesresourceselectorkinds (Default Kubernetes Resource Kinds
+[selector]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ (Labels and Selectors)
+[fetch-options]: https://atomist.github.io/sdm-pack-k8s/interfaces/_lib_kubernetes_fetch_.kubernetesfetchoptions.html (Kubernetes Fetch Options API Documentation)
 
 ## RBAC considerations
 
