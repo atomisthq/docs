@@ -224,12 +224,12 @@ name of the parameter, and its value describes the parameter. These options are 
 | displayable | boolean | whether to show a parameter value after it's been entered | true |
 | maxLength | number | maximum number of characters to accept | no maximum |
 | minLength | number | minmum number of characters needed | 0 |
-| type | ParameterType | string, boolean, number, or [Chooser][chooser-apidoc] | string |
+| type | ParameterType | string, boolean, number, or [Options][options-apidoc] (works only in team mode) | string |
 | order | number | when prompting, ask for smaller 'order' parameters first | order doesn't matter |
 | group | Group | when prompting, put parameters in the same Group together | none |
 | control | "input" or "textarea" | input type for string parameters in dialogues | "input" |
 
-[chooser-apidoc]: https://atomist.github.io/automation-client/interfaces/_lib_metadata_automationmetadata_.chooser.html (API doc for Chooser)
+[options-apidoc]: https://atomist.github.io/automation-client/interfaces/_lib_metadata_automationmetadata_.options.html (API doc for Options)
 [apidoc-parameterdef]: https://atomist.github.io/automation-client/interfaces/_lib_internal_metadata_decoratorsupport_.parameter.html (API doc for Parameter definition)
 
 We can combine parameter definitions using spreads. For example, this will also bring in some common parameters
