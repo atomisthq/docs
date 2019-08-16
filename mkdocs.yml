@@ -139,7 +139,7 @@ nav:
     - Cloud Foundry: pack/pcf.md
     - Docker: pack/docker.md
     - Kubernetes:
-      - Atomist & Kubernetes: pack/kubernetes/index.md
+      - "Atomist & Kubernetes": pack/kubernetes/index.md
       - Kubernetes extension pack: pack/kubernetes/pack.md
       - Deploying applications: pack/kubernetes/deploy.md
       - GitOps: pack/kubernetes/sync.md
