@@ -342,7 +342,7 @@ with the `important` namespace itself.
 See the [Kubernetes fetch options API documentation][fetch-options]
 for more details on the structure of the fetch options object.
 
-[kinds-default]: https://atomist.github.io/sdm-pack-k8s/modules/_lib_kubernetes_fetch_.html#defaultkubernetesresourceselectorkinds (Default Kubernetes Resource Kinds
+[kinds-default]: https://atomist.github.io/sdm-pack-k8s/modules/_lib_kubernetes_fetch_.html#defaultkubernetesresourceselectorkinds (Default Kubernetes Resource Kinds)
 [selector]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ (Labels and Selectors)
 [fetch-options]: https://atomist.github.io/sdm-pack-k8s/interfaces/_lib_kubernetes_fetch_.kubernetesfetchoptions.html (Kubernetes Fetch Options API Documentation)
 
