@@ -18,8 +18,8 @@ It would be very helpful to [follow the README for the org-visualizer repository
 
 At its core, an aspect is generally comprised of two tasks:
 
-1. An analysis of a repository, either through its Git data or through [code inspection](/developer/inspect/)
-2. A snapshot of the data for storing that data's state, handled through [fingerprints](/developer/fingerprint/)
+1.  An analysis of a repository, either through its Git data or through [code inspection](/developer/inspect/)
+2.  A snapshot of the data for storing that data's state, handled through [fingerprints](/developer/fingerprint/)
 
 All of the heavy lifting of iterating through an organization's repositories and generating the sunburst chart are handled for you, so if you know how to parse the data you're interested in collecting, you're already halfway towards building an aspect!
 
