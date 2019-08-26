@@ -23,12 +23,6 @@ At its core, an aspect is generally comprised of two tasks:
 
 All of the heavy lifting of iterating through an organization's repositories and generating the sunburst chart are handled for you, so if you know how to parse the data you're interested in collecting, you're already halfway towards building an aspect!
 
-When it comes to [constructing an `Aspect`](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html), there are three important functions to define:
-
-* `extract`: this function defines the entry point for the aspect, and handles the bulk of the analyzing and snapshoting logic
-* `toDisplayableFingerprintName`: this represents the name of the "inner" ring in our sunburst chart; in our case, it's the name of the engine
-* `toDisplayableFingerprint`: this represents the name of the "outer" ring in our sunburst chart; in our case, it's the version of the engine
-
 ## Defining the data format and aspect type
 
 Before writing our aspect, it's important to understand how we will store the information we've found. We know that every engine has a `name` and a `version`, so let's define an interface with named keys, like this:
@@ -69,7 +63,7 @@ export function createEngineFingerprint(
 }
 ```
 
-Here, we're fortunate in that the `name` and `version` have been extracted out of package.json and passed into this method (we'll show how to do this next). If your aspect is not parsing file contents--for example, if it's dealing with Git activity--you can define your own data structure to represent that information, like this:
+Here, we've provided the `name` and `version` which have been extracted out of package.json and passed into this method (we'll show how to do this next). If your aspect is not parsing file contents--for example, if it's dealing with Git activity--you can define your own data structure to represent that information, like this:
 
 ```typescript
 const gitLastCommitCommand = "git log -1 --format=%cd --date=short"
@@ -151,7 +145,18 @@ export const extractNodeEngine: ExtractFingerprint<EngineData> = async p => {
 
 ## Exporting the aspect
 
-With the above work
+With the above groundwork laid out, our last task is to export the created aspect. When it comes to [constructing an `Aspect`](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html), there are three important functions to define:
+
+* `extract`: this function defines the entry point for the aspect, and handles the bulk of the analyzing and snapshoting logic
+* `toDisplayableFingerprintName`: this represents the name of the "inner" ring in our sunburst chart; in our case, it's the name of the engine
+* `toDisplayableFingerprint`: this represents the name of the "outer" ring in our sunburst chart; in our case, it's the version of the engine
+
+The `extract` method is our `extractNodeEngine` function defined above. The fingerprint displays are in two different formats:
+
+* `toDisplayableFingerprintName` passes in a `name` argument. This is the same value that was used when creating our fingerprint in `createEngineFingerprint`. You can pass in the value directly, or, provide a method that takes this argument for additional string manipulation.
+* `toDisplayableFingerprint` passes in the fingerprint data object directly.
+
+A sample function to export this aspect might look like this:
 
 ```typescript
 /**
@@ -161,7 +166,6 @@ With the above work
 export const NodeEngine: Aspect<EngineData> = {
   name: NodeEngineType,
   displayName: "Node Engine",
-  baseOnly: true,
   extract: extractNodeEngine,
   toDisplayableFingerprintName: name => name,
   toDisplayableFingerprint: fpi => {
