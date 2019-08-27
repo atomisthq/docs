@@ -1,7 +1,7 @@
 # Welcome
 
 [Atomist][www] is a development automation platform for modern teams. Our software projects
-are no longer few, and we can no longer hand-feed them every style and dependency update. 
+are no longer few, and we can no longer hand-feed them every style and dependency update.
 We no longer carve an individual delivery pipeline for each new service. It is time to write
 software at a higher level, with development automation.
 
