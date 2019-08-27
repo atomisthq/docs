@@ -1,30 +1,13 @@
-You can run a Software Delivery Machine (SDM) locally without any signup or authentication.
-See the [Developer Quick Start][quick-start] to get started.
+You can run org-visualizer or another Software Delivery Machine (SDM) locally without any signup or authentication. Then you can connect it to the Atomist service to benefit your [whole team][team].
 
-This document describes the prerequisites for running an SDM for your [whole team][team],
-connecting to your source control manager, chat system, and continuous integration tools.
+## Common Prerequisites
 
-Before you begin developing and running your own software deliver
-machine (SDM), you need an [Atomist
-account][getting-started] and several other prerequisites.
+In the environment where your SDM runs, you need Node, git, and the Atomist CLI.
+If your automations call out to any other tools (such as build tools or linters), install them too.
 
-[team]: team.md (Atomist SDM Team Mode)
-[quick-start]: ../quick-start.md (Developer Quick Start)
-[getting-started]: ../user/index.md (Atomist - Getting Started)
+### Node.js
 
-## Atomist workspace
-
-As part of creating an account with Atomist, you created an Atomist
-workspace.  To run SDMs, you will need
-the ID of your Atomist workspace.  You can find your Atomist workspace
-ID on your workspace's settings page in the [Atomist web
-application][atomist-app].
-
-[atomist-app]: https://app.atomist.com/ (Atomist Web App)
-
-## Node.js
-
-The reference implementation of the Atomist SDM is
+An Atomist SDM is
 implemented in [TypeScript][ts], a superset of [JavaScript][js].  To
 develop and run it, you must install Node.js.  The easiest way to
 install Node.js is to go to the [Node.js web site][node] and follow
@@ -50,7 +33,7 @@ npm install -g npm
 [node]: https://nodejs.org/ (Node.js)
 [brew]: https://brew.sh/ (Homebrew)
 
-## Git
+### Git
 
 Atomist supports software development using Git and uses the Git
 command-line tool to perform many of its actions.  You must have the
@@ -61,7 +44,7 @@ properly.
 
 > Note: Atomist requires Git 2.x
 
-## Atomist CLI
+### Atomist CLI
 
 The Atomist CLI performs several useful functions that are referred to
 throughout this documentation.  Once you have Node.js installed,
@@ -85,6 +68,51 @@ brew install atomist-cli
 ```
 
 [brew]: https://brew.sh/ (Homebrew - The missing package manager for macOS)
+
+
+[team]: team.md (Atomist SDM Team Mode)
+[quick-start]: ../quick-start.md (Developer Quick Start)
+[getting-started]: ../user/index.md (Atomist - Getting Started)
+
+### An SDM codebase
+
+You can clone an existing SDM (if your team has one already) or create a new one.
+
+If you want to create aspects for 
+investigating technology drift, clone [org-visualizer][org-viz-github]
+
+[org-viz-github]: https://github.com/atomist/org-visualizer (Org Visualizer on GitHub)
+
+To start a new SDM and add your own automations, use:
+
+`atomist create sdm`
+
+This will generate a new SDM repository on your computer.
+
+Most instructions in this documentation (such as `atomist start`) expect you to be in the root directory
+of your SDM repository.
+
+### Local Mode
+
+That's all you need! You're ready to run your SDM locally, as described in the [local mode page][local].
+
+[local]: local.md (LocalMode)
+
+## Team Mode Prerequisites
+
+When you run in [team mode][team], you get chat integration and events from your real repositories. This
+requires authenticating with the Atomist service. 
+
+## Atomist workspace
+
+As part of creating an account with Atomist, you created an Atomist
+workspace. (If you don't have one yet, go to [app.atomist.com](https://app.atomist.com).) To run SDMs, you will need
+the ID of your Atomist workspace.  You can find your Atomist workspace
+ID on your workspace's settings page in the [Atomist web
+application][atomist-app].
+
+[atomist-app]: https://app.atomist.com/ (Atomist Web App)
+
 
 ## Atomist API key
 
@@ -127,5 +155,7 @@ configuration file will look something like:
 with `API_KEY` and `WORKSPACE_ID` replaced with your Atomist API key
 and workspace ID, respectively.
 
-For configuring SDMs to run on a server, see [SDM Configuration](config.md) for more options.
+Now you're ready to try `atomist start`. Check the [team mode page][team] for more suggestions.
+
+When configuring SDMs to run on a server, see [SDM Configuration](config.md) for more options.
 
