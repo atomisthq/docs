@@ -69,7 +69,6 @@ brew install atomist-cli
 
 [brew]: https://brew.sh/ (Homebrew - The missing package manager for macOS)
 
-
 [team]: team.md (Atomist SDM Team Mode)
 [quick-start]: ../quick-start.md (Developer Quick Start)
 [getting-started]: ../user/index.md (Atomist - Getting Started)
@@ -86,7 +85,6 @@ To see a smattering of further things you can do with Atomist, try the [samples]
 
 [org-viz-github]: https://github.com/atomist/org-visualizer (Org Visualizer on GitHub)
 
-
 #### Create a Software Delivery Machine
 
 To start from scratch, try this:
@@ -96,7 +94,7 @@ $ atomist create sdm
 ```
 
 This creates a new directory, populated with the code for an SDM. You can
-start from scratch, or from a 'spring' SDM designed to deliver Spring web services. 
+start from scratch, or from a 'spring' SDM designed to deliver Spring web services.
 We recommend 'blank'.
 
 ```
@@ -134,7 +132,7 @@ Check your SDM's README for special needs.
 ## Team Mode Prerequisites
 
 When you run in [team mode][team], you get chat integration and events from your real repositories. This
-requires authenticating with the Atomist service. 
+requires authenticating with the Atomist service.
 
 ### Atomist workspace
 
@@ -145,7 +143,6 @@ ID on your workspace's settings page in the [Atomist web
 application][atomist-app].
 
 [atomist-app]: https://app.atomist.com/ (Atomist Web App)
-
 
 ### Atomist API key
 

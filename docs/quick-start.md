@@ -47,7 +47,7 @@ Change into the directory where org-visualizer ws cloned. Then run:
 $ atomist start --local
 ```
 
-Running `atomist start` will install (`npm install`) if you haven't already. 
+Running `atomist start` will install (`npm install`) if you haven't already.
 Then it will build the project and run it.
 
 ### Perform analysis on code repositories
