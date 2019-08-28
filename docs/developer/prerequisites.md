@@ -78,10 +78,39 @@ brew install atomist-cli
 
 You can clone an existing SDM (if your team has one already) or create a new one.
 
-If you want to create aspects for 
-investigating technology drift, clone [org-visualizer][org-viz-github]
+#### Clone one
+
+If you want to create aspects for investigating technology drift, clone [org-visualizer][org-viz-github].
+
+To see a smattering of further things you can do with Atomist, try the [samples](https://github.com/atomist/samples).
 
 [org-viz-github]: https://github.com/atomist/org-visualizer (Org Visualizer on GitHub)
+
+
+#### Create a Software Delivery Machine
+
+To start from scratch, try this:
+
+```
+$ atomist create sdm
+```
+
+This creates a new directory, populated with the code for an SDM. You can
+start from scratch, or from a 'spring' SDM designed to deliver Spring web services. 
+We recommend 'blank'.
+
+```
+? Type of SDM to create
+  blank
+❯ spring
+…
+  Successfully created new project yourproject at file:~/atomist/projects/target-owner/yourproject
+$ cd  ~/atomist/projects/target-owner/yourproject
+```
+
+When it prompts you for `(mapped parameter) target-owner`, enter your GitHub organization (or your GitHub username).
+A new directory will be created for the SDM in `$ATOMIST_ROOT/<target-owner>/<target repository>`. This will not create
+a repository on GitHub.
 
 To start a new SDM and add your own automations, use:
 
@@ -92,9 +121,13 @@ This will generate a new SDM repository on your computer.
 Most instructions in this documentation (such as `atomist start`) expect you to be in the root directory
 of your SDM repository.
 
-### Local Mode
+## Local Mode
 
-That's all you need! You're ready to run your SDM locally, as described in the [local mode page][local].
+You're ready to run your SDM locally, as described in the [local mode page][local].
+
+Each individual SDM may have its own requirements, too. For instance, [org-visualizer][] needs Postgres to run
+in local mode. An SDM for delivering Java projects may need a JDK and Maven or Gradle.
+Check your SDM's README for special needs.
 
 [local]: local.md (LocalMode)
 
@@ -103,7 +136,7 @@ That's all you need! You're ready to run your SDM locally, as described in the [
 When you run in [team mode][team], you get chat integration and events from your real repositories. This
 requires authenticating with the Atomist service. 
 
-## Atomist workspace
+### Atomist workspace
 
 As part of creating an account with Atomist, you created an Atomist
 workspace. (If you don't have one yet, go to [app.atomist.com](https://app.atomist.com).) To run SDMs, you will need
@@ -114,7 +147,7 @@ application][atomist-app].
 [atomist-app]: https://app.atomist.com/ (Atomist Web App)
 
 
-## Atomist API key
+### Atomist API key
 
 To start your own SDM, you will need an
 Atomist API key so the client can properly register with the API.  You
@@ -124,7 +157,7 @@ the next section when running configure.
 
 [app-api-key]: https://app.atomist.com/apiKeys (Atomist API Key)
 
-## Minimal Configuration
+### Minimal Configuration
 
 To get started quickly, run the following command to create and persist a user configuration
 on your local system.

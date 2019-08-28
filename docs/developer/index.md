@@ -6,7 +6,7 @@ When you're ready to craft your own delivery and development automation, this is
 
 Get your own Software Delivery Machine (SDM) by following the steps in [Developer Quick Start](../quick-start.md).
 
-## Tutorials
+## Instructions
 
 Once you have a local SDM up and running, here are some things you can do with it:
 
@@ -14,6 +14,8 @@ Once you have a local SDM up and running, here are some things you can do with i
 * Add an [autofix](autofix.md)
 * Add a [code inspection](inspect.md)
 * Add a [custom goal](goal.md) for your team's specific need
+
+Also check out some [fuller tutorials](tutorials.md)
 
 ## Concepts
 

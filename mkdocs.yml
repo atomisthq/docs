@@ -46,7 +46,6 @@ nav:
   - Starting Locally: quick-start.md
   - Using Atomist:
       - Introduction: user/index.md
-      - Uhura SDM: user/uhura.md
       - Atomist web interface: user/dashboard.md
       - Source Control: user/github.md
       - Slack: user/slack.md
@@ -125,6 +124,7 @@ nav:
         - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
   - Tutorials:
+      - Overview: developer/tutorials.md
       - Defining an SDM: developer/defining-sdm.md
       - Building your First Delivery: developer/first_delivery.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
