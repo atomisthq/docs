@@ -1,4 +1,4 @@
-The Drift Report displays [divergence][rods-drift-blog] in aspects of code, configuration and process across all of your repositories. 
+The Drift Report displays [divergence][rods-drift-blog] in aspects of code, configuration and process across all of your repositories.
 
 [rods-drift-blog]: https://blog.atomist.com/whats-lurking/ (Define Technology Drift)
 
@@ -20,7 +20,7 @@ When you first enroll or add a GitHub organization, it may take some time to ana
 
 Currently, the Drift Report covers aspects of four technologies: Node, Java, Docker, and Git. (Each has a tab.)
 
-These represent aspects of code that many organizations are interested in. Atomist is more than a service: it is also a platform for [creating](../quick-start.md) the windows into code that your organization needs. 
+These represent aspects of code that many organizations are interested in. Atomist is more than a service: it is also a platform for [creating](../quick-start.md) the windows into code that your organization needs.
 Hopefully these aspects are useful in themselves, and give you ideas of what else you'd like to map in your organization's repositories.
 
 ### Example Drift Report: TypeScript Versions
@@ -29,18 +29,18 @@ For instance, one of the Node-related aspects displayed is TypeScript version (p
 
 ![Sunburst chart for TypeScript version](../img/web-tsversion-sunburst.png)
 
-This particular sunburst has three rings: the inner ring is GitHub organization (your workspace might have one or several; the one pictured has many, including 'atomist'). 
+This particular sunburst has three rings: the inner ring is GitHub organization (your workspace might have one or several; the one pictured has many, including 'atomist').
 
 The middle ring contains variants -- all the versions of TypeScript specified in any repository.
 The outer ring has each repository, grouped
-by version of TypeScript and organization. 
+by version of TypeScript and organization.
 You can click on segments in this graph to zoom in.
 
 ### Example Drift Report: Maven Dependencies
 
 Some Drift Reports work at a higher level. While TypeScript version
-is one property of the code, other aspects group properties together 
-and show you which ones vary the most. 
+is one property of the code, other aspects group properties together
+and show you which ones vary the most.
 
 The NPM and Maven Dependency reports lets you see where the drift is strongest. Over on the Java tab, the Maven Dependency sunburst looks like this:
 
