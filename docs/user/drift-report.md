@@ -1,11 +1,11 @@
-The Drift Report is an overview of aspects of current code, configuration and process across all of your repositories. 
-As people create new projects, it's not uncommon for those repository to define their own usage of aspects like dependency 
-versions or application configuration; over time, the versions in every repository can "drift" from one other, as some projects 
-update more frequently than others. The Drift Report is an easy way to spot and tame these differences so that every repository 
+The Drift Report is an overview of aspects of current code, configuration and process across all of your repositories.
+As people create new projects, it's not uncommon for those repository to define their own usage of aspects like dependency
+versions or application configuration; over time, the versions in every repository can "drift" from one other, as some projects
+update more frequently than others. The Drift Report is an easy way to spot and tame these differences so that every repository
 operates closer to the same dependency specifications.
 
-You can use this interface to set explicit policies that establish target versions. 
-This can be useful in establishing consistency, as well as ensuring a greater degree of security by ensuring your organization 
+You can use this interface to set explicit policies that establish target versions.
+This can be useful in establishing consistency, as well as ensuring a greater degree of security by ensuring your organization
 maintains current code and configuration.
 
 Strictly speaking, a dependency does not only refer to a package library: it can refer to _any_ predefined project configuration you would like tracked, as we'll see below.
