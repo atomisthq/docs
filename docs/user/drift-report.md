@@ -1,39 +1,101 @@
-The Drift Report is an overview of aspects of current code, configuration and process across all of your repositories. 
-As people create new projects, it's not uncommon for those repository to define their own usage of aspects like dependency 
-versions or application configuration; over time, the versions in every repository can "drift" from one other, as some projects 
-update more frequently than others. The Drift Report is an easy way to spot and tame these differences so that every repository 
-operates closer to the same dependency specifications.
+The Drift Report displays [divergence][rods-drift-blog] in aspects of code, configuration and process across all of your repositories. 
 
-You can use this interface to set explicit policies that establish target versions. 
-This can be useful in establishing consistency, as well as ensuring a greater degree of security by ensuring your organization 
-maintains current code and configuration.
+[rods-drift-blog]: https://blog.atomist.com/whats-lurking/ (Define Technology Drift)
 
-Strictly speaking, a dependency does not only refer to a package library: it can refer to _any_ predefined project configuration you would like tracked, as we'll see below.
+What version of your runtime and libraries are different applications leaning on?
 
-## Viewing drift states
+Which repositories have a bunch of git branches outstanding?
 
-Atomist will automatically analyze the aspects defined for every repository it has access to.
+Who is exposing a nonstandard port?
 
-The visualizations in the Drift Report are represented in two ways, depending on what is being tracked:
+As organizations grow, software grows too. Pieces of software grow at different rates, and what once was normal can be a nasty surprise in the present.
+"Does some library still use Java 6?" "Why is this app stuck in Node 8?!" "What are they doing with port 2866?"
+The Drift Report helps you ask find these surprises, and then do something about it!
 
-* A report lists the overall differences in configurations; or
-* A report assigns a Drift Level for the dependency as zero, low, medium, or high
+## See the Drift Report
 
-The more that different versions of a configuration are found, the more the report is segmented. Similarly, the more that different dependencies are found, the higher its drift becomes. Ideally, you want to ensure that your drift is low, which ensures that the majority of your projects are consistent with each other and with policy.
+Access the Drift Report in the [Atomist web app](https://app.atomist.com). Select the pie chart icon on the left navigation for "Drift Management."
 
-Based on the repository language, different qualities are reported as having drift:
+When you first enroll or add a GitHub organization, it may take some time to analyze the repositories. After that, Atomist will update the data on each push.
 
-* For Node.js, different TypeScript versions and npm package dependencies are categorized
-* For Java, the Maven and Lein dependencies are analyzed
-* For Docker, all the Docker base images and ports in use are broken out
-* For Git, repository branch count is grouped by segments from few to many
+Currently, the Drift Report covers aspects of four technologies: Node, Java, Docker, and Git. (Each has a tab.)
 
-## Managing drift states
+These represent aspects of code that many organizations are interested in. Atomist is more than a service: it is also a platform for [creating](../quick-start.md) the windows into code that your organization needs. 
+Hopefully these aspects are useful in themselves, and give you ideas of what else you'd like to map in your organization's repositories.
 
-You can set specific dependency policies on your repositories to control their drift. If someone makes a commit that changes the dependency to something that doesn't match the policy, a notification is sent if ChatOps is enabled, and an pull request with the fix can be raised. For example, a policy can establish a version of `^3.0.0` for an npm package to ensure that the dependency stays within those bounds for every repository.
+### Example Drift Report: TypeScript Versions
 
-To set a drift policy, click **Manage** next to the drift report. The Manage Policy page consists of a table, where each row represents the different dependency identified. Each dependency contains information about the number of repositories using the package and its drift distribution. Click **Manage** for any given row to set a policy. A drop down lists all of the different versions of the dependency identified. You can select one of these options to define the base acceptable version of the dependency.
+For instance, one of the Node-related aspects displayed is TypeScript version (pictured).
 
-You have the option to test this policy out, then enable it. When you click **Choose Repo to Try**, Atomist lists every repository that are not compliant with the selected policy. You can choose a repository, then click **Run on Selected Repo** to establish its dependency version policy.
+![Sunburst chart for TypeScript version](../img/web-tsversion-sunburst.png)
 
-When you click **Enable**, Atomist will establish the dependency policy across _all_ of the repositories, and ensures that future changes to the dependency won't introduce greater drift.
+This particular sunburst has three rings: the inner ring is GitHub organization (your workspace might have one or several; the one pictured has many, including 'atomist'). 
+
+The middle ring contains variants -- all the versions of TypeScript specified in any repository.
+The outer ring has each repository, grouped
+by version of TypeScript and organization. 
+You can click on segments in this graph to zoom in.
+
+### Example Drift Report: Maven Dependencies
+
+Some Drift Reports work at a higher level. While TypeScript version
+is one property of the code, other aspects group properties together 
+and show you which ones vary the most. 
+
+The NPM and Maven Dependency reports lets you see where the drift is strongest. Over on the Java tab, the Maven Dependency sunburst looks like this:
+
+![Sunburst chart for Maven dependencies](../img/web-maven-sunburst.png)
+
+This sunburst has two rings. The inner ring is a band of drift severity. In the outer band, each segment represents the property that's drifting -- in this case, a maven dependency with varying versions.
+
+In the pictured chart, many Maven dependencies have zero drift: there is only one version in use in all our repositories. Other dependencies have more drift. Hovering over the segments under Medium, I learned that `junit` has seven variants.
+
+To investigate further, click the "Manage" button.
+
+## Manage the Drift
+
+After you click "Manage" on the top-level drift report, you can see details of the aspect. Each aspect lets you manage one or more properties (we call them fingerprints) of your code. The TypeScript Version
+aspect has exactly one:
+
+![Managing the TypeScript Version Aspect](../img/web-tsversion-manage-aspect.png)
+
+Here, you can see the count of repositories (407) with a TypeScript version,
+along with a graph of the distribution of the variants in TypeScript version. If you click on the little eye next to the count of repositories, you'll see a list of them, along with the TypeScript version of each.
+
+From here, click on the next "Manage" button to set a policy.
+
+### Set Policy
+
+When you want to guide your organization toward a single ideal state,
+use Atomist to set that policy and give people a smooth path toward it.
+
+![Set Policy page for TypeScript version](../img/web-set-policy.png)
+
+A "Select Policy" dropdown offers all the variants currently found in any of your repositories. Choose the one you want everyone to move toward.
+
+How quickly do you want to push your organization toward the standard you just chose?
+
+Atomist can issue pull requests that update the TypeScript Version (or another NPM dependency, or a Maven dependency...) to match your policy.
+
+**One:** before you enable the policy, click "Choose Repo to Try" to create one automated pull request.
+
+**All:** After you click Enable to turn on the policy, you can push "Send PRs Now" and create pull requests for every repository with a TypeScript version that doesn't match your policy.
+
+**Gradually:** After you enable the policy, Atomist will respond to pushes
+that don't match it. For repositories [linked to a chat channel](lifecycle.md#linked-channels), Atomist will send a friendly message to that
+channel offering to make a pull request. For repositories that haven't set up this line of communication, Atomist will issue the pull request.
+
+These gradual nudges toward consistency let each team reduce drift on their own timescale.
+
+## Customize
+
+Everyone has library dependencies. Everyone has git branches. And everyone has their
+own concerns that the rest of the world doesn't share.
+
+You can write a function to scrutinize code, a function from checked-out repository to a piece of data that matters to you.
+Then investigate the variety in that property across your organization,
+using the Atomist platform. [Start writing your own aspects](../developer/aspects.md) using the open source [org-visualizer][org-viz-github] (no enrollment needed).
+
+[org-viz-github]: https://github.com/atomist/org-visualizer
+
+Scale up your understanding and control of software. Encode what you want to know, and then Atomist can draw you a map, across a dozen repositories or a thousand.
