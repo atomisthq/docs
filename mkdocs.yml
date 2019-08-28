@@ -47,6 +47,7 @@ nav:
   - Using Atomist:
       - Introduction: user/index.md
       - Atomist web interface: user/dashboard.md
+      - Drift Report: user/drift-report.md
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
