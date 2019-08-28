@@ -1,4 +1,4 @@
-Aspects are a way to visualize technology usage across an organization. These concerns can be captured from anything available in a Git repository, whether that's data about committer activity for content from the files themselves. For example, you could create aspects that capture the following:
+Aspects visualize technology usage across an organization. These concerns are captured from anything available in a Git repository, whether that's  the files themselves or data about committer activity. For example, use or create aspects that capture the following:
 
 * The different software dependencies your repositories are using
 * The different ports exposed in your Dockerfiles
@@ -6,26 +6,26 @@ Aspects are a way to visualize technology usage across an organization. These co
 
 All of the different variants are presented in a [sunburst chart](https://en.wikipedia.org/wiki/Pie_chart#Ring_chart,_sunburst_chart,_and_multilevel_pie_chart), so that you can identify an aspect's drift amongst all of your repositories.
 
-In this example, we’ll create an aspect that inspects [the `engines` field](https://docs.npmjs.com/files/package.json#engines) within a Node.js' package.json file. We'll capture the different versions of `node` and `npm` required in our organization's Node repositories.
+In this example, we’ll create an aspect that inspects [the `engines` field](https://docs.npmjs.com/files/package.json#engines) within a Node.js `package.json` file. We'll capture the different versions of `node` and `npm` required in our organization's Node repositories.
 
 ![Node Engine Sunburst](../img/node_engine_sunburst.png)
 
 ## Prerequisites
 
-It would be very helpful to [follow the README for the org-visualizer repository](https://github.com/atomist-blogs/org-visualizer). Specifically, you'll want to have Postgres running and create the appropriate tables which Atomist needs.
+To set up, follow the steps in [Starting Locally](../quick-start.md). This will get you a running instance of org-visualizer. Then you can modify the code to add an aspect of your own.
 
 ## Foundations of an aspect
 
 At its core, an aspect is generally comprised of two tasks:
 
-1.  An analysis of a repository, either through its Git data or through [code inspection](/developer/inspect/)
-2.  A snapshot of the data for storing that data's state, handled through [fingerprints](/developer/fingerprint/)
+1.  Decide what data represents a variant of the aspect
+2.  Figure out how to parse that from the repository
 
 All of the heavy lifting of iterating through an organization's repositories and generating the sunburst chart are handled for you, so if you know how to parse the data you're interested in collecting, you're already halfway towards building an aspect!
 
 ## Defining the data format and aspect type
 
-Before writing our aspect, it's important to understand how we will store the information we've found. We know that every engine has a `name` and a `version`, so let's define an interface with named keys, like this:
+Before writing our aspect, it's important to understand how we will store the information we've found. We know that every `package.json` engine has a `name` and a `version`, so let's define an interface with named keys, like this:
 
 ```typescript
 export interface EngineData {
@@ -34,15 +34,15 @@ export interface EngineData {
 }
 ```
 
-Furthermore, in order to avoid collisions with other Atomist aspects, we will define our aspect's type. This is also used to create unique fingerprints:
+Furthermore, in order to avoid collisions with other Atomist aspects, we will define our aspect's name. This is also used to create unique fingerprints:
 
 ```typescript
-export const NodeEngineType = "nodeEngine";
+export const NodeEngineName = "nodeEngine";
 ```
 
 ## Creating a fingerprint
 
-Next, we'll create a fingerprint of our data. Aspects (and Atomist) rely on fingerprints to compare and updates changes made to the source repository. All that [an `FP` interface](https://atomist.github.io/sdm-pack-fingerprints/interfaces/_lib_machine_aspect_.fp.html) needs is some kind of data to store, and a sha to identify it. For our use case, we already know that we need to preserve an engine's name and version, so we can hash this combination without much effort.
+Next, we'll create a fingerprint of our data. Aspects (and Atomist) rely on fingerprints to compare and updates changes made to the source repository. All that [a `Fingerprint` interface](https://atomist.github.io/sdm-pack-fingerprints/interfaces/_lib_machine_aspect_.fp.html) needs is some kind of data to store, and a sha to identify it. For our use case, we already know that we need to preserve an engine's name and version, so we can hash this combination without much effort.
 
 A function to fingerprint our data might look like this:
 
@@ -53,8 +53,8 @@ export function createEngineFingerprint(
 ): FP<EngineData> {
   const data = { name, version };
   return {
-    type: NodeEngineType,
-    name,
+    type: NodeEngineName,
+    name: "NodeEngine-" + name,
     abbreviation: "engines",
     version: "0.0.1",
     data,
@@ -63,13 +63,7 @@ export function createEngineFingerprint(
 }
 ```
 
-Here, we've provided the `name` and `version` which have been extracted out of package.json and passed into this method (we'll show how to do this next). If your aspect is not parsing file contents--for example, if it's dealing with Git activity--you can define your own data structure to represent that information, like this:
-
-```typescript
-const gitLastCommitCommand = "git log -1 --format=%cd --date=short"
-const r = await exec(gitLastCommitCommand, { cwd: (p as LocalProject).baseDir });
-const data = { lastCommitTime: new Date(r.stdout.trim()).getTime() };
-```
+Here, we've provided a `name` and `version` which have been extracted out of package.json and passed into this method (we'll show how to do this next).  data = { lastCommitTime: new Date(r.stdout.trim()).getTime() };
 
 ## Extracting relevant data
 
@@ -86,9 +80,9 @@ The method signature for every extract method takes the same shape:
 const funcName: ExtractFingerprint<EngineData> = async p => { ... }
 ```
 
-[The `ExtractFingerprint` method](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html#extractfingerprint) takes in our project, and returns an array of fingerprints (or `undefined` if nothing is found).
+[An `ExtractFingerprint` function](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html#extractfingerprint) takes in our project, and returns an array of fingerprints (or `undefined` if nothing is found).
 
-There's no special sauce necessary, as Atomist provides methods for all sorts of file detection and parsing ([there's a tutorial on code transforms](/developer/first-transform/) has more information on this). First, let's grab that package.json file:
+There's no special sauce necessary, as Atomist provides [methods](project.md) for all sorts of file detection and parsing ([the tutorial on code transforms](/developer/first-transform/) has more information on this). First, let's grab that package.json file:
 
 ```typescript
 const file = await p.getFile("package.json");
@@ -147,7 +141,7 @@ export const extractNodeEngine: ExtractFingerprint<EngineData> = async p => {
 
 With the above groundwork laid out, our last task is to export the created aspect. When it comes to [constructing an `Aspect`](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html), there are three important functions to define:
 
-* `extract`: this function defines the entry point for the aspect, and handles the bulk of the analyzing and snapshoting logic
+* `extract`: the fingerprinting function
 * `toDisplayableFingerprintName`: this represents the name of the "inner" ring in our sunburst chart; in our case, it's the name of the engine
 * `toDisplayableFingerprint`: this represents the name of the "outer" ring in our sunburst chart; in our case, it's the version of the engine
 
@@ -167,9 +161,15 @@ export const NodeEngine: Aspect<EngineData> = {
   name: NodeEngineType,
   displayName: "Node Engine",
   extract: extractNodeEngine,
-  toDisplayableFingerprintName: name => name,
+  toDisplayableFingerprintName: name => name.replace("NodeEngine-", ""),
   toDisplayableFingerprint: fpi => {
     return fpi.data.version;
   },
 };
 ```
+
+## Using the aspect
+
+Add this Aspect to the list of aspects. In org-visualizer, this is in [`aspects.ts`](https://github.com/atomist/org-visualizer/blob/4c21d201f1fc16d6157fbf6d03ff1d6e23799e23/lib/aspect/aspects.ts#L61).
+
+Now run org-visualizer and analyze some repositories, as described in [Starting Locally](../quick-start.md). Your aspect will appear in the visualizations.

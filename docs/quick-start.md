@@ -73,7 +73,7 @@ or aspects across projects.
 
 ## Next steps
 
-Add your own aspects to your version of org-visualizer.
+Add your own aspects to your version of org-visualizer! Use this [tutorial](developer/aspects.md).
 <!-- TODO: put a link to the aspect-creation tutorial here -->
 
 Try the [Atomist app](https://app.atomist.com) to see up-to-date information about your organization's repositories.

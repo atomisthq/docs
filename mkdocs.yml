@@ -126,12 +126,12 @@ nav:
           - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
   - Tutorials:
       - Overview: developer/tutorials.md
-      - Defining an SDM: developer/defining-sdm.md
-      - Building your First Delivery: developer/first_delivery.md
+      - Defining an Aspect: developer/aspects.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
       - Writing your First Code Transform: developer/first-transform.md
-      - Creating Container Goals: developer/container-goals.md
-      - Defining an Aspect: developer/aspects.md
+      - Defining an SDM: developer/defining-sdm.md
+      - Building your First Delivery: developer/first_delivery.md
+      - Creating Container Goals: developer/container-goals.md  
   - Extensions:
       - Extension Packs: pack/index.md
       - Analysis: pack/analysis.md
