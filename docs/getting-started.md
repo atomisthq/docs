@@ -8,22 +8,22 @@ If you are looking to get started developing on Atomist right now, see the [Deve
 2.  **Sign up with your GitHub account.** Authorize Atomist with GitHub to sign up.
 3.  **Name and create your Atomist workspace.** Your workspace is your home on Atomist.
 ![Create Workspace](img/getting-started/create-workspace.png)
-4. **Configure GitHub Access.** Install the [Atomist GitHub App][atomist-gh-app] into your [GitHub organization][install-app-org] or [personal account][install-app-account] and configure access.
+4.  **Configure GitHub Access.** Install the [Atomist GitHub App][atomist-gh-app] into your [GitHub organization][install-app-org] or [personal account][install-app-account] and configure access.
 
 ![Install GitHub App](img/getting-started/install-gh-app.png)
 
 ![Configure GitHub App](img/getting-started/configure-gh-app.png)
 
-5. See your **[Drift Report][drift-report]** for insight into technologies in use in your organization, and manage policies.
-6. **[Enable ChatOps][enable-chat]** for your Atomist workspace. Get actionable notifications and interact with Atomist via our chat bot.
-7. **[Invite team members][invite-team]** to your Atomist workspace 
+5.  See your **[Drift Report][drift-report]** for insight into technologies in use in your organization, and manage policies.
+6.  **[Enable ChatOps][enable-chat]** for your Atomist workspace. Get actionable notifications and interact with Atomist via our chat bot.
+7.  **[Invite team members][invite-team]** to your Atomist workspace
 
 ## Enable ChatOps
 
-*  Go to **Settings > Integrations** and click on Configure for the Slack integration.
-*  Click the `Add to Slack` button. You will need to permissions in your Slack workspace to add a bot.
+* Go to **Settings > Integrations** and click on Configure for the Slack integration.
+* Click the `Add to Slack` button. You will need to permissions in your Slack workspace to add a bot.
 ![Add to Slack](img/getting-started/slack-add.png)
-*  Follow the instructions, see [Slack in Using Atomist][slack] for more information.
+* Follow the instructions, see [Slack in Using Atomist][slack] for more information.
 
 ## Invite team members to Atomist
 
