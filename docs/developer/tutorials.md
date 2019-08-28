@@ -1,5 +1,6 @@
 These tutorials are here:
 
+* Investigate what you care about in your code by [Defining an Aspect](aspects.md)
 * Make a great starting point for projects in your organization by [Setting Up a Project Generator](setting-up-generator.md)
 * Automate changes to code by [Writing your First Code Transform](first-transform.md)
 * Get ready to deliver your software with an SDM by [Defining an SDM](defining-sdm.md)
