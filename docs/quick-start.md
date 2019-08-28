@@ -3,7 +3,7 @@ an open-source tool that lets you run analysis on repositories and then display 
 Analyze repositories on your computer, or ones from GitHub. Then define your own aspects to answer your own questions about
 all that source code.
 
-The org-visualizer is one example of an Atomist Software Delivery Machine (SDM). For the many other things you can do with one of these, check the [tutorials](tutorials.md).
+The org-visualizer is one example of an Atomist Software Delivery Machine (SDM). For the many other things you can do with one of these, check the [tutorials](developer/tutorials.md).
 
 You'll need Node, npm, git, Postgres, and the Atomist CLI.
 
