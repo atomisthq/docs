@@ -4,10 +4,10 @@ Are you a developer who wants to streamline your team's work?
 
 Are you charged with improving Developer Experience or Developer Productivity at your organization?
 
-Do you bear responsibility or oversight for more repositories than you can inspect? Are checks and 
+Do you bear responsibility or oversight for more repositories than you can inspect? Are checks and
 approvals slowing your teams' progress?
 
-Atomist is a platform for automating many parts of development, 
+Atomist is a platform for automating many parts of development,
 especially tasks that are painful at scale.
 
 This includes collaborating with people in chat, investigating code across many repositories, applying changes across them, delivering code,
@@ -53,7 +53,7 @@ The Atomist service provides triggering, [chat integration](../user/slack.md), a
 On top of that, the `@atomist/sdm` [library][npm-sdm] provides a domain model for software delivery. This library understands many of the events that people want to react to, including new [issues](event.md#issues), [new repositories](event.md#repository-creation), and the all-important push. The push triggers [PushRules](set-goals.md), which result in [Goals](goal.md), which the SDM knows how to execute. The Goals include familiar activities like Build and Deploy, plus
 activities that you won't see in older build tools: [AutoCodeInspect](inspect.md), [Autofix](autofix.md), and [Fingerprint](fingerprint.md), for instance.
 
-In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for [build](../pack/build.md) functionality. There are packs to help with languages like [Java](../pack/spring.md) or [Node](../pack/node.md). There are packs specific to deployment targets like [Kubernetes](../pack/kubernetes/index.md) or [Cloud Foundry](../pack/pcf.md). You can create packs and share them with the community.  
+In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for [build](../pack/build.md) functionality. There are packs to help with languages like [Java](../pack/spring.md) or [Node](../pack/node.md). There are packs specific to deployment targets like [Kubernetes](../pack/kubernetes/index.md) or [Cloud Foundry](../pack/pcf.md). You can create packs and share them with the community.
 
 One interesting pack is the [apsect pack](../pack/aspect.md). This one is used by [org-visualizer](https://github.com/atomist/org-visualizer). With this, your SDM can run analysis over repositories and product data for a [drift report](../user/drift-report.md).
 
