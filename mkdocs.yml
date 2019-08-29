@@ -135,7 +135,7 @@ nav:
       - Creating Container Goals: developer/container-goals.md  
   - Extensions:
       - Extension Packs: pack/index.md
-      - Analysis: pack/analysis.md
+      - Aspect: pack/aspect.md
       - Build: pack/build.md
       - Changelog: pack/changelog.md
       - Checkstyle: pack/checkstyle.md

@@ -1,15 +1,35 @@
 # Developing your Software Delivery Machine
 
-When you're ready to craft your own delivery and development automation, this is the place to be.
+Are you a developer who wants to streamline your team's work?
+
+Are you charged with improving Developer Experience or Developer Productivity at your organization?
+
+Do you bear responsibility or oversight for more repositories than you can inspect? Are checks and 
+approvals slowing your teams' progress?
+
+Atomist is a platform for automating many parts of development, 
+especially tasks that are painful at scale.
+
+This includes collaborating with people in chat, investigating code across many repositories, applying changes across them, delivering code,
+ and many other automations.
+
+## About this Developer Guide
+
+The Developer Guide section of these docs is for people writing automations that run on the Atomist platform.
+
+If your team uses Atomist, and you want to understand the built-in features, start in [Using Atomist](../user/index.md).
+
+If you want to see examples of the kinds of automation Atomist makes feasible, this is a good place to be.
 
 ## Getting Started
 
-Get your own Software Delivery Machine (SDM) by following the steps in [Developer Quick Start](../quick-start.md).
+Get your own Software Delivery Machine (SDM) by following the steps in [Starting Locally](../quick-start.md).
 
 ## Instructions
 
 Once you have a local SDM up and running, here are some things you can do with it:
 
+* Create your own [aspects](aspects.md)
 * Add a [chat command](commands.md)
 * Add an [autofix](autofix.md)
 * Add a [code inspection](inspect.md)
@@ -19,10 +39,11 @@ Also check out some [fuller tutorials](tutorials.md)
 
 ## Concepts
 
-In your own SDM, you have many tools available to automate your organization or team's software development (including delivery). To provide all the options, while making the common work easier, we give you a few layers of abstraction.
+In your own SDM, you have many tools available to automate your organization or team's software development (including delivery). To provide all the options, while making the common work easier,
+we layer some abstractions.
 
 ![Layers of libraries: Atomist Service talks to automation-client, which underlies SDM, which
-underlies all the packs](img/layers-of-libs.png)
+underlies all the packs, including sdm-pack-aspect which is the focus of org-vizualizer](img/layers-of-libs.png)
 
 The Atomist service provides triggering, [chat integration](../user/slack.md), and a [GraphQL interface](graphql.md) to events and the context around them. Your software delivery machine connects to that service. This connection is handled in the `@atomist/automation-client` [library][npm-automationclient]. That library works in terms of commands (which people trigger from chat) and events. It also interfaces with source control; it clones repositories, makes commits, pushes them, etc.
 
@@ -34,10 +55,7 @@ activities that you won't see in older build tools: [AutoCodeInspect](inspect.md
 
 In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for [build](../pack/build.md) functionality. There are packs to help with languages like [Java](../pack/spring.md) or [Node](../pack/node.md). There are packs specific to deployment targets like [Kubernetes](../pack/kubernetes/index.md) or [Cloud Foundry](../pack/pcf.md). You can create packs and share them with the community.  
 
-One interesting pack is the [Analysis pack](../pack/analysis.md). This one is used by the [Uhura SDM](https://github.com/atomist/uhura). It separates understanding a project's language and technologies from choosing what to do about it.
-This lets you create analyzers that identify technologies like Node or Spring, and also supply goals or autofixes or other functionality that gets applied dynamically and universally. This is useful
-when you have lots of combinations of technologies across your organization, and you want an SDM
-that can figure out what to do on all of the projects.
+One interesting pack is the [apsect pack](../pack/aspect.md). This one is used by [org-visualizer](https://github.com/atomist/org-visualizer). With this, your SDM can run analysis over repositories and product data for a [drift report](../user/drift-report.md).
 
 Learn more about the high-level concepts in [Architecture](architecture.md).
 
