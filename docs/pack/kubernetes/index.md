@@ -59,7 +59,6 @@ sections.
 * [Deploying applications][deploy]
 * [GitOps][sync]
 * [Installation][install]
-* [Uhura SDM][uhura]
 
 [api]: https://atomist.github.io/sdm-pack-k8s/ (Atomist Kubernetes Extension Pack API Documentation)
 [deploy]: deploy.md (Kubernetes Deploy Goal)
