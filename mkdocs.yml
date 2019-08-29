@@ -147,7 +147,6 @@ nav:
           - Deploying applications: pack/kubernetes/deploy.md
           - GitOps: pack/kubernetes/sync.md
           - Installation: pack/kubernetes/install.md
-          - Uhura SDM: pack/kubernetes/uhura.md
       - Goal State: pack/goalstate.md
       - Issue: pack/issue.md
       - Lines of Code: pack/sloc.md

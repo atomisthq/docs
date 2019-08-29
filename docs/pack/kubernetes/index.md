@@ -76,4 +76,3 @@ sections.
 [sdm-pack-k8s]: https://github.com/atomist/sdm-pack-k8s (Atomist Kubernetes Extension Pack)
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/ (Kubernetes Service)
 [sync]: sync.md (Atomist GitOps)
-[uhura]: uhura.md (Uhura & Kubernetes)
