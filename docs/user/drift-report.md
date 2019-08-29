@@ -92,7 +92,7 @@ These gradual nudges toward consistency let each team reduce drift on their own 
 Everyone has library dependencies. Everyone has git branches. And everyone has their
 own concerns that the rest of the world doesn't share.
 
-You can write a function to scrutinize code, a function from checked-out repository to a piece of data that matters to you.
+You can write a function to scrutinize code for the data that matters to you.
 Then investigate the variety in that property across your organization,
 using the Atomist platform. [Start writing your own aspects](../developer/aspects.md) using the open source [org-visualizer][org-viz-github] (no enrollment needed).
 
