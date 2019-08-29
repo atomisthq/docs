@@ -10,7 +10,7 @@ Who is exposing a nonstandard port?
 
 As organizations grow, software grows too. Pieces of software grow at different rates, and what once was normal can be a nasty surprise in the present.
 "Does some library still use Java 6?" "Why is this app stuck in Node 8?!" "What are they doing with port 2866?"
-The Drift Report helps you ask find these surprises, and then do something about it!
+The Drift Report helps you find these surprises, and then do something about it!
 
 ## See the Drift Report
 
@@ -29,7 +29,7 @@ For instance, one of the Node-related aspects displayed is TypeScript version (p
 
 ![Sunburst chart for TypeScript version](../img/web-tsversion-sunburst.png)
 
-This particular sunburst has three rings: the inner ring is GitHub organization (your workspace might have one or several; the one pictured has many, including 'atomist').
+This particular [sunburst chart](https://en.wikipedia.org/wiki/Pie_chart#Ring) has three rings: the inner ring is GitHub organization (your workspace might have one or several; the one pictured has many, including 'atomist').
 
 The middle ring contains variants -- all the versions of TypeScript specified in any repository.
 The outer ring has each repository, grouped
@@ -46,9 +46,9 @@ The NPM and Maven Dependency reports lets you see where the drift is strongest. 
 
 ![Sunburst chart for Maven dependencies](../img/web-maven-sunburst.png)
 
-This sunburst has two rings. The inner ring is a band of drift severity. In the outer band, each segment represents the property that's drifting -- in this case, a maven dependency with varying versions.
+This sunburst chart has two rings. The inner ring is a band of drift severity. In the outer band, each segment represents the property that's drifting -- in this case, a maven dependency with varying versions.
 
-In the pictured chart, many Maven dependencies have zero drift: there is only one version in use in all our repositories. Other dependencies have more drift. Hovering over the segments under Medium, I learned that `junit` has seven variants.
+In the pictured chart, many Maven dependencies have zero drift: there is only one version in use in all of our repositories. Other dependencies have more drift. Hovering over the segments under Medium, I learned that `junit` has seven variants.
 
 To investigate further, click the "Manage" button.
 
