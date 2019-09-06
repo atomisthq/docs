@@ -17,7 +17,9 @@ The documentation is generated from markdown using [MkDocs][mkdocs].
 Much of the documentation is hand-generated, so you can feel free to
 edit.
 
-We use the [Google Developer Documentation Style Guide][doc-style] as our guide and suggest the [Style guide highlights][style-highlights] for a summary.
+We use the [Google Developer Documentation Style Guide][doc-style] as
+our guide and suggest the [Style guide highlights][style-highlights]
+for a summary.
 
 See [below][build-serve] for instructions on how to test your changes
 locally.
@@ -30,16 +32,16 @@ and let the build take care of it.
 
 ## Contribution criteria
 
-Pull requests will be merged if they are better than the existing text. They don't need to be perfect.
+Pull requests will be merged if they are better than the existing
+text. They don't need to be perfect.
 
 Here's how I define better:
 
 * Out-of-date information is the worst.
 * Emptiness is better than inaccurate information.
-* Placeholders are better than emptiness.
 * Any (accurate) information is better than none.
 
-Additional links and information is great.
+Additional links and information are great.
 
 We (jessitron) will move toward a consistent style and tone after merging.
 
@@ -55,6 +57,32 @@ e.g. to include the content from `docs/common/handlers.md` into `user-guide/rug/
 insert `{!handlers.md!}` to the desired location in `user-guide/rug/commands.md`.
 
 [markdown-include]: https://github.com/cmacmackin/markdown-include
+
+## Code snippets
+
+You can create code snippets in the [atomist/samples][samples]
+repo.  Demarcate a code snippet using the following comment
+
+```typescript
+// atomist:code-snippet:start=SNIPPET_NAME
+CODE HERE
+// atomist:code-snippet:end
+```
+
+replacing `SNIPPET_NAME` with a unique name for the snippet.
+
+You can then include that snippet in the docs using the following HTML
+comment in the Markdown source.
+
+```html
+<!-- atomist:code-snippet:start=SNIPPET_NAME -->
+<!-- atomist:code-snippet:end -->
+```
+
+Then, when either this docs repo or the samples repo is updated, the
+snippets will be updated in this docs repo.
+
+[samples]: https://github.com/atomist/samples
 
 ## Styles
 
@@ -104,20 +132,21 @@ Items on the same line create a visually equivalent admonition.
 
 ## Releasing
 
-When a push is made to the master branch of this repository, the
-entire documentation is built again via a [Travis][travis] job and
-published to [GitHub Pages][gh].
+When a push is made to this repository, the documentation is built by
+the [docs-sdm][] and published to the S3 bucket
+[docs-sdm.atomist.com][docs-sdm-s3] under a path starting with the
+full commit SHA.
 
-[travis]: https://travis-ci.org/atomist/docs
-[gh]: http://atomist.github.io/docs/
-
-If the build is triggered by a tag of the form `M.N.P`, the site will
-be pushed to the docs.atomist.com S3 bucket hosting
+If the publication to the docs-sdm bucket is approved, the site is
+"published" to the docs.atomist.com S3 bucket, making it available at
 [https://docs.atomist.com/][atomist-doc].
 
-[build-serve]: #build-and-serve-the-documentation-locally
+[docs-sdm]: https://github.com/atomist/docs-sdm
+[docs-sdm-s3]: http://docs-sdm.atomist.com.s3-website-us-west-2.amazonaws.com/
 
 ## Build and serve the documentation locally
+
+[build-serve]: #build-and-serve-the-documentation-locally
 
 Before you push changes to this repository, you should test your
 changes locally.
@@ -138,13 +167,13 @@ First [install Python 3][py-install] using [Homebrew][brew] on Mac OS X.
 [brew]: https://brew.sh/
 
 ```
-$ brew install python3
+$ brew install python3 htmltest
 ```
 
 or on Debian-based GNU/Linux distributions
 
 ```
-$ sudo apt-get install python3-pip
+$ sudo apt-get install python3-pip htmltest
 ```
 
 Then create a [virtual environment][venv] to host the dependencies:
@@ -172,18 +201,6 @@ and install the dependencies into it:
 $ pip install -r requirements.txt
 ```
 
-#### HTMLProofer
-
-The Atomist [docs-sdm](https://github.com/atomist/docs-sdm) will run Htmlproofer over
-this repository to check the links. If you would like to test the links locally, you can
-install htmlproofer as a global executable.
-
-```
-sudo gem install html-proofer
-```
-
-Then you can run: `./htmlproof.sh`
-
 ### Testing and serving
 
 Every time you want to work on this repository, you need to activate
@@ -194,10 +211,16 @@ $ . ~/.venvs/docs/bin/activate
 ```
 
 After making changes, you can test them by building the documentation
-in strict mode and running HTMLProofer on the resulting site.
+in strict mode.
 
 ```
-$ mkdocs build --strict && ./htmlproof.sh
+$ mkdocs build --strict
+```
+
+The run `htmltest`.
+
+```
+$ htmltest -c .htmltest.yml site
 ```
 
 To review your changes in a browser, you can serve the documentation

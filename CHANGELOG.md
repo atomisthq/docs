@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 * Add docs for commands. [#260](https://github.com/atomist/docs/issues/260)
+* Add kube-fetch documentation. [#332](https://github.com/atomist/docs/issues/332)
+
+### Changed
+
+* Reorganize and update k8s docs. [#331](https://github.com/atomist/docs/issues/331)
 
 ### Fixed
 

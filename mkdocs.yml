@@ -43,11 +43,11 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Getting Started: getting-started.md
-  - Developer Quick Start: quick-start.md
+  - Starting Locally: quick-start.md
   - Using Atomist:
       - Introduction: user/index.md
-      - Uhura SDM: user/uhura.md
       - Atomist web interface: user/dashboard.md
+      - Drift Report: user/drift-report.md
       - Source Control: user/github.md
       - Slack: user/slack.md
       - Built-in Chat Integrations: user/lifecycle.md
@@ -118,30 +118,37 @@ nav:
         - automation-client: https://atomist.github.io/automation-client/
         - sdm: https://atomist.github.io/sdm/
         - sdm-core: https://atomist.github.io/sdm-core
+        - sdm-pack-aspect: https://atomist.github.io/sdm-pack-aspect/
         - sdm-pack-build: https://atomist.github.io/sdm-pack-build/
         - sdm-pack-checkstyle: https://atomist.github.io/sdm-pack-checkstyle/
         - sdm-pack-cloudfoundry: https://atomist.github.io/sdm-pack-cloudfoundry/
+        - sdm-pack-fingerprints: https://atomist.github.io/sdm-pack-fingerprints/
         - sdm-pack-k8s: https://atomist.github.io/sdm-pack-k8s/
         - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
         - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
         - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
   - Tutorials:
-      - Defining an SDM: developer/defining-sdm.md
-      - Building your First Delivery: developer/first_delivery.md
+      - Overview: developer/tutorials.md
+      - Defining an Aspect: developer/aspects.md
       - Setting Up a Project Generator: developer/setting-up-generator.md
       - Writing your First Code Transform: developer/first-transform.md
+      - Defining an SDM: developer/defining-sdm.md
+      - Building your First Delivery: developer/first_delivery.md
       - Creating Container Goals: developer/container-goals.md
   - Extensions:
     - Extension Packs: pack/index.md
-    - Analysis: pack/analysis.md
+    - Aspect: pack/aspect.md
     - Build: pack/build.md
     - Changelog: pack/changelog.md
     - Checkstyle: pack/checkstyle.md
     - Cloud Foundry: pack/pcf.md
     - Docker: pack/docker.md
     - Kubernetes:
-      - Atomist extensions: pack/kubernetes.md
-      - Uhura SDM: pack/kubernetes-with-uhura.md
+          - "Atomist & Kubernetes": pack/kubernetes/index.md
+          - Kubernetes extension pack: pack/kubernetes/pack.md
+          - Deploying applications: pack/kubernetes/deploy.md
+          - GitOps: pack/kubernetes/sync.md
+          - Installation: pack/kubernetes/install.md
     - Goal State: pack/goalstate.md
     - Issue: pack/issue.md
     - Lines of Code: pack/sloc.md

@@ -77,6 +77,6 @@ Delivery machine!
 
 [atomist-slack]: slack.md (Atomist and Slack)
 [atomist-ci]: ci.md (Atomist and Continuous Integration)
-[atomist-kube]: ../pack/kubernetes.md (Atomist and Kubernetes)
+[atomist-kube]: ../pack/kubernetes/index.md (Atomist and Kubernetes)
 [dev]: ../developer/sdm.md (Atomist Developer Guide)
 [configure-lifecycle]: ../user/lifecycle.md (Atomist Lifecycle Messages)
