@@ -42,7 +42,7 @@ export const NodeEngineName = "nodeEngine";
 
 ## Creating a fingerprint
 
-Next, we'll create a fingerprint of our data. Aspects (and Atomist) rely on fingerprints to compare and updates changes made to the source repository. All that [a `Fingerprint` interface](https://atomist.github.io/sdm-pack-fingerprints/interfaces/_lib_machine_aspect_.fp.html) needs is some kind of data to store, and a sha to identify it. For our use case, we already know that we need to preserve an engine's name and version, so we can hash this combination without much effort.
+Next, we'll create a fingerprint of our data. Aspects (and Atomist) rely on fingerprints to compare and updates changes made to the source repository. All that [a `Fingerprint` interface](https://atomist.github.io/sdm-pack-fingerprint/interfaces/_lib_machine_aspect_.fp.html) needs is some kind of data to store, and a sha to identify it. For our use case, we already know that we need to preserve an engine's name and version, so we can hash this combination without much effort.
 
 A function to fingerprint our data might look like this:
 
@@ -80,7 +80,7 @@ The method signature for every extract method takes the same shape:
 const funcName: ExtractFingerprint<EngineData> = async p => { ... }
 ```
 
-[An `ExtractFingerprint` function](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html#extractfingerprint) takes in our project, and returns an array of fingerprints (or `undefined` if nothing is found).
+[An `ExtractFingerprint` function](https://atomist.github.io/sdm-pack-fingerprint/modules/_lib_machine_aspect_.html#extractfingerprint) takes in our project, and returns an array of fingerprints (or `undefined` if nothing is found).
 
 There's no special sauce necessary, as Atomist provides [methods](project.md) for all sorts of file detection and parsing ([the tutorial on code transforms](/developer/first-transform/) has more information on this). First, let's grab that package.json file:
 
@@ -139,7 +139,7 @@ export const extractNodeEngine: ExtractFingerprint<EngineData> = async p => {
 
 ## Exporting the aspect
 
-With the above groundwork laid out, our last task is to export the created aspect. When it comes to [constructing an `Aspect`](https://atomist.github.io/sdm-pack-fingerprints/modules/_lib_machine_aspect_.html), there are three important functions to define:
+With the above groundwork laid out, our last task is to export the created aspect. When it comes to [constructing an `Aspect`](https://atomist.github.io/sdm-pack-fingerprint/modules/_lib_machine_aspect_.html), there are three important functions to define:
 
 * `extract`: the fingerprinting function
 * `toDisplayableFingerprintName`: this represents the name of the "inner" ring in our sunburst chart; in our case, it's the name of the engine

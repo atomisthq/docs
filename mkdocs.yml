@@ -121,7 +121,7 @@ nav:
           - sdm-pack-build: https://atomist.github.io/sdm-pack-build/
           - sdm-pack-checkstyle: https://atomist.github.io/sdm-pack-checkstyle/
           - sdm-pack-cloudfoundry: https://atomist.github.io/sdm-pack-cloudfoundry/
-          - sdm-pack-fingerprints: https://atomist.github.io/sdm-pack-fingerprint/
+          - sdm-pack-fingerprint: https://atomist.github.io/sdm-pack-fingerprint/
           - sdm-pack-k8s: https://atomist.github.io/sdm-pack-k8s/
           - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
           - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
