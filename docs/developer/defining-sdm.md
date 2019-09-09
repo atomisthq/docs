@@ -111,7 +111,7 @@ const publish = new PublishToS3({
 
 ## Creating a goal
 
-Right now, we have several disparate steps defined as variables: `autofix`, `fingerprint`, `build`, and `publish`. 
+Right now, we have several disparate steps defined as variables: `autofix`, `fingerprint`, `build`, and `publish`.
 Our penultimate step is to create a goal that encapsulates these actions.
 There are [several ways to set a goal](https://docs.atomist.com/developer/set-goals/),
 and we'll go over a few of them briefly.
