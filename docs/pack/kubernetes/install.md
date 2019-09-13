@@ -46,7 +46,7 @@ Atomist utilities using namespace-scoped mode multiple times, one time
 for each namespace you want reported on and managed.
 
 !!! hint
-    If possible, we recomment installing in cluster mode.
+    If possible, we recommend installing in cluster mode.
 
 ### Cluster environment
 
