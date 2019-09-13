@@ -202,7 +202,7 @@ export const configuration = {
                        owner: "REPO_OWNER",
                        branch: "REPO_BRANCH",
                    },
-                   intervalMinuts: 10,
+                   intervalMinutes: 10,
                },
            },
        },
