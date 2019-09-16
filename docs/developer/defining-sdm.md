@@ -1,4 +1,4 @@
-Most of the documentation we've written assumes that you have an SDM configured, and we've shown you what an SDM can do by defining transformations. But how does one _start_ with a completely blank SDM? In this tutorial, we're going to build an SDM entirely from scratch, executing several goals on a Git push. We will:
+Most of the documentation we've written assumes that you have an SDM configured, and we've shown you what an SDM can do by defining transformations. But how does one _start_ with a completely blank SDM? In this tutorial, we're going to build an SDM entirely from scratch, one that performs delivery goals in response to a Git push.
 
 * Autofix and fingerprint code in a repository
 * Build an artifact from that code
@@ -8,7 +8,7 @@ We'll run all of these against a Node repository. To keep things simple, these g
 
 ## Getting started
 
-Run `atomist create sdm` and select "blank" as your SDM time. Feel free to name it anything you like, but in this tutorial, we're going to call it `my-blank-sdm`:
+Run `atomist create sdm` and select "blank" as your SDM type. Feel free to name it anything you like, but in this tutorial, we're going to call it `my-blank-sdm`:
 
 ```
 ? Type of SDM to create blank
@@ -20,11 +20,11 @@ Please follow the prompts to create a new SDM
 
 Navigate to the directory created for you, run `npm install` to grab the Node dependencies, and then open the folder up in your editor of choice.
 
-Unlike some of our other tutorials, where we focus on the code to implement a goal, in this tutorial we're going to start from the `machine.ts` file and set up what we want our actions to be. Your editor will probably complain about TypeScript warnings, and that's okay! This is only meant to be a broad demonstration of what Atomist can do.
+Unlike some of our other tutorials, where we focus on the code to implement a goal, in this tutorial we're going to start from the `index.ts` file and set up what we want our actions to be. Your editor will probably complain about TypeScript warnings, and that's okay! This is only meant to be a broad demonstration of what Atomist can do.
 
 ## Defining your code cleanup steps
 
-To start with, we said we wanted to autofix and fingerprint new commits that were pushed. To do that, let's first import the necessary packages at the top of `machine.ts`:
+To start with, we said we wanted to autofix and fingerprint new commits that were pushed. To do that, let's first import the necessary packages at the top of `index.ts`:
 
 ```typescript
 import {
@@ -35,7 +35,7 @@ import {
 } from "@atomist/sdm";
 ```
 
-Next, within the `machine` function, let's set up some dummy code that will eventually call real, working functions:
+Next, within the `configure` function, let's set up some dummy code that will eventually call real, working functions:
 
 ``` typescript
 const autofix = new Autofix().with(quoteLinter);
@@ -51,7 +51,7 @@ After that, we'll [fingerprint](https://docs.atomist.com/developer/fingerprint/)
 
 With the code all cleaned up, we will want to build an artifact. In compiled language, like Java, a build is considered to be a necessary step performed by a compiler to get an executable or a library. But a build step can also be useful for less rigorous output, such as turning Markdown files into static HTML, or, in the case of some Node projects, turning TypeScript into JavaScript.
 
-At the top of your `machine.ts` file, let's import two predefined functions useful for building Node packages:
+At the top of your `index.ts` file, let's import two predefined functions useful for building Node packages:
 
 ```typescript
 import { Build } from "@atomist/sdm-pack-build";
@@ -111,7 +111,10 @@ const publish = new PublishToS3({
 
 ## Creating a goal
 
-Right now, we have several disparate steps defined as variables: `autofix`, `fingerprint`, `build`, and `publish`. Our penultimate step is to create a goal that encapsulates these actions. There are [several ways to set a goal](https://docs.atomist.com/developer/set-goals/), and we'll go over a few of them briefly.
+Right now, we have several disparate steps defined as variables: `autofix`, `fingerprint`, `build`, and `publish`.
+Our penultimate step is to create a goal that encapsulates these actions.
+There are [several ways to set a goal](https://docs.atomist.com/developer/set-goals/),
+and we'll go over a few of them briefly.
 
 ### Creating a goal set
 

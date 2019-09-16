@@ -46,7 +46,7 @@ Atomist utilities using namespace-scoped mode multiple times, one time
 for each namespace you want reported on and managed.
 
 !!! hint
-    If possible, we recomment installing in cluster mode.
+    If possible, we recommend installing in cluster mode.
 
 ### Cluster environment
 
@@ -95,7 +95,7 @@ CLI](#atomist-cli) approach as it is the easiest.
 
 To use the Atomist CLI to install the Atomist Kubernetes utilities,
 you must have the [Atomist CLI installed and configured][dev-prereq].
-You will also need the Kubernetes [`kubectl`][kubectl-install
+You will also need the Kubernetes [`kubectl`][kubectl-install]
 command-line utility installed and configured to access your
 Kubernetes cluster with the needed privileges.
 
