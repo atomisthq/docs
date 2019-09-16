@@ -1,7 +1,11 @@
-Atomist is a programmable platform for event-driven automation of
-software delivery, with native chatops support.  Developing on Atomist
-means building on a Software Delivery Machine (SDM), so let’s get started
-creating one!
+Get started on your laptop with [org-visualizer][]:
+an open-source tool that lets you run analysis on repositories and then display visualizations of how different they are.
+Analyze repositories on your computer, or ones from GitHub. Then define your own aspects to answer your own questions about
+all that source code.
+
+The org-visualizer is one example of an Atomist Software Delivery Machine (SDM). For the many other things you can do with one of these, check the [tutorials](developer/tutorials.md).
+
+You'll need Node, npm, git, Postgres, and the Atomist CLI.
 
 ## Install the Atomist Command-Line Interface
 
@@ -18,111 +22,65 @@ or on a Mac, if you prefer [Homebrew][brew]:
 $ brew install atomist-cli
 ```
 
-Now you have the `atomist` command installed, which is used for creating
-and running an SDM.
+Now you have the `atomist` command installed, which can start up SDMs and trigger commands in them.
 
 [brew]: https://brew.sh/ (Homebrew)
 
-## Create an Atomist Workspace
+## Clone the org-visualizer
 
-A workspace is the hub for your delivery activity. It is where you
-configure which git repositories or organizations SDMs work on. It’s
-also where you connect a workspace to chat, and invite and manage
-other users of the workspace. You’ll need a workspace to connect your
-own SDM to.
+Clone the [org-visualizer][] project, or fork it and clone that.
 
-!!! Note
-    If you want to work on your laptop, with no connection to the Atomist service,
-    you can start in [local mode](developer/local-quick-start.md) instead.
+[org-visualizer]: https://github.com/atomist/org-visualizer (Org Visualizer on GitHub)
 
-### Configure your CLI:
+## Set up the database
 
-```
-$ atomist config
-```
-Follow the prompts to authenticate with GitHub and choose your Atomist workspace (if your team already has one).
+In local mode, the org-visualizer stores the data it collects about repositories in Postgres.
 
-```
-? Enter your api key from https://app.atomist.com/apikeys
-    or hit <ENTER> to select an authentication provider
-    to login with Atomist:
-Select one of the following authentication providers
-available to login with Atomist:
-? Authentication Provider GitHub
-Waiting for login flow to finish in your browser ⠸
-...
-Logged in as jrday-fc using GitHub
-No workspaces available. Run atomist workspace create
-Successfully wrote configuration ~/.atomist/client.config.json
-```
-
-### Create a workspace
-
-```
-$ atomist workspace create
-```
-Give your workspace a name and authenticate with GitHub. When you choose GitHub organizations
-to enable, you'll be able to get notifications about repositories in that organization, and
-you can choose to enable them for delivery.
-
-```
-Logged in as jrday-fc using GitHub
-Create a new workspace:
-? Workspace Name ghostbusters
-Successfully created new workspace ghostbusters with id AC0PLZOCA
-Select an SCM provider type to config:
-? SCM provider GitHub.com
-Please select organizations you want to enable:
-? Organizations jrday-fc
-Successfully configured SCM provider GitHub.com
-```
-
-### Create a Software Delivery Machine
-
-```
-$ atomist create sdm
-```
-
-This creates a new directory, populated with the code for an SDM. You can
-start from scratch, or from the extra-smart uhura SDM. For this Quick Start,
-we recommend uhura.
-
-```
-? Type of SDM to create
-  blank
-❯ uhura
-…
-  Successfully created new project uhura at file:~/atomist/projects/target-owner/uhura
-$ cd  ~/atomist/projects/target-owner/uhura
-```
-
-When it prompts you for `(mapped parameter) target-owner`, enter your GitHub organization (or your GitHub username).
-A new directory will be created for the SDM in `$ATOMIST_ROOT/<target-owner>/<target repository>`. This will not create
-a repository on GitHub.
+See [the org-visualizer README](https://github.com/atomist/org-visualizer/#database-setup) for instructions
+on setting up a database.
 
 ### Start up the Software Delivery Machine
 
-Change into the directory where your new SDM was created. Then run:
+Change into the directory where org-visualizer ws cloned. Then run:
 
 ```
-$ atomist start
+$ atomist start --local
 ```
 
-Running `atomist start` will install (`npm install`) and start the [Uhura
-SDM][uhura]. Uhura provides the same delivery goals that are provided
-to every workspace by the Atomist service. By installing your own
-instance of Uhura, you can extend and customize its behavior.
+Running `atomist start` will install (`npm install`) if you haven't already.
+Then it will build the project and run it.
 
-When the [Uhura][uhura] SDM starts up, it will connect to your Atomist
-workspace. Test it out by [creating a new project in the Web
-app][create-project] and see the delivery goals execute.
+### Perform analysis on code repositories
+
+Send your org-visualizer a command to start an analysis. The Atomist CLI transmits commands to it.
+Do one of these from any command line:
+
+* Find a local directory containing some repositories you want to investigate. Copy its location. Then run: `atomist analyze local repositories`
+
+* Find a GitHub organization (or user) you'd like to investigate. Then run: `atomist analyze github organization`
+
+Your org-visualizer will clone the repositories from GitHub (or just look at the local ones), evaluate their aspects,
+and then save the results in Postgres.
+
+### See the local web interface
+
+Visit http://localhost:2866/ to experience the local org-visualizer interface. Investigate individual projects
+or aspects across projects.
+
+(If you were looking for something more professional, well, we built [the Atomist web app][web-app] for you.)
+
+[web-app]: https://app.atomist.com (Atomist Web App)
 
 ## Next steps
+
+Add your own aspects to your version of org-visualizer! Use this [tutorial](developer/aspects.md).
+<!-- TODO: put a link to the aspect-creation tutorial here -->
+
+Try the [Atomist app](https://app.atomist.com) to see up-to-date information about your organization's repositories.
 
 Find many things you can do with an SDM in the
 [Developer Guide][developer-guide].
 
-[uhura]: https://github.com/atomist/uhura/ (Uhura)
 [developer-guide]: developer/index.md (Atomist Developer Guide)
 [setup]: user/index.md (Atomist Setup)
 [create-project]: https://app.atomist.com/workspace/project/project (Project Creation)

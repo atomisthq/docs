@@ -2,8 +2,6 @@ This pack lets you abstract the choice of what to do on each push: break this in
 an analysis phase, which looks at the project and decides what is in it, and then an
 interpretation phase which decides which goals we can execute based on that analysis.
 
-This is used in the [Uhura SDM](../user/uhura.md).
-
 [GitHub][]
 
 <!-- uncomment after release: [API Doc][api-doc] -->

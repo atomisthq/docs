@@ -7,7 +7,7 @@ Create your own with `atomist create extension pack`.
 Each pack has its own set of functionality, so check the page for each one for details.
 
 * [Docker](docker.md)
-* [Kubernetes](kubernetes.md)
+* [Kubernetes](kubernetes/index.md)
 * [Spring](spring.md)
 * [Node](node.md)
 * [Sonarqube](sonarqube.md)

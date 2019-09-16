@@ -75,7 +75,7 @@ I have in my settings:
 
 For debugging a running SDM, check the [SDM Debugging](sdm-debug.md) page.
 
-For debugging tests, [this post](https://adrianhall.github.io/web%20development/run-typescript-mocha-tests-in-vscode/) is super useful.
+For debugging tests, [this post](https://adrianhall.github.io/web/2018/07/04/run-typescript-mocha-tests-in-vscode/) is super useful.
 In particular, I use this launch configuration in the debugger:
 
 ```json

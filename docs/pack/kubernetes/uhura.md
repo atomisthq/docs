@@ -1,10 +1,9 @@
-
-If you can deploy to Kubernetes from your computer, then you can configure the [Uhura](../user/uhura.md) SDM to deploy your
+If you can deploy to Kubernetes from your computer, then you can configure the [Uhura](../../user/uhura.md) SDM to deploy your
 applications there.
 
 ### Set up connections
 
-* Install the latest version of the [Atomist CLI](../developer/cli.md) with `npm install -g @atomist/cli`.
+* Install the latest version of the [Atomist CLI](../../developer/cli.md) with `npm install -g @atomist/cli`.
 * Run `atomist config` to connect to your Atomist workspace with an API Key
 * Set up your own environment to deploy to Kubernetes: `minikube start` if you're running Kubernetes locally, or set your context with `kubectl config`. You will need admin access to the cluster for the next step - if you don't have it, you'll find out in a minute.
 
@@ -15,7 +14,7 @@ Atomist needs two utilities to run inside your cluster:
 [`k8s-sdm`](https://github.com/atomist/k8s-sdm) is a software delivery machine that only does deployment
 of your projects. It connects to Atomist for triggering, then performs the deployments into the cluster it runs in.
 
-[`k8vent`](https://github.com/atomist/k8vent) listens to Kubernetes events and sends them to Atomist, which connects them to other events. With these, [push notifications](../user/lifecycle.md) display services and containers running, relating commits to the environments where they are deployed.
+[`k8vent`](https://github.com/atomist/k8vent) listens to Kubernetes events and sends them to Atomist, which connects them to other events. With these, [push notifications](../../user/lifecycle.md) display services and containers running, relating commits to the environments where they are deployed.
 
 ![push notification shows deployments (done by k8s-sdm) and contatiners running (noticed by k8vent)](img/k8vent-in-action.png)
 
@@ -32,7 +31,7 @@ To give them permissions to do this, we create
 for them, along with
 [cluster roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding)
 and [cluster role binding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-clusterrolebinding).
- This gives `k8vent` permission to watch pod events, and it gives `k8s-sdm` permission to manipulate pods, namespaces, and more. For full details, see our [Kubernetes Extension documentation](kubernetes.md).
+ This gives `k8vent` permission to watch pod events, and it gives `k8s-sdm` permission to manipulate pods, namespaces, and more. For full details, see our [Kubernetes Extension documentation](index.md).
 
 The Atomist command line can install these to your cluster for you:
 
@@ -82,7 +81,7 @@ Your next objective is to run a command to configure Uhura to deploy to the envi
 
 `configure deployment atomist/uhura cluster=my-kube-env goal=production ns=my-prod-ns`
 
-How do you run a command? If you have integrated Atomist with [chat](../user/slack.md), send it to Atomist as a direct message. Otherwise:
+How do you run a command? If you have integrated Atomist with [chat](../../user/slack.md), send it to Atomist as a direct message. Otherwise:
 
 * log in to the Atomist [web app][]
 * go to the SDM page
