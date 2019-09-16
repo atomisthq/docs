@@ -27,7 +27,7 @@ The `@atomist/automation-client` package handles a number of base features for a
 
 The `sdm-core` is the heart of the SDM, and has just several functions of use, dealing with the management of goals:
 
-* [goal states](/developer/goalstate/), a way to manually trigger and change the status of goals
+* [goal states](/pack/goalstate/), a way to manually trigger and change the status of goals
 * [container goals](/developer/container-goals/), assisting you in creating a delivery flow with Docker images
 
 In some cases, you'll need to configure the SDM to just execute a single goal, or even perform some post-processing after the SDM is initialized. `@atomist/sdm-core` exports the `configureSdm` function to do just that.
