@@ -1,3 +1,5 @@
+# Debugging an SDM
+
 You can debug your SDM on your laptop. Instead of `atomist start` at the command line, start it up in a debugger in your favorite tool.
 
 ## VSCode
