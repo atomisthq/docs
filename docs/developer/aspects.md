@@ -29,15 +29,15 @@ Before writing our aspect, it's important to understand how we will store the in
 
 ```typescript
 export interface EngineData {
-  name: string;
-  version: string;
+    name: string;
+    version: string;
 }
 ```
 
 Furthermore, in order to avoid collisions with other Atomist aspects, we will define our aspect's name. This is also used to create unique fingerprints:
 
 ```typescript
-export const NodeEngineName = "nodeEngine";
+export const PackageEngineName = "packageEngine";
 ```
 
 ## Creating a fingerprint
@@ -47,23 +47,24 @@ Next, we'll create a fingerprint of our data. Aspects (and Atomist) rely on fing
 A function to fingerprint our data might look like this:
 
 ```typescript
-export function createEngineFingerprint(
-  name: string,
-  version: string,
-): FP<EngineData> {
-  const data = { name, version };
-  return {
-    type: NodeEngineName,
-    name: "NodeEngine-" + name,
-    abbreviation: "engines",
-    version: "0.0.1",
-    data,
-    sha: sha256(JSON.stringify(data)),
-  };
+import { FP, sha256 } from "@atomist/sdm-pack-fingerprint";
+/**
+ * Create a package.json engines fingerprint.
+ */
+export function createEngineFingerprint(name: string, version: string): FP<EngineData> {
+    const data = { name, version };
+    return {
+        type: PackageEngineName,
+        name: "PackageEngine-" + name,
+        abbreviation: "engines",
+        version: "0.0.1",
+        data,
+        sha: sha256(JSON.stringify(data)),
+    };
 }
 ```
 
-Here, we've provided a `name` and `version` which have been extracted out of package.json and passed into this method (we'll show how to do this next).  data = { lastCommitTime: new Date(r.stdout.trim()).getTime() };
+Here, we've provided a `name` and `version` which have been extracted out of package.json and passed into this method (we'll show how to do this next).
 
 ## Extracting relevant data
 
@@ -87,15 +88,16 @@ There's no special sauce necessary, as Atomist provides [methods](project.md) fo
 ```typescript
 const file = await p.getFile("package.json");
 if (file) {
-  // do something
+    // do something
 } else {
-  return undefined
+    return undefined
 }
 ```
 
 If we have a package.json file, we'll grab its contents and then parse it:
 
 ```typescript
+import * as _ from "lodash";
 const jsonData = JSON.parse(await file.getContent());
 const engines = _.merge(jsonData.engines || {});
 ```
@@ -106,7 +108,7 @@ After that, we'll pass the `name` and `version` keys to the `createEngineFingerp
 const fingerprints: FP[] = [];
 
 for (const [name, version] of Object.entries(engines)) {
-  fingerprints.push(createEngineFingerprint(name, version as string));
+    fingerprints.push(createEngineFingerprint(name, version as string));
 }
 
 return fingerprints;
@@ -117,23 +119,24 @@ That's it! In more complex situations, you may want to introduce some additional
 A full example of the function might look like this:
 
 ``` typescript
-export const extractNodeEngine: ExtractFingerprint<EngineData> = async p => {
-  const file = await p.getFile("package.json");
-
-  if (file) {
-    const jsonData = JSON.parse(await file.getContent());
-    const engines = _.merge(jsonData.engines || {});
-
-    const fingerprints: FP[] = [];
-
-    for (const [name, version] of Object.entries(engines)) {
-      fingerprints.push(createEngineFingerprint(name, version as string));
+import { ExtractFingerprint, FP } from "@atomist/sdm-pack-fingerprint";
+import * as _ from "lodash";
+/**
+ * Extract the package.json engines and return the fingerprints.
+ */
+export const extractPackageEngine: ExtractFingerprint<EngineData> = async p => {
+    const file = await p.getFile("package.json");
+    if (file) {
+        const jsonData = JSON.parse(await file.getContent());
+        const engines = _.merge(jsonData.engines || {});
+        const fingerprints: FP[] = [];
+        for (const [name, version] of Object.entries(engines)) {
+            fingerprints.push(createEngineFingerprint(name, version as string));
+        }
+        return fingerprints;
+    } else {
+        return undefined;
     }
-
-    return fingerprints;
-  } else {
-    return undefined;
-  }
 };
 ```
 
@@ -145,7 +148,7 @@ With the above groundwork laid out, our last task is to export the created aspec
 * `toDisplayableFingerprintName`: this represents the name of the "inner" ring in our sunburst chart; in our case, it's the name of the engine
 * `toDisplayableFingerprint`: this represents the name of the "outer" ring in our sunburst chart; in our case, it's the version of the engine
 
-The `extract` method is our `extractNodeEngine` function defined above. The fingerprint displays are in two different formats:
+The `extract` method is our `extractPackageEngine` function defined above. The fingerprint displays are in two different formats:
 
 * `toDisplayableFingerprintName` passes in a `name` argument. This is the same value that was used when creating our fingerprint in `createEngineFingerprint`. You can pass in the value directly, or, provide a method that takes this argument for additional string manipulation.
 * `toDisplayableFingerprint` passes in the fingerprint data object directly.
@@ -153,18 +156,18 @@ The `extract` method is our `extractNodeEngine` function defined above. The fing
 A sample function to export this aspect might look like this:
 
 ```typescript
+import { Aspect } from "@atomist/sdm-pack-fingerprint";
 /**
- * Find the engines defined in a package.json file
- * @constructor
+ * Define package.json engines aspect.
  */
-export const NodeEngine: Aspect<EngineData> = {
-  name: NodeEngineType,
-  displayName: "Node Engine",
-  extract: extractNodeEngine,
-  toDisplayableFingerprintName: name => name.replace("NodeEngine-", ""),
-  toDisplayableFingerprint: fpi => {
-    return fpi.data.version;
-  },
+export const PackageEngine: Aspect<EngineData> = {
+    name: PackageEngineName,
+    displayName: "Package Engine",
+    extract: extractPackageEngine,
+    toDisplayableFingerprintName: name => name.replace("PackageEngine-", ""),
+    toDisplayableFingerprint: fpi => {
+        return fpi.data.version;
+    },
 };
 ```
 
