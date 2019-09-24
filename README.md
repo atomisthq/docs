@@ -141,10 +141,10 @@ changes locally.
 ### Install dependencies
 
 The project uses [MkDocs][mkdocs] to generate the static site
-and [HTMLProofer][html-proofer] to validate the generated HTML.  Below
+and [htmltest][htmltest] to validate the generated HTML.  Below
 are instructions to install them in a non-obtrusive way.
 
-[html-proofer]: https://github.com/gjtorikian/html-proofer
+[htmltest]: https://github.com/wjdp/htmltest
 
 #### MkDocs
 

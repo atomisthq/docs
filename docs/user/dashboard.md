@@ -4,13 +4,13 @@ you can view and manage drift, see some notifications, run GraphQL queries again
 Atomist workspace.
 
 <!-- TODO update this image. And make this page have all the sections. -->
-<img src="img/leftnav.jpg" height=400px clip-path="inset(px,0px,0px,0px)" />
+<img src="../img/leftnav.jpg" height=400px clip-path="inset(px,0px,0px,0px)" />
 
 ![See the nice buttons for GraphQL and Workspace Settings](img/dashboard-overview.png)
 
 ## Drift Management
 
-<img src="img/leftnav.jpg" height=400px clip-path="inset(66px,0px,0px,0px)" />
+<img src="../img/leftnav.jpg" height=400px clip-path="inset(66px,0px,0px,0px)" />
 
 <!-- TODO picture of drift report symbol --> Interact with your [Drift Report](drift-report.md) by clicking this.
 
