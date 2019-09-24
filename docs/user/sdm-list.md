@@ -32,6 +32,6 @@ For instance, you can use this command-line interface to restart all the goals o
 
 * `cd` into the owner/repo of your repository
 * type `plan goals ` and push `tab` to see the SDMs that are available. Then complete the command with the name of the SDM that runs goals on this repository for you.
-* To see that the goals started over, check the [Activity page](dashboard.md#activity) page, and filter for your repository.
+* To see that the goals started over, check the [Activity page](../dashboard/index.html#activity) page, and filter for your repository.
 
 Currently this interface doesn't provide the output of the commands. Any messages sent by the command appear as notifications at the top the web application.
