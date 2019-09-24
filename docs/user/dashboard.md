@@ -7,48 +7,34 @@ Access the following pages from the symbols on the left navigation bar:
 
 ## Drift Management
 
-<img src="../img/leftnav.jpg" height=400px style="
-    clip-path: inset(25% 0px 62.5% 0px);
-"  class="left-nav-item-clip">
+![Drift Management icon](img/left-nav-dm.jpg)
 
  Interact with your [Drift Report](drift-report.md) by clicking this.
 
 ## Events
 
-<img src="../img/leftnav.jpg" style="
-    clip-path: inset(37.5% 0px 50% 0px);
-" class="left-nav-item-clip">
+![Activity icon](img/left-nav-activity.jpg)
 
 This page shows a list of [Lifecycle Events](lifecycle.md). You can filter it by person or repository using the filter button. Click on a notification to see details, including useful buttons.
 
 This page includes a list of Notifications on the right.
 
 ## SDM list
-<img src="../img/leftnav.jpg" height=400px style="
-    clip-path: inset(50% 0px 37.5% 0px);
-"  class="left-nav-item-clip">
-
-[See and administer](sdm-list.md) the Software Delivery Machines (SDMs) in your workspace.
+![Software Delivery Machines icon](img/left-nav-sdm.jpg) [See and administer](sdm-list.md) the Software Delivery Machines (SDMs) in your workspace.
 
 ## GraphQL
 
 Atomist constructs a graph of your organization's events, so that you can get the context you need to act on them. For instance, a push is linked to commits which link to people which link to chat users that you can DM. Issues are linked to commits that reference them.
 
-<img src="../img/leftnav.jpg" height=400px style="
-    clip-path: inset(62.5% 0px 25% 0px);
-"  class="left-nav-item-clip">
+![GraphQL Explorer icon](img/left-nav-graphql.jpg)
  Click this symbol to access the GraphQL explorer.
 
 ## Docs
 
-<img src="../img/leftnav.jpg" height=400px style="
-    clip-path: inset(75% 0px 12.5% 0px);
-"  class="left-nav-item-clip">
+![Documentation icon](img/left-nav-docs.jpg)
 You're already here.
 
 ## Settings
 
-<img src="../img/leftnav.jpg" height=400px style="
-    clip-path: inset(87.5% 0px 0px 0px);
-"  class="left-nav-item-clip">
+![Settings icon](img/left-nav-settings.jpg)
 [Administer](admin) your Atomist workspace.
