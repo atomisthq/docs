@@ -32,7 +32,6 @@ This page includes a list of Notifications on the right.
 
 ## GraphQL
 
-
 Atomist constructs a graph of your organization's events, so that you can get the context you need to act on them. For instance, a push is linked to commits which link to people which link to chat users that you can DM. Issues are linked to commits that reference them.
 
 <img src="../img/leftnav.jpg" height=400px style="
