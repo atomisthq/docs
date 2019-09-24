@@ -1,3 +1,7 @@
+#### aspect
+
+Some measure of code or process that you care about. View these in a [Drift Report](user/drift-report.md).
+
 #### Atomist
  1. the company that produces this spectacular glossary.
  2. a development automation platform, consisting of a service, a framework, and libraries to help you automate your software delivery, your way.
@@ -63,6 +67,15 @@ and it gives you access to some notifications and the settings for your Atomist 
  Other examples include [project creation](developer/create.md), [issue creation](user/lifecycle.md,
   and code [maintenance](developer/transform.md).
 
+#### drift
+when code in various repositories becomes different in ways you care about. [more info](user/drift-report.md)
+
+#### drift management
+an approach for an organization to identify and fix issues in code and delivery process. This approach highlights the use of technology to identify when something changes, set policies, and monitor progress.
+
+#### drift report
+a visualization of an aspect across your workspace
+
 #### durable
 
 when an SDM is configured as durable, then when it is no longer connected, the Atomist event hub will queue events for it until it comes back up. [more info](developer/team.md#durable-subscriptions)
@@ -115,6 +128,12 @@ the SDM framework lets you register listeners to various useful events. [check t
 #### local mode
  when an SDM runs on your laptop, working only on code that's on your laptop, sending messages only to your laptop. [more info](developer/local.md)
 
+#### policy
+Defines actions exercised automatically on your code in the service of furthering consistency and principles of
+soung governance.
+In drift management, set a policy to have Atomist help you: for some aspect, set a target and
+choose a mechanism for automated change (such as pull requests).
+
 #### project
  in this guide, "project" refers to a git repository with code in it.
 
@@ -123,11 +142,6 @@ the SDM framework lets you register listeners to various useful events. [check t
 
 #### projects directory
  (or "Atomist projects directory") this is a directory on your computer where local-mode SDMs will look for projects to work on. It defaults to $HOME/atomist/projects [more info](developer/local.md#directory-structure)
-
-#### PushRule
-
-Each argument to [`sdm.withPushRules`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)
-is a PushRule, contributing goals on a commit if a condition is met. That condition is a [PushTest](#pushtest).
 
 #### push event
 
@@ -140,6 +154,11 @@ a function that reacts to a change in code. It can do anything: send a message t
 #### push notification
 
 the message that atomist bot sends to chat after each push event. It gets updated to include information about builds, goal, tags, deployments, and more. [more info](user/lifecycle.md#push)
+
+#### PushRule
+
+Each argument to [`sdm.withPushRules`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)
+is a PushRule, contributing goals on a commit if a condition is met. That condition is a [PushTest](#pushtest).
 
 #### PushTest
 
@@ -164,15 +183,6 @@ an object that provides instructions to an SDM or a goal. A registration include
  an aspect has multiple values across repositories. Choose one of these as a _target_ and set a policy for how to move
  toward it.
 
-#### policy
-Defines actions exercised automatically on your code in the service of furthering consistency and principles of
-soung governance.
-In drift management, set a policy to have Atomist help you: for some aspect, set a target and
-choose a mechanism for automated change (such as pull requests).
-
-#### drift report
-a visualization of an aspect across your workspace
-
 #### team
  in this guide, your team includes all the other people at your company who might interact with Atomist.
 
@@ -190,13 +200,3 @@ and it gives you access to some notifications and the settings for your Atomist 
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.
-
-#### drift
-when code in various repositories becomes different in ways you care about. [more info](user/drift-report.md)
-
-#### drift management
-an approach for an organization to identify and fix issues in code and delivery process. This approach highlights the use of technology to identify when something changes, set policies, and monitor progress.
-
-#### aspect
-
-Some measure of code or process that you care about. View these in a [Drift Report](user/drift-report.md).
