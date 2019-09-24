@@ -1,6 +1,6 @@
 This page describes enrollment with Atomist as a service.
 
-Atomist is here to help you smooth your development flow. 
+Atomist is here to help you smooth your development flow.
 Start with gaining insight into the code in your organization, with the
 [Drift Report](drift-report.md) in the Atomist web app.
 
@@ -15,7 +15,7 @@ and they update every time you push code. You can also use built-in automations 
 Lifecycle Messages (chat notifications on code push, PR, issue etc
 with action buttons) and chat commands like "create issue". And your own
 Software Delivery Machines will work on events and commands from your
-whole organization. 
+whole organization.
 
 Atomist brings together code from version control and people in chat. You can write
 your own functions to respond to people in chat (with buttons, dialogs, and other niceties),
@@ -59,7 +59,7 @@ received.
 When you first sign up, you'll be asked to authenticate with GitHub.
 Once you've authenticated, you'll create a new Atomist workspace.
 Associate a GitHub organization with the Atomist
-workspace to start the Drift Report analysis. 
+workspace to start the Drift Report analysis.
 
 For more information on how Atomist
 integrates with GitHub, see the [GitHub integration][atomist-github]

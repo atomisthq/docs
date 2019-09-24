@@ -3,8 +3,6 @@ The Atomist web interface is located at [app.atomist.com](https://app.atomist.co
 you can view and manage drift, see some notifications, run GraphQL queries against your data, and administer your
 Atomist workspace.
 
-
-
 <!-- TODO update this image. And make this page have all the sections. -->
 <img src="img/leftnav.jpg" height=400px clip-path="inset(px,0px,0px,0px)" />
 
@@ -32,8 +30,8 @@ This page includes a list of Notifications on the right.
 
 ## GraphQL
 
-Atomist constructs a graph of your organization's events, so that you can get the context you need to act on them. For instance, a push is linked to commits which link to people which link to chat users that you can DM. Issues are linked to commits that reference them. 
- 
+Atomist constructs a graph of your organization's events, so that you can get the context you need to act on them. For instance, a push is linked to commits which link to people which link to chat users that you can DM. Issues are linked to commits that reference them.
+
 <!-- TODO graphql symbol --> Click this symbol to access the GraphQL explorer.
 
 ## Docs

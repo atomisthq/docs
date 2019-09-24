@@ -165,9 +165,9 @@ an object that provides instructions to an SDM or a goal. A registration include
  toward it.
 
 #### policy
-Defines actions exercised automatically on your code in the service of furthering consistency and principles of 
+Defines actions exercised automatically on your code in the service of furthering consistency and principles of
 soung governance.
-In drift management, set a policy to have Atomist help you: for some aspect, set a target and 
+In drift management, set a policy to have Atomist help you: for some aspect, set a target and
 choose a mechanism for automated change (such as pull requests).
 
 #### drift report
@@ -199,4 +199,4 @@ an approach for an organization to identify and fix issues in code and delivery 
 
 #### aspect
 
-Some measure of code or process that you care about. View these in a [Drift Report](user/drift-report.md). 
+Some measure of code or process that you care about. View these in a [Drift Report](user/drift-report.md).
