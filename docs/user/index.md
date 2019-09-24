@@ -1,16 +1,27 @@
 This page describes enrollment with Atomist as a service.
 
-Atomist is here to help you smooth your development flow.  Start with
-our web console; see consolidated event notifications.  Add ChatOps
-with Slack if you have it.  Spawn your own software delivery machine,
+Atomist is here to help you smooth your development flow. 
+Start with gaining insight into the code in your organization, with the
+[Drift Report](drift-report.md) in the Atomist web app.
+
+Also in
+our web console, you can see consolidated event notifications.  Add ChatOps
+with Slack or MS Teams if you have it.  Spawn your own software delivery machine,
 and integrate with other tools as you choose.
 
 When you
-enroll in the Atomist service, you get built-in automations such as
-Lifecycle Messages (Slack notifications on code push, PR, issue etc
-with action buttons) and commands like "create issue". And your own
+enroll in the Atomist service, you get visualizations of aspects of your repository,
+and they update every time you push code. You can also use built-in automations such as
+Lifecycle Messages (chat notifications on code push, PR, issue etc
+with action buttons) and chat commands like "create issue". And your own
 Software Delivery Machines will work on events and commands from your
-whole organization.
+whole organization. 
+
+Atomist brings together code from version control and people in chat. You can write
+your own functions to respond to people in chat (with buttons, dialogs, and other niceties),
+and to events like repository creation or code push. Send information to people who need it by
+chat message or DM, and update code by commit or pull request. Automate as much of your process as
+you choose, and keep people informed for the rest.
 
 You can also use a Software Delivery Machine (SDM) on your laptop,
 individually, without enrolling in the service.  To get going with a
@@ -48,12 +59,13 @@ received.
 When you first sign up, you'll be asked to authenticate with GitHub.
 Once you've authenticated, you'll create a new Atomist workspace.
 Associate a GitHub organization with the Atomist
-workspace to start getting events.  Atomist will ask your permission
-to create the needed webhook(s).  For more information on how Atomist
+workspace to start the Drift Report analysis. 
+
+For more information on how Atomist
 integrates with GitHub, see the [GitHub integration][atomist-github]
 documentation.
 
-The Atomist web interface will show you events, e.g., new commits and
+The Atomist web interface will also show you events, e.g., new commits and
 issue and pull request activity, from GitHub.
 
 [www]: https://atomist.com/ (Atomist - How Teams Deliver Software)

@@ -156,10 +156,22 @@ an object that provides instructions to an SDM or a goal. A registration include
  another name for commands. Skills are things Atomist knows how to do.
 
 #### software delivery machine (SDM)
- a program that you run, which connects to the atomist service (in team mode) for triggering and chat integration. Your SDM runs your software delivery flow and other development automations.
+ a program that you run, which connects to the atomist service (in team mode) for triggering and chat integration. Your SDM runs your aspects, goals, and other development automations.
 
 #### target
- (as in "target repository" or "target owner") when you run a generator, this is where Atomist will put the new project. See [project](#project) and [project owner](#project-owner)
+ 1.  in project generation - (as in "target repository" or "target owner") when you run a generator, this is where Atomist will put the new project. See [project](#project) and [project owner](#project-owner)
+ 2.  in drift management - a value of an aspect that you want to move code to. When your organization has drift, then
+ an aspect has multiple values across repositories. Choose one of these as a _target_ and set a policy for how to move
+ toward it.
+
+#### policy
+Defines actions exercised automatically on your code in the service of furthering consistency and principles of 
+soung governance.
+In drift management, set a policy to have Atomist help you: for some aspect, set a target and 
+choose a mechanism for automated change (such as pull requests).
+
+#### drift report
+a visualization of an aspect across your workspace
 
 #### team
  in this guide, your team includes all the other people at your company who might interact with Atomist.
@@ -178,3 +190,13 @@ and it gives you access to some notifications and the settings for your Atomist 
 
 #### workspace
  many services have a concept of "workspace," and Atomist is one of them. An Atomist workspace represents your organization's account with Atomist.
+
+#### drift
+when code in various repositories becomes different in ways you care about. [more info](user/drift-report.md)
+
+#### drift management
+an approach for an organization to identify and fix issues in code and delivery process. This approach highlights the use of technology to identify when something changes, set policies, and monitor progress.
+
+#### aspect
+
+Some measure of code or process that you care about. View these in a [Drift Report](user/drift-report.md). 

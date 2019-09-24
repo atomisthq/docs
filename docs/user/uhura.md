@@ -53,8 +53,6 @@ The following commands are available from this SDM:
 |`cancel goal sets atomist/uhura`|Cancel all pending or in progress uhura goal sets in your workspace|
 |`list goal sets atomist/uhura`|List all pending or in progress uhura goal sets in your workspace|
 
-<!-- TODO: link to how to run a command -->
-
 ## Goals
 
 These are the goals set and run by Uhura on pushes to your projects, when they are created by Uhura's [generator][uhura-create] or enabled with a command like `enable atomist/uhura`.

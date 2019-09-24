@@ -45,19 +45,6 @@ Additional links and information are great.
 
 We (jessitron) will move toward a consistent style and tone after merging.
 
-## Content reuse
-
-Sometimes it's desirable to have certain content repeated in a page or duplicated
-across pages. This project uses a [markdown-include][markdown-include] plugin to
-include content from files in the `docs/common` directory prior to conversion to
-HTML. It uses the `{!filename!}` syntax, with all filenames relative to the
-`docs/common` directory.
-
-e.g. to include the content from `docs/common/handlers.md` into `user-guide/rug/commands.md`,
-insert `{!handlers.md!}` to the desired location in `user-guide/rug/commands.md`.
-
-[markdown-include]: https://github.com/cmacmackin/markdown-include
-
 ## Code snippets
 
 You can create code snippets in the [atomist/samples][samples]
@@ -86,7 +73,7 @@ snippets will be updated in this docs repo.
 
 ## Styles
 
-We use the [Admonition][admonition] extension.  Here are the available
+We use the [Admonition][admonition] extension to mkdocs.  Here are the available
 admonition styles:
 
 * summary tldr

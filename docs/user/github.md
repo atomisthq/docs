@@ -1,6 +1,8 @@
 
-Atomist helps you work with GitHub in two ways:
+Atomist helps you work with GitHub in three ways:
 
+1.  Atomist analyzes the code across your GitHub organization to surface
+    aspects that reveal [drift](drift-report.md) and other concerns.
 1.  Atomist surfaces your team's development activity, such as pushes,
     pull requests, or issues, in the Atomist web interface in chat.  This
     visibility is enabled via webhooks.
@@ -15,7 +17,9 @@ Atomist helps you work with GitHub in two ways:
 
 ## Webhooks
 
-Atomist receives its information from GitHub via [webhooks][].  To
+<!-- TODO as a GitHub app, is this still true? Ask dd to look at this page -->
+
+Atomist receives events from GitHub via [webhooks][].  To
 ease adoption across your organization, installing an organization
 webhook is recommended.  To try Atomist out on a small scale, you can
 install webhooks repository by repository.
@@ -24,7 +28,7 @@ install webhooks repository by repository.
 
 ### Organization webhooks
 
-GitHub organization members that have the [owner role][owners], are
+GitHub organization members that have the [owner role][owners] are
 allowed to configure organization webhooks.  This is convenient
 because it only has to be configured once; however, you will require a
 user who has the `Owner` role in your GitHub organization.
