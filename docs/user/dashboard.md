@@ -20,21 +20,24 @@ This page shows a list of [Lifecycle Events](lifecycle.md). You can filter it by
 This page includes a list of Notifications on the right.
 
 ## SDM list
-![Software Delivery Machines icon](img/left-nav-sdm.jpg) [See and administer](sdm-list.md) the Software Delivery Machines (SDMs) in your workspace.
+![Software Delivery Machines icon](img/left-nav-sdm.jpg)
+
+[See and administer](sdm-list.md) the Software Delivery Machines (SDMs) in your workspace.
 
 ## GraphQL
 
 Atomist constructs a graph of your organization's events, so that you can get the context you need to act on them. For instance, a push is linked to commits which link to people which link to chat users that you can DM. Issues are linked to commits that reference them.
 
-![GraphQL Explorer icon](img/left-nav-graphql.jpg)
- Click this symbol to access the GraphQL explorer.
+![GraphQL Explorer icon](img/left-nav-graphql.jpg) Click this symbol to access the GraphQL explorer.
 
 ## Docs
 
 ![Documentation icon](img/left-nav-docs.jpg)
+
 You're already here.
 
 ## Settings
 
 ![Settings icon](img/left-nav-settings.jpg)
+
 [Administer](admin) your Atomist workspace.
