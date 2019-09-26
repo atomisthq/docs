@@ -1,30 +1,43 @@
 
 The Atomist web interface is located at [app.atomist.com](https://app.atomist.com). Here,
-you can see some notifications, run GraphQL queries against your data, and administer your
+you can view and manage drift, see some notifications, run GraphQL queries against your data, and administer your
 Atomist workspace.
 
-![See the nice buttons for GraphQL and Workspace Settings](img/dashboard-overview.png)
+Access the following pages from the symbols on the left navigation bar:
 
-## Workspace Home
+## Drift Management
 
-This page shows a list of notifications. You can filter it by person or repository using the filter button. Click on a notification to see details, including usefule buttons.
+![Drift Management icon](img/left-nav-dm.jpg)
 
-## Web command line
+ Interact with your [Drift Report](drift-report.md) by clicking this.
 
-At the bottom of the Workspace Home screen is a place to type commands. Unlike chat, this interface
-supports tab-completion.
+## Activity
 
-Try:
+![Activity icon](img/left-nav-activity.jpg)
 
-* `ls` lists contexts you can move into; you can descend into an organization and then repository.
-* `cd` into an organization, and then `cd` into a repository. Now Atomist has context for your command.
-* type a letter and push tab. This gives you a list of commands you can type.
-* enter one of the listed commands plus `-h` to see the parameters you could pass.
+This page shows a list of [Lifecycle Events](lifecycle.md). You can filter it by person or repository using the filter button. Click on a notification to see details, including useful buttons.
 
-For instance, you can use this command-line interface to restart all the goals on your last commit:
+This page includes a list of Notifications on the right.
 
-* `cd` into the owner/repo of your repository
-* type `plan goals ` and push `tab` to see the SDMs that are available. Then complete the command with the name of the SDM that runs goals on this repository for you.
-* To see that the goals started over, check the [Workspace Home](#workspace-home) page, and filter for your repository.
+## SDM list
+![Software Delivery Machines icon](img/left-nav-sdm.jpg)
 
-Currently this interface doesn't provide the output of the commands. Any messages sent by the command appear as notifications at the top the web application.
+[See and administer](sdm-list.md) the Software Delivery Machines (SDMs) in your workspace.
+
+## GraphQL
+
+Atomist constructs a graph of your organization's events, so that you can get the context you need to act on them. For instance, a push is linked to commits which link to people which link to chat users that you can DM. Issues are linked to commits that reference them.
+
+![GraphQL Explorer icon](img/left-nav-graphql.jpg) Click this symbol to access the GraphQL explorer.
+
+## Docs
+
+![Documentation icon](img/left-nav-docs.jpg)
+
+You're already here.
+
+## Settings
+
+![Settings icon](img/left-nav-settings.jpg)
+
+[Administer](admin/settings.md) your Atomist workspace.
