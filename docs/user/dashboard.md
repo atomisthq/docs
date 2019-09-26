@@ -11,7 +11,7 @@ Access the following pages from the symbols on the left navigation bar:
 
  Interact with your [Drift Report](drift-report.md) by clicking this.
 
-## Events
+## Activity
 
 ![Activity icon](img/left-nav-activity.jpg)
 
@@ -40,4 +40,4 @@ You're already here.
 
 ![Settings icon](img/left-nav-settings.jpg)
 
-[Administer](admin) your Atomist workspace.
+[Administer](admin/settings.md) your Atomist workspace.
