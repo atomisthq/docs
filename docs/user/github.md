@@ -15,64 +15,18 @@ Atomist helps you work with GitHub in three ways:
     model.  Atomist acts on _behalf_ of your users, not _instead_ of
     them.
 
-## Webhooks
+## Enrollment
 
-<!-- TODO as a GitHub app, is this still true? Ask dd to look at this page -->
+You need administrative privileges to your GitHub organization to add the Atomist GitHub app.
+This starts the flow of events to Atomist.
 
-Atomist receives events from GitHub via [webhooks][].  To
-ease adoption across your organization, installing an organization
-webhook is recommended.  To try Atomist out on a small scale, you can
-install webhooks repository by repository.
+Initiate GitHub integration, add organizations, and more in the Atomist app: [Settings](dashboard.md#settings) -> Integrations -> GitHub.
 
-[webhooks]: https://help.github.com/articles/about-webhooks/ (GitHub - Webhooks)
+## GitHub User Authorization
 
-### Organization webhooks
+After the Atomist GitHub app is installed, and [chat is enabled](slack.md), people can ask Atomist to do activities in GitHub on their
+behalf. For instance, "@atomist create issue" will open an issue as the person who typed the command.
+Pressing the thumbs-up button on a PR notification will add that reaction as the person who pushed the button in chat.
 
-GitHub organization members that have the [owner role][owners] are
-allowed to configure organization webhooks.  This is convenient
-because it only has to be configured once; however, you will require a
-user who has the `Owner` role in your GitHub organization.
-
-```
-you> @atomist enroll org
-```
-
-When you choose to enroll a GitHub organization, you will most likely
-be prompted to authorize a new scope (Atomist only asks for new scopes
-when explicitly required).  The *admin:org_hook* is required when
-enrolling a new GitHub organization.
-
-![GitHub Authorize Organization Webhook](img/authorize-org-hook.png)
-
-If you are a member of more than one GitHub organization, Atomist
-asks you to choose which organization to enroll.
-
-[owners]: https://help.github.com/articles/permission-levels-for-an-organization/
-
-### Repository webhooks
-
-If your team does not use a GitHub organization account, you can
-choose to configure webhooks on individual repositories owned by your
-user account.
-
-## GitHub user authorization
-
-When the Atomist bot first arrives in a Slack workspace, it will send
-a direct message to the authorizing user, requesting that they
-authorize Atomist to access GitHub on their behalf.
-
-![GitHub Authorization](img/github-auth.png)
-
-This same dialog will be shown to users anytime Atomist detects that
-an automation needs to access GitHub as that user.  Every member of
-the workspace must individually opt in.  Atomist will display this
-option each time an un-authorized user runs a command that requires a
-GitHub authorization.  Users can ask for their current GitHub
-authorization status by running:
-
-```
-you> @atomist github
-```
-
-Atomist will send a direct message to this user with their current
-GitHub authorization status.
+The first time a person asks Atomist to take an action like this, the Atomist bot will send them a DM to request permission.
+ This links their GitHub login and chat screen name.
