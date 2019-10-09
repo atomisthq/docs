@@ -29,7 +29,7 @@ Developers can do a thousand things with the Atomist platform. We recommend star
 Find and track technology drift within your organization.
 
 * [Get Started][getting-started] in our web interface to investigate your GitHub organizations.
-* [Try org-visualizer locally][quick-start] to investigate repositories on your laptop or anywhere on GitHub. Create custom functions for what you want to know about your code.
+* [Investigate repositories locally][quick-start] on your laptop or from GitHub. Create custom functions for what you want to know about your code.
 
 If your team already uses Atomist -
 
