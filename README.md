@@ -25,7 +25,7 @@ See [below][build-serve] for instructions on how to test your changes
 locally.
 
 *You are not required to test your changes locally in order to contribute.* Edit right on GitHub,
-and let the build take care of it.
+and let Atomist (our build automation) take care of it.
 
 [doc-style]: https://developers.google.com/style/ (Google Developer Documentation Style Guide)
 [style-highlights]: https://developers.google.com/style/highlights (Google Developer Documentation Style Guide Highlights)
@@ -43,9 +43,119 @@ Here's how I define better:
 
 Additional links and information are great.
 
-We (jessitron) will move toward a consistent style and tone after merging.
+We will move toward a consistent style and tone after merging.
+
+
+## Build and serve the documentation locally
+
+[build-serve]: #build-and-serve-the-documentation-locally
+
+Before you push changes to this repository, you may test your
+changes locally.
+
+### Instant Development environment
+
+If you open this repository in VSCode, and you have Docker, and you have the VSCode extension for remote containers,
+then VSCode will offer to open the folder in a container. Accept that, and you'll have a development environment
+with the right tools installed.
+
+In the terminal inside VSCode, you can type
+
+`serve` and then access your local, hot-reloading version of these docs on localhost:8000.
+
+`build` will build the site and test the links.
+
+You may now skip the rest of this section. Continue with [including code snippets from other repos][code-snippets]
+
+### Working outside Docker
+
+You may need or prefer to install the tools on your computer instead.
+
+#### Install dependencies
+
+The project uses [MkDocs][mkdocs] to generate the static site
+and [htmltest][htmltest] to validate the generated HTML.  Below
+are instructions to install them in a non-obtrusive way.
+
+[htmltest]: https://github.com/wjdp/htmltest
+
+#### MkDocs
+
+First [install Python 3][py-install] using [Homebrew][brew] on Mac OS X.
+
+[py-install]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+[brew]: https://brew.sh/
+
+```
+$ brew install python3 htmltest
+```
+
+or on Debian-based GNU/Linux distributions
+
+```
+$ sudo apt-get install python3-pip htmltest
+```
+
+Then create a [virtual environment][venv] to host the dependencies:
+
+[venv]: https://virtualenv.pypa.io/en/stable/
+
+```
+$ pip3 install virtualenv
+$ mkdir ~/.venvs
+$ echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
+$ source ~/.bashrc
+$ virtualenv ~/.venvs/docs
+```
+
+With the virtual environment created, activate it in the current
+terminal:
+
+```
+$ . ~/.venvs/docs/bin/activate
+```
+
+and install the dependencies into it:
+
+```
+$ pip install -r requirements.txt
+```
+
+#### Testing and serving
+
+Every time you want to work on this repository, you need to activate
+the Python virtualenv in your working terminal:
+
+```
+$ . ~/.venvs/docs/bin/activate
+```
+
+After making changes, you can test them by building the documentation
+in strict mode.
+
+```
+$ mkdocs build --strict
+```
+
+The run `htmltest`.
+
+```
+$ htmltest -c .htmltest.yml site
+```
+
+To review your changes in a browser, you can serve the documentation
+locally by running:
+
+```
+$ mkdocs serve
+```
+
+and browse the documentation at http://127.0.0.1:8000 .  To stop the
+server, press `Ctrl-C` in the terminal.
 
 ## Code snippets
+
+[code-snippets]: #code-snippets
 
 You can create code snippets in the [atomist/samples][samples]
 repo.  Demarcate a code snippet using the following comment
@@ -130,95 +240,6 @@ If the publication to the docs-sdm bucket is approved, the site is
 
 [docs-sdm]: https://github.com/atomist/docs-sdm
 [docs-sdm-s3]: http://docs-sdm.atomist.com.s3-website-us-west-2.amazonaws.com/
-
-## Build and serve the documentation locally
-
-[build-serve]: #build-and-serve-the-documentation-locally
-
-Before you push changes to this repository, you should test your
-changes locally.
-
-### Install dependencies
-
-The project uses [MkDocs][mkdocs] to generate the static site
-and [htmltest][htmltest] to validate the generated HTML.  Below
-are instructions to install them in a non-obtrusive way.
-
-[htmltest]: https://github.com/wjdp/htmltest
-
-#### MkDocs
-
-First [install Python 3][py-install] using [Homebrew][brew] on Mac OS X.
-
-[py-install]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
-[brew]: https://brew.sh/
-
-```
-$ brew install python3 htmltest
-```
-
-or on Debian-based GNU/Linux distributions
-
-```
-$ sudo apt-get install python3-pip htmltest
-```
-
-Then create a [virtual environment][venv] to host the dependencies:
-
-[venv]: https://virtualenv.pypa.io/en/stable/
-
-```
-$ pip3 install virtualenv
-$ mkdir ~/.venvs
-$ echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
-$ source ~/.bashrc
-$ virtualenv ~/.venvs/docs
-```
-
-With the virtual environment created, activate it in the current
-terminal:
-
-```
-$ . ~/.venvs/docs/bin/activate
-```
-
-and install the dependencies into it:
-
-```
-$ pip install -r requirements.txt
-```
-
-### Testing and serving
-
-Every time you want to work on this repository, you need to activate
-the Python virtualenv in your working terminal:
-
-```
-$ . ~/.venvs/docs/bin/activate
-```
-
-After making changes, you can test them by building the documentation
-in strict mode.
-
-```
-$ mkdocs build --strict
-```
-
-The run `htmltest`.
-
-```
-$ htmltest -c .htmltest.yml site
-```
-
-To review your changes in a browser, you can serve the documentation
-locally by running:
-
-```
-$ mkdocs serve
-```
-
-and browse the documentation at http://127.0.0.1:8000 .  To stop the
-server, press `Ctrl-C` in the terminal.
 
 ### Updating dependencies
 
