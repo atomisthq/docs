@@ -145,7 +145,7 @@ class AddApacheLicenseFileParameters {
 Next we need to make the transform aware of the new parameters and alter the internal logic in order to take those parameters into account.
 
 ``` typescript
-export const AddApacheLicenseFileTransform: CodeTransform<AddApacheLicenseFileParameters> = async (p, params) => {
+export const AddApacheLicenseFileTransform: CodeTransform<AddApacheLicenseFileParameters> = async (p: Project, papi: PushAwareParametersInvocation<AddApacheLicenseFileParameters>) => {
     const licenses = {
         apache20: "https://www.apache.org/licenses/LICENSE-2.0.txt",
         gpl: "https://www.gnu.org/licenses/gpl-2.0.txt",
@@ -153,7 +153,7 @@ export const AddApacheLicenseFileTransform: CodeTransform<AddApacheLicenseFilePa
     };
 
     const httpClient = DefaultHttpClientFactory.create();
-    const license = await httpClient.exchange(licenses[params.parameters.license]);
+    const license = await httpClient.exchange(licenses[papi.parameters.license]);
     return p.addFile("LICENSE", license.body as string);
 };
 ```
