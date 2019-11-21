@@ -45,7 +45,6 @@ Additional links and information are great.
 
 We will move toward a consistent style and tone after merging.
 
-
 ## Build and serve the documentation locally
 
 [build-serve]: #build-and-serve-the-documentation-locally
