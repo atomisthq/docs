@@ -1,8 +1,8 @@
 A powerful feature of Atomist is the ability to extend the default data model to include custom event types.
-These custom events can be used to support new integrations within Atomist or to record additional data points related
-to built-in event types.
+These custom events can support new integrations within Atomist or record additional data points related
+to built-in event types. You can write automations that respond to these events.
 
-Within the SDM framework developers can define new events by extending the GraphQL schema itself.  This is accomplished
+Within the SDM framework developers can define new events by extending the GraphQL schema.  This is accomplished
 by defining a custom `ingester`.  An ingester is created by defining a new `.graphql` file and using some Atomist
 specific annotations.
 
@@ -20,29 +20,32 @@ type SampleEvent @rootType {
 ```
 
 This simple file will create a new type in your GraphQL schema.  However, there is other activity happening with this
-ingester because of the `@rootType` annotation.  This annotation causes the Atomist backend to create the required
+ingester because of the `@rootType` annotation.  This annotation causes the Atomist backend to create
 indexes, mutations, and webhook endpoints so that you can add data for this type.
 
-Once the new ingester is defined, it will need to be configured within your SDM so that this new type will be setup in
+Once the new ingester is defined, configure it within your SDM so that this new type will be set up in
 your Atomist workspace.  Within the SDM, add the new ingester:
 
 ```typescript
 sdm.addIngester(GraphQL.ingester({ name: "SampleEvent" }));
 ```
 
-Next, you can startup your SDM via the usual `atomist start` command.   Once the startup completes, you will now have a
-custom event that has been added to your GraphQL schema.
+Next, start up your SDM with the `atomist start` command.   Once the startup completes, you will have a
+custom event added to your GraphQL schema.
 
-## Utilizing the new custom event
+## Using the new custom event
 
-There are two ways new data can be delivered for your new event - a REST endpoint(typically used by webhooks) or via the
+There are two ways new data can be delivered for your new event: a REST endpoint (typically used by webhooks) and via the
 SDM in the form a GraphQL mutation.  We'll explore both of these.
 
 ### REST Endpoint
 
+The Atomist service listens for your custom event at a specific URL created for your event. That URL receives POST requests
+containing JSON data in a format matching the schema you defined for it in `sampleEvent.graphql`.
+
 After starting your SDM with the new ingester registered, you can retrieve your REST endpoint for the new event type
 from either the SDM log or from the Atomist Web UI.  The Web UI is simpler, so that method will be discussed here.
-Login to `https://app.atomist.com` and navigate to your workspace (if you have access to more then one).  On the left
+Log in to `https://app.atomist.com` and navigate to your workspace (if you have access to more then one).  On the left
 -hand vertical menu, select `SDMs`.  Navigate in the list of SDMs to your instance, and click the down chevron on the
 right-hand side.  Scroll  through the dialog until you see the `Ingesters` section.  Below `SampleEvent` (or whatever
 you've named your event), you will see a URL with this format:
@@ -50,7 +53,7 @@ you've named your event), you will see a URL with this format:
 
 ![Finding Ingester URL](img/find_ingester_url.png)
 
-With the URL in hand, you can now post data to this endpoint from any source you like (provided it matches the schema
+With the URL in hand, you can post data to this endpoint from any source you like (provided it matches the schema
 of the event you've defined).  Commonly, this data will come from a webhook configured in a tool used in your
 delivery process.  The endpoint accepts `application/json` as a content type and requires no authentication.  You can
 test this endpoint using curl.
@@ -76,7 +79,7 @@ automatically named after your event name. For example, SampleEvent will have th
 ingestCustomSampleEvent, deleteCustomSampleEvent, and deleteCustomSampleEventById.
 
 You can utilize the graphClient in the SDM to execute these mutations. The graphClient is accessible from within command
-handlers and event handlers. To demonstrate this functionality, we’ll be defining a new command handler that will create
+handlers and event handlers. To demonstrate this functionality, we’ll define a new command handler that will create
 a SampleEvent via mutation the same way our curl command did previously.
 
 Before we can successfully send data to the GraphQL server for this mutation, we do have to supply our SDM itself a
@@ -86,7 +89,7 @@ dramatically improves the development experience since your IDE is then able to 
 required when executing the mutation in the SDM.
 
 To generate these types for our mutation, the first thing we’ll need is to download a copy of your modified schema.
-To download a copy of this schema, first, start your SDM (with your custom ingester defined) and leave it running.
+To download a copy of this schema, start your SDM (with your custom ingester defined) and leave it running.
 Next, navigate to the base directory of the running SDM and run the command `atomist gql-fetch`.  This command will
 download your custom schema and place it into the `<project root>/lib/graphql` folder. This file will be used later when
 we generate types for your mutation.
@@ -94,7 +97,7 @@ we generate types for your mutation.
 With our schema downloaded, we are ready to create the mutation file.  To do this, we first create a new folder called
 `<project root>/lib/graphql/mutation`.  Within this folder, we'll create a new file called `AddSampleEvent.graphql`.
 
-It's contents should look like this:
+Its contents should look like this:
 ```graphql
 mutation AddSampleEvent($data: CustomSampleEventInput!) {
     ingestCustomSampleEvent(value: $data)
@@ -102,9 +105,9 @@ mutation AddSampleEvent($data: CustomSampleEventInput!) {
 ```
 
 > What is `CustomSampleEventInput`?  This type is automatically generated as part of your schema when your ingester was
-> created to describe the shape of the data that the `ingestCustomSampleEvent` mutation accepts
+> created to describe the shape of the data that the `ingestCustomSampleEvent` mutation accepts.
 
-With the mutation file added, we'll want to generate Typescript types for the newly added mutation.  We do this by again
+With the mutation file added, we'll generate Typescript types for the newly added mutation.  We do this by again
 navigating to the root of your SDM project and running the following command:
 
 `npm run gql:gen`
@@ -114,7 +117,7 @@ type definitions that you can use in your SDM code.
 
 > Note: The types are generated in `<project root>/lib/typings/types.ts`
 
-With our mutation file created and types generated we are ready to define our command handler; here's an example:
+With our mutation file created and types generated we are ready to define our command handler. Here's an example:
 
 ```typescript
 import {AddSampleEventMutation, AddSampleEventMutationVariables} from "../../typings/types";
@@ -142,7 +145,10 @@ sdm.addCommand({
 ```
 
 When this command is executed it will execute our mutation and create a new `SampleEvent`.  The returned value (in the
-`result` variable) will be the actual id of this event.  This id can be used for filtering purposes when querying the
+`result` variable) will be the id of this event.  This id can be used for filtering purposes when querying the
 graph or running a delete mutation - but in this example we simply return this id to the calling user.
 
 > See the [Samples](https://github.com/atomist/samples) repository for a working example of the code shown above.
+
+With your custom event, you can send data to Atomist from webhooks and then trigger your own automations based on that.
+This integrates your particular needs with chat, delivery, and other activities that you do within your SDM.
