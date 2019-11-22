@@ -1,10 +1,10 @@
-A powerful feature of Atomist is the ability to extend the default data model to include custom event types.  
+A powerful feature of Atomist is the ability to extend the default data model to include custom event types.
 These custom events can be used to support new integrations within Atomist or to record additional data points related
 to built-in event types.
 
 Within the SDM framework developers can define new events by extending the GraphQL schema itself.  This is accomplished
 by defining a custom `ingester`.  An ingester is created by defining a new `.graphql` file and using some Atomist
-specific annotations.  
+specific annotations.
 
 ## An Example Ingester
 
@@ -45,7 +45,7 @@ from either the SDM log or from the Atomist Web UI.  The Web UI is simpler, so t
 Login to `https://app.atomist.com` and navigate to your workspace (if you have access to more then one).  On the left
 -hand vertical menu, select `SDMs`.  Navigate in the list of SDMs to your instance, and click the down chevron on the
 right-hand side.  Scroll  through the dialog until you see the `Ingesters` section.  Below `SampleEvent` (or whatever
-you've named your event), you will see a URL with this format: 
+you've named your event), you will see a URL with this format:
 `https://webhook.atomist.com/atomist/teams/<TEAM>/ingestion/SampleEvent/<ID>`.
 
 ![Finding Ingester URL](img/find_ingester_url.png)
@@ -141,9 +141,8 @@ sdm.addCommand({
 });
 ```
 
-When this command is executed it will execute our mutation and create a new `SampleEvent`.  The returned value (in the 
+When this command is executed it will execute our mutation and create a new `SampleEvent`.  The returned value (in the
 `result` variable) will be the actual id of this event.  This id can be used for filtering purposes when querying the
-graph or running a delete mutation - but in this example we simply return this id to the calling user.   
-
+graph or running a delete mutation - but in this example we simply return this id to the calling user.
 
 > See the [Samples](https://github.com/atomist/samples) repository for a working example of the code shown above.
