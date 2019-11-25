@@ -77,6 +77,7 @@ nav:
               - Code samples:
                   - "Example: Responding to repository creation": developer/respond-to-repo-creation.md
                   - "Example: Responding to issue creation": developer/respond-to-issue-creation.md
+              - Custom Events: developer/custom-events.md
           - Goals:
               - Create Goals: developer/goal.md
               - Setting Goals: developer/set-goals.md
