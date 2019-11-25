@@ -126,7 +126,6 @@ type definitions that you can use in your SDM code.
 
 With our mutation file created and types generated we are ready to define our command handler. Here's an example:
 
-
 <!-- atomist:code-snippet:start=lib/sdm/customEvent/1customEvent.ts#CreateEventByMutation -->
 ```typescript
 sdm.addCommand({
