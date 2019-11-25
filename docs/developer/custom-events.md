@@ -26,9 +26,11 @@ indexes, mutations, and webhook endpoints so that you can add data for this type
 Once the new ingester is defined, configure it within your SDM so that this new type will be set up in
 your Atomist workspace.  Within the SDM, add the new ingester:
 
+<!-- atomist:code-snippet:start=lib/sdm/customEvent/0customEvent.ts#AddIngester -->
 ```typescript
 sdm.addIngester(GraphQL.ingester({ name: "SampleEvent" }));
 ```
+<!-- atomist:code-snippet:end -->
 
 Next, start up your SDM with the `atomist start` command.   Once the startup completes, you will have a
 custom event added to your GraphQL schema.
@@ -122,6 +124,8 @@ type definitions that you can use in your SDM code.
 
 With our mutation file created and types generated we are ready to define our command handler. Here's an example:
 
+
+<!-- atomist:code-snippet:start=lib/sdm/customEvent/1customEvent.ts#CreateEventByMutation -->
 ```typescript
 import {AddSampleEventMutation, AddSampleEventMutationVariables} from "../../typings/types";
 <...>
@@ -146,6 +150,7 @@ sdm.addCommand({
     },
 });
 ```
+<!-- atomist:code-snippet:end -->
 
 When this command is executed it will execute our mutation and create a new `SampleEvent`.  The returned value (in the
 `result` variable) will be the id of this event.  This id can be used for filtering purposes when querying the
