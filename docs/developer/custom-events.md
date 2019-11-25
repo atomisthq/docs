@@ -33,6 +33,9 @@ sdm.addIngester(GraphQL.ingester({ name: "SampleEvent" }));
 Next, start up your SDM with the `atomist start` command.   Once the startup completes, you will have a
 custom event added to your GraphQL schema.
 
+> To interact with GraphQL and view details about your new event type, use Graph<i>i</i>QL. View the documentation for
+> how to do that [here](graphql.md#accessing-data-with-graphiql)
+
 ## Using the new custom event
 
 There are two ways new data can be delivered for your new event: a REST endpoint (typically used by webhooks) and via the
