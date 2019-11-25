@@ -30,6 +30,8 @@ your Atomist workspace.  Within the SDM, add the new ingester:
 ```typescript
 sdm.addIngester(GraphQL.ingester({ name: "SampleEvent" }));
 ```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'AddIngester' found in https://raw.githubusercontent.com/atomist/samples/master/lib/sdm/customEvent/0customEvent.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/sdm/customEvent/0customEvent.ts#L32-L32" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 Next, start up your SDM with the `atomist start` command.   Once the startup completes, you will have a
@@ -127,29 +129,28 @@ With our mutation file created and types generated we are ready to define our co
 
 <!-- atomist:code-snippet:start=lib/sdm/customEvent/1customEvent.ts#CreateEventByMutation -->
 ```typescript
-import {AddSampleEventMutation, AddSampleEventMutationVariables} from "../../typings/types";
-<...>
-
 sdm.addCommand({
-    name: "create-sample-event",
-    intent: "create sample event",
-    listener: async ctx => {
-        await ctx.addressChannels("Sending custom sample event...");
-        const result = await ctx.context.graphClient.mutate<AddSampleEventMutation, AddSampleEventMutationVariables>({
-            name: "AddSampleEvent",
-            variables: {
-                data: {
-                    message: `My new event from ${ctx.context.source.identity}`,
-                    timestamp: Date.now().toString(),
+        name: "create-sample-event",
+        intent: "create sample event",
+        listener: async ctx => {
+            await ctx.addressChannels("Sending custom sample event...");
+            const result = await ctx.context.graphClient.mutate<AddSampleEventMutation, AddSampleEventMutationVariables>({
+                name: "AddSampleEvent",
+                variables: {
+                    data: {
+                        message: `My new event from ${ctx.context.source.identity}`,
+                        timestamp: Date.now().toString(),
+                    },
                 },
-            },
-        });
+            });
 
-        await ctx.addressChannels(`New event id: ${result.ingestCustomSampleEvent}`);
-        return Success;
-    },
-});
+            await ctx.addressChannels(`New event id: ${result.ingestCustomSampleEvent}`);
+            return Success;
+        },
+    });
 ```
+<!-- atomist:docs-sdm:codeSnippetInline: Snippet 'CreateEventByMutation' found in https://raw.githubusercontent.com/atomist/samples/master/lib/sdm/customEvent/1customEvent.ts -->
+<div class="sample-code"><a href="https://github.com/atomist/samples/tree/master/lib/sdm/customEvent/1customEvent.ts#L40-L58" target="_blank">Source</a></div>
 <!-- atomist:code-snippet:end -->
 
 When this command is executed it will execute our mutation and create a new `SampleEvent`.  The returned value (in the
