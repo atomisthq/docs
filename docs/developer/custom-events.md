@@ -156,7 +156,5 @@ When this command is executed it will execute our mutation and create a new `Sam
 `result` variable) will be the id of this event.  This id can be used for filtering purposes when querying the
 graph or running a delete mutation - but in this example we simply return this id to the calling user.
 
-> See the [Samples](https://github.com/atomist/samples) repository for a working example of the code shown above.
-
 With your custom event, you can send data to Atomist from webhooks and then trigger your own automations based on that.
 This integrates your particular needs with chat, delivery, and other activities that you do within your SDM.
