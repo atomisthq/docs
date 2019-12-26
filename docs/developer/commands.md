@@ -333,7 +333,6 @@ patterns for your command handlers.  The disadvantage of this approach is that t
 Unlike when you pre-define your parameters, the command listener itself needs to do parameter validation.  This
 validation is noticeably missing from the example shown above.
 
-
 ## What else would you like to do?
 
 What is missing from this page? Please tell me! There's a #docs
