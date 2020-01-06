@@ -62,6 +62,7 @@ nav:
           - Overview: developer/sdm.md
           - Architecture: developer/architecture.md
           - SDM Concepts: developer/sdm-concepts.md
+          - SDM Components: developer/sdm-components.md
           - Team Mode: developer/team.md
           - Local Mode: developer/local.md
           - Command Line Interface: developer/cli.md
