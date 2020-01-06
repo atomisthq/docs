@@ -291,6 +291,48 @@ confirm it was the message we expected.
 
 [mocha]: https://mochajs.org/ (Mocha Test Framework)
 
+## An alternative to pre-defined parameters
+
+In addition to the method defined above, you may elect to forgo strongly typed parameters and instead leverage the
+intent itself to deliver the parameters required.   To do this, utilize a regular expression based command intent.  For
+example, the `HelloWorld` example from above could be re-written as follows:
+
+```typescript
+const helloWorldCommand: CommandHandlerRegistration<{ name: string, location: string }> = {
+    name: "HelloWorld",
+    description: "Responds with a friendly greeting to everyone",
+    intent: /^hello[\s+]?(location=[\S]+)?[\s+]?(name=[\S]+)?$/,
+    listener: async ci => {
+        if (ci.matches) {
+            // Remove the first entry in matches (which is the full match)
+            ci.matches.shift();
+
+            // Find the match with each parameter
+            const location = ci.matches.filter(m => m.includes("location="));
+            const name = ci.matches.filter(m => m.includes("name="));
+
+            // Print a message using the values
+            await ci.addressChannels(`Welcome to ${location[0].split("=")[1]}, ${name[0].split("=")[1]}`);
+        }
+    },
+}
+```
+
+Here we've used a regular expression as our command intent that contains match groups:
+`/^hello[\s+]?(location=[\S]+)?[\s+]?(name=[\S]+)?$/`.   This regular expression says our command:
+
+* Begins with the word hello
+* Optionally may include one or more spaces
+* May include the location parameter
+* May include the name parameter
+* When both parameters are present, it must be in the format location followed by name
+
+As you can see, the regular expression allows us to define parameters inline with the command, in any format we like,
+without having to pre-define parameters.  Using this functionality, you can build more "command-line" like argument
+patterns for your command handlers.  The disadvantage of this approach is that there is no automatic parameter checking.
+Unlike when you pre-define your parameters, the command listener itself needs to do parameter validation.  This
+validation is noticeably missing from the example shown above.
+
 ## What else would you like to do?
 
 What is missing from this page? Please tell me! There's a #docs
