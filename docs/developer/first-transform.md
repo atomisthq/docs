@@ -33,7 +33,7 @@ export const NodeExpressGenerator: GeneratorRegistration = {
 
 ## Changing a Markdown file
 
-Most README.md files start with a heading that plainly state the name of the project:
+Most README.md files start with a heading that states the name of the project:
 
 ```
 # Express & ES6 REST API Boilerplate

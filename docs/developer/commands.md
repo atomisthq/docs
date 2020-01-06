@@ -10,7 +10,7 @@ consistently?
 This page will show you how to:
 
 * create a command
-* [test your command][]
+* [test your command](#test-your-command)
 * respond to the person who invoked the command
 * [wrap a shell script](#wrap-a-shell-script) in a command
 * define [parameters](#command-parameters) for your command
@@ -261,7 +261,6 @@ We access the parameter values in the listener via the `parameters` property, as
 ```
 
 ### Test your command
-[test your command]: #test-your-command
 
 Testing your command listener requires that you mock the parts of
 `CommandListenerInvocation` you use and then call your function.
