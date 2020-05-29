@@ -1,7 +1,5 @@
 # Atomist documentation
 
-[![Build Status](https://travis-ci.org/atomist/docs.svg?branch=master)](https://travis-ci.org/atomist/docs)
-
 This repository contains the markdown sources for the documentation
 for [Atomist][atomist].  You can find the current version of the
 Atomist documentation at [https://docs.atomist.com/][atomist-doc].
