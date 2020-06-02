@@ -17,7 +17,8 @@ The ASTs for most languages are deep and complicated. To access portions of the
 tree in Atomist, you use [path expressions](pxe.md). They let you navigate into
 the parts of the tree you care about, without worrying about stuff in the middle.
 
-For instance, to find method invocations in Java, I can use the `Java9FileParser`, which is based on an existing [Java ANTLR grammar](https://github.com/antlr/grammars-v4/tree/master/java9). I can skip over everything between
+For instance, to find method invocations in Java, I can use the `Java9FileParser`, which is based on an existing
+[Java ANTLR grammar](https://github.com/antlr/grammars-v4/tree/master/java/java9). I can skip over everything between
 the top-level `compilationUnit` and get at the name of the invoked method
 with this path expression:
 
