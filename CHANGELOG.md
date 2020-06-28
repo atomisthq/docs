@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Add docs for commands. [#260](https://github.com/atomist/docs/issues/260)
 -   Add kube-fetch documentation. [#332](https://github.com/atomist/docs/issues/332)
+-   Add VERSION file. [bde310f](https://github.com/atomist/docs/commit/bde310f848e6ae1423292cbae73de66ba1f21150)
 
 ### Changed
 
