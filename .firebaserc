@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "atomist-web-docs-staging",
+    "production": "atomist-web-docs-production",
+    "staging": "atomist-web-docs-staging"
+  }
+}

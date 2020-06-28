@@ -52,9 +52,26 @@ changes locally.
 
 ### Instant Development environment
 
-If you open this repository in VSCode, and you have Docker, and you have the VSCode extension for remote containers,
-then VSCode will offer to open the folder in a container. Accept that, and you'll have a development environment
-with the right tools installed.
+### Docker
+
+You can build the docs with the following command.
+
+```
+$ docker run -it --rm -v "$PWD:/docs" squidfunk/mkdocs-material:5.3.3 build --strict
+```
+
+You can also run `htmltest`.
+
+```
+$ docker run -it --rm -v "$PWD:/test" wjdp/htmltest:v0.12.0 htmltest
+```
+
+### VS Code
+
+If you open this repository in VSCode, and you have Docker, and you
+have the VSCode extension for remote containers, then VSCode will
+offer to open the folder in a container. Accept that, and you'll have
+a development environment with the right tools installed.
 
 In the terminal inside VSCode, you can type
 
@@ -63,120 +80,6 @@ In the terminal inside VSCode, you can type
 `build` will build the site and test the links.
 
 You may now skip the rest of this section. Continue with [including code snippets from other repos][code-snippets]
-
-### Working outside Docker
-
-You may need or prefer to install the tools on your computer instead.
-
-#### Install dependencies
-
-The project uses [MkDocs][mkdocs] to generate the static site
-and [htmltest][htmltest] to validate the generated HTML.  Below
-are instructions to install them in a non-obtrusive way.
-
-[htmltest]: https://github.com/wjdp/htmltest
-
-#### MkDocs
-
-First [install Python 3][py-install] using [Homebrew][brew] on Mac OS X.
-
-[py-install]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
-[brew]: https://brew.sh/
-
-```
-$ brew install python3 htmltest
-```
-
-or on Debian-based GNU/Linux distributions
-
-```
-$ sudo apt-get install python3-pip htmltest
-```
-
-Then create a [virtual environment][venv] to host the dependencies:
-
-[venv]: https://virtualenv.pypa.io/en/stable/
-
-```
-$ pip3 install virtualenv
-$ mkdir ~/.venvs
-$ echo "export PIP_REQUIRE_VIRTUALENV=true" >> ~/.bashrc
-$ source ~/.bashrc
-$ virtualenv ~/.venvs/docs
-```
-
-With the virtual environment created, activate it in the current
-terminal:
-
-```
-$ . ~/.venvs/docs/bin/activate
-```
-
-and install the dependencies into it:
-
-```
-$ pip install -r requirements.txt
-```
-
-#### Testing and serving
-
-Every time you want to work on this repository, you need to activate
-the Python virtualenv in your working terminal:
-
-```
-$ . ~/.venvs/docs/bin/activate
-```
-
-After making changes, you can test them by building the documentation
-in strict mode.
-
-```
-$ mkdocs build --strict
-```
-
-The run `htmltest`.
-
-```
-$ htmltest -c .htmltest.yml site
-```
-
-To review your changes in a browser, you can serve the documentation
-locally by running:
-
-```
-$ mkdocs serve
-```
-
-and browse the documentation at http://127.0.0.1:8000 .  To stop the
-server, press `Ctrl-C` in the terminal.
-
-## Code snippets
-
-[code-snippets]: #code-snippets
-
-You can create code snippets in the [atomist/samples][samples]
-repo.  Demarcate a code snippet using the following comment
-
-```typescript
-// atomist:code-snippet:start=SNIPPET_NAME
-CODE HERE
-// atomist:code-snippet:end
-```
-
-replacing `SNIPPET_NAME` with a unique name for the snippet.
-
-You can then include that snippet in the docs using the following HTML
-comment in the Markdown source.
-
-```html
-<!-- atomist:code-snippet:start=SNIPPET_NAME -->
-<!-- atomist:code-snippet:end -->
-```
-
-Then, when either this docs repo or the samples repo is updated, the
-snippets will be updated in this docs repo.
-
-[samples]: https://github.com/atomist/samples
 
 ## Styles
 
@@ -227,16 +130,14 @@ Items on the same line create a visually equivalent admonition.
 ## Releasing
 
 When a push is made to this repository, the documentation is built by
-the [docs-sdm][] and published to the S3 bucket
-[docs-sdm.atomist.com][docs-sdm-s3] under a path starting with the
-full commit SHA.
+[atomist-web-sdm][] and published to
+[https://docs.atomist.services/][docs-staging].
 
-If the publication to the docs-sdm bucket is approved, the site is
-"published" to the docs.atomist.com S3 bucket, making it available at
+If the the staging deployment is approved, the site is "published" to
 [https://docs.atomist.com/][atomist-doc].
 
-[docs-sdm]: https://github.com/atomist/docs-sdm
-[docs-sdm-s3]: http://docs-sdm.atomist.com.s3-website-us-west-2.amazonaws.com/
+[atomist-web-sdm]: https://github.com/atomist/atomist-web-sdm
+[docs-staging]: https://docs.atomist.services/
 
 ### Updating dependencies
 
@@ -254,15 +155,6 @@ To update html-proofer and its dependencies:
 
 ```
 $ bundle update
-```
-
-### Shortcut
-
-The `activate_and_serve.sh` script activates the virtual environment
-and builds, proofs, and serves the docs with a single command.
-
-```shell
-./activate_and_serve.sh
 ```
 
 ## Conditions of use

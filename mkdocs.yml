@@ -5,7 +5,6 @@ repo_name: GitHub
 repo_url: https://github.com/atomist/docs
 edit_uri: edit/master/docs/
 copyright: "&copy; 2020 Atomist, Inc."
-dev_addr: 0.0.0.0:8000 # make 'mkdocs serve' work in Docker
 extra:
   main_site_url: https://atomist.com/
   social:
@@ -28,8 +27,6 @@ theme:
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
-  - markdown_include.include:
-      base_path: "common"
   - admonition
   - codehilite:
       guess_lang: false
