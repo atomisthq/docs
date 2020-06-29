@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 -   Remove unused mixpanel JavaScript. [c0c8fbc](https://github.com/atomist/docs/commit/c0c8fbc206053b5318017eb2301665adf8d6cc05)
+-   Remove broken links. [2b3d254](https://github.com/atomist/docs/commit/2b3d2540dcaab12530c4bfc7d3f3dd893d40286b)
 
 ### Fixed
 
