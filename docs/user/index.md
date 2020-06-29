@@ -1,11 +1,7 @@
 This page describes enrollment with Atomist as a service.
 
 Atomist is here to help you smooth your development flow.
-Start with gaining insight into the code in your organization, with the
-[Drift Report](drift-report.md) in the Atomist web app.
-
-Also in
-our web console, you can see consolidated event notifications.  Add ChatOps
+In our web console, you can see consolidated event notifications.  Add ChatOps
 with Slack or MS Teams if you have it.  Spawn your own software delivery machine,
 and integrate with other tools as you choose.
 
@@ -24,15 +20,12 @@ chat message or DM, and update code by commit or pull request. Automate as much 
 you choose, and keep people informed for the rest.
 
 You can also use a Software Delivery Machine (SDM) on your laptop,
-individually, without enrolling in the service.  To get going with a
-Local SDM, skip to the [quick start guide][quick-start].
+individually, without enrolling in the service.
 
 This page describes how to create an Atomist _workspace_.  An Atomist
 workspace connects your code, build, deployment, and runtime platforms
 into a single, cohesive model of how your team provides value:
 delivering great solutions.
-
-[quick-start]: ../quick-start.md (Atomist Developer Quick Start)
 
 ## Prerequisites
 

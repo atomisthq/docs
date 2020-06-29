@@ -176,7 +176,7 @@ There is a corresponding `kube-decrypt` command in the Atomist CLI
 should you need to check the secret data values in the repository
 specs.
 
-[cli]: ../../quick-start.md (Developer Quick Start)
+[cli]: https://github.com/atomist/cli (Atomist CLI)
 
 ## Reconciliation
 

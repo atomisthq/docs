@@ -91,24 +91,9 @@ You can configure the whole pack, or use functions from the pack in your own set
 
 ## Connect your SDM
 
-Atomist maintains two implementations of the API for Software:
-
-* [Team mode](team.md): a complete, cloud-based service,
-* [Local mode](local.md): an open-source, filesystem-based version that runs on your laptop.
-
 An SDM is most useful when running for your whole team, connected
 to the Atomist API for software, Slack, and your version control. Run it on your laptop
 while you're testing and modifying the SDM, then in your favorite production environment (on-prem or in the cloud)
 for ongoing use.
 
 ![Atomist SDM in Team mode](img/sdm-team.png)
-
-If you don't want to subscribe to the Atomist service and hook up Slack and GitHub/BitBucket/GitLab etc,
-you're in luck! Run your SDM in [local mode](local.md), on your own machine. Receive push events from your own local commits,
- get messages in a terminal feed, and trigger commands on the command line.
-
-![Atomist SDM in Local mode](img/sdm-local.png)
-
-Check the [Developer Quick Start][quick-start] for instructions to get started in local mode.
-
-[quick-start]: ../quick-start.md (Atomist Developer Quick Start)

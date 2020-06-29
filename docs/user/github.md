@@ -1,8 +1,5 @@
+Atomist helps you work with GitHub in the following ways:
 
-Atomist helps you work with GitHub in three ways:
-
-1.  Atomist analyzes the code across your GitHub organization to surface
-    aspects that reveal [drift](drift-report.md) and other concerns.
 1.  Atomist surfaces your team's development activity, such as pushes,
     pull requests, or issues, in the Atomist web interface in chat.  This
     visibility is enabled via webhooks.
