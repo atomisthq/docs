@@ -28,13 +28,12 @@ dependencies up-to-date automatically and more. [See all skills >>][catalog]
 
 Skills are triggered by events from your existing tools like a commit,
 build, deployment, or on a schedule. Skills use integrations to
-connect to tools like [GitHub][github], [Slack][slack], [Docker
-Hub][docker-hub], and more.
+connect to tools like [GitHub][github], [Slack][slack], [Kubernetes][k8s], and more.
 
 [catalog]: https://go.atomist.com/catalog (Atomist Skills Catalog)
 [github]: integration/github.md (Atomist GitHub Integration)
 [slack]: integration/slack.md (Atomist Slack Integration)
-[docker-hub]: integration/docker-hub.md (Atomist Docker Hub Integration)
+[k8s]: integration/kubernetes.md (Atomist Kubernetes Integration)
 
 ## Skill Intro Videos
 
