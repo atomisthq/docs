@@ -39,19 +39,18 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Getting Started: getting-started.md
-  - Starting Locally: quick-start.md
-  - Using Atomist:
-      - Introduction: user/index.md
-      - Atomist web interface: user/dashboard.md
-      - Drift Report: user/drift-report.md
-      - Source Control: user/github.md
-      - Slack: user/slack.md
-      - Built-in Chat Integrations: user/lifecycle.md
-      - Integrating into Existing Tools: user/admin/integrations/supported-integrations.md
-      - Workspace Administration:
-          - Settings: user/admin/settings.md
-          - Members: user/admin/members.md
-  - Developer Guide:
+  - How It Works: how-it-works.md
+  - Using Skills: using-skills.md
+  - Integrations:
+      - GitHub: integrations/github.md
+      - Slack: integrations/slack.md
+      - Docker Registries:
+          - Docker Hub: integrations/docker-hub.md
+          - Google Container Registry: integrations/gcr.md
+      - Google Cloud Platform: integrations/gcp.md
+      - Kubernetes: integrations/kubernetes.md
+  - Developing a Skill: skill/index.md
+  - SDM Guide:
       - Overview: developer/index.md
       - About the SDM:
           - Overview: developer/sdm.md
@@ -65,6 +64,16 @@ nav:
           - SDM Configuration: developer/config.md
           - Debugging an SDM: developer/sdm-debug.md
           - Deploying your SDM: developer/sdm-deploy.md
+      - Using an SDM:
+          - Introduction: user/index.md
+          - Atomist web interface: user/dashboard.md
+          - Source Control: user/github.md
+          - Slack: user/slack.md
+          - Built-in Chat Integrations: user/lifecycle.md
+          - Integrating into Existing Tools: user/admin/integrations/supported-integrations.md
+          - Workspace Administration:
+              - Settings: user/admin/settings.md
+              - Members: user/admin/members.md
       - SDM Development:
           - Prerequisites: developer/prerequisites.md
           - Setting up TypeScript in your IDE: developer/typescript.md
@@ -115,44 +124,31 @@ nav:
           - Packages Overview: developer/packages-overview.md
           - automation-client: https://atomist.github.io/automation-client/
           - sdm: https://atomist.github.io/sdm/
-          - sdm-core: https://atomist.github.io/sdm-core
-          - sdm-pack-aspect: https://atomist.github.io/sdm-pack-aspect/
-          - sdm-pack-build: https://atomist.github.io/sdm-pack-build/
-          - sdm-pack-checkstyle: https://atomist.github.io/sdm-pack-checkstyle/
-          - sdm-pack-cloudfoundry: https://atomist.github.io/sdm-pack-cloudfoundry/
-          - sdm-pack-fingerprint: https://atomist.github.io/sdm-pack-fingerprint/
-          - sdm-pack-k8s: https://atomist.github.io/sdm-pack-k8s/
-          - sdm-pack-sloc: https://atomist.github.io/sdm-pack-sloc/
-          - sdm-pack-spring: https://atomist.github.io/sdm-pack-spring/
-          - sdm-pack-sonarqube: https://atomist.github.io/sdm-pack-sonarqube/
-  - Tutorials:
-      - Overview: developer/tutorials.md
-      - Defining an Aspect: developer/aspects.md
-      - Setting Up a Project Generator: developer/setting-up-generator.md
-      - Writing your First Code Transform: developer/first-transform.md
-      - Defining an SDM: developer/defining-sdm.md
-      - Building your First Delivery: developer/first_delivery.md
-      - Creating Container Goals: developer/container-goals.md
-  - Extensions:
-      - Extension Packs: pack/index.md
-      - Aspect: pack/aspect.md
-      - Build: pack/build.md
-      - Changelog: pack/changelog.md
-      - Checkstyle: pack/checkstyle.md
-      - Cloud Foundry: pack/pcf.md
-      - Docker: pack/docker.md
-      - Kubernetes:
-          - "Atomist & Kubernetes": pack/kubernetes/index.md
-          - Kubernetes extension pack: pack/kubernetes/pack.md
-          - Deploying applications: pack/kubernetes/deploy.md
-          - GitOps: pack/kubernetes/sync.md
-          - Installation: pack/kubernetes/install.md
-      - Goal State: pack/goalstate.md
-      - Issue: pack/issue.md
-      - Lines of Code: pack/sloc.md
-      - Markdown: pack/markdown.md
-      - Node: pack/node.md
-      - Sonarqube: pack/sonarqube.md
-      - Java and Spring: pack/spring.md
-  - Glossary: glossary.md
+      - Tutorials:
+          - Overview: developer/tutorials.md
+          - Setting Up a Project Generator: developer/setting-up-generator.md
+          - Writing your First Code Transform: developer/first-transform.md
+          - Defining an SDM: developer/defining-sdm.md
+          - Building your First Delivery: developer/first_delivery.md
+          - Creating Container Goals: developer/container-goals.md
+      - Extensions:
+          - Extension Packs: pack/index.md
+          - Build: pack/build.md
+          - Changelog: pack/changelog.md
+          - Checkstyle: pack/checkstyle.md
+          - Cloud Foundry: pack/pcf.md
+          - Docker: pack/docker.md
+          - Kubernetes:
+              - "Atomist & Kubernetes": pack/kubernetes/index.md
+              - Kubernetes extension pack: pack/kubernetes/pack.md
+              - Deploying applications: pack/kubernetes/deploy.md
+              - GitOps: pack/kubernetes/sync.md
+              - Installation: pack/kubernetes/install.md
+          - Goal State: pack/goalstate.md
+          - Issue: pack/issue.md
+          - Lines of Code: pack/sloc.md
+          - Markdown: pack/markdown.md
+          - Node: pack/node.md
+          - Sonarqube: pack/sonarqube.md
+          - Java and Spring: pack/spring.md
   - Support: support.md
