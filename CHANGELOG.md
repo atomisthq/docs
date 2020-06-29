@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Reorganize and update k8s docs. [#331](https://github.com/atomist/docs/issues/331)
 -   Clean up aspect developer doc. [#340](https://github.com/atomist/docs/issues/340)
 -   Migrate to Firebase. [6da790f](https://github.com/atomist/docs/commit/6da790f9196f9fc5c1182c25f329f3e3f807b9ea)
+-   Reorganize navigation. [8774bc3](https://github.com/atomist/docs/commit/8774bc38098462cc6bfc9e340fb0de0e86d8f0f8)
 
 ### Fixed
 
