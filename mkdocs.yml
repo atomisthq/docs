@@ -44,10 +44,10 @@ nav:
   - Integrations:
       - GitHub: integration/github.md
       - Slack: integration/slack.md
-      - Docker Registries:
-          - Docker Hub: integration/docker-hub.md
-          - Google Container Registry: integration/gcr.md
-      - Google Cloud Platform: integration/gcp.md
+  #    - Docker Registries:
+  #        - Docker Hub: integration/docker-hub.md
+  #        - Google Container Registry: integration/gcr.md
+  #    - Google Cloud Platform: integration/gcp.md
       - Kubernetes: integration/kubernetes.md
   # - Developing a Skill: skill/develop.md
   - SDM Guide:
