@@ -22,6 +22,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Reorganize navigation. [8774bc3](https://github.com/atomist/docs/commit/8774bc38098462cc6bfc9e340fb0de0e86d8f0f8)
 -   Update welcome, getting started, & support pages. [a2debd1](https://github.com/atomist/docs/commit/a2debd1aac39f20961d821d477283d935ec1660a)
 
+### Removed
+
+-   Remove unused mixpanel JavaScript. [c0c8fbc](https://github.com/atomist/docs/commit/c0c8fbc206053b5318017eb2301665adf8d6cc05)
+
 ### Fixed
 
 -   Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
