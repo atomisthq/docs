@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Add VERSION file. [bde310f](https://github.com/atomist/docs/commit/bde310f848e6ae1423292cbae73de66ba1f21150)
 -   Add custom 404 page. [b4869df](https://github.com/atomist/docs/commit/b4869df7e45d3a3784323597c596bee621ed4073)
 -   Add integration pages. [ff1c6ef](https://github.com/atomist/docs/commit/ff1c6ef8858b52c2084e94a351c542a795424877)
+-   Add Kubernetes integration content. [98aa71a](https://github.com/atomist/docs/commit/98aa71a5ddf039b2d2292222fca8bbcfc8a0d5f6)
 
 ### Changed
 
