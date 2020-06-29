@@ -1,52 +1,58 @@
 # Getting Started
 
-After this Getting Started, you will be signed up with a new workspace on Atomist, connected to your GitHub organization or personal account, with access to your [Drift Report][drift-report].
+## Get Up and Running In Minutes
 
-If you are looking to get started developing on Atomist right now, see the [Developer Quick Start][quick-start].
+It takes about fifteen minutes to complete this guided set of
+steps. By the end, you will have a new skill enabled and you'll know
+how to discover, configure, and use skills.
 
-1.  **Go to** [https://app.atomist.com/user/signup][web-signup]
-2.  **Sign up with your GitHub account.** Authorize Atomist with GitHub to sign up.
-3.  **Name and create your Atomist workspace.** Your workspace is your home on Atomist.
-![Create Workspace](img/getting-started/create-workspace.png)
-4.  **Configure GitHub Access.** Install the [Atomist GitHub App][atomist-gh-app] into your [GitHub organization][install-app-org] or [personal account][install-app-account] and configure access.
+### Create an Account
 
-![Install GitHub App](img/getting-started/install-gh-app.png)
+There is nothing to install. Just [create your free account][signup]
+and off you go. We use your GitHub ID to login.  You'll be prompted to
+authorize Atomist to sign in.  This video takes you through the
+process step-by-step.
 
-![Configure GitHub App](img/getting-started/configure-gh-app.png)
+<div style="text-align:center;">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8Mr7rdIwMcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-5.  See your **[Drift Report][drift-report]** for insight into technologies in use in your organization, and manage policies.
-6.  **[Enable ChatOps][enable-chat]** for your Atomist workspace. Get actionable notifications and interact with Atomist via our chat bot.
-7.  **[Invite team members][invite-team]** to your Atomist workspace
+[signup]: https://go.atomist.com/user/signup (Atomist - Create Your Free Account)
 
-## Enable ChatOps
+### Enable a Skill
 
-* Go to **Settings > Integrations** and click on Configure for the Slack integration.
-* Click the `Add to Slack` button. You will need to permissions in your Slack workspace to add a bot.
-![Add to Slack](img/getting-started/slack-add.png)
-* Follow the instructions, see [Slack in Using Atomist][slack] for more information.
+After creating your account, you will find yourself in the [catalog of
+skills][catalog]. We're going to enable the GitHub Notifications
+Skill.
 
-## Invite team members to Atomist
+1.  Choose the [GitHub Notification Skill][gh-notification].
+2.  Click the **Get Started** button to configure the skill.
+3.  Configure the [GitHub][github] and [Slack][slack]
+    integrations.  These are both needed for the skill to send
+    notification messages to Slack.
+4.  Click **Enable Skill** to turn it on.  Once complete, you'll see
+    **Enabled** for GitHub Notifications on the **Manage > Skills**
+    page.
+5.  Link at least one repository to one Slack channel. Channel linking is done in the **Manage > Integrations > Slack** configuration. This repository-channel linking is how the skill knows which channel to send messages to for a specific repository's activity.
+6.  Create a test issue in a GitHub repository, look in the linked Slack channel for the notification message. For example:
 
-Now that you have a workspace connected to a GitHub organization or personal account, it's a good time to invite some others to the party. You can invite people to your workspace to share your Drift Report and collaborate together on projects.
+    ![Atomist GitHub notifications in Slack](img/getting-started/github-slack-notifications.png)
 
-* Go to **Settings > Members** and `Invite Member`
-* Provide the email address of the person you want to invite
-![Invite](img/getting-started/invite.png)
-* The person will receive an email invite with information about how to join the workspace. :raised_hands:
+Now you will get Slack notifications for all pushed commits, pull
+requests, and issues.
 
-## Need help?
+!!! tip "Note"
+    You control which channels will receive notifications, so you may want
+    to start with just one repository linked to one Slack channel until
+    you're ready to add more.
 
-If you get stuck or something didn't work for you, please let us know!
-Contact us through the messenger icon in the lower right of this page, find us in our [Slack][join],
-or email support@atomist.com.
+[catalog]: https://go.atomist.com/catalog (Atomist Catalog of Skills)
+[gh-notification]: https://go.atomist.com/catalog/skills/atomist/github-notifications-skill (Atomist GitHub Notification Skill)
+[github]: integration/github.md (Atomist GitHub Integration)
+[slack]: integration/slack.md (Atomist Slack Integration)
 
-[atomist-gh-app]: https://github.com/apps/atomist (Atomist GitHub App)
-[install-app-org]: https://help.github.com/en/articles/installing-an-app-in-your-organization (Install GitHub App in your organization)
-[install-app-account]: https://help.github.com/en/articles/installing-an-app-in-your-personal-account (Install GitHub App in your personal account)
-[enable-chat]: #enable-chatops (Enable ChatOps)
-[invite-team]: #invite-team-members-to-atomist (Invite team members to Atomist)
-[quick-start]: quick-start.md (Atomist Developer Quick Start)
-[drift-report]: user/drift-report.md (Drift Report)
-[web-signup]: https://app.atomist.com/user/signup (Sign Up)
-[slack]: user/slack.md (Slack)
-[join]: https://join.atomist.com (Atomist community Slack)
+## Next: Discover More Skills
+
+With the GitHub and Slack integrations configured, you're ready to explore more skills. 
+
+[Discover more skills >>][catalog]

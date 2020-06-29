@@ -1,47 +1,64 @@
-# Welcome
+# Hello and welcome to Atomist 👋
 
-[Atomist][www] is a development automation platform for modern teams. Our software projects
-are no longer few, and we can no longer hand-feed them every style and dependency update.
-we do not ask
-people to track the status of all the code that our organization owns.
-We no longer carve an individual delivery pipeline for each new service. It is time to write
-software at a higher level, with development automation.
+!!! important
+    In April 2020, we introduced a new way of using the Atomist platform,
+    called [Skills][skills]. If you're looking for SDM documentation,
+    you'll find it in the [SDM Guide][sdm-guide].
 
-We re-imagined how code maintenance should work, with high level visibility, investigation,
- and even updates driven by code. Write functions to read and understand code, and then
- leverage that understanding across your organization.
- Write functions that connect to people, in chat:
- let the team make the decisions, while automation does the neverending work.
+[Atomist][www] helps you improve your developer and DevOps experience.
+We're an automation platform-as-a-service helping developers and
+DevOps engineers automate important tasks and share knowledge in code.
 
-We re-imagined how software delivery should work and how you use it. The result
-is a powerful event-driven approach, with an integrated data model across all
-stages of delivery, a programmable interface to automate delivery in code, and
-native ChatOps integration to make delivery more collaborative.
+If you're new to Atomist or learning about skills for the first time,
+the [Getting Started][getting-started] guide will help you get up and
+running quickly.
 
-Atomist enables [Self-Service Software Delivery][sssd] so that you can focus on
-creating great software, automatically delivered by a powerful platform that
-understands your projects.
-
-## Where to Start
-
-Developers can do a thousand things with the Atomist platform. We recommend starting with:
-
-Find and track technology drift within your organization.
-
-* [Get Started][getting-started] in our web interface to investigate your GitHub organizations.
-* [Investigate repositories locally][quick-start] on your laptop or from GitHub. Create custom functions for what you want to know about your code.
-
-If your team already uses Atomist -
-
-* [Using Atomist][user] - learn about Atomist user interfaces and how to use them
-
-For everything else (delivery! project creation!) -
-
-* [Developer Guide][dev-guide] - learn about Atomist concepts and architecture, and SDM development
-
+[skills]: https://atomist.com/platform/skills (Atomist Skills Platform)
 [www]: https://atomist.com/ (Atomist)
-[sssd]: https://atomist.com/ (Self-Service Software Delivery)
+[sdm-guide]: developer/index.md (Atomist SDM Guide)
 [getting-started]: getting-started.md (Atomist Getting Started)
-[user]: user (Atomist User Guide)
-[quick-start]: quick-start.md (Atomist Developer Quick Start)
-[dev-guide]: developer (Atomist Developer Guide)
+
+## What's a Skill
+
+Skills are pre-built automations that you simply configure and use.
+
+Use skills from our [catalog][] to scan for secrets in code,
+streamline code review with automatic merging and cleanup, keep your
+dependencies up-to-date automatically and more. [See all skills >>][catalog]
+
+Skills are triggered by events from your existing tools like a commit,
+build, deployment, or on a schedule. Skills use integrations to
+connect to tools like [GitHub][github], [Slack][slack], [Kubernetes][k8s], and more.
+
+[catalog]: https://go.atomist.com/catalog (Atomist Skills Catalog)
+[github]: integration/github.md (Atomist GitHub Integration)
+[slack]: integration/slack.md (Atomist Slack Integration)
+[k8s]: integration/kubernetes.md (Atomist Kubernetes Integration)
+
+## Skill Intro Videos
+
+See how to configure and use these skills in action:
+
+-   [Secret Scanner](https://youtu.be/pH8VrbUV0Oo) [2:30]
+-   [String Replace](https://youtu.be/SVnmGJDNMwY) [4:00]
+-   [Docker Container Runner](https://youtu.be/CCzXWnPXtw4) [3:30]
+-   [Update NPM Dependencies](https://youtu.be/6HDYc_5cvrE) [3:45]
+
+## How Do I Create A Skill
+
+Today, you can use the [Docker Container Runner][container-runner]
+Skill to run a container to execute commands and arguments that you
+provide.
+
+We will be shipping support for creating your own skills soon.
+
+[container-runner]: https://go.atomist.com/catalog/skills/atomist/container-run-skill (Atomist Container Runner Skill)
+
+## We're Here to Help
+
+If you have any questions, let us know.  You can drop us a line at
+[support@atomist.com][] or send us an in-app chat message at any time.
+And don't forget to submit your recommendation for a skill or
+integration.
+
+[support@atomist.com]: mailto:support@atomist.com

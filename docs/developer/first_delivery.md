@@ -4,7 +4,9 @@ In this flow we will listen to changes made to your README file. On a push to a 
 
 ## Prerequisites
 
-Before starting, make sure that you have installed [the atomist CLI](/quick-start/) and created [a blank SDM](/developer/sdm/#creating-an-sdm-project). As well, since we'll be working in TypeScript, it's a good idea to [configure your editor](/developer/typescript/) to work with that toolchain. (Remember to run `npm install` in your SDM's folder.)
+Before starting, make sure that you have installed [the atomist CLI][cli] and created [a blank SDM](/developer/sdm/#creating-an-sdm-project). As well, since we'll be working in TypeScript, it's a good idea to [configure your editor](/developer/typescript/) to work with that toolchain. (Remember to run `npm install` in your SDM's folder.)
+
+[cli]: https://github.com/atomist/cli (Atomist CLI)
 
 You also need a local repository that you don't mind making dummy commits and pushes to. We'll be working with [atomist-seeds/express-es6-rest-api](https://github.com/atomist-seeds/express-es6-rest-api). Fork this repository online; to clone it locally and have Atomist's git hooks already configured, run the following command:
 
