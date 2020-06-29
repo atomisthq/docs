@@ -5,11 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist/docs/compare/11.0.1...HEAD)
+## [Unreleased](https://github.com/atomist/docs/compare/12.2.0...HEAD)
 
 ### Added
 
--   Add docs for commands. [#260](https://github.com/atomist/docs/issues/260)
 -   Add kube-fetch documentation. [#332](https://github.com/atomist/docs/issues/332)
 -   Add VERSION file. [bde310f](https://github.com/atomist/docs/commit/bde310f848e6ae1423292cbae73de66ba1f21150)
 -   Add custom 404 page. [b4869df](https://github.com/atomist/docs/commit/b4869df7e45d3a3784323597c596bee621ed4073)
@@ -31,8 +30,33 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
--   Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
 -   Fix typo. [#292](https://github.com/atomist/docs/issues/292)
+
+## [12.2.0](https://github.com/atomist/docs/compare/12.1.0...12.2.0) - 2019-03-01
+
+### Added
+
+-   Add docs for commands. [#260](https://github.com/atomist/docs/issues/260)
+
+### Fixed
+
+-   Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
+
+### Changed
+
+-   Content updates.
+
+## [12.1.0](https://github.com/atomist/docs/compare/12.0.0...12.1.0) - 2018-10-18
+
+### Changed
+
+-   Styling.
+
+## [12.0.0](https://github.com/atomist/docs/compare/11.0.1...12.0.0) - 2018-10-06
+
+### Changed
+
+-   Reorganize and clean up docs.
 
 ## [11.0.1](https://github.com/atomist/docs/compare/11.0.0...11.0.1) - 2018-08-27
 
