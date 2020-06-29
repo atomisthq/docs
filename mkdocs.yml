@@ -42,14 +42,14 @@ nav:
   - How It Works: how-it-works.md
   - Using Skills: using-skills.md
   - Integrations:
-      - GitHub: integrations/github.md
-      - Slack: integrations/slack.md
+      - GitHub: integration/github.md
+      - Slack: integration/slack.md
       - Docker Registries:
-          - Docker Hub: integrations/docker-hub.md
-          - Google Container Registry: integrations/gcr.md
-      - Google Cloud Platform: integrations/gcp.md
-      - Kubernetes: integrations/kubernetes.md
-  - Developing a Skill: skill/index.md
+          - Docker Hub: integration/docker-hub.md
+          - Google Container Registry: integration/gcr.md
+      - Google Cloud Platform: integration/gcp.md
+      - Kubernetes: integration/kubernetes.md
+  - Developing a Skill: skill/develop.md
   - SDM Guide:
       - Overview: developer/index.md
       - About the SDM:
