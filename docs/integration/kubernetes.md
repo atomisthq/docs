@@ -1,5 +1,6 @@
-We provide a utility called [k8svent][] that sends events from your
-Kubernetes cluster(s) to Atomist so skills can take action.
+This integration works with a utility called [k8svent][] that we provide. 
+k8svent is installed on your Kubernetes cluster(s) and sends events to 
+Atomist so skills can take action.
 
 Here is a video walking you through setting up the Atomist Kubernetes
 integration.
