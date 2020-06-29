@@ -21,15 +21,10 @@ If your team uses Atomist, and you want to understand the built-in features, sta
 
 If you want to see examples of the kinds of automation Atomist makes feasible, this is a good place to be.
 
-## Getting Started
-
-Get your own Software Delivery Machine (SDM) by following the steps in [Starting Locally](../quick-start.md).
-
 ## Instructions
 
 Once you have a local SDM up and running, here are some things you can do with it:
 
-* Create your own [aspects](aspects.md)
 * Add a [chat command](commands.md)
 * Add an [autofix](autofix.md)
 * Add a [code inspection](inspect.md)
@@ -54,8 +49,6 @@ On top of that, the `@atomist/sdm` [library][npm-sdm] provides a domain model fo
 activities that you won't see in older build tools: [AutoCodeInspect](inspect.md), [Autofix](autofix.md), and [Fingerprint](fingerprint.md), for instance.
 
 In addition, there are extension packs that build on the abstractions in the SDM. There is a pack for [build](../pack/build.md) functionality. There are packs to help with languages like [Java](../pack/spring.md) or [Node](../pack/node.md). There are packs specific to deployment targets like [Kubernetes](../pack/kubernetes/index.md) or [Cloud Foundry](../pack/pcf.md). You can create packs and share them with the community.
-
-One interesting pack is the [apsect pack](../pack/aspect.md). This one is used by [org-visualizer](https://github.com/atomist/org-visualizer). With this, your SDM can run analysis over repositories and product data for a [drift report](../user/drift-report.md).
 
 Learn more about the high-level concepts in [Architecture](architecture.md).
 
