@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 -   Fix typo. [#292](https://github.com/atomist/docs/issues/292)
+-   Remove broken links. [88ffa4b](https://github.com/atomist/docs/commit/88ffa4b9666e59c63b9125da3a506b19826083a1)
 
 ## [12.2.0](https://github.com/atomist/docs/compare/12.1.0...12.2.0) - 2019-03-01
 
@@ -38,13 +39,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -   Add docs for commands. [#260](https://github.com/atomist/docs/issues/260)
 
-### Fixed
-
--   Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
-
 ### Changed
 
 -   Content updates.
+
+### Fixed
+
+-   Update code inspection code. [#259](https://github.com/atomist/docs/issues/259)
 
 ## [12.1.0](https://github.com/atomist/docs/compare/12.0.0...12.1.0) - 2018-10-18
 
