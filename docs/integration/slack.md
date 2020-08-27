@@ -33,6 +33,7 @@ in the right channels.
     **Repositories** on the right, then click the **Link** button.
 -   You can always add, edit and remove channel links in the **Manage
     > Integrations > Slack** page.
+-   The `@atomist` bot will automatically be invited to linked channels.
 
 ![Linking Slack channels and GitHub Repositories](img/slack/slack-channel-linking.png)
 
