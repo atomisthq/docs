@@ -100,12 +100,17 @@ $ PIP_REQUIRE_VIRTUALENV=false pip3 install virtualenv
 $ virtualenv ~/.venvs/docs
 ```
 
-Install [htmltest][].
+Initial install of [htmltest][].
+
+```
+$ tar -x -z -f htmltest_0.13.0_osx_amd64.tar.gz
+$ install htmltest /usr/local/bin
+```
 
 Initialize virtualenv in your shell and install dependencies.
 
 ```
-$ . ~/.venvs/docs
+$ . ~/.venvs/docs/bin/activate
 $ pip3 install -r requirements.txt
 ```
 
