@@ -66,6 +66,12 @@ You can also run `htmltest`.
 $ docker run -it --rm -v "$PWD:/test" wjdp/htmltest:v0.12.0 htmltest
 ```
 
+You can serve the docs with the following command.
+
+```
+$ docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:5.3.3
+```
+
 ### VS Code
 
 If you open this repository in VSCode, and you have Docker, and you
