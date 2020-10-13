@@ -12,7 +12,7 @@ This page assumes you have [created some goals][create-goals]. It shows how to:
 You can group goals into sets. Start creating a goal set with the [`goals`][apidoc-goalsbuilder] method; give it a name. Add goals to the set
 with the `plan` method.
 
-[apidoc-goalsbuilder]: https://atomist.github.io/sdm/modules/_lib_api_goal_goals_.html#goals-1 (API Doc for goals builder)
+[apidoc-goalsbuilder]: https://atomist.github.io/sdm/modules/_api_goal_goals_.html#goals-1 (API Doc for goals builder)
 
 ```typescript
     const BaseGoals = goals("checks")
@@ -79,7 +79,7 @@ The DSL includes support for logical operations. For example, this will build al
 whenPushSatisfies(IsMaven, not(IsKotlin)).setGoals(BuildGoals),
 ```
 
-Each argument to [`sdm.withPushRules`](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)
+Each argument to [`sdm.withPushRules`](https://atomist.github.io/sdm/interfaces/_api_machine_softwaredeliverymachine_.softwaredeliverymachine.html#withpushrules)
 is a PushRule, contributing goals on a commit if a condition is met. That condition is a PushTest.
 
 ### Advanced Push Rules
@@ -137,7 +137,7 @@ export const IsMaven: PredicatePushTest = predicatePushTest(
 To establish a PushTest for whether a project uses Maven as a build tool,
 [this code](https://github.com/atomist/sdm-pack-spring/blob/3fcadc309231e45fa25a8ccde0cf25587ade6d71/lib/maven/pushtest/pushTests.ts#L33)
 calls a constructor function
-[predicatePushTest](https://atomist.github.io/sdm/modules/_lib_api_mapping_pushtest_.html#predicatepushtest-1)
+[predicatePushTest](https://atomist.github.io/sdm/modules/_api_mapping_pushtest_.html#predicatepushtest-1)
 with a name for the PushTest and a function from a Project to a `Promise<Boolean>`.
 
 The example [spring-sdm](https://github.com/atomist-seeds/spring-sdm/blob/1ab4ab06086e61f0e3395b1b7114a91a59d8939d/lib/machine/machine.ts#L84) uses this PushTest to create a PushRule, which sets build goals only on Maven projects:

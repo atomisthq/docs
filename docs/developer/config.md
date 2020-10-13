@@ -122,8 +122,8 @@ without downloading the world every time.
 
 For the full list of configuration sources, see the [API doc][configuration-apidoc].
 
-The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_lib_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html).
+The full list of configuration values are [here](https://atomist.github.io/sdm/interfaces/_api_machine_softwaredeliverymachineoptions_.softwaredeliverymachineconfiguration.html).
 
 [prereq]: prerequisites.md (Atomist SDM Prerequisites)
 [lifecycle]: #client-lifecycle (Atomist SDM Lifecycle)
-[configuration-apidoc]: https://atomist.github.io/automation-client/modules/_lib_configuration_.html#loadconfiguration (API doc for loadConfiguration)
+[configuration-apidoc]: https://atomist.github.io/automation-client/modules/_configuration_.html#loadconfiguration (API doc for loadConfiguration)

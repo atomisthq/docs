@@ -152,7 +152,7 @@ If you want to turn a shell script into a bot command, just call that
 shell script from a command listener.  You can use the [`execPromise`][apidoc-execpromise]
 helper to capture the output and respond back with it.
 
-[apidoc-execpromise]: https://atomist.github.io/automation-client/modules/_lib_util_child_process_.html#execpromise (API doc for execPromise)
+[apidoc-execpromise]: https://atomist.github.io/automation-client/modules/_util_child_process_.html#execpromise (API doc for execPromise)
 
 ```typescript
 import { execPromise } from "@atomist/automation-client";
@@ -229,8 +229,8 @@ name of the parameter, and its value describes the parameter. These options are 
 | group | Group | when prompting, put parameters in the same Group together | none |
 | control | "input" or "textarea" | input type for string parameters in dialogues | "input" |
 
-[options-apidoc]: https://atomist.github.io/automation-client/interfaces/_lib_metadata_automationmetadata_.options.html (API doc for Options)
-[apidoc-parameterdef]: https://atomist.github.io/automation-client/interfaces/_lib_internal_metadata_decoratorsupport_.parameter.html (API doc for Parameter definition)
+[options-apidoc]: https://atomist.github.io/automation-client/interfaces/_metadata_automationmetadata_.options.html (API doc for Options)
+[apidoc-parameterdef]: https://atomist.github.io/automation-client/interfaces/_internal_metadata_decoratorsupport_.parameter.html (API doc for Parameter definition)
 
 We can combine parameter definitions using spreads. For example, this will also bring in some common parameters
 defined in another object constant:

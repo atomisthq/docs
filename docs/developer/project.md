@@ -2,10 +2,10 @@ The Project abstraction lets us write code to understand and modify code, at a l
 For most SDM operations, it is [backed by a clone][apidoc-gcgp] of the repository on the filesystem.
 For testing, you can use a project backed by a [local directory][apidoc-nflp] or stored [in memory][apidoc-imp].
 
-[apidoc-nflp]: https://atomist.github.io/automation-client/classes/_lib_project_local_nodefslocalproject_.nodefslocalproject.html (API Doc for NodeFsLocalProject)
-[apidoc-gcgp]: https://atomist.github.io/automation-client/classes/_lib_project_git_gitcommandgitproject_.gitcommandgitproject.html (API Doc for GitCommandGitProject)
-[apidoc-project]: https://atomist.github.io/automation-client/interfaces/_lib_project_project_.project.html (API doc for Project)
-[apidoc-pu]: https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html (API Doc for projectUtils)
+[apidoc-nflp]: https://atomist.github.io/automation-client/classes/_project_local_nodefslocalproject_.nodefslocalproject.html (API Doc for NodeFsLocalProject)
+[apidoc-gcgp]: https://atomist.github.io/automation-client/classes/_project_git_gitcommandgitproject_.gitcommandgitproject.html (API Doc for GitCommandGitProject)
+[apidoc-project]: https://atomist.github.io/automation-client/interfaces/_project_project_.project.html (API doc for Project)
+[apidoc-pu]: https://atomist.github.io/automation-client/modules/_project_util_projectutils_.html (API Doc for projectUtils)
 
 See the [API Doc][apidoc-project] for the full interface, and the methods in [projectUtils][apidoc-pu]
 for related helpers.
@@ -48,13 +48,13 @@ There are many ways to look around the Project.
 
 #### Does a particular file exist?
 
-Call [hasFile](https://atomist.github.io/automation-client/interfaces/_lib_project_project_.project.html#hasfile) on the project.
+Call [hasFile](https://atomist.github.io/automation-client/interfaces/_project_project_.project.html#hasfile) on the project.
 
 ```typescript
 const hasMyFile = await project.hasFile("path/to/file");
 ```
 
-There is also [hasDirectory](https://atomist.github.io/automation-client/interfaces/_lib_project_project_.project.html#hasdirectory) to check for directory existence.
+There is also [hasDirectory](https://atomist.github.io/automation-client/interfaces/_project_project_.project.html#hasdirectory) to check for directory existence.
 
 #### What is in a file?
 
@@ -71,9 +71,9 @@ if (myFile) {
 
 #### Does a file exist, for various conditions?
 
-Use [projectUtils.fileExists](https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#fileexists)
+Use [projectUtils.fileExists](https://atomist.github.io/automation-client/modules/_project_util_projectutils_.html#fileexists)
 to look for files with a certain extension or property.
-The second argument is a [glob](#file-globs), and the third is a function from [File](https://atomist.github.io/automation-client/interfaces/_lib_project_file_.file.html) to boolean.
+The second argument is a [glob](#file-globs), and the third is a function from [File](https://atomist.github.io/automation-client/interfaces/_project_file_.file.html) to boolean.
 
 ```typescript
 const result = await projectUtils.fileExists(project,
@@ -84,9 +84,9 @@ const result = await projectUtils.fileExists(project,
 
 #### Extract information from files
 
-Use [projectUtils.gatherFromFiles](https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#gatherfromfiles)
+Use [projectUtils.gatherFromFiles](https://atomist.github.io/automation-client/modules/_project_util_projectutils_.html#gatherfromfiles)
 to extract information from all the files with matching names.
-Pass the project, a [glob](#file-globs), and a function from [File](https://atomist.github.io/automation-client/interfaces/_lib_project_file_.file.html) to whatever it is
+Pass the project, a [glob](#file-globs), and a function from [File](https://atomist.github.io/automation-client/interfaces/_project_file_.file.html) to whatever it is
 you want to get back.
 
 This example returns an array with the first line of every Java file:
@@ -148,11 +148,11 @@ then check the [GitProject][apidoc-gitproject] interface for methods like:
 * checkout
 * hasBranch
 
-[apidoc-gitproject]: https://atomist.github.io/automation-client/interfaces/_lib_project_git_gitproject_.gitproject.html (API Doc for GitProject)
+[apidoc-gitproject]: https://atomist.github.io/automation-client/interfaces/_project_git_gitproject_.gitproject.html (API Doc for GitProject)
 
 ## Accessing the filesystem directly
 
 If the Project is on the filesystem (usually a `GitProject`), then `project.baseDir` will give
 you its path on the filesystem.
 
-[apidoc-imp]: https://atomist.github.io/automation-client/classes/_lib_project_mem_inmemoryproject_.inmemoryproject.html (API Doc for InMemoryProject)
+[apidoc-imp]: https://atomist.github.io/automation-client/classes/_project_mem_inmemoryproject_.inmemoryproject.html (API Doc for InMemoryProject)

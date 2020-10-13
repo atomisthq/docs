@@ -5,9 +5,9 @@ Here are some more things you can do with goals:
 * [Perform a preparatory action](#prepare-the-checked-out-code) after checking out code and before executing the goal, with GoalProjectListeners
 * [Reset goals](#reset-goals) on the latest commit, to have your SDM try again.
 
-[apidoc-fulfillablegoal]: https://atomist.github.io/sdm/classes/_lib_api_goal_goalwithfulfillment_.fulfillablegoal.html (API doc for FulfillableGoal)
+[apidoc-fulfillablegoal]: https://atomist.github.io/sdm/classes/_api_goal_goalwithfulfillment_.fulfillablegoal.html (API doc for FulfillableGoal)
 [built-in-goals]: goal.md#built-in-goals (Built-in Goals)
-[apidoc-goal]: https://atomist.github.io/sdm/modules/_lib_api_goal_goalwithfulfillment_.html#goal (API doc for goal function)
+[apidoc-goal]: https://atomist.github.io/sdm/modules/_api_goal_goalwithfulfillment_.html#goal (API doc for goal function)
 
 ## Prepare the checked out code
 
@@ -37,7 +37,7 @@ const BuildCheckedOutCode: GoalProjectListener = async (project, inv, event) => 
     },
 ```
 
-[apidoc-goalinvocation]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_goalinvocation_.goalinvocation.html (API Doc for GoalInvocation)
+[apidoc-goalinvocation]: https://atomist.github.io/sdm/interfaces/_api_goal_goalinvocation_.goalinvocation.html (API Doc for GoalInvocation)
 
 ### Create a GoalProjectListenerRegistration
 
@@ -53,7 +53,7 @@ const BuildCheckedOutCodeFirst: GoalProjectListenerRegistration = {
 };
 ```
 
-[apidoc-goalprojectlistenerregistration]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_goalinvocation_.goalprojectlistenerregistration.html (API Doc for GoalProjectListenerRegistration)
+[apidoc-goalprojectlistenerregistration]: https://atomist.github.io/sdm/interfaces/_api_goal_goalinvocation_.goalprojectlistenerregistration.html (API Doc for GoalProjectListenerRegistration)
 
 ### Register the GoalProjectListener on goals
 
@@ -67,7 +67,7 @@ Call this when you create the goal. For instance, here is a possible custom test
         .withProjectListener(BuildCheckedOutCodeFirst);
 ```
 
-[apidoc-goalprojectlistener]: https://atomist.github.io/sdm/modules/_lib_api_goal_goalinvocation_.html#goalprojectlistener (API doc for GoalProjectListener)
+[apidoc-goalprojectlistener]: https://atomist.github.io/sdm/modules/_api_goal_goalinvocation_.html#goalprojectlistener (API doc for GoalProjectListener)
 
 ## Reset goals
 

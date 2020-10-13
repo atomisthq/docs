@@ -89,7 +89,7 @@ const renamePackage: CodeTransform = (p: Project) => {
 };
 ```
 
-The `Project` type represents the seed we are copying from, and it's the first argument passed to a code transform function. In our case, we want to find the package.json file, read its contents, and replace a string. Fortunately, there's a single method that will do the first two tasks for us called [`doWithFiles`](https://atomist.github.io/automation-client/modules/_lib_project_util_projectutils_.html#dowithfiles). `doWithFiles` accepts a project, a glob pattern string, and calls a provided function on every matched filename.
+The `Project` type represents the seed we are copying from, and it's the first argument passed to a code transform function. In our case, we want to find the package.json file, read its contents, and replace a string. Fortunately, there's a single method that will do the first two tasks for us called [`doWithFiles`](https://atomist.github.io/automation-client/modules/_project_util_projectutils_.html#dowithfiles). `doWithFiles` accepts a project, a glob pattern string, and calls a provided function on every matched filename.
 
 Import `doWithFiles` at the top of your code:
 
@@ -107,7 +107,7 @@ const renamePackage: CodeTransform<SeedDrivenGeneratorParameters> = (project: Pr
 };
 ```
 
-Generally speaking, you could also pass an array of patterns into this method, if you had more than one file to change. In this case, though, we know that the package.json is right at the root of the directory. The `f` argument is of the type [`File`](https://atomist.github.io/automation-client/interfaces/_lib_project_file_.file.html). This means that you can call methods returning more information, such as `f.isBinary`, but it also provides convenience methods that modify its contents, such as `setContent`. In other words, you don't get a file handler, you get an abstracted object which you can query and maniulate.
+Generally speaking, you could also pass an array of patterns into this method, if you had more than one file to change. In this case, though, we know that the package.json is right at the root of the directory. The `f` argument is of the type [`File`](https://atomist.github.io/automation-client/interfaces/_project_file_.file.html). This means that you can call methods returning more information, such as `f.isBinary`, but it also provides convenience methods that modify its contents, such as `setContent`. In other words, you don't get a file handler, you get an abstracted object which you can query and maniulate.
 
 Since we need to replace a string, let's use the `replace` method here:
 

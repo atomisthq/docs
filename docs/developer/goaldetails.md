@@ -1,7 +1,7 @@
 When [creating a goal][], you'll supply a [Goal Details][apidoc-goaldetails] object.
 Here you can mane some tweaks to your delivery flow.
 
-[apidoc-goaldetails]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_goalwithfulfillment_.fulfillablegoaldetails.html (API Doc for FulfillableGoalDetails)
+[apidoc-goaldetails]: https://atomist.github.io/sdm/interfaces/_api_goal_goalwithfulfillment_.fulfillablegoaldetails.html (API Doc for FulfillableGoalDetails)
 
 ##
 
@@ -37,4 +37,4 @@ Continue with [creating a goal][]
 
 [creating a goal]: goal.md#creating-a-goal
 
-[apidoc-waitrules]: https://atomist.github.io/sdm/interfaces/_lib_api_goal_common_creategoal_.waitrules.html (API Doc for WaitRules)
+[apidoc-waitrules]: https://atomist.github.io/sdm/interfaces/_api_goal_common_creategoal_.waitrules.html (API Doc for WaitRules)

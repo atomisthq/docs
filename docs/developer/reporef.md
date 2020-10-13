@@ -52,6 +52,6 @@ For BitBucket Cloud, use `new [BitBucketRepoRef][apidoc-bbrr](...)`.
 You can usually use any of the concrete instances for local testing,
 with dummy information.
 
-[apidoc-ghrr]: https://atomist.github.io/automation-client/classes/_lib_operations_common_githubreporef_.githubreporef.html (API Doc for GitHubRepoRef)
-[apidoc-bbrr]: https://atomist.github.io/automation-client/classes/_lib_operations_common_bitbucketreporef_.bitbucketreporef.html#constructor (API Doc for BitBucketRepoRef)
-[apidoc-bbsrr]: https://atomist.github.io/automation-client/classes/_lib_operations_common_bitbucketserverreporef_.bitbucketserverreporef.html (API Doc for BitBucketServerRepoRef)
+[apidoc-ghrr]: https://atomist.github.io/automation-client/classes/_operations_common_githubreporef_.githubreporef.html (API Doc for GitHubRepoRef)
+[apidoc-bbrr]: https://atomist.github.io/automation-client/classes/_operations_common_bitbucketreporef_.bitbucketreporef.html#constructor (API Doc for BitBucketRepoRef)
+[apidoc-bbsrr]: https://atomist.github.io/automation-client/classes/_operations_common_bitbucketserverreporef_.bitbucketserverreporef.html (API Doc for BitBucketServerRepoRef)

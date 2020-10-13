@@ -25,7 +25,7 @@ Run a transform on all repositories in the MyCompany organization whose names en
 
 ### Parameters
 
-These commands' parameters mix in [RepoTargetingParameters](https://atomist.github.io/sdm/interfaces/_lib_api_helper_machine_repotargetingparameters_.repotargetingparameters.html), so these parameters are common to all of them:
+These commands' parameters mix in [RepoTargetingParameters](https://atomist.github.io/sdm/interfaces/_api_helper_machine_repotargetingparameters_.repotargetingparameters.html), so these parameters are common to all of them:
 
 | Parameter | Description | Default |
 |-----------|-------------|---------|

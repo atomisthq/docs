@@ -21,7 +21,7 @@ import { GitHubRepoRef } from "@atomist/automation-client";
 import { GeneratorRegistration } from "@atomist/sdm";
 ```
 
-The `GitHubRepoRef` function is going to grab a repository off of GitHub based on the parameters you provide it. This could also be in a location like [`GitLabRepoRef`](https://atomist.github.io/automation-client/modules/_lib_operations_common_gitlabreporef_.html) or [`BitBucketRepoRef`](https://atomist.github.io/automation-client/modules/_lib_operations_common_bitbucketreporef_.html) if the repository is hosted somewhere else. In any case, all of the following code will work the same, regardless of the seed's location.
+The `GitHubRepoRef` function is going to grab a repository off of GitHub based on the parameters you provide it. This could also be in a location like [`GitLabRepoRef`](https://atomist.github.io/automation-client/modules/_operations_common_gitlabreporef_.html) or [`BitBucketRepoRef`](https://atomist.github.io/automation-client/modules/_operations_common_bitbucketreporef_.html) if the repository is hosted somewhere else. In any case, all of the following code will work the same, regardless of the seed's location.
 
 `GeneratorRegistration` is the interface which will actually define the project generation command. Let's fill that out in this file next:
 

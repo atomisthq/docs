@@ -168,7 +168,7 @@ Slack, a reference to the [command handler][command], and optional parameters th
 pre-populated when invoking the command. Pass these to [`buttonForCommand`][apidoc-button]. Put the output in the `actions` array
 of an Attachment, and put that in the `attachments` array of a SlackMessage.
 
-[apidoc-button]: https://atomist.github.io/automation-client/modules/_lib_spi_message_messageclient_.html#buttonforcommand (APIDoc for buttonForCommand)
+[apidoc-button]: https://atomist.github.io/automation-client/modules/_spi_message_messageclient_.html#buttonforcommand (APIDoc for buttonForCommand)
 
 Here's a sample SlackMessage with a button that invokes a command by name:
 
@@ -283,5 +283,5 @@ it is an update to a previously posted message with the same `id`. If
 a previous message.
 will never rewrite a previous message.
 
-[message-options-apidoc]: https://atomist.github.io/automation-client/interfaces/_lib_spi_message_messageclient_.messageoptions.html (APIdoc
+[message-options-apidoc]: https://atomist.github.io/automation-client/interfaces/_spi_message_messageclient_.messageoptions.html (APIdoc
 for Message Options)

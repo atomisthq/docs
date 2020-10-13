@@ -28,7 +28,7 @@ with this path expression:
 
 See more details on path expression syntax in the [tree-path library docs](https://github.com/atomist/tree-path/blob/master/docs/PathExpressions.md).
 
-[apidoc-astutils]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html (API Doc for astUtils)
+[apidoc-astutils]: https://atomist.github.io/automation-client/modules/_tree_ast_astutils_.html (API Doc for astUtils)
 
 ## Example: finding and changing code instances in a project
 
@@ -58,16 +58,16 @@ in the file, when you are writing a [code transform](transform.md).
 
 If you want information about the file that the code is in, try [`astUtils.fileHitIterator`][api-filehititerator].
 
-[api-filehititerator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#filehititerator (API Doc for fileHitIterator)
-[apidoc-matchresult]: https://atomist.github.io/automation-client/interfaces/_lib_tree_ast_filehits_.matchresult.html (API Doc for MatchResult)
-[apidoc-matchiterator]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#matchiterator (API Doc for matchIterator)
+[api-filehititerator]: https://atomist.github.io/automation-client/modules/_tree_ast_astutils_.html#filehititerator (API Doc for fileHitIterator)
+[apidoc-matchresult]: https://atomist.github.io/automation-client/interfaces/_tree_ast_filehits_.matchresult.html (API Doc for MatchResult)
+[apidoc-matchiterator]: https://atomist.github.io/automation-client/modules/_tree_ast_astutils_.html#matchiterator (API Doc for matchIterator)
 
 ## Example: finding and reporting on Java annotation parameters
 
 You can find interesting bits of code in the AST and report on them in a code inspection.
 The [`findMatches`][apidoc-findmatches] method returns the matches for your [path expression](pxe.md).
 
-[apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_lib_tree_ast_astutils_.html#findmatches (API Doc for findMatches)
+[apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_tree_ast_astutils_.html#findmatches (API Doc for findMatches)
 
 ```typescript
 const matches = await astUtils.findMatches<AnnotationAstNode>(
@@ -104,7 +104,7 @@ just in case there are more than one of that name; add an 's' to the AST node na
 
 Declaring this type makes it easier to use the matches. Here is the full code inspection, which puts the annotation's parameters into a [`ReviewComment`][apidoc-reviewcomment] (code is [here][example-inspection]):
 
-[apidoc-reviewcomment]: https://atomist.github.io/automation-client/interfaces/_lib_operations_review_reviewresult_.reviewcomment.html (APIdoc for ReviewComment)
+[apidoc-reviewcomment]: https://atomist.github.io/automation-client/interfaces/_operations_review_reviewresult_.reviewcomment.html (APIdoc for ReviewComment)
 
 ```typescript
 async (p: Project) => {

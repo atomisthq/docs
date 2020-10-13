@@ -71,7 +71,7 @@ pull request. The transform's `name` will appear in the branch.
 
 See also:
 
-* [CodeTransformRegistration API doc](https://atomist.github.io/sdm/interfaces/_lib_api_registration_codetransformregistration_.codetransformregistration.html)
+* [CodeTransformRegistration API doc](https://atomist.github.io/sdm/interfaces/_api_registration_codetransformregistration_.codetransformregistration.html)
 
 ## Adding the transform command to the SDM
 
@@ -193,9 +193,9 @@ export const AddApacheLicenseFile: CodeTransformRegistration<AddApacheLicenseFil
 
 This will cause the transform to be run on the `license-file` branch and the resulting pull request have `Add license file` as a title. You can also specify the body of the pull request, and more. Check the docs on [new PullRequest][apidoc-pr] for more.
 
-[apidoc-pr]: https://atomist.github.io/automation-client/classes/_lib_operations_edit_editmodes_.pullrequest.html#constructor (API doc for PullRequest)
+[apidoc-pr]: https://atomist.github.io/automation-client/classes/_operations_edit_editmodes_.pullrequest.html#constructor (API doc for PullRequest)
 
-If you don't want a pull request, you can specify that the transform should be applied as a [commit](https://atomist.github.io/automation-client/classes/_lib_operations_edit_editmodes_.commit.html#constructor) to any branch.
+If you don't want a pull request, you can specify that the transform should be applied as a [commit](https://atomist.github.io/automation-client/classes/_operations_edit_editmodes_.commit.html#constructor) to any branch.
 
 In [local mode](local.md), there is no such thing as a pull request, so you'll see a branch in your repository.
 
@@ -240,7 +240,7 @@ Your code transform can return void, or the Project that was input, or a Transfo
 * `success` tells whether the transform succeeded. If success is false, the changes will not be committed.
 * `edited` tells whether the transform made any changes. If false, no commit is made.
 * `target` is the input Project.
-* `editMode` describes how to handle the changes. Use an [EditMode](https://atomist.github.io/automation-client/interfaces/_lib_operations_edit_editmodes_.editmode.html) such as BranchCommit or [PullRequest](https://atomist.github.io/automation-client/classes/_lib_operations_edit_editmodes_.pullrequest.html).
+* `editMode` describes how to handle the changes. Use an [EditMode](https://atomist.github.io/automation-client/interfaces/_operations_edit_editmodes_.editmode.html) such as BranchCommit or [PullRequest](https://atomist.github.io/automation-client/classes/_operations_edit_editmodes_.pullrequest.html).
 * `error` is an exception that occurred. Use this when you set success to false.
 
 ## Advanced usage

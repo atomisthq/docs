@@ -20,7 +20,7 @@ When goal output is short, it is also sent to the SDM logs.
 
 ### Custom Progress Logs
 
-To send goal progress logs somewhere else, implement [`ProgressLogFactory`](https://atomist.github.io/sdm/modules/_lib_spi_log_progresslog_.html#progresslogfactorys)
+To send goal progress logs somewhere else, implement [`ProgressLogFactory`](https://atomist.github.io/sdm/modules/_spi_log_progresslog_.html#progresslogfactorys)
 and then set `logFactory` in SDM Configuration. In `index.ts`:
 
 ```typescript
@@ -55,7 +55,7 @@ You can set the log level in the `configuration` object in index.ts:
    }
 ```
 
-You can enable logging to a file at a different level; see [API Docs](https://atomist.github.io/automation-client/interfaces/_lib_configuration_.configuration.html#logging).
+You can enable logging to a file at a different level; see [API Docs](https://atomist.github.io/automation-client/interfaces/_configuration_.configuration.html#logging).
 
 ### Custom log transports
 

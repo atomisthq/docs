@@ -47,7 +47,7 @@ In addition, a generator command automatically gets some parameters that every g
 | target.repo | string | new repository name | none |
 | target.visibility | "public" or "private" | what kind of visibility a new repository gets | "private" |
 
-[apidoc-generator-registration]: https://atomist.github.io/sdm/interfaces/_lib_api_registration_generatorregistration_.generatorregistration.html (API Doc for GeneratorRegistration)
+[apidoc-generator-registration]: https://atomist.github.io/sdm/interfaces/_api_registration_generatorregistration_.generatorregistration.html (API Doc for GeneratorRegistration)
 
 ## Code sample
 

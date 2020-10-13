@@ -52,7 +52,7 @@ The `displayName` appears as in the Atomist UI to identify your goal. Let's give
 }
 ```
 
-The second argument to `goal` is the executing function. This takes a single argument, `goalInvocation`, which contains context about the originating event (in this case, a push). The type of this argument is a [`GoalInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_goal_goalinvocation_.goalinvocation.html), and while TypeScript already knows this, we should also explicitly define the type for the benefit of future humans reading the code:
+The second argument to `goal` is the executing function. This takes a single argument, `goalInvocation`, which contains context about the originating event (in this case, a push). The type of this argument is a [`GoalInvocation`](https://atomist.github.io/sdm/interfaces/_api_goal_goalinvocation_.goalinvocation.html), and while TypeScript already knows this, we should also explicitly define the type for the benefit of future humans reading the code:
 
 ```typescript
 async (goalInvocation: GoalInvocation) => {
@@ -74,7 +74,7 @@ async (goalInvocation: GoalInvocation) => {
 });
 ```
 
-Our return type is [`ExecuteGoalResult`](https://atomist.github.io/sdm/interfaces/_lib_api_goal_executegoalresult_.executegoalresult.html), which in this case, just provides a status code of `0` indicating that everything is okay. Our final goal should look like this:
+Our return type is [`ExecuteGoalResult`](https://atomist.github.io/sdm/interfaces/_api_goal_executegoalresult_.executegoalresult.html), which in this case, just provides a status code of `0` indicating that everything is okay. Our final goal should look like this:
 
 ```typescript
 import { goal, GoalInvocation } from "@atomist/sdm";
@@ -109,7 +109,7 @@ export const modifiesReadme = pushTest(
   });
 ```
 
-Once again, for the sake of humans, let's explicitly define the type for the `pushListenerInvocation` parameter (which is [`PushListenerInvocation`](https://atomist.github.io/sdm/interfaces/_lib_api_listener_pushlistener_.pushlistenerinvocation.html)):
+Once again, for the sake of humans, let's explicitly define the type for the `pushListenerInvocation` parameter (which is [`PushListenerInvocation`](https://atomist.github.io/sdm/interfaces/_api_listener_pushlistener_.pushlistenerinvocation.html)):
 
 ```typescript
 import { goal, GoalInvocation, PushListenerInvocation, pushTest } from "@atomist/sdm";

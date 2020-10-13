@@ -47,7 +47,7 @@ Each autofix will make its own commit, and the `name` appears in the commit mess
 Autofix: <name of the autofix>
 ```
 
-See also: [AutofixRegistration API Docs](https://atomist.github.io/sdm/interfaces/_lib_api_registration_autofixregistration_.autofixregistration.html)
+See also: [AutofixRegistration API Docs](https://atomist.github.io/sdm/interfaces/_api_registration_autofixregistration_.autofixregistration.html)
 
 ### Skip some pushes
 

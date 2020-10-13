@@ -15,7 +15,7 @@ the whole file), in a way that's more bearable than regular expressions at a med
 The parseUtils collection of functions helps you work with a [Project](project.md) using microgrammars.
 
 [microgrammar library](https://github.com/atomist/microgrammar)
-[parseUtils API Doc](https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html)
+[parseUtils API Doc](https://atomist.github.io/automation-client/modules/_project_util_parseutils_.html)
 
 ## Writing a microgrammar
 
@@ -100,8 +100,8 @@ the grammar, then those properties will exist on the returned match.
 If you also want information on the file that each match is in, then check out
 [`parseUtils.findFileMatches`][apidoc-findfilematches].
 
-[apidoc-findfilematches]: https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html#findfilematches (API Doc for findFileMatches)
-[apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html#findmatches (API Doc for findMatches)
+[apidoc-findfilematches]: https://atomist.github.io/automation-client/modules/_project_util_parseutils_.html#findfilematches (API Doc for findFileMatches)
+[apidoc-findmatches]: https://atomist.github.io/automation-client/modules/_project_util_parseutils_.html#findmatches (API Doc for findMatches)
 [apidoc-termsdefinition]: https://atomist.github.io/microgrammar/modules/_lib_grammar_.html#termsdefinition (API Doc for TermsDefinition)
 
 ## Changing code that looks like this
@@ -135,8 +135,8 @@ your [code transforms](transform.md).
 
 Note: if you want information about the file that the match is in, try [`parseUtil.doWithFileMatches`][apidoc-dowithfilematches].
 
-[apidoc-dowithfilematches]: https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html#dowithfilematches (API Doc for doWithFileMatches)
-[apidoc-dowithmatches]: https://atomist.github.io/automation-client/modules/_lib_project_util_parseutils_.html#dowithmatches (API doc for doWithMatches)
+[apidoc-dowithfilematches]: https://atomist.github.io/automation-client/modules/_project_util_parseutils_.html#dowithfilematches (API Doc for doWithFileMatches)
+[apidoc-dowithmatches]: https://atomist.github.io/automation-client/modules/_project_util_parseutils_.html#dowithmatches (API doc for doWithMatches)
 
 ## See also
 

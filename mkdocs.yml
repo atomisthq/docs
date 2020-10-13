@@ -44,10 +44,10 @@ nav:
   - Integrations:
       - GitHub: integration/github.md
       - Slack: integration/slack.md
-  #    - Docker Registries:
-  #        - Docker Hub: integration/docker-hub.md
-  #        - Google Container Registry: integration/gcr.md
-  #    - Google Cloud Platform: integration/gcp.md
+      #    - Docker Registries:
+      #        - Docker Hub: integration/docker-hub.md
+      #        - Google Container Registry: integration/gcr.md
+      #    - Google Cloud Platform: integration/gcp.md
       - Kubernetes: integration/kubernetes.md
   # - Developing a Skill: skill/develop.md
   - SDM Guide:
@@ -88,12 +88,7 @@ nav:
               - Setting Goals: developer/set-goals.md
               - Goal Details: developer/goaldetails.md
               - Doing More with Goals: developer/goals-more.md
-          - Builds:
-              - Build Goal: developer/build.md
-              - Integrations: user/ci.md
-              - Generic Builder: developer/spawn-builder.md
           - Invocations: developer/invocation.md
-          - Deploys: developer/deploy.md
           - Logging: developer/logging.md
           - Automation API: developer/command-http.md
           - Identifying a repository: developer/reporef.md
@@ -131,24 +126,4 @@ nav:
           - Defining an SDM: developer/defining-sdm.md
           - Building your First Delivery: developer/first_delivery.md
           - Creating Container Goals: developer/container-goals.md
-      - Extensions:
-          - Extension Packs: pack/index.md
-          - Build: pack/build.md
-          - Changelog: pack/changelog.md
-          - Checkstyle: pack/checkstyle.md
-          - Cloud Foundry: pack/pcf.md
-          - Docker: pack/docker.md
-          - Kubernetes:
-              - "Atomist & Kubernetes": pack/kubernetes/index.md
-              - Kubernetes extension pack: pack/kubernetes/pack.md
-              - Deploying applications: pack/kubernetes/deploy.md
-              - GitOps: pack/kubernetes/sync.md
-              - Installation: pack/kubernetes/install.md
-          - Goal State: pack/goalstate.md
-          - Issue: pack/issue.md
-          - Lines of Code: pack/sloc.md
-          - Markdown: pack/markdown.md
-          - Node: pack/node.md
-          - Sonarqube: pack/sonarqube.md
-          - Java and Spring: pack/spring.md
   - Support: support.md

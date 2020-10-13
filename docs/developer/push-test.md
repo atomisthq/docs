@@ -6,14 +6,14 @@ Push tests are a central part of the Atomist API, being combined in push rules t
 and drive delivery. Push tests are often reused, so it is good practice to extract them into constants. Many extension packs
 export push test constants.
 
-[API Doc](https://atomist.github.io/sdm/interfaces/_lib_api_mapping_pushtest_.pushtest.html)
+[API Doc](https://atomist.github.io/sdm/interfaces/_api_mapping_pushtest_.pushtest.html)
 
 Examples include:
 
 * [Is this a Java project?](https://github.com/atomist/sdm-pack-checkstyle/blob/2399fe8bb44e84b96dad38acf3c20fa437a405a1/lib/support/checkstyleReviewer.ts#L90)
-* [Was this a push to the default branch?](https://atomist.github.io/sdm/modules/_lib_api_mapping_support_commonpushtests_.html#todefaultbranch)
-* [Did a specific file change?](https://atomist.github.io/sdm/modules/_lib_api_mapping_support_commonpushtests_.html#hasfile)
-* Did an important change? [isMaterialChange](https://atomist.github.io/sdm/modules/_lib_api_helper_pushtest_materialchangetest_.html#ismaterialchange)
+* [Was this a push to the default branch?](https://atomist.github.io/sdm/modules/_api_mapping_support_commonpushtests_.html#todefaultbranch)
+* [Did a specific file change?](https://atomist.github.io/sdm/modules/_api_mapping_support_commonpushtests_.html#hasfile)
+* Did an important change? [isMaterialChange](https://atomist.github.io/sdm/modules/_api_helper_pushtest_materialchangetest_.html#ismaterialchange)
 
 A push test maps from a [PushListenerInvocation][pli] to a `Promise<boolean>`. It decides whether this push is relevant
 (true) or not relevant (false), returning a Promise so that it can invoke asynchronous operations.
@@ -22,10 +22,10 @@ To help your test make a decision, the `PushListenerInvocation` provides
 
 * push: context around the push itself, such as the before and after commits, who made it, the repository name, and more.
 * project: access to the code, through the `Project` interface
-* the inherited [RepoContext](https://atomist.github.io/sdm/interfaces/_lib_api_context_sdmcontext_.repocontext.html) fields
+* the inherited [RepoContext](https://atomist.github.io/sdm/interfaces/_api_context_sdmcontext_.repocontext.html) fields
 common to all SDM events
 
-[pli]: https://atomist.github.io/sdm/interfaces/_lib_api_listener_pushlistener_.pushlistenerinvocation.html (Push Listener Invocation)
+[pli]: https://atomist.github.io/sdm/interfaces/_api_listener_pushlistener_.pushlistenerinvocation.html (Push Listener Invocation)
 
 ## Creating push tests
 

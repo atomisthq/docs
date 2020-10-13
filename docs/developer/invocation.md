@@ -79,7 +79,7 @@ from the file system, making it possible to unit test with mocked
 repository contents, using the `InMemoryProject` and `InMemoryFile`
 classes.
 
-[project]: https://atomist.github.io/automation-client/interfaces/_lib_project_project_.project.html (Atomist Automation Client TypeScript - Project)
+[project]: https://atomist.github.io/automation-client/interfaces/_project_project_.project.html (Atomist Automation Client TypeScript - Project)
 
 !!! Note
     The Project API and sophisticated parsing functionality available on
