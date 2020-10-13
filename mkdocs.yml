@@ -11,7 +11,7 @@ extra:
     - type: medium
       link: https://blog.atomist.com/
     - type: github
-      link: https://github.com/atomist
+      link: https://github.com/atomist-skills
     - type: twitter
       link: https://twitter.com/atomist
     - type: slack
