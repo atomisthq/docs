@@ -1,10 +1,10 @@
 # Atomist documentation
 
-This repository contains the markdown sources for the documentation
-for [Atomist][atomist].  You can find the current version of the
-Atomist documentation at [https://docs.atomist.com/][atomist-doc].
+This repository contains the markdown sources for the documentation for
+[Atomist][atomist]. You can find the current version of the Atomist
+documentation at [https://docs.atomist.com/][atomist-doc].
 
-[atomist-doc]: https://docs.atomist.com/ (Atomist Documentation)
+[atomist-doc]: https://docs.atomist.com/ "Atomist Documentation"
 
 The documentation is generated from markdown using [MkDocs][mkdocs].
 
@@ -12,32 +12,33 @@ The documentation is generated from markdown using [MkDocs][mkdocs].
 
 ## Editing
 
-Much of the documentation is hand-generated, so you can feel free to
-edit.
+Much of the documentation is hand-generated, so you can feel free to edit.
 
-We use the [Google Developer Documentation Style Guide][doc-style] as
-our guide and suggest the [Style guide highlights][style-highlights]
-for a summary.
+We use the [Google Developer Documentation Style Guide][doc-style] as our guide
+and suggest the [Style guide highlights][style-highlights] for a summary.
 
-See [below][build-serve] for instructions on how to test your changes
-locally.
+See [below][build-serve] for instructions on how to test your changes locally.
 
-*You are not required to test your changes locally in order to contribute.* Edit right on GitHub,
-and let Atomist (our build automation) take care of it.
+_You are not required to test your changes locally in order to contribute._ Edit
+right on GitHub, and let Atomist (our build automation) take care of it.
 
-[doc-style]: https://developers.google.com/style/ (Google Developer Documentation Style Guide)
-[style-highlights]: https://developers.google.com/style/highlights (Google Developer Documentation Style Guide Highlights)
+[doc-style]:
+	https://developers.google.com/style/
+	"Google Developer Documentation Style Guide"
+[style-highlights]:
+	https://developers.google.com/style/highlights
+	"Google Developer Documentation Style Guide Highlights"
 
 ## Contribution criteria
 
-Pull requests will be merged if they are better than the existing
-text. They don't need to be perfect.
+Pull requests will be merged if they are better than the existing text. They
+don't need to be perfect.
 
 Here's how I define better:
 
-* Out-of-date information is the worst.
-* Emptiness is better than inaccurate information.
-* Any (accurate) information is better than none.
+-   Out-of-date information is the worst.
+-   Emptiness is better than inaccurate information.
+-   Any (accurate) information is better than none.
 
 Additional links and information are great.
 
@@ -47,12 +48,11 @@ We will move toward a consistent style and tone after merging.
 
 [build-serve]: #build-and-serve-the-documentation-locally
 
-Before you push changes to this repository, you may test your
-changes locally.
+Before you push changes to this repository, you may test your changes locally.
 
 ### Instant Development environment
 
-### Docker
+#### Docker
 
 You can build the docs with the following command.
 
@@ -72,34 +72,68 @@ You can serve the docs with the following command.
 $ docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:5.3.3
 ```
 
-### VS Code
+#### VS Code
 
-If you open this repository in VSCode, and you have Docker, and you
-have the VSCode extension for remote containers, then VSCode will
-offer to open the folder in a container. Accept that, and you'll have
-a development environment with the right tools installed.
+If you open this repository in VSCode, and you have Docker, and you have the
+VSCode extension for remote containers, then VSCode will offer to open the
+folder in a container. Accept that, and you'll have a development environment
+with the right tools installed.
 
 In the terminal inside VSCode, you can type
 
-`serve` and then access your local, hot-reloading version of these docs on localhost:8000.
+`serve` and then access your local, hot-reloading version of these docs on
+localhost:8000.
 
 `build` will build the site and test the links.
 
-You may now skip the rest of this section. Continue with [including code snippets from other repos][code-snippets]
+You may now skip the rest of this section. Continue with [including code
+snippets from other repos][code-snippets]
+
+### macOS
+
+Initial setup (and re-setup every time python gets updated).
+
+```
+$ rm -rf ~/.venvs/docs
+$ mkdir -p !$
+$ PIP_REQUIRE_VIRTUALENV=false pip3 install virtualenv
+$ virtualenv ~/.venvs/docs
+```
+
+Install [htmltest][].
+
+Initialize virtualenv in your shell and install dependencies.
+
+```
+$ . ~/.venvs/docs
+$ pip3 install -r requirements.txt
+```
+
+Actually build and serve the site.
+
+```
+$ mkdocs build --strict
+$ htmltest
+$ mkdocs serve
+```
+
+You can then access the local site at http://127.0.0.1:8000/ .
+
+[htmltest]: https://github.com/wjdp/htmltest
 
 ## Styles
 
-We use the [Admonition][admonition] extension to mkdocs.  Here are the available
+We use the [Admonition][admonition] extension to mkdocs. Here are the available
 admonition styles:
 
-* summary tldr
-* hint important tip
-* check done success
-* attention caution warning
-* fail failure missing
-* danger error
-* bug
-* default (i.e., none of the above)
+-   summary tldr
+-   hint important tip
+-   check done success
+-   attention caution warning
+-   fail failure missing
+-   danger error
+-   bug
+-   default (i.e., none of the above)
 
 Items on the same line create a visually equivalent admonition.
 
@@ -147,8 +181,8 @@ If the the staging deployment is approved, the site is "published" to
 
 ### Updating dependencies
 
-The `requirements.txt` file sets specific versions for the packages.
-To update to new versions, you can use the following command:
+The `requirements.txt` file sets specific versions for the packages. To update
+to new versions, you can use the following command:
 
 ```
 $ ( cut -d = -f 1 requirements.txt > req.txt && \
@@ -165,18 +199,17 @@ $ bundle update
 
 ## Conditions of use
 
-This documentation build process is provided to the public purely for
-the purpose of testing documentation changes before submitting pull
-requests to the appropriate Atomist repository.
+This documentation build process is provided to the public purely for the
+purpose of testing documentation changes before submitting pull requests to the
+appropriate Atomist repository.
 
 The documents produced by this build process may be published only on
-[https://docs.atomist.com/][atomist-doc].  They may not be published
-in any other form or on any other website without explicit permission.
+[https://docs.atomist.com/][atomist-doc]. They may not be published in any other
+form or on any other website without explicit permission.
 
 ---
 
-Created by [Atomist][atomist].
-Need Help?  [Join our Slack workspace][slack].
+Created by [Atomist][atomist]. Need Help? [Join our Slack workspace][slack].
 
-[atomist]: https://atomist.com/ (Atomist - How Teams Deliver Software)
-[slack]: https://join.atomist.com/ (Atomist Community Slack)
+[atomist]: https://atomist.com/ "Atomist - How Teams Deliver Software"
+[slack]: https://join.atomist.com/ "Atomist Community Slack"
