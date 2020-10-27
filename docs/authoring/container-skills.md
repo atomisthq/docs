@@ -249,10 +249,11 @@ available from within the container as environment variable values.
 
 ### Example
 
-1. Configure your secrets from the **Manage > Integrations** of your Atomist
-   workspace.
+1.  Configure your secrets from the **Manage > Integrations** page of your
+    Atomist workspace.
 
-1. Once secrets are configured, you can add a mapping in the skill configuration
+1.  Once secrets are configured, you can add a mapping in the skill
+    configuration
 
     ![Secrets](images/secret-map.png)
 
