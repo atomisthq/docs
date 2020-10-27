@@ -49,12 +49,17 @@ command run is determined by a combination of the Docker image and
 provided in the skill configuration. The following table provides an overview of
 the possible image and entrypoint configurations.
 
-| Image           | Entrypoint and command                              | Description                                                                                                                                                  |
-| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `alpine:3.12.0` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'`       | Runs the `alpine:3.12.0` Docker image using `/bin/sh` as the entrypoint and `-c` & `echo $(cd /atm/home && ls -la)` as command arguments                     |
-| `nginx`         | _left empty_                                        | Runs the `nginx:latest` Docker image using the image provided entrypoint and command arguments                                                               |
-| _left empty_    | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container; additional parameters are passed to the script, `Germany` in this example           |
-| _left empty_    | `example-org/deploy-script bin/deploy.sh prod`      | Clones the public `example-org/deploy-script` GitHub repository and runs the `bin/deploy.sh` script passing the `prod` argument in a Ubuntu-based container. |
+| Image           | Entrypoint and command                            | Description                                                                                                                                                  |
+| --------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `alpine:3.12.0` | `/bin/sh -c 'cd /atm/home && ls -la | wc'`        | Runs the `alpine:3.12.0` Docker image using `/bin/sh` as the entrypoint and `-c` & `cd /atm/home && ls -la` as the command arguments<sup>&dagger;</sup>      |
+| `nginx`         | _left empty_                                      | Runs the `nginx:latest` Docker image using the image provided entrypoint and command arguments                                                               |
+| _left empty_    | `https://gist.github.com/…/gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container; additional parameters are passed to the script, `Germany` in this example           |
+| _left empty_    | `example-org/deploy-script bin/deploy.sh prod`    | Clones the public `example-org/deploy-script` GitHub repository and runs the `bin/deploy.sh` script passing the `prod` argument in a Ubuntu-based container. |
+
+<sup>&dagger;</sup> The provided entrypoint and command will be split on
+whitespace, respecting single (`'`) and double (`"`) quotes, with the first
+element used as the single element of the container `ENTRYPOINT` array and the
+remaining arguments used as the container `CMD` array.
 
 ## Environment Variables
 
