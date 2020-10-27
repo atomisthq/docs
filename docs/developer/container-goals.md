@@ -69,7 +69,7 @@ return {
 
 `goals` is an array of the actions to perform. In this case, we're only building our JAR, but we could perform anything else here, such as code autolinting.
 
-Creating a container goal consists of calling a function, `container`, that takes two arguments. The first is a string, `build-jar`, and it behaves similarly to the [`displayName` for any Build action](https://docs.atomist.com/developer/build/#the-build-goal): it provides a more specific identifier for logs and output. Following that is the `containers` argument, which is where a bulk of the logic resides. A container goal executes a [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command, which is roughly format of the resulting command is in the form of
+Creating a container goal consists of calling a function, `container`, that takes two arguments. The first is a string, `build-jar`, provides a more specific identifier for logs and output. Following that is the `containers` argument, which is where a bulk of the logic resides. A container goal executes a [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command, which is roughly format of the resulting command is in the form of
 
 ```
 docker run [--entrypoint FIRST_ELEMENT_OF_COMMAND_ARRAY] OPTIONS_THE_SDM_FRAMEWORK_SETS [OPTIONS_YOU_PROVIDE] IMAGE [REST_OF_COMMAND_ARRAY...] [ARG...]

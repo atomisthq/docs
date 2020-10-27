@@ -31,46 +31,6 @@ export const NodeExpressGenerator: GeneratorRegistration = {
 };
 ```
 
-## Changing a Markdown file
-
-Most README.md files start with a heading that states the name of the project:
-
-```
-# Express & ES6 REST API Boilerplate
-```
-
-When we create a new repository through the project generator, we want to be able to have this header reflect the name of the project dynamically.
-
-Atomist provides a number of extensions for common tasks, and in this case, [the Markdown extension](https://docs.atomist.com/pack/markdown/) has everything we need to get the job done. First, install the package in your SDM through npm:
-
-```
-npm i @atomist/sdm-pack-markdown
-```
-
-Next, we'll import the method called `updatePageTitle` from this package
-
-```typescript
-import { updatePageTitle } from "@atomist/sdm-pack-markdown";
-```
-
-For functionality this brief, we can provide an anonymous function to the `transform` argument. (In the next section, we'll show how to define and provide your own transformation).
-
-The `updatePageTitle` function takes three arguments:
-
-* your project
-* the Markdown file to change
-* the new string you want the title to become
-
-As the first element in the `transform` argument, you can provide an anonymous function like so:
-
-```typescript
-transform: [
-  async (project, papi) => {
-    await updatePageTitle(project, "README.md", papi.parameters.target.repoRef.repo);
-  },
-],
-```
-
 ## Renaming a package.json file
 
 As a more advanced task, let's rename the `"key"` value in the package.json file to match the name of our new project. In order to accomplish this, we will write our own custom code transform function, and pass it into the `transform` array.

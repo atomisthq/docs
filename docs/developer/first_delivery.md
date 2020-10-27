@@ -252,5 +252,3 @@ The terminal window where Atomist is running should print out some logging messa
 ## What's next?
 
 There are a lot of directions to go from here, but perhaps none better than taking a look at [all the different kinds of events](https://docs.atomist.com/developer/event/) that Atomist can listen to.
-
-If you'd like to see the code for some other packs, check out [our list of open source extensions](https://docs.atomist.com/pack/) for additional inspiration!
