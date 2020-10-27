@@ -51,8 +51,8 @@ nav:
       - Kubernetes: integration/kubernetes.md
   - Authoring:
       - Container Skills:
-        - Contract: authoring/container-skills.md
-        - Triggers: authoring/triggers.md
+          - Container Skills Contract: authoring/container-skills.md
+          - Container Skills Triggers: authoring/triggers.md
   # - Developing a Skill: skill/develop.md
   - SDM Guide:
       - Overview: developer/index.md

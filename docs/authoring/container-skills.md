@@ -1,72 +1,66 @@
 # Container Skills
 
-Container Skills run Docker images on certain, pre-defined triggers. 
+Container Skills run Docker images on certain, pre-defined triggers.
 
-This section describes the requirements for creating your own Container Skill
-configuration. 
+This section describes the contract between a container skill and the skill
+runtime. The information in this documentation provides details on what
+information is available to container skills and how they can interact with the
+Atomist runtime and other external systems like GitHub and Slack.
 
-## Contract
-
-The following sections describe the contract between a container skill and the
-skill runtime.
-
-### Requirements
+## Requirements
 
 The container skill can use any Docker image that can be pulled from a public
 Docker registry. There are no requirements for what needs to be installed in the
 container.
 
-### Triggers
+## Triggers
 
 The following skill triggers are available.
 
--   GitHub
-    -   Branch
-    -   Commit Check
-    -   Commit Status
-    -   Issue or Pull Request Comment
-    -   Branch Deletions
-    -   Issue
-    -   Repository Creation
-    -   Pull Request
-    -   Push
-    -   Release
-    -   Pull Request Review
-    -   Tag
--   Chat
-    -   Channel Linked
-    -   New Chat User
-    -   User Joined Channel
+-   **GitHub**
+    -   **branch**: a branch is created
+    -   **commit check**: a GitHub commit check is created or updated
+    -   **issue or pull request comment**: a comment on an issue or pull request
+        is created or updated
+    -   **deleted branch**: a branch is deleted
+    -   **issue**: an issue is created, updated, or closed
+    -   **new repository**: a new repository is created
+    -   **pull request**: a pull request is created, updated, or closed
+    -   **push**: new commits are pushed to a repository
+    -   **release**: a GitHub release is created, updated, or deleted
+    -   **pull request review**: a request to review a pull request is created
+        or updated
+    -   **commit status**: the status of a commit is updated
+    -   **tag**: a new tag is pushed to a repository
+-   **Chat**
+    -   **channel linked**: a chat channel is mapped to a GitHub repository
+    -   **new user**: a new chat user is created in the chat team
+    -   **user joined channel**: a new user joins a chat channel
 
-For information on the specific payloads refer to
-[Appendix: Trigger Payloads](#appendix-trigger-payloads)
+For information on the specific payloads refer to the
+[Container Skills Triggers](triggers.md). The payload will be written to a file
+pointed to by the value of the `ATOMIST_PAYLOAD` environment variable.
 
-The payload will be written to a file referenced in the `ATOMIST_PAYLOAD`
-environment variable.
-
-### Running commands
+## Running commands
 
 There are several ways to use the container run skill to execute a command. The
 command run is determined by a combination of the Docker image and
-[entrypoint/command][docker-cmd] provided in the skill combination. The
-following table provides an overview of the possible image and entrypoint
-configurations.
+[entrypoint/command](https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact "Understand how CMD and ENTRYPOINT interact")
+provided in the skill configuration. The following table provides an overview of
+the possible image and entrypoint configurations.
 
-| Image           | Entrypoint and command                              | Description                                                                                                                                         |
-| --------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `alpine:3.12.0` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'`       | Runs the `alpine:3.12.0` Docker image using `/bin/sh` as the entrypoint and `-c` & `echo $(cd /atm/home && ls -la)` as command arguments            |
-| `nginx`         | _left empty_                                        | Runs the latest `nginx` Docker image using the image provided entrypoint and command arguments                                                      |
-| _left empty_    | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container. Additional parameters are passed to the script; in this example `Germany`. |
-| _left empty_    | `example-org/deploy-script deploy.sh prod`          | Clones the public `example-org/deploy-script`, and runs the `deploy.sh` script passing the `prod` argument in a Ubuntu-based container.             |
+| Image           | Entrypoint and command                              | Description                                                                                                                                                  |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `alpine:3.12.0` | `/bin/sh -c 'echo $(cd /atm/home && ls -la)'`       | Runs the `alpine:3.12.0` Docker image using `/bin/sh` as the entrypoint and `-c` & `echo $(cd /atm/home && ls -la)` as command arguments                     |
+| `nginx`         | _left empty_                                        | Runs the `nginx:latest` Docker image using the image provided entrypoint and command arguments                                                               |
+| _left empty_    | `https://gist.github.com/.../gistfile1.txt Germany` | Downloads the referenced script and runs it in a Ubuntu-based container; additional parameters are passed to the script, `Germany` in this example           |
+| _left empty_    | `example-org/deploy-script bin/deploy.sh prod`      | Clones the public `example-org/deploy-script` GitHub repository and runs the `bin/deploy.sh` script passing the `prod` argument in a Ubuntu-based container. |
 
-[docker-cmd]:
-    https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact
-
-### Environment Variables
+## Environment Variables
 
 The following environment variables are available inside the container:
 
--   `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - Id of the Atomist workspace
+-   `ATOMIST_WORKSPACE_ID=AZQMH6PO7` - ID of the Atomist workspace
 -   `ATOMIST_CORRELATION_ID=<UUID generate for the skill invocation>` - Unique
     execution correlation id
 -   `ATOMIST_PAYLOAD=/atm/payload.json` - Pointer to a file containing the
@@ -92,7 +86,7 @@ The following environment variables are available inside the container:
 -   `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the
     Atomist GraphQL endpoint
 
-### Project
+## Project
 
 For some triggers, the skill will clone the GitHub repository and checkout the
 git reference of the triggering event. The repository will be cloned into
@@ -102,36 +96,36 @@ of the repository:
 
 -   GitHub > branch
 -   GitHub > commit check
--   GitHub > commit status
 -   GitHub > pull request
 -   GitHub > push
 -   GitHub > release
+-   GitHub > commit status
 -   GitHub > tag
 
-### Skill status
+## Skill status
 
 The result status of a skill can be set either by the exit code of the container
 or by creating a status file, with the latter taking precedence.
 
-#### Exit code
-   
+### Exit code
+
 A container skill that exits its first container with a non-zero exit code will
 always show as a failed skill execution unless the status
-[is overwritten](#setting-skill-status) by a `status.json`.
+[is overwritten](#skill-status-file) by a `status.json`.
 
-#### Skill status file
+### Skill status file
 
 Writing a status messages into `$ATOMIST_STATUS` sets the status of the skill
 execution
 
-```shell
-$ echo '{ "code": 0, "reason": "Skill failed with some error" }' > "$ATOMIST_STATUS"
+```console
+echo '{ "code": 0, "reason": "Skill failed with some strange error" }' > "$ATOMIST_STATUS"
 ```
 
 `code`, `reason` and `visibility` (setting visibility to `hidden` will hide the
 skill execution from the UI) are supported.
 
-### Chat messages
+## Chat messages
 
 The skill runtime is able to process messages and send them to the configured
 chat integration when JSON documents are written into the
@@ -169,12 +163,12 @@ messages.
 When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file
 names as files are only processed for sending once.
 
-#### Example
+### Example
 
 The following example shows a simple Slack message that gets send into the
 _#general_ channel of your Chat integration:
 
-```shell
+```console
 echo '{
     "channels": ["general"],
     "body": "Hello world!"
@@ -191,33 +185,33 @@ The file has to follow this structure:
 
 ```typescript
 interface PushConfiguration {
-    strategy:
-        | "pr_default_commit"
-        | "pr_default"
-        | "pr"
-        | "commit_default"
-        | "commit";
-    pullRequest: {
-        title: string; // title of PR
-        body: string; // body preamble of PR
-        labels?: string[]; // labels to be set on PR
-        branchPrefix?: string; // prefix for branches that should be created; if set PR branch will be ${branchPrefix}-${push.branch}
-        branch?: string; // alternative to branchPrefix setting an explicit branch name
-        close?: {
-            stale?: boolean; // close PRs open against same branches (base and head) when no local changes
-            message?: string; // optional message to use when closeing PRs
-        };
-    };
-    commit: {
-        message: string; // commit message to use when committing changes to repository
-    };
+	strategy:
+		| "pr_default_commit"
+		| "pr_default"
+		| "pr"
+		| "commit_default"
+		| "commit";
+	pullRequest: {
+		title: string; // title of PR
+		body: string; // body preamble of PR
+		labels?: string[]; // labels to be set on PR
+		branchPrefix?: string; // prefix for branches that should be created; if set PR branch will be ${branchPrefix}-${push.branch}
+		branch?: string; // alternative to branchPrefix setting an explicit branch name
+		close?: {
+			stale?: boolean; // close PRs open against same branches (base and head) when no local changes
+			message?: string; // optional message to use when closeing PRs
+		};
+	};
+	commit: {
+		message: string; // commit message to use when committing changes to repository
+	};
 }
 ```
 
 Here's an example from the
-[markdownlint-skill](https://github.com/atomist-skills/markdownlint-skill/blob/master/markdownlint.sh#L100-L115):
+[markdownlint-skill](https://github.com/atomist-skills/markdownlint-skill/blob/bf8c9e00fdb9c0584d15822de8c8b63f1ed6cc2f/markdownlint.sh#L100-L115)
 
-```shell
+```console
 jq -n --arg s "$push_strategy" --argjson l "$labels" '{
     strategy: $s,
     pullRequest: {
@@ -236,28 +230,27 @@ jq -n --arg s "$push_strategy" --argjson l "$labels" '{
 }' > "$ATOMIST_PUSH"
 ```
 
-### Caching
+## Caching
 
 This skill will automatically cache and restore files that match the provided
 glob patterns in the _File cache_ configuration parameter. The patterns will be
 resolved relative to the `/atm/home` directory. For each skill execution the
 cache will be restored if it was previously stored.
 
-### Secrets
+## Secrets
 
 Secrets that get configured and mapped to environment variable names will be
-available from within the container as environment variables.
+available from within the container as environment variable values.
 
-#### Example
+### Example
 
 1. Configure your secrets from the **Manage > Integrations** of your Atomist
    workspace.
 
 1. Once secrets are configured, you can add a mapping in the skill configuration
 
-    ![Secrets](images/secret.png)
+    ![Secrets](images/secret-map.png)
 
     In this example, we've added the _Firebase token (prod)_ to our skill
     configuration. The token is accessible from the `FIREBASE_TOKEN` environment
     variable.
-
