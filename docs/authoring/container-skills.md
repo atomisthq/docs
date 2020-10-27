@@ -1,6 +1,6 @@
 # Container Skills
 
-Container Skills run Docker images on certain, pre-defined triggers.
+Container Skills run Docker images when something, anything really, happens.
 
 This section describes the contract between a container skill and the skill
 runtime. The information in this documentation provides details on what
@@ -15,7 +15,8 @@ container.
 
 ## Triggers
 
-The following skill triggers are available.
+The following events can be selected to trigger the execution of the container
+skill.
 
 -   **GitHub**
     -   **branch**: a branch is created
@@ -36,10 +37,28 @@ The following skill triggers are available.
     -   **channel linked**: a chat channel is mapped to a GitHub repository
     -   **new user**: a new chat user is created in the chat team
     -   **user joined channel**: a new user joins a chat channel
+-   **Custom webhook**
 
-For information on the specific payloads refer to the
-[Container Skills Triggers](triggers.md). The payload will be written to a file
-pointed to by the value of the `ATOMIST_PAYLOAD` environment variable.
+When the skill is executed, it receives the details of the event that triggered
+its execution as a JSON object provided the contents of the file pointed to by
+the `ATOMIST_PAYLOAD` environment variable. The data properties available in the
+**GitHub** and **Chat** events are provided by those platforms. For details on
+the specific payloads, see the [Container Skills Triggers](triggers.md).
+
+The **Custom webhook** trigger provides a generic and extensible way to trigger
+executions of the container skill and provide it with arbitrary data payloads.
+When you add a custom webhook trigger and give it a name, after enabling the
+skill you will be provided with a webhook URL. When a data payload is `POST`ed
+to that URL, the skill will be executed and receive that `POST`ed data as the
+contents of the file pointed to by the `ATOMIST_PAYLOAD` environment variable.
+You can use the custom webhook trigger to integrate arbitrary systems with the
+container skill. Any platform that can send a webhook payload, e.g.,
+[Docker Hub](https://docs.docker.com/docker-hub/webhooks/),
+[Jenkins](https://plugins.jenkins.io/outbound-webhook/),
+[Jira](https://developer.atlassian.com/server/jira/platform/webhooks/),
+[IFTTT](https://ifttt.com/maker_webhooks), even [`curl`](https://curl.haxx.se/),
+can trigger the execution of a container skill, allowing you to respond to the
+activity described by the webhook payload.
 
 ## Running commands
 
