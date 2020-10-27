@@ -49,6 +49,10 @@ nav:
       #        - Google Container Registry: integration/gcr.md
       #    - Google Cloud Platform: integration/gcp.md
       - Kubernetes: integration/kubernetes.md
+  - Authoring:
+      - Container Skills:
+        - Contract: authoring/container-skills.md
+        - Triggers: authoring/triggers.md
   # - Developing a Skill: skill/develop.md
   - SDM Guide:
       - Overview: developer/index.md
