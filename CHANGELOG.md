@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Add custom 404 page. [b4869df](https://github.com/atomist/docs/commit/b4869df7e45d3a3784323597c596bee621ed4073)
 -   Add integration pages. [ff1c6ef](https://github.com/atomist/docs/commit/ff1c6ef8858b52c2084e94a351c542a795424877)
 -   Add Kubernetes integration content. [98aa71a](https://github.com/atomist/docs/commit/98aa71a5ddf039b2d2292222fca8bbcfc8a0d5f6)
+-   Add custom webhook trigger docs. [9a2911b](https://github.com/atomist/docs/commit/9a2911b40c2b2783eb210e6be653569d4045846f)
 
 ### Changed
 
