@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Migrate to Firebase. [6da790f](https://github.com/atomist/docs/commit/6da790f9196f9fc5c1182c25f329f3e3f807b9ea)
 -   Reorganize navigation. [8774bc3](https://github.com/atomist/docs/commit/8774bc38098462cc6bfc9e340fb0de0e86d8f0f8)
 -   Update welcome, getting started, & support pages. [a2debd1](https://github.com/atomist/docs/commit/a2debd1aac39f20961d821d477283d935ec1660a)
+-   Rearrange container skill docs. [73d42c1](https://github.com/atomist/docs/commit/73d42c181571bce77a7bf6fbb177b81cc7d07957)
 
 ### Removed
 
