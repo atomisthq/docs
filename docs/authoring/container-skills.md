@@ -1,6 +1,8 @@
-# Container Skills
-
-Container Skills run Docker images when something, anything really, happens.
+Container skills run Docker images when an event happens. Since you define the
+Docker image to run and you can also define custom events and event payloads,
+container skills basically let you run _anything you want whenever you want_. In
+other words, container skills provide a powerful tool to trigger or schedule any
+task imaginable.
 
 This section describes the contract between a container skill and the skill
 runtime. The information in this documentation provides details on what
@@ -37,13 +39,13 @@ skill.
     -   **channel linked**: a chat channel is mapped to a GitHub repository
     -   **new user**: a new chat user is created in the chat team
     -   **user joined channel**: a new user joins a chat channel
--   **Custom webhook**
+-   **Custom webhook**: user-defined trigger (see below)
 
 When the skill is executed, it receives the details of the event that triggered
 its execution as a JSON object provided the contents of the file pointed to by
 the `ATOMIST_PAYLOAD` environment variable. The data properties available in the
 **GitHub** and **Chat** events are provided by those platforms. For details on
-the specific payloads, see the [Container Skills Triggers](triggers.md).
+the specific payloads, see the [Skill Trigger Payloads](payloads.md).
 
 The **Custom webhook** trigger provides a generic and extensible way to trigger
 executions of the container skill and provide it with arbitrary data payloads.

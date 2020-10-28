@@ -50,9 +50,8 @@ nav:
       #    - Google Cloud Platform: integration/gcp.md
       - Kubernetes: integration/kubernetes.md
   - Authoring:
-      - Container Skills:
-          - Container Skills Contract: authoring/container-skills.md
-          - Container Skills Triggers: authoring/triggers.md
+      - Container Skills: authoring/container-skills.md
+      - Skill Trigger Payloads: authoring/payloads.md
   # - Developing a Skill: skill/develop.md
   - SDM Guide:
       - Overview: developer/index.md
