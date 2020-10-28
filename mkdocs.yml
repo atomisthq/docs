@@ -8,7 +8,7 @@ copyright: "&copy; 2020 Atomist, Inc."
 extra:
   main_site_url: https://atomist.com/
   social:
-    - type: medium
+    - type: rss
       link: https://blog.atomist.com/
     - type: github
       link: https://github.com/atomist-skills
