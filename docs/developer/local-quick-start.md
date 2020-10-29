@@ -41,8 +41,8 @@ bash support).
         npm install -g @atomist/cli
 
    !!! Note
-   If you already have an SDM in your organization, you can skip step 2,
-   and instead clone the repository containing your SDM.
+       If you already have an SDM in your organization, you can skip step 2,
+       and instead clone the repository containing your SDM.
 
 2.  Create a local software delivery machine (SDM). This is going to
     create a new project in the Atomist projects directory (which

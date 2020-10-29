@@ -92,9 +92,9 @@ If you want the same events to be sent to multiple SDMs, just make
 sure the SDMs have different names.
 
 !!! note "Custom Ingestion"
-Any custom ingestion types can only be registered once within an
-Atomist workspace. Therefore it is recommended to register these
-in a dedicated API client.
+    Any custom ingestion types can only be registered once within an
+    Atomist workspace. Therefore it is recommended to register these
+    in a dedicated API client.
 
 ## Event handling
 

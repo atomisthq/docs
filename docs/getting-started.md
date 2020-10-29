@@ -38,9 +38,10 @@ skills][catalog]. We're going to enable the GitHub Notifications Skill.
 Now you will get Slack notifications for all pushed commits, pull requests, and
 issues.
 
-!!! tip "Note" You control which channels will receive notifications, so you may
-want to start with just one repository linked to one Slack channel until you're
-ready to add more.
+!!! Tip
+    You control which channels will receive notifications, so you may
+    want to start with just one repository linked to one Slack channel until you're
+    ready to add more.
 
 [catalog]: https://go.atomist.com/catalog "Atomist Catalog of Skills"
 

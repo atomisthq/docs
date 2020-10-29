@@ -55,10 +55,11 @@ One of the tools you are most likely to integrate is Continuous Integration
 You can integrate Atomist with a custom CI tool by invoking Atomist hooks to
 send events around build and artifact creation.
 
-!!! note CI tools are great for building and generating artifacts, but they're
-often abused as a PaaS for `bash`. If you find your CI usage has you programming
-in `bash` or YML, consider whether invoking such operations from Atomist event
-handlers might be a better model.
+!!! Note
+    CI tools are great for building and generating artifacts, but they're
+    often abused as a PaaS for `bash`. If you find your CI usage has you programming
+    in `bash` or YML, consider whether invoking such operations from Atomist event
+    handlers might be a better model.
 
 You can also use Atomist generators to create pre-defined CI files, and Atomist
 editors to keep them in synch, minimizing inconsistency across all your
