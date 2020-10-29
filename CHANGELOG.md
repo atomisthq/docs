@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Reorganize navigation. [8774bc3](https://github.com/atomist/docs/commit/8774bc38098462cc6bfc9e340fb0de0e86d8f0f8)
 -   Update welcome, getting started, & support pages. [a2debd1](https://github.com/atomist/docs/commit/a2debd1aac39f20961d821d477283d935ec1660a)
 -   Rearrange container skill docs. [73d42c1](https://github.com/atomist/docs/commit/73d42c181571bce77a7bf6fbb177b81cc7d07957)
+-   Improve container skill page. [8c491d3](https://github.com/atomist/docs/commit/8c491d3b86ce861fc4e192d7a21502ef220a763c)
 
 ### Removed
 
