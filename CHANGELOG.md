@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 -   Add integration pages. [ff1c6ef](https://github.com/atomist/docs/commit/ff1c6ef8858b52c2084e94a351c542a795424877)
 -   Add Kubernetes integration content. [98aa71a](https://github.com/atomist/docs/commit/98aa71a5ddf039b2d2292222fca8bbcfc8a0d5f6)
 -   Add custom webhook trigger docs. [9a2911b](https://github.com/atomist/docs/commit/9a2911b40c2b2783eb210e6be653569d4045846f)
+-   Add general authoring page. [fc46d57](https://github.com/atomist/docs/commit/fc46d57ba6daa06958a227a7c7a6cbd379fa70f2)
 
 ### Changed
 
