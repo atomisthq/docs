@@ -1,8 +1,8 @@
-The different event types that trigger execution of a container skill make
-different information available to the skill via the file pointed to by the
-`ATOMIST_PAYLOAD` environment variable. The following sections detail the JSON
-object make available in the contents of the `ATOMIST_PAYLOAD` file for the
-different trigger event types.
+The different event types that trigger execution of a skill make different
+information available to the skill via the file pointed to by the
+`ATOMIST_PAYLOAD` environment variable. The following sections give examples of
+the JSON object make available in the contents of the `ATOMIST_PAYLOAD` file for
+the different trigger event types.
 
 ## GitHub > branch
 
@@ -1487,5 +1487,14 @@ different trigger event types.
 		"correlation_id": "c3880a9a-f6db-465d-ada0-ecfae2b1e253",
 		"request_id": "df291d7993486f260ff1fd9258570779"
 	}
+}
+```
+
+## Cron schedule
+
+```json
+{
+	"configurationName": "Docker Container Runner",
+	"parameterName": "schedule"
 }
 ```

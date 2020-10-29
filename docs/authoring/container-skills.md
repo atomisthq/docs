@@ -1,19 +1,25 @@
-Container skills run Docker images when an event happens. Since you define the
-Docker image to run and you can also define custom events and event payloads,
-container skills basically let you run _anything you want whenever you want_. In
-other words, container skills provide a powerful tool to trigger or schedule any
-task imaginable.
+The
+[Docker Container Runner skill](https://go.atomist.com/catalog/skills/atomist/container-run-skill "Docker Container Runner Skill")
+runs a Docker image when an event happens. Since you define the Docker image and
+are able to define custom events and event payloads, container skills basically
+let you run _anything you want whenever you want_. In other words, container
+skills provide a powerful tool to trigger or schedule any task imaginable.
 
-This section describes the contract between a container skill and the skill
-runtime. The information in this documentation provides details on what
+> Use the Atomist Docker Container Runner skill to run anything you want
+> whenever you want.
+
+For most use cases, you can go directly to the
+[Docker Container Runner skill page](https://go.atomist.com/catalog/skills/atomist/container-run-skill "Docker Container Runner Skill")
+and enable it. If you need more information, this page describes the contract
+between a container skill and the skill runtime, providing details on what
 information is available to container skills and how they can interact with the
 Atomist runtime and other external systems like GitHub and Slack.
 
 ## Requirements
 
-The container skill can use any Docker image that can be pulled from a public
-Docker registry. There are no requirements for what needs to be installed in the
-container.
+The container skill can use any Docker image that can be pulled from a Docker
+registry, either public or private. There are no requirements for what needs to
+be installed in the container.
 
 ## Triggers
 
@@ -39,13 +45,22 @@ skill.
     -   **channel linked**: a chat channel is mapped to a GitHub repository
     -   **new user**: a new chat user is created in the chat team
     -   **user joined channel**: a new user joins a chat channel
--   **Custom webhook**: user-defined trigger (see below)
+-   **Advanced**:
+    -   **Cron schedule**: scheduled using cron expression
+    -   **Custom webhook**: user-defined trigger
 
 When the skill is executed, it receives the details of the event that triggered
 its execution as a JSON object provided the contents of the file pointed to by
 the `ATOMIST_PAYLOAD` environment variable. The data properties available in the
 **GitHub** and **Chat** events are provided by those platforms. For details on
-the specific payloads, see the [Skill Trigger Payloads](payloads.md).
+the payloads of the different triggers, see the
+[skill trigger payloads](payloads.md).
+
+The **Cron schedule** trigger provides a mechanism to execute container skills
+at regular intervals using a cron expression. A cron expression is of the format
+`MINUTES HOURS DATES MONTHS DAYS`. See
+[CRON Expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) for valid
+cron expression syntax.
 
 The **Custom webhook** trigger provides a generic and extensible way to trigger
 executions of the container skill and provide it with arbitrary data payloads.
@@ -148,8 +163,8 @@ execution
 echo '{ "code": 0, "reason": "Skill failed with some strange error" }' > "$ATOMIST_STATUS"
 ```
 
-`code`, `reason` and `visibility` (setting visibility to `hidden` will hide the
-skill execution from the UI) are supported.
+The `code`, `reason` and `visibility` (setting visibility to `hidden` will hide
+the skill execution from the UI) properties are supported.
 
 ## Chat messages
 
@@ -187,25 +202,23 @@ blocks. Refer to the Slack documentation to learn more about acceptable
 messages.
 
 When writing files to `$ATOMIST_MESSAGES_DIR` it is important to not re-use file
-names as files are only processed for sending once.
-
-### Example
+names as each file is only processed for sending once.
 
 The following example shows a simple Slack message that gets send into the
 _#general_ channel of your Chat integration:
 
 ```console
 echo '{
-    "channels": ["general"],
-    "body": "Hello world!"
+  "channels": ["general"],
+  "body": "Hello world!"
 }' > $ATOMIST_MESSAGES_DIR/hello.json
 ```
 
 ## Persisting changes to cloned repository
 
 Changes to the repository contents can be automatically committed and pushed to
-the remote. A container-skill can indicate the desire to push changes back by
-writing a JSON file to `$ATOMIST_PUSH`.
+the Git remote. A container-skill can indicate the desire to push changes back
+by writing a JSON file to `$ATOMIST_PUSH`.
 
 The file has to follow this structure:
 
@@ -266,9 +279,9 @@ cache will be restored if it was previously stored.
 ## Secrets
 
 Secrets that get configured and mapped to environment variable names will be
-available from within the container as environment variable values.
-
-### Example
+available from within the container as environment variable values. To use
+secrets in your container skill, you must first create the secret and then map
+it to an environment variable:
 
 1.  Configure your secrets from the **Manage > Integrations** page of your
     Atomist workspace.
@@ -278,6 +291,6 @@ available from within the container as environment variable values.
 
     ![Secrets](images/secret-map.png)
 
-    In this example, we've added the _Firebase token (prod)_ to our skill
-    configuration. The token is accessible from the `FIREBASE_TOKEN` environment
-    variable.
+    In this example, we've added the _ZenHub token_ secret to our skill
+    configuration. The token is accessible as the value of the `ZENHUB_TOKEN`
+    environment variable within the container.
