@@ -1,19 +1,21 @@
-The
-[Docker Container Runner skill](https://go.atomist.com/catalog/skills/atomist/container-run-skill "Docker Container Runner Skill")
-runs a Docker image when an event happens. Since you define the Docker image and
-are able to define custom events and event payloads, container skills basically
-let you run _anything you want whenever you want_. In other words, container
-skills provide a powerful tool to trigger or schedule any task imaginable.
+The [Docker Container Runner skill][container-run-skill] runs a Docker image
+when an event happens. Since you define the Docker image and are able to define
+custom events and event payloads, container skills basically let you run
+_anything you want whenever you want_. In other words, container skills provide
+a powerful tool to trigger or schedule any task imaginable.
 
-> Use the Atomist Docker Container Runner skill to run anything you want
-> whenever you want.
+!!! Tip
+    Use the Atomist Docker Container Runner skill to run anything you want
+    whenever you want.
 
-For most use cases, you can go directly to the
-[Docker Container Runner skill page](https://go.atomist.com/catalog/skills/atomist/container-run-skill "Docker Container Runner Skill")
-and enable it. If you need more information, this page describes the contract
-between a container skill and the skill runtime, providing details on what
-information is available to container skills and how they can interact with the
-Atomist runtime and other external systems like GitHub and Slack.
+For most use cases, you can go directly to the [Docker Container Runner skill
+page][container-run-skill] and enable it. If you need more information, this
+page describes the contract between a container skill and the skill runtime,
+providing details on what information is available to container skills and how
+they can interact with the Atomist runtime and other external systems like
+GitHub and Slack.
+
+[container-run-skill]: https://go.atomist.com/catalog/skills/atomist/container-run-skill "Docker Container Runner Skill"
 
 ## Requirements
 
