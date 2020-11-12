@@ -178,7 +178,7 @@ When a push is made to this repository, the documentation is built by
 [atomist-web-sdm][] and published to
 [https://docs.atomist.services/][docs-staging].
 
-If the the staging deployment is approved, the site is "published" to
+If the staging deployment is approved, the site is "published" to
 [https://docs.atomist.com/][atomist-doc].
 
 [atomist-web-sdm]: https://github.com/atomist/atomist-web-sdm
