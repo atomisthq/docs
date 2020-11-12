@@ -162,7 +162,7 @@ Writing a status messages into `$ATOMIST_STATUS` sets the status of the skill
 execution
 
 ```console
-echo '{ "code": 0, "reason": "Skill failed with some strange error" }' > "$ATOMIST_STATUS"
+echo '{ "code": 1, "reason": "Skill failed with some strange error" }' > "$ATOMIST_STATUS"
 ```
 
 The `code`, `reason` and `visibility` (setting visibility to `hidden` will hide
