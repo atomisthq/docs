@@ -128,6 +128,12 @@ The following environment variables are available inside the container:
     Storage bucket to write objects to
 -   `ATOMIST_GRAPHQL_ENDPOINT=<url for querying the GraphQL API>` - Url to the
     Atomist GraphQL endpoint
+-   `ATOMIST_REPOSITORY_SLUG` - The _owner/name_ slug of repository that 
+    triggered the skill
+-   `ATOMIST_REPOSITORY` - Name of repository that triggered the skill
+-   `ATOMIST_REPOSITORY_OWNER` - Owner (user or organization) of repository that 
+    triggered the skill
+-   `ATOMIST_REF` - SHA, branch or tag of the event that triggered the skill
 
 ## Project
 
