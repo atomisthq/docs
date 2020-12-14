@@ -15,7 +15,7 @@ running quickly.
 
 [skills]: https://atomist.com/platform/skills (Atomist Skills Platform)
 [www]: https://atomist.com/ (Atomist)
-[sdm-guide]: developer/index.md (Atomist SDM Guide)
+[sdm-guide]: sdm.md (Atomist SDM Guide)
 [getting-started]: getting-started.md (Atomist Getting Started)
 
 ## What's a Skill
