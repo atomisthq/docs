@@ -39,19 +39,12 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Getting Started: getting-started.md
-  # - How It Works: how-it-works.md
-  # - Using Skills: using-skills.md
   - Integrations:
       - GitHub: integration/github.md
       - Slack: integration/slack.md
-      # - Docker Registries:
-      #     - Docker Hub: integration/docker-hub.md
-      #     - Google Container Registry: integration/gcr.md
-      # - Google Cloud Platform: integration/gcp.md
       - Kubernetes: integration/kubernetes.md
   - Authoring:
       - Skill Authoring: authoring/index.md
       - Container Skills: authoring/container-skills.md
       - Skill Trigger Payloads: authoring/payloads.md
-  # - Developing a Skill: skill/develop.md
   - Support: support.md
