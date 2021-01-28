@@ -1,5 +1,6 @@
 IgnoreURLs: 
   - "https://fonts.gstatic.com"
   - "https://github.com/atomist/docs/edit/.*"
+  - "https://twitter.com/atomist"
 IgnoreDirectoryMissingTrailingSlash: true
 DirectoryPath: "site"
