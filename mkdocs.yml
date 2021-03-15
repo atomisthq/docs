@@ -39,6 +39,8 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Getting Started: getting-started.md
+  - Tutorials:
+      - "Policy: Public Docker Image Pinning": tutorials/public-docker-image-pinning.md
   - Integrations:
       - GitHub: integration/github.md
       - Slack: integration/slack.md
