@@ -6,7 +6,7 @@ Achieves repeatable docker builds by switching Dockerfile `FROM` instructions to
 
 ### Step 1:  Enable policy for public images stored on Docker Hub
 
-This policy watches GitHub pushes for Dockerfiles with FROM instructions that reference *public* Docker Image Tags.  The policy will raise a PR to convert any Tag to a Docker digest.  It will then continue to raise PRs whenever that Tag moves, even if the Dockerfile author switches the Dockerfile to a different Tag.
+This policy watches GitHub pushes for Dockerfiles with `FROM` instructions that reference *public* Docker Image Tags.  The policy will raise a PR to convert any Tag to a Docker digest.  It will then continue to raise PRs whenever that Tag moves, even if the Dockerfile author switches the Dockerfile to a different Tag.
 
 1. Start by enabling the [Docker Base Image Policy](https://go.atomist.com/catalog/skills/atomist/docker-base-image-policy) (note:  this is a preview version of the skill; it's unpublished). 
 
@@ -24,7 +24,7 @@ To see a PR that pins to an image digest in a public Docker Hub repo, we don't a
 
 ![img/public-docker-image-pinning/3.png](img/public-docker-image-pinning/3.png)
 
-4.  The Docker Base Image Policy configuration screen requires that you first configure the policy.  There are some options to customize how FROM line tags are managed, 
+4.  The Docker Base Image Policy configuration screen requires that you first configure the policy.  There are some options to customize how `FROM` line tags are managed, 
 
 ![img/public-docker-image-pinning/4.png](img/public-docker-image-pinning/4.png)
 
@@ -61,7 +61,7 @@ The above scenario demonstrates tracking images in public registries.  It's a go
 
 What if your `FROM` instruction references an image in a private registry?
 
-What if you're using multi-stage Dockerfiles (multiple FROM clauses)?
+What if you're using multi-stage Dockerfiles (multiple `FROM` clauses)?
 
 If given a Docker Image digest, can we track it back to the Dockerfile that produced it?  What about creating GitHub CheckRuns with Image scan vulnerability data.  Or tracking when an update to a base layer would remove a vulnerability?
 
