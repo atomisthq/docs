@@ -76,20 +76,30 @@ through some additional policies:
 
 * What if your `FROM` instruction references an image in a private registry?
 * What if you're using multi-stage Dockerfiles (multiple `FROM` clauses)?
-* If given a Docker Image digest, can we track it back to the Dockerfile that produced it?  What about creating GitHub CheckRuns with Image scan vulnerability data.  Or tracking when an update to a base layer would remove a vulnerability?
+* If given a Docker Image digest, can we track it back to the Dockerfile that produced it?  What about creating GitHub
+* CheckRuns with Image scan vulnerability data.  Or tracking when an update to a base layer would remove a
+* vulnerability?
 
 The next step will be tackling private registries, and getting Image vulnerabilty data pulled back into the Developer
 workflow.
 
 ### Step 2:  Integrating your private Docker Hub
 
-1. Navigate back to the Docker Hub integration (or GCR or ECR) to add credentials and configure the webhook.
+Navigate to the [Integrations tab](https://go.atomist.com/r/auth/manage/integrations) and select the Docker Hub
+Integration (GCR and ECR integrations are available as well).
+
+![img/public-docker-image-pinning/12.png](img/public-docker-image-pinning/12.png)
+
+In configuration screen, you'll be able to add details about your private Docker Hub namespace.
 
 ![img/public-docker-image-pinning/7.png](img/public-docker-image-pinning/7.png)
 
-Validate that the `Namespace` for your private repositories is correct, and then enter the `Docker ID` and a `Docker Hub Personal Access Token` so that Atomist can query the repository when new Images and security scans are detected.  Finally, click the "Add webhook" button and then "Save changes".
+Validate that the `Namespace` for your private repositories is correct, and then enter the `Docker ID` and a `Docker Hub
+Personal Access Token` so that Atomist can query the repository when new Images and security scans are detected.
+Finally, click the "Add webhook" button and then "Save changes".
 
-At present, you have to go back to the Integration Config screen a second time to retrieve the webhook url.  We are fixing this but currently the process is:
+At present, you have to go back to the Integration Config screen a second time to retrieve the webhook url.  We are
+fixing this but currently the process is:
 
 1. add webhook
 2. save configuration
@@ -99,7 +109,10 @@ At present, you have to go back to the Integration Config screen a second time t
 
 There will now be a Webhook URL in the config screen (see screenshot above).
 
-This webhook url should be set on a pinning-test repository (which could be private).  The webhook configuration will be at a url like [`https://hub.docker.com/repository/docker/{namespace}/{repo-name}/webhooks`](https://hub.docker.com/repository/docker/slimslender/pinning-test/webhooks) where you'll replace both `namespace` and `repo-name`.  
+This webhook url should be set on a pinning-test repository (which could be private).  The webhook configuration will be
+at a url like
+[`https://hub.docker.com/repository/docker/{namespace}/{repo-name}/webhooks`](https://hub.docker.com/repository/docker/slimslender/pinning-test/webhooks)
+where you'll replace both `namespace` and `repo-name`.  
 
 ![img/public-docker-image-pinning/9.png](img/public-docker-image-pinning/9.png)
 
@@ -107,22 +120,36 @@ This webhook url should be set on a pinning-test repository (which could be priv
 
 ![img/public-docker-image-pinning/10.png](img/public-docker-image-pinning/10.png)
 
-Unfortunately, Docker Hub requires per repository webhook configuration through their web ui, and does not provide a way to create them programatically.  The situation is much better for both GCR and ECR.
+Unfortunately, Docker Hub requires per repository webhook configuration through their web ui, and does not provide a way
+to create them programatically.  The situation is not a problem for registries like GCR and ECR.
 
-On the next `docker push` to this Repo, Atomist will create a GitHub check to indicate that the Docker Image was successfully pushed, and linked back to a GitHub Commit.
+On the next `docker push` to this Repo, Atomist will create a GitHub check to indicate that the Docker Image was
+successfully pushed, and linked back to a GitHub Commit.
 
-**Issue:** tracking - Check should be produced
-
-Try this out in your new `pinning-test` repository (remember to update the `namespace`).  Execute a `docker build` and `push` from the command line.
+Try this out in your new `pinning-test` repository (remember to update the `namespace`).  Execute a `docker build` and
+`push` from the command line.
 
 ```bash
-$ docker build -t <namespace>/pinning-test:latest \
+$ docker build -t <replace with dockerhub namespace>/pinning-test:latest \
 --build-arg REVISION=$(git rev-parse HEAD) \
 --build-arg SOURCE="Dockerfile" .
-$ docker push <namespace>/pinning-test:latest
+$ docker push <replace with dockerhub namespace>/pinning-test:latest
 ```
 
-Atomist will create a GitHub CheckRun on your Commit to indicate that your Image has successfully made it to your registry.  Atomist is also now correlating GitHub Pushes and Docker Images pushes.  This will become useful as we begin to track how images are promoted.
+(you'll need to have successfully run `docker login -username xxxxx` for the above push to work)
+
+Atomist is also now correlating GitHub Pushes and Docker Images pushes. You'll also see additional activity in the log
+view as webhook events flow in.
+
+![img/public-docker-image-pinning/13.png](img/public-docker-image-pinning/13.png)
+
+In the background, we have also started to link Docker Images to the version of the Dockerfile that produced them.  This
+allows us to enable vulnerability checks that flow back into GitHub Checks. This is the first big pay off as image
+scanning data begins to flow back into the developer's view.
+
+### Step 3:  Enabling Image Scanning GitHub Checks
+
+
 
 ### Questions
 
