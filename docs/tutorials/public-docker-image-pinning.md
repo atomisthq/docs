@@ -2,13 +2,17 @@
 
 ## Policy:  Public Docker Image Pinning
 
-Achieves repeatable docker builds by switching Dockerfile `FROM` instructions to reference images by manifest (instead of by tag).  Watches for updates to Tags and offers Pull Requests to developers when a new base image is available.
+Achieves repeatable docker builds by switching Dockerfile `FROM` instructions to reference images by manifest (instead
+of by tag).  Watches for updates to Tags and offers Pull Requests to developers when a new base image is available.
 
 ### Step 1:  Enable policy for public images stored on Docker Hub
 
-This policy watches GitHub pushes for Dockerfiles with `FROM` instructions that reference *public* Docker Image Tags.  The policy will raise a PR to convert any Tag to a Docker digest.  It will then continue to raise PRs whenever that Tag moves, even if the Dockerfile author switches the Dockerfile to a different Tag.
+This policy watches GitHub pushes for Dockerfiles with `FROM` instructions that reference *public* Docker Image Tags.
+The policy will raise a PR to convert any Tag to a Docker digest.  It will then continue to raise PRs whenever that Tag
+moves, even if the Dockerfile author switches the Dockerfile to a different Tag.
 
-1. Start by enabling the [Docker Base Image Policy](https://go.atomist.com/catalog/skills/atomist/docker-base-image-policy) (note:  this is a preview version of the skill; it's unpublished). 
+1. Start by enabling the [Docker Base Image
+   Policy](https://go.atomist.com/catalog/skills/atomist/docker-base-image-policy).
 
 Click the Green button "Use this skill" on the [Skill Page](https://go.atomist.com/catalog/skills/atomist/docker-base-image-policy).
 
@@ -16,22 +20,25 @@ Click the Green button "Use this skill" on the [Skill Page](https://go.atomist.c
 
 2.  Enable the Skill.  This will take the user through the GitHub App integration, and selection of a Docker Registry.
 
-To see a PR that pins to an image digest in a public Docker Hub repo, we don't actually need to configure an integration.  However, we don't have a way to skip this step today.  For this tutorial, you can choose the `Docker Hub Integration`, 
+To see a PR that pins to an image digest in a public Docker Hub repo, we won't need to configure an
+integration to a private registry.  However, we will need to come back to this when we start tracking updates to tags in
+private registries.  For now, you can use the "skip" button to move past this step.
 
 ![img/public-docker-image-pinning/2.png](img/public-docker-image-pinning/2.png)
 
-3.  Select "Docker Hub Integration" and configure your `Docker ID` and `Namespace`.  Once complete, click "Save Configuration".  It's not necessary to add the personal access token for your `Docker ID` at this stage, but you'll need to return and configure this before we can start tracking Images in private registries.
 
-![img/public-docker-image-pinning/3.png](img/public-docker-image-pinning/3.png)
-
-4.  The Docker Base Image Policy configuration screen requires that you first configure the policy.  There are some options to customize how `FROM` line tags are managed, 
+3.  The Docker Base Image Policy configuration screen requires that you first configure the policy.  There are some
+    options to customize how `FROM` line tags are managed.  The defaults are actually suitable for this demonstration
+    so you can scroll to the bottom of this screen and just click the "Enable Skill" button. 
 
 ![img/public-docker-image-pinning/4.png](img/public-docker-image-pinning/4.png)
 
-5.  Your policy is now watching the set of Repos that you have selected in the Atomist GitHub app.  To see this in action, try pushing a new Repo with a simple Dockerfile.   For example, create a new empty Repo in your test org called `pinning-test` and then:
+4.  Your policy is now watching the set of Repos that you have selected in the Atomist GitHub app.  To see this in
+    action, try pushing a new Repo with a simple Dockerfile.   For example, create a new empty Repo in your test org
+    called `pinning-test` and then:
 
 ```bash
-$ export ORG=<my org name>
+$ export ORG=<replace with you org name>
 $ mkdir pinning-test && cd pinning-test && git init
 $ cat << END > Dockerfile
 FROM ubuntu:devel
@@ -47,25 +54,32 @@ $ git remote add origin git@github.com:$ORG/pinning-test.git
 $ git push -u origin master
 ```
 
-You will now see this Pull Request created in github.
+The Atomist GitHub application will detect the push, and then raise a Pull Request to pin your FROM line.
 
 ![img/public-docker-image-pinning/5.png](img/public-docker-image-pinning/5.png)
+
+You'll also see that the policy ran in the "log" tab of your workspace.
+
+![img/public-docker-image-pinning/11.png](img/public-docker-image-pinning/11.png)
 
 Drill in to the Pull Request and note that Atomist has "pinned" the `FROM` clause to the current digest:
 
 ![img/public-docker-image-pinning/6.png](img/public-docker-image-pinning/6.png)
 
-If the `devel` tag moves, this repo will get another pull request.  Your developers will be aware when there's an opportunity to push a new version of this image.  This can be especially important when we are tracking security fixes in the base image.
+If you build using this version of the Dockerfile, you'll always get the same base image.  If the `devel` tag moves,
+this repo will receive another pull request (ubuntu is a public docker registry).  This subsequent pull request makes
+developers aware that the base image has been updated.  In a subsequent step, we'll also talk about how we detect which
+vulnerabilities will be removed by merging this Pull Request.
 
-The above scenario demonstrates tracking images in public registries.  It's a good starting point to walk through some additional policies:
+As mentioned above, this scenario demonstrates tracking images in public registries.  It's a good starting point to walk
+through some additional policies:
 
-What if your `FROM` instruction references an image in a private registry?
+* What if your `FROM` instruction references an image in a private registry?
+* What if you're using multi-stage Dockerfiles (multiple `FROM` clauses)?
+* If given a Docker Image digest, can we track it back to the Dockerfile that produced it?  What about creating GitHub CheckRuns with Image scan vulnerability data.  Or tracking when an update to a base layer would remove a vulnerability?
 
-What if you're using multi-stage Dockerfiles (multiple `FROM` clauses)?
-
-If given a Docker Image digest, can we track it back to the Dockerfile that produced it?  What about creating GitHub CheckRuns with Image scan vulnerability data.  Or tracking when an update to a base layer would remove a vulnerability?
-
-Next step will be tackling private registries, and getting Image vulnerabilty data pulled back into the Developer workflow.
+The next step will be tackling private registries, and getting Image vulnerabilty data pulled back into the Developer
+workflow.
 
 ### Step 2:  Integrating your private Docker Hub
 
