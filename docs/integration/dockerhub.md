@@ -34,14 +34,15 @@ repository when new Images and security scans are detected.  Enter the `namespac
 
 ## Creating Webhook on Docker Hub
 
-Navigate to the Webhooks tab for one of your repos and copy the webhook into "Webhook URL" field.  The name of the
-Webhook can be anything.
+Navigate to the Webhooks tab for one of your repos and copy the webhook into "Webhook URL" field.
 
 ![img/dockerhub/9.png](img/dockerhub/9.png)
 
 After clicking "Create", you'll see the Webhook listed under "Current Webhooks".
 
 ![img/dockerhub/10.png](img/dockerhub/10.png)
+
+More documentation on webhooks can be found [here](https://docs.docker.com/docker-hub/webhooks/).
 
 Atomist is now ready to track updates to this repository.
 
