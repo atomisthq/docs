@@ -34,6 +34,6 @@ Webhook can be anything.
 
 After clicking "Create", you'll see the Webhook listed under "Current Webhooks".
 
-![img/public-docker-image-pinning/10.png](img/public-docker-image-pinning/10.png)
+![img/dockerhub/10.png](img/dockerhub/10.png)
 
 Atomist will now track updates to this repository.
