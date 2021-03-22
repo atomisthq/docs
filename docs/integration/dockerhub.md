@@ -4,28 +4,35 @@
 Atomist can ingest these notifications to drive policies like [Docker Base Image
 Policy](https://go.atomist.com/catalog/skills/atomist/docker-base-image-policy).
 
-### Creating Webhook
+## Configuring
 
 Navigate to the [Integrations tab](https://go.atomist.com/r/auth/manage/integrations) and select the Docker Hub
-Integration (GCR and ECR integrations are available as well).
+Integration.
 
 ![img/dockerhub/12.png](img/dockerhub/12.png)
 
-In configuration screen, you'll be able to add details about your private Docker Hub namespace.
+To configure the integration:
+
+1.  Create a webhook URL using the "Add Webhook" button.  This URL can be used for any number of DockerHub repositories.
+2.  Enter the namespace for your public or private image repositories.
+3.  Enter a personal access token, and the corresponding `Docker ID`.
 
 ![img/dockerhub/7.png](img/dockerhub/7.png)
 
-Validate that the `Namespace` for your private repositories is correct, and then enter the `Docker ID` and a `Docker Hub
-Personal Access Token` so that Atomist can query the repository when new Images and security scans are detected.
-Finally, click the "Add webhook" button and "Save changes".
+### Adding webhook
 
-At present, you have to go back to the Integration Config screen a second time to retrieve the webhook url.
+After adding a webhook, you'll have to click "save changes" and then return to the Integration Screen a second time to
+retrieve the webhook url.
 
 ![img/dockerhub/8.png](img/dockerhub/8.png)
 
-There will now be a Webhook URL in the config screen (see screenshot above).
+### Docker Id and Namespace
 
-### Setting Webhook on Docker Hub repository
+Enter the [`Docker ID`](https://docs.docker.com/docker-id/) and a 
+[`Docker Hub Personal Access Token`](https://docs.docker.com/docker-hub/access-tokens/) so that Atomist can query the
+repository when new Images and security scans are detected.  Enter the `namespace` containing your public or repositories. This can either be a Docker Hub organization, or your Docker ID.
+
+## Creating Webhook on Docker Hub
 
 Navigate to the Webhooks tab for one of your repos and copy the webhook into "Webhook URL" field.  The name of the
 Webhook can be anything.
@@ -36,4 +43,5 @@ After clicking "Create", you'll see the Webhook listed under "Current Webhooks".
 
 ![img/dockerhub/10.png](img/dockerhub/10.png)
 
-Atomist will now track updates to this repository.
+Atomist is now ready to track updates to this repository.
+
