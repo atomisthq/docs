@@ -45,6 +45,9 @@ nav:
       - GitHub: integration/github.md
       - Slack: integration/slack.md
       - Kubernetes: integration/kubernetes.md
+      - DockerHub: integration/dockerhub.md
+      - GCR: integration/gcr.md
+      - ECR: integration/ecr.md
   - Authoring:
       - Skill Authoring: authoring/index.md
       - Container Skills: authoring/container-skills.md
