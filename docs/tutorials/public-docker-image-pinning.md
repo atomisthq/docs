@@ -88,11 +88,11 @@ workflow.
 Start by following the instructions to enable the [Docker Hub
 integration](https://docs.atomist.services/integration/dockerhub/), including the webhook configuration.
 
-On the next `docker push` to this Repo, Atomist will create a GitHub check to indicate that the Docker Image was
-successfully pushed, and linked back to a GitHub Commit.
+On the next `docker push` to this Repo, Atomist will create a GitHub check to indicate that the docker image was
+successfully pushed, and linked back to the commit.
 
 Try this out in your new `pinning-test` repository (remember to update the `namespace`).  Execute a `docker build` and
-`push` from the command line.
+then a `docker push` from the command line.
 
 ```bash
 $ docker login --username <docker id>
