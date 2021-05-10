@@ -1,3 +1,5 @@
+# Command Line Interface
+
 The Atomist command line is useful for starting SDMs and configuring your connection.
 
 In [local mode][local], the `atomist` command line runs commands in your SDM.

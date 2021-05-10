@@ -1,3 +1,5 @@
+# Example: Putting it together
+
 Your ideal delivery blueprint spans delivery flow, generators, editors
 and other commands. All we need is something to pull it together.
 

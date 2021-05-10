@@ -47,6 +47,7 @@
     -   [HTTP Calls in an SDM](developer/http.md)
     -   [Writing Push Tests](developer/push-test.md)
     -   [Working with the AST](developer/astutils.md)
+    -   [Signing Goals and Custom Events](developer/signature.md)        
     -   [Local mode quick start](developer/local-quick-start.md)
     -   [Troubleshooting](developer/troubleshoot.md)
 -   What the SDM can do:

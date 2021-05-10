@@ -1,3 +1,5 @@
+# Commands 
+
 In an [Software Delivery Machine (SDM)][sdm], a command is an action
 that can be triggered on demand, either from the command line in
 [local mode][local], from chat in [team mode][team], or in the Atomist

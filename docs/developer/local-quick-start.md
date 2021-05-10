@@ -1,3 +1,5 @@
+# Local mode quick start 
+
 This page shows you how to start building your own development
 automations using Atomist on your laptop, no connectivity required.
 Use this to explore and test your automations.

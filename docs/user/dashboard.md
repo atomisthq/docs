@@ -1,3 +1,5 @@
+# Atomist web interface
+
 The Atomist web interface is located at [app.atomist.com](https://app.atomist.com). Here,
 you can view and manage drift, see some notifications, run GraphQL queries against your data, and administer your
 Atomist workspace.

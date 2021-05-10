@@ -1,3 +1,5 @@
+# Settings
+
 Workspace settings shows the Name, Description, and Workspace ID for your Atomist workspace.
 
 | Setting | Description | Editable | By Role |

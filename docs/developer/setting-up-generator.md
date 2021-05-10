@@ -1,3 +1,5 @@
+# Setting Up a Project Generator
+
 If you're working at a sufficiently large organization, architecting several microservices, or just need some uniformity around the repositories your team creates, a [_project generator_](/developer/create/) can help you establish a consistent and reproducible framework for your projects.
 
 A project generator is a type of [command](/developer/commands/) which takes a template repository and creates a brand new one from it. It's different from forking in that the generated repository shares no Git history with the original template: it's literally just a copy. These templates repositories are also called _seeds_.

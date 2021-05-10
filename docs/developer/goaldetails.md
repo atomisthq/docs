@@ -1,3 +1,5 @@
+# Goal Details
+
 When [creating a goal][], you'll supply a [Goal Details][apidoc-goaldetails] object.
 Here you can mane some tweaks to your delivery flow.
 

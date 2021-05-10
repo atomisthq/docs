@@ -1,3 +1,5 @@
+# SDM Concepts
+
 The Software Delivery Machine, or SDM, is your interface for using
 Atomist to deliver your software your way, but better. An SDM
 automates all steps in the flow from project creation to production,

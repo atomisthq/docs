@@ -1,3 +1,5 @@
+# Setting up TypeScript in your IDE
+
 TypeScript is a great language, but if you're coming from another language ecosystem,
 the toolchain can be confusing. Here are some of our learnings, in hopes they of use
 to you.

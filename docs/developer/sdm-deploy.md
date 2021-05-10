@@ -1,3 +1,5 @@
+# Deploying your SDM
+
 You can run Software Delivery Machines (SDMs) in many different environments, ranging from your laptop
 or data center to Platform-as-a-Service offerings like Heroku and Pivotal Cloud Foundry.
 

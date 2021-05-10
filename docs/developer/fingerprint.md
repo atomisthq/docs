@@ -1,3 +1,4 @@
+# Fingerprints
 
 In _team mode only_, the SDM can take and react to **fingerprints**.
 

@@ -1,3 +1,5 @@
+# Working with the AST
+
 Every programming language has a structure. The first part of compilation
 breaks down the structure of the file into an abstract syntax tree (AST),
 a data structure that represents the code in programming language concepts.

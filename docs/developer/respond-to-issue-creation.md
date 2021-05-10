@@ -1,3 +1,5 @@
+# Example: Responding to issue creation
+
 The following example notifies any user who raises an issue with
 insufficient detail in the body, via a direct message in Slack, and
 provides them with a helpful link to the issue. Note that we make use

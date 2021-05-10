@@ -1,3 +1,5 @@
+# Modifying files
+
 Code inspections and transforms work with the code inside repositories.
 You can use the [Project](project.md) API for minor actions like adding or removing
 a file. When you want to work on multiple files, Atomist project utils can help.

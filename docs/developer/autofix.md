@@ -1,3 +1,5 @@
+# Autofixes
+
 Autofixes keep your source code in the state you like it, without nagging people.
 An Autofix checks every push, and if the code doesn't look like you want it to, changes it
 and makes a commit.

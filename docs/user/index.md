@@ -1,3 +1,5 @@
+# Introduction
+
 This page describes enrollment with Atomist as a service.
 
 Atomist is here to help you smooth your development flow. In our web console,

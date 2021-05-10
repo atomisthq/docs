@@ -1,3 +1,5 @@
+# Security Model
+
 When you run automations in Atomist, they run on your network, and connect to our service
 through a websocket for triggering, chat integration, and querying data in the graph of your events.
 

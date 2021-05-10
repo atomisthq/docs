@@ -1,3 +1,5 @@
+# Automation API
+
 In team mode, you can invoke your commands through our Automation API.
 
 ## Authentication

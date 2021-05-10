@@ -1,3 +1,5 @@
+# Code Inspections
+
 Evaluate all your code according to your own standards. Code inspections let you
 locate problems and measure how closely standards are followed. Run them on one
 repository or all repositories. Run them after every commit, so that developers

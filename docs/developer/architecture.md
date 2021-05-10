@@ -1,3 +1,5 @@
+# Architecture
+
 It all starts with a software delivery machine of your very own. That can be for
 your team or for you personally--one of each is good.
 

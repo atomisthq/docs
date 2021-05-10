@@ -1,3 +1,5 @@
+# Packages Overview
+
 In order to extend Atomist to listen to and respond to events that you care about, you'll need to [develop your own automation strategies](/developer/) on top of the Node packages which Atomist itself uses and has open sourced.
 
 The left sidebar contains links to the API Reference for these packages, detailing all of the functions available to you. Here, we'll briefly summarize the contents of these packages, and when you should use them.

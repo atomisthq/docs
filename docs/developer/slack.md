@@ -1,3 +1,5 @@
+# Chat Messages
+
 Atomist supports sending _rich_, _actionable_ and _updatable_ Slack
 messages. Messages can be sent by an event handler or a command
 handler.

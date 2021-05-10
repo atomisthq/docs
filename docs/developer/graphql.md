@@ -1,3 +1,5 @@
+# Custom GraphQL Queries
+
 [GraphQL](http://graphql.org) is a powerful query language that you use to query
 and mutate your data in the Atomist automation platform.
 

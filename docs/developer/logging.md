@@ -1,3 +1,5 @@
+# Logging
+
 Logging inside an SDM comes in two varieties.
 
 The important logs are the progress logs of goal executions. These are transmitted to a logging service, so that

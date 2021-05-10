@@ -1,3 +1,5 @@
+# Slack
+
 Atomist has a powerful Slack integration to help your team access the
 power of ChatOps.
 

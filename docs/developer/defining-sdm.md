@@ -1,3 +1,5 @@
+# Defining an SDM
+
 Most of the documentation we've written assumes that you have an SDM configured, and we've shown you what an SDM can do by defining transformations. But how does one _start_ with a completely blank SDM? In this tutorial, we're going to build an SDM entirely from scratch, one that performs delivery goals in response to a Git push.
 
 -   Autofix and fingerprint code in a repository

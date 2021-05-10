@@ -1,3 +1,5 @@
+# Path Expressions
+
 Path Expressions are a way to comprehend code from other code.
 They provide an XPath-like navigation into the [abstract syntax tree][w-ast] (AST),
 returning nodes that can be inspected and updated.

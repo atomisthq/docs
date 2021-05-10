@@ -1,3 +1,4 @@
+# Team Mode
 
 In team mode, your SDM connects to the Atomist service.
 

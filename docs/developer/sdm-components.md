@@ -1,3 +1,5 @@
+# SDM Components
+
 An SDM is comprised of several components which help automate your tasks. Some of these components can be found as open source packages Atomist and its community have made available, but you may also need to build your own lifecycle. To do so, it's helpful to break down some of the key components that power an SDM.
 
 ## Events

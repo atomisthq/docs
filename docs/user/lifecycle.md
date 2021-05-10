@@ -1,3 +1,5 @@
+# Built-in Chat Integrations
+
 Chat notifications about pushes, builds, pull requests, issues, and issue comments are
 fewer and far more useful when they're correlated by Atomist. You get one message per push, and
 that message updates as new information comes in. Less spam in your channels! Even better,

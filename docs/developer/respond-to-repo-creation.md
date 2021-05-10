@@ -1,3 +1,5 @@
+# Example: Responding to repository creation
+
 Suppose we want to notify a Slack channel whenever a new repository is created.
 There are two scenarios to consider:
 

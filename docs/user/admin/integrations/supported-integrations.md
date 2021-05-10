@@ -1,3 +1,5 @@
+# Integrating into Existing Tools
+
 The goal of the SDM is to enhance all of your existing pipelines and policies
 through additional automation. It does so by receiving and reacting to events
 from many systems, including version control, CI systems, Slack, and more.

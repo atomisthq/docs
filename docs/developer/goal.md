@@ -1,3 +1,5 @@
+# Create Goals
+
 Goals are reusable parts of functionality used within a CI/CD context. Think of
 tasks like starting a build or deploying your application to Kubernetes. These
 goals consist primarily of:

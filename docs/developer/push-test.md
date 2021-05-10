@@ -1,3 +1,5 @@
+# Writing Push Tests
+
 A `PushTest` tests an aspect of a push at a point in time. Most push tests test the `Project` returned by the push:
 that is, the state of the repository after the push. However push tests can also look at the push itself: for example,
 considering the branch or commit message.

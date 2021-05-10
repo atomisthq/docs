@@ -1,3 +1,5 @@
+# Prerequisites
+
 You can run org-visualizer or another Software Delivery Machine (SDM) locally without any signup or authentication. Then you can connect it to the Atomist service to benefit your [whole team][team].
 
 ## Common Prerequisites

@@ -1,3 +1,5 @@
+# Troubleshooting
+
 This page contains a collection of troubleshooting techniques.
 
 ## A goal failed

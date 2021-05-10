@@ -1,3 +1,5 @@
+# Setting Goals
+
 This page assumes you have [created some goals][create-goals]. It shows how to:
 
 * group goals

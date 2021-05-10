@@ -1,3 +1,5 @@
+# Building your First Delivery
+
 Now that you've familiarized yourself with what Atomist can do, let's build our first delivery flow.
 
 In this flow we will listen to changes made to your README file. On a push to a repository, Atomist will detect if your README has changed, and print a message. In [Local Mode](/developer/local/), this will print to the terminal feed; in [Team Mode](/developer/team/), we will send the message to a chat channel.
