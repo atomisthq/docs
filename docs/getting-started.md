@@ -1,22 +1,22 @@
-It only takes about fifteen minutes to complete this guided set of steps. By the
-end, you will have a new skill enabled and you'll know how to discover,
-configure, and use skills.
+Our new DevSecOps tool is in early access now. You can request an [early access invite][early-access].
 
-## Create an Account
+[early-access]: https://atomist.com/devsecops (Request early access)
 
-There is nothing to install. Just
-[create your free account](https://go.atomist.com/user/signup "Atomist - Create Your Free Account")
-and off you go. We use your GitHub ID to login. You'll be prompted to authorize
-Atomist to sign in. This video takes you through the process step-by-step.
+It only takes a few minutes to complete this Getting Started. When finished, you will have a policy enabled and you will see what it found on your own repositories.
 
-<div style="text-align:center;">
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8Mr7rdIwMcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+## Sign up
 
-## Enable a Skill
+There is nothing to install. Just [sign up using GitHub](https://dso.atomist.com/ "Sign up") and off you go. You'll be asked to authorize Atomist to sign up.
 
-After creating your account, you will find yourself in the [catalog of
-skills][catalog]. We're going to enable the GitHub Notifications Skill.
+![Sign up with GitHub](img/getting-started/sign-up.png)
+
+After you have signed up, you will be guided through configuring and enabling your first policy.
+
+## Step 1: Connect GitHub
+
+You signed up with your GitHub ID to get started. Now you will install the [Atomist GitHub App][github-app] into your account which 
+
+[github-app]: https://github.com/apps/atomist (Atomist GitHub App)
 
 1.  Choose the
     [GitHub Notification Skill](https://go.atomist.com/catalog/skills/atomist/github-notifications-skill "Atomist GitHub Notification Skill").
@@ -33,7 +33,7 @@ skills][catalog]. We're going to enable the GitHub Notifications Skill.
 6.  Create a test issue in a GitHub repository, look in the linked Slack channel
     for the notification message. For example:
 
-    ![Atomist GitHub notifications in Slack](img/getting-started/github-slack-notifications.png)
+    
 
 Now you will get Slack notifications for all pushed commits, pull requests, and
 issues.
