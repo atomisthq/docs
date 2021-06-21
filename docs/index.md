@@ -1,7 +1,8 @@
 # Introduction
 
-We take a developer-focused approach to keeping your containerized applications safe. With smart policies, developers and security engineers can:
+We take a developer-focused approach to keeping your containerized applications safe. With our DevSecOps tool for Docker security that is currently in early access, security engineers and developers can:
 
+- Improve security by keeping projects up to date
 - Reduce noise and make security issues relevant
 - Get clear, actionable info directly in GitHub
 - Know the security impact of incremental changes
