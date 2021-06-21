@@ -1,53 +1,33 @@
-It only takes about fifteen minutes to complete this guided set of steps. By the
-end, you will have a new skill enabled and you'll know how to discover,
-configure, and use skills.
+Atomist for DevSecOps is available in early access now. 
+Keep up to date with supported, current Docker base images and keep new vulnerabilities at bay.
 
-## Create an Account
+[early-access]: https://atomist.com/devsecops (Request early access)
 
-There is nothing to install. Just
-[create your free account](https://go.atomist.com/user/signup "Atomist - Create Your Free Account")
-and off you go. We use your GitHub ID to login. You'll be prompted to authorize
-Atomist to sign in. This video takes you through the process step-by-step.
+Get up and running quickly. Simply sign up, select repositories, then get a summary of your 
+Docker security and start improving it.
 
-<div style="text-align:center;">
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8Mr7rdIwMcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+## Create an account
 
-## Enable a Skill
+1. Go to [atomist.com](https://atomist.com) and click the **Try Atomist** button in the top menu
 
-After creating your account, you will find yourself in the [catalog of
-skills][catalog]. We're going to enable the GitHub Notifications Skill.
+![Try Atomist button](img/getting-started/try-atomist.png)
 
-1.  Choose the
-    [GitHub Notification Skill](https://go.atomist.com/catalog/skills/atomist/github-notifications-skill "Atomist GitHub Notification Skill").
-2.  Click the **Get Started** button to configure the skill.
-3.  Configure the [GitHub](integration/github.md "Atomist GitHub Integration")
-    and [Slack](integration/slack.md "Atomist Slack Integration") integrations.
-    These are both needed for the skill to send notification messages to Slack.
-4.  Click **Enable Skill** to turn it on. Once complete, you'll see **Enabled**
-    for GitHub Notifications on the **Manage > Skills** page.
-5.  Link at least one repository to one Slack channel. Channel linking is done
-    in the **Manage > Integrations > Slack** configuration. This
-    repository-channel linking is how the skill knows which channel to send
-    messages to for a specific repository's activity.
-6.  Create a test issue in a GitHub repository, look in the linked Slack channel
-    for the notification message. For example:
+2. Sign up using your GitHub ID. You will be asked to authorize login with GitHub.
 
-    ![Atomist GitHub notifications in Slack](img/getting-started/github-slack-notifications.png)
+![Sign up](img/getting-started/sign-up.png)
 
-Now you will get Slack notifications for all pushed commits, pull requests, and
-issues.
+3. Connect your user account or a GitHub organization to Atomist. You will be asked to authorize 
+and install the Atomist GitHub app. This allows Atomist to analyze the repositories you select.
 
-!!! Tip
-    You control which channels will receive notifications, so you may
-    want to start with just one repository linked to one Slack channel until you're
-    ready to add more.
+![Connect GitHub](img/getting-started/connect-github.png)
 
-[catalog]: https://go.atomist.com/catalog "Atomist Catalog of Skills"
+4. Select repositories to analyze then activate the Docker policy. Be sure to select repositories 
+that contain Dockerfiles. Once activated, the Docker policy will be used to analyze Dockerfiles in the 
+selected repositories.
 
-## Next: Discover More Skills
+![Select repositories](img/getting-started/select-repos.png)
 
-With the GitHub and Slack integrations configured, you're ready to explore more
-skills.
+5. View the results in the **Overview** tab.
 
-[Discover more skills >>][catalog]
+![Overview](img/getting-started/overview.png)
+
