@@ -37,14 +37,14 @@ markdown_extensions:
 nav:
   - Introduction: index.md
   - Getting Started: getting-started.md
-  - Policies:
-      - Dockerfiles: policies/docker-file.md
+#  - Policies:
+#      - Dockerfiles: policies/docker-file.md
 #      - Container images: policies/container-images.md
 #      - Open source dependencies: policies/oss-deps.md
   - Integrations:
-      - GitHub: integration/github.md
-      - Slack: integration/slack.md
-      - Kubernetes: integration/kubernetes.md
+#      - GitHub: integration/github.md
+#      - Slack: integration/slack.md
+#      - Kubernetes: integration/kubernetes.md
       - DockerHub: integration/dockerhub.md
       - ECR: integration/ecr.md
   - Support: support.md
