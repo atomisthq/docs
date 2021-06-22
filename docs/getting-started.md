@@ -3,7 +3,7 @@ Keep up to date with supported, current Docker base images and keep new vulnerab
 
 [early-access]: https://atomist.com/devsecops (Request early access)
 
-Get up and running quickly. Simply sign up, select repositories, then get a summary of your 
+To get up and running quickly, simply sign up, select repositories, then get a summary of your 
 Docker security and start improving it.
 
 ## Create an account
@@ -12,7 +12,7 @@ Docker security and start improving it.
 
     ![Try Atomist button](img/getting-started/try-atomist.png)
 
-2. Sign up using your GitHub ID. You will be asked to authorize login with GitHub.
+2. Sign up using your GitHub ID. You will be asked to authorize login with your GitHub ID.
 
     ![Sign up](img/getting-started/sign-up.png)
 
