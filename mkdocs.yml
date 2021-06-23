@@ -47,4 +47,5 @@ nav:
 #      - Kubernetes: integration/kubernetes.md
       - DockerHub: integration/dockerhub.md
       - ECR: integration/ecr.md
+      - Linking images to commits: integration/linking-images.md
   - Support: support.md
