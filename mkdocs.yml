@@ -46,6 +46,6 @@ nav:
 #      - Slack: integration/slack.md
 #      - Kubernetes: integration/kubernetes.md
       - DockerHub: integration/dockerhub.md
-      - ECR: integration/ecr.md
+      - Amazon Elastic Container Registry: integration/ecr.md
       - Linking images to commits: integration/linking-images.md
   - Support: support.md

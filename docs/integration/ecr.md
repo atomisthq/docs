@@ -1,4 +1,4 @@
-# ECR
+# Amazon Elastic Container Registry
 
 There are two steps required to integrate Atomist and ECR.  Step one is configuring Atomist.  After this completing this
 step, Atomist will be able to read Docker v2 api exposed by ECR.  Step two is configuring
