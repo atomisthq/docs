@@ -20,9 +20,3 @@ We encourage your feedback, suggestions, and questions at
 [support@atomist.com][] or send us an in-app chat message at any time.
 
 [support@atomist.com]: mailto:support@atomist.com
-
-!!! info
-    If you're looking for SDM documentation,
-    you'll find it in the [SDM Guide][sdm-guide].
-
-[sdm-guide]: sdm.md (Atomist SDM Guide)
