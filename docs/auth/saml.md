@@ -53,7 +53,7 @@ After editing `auth.json`, run this `curl` command to update the workspace auth 
 curl -X PUT \ 
      -H 'Content-Type: application/json' \ 
      -H'Authorization: Bearer <admin-api-key>' \
-     https://api.atomist.com/v2/auth/providers/89185b75-1351-4680-a0fc-08c4d18a284f \
+     https://api.atomist.com/v2/auth/providers/<auth-provider-id> \
      --data-binary @auth.json
 ```
 
