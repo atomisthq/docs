@@ -6,7 +6,7 @@ For many saml providers, the public key is available from a public url. In cases
 
 1.  an Atomist api-key with the `Administrator` permission
 2.  an environment with both `curl` and `jq` installed.
-3.  the unique `id` for the auth provider of their workspace (89185b75-1351-4680-a0fc-08c4d18a284f)
+3.  the unique `id` for the auth provider of their workspace
 
 The first step is to create a local json document that can be updated with the new public key.  The `curl` command below will need two substitutions (`<admin-api-key>` and `<auth-provider-id>`). Some top-level fields have been removed because they can not be present in the next `PUT` operation.
 
@@ -24,12 +24,6 @@ The resulting `auth.json` file will look something like the one below.  You shou
 {
   "saml-authn-binding" : "post",
   "public_key" : "....",
-  "auto_join_roles" : {
-    "*" : {
-      "Atomist - Prod - Admin" : [ "team-administrator" ],
-      "Atomist - Prod - Members" : [ "automation-user" ]
-    }
-  },
   "saml-digest-algorithm" : "sha256",
   "enabled" : true,
   "sign-requests" : true,
@@ -41,7 +35,6 @@ The resulting `auth.json` file will look something like the one below.  You shou
   "validate_response_signatures" : true,
   "type" : "adfs",
   "created_at" : 1599821897093,
-  "icon_url" : "https://www.commbank.com.au/content/dam/commbank/commBank-logo.svg",
   "client_id" : "https://api.atomist.com/v2/auth/saml"
 }
 ```
