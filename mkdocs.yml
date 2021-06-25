@@ -48,6 +48,6 @@ nav:
       - DockerHub: integration/dockerhub.md
       - Amazon Elastic Container Registry: integration/ecr.md
       - Linking images to commits: integration/linking-images.md
-      - Authentication Providers: 
-          - SAML: integration/saml.md
+      # - Authentication Providers: 
+          # - SAML: integration/saml.md
   - Support: support.md

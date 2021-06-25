@@ -8,6 +8,14 @@ For many saml providers, the public key is available from a public url. In cases
 2.  an environment with both `curl` and `jq` installed.
 3.  the unique `id` for the auth provider of their workspace
 
+The `id` for a team's saml auth provider can be discovered as long as you have the email domain.  For example, if a saml provider is registered for all users with `@atomist.com` email addresses, then run:
+
+```bash
+curl https://api.atomist.com/v2/auth/providers?alias=atomist.com
+```
+
+This response will contain the `<auth-provider-id>`s that you'll need to run the commands below.  The previous api is not authenticated.
+
 The first step is to create a local json document that can be updated with the new public key.  The `curl` command below will need two substitutions (`<admin-api-key>` and `<auth-provider-id>`). Some top-level fields have been removed because they can not be present in the next `PUT` operation.
 
 ```bash
@@ -18,12 +26,12 @@ curl \
     cat > auth.json
 ```
 
-The resulting `auth.json` file will look something like the one below.  You should leave all entries untouched except for the `public_key` entry.  The value of the field must be set to the base64-encoded of your public key.
+The resulting `auth.json` file will look like the one below.  Leave all values untouched except for the `public_key` entry.  The value of the `public_key` should be set to the new base64-encoded public key.  This is the same value that would be in an `<X509Certificate>` text node in a saml metadata xml document. 
 
 ```json
 {
   "saml-authn-binding" : "post",
-  "public_key" : "....",
+  "public_key" : "<base64-encoded-public-key-certificate>",
   "saml-digest-algorithm" : "sha256",
   "enabled" : true,
   "sign-requests" : true,
@@ -39,7 +47,7 @@ The resulting `auth.json` file will look something like the one below.  You shou
 }
 ```
 
-After editing `auth.json`, run the following command to update the workspace auth provider configuration.
+After editing `auth.json`, run this `curl` command to update the workspace auth provider configuration.
 
 ```bash
 curl -X PUT \ 
