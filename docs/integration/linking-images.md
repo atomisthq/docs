@@ -60,7 +60,7 @@ jobs:
         context: ./
         push: true
         file: ./Dockerfile
-        tags: ${{ secrets.DOCKER_USERNAME }}/pinning-test-actions-dockerhub:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
         labels: |
           org.opencontainers.image.revision=${{ github.sha }}
           org.opencontainers.image.source=Dockerfile
