@@ -1,6 +1,6 @@
 # GCR
 
-The Atomist integration watches for new Images being pushed to the GCR registry, and continuously monitors vulnerability databases for vulnerabilities that could impact an Image.  To setup the integration, a GCR administrator will need to complete two steps:
+The Atomist integration watches for new Images being pushed to the GCR registry, and continuously monitors vulnerability databases for anything that might impact you.  To setup the integration, a GCR administrator will need to complete two steps:
 
 1.  Create a service account and grant it read-only access to GCR
 2.  Create a PubSub subscription to notify when new Images are pushed 
@@ -8,7 +8,7 @@ The Atomist integration watches for new Images being pushed to the GCR registry,
 ## Step 1: Granting Atomist Read-Only Access to GCR
 
 This procedure requires a project administrator because you'll be creating a
-new service account, plus two iam bindings.  The service account can be called
+new service account, and two new iam bindings.  The service account can be called
 anything (we've called it `atomist-gcr-integration` in the example below).
 After it is created, you'll enter the service account address, and the project
 id into the GCR Integration form.  No credentials will need to be exchanged
@@ -37,7 +37,7 @@ gcloud iam service-accounts create ${SERVICE_ACCOUNT_ID} \
 # new service account should be granted read-only access to GCR
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
     --member="serviceAccount:${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com" \
-    --role="roles/storage.objectViewer"
+    --role="roles/storage.object"
 
 # grant atomist access to this service account
 gcloud iam service-accounts add-iam-policy-binding "${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com" \
@@ -45,11 +45,11 @@ gcloud iam service-accounts add-iam-policy-binding "${SERVICE_ACCOUNT_ID}@${PROJ
     --role="roles/iam.serviceAccountTokenCreator"
 ```
 
-Your `PROJECT_ID`, as the address of the new service account, must now be configured in your Atomist workspace.  You'll also need to configure the region for your GCR resources.
+Your `PROJECT_ID` as well as the address of the new service account must configured in your Atomist workspace.  You'll also need to set the region for your GCR instance.
 
 ![img/gcr/gcr_config.png](img/gcr/gcr_config.png)
 
-Once these 3 pieces of information have been saved, Atomist will test the connection.  You'll see some green check marks if we were able to make a connection to your registry.
+Once these 3 pieces of information have been saved, Atomist will test the connection.  You'll see some green check marks when a connection has been established.
 
 ![img/gcr/config_success.png](img/gcr/config_success.png)
 
