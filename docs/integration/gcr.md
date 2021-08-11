@@ -1,6 +1,9 @@
 # GCR
 
-The Atomist integration watches for new Images being pushed to the GCR registry, and continuously monitors vulnerability databases for anything that might impact you.  To setup the integration, a GCR administrator will need to complete two steps:
+The Atomist integration watches for new Images being pushed to the GCR
+registry, and continuously monitors vulnerability databases for anything that
+might impact you.  To setup the integration, a GCR administrator will need to
+complete two steps:
 
 1.  Create a service account and grant it read-only access to GCR
 2.  Create a PubSub subscription to notify when new Images are pushed 
@@ -45,30 +48,43 @@ gcloud iam service-accounts add-iam-policy-binding "${SERVICE_ACCOUNT_ID}@${PROJ
     --role="roles/iam.serviceAccountTokenCreator"
 ```
 
-Your `PROJECT_ID` as well as the address of the new service account must configured in your Atomist workspace.  You'll also need to set the region for your GCR instance.
+Your `PROJECT_ID` as well as the address of the new service account must
+configured in your Atomist workspace.  You'll also need to set the region for
+your GCR instance.
 
 ![img/gcr/gcr_config.png](img/gcr/gcr_config.png)
 
-Once these 3 pieces of information have been saved, Atomist will test the connection.  You'll see some green check marks when a connection has been established.
+Once these 3 pieces of information have been saved, Atomist will test the
+connection.  You'll see some green check marks when a connection has been
+established.
 
 ![img/gcr/config_success.png](img/gcr/config_success.png)
 
 ## Step 2: Configuring the Webhook
 
-All GCR projects will have a pubsub topic named `gcr`.  Use the instructions below to create a new PubSub subscription on that Topic.  This topic receives notifications when new images are pushed to your registry.
+All GCR projects will have a pubsub topic named `gcr`.  Use the instructions
+below to create a new PubSub subscription on that Topic.  This topic receives
+notifications when new images are pushed to your registry.
 
-Start by copying your workspace's unique webhook url. This will be the `PUSH_ENDPOINT_URI` on your new subscription.
+Start by copying your workspace's unique webhook url. This will be the
+`PUSH_ENDPOINT_URI` on your new subscription.
 
 ![img/gcr/webhook_config.png](img/gcr/webhook_config.png)
 
 The integration form will show that no Webhook events have yet been received.
 If your Google project was created recently (after April 2021), then the
-subscription can be created with one step.  However, older projects will require an additional grant. 
-The pubsub service account can not by default sign
-outbound requests without this additional grant.  Atomist validates all incoming push requests to ensure that they
-came from your account, and were intended for Atomist.
+subscription can be created with one step.  However, older projects will
+require an additional grant.  The pubsub service account can not by default
+sign outbound requests without this additional grant.  Atomist validates all
+incoming push requests to ensure that they came from your account, and were
+intended for Atomist.
 
-The name of the `SUBSCRIPTION`.  We use `atomist-gcr-integration-subscription` in the example below.  The `PUSH_ENDPOINT_URL` must be copied from your Atomist workspace.  You can use the same service account email address that was created in the previous step.
+The name of the `SUBSCRIPTION`.  We use `atomist-gcr-integration-subscription` in the example below.  
+The `PUSH_ENDPOINT_URL` must be copied from your Atomist workspace.  You can use the same service account email address that was created in the previous step.
+
+The `PROJECT_NUMBER` is different from the `PROJECT_ID` but both can be found in your google cloud console dashboard.
+
+![img/gcr/project_info.png](img/gcr/project_info.png)
 
 ```bash
 SERVICE_ACCOUNT_EMAIL="${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com"
