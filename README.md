@@ -1,4 +1,4 @@
-# Atomist documentation
+# Atomist documentation 
 
 This repository contains the markdown sources for the documentation for
 [Atomist][atomist]. You can find the current version of the Atomist
