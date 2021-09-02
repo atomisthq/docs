@@ -50,4 +50,6 @@ nav:
       - Linking images to commits: integration/linking-images.md
       # - Authentication Providers: 
           # - SAML: integration/saml.md
+  - Tutorials:
+      -  Tracking new vulnerabilities: tutorials/vulnerability_ratchet.md
   - Support: support.md
