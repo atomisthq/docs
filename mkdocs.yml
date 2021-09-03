@@ -47,9 +47,10 @@ nav:
 #      - Kubernetes: integration/kubernetes.md
       - DockerHub: integration/dockerhub.md
       - Amazon Elastic Container Registry: integration/ecr.md
+      - Google Container Registry: integration/gcr.md
       - Linking images to commits: integration/linking-images.md
       # - Authentication Providers: 
           # - SAML: integration/saml.md
   - Tutorials:
-      -  Tracking new vulnerabilities: tutorials/vulnerability_ratchet.md
+      -  Tracking new vulnerabilities: tutorials/tracking-new-vulnerabilities.md
   - Support: support.md
