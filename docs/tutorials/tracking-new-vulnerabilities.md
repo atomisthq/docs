@@ -9,7 +9,7 @@ We detect new vulnerabilities by tracking pull requests and correlating them wit
 Here's an example where we see that a commit contains 6 critical and 24 high severity vulnerabilities; however, only 1 of them has been introduced by this change.  We highlight this critical difference using a GitHub check run on the pull request.
 
 <figure>
-  <img alt="Got Worse" src="../img/ratchet/GotWorse.png" />
+  <img alt="Got Worse" src="../img/ratchet/GotWorse-1.png" />
   <figcaption>A GitHub check run showing vulnerabilities in a commit, and compared to the main branch and currently deployed instance</figcaption>
 </figure>
 
@@ -131,17 +131,21 @@ After you’ve added these secrets, your GitHub Secrets should look like this:
 
 **Enable vulnerability scanning for the forked repo**
 
-Finally, you’ll need to navigate to the Settings tab in the [Atomist web app](https://dso.atomist.com). 
+![]()
 
-The policies on the setting page are designed to provide consistent behavior across all of your repositories. However, we can limit the activity to just the forked repo for now. 
+------------
 
-Ensure that the New Image Vulnerabilities, Dockerfile Best Practices and Base Image Tags settings are all enabled. In the repositories list, make sure that your new forked repo is selected. The policy section should look like:
+Finally, navigate to the Overview tab in the [Atomist web app](https://dso.atomist.com), and activate the policy on your new repo. 
 
-![PolicyConfig](img/ratchet/PolicyConfig.png)
+![PolicyEnable](img/ratchet/PolicyEnable.png)
 
-![RepoSelection](img/ratchet/RepoSelection.png)
+Atomist provides consistent behavior across all of your repositories. However, we can limit the activity to just the forked repo for now. 
 
-Verify that you have selected your new repo in the repositories dialog and choose 'Save selection'.
+Before enabling the vulnerabilty policy on this repo, you'll need to confirm that you want the policy to be activated on this test repo.
+
+![Activate](img/ratchet/Activate.png)
+
+------------
 
 ## 3. Confirm image scan check run
 
@@ -273,5 +277,9 @@ The action workflow in this repository is configured to build and push branches 
 
 The check run on your commit will indicate if the pull request has introduced any problems that you should discuss with your AppSec team (hint: it has). Maybe you *are* the AppSec team?
 
-![GotWorse.png](img/ratchet/GotWorseDetail.png)
+![GotWorse-1.png](img/ratchet/GotWorseDetail-1.png)
+
+The Overview tab will also show any open PRs that have been scanned:
+
+![PRVulns](img/ratchet/PR_Vulns.png)
 
