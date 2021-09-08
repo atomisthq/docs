@@ -13,7 +13,6 @@ Here's an example where we see that a commit contains 6 critical and 24 high sev
   <figcaption>A GitHub check run showing vulnerabilities in a commit, and compared to the main branch and currently deployed instance</figcaption>
 </figure>
 
-
 Atomist helps you detect these changes and address them before they get out into the wild.
 
 To see this in action, you’ll:
@@ -131,10 +130,6 @@ After you’ve added these secrets, your GitHub Secrets should look like this:
 
 **Enable vulnerability scanning for the forked repo**
 
-![]()
-
-------------
-
 Finally, navigate to the Overview tab in the [Atomist web app](https://dso.atomist.com), and activate the policy on your new repo. 
 
 ![PolicyEnable](img/ratchet/PolicyEnable.png)
@@ -144,8 +139,6 @@ Atomist provides consistent behavior across all of your repositories. However, w
 Before enabling the vulnerabilty policy on this repo, you'll need to confirm that you want the policy to be activated on this test repo.
 
 ![Activate](img/ratchet/Activate.png)
-
-------------
 
 ## 3. Confirm image scan check run
 
