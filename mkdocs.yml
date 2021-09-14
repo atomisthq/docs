@@ -52,5 +52,5 @@ nav:
       # - Authentication Providers: 
           # - SAML: integration/saml.md
   - Tutorials:
-      -  Tracking new vulnerabilities: tutorials/tracking-new-vulnerabilities.md
+      -  Prevent new vulnerabilities: tutorials/prevent-new-vulnerabilities.md
   - Support: support.md

@@ -1,4 +1,6 @@
-# Tracking new vulnerabilities
+# Prevent new vulnerabilities in your containerized applications
+
+![overview](img/ratchet/overview.png)
 
 Atomist helps you detect when a pull request will introduce new vulnerabilities. By new vulnerabilities, we mean vulnerabilities that are not already present in your “deployed” instance. Getting started with vulnerability analysis is often hard because of what’s already there. Therefore, it’s useful to see how a change will impact what’s already running, before you merge and deploy.  In its most productive form, vulnerability data can create an effective feedback loop between developers and AppSec teams. But teams need to understand when a potential change introduces a new critical vulnerability. 
 
@@ -8,10 +10,7 @@ We detect new vulnerabilities by tracking pull requests and correlating them wit
 
 Here's an example where we see that a commit contains 6 critical and 24 high severity vulnerabilities; however, only 1 of them has been introduced by this change.  We highlight this critical difference using a GitHub check run on the pull request.
 
-<figure>
-  <img alt="Got Worse" src="../img/ratchet/GotWorse-1.png" />
-  <figcaption>A GitHub check run showing vulnerabilities in a commit, and compared to the main branch and currently deployed instance</figcaption>
-</figure>
+![Worse](img/ratchet/GotWorse-1.png)
 
 Atomist helps you detect these changes and address them before they get out into the wild.
 
@@ -25,9 +24,8 @@ To see this in action, you’ll:
 
 Start by creating a [free account](https://dso.atomist.com/user/signup).
 
-<figure>
-  <img alt="Signup" src="../img/ratchet/signup.png" width="400" />
-</figure>
+
+![signup](img/ratchet/signup.png)
 
 
 ## Connect GitHub
@@ -276,3 +274,10 @@ The Overview tab will also show any open PRs that have been scanned:
 
 ![PRVulns](img/ratchet/PR_Vulns.png)
 
+# Try it on your own container projects
+
+Add your own repositories with Dockerfiles — new commits and PRs will be scanned for new vulnerabilities. Just follow the [steps above](#1-fork-the-test-repository) and use your own repo instead of forking ours.
+
+Vulnerabilities in the container [base image OS](https://aquasecurity.github.io/trivy/v0.19.2/vulnerability/detection/os/) and Bundler, Composer, Pipenv, Poetry, npm, yarn, Cargo, NuGet, Maven, and Go application dependencies are reported.
+
+Message us [in the app](https://dso.atomist.com) if you need help.
