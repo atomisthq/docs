@@ -8,23 +8,24 @@
 
     (approximate time: 15 minutes)
 
-In this tutorial, you'll enable automatic GitHub CheckRuns for Commits
-that build container images from Dockerfiles.  We'll demonstrate how you can
+In this tutorial, you'll enable automatic GitHub CheckRuns on Commits
+that build container images.  We'll demonstrate that you can easily 
 track pull requests that are about to introduce _new_ vulnerabilites (vulnerabilities
 that are not already present in your deployed container image).
 
-Find out about new vulnerabilities before merging.
-
-<figure>
+<figure style="text-align:center;">
   <img alt="Image Digest" src="../img/ratchet/GotWorse-1.png" width="600"/>
-  <figcaption>GitHub Commit CheckRun (developers)</figcaption>
+  <figcaption>Discover new vulnerabilities before merging</figcaption>
 </figure>
 
 ## 1. Sign up
 
 Start by creating a [free account](https://dso.atomist.com/user/signup).
 
-![signup](img/ratchet/signup.png){: style="width:300px;margin: 0 auto;"}
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/signup.png" width="300" style="text-align:center;"/>
+  <figcaption>Discover new vulnerabilities before merging</figcaption>
+</figure>
 
 ## 2. Fork the test repository
 
@@ -42,7 +43,10 @@ container images - it's increasingly not the only sign ([`buildah`][buildah],
 [jib]: https://cloud.google.com/blog/products/application-development/introducing-jib-build-java-docker-images-better
 [buildpack]: https://buildpacks.io/
 
-![app](img/ratchet/GitHubApp.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/GitHubApp.png" width="80%" style="text-align:center;"/>
+  <figcaption>Install Atomist GitHub app</figcaption>
+</figure>
 
 When selecting repositories, select at least the `nodetest` repo that you just
 forked.  You can also let Atomist scan for Dockefiles in your other repos.  Atomist
@@ -56,7 +60,10 @@ If you don't already have a [Docker Hub](https://hub.docker.com) account, you ca
 Create a new public repository called `nodetest`in your Docker Hub account. You
 can delete this repository after finishing the tutorial.
 
-![repo](img/ratchet/CreateDHRepo.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/CreateDHRepo.png" width="80%" style="text-align:center;"/>
+  <figcaption>Create a new Repository</figcaption>
+</figure>
 
 Take note of the following requirements:
 
@@ -66,25 +73,31 @@ Take note of the following requirements:
 
 In the [web app](https://dso.atomist.com), select the Integrations tab and choose 'Configure' for the Docker Hub integration.
 
-![dockerhub_integration](img/ratchet/ConfigureDHIntegration.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/ConfigureDHIntegration.png" width="90%" style="text-align:center;"/>
+</figure>
 
 Copy the webhook URL from the Docker Hub Integration settings page into [webhook configuration][dockerhub]
 for your docker registry.
 
 [dockerhub]: https://docs.atomist.com/integration/dockerhub/
 
-![dest_webhook](img/ratchet/DestWebhookURL.png)
-
-![down](img/ratchet/arrow_down.png)
-
-![webhook](img/ratchet/CreateDHWebhook.png){: style="width: 400px"}
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/DestWebhookURL.png" width="90%" style="text-align:center;"/>
+</figure>
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/arrow_down.png" width="50px" style="text-align:center;"/>
+</figure>
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/CreateDHWebhook.png" width="90%" style="text-align:center;"/>
+</figure>
 
 Atomist will use events from this webhook to track images being pushed into this Docker Hub repository.
 
 Save the configuration.  Atomist will test the connection and indicate with a green check mark if the connection was made successfully.
 
 <figure>
-  <img alt="DockerHub Success" src="../img/ratchet/dockerhub_success.png" width="400" />
+  <img alt="DockerHub Success" src="../img/ratchet/dockerhub_success.png" width="300" />
 </figure>
 
 ## 5. Configure a Docker Build
@@ -92,7 +105,9 @@ Save the configuration.  Atomist will test the connection and indicate with a gr
 This project contains a GitHub actions workflow to build your Dockerfile.  Click
 on the Actions tab in the forked repo and confirm that the workflow is enabled
 
-![enableWorkflows](img/ratchet/EnableWorkflows.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/EnableWorkflows.png" width="90%" style="text-align:center;"/>
+</figure>
 
 This action requires three [secrets to be configured](https://docs.github.com/en/actions/reference/encrypted-secrets) in your new GitHub repo:
 
@@ -102,7 +117,9 @@ This action requires three [secrets to be configured](https://docs.github.com/en
 
 After you’ve added these secrets, you should see 3 repository secrets.
 
-![configureSecrets](img/ratchet/ConfigureSecrets.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/ConfigureSecrets.png" width="90%" style="text-align:center;"/>
+</figure>
 
 ## 6. Activate vulnerability policy and push a change
 
@@ -112,7 +129,9 @@ Navigate to the Overview tab in the [Atomist web app](https://dso.atomist.com),
 
 Confirm that you want the policy to be activated on this test repo.
 
-![Activate](img/ratchet/Activate.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/Activate.png" width="90%" style="text-align:center;"/>
+</figure>
 
 Create a new push to your repository by incrementing the version number in
 the `version.txt` file in the root of the `nodetest` repository.
@@ -121,15 +140,15 @@ Watch progress in the "Actions" tab.  It will take about 2 minutes for the GitHu
 Dockerfile, after which DockerHub will notify Atomist that the image is ready to
 be scanned for vulnerabilities.
 
+![FirstCheckRun.png](img/ratchet/FirstCheckRun.png)
+
 The "docker-vulnerability-policy" check will show there are 5 critical and 24 high
 vulnerabilities in this image (this could be a different number when you go
 through the tutorial - vulnerabilities are always changing).
 
-![FirstCheckRun.png](img/ratchet/FirstCheckRun.png)
-
 ## 7. Simulate a Deployment
 
-The number of ways to detect that an image has been deployed is infinite.  We might integrate:
+The number of ways to detect that an image has been deployed is essentially infinite:
 
 * a kubernetes admission controller
 * watch for closed JIRA issues
@@ -143,7 +162,7 @@ The number of ways to detect that an image has been deployed is infinite.  We mi
 [awscodepipelines]: https://aws.amazon.com/codepipeline/
 [azuredevops]: https://azure.microsoft.com/en-us/services/devops/
 
-Simulate an image being deployed by executing a `curl` command.
+Start by simulating an image being deployed using a `curl` command.
 
 ```bash
 curl -X POST \
@@ -155,8 +174,8 @@ curl -X POST \
 
 * **${API_URL} and ${API_TOKEN}** get these from the "Integrations" tab of the [Atomist web app](https://dso.atomist.com/). 
 
-<figure>
-  <img alt="ApiKey" src="../img/ratchet/ApiKey.png" />
+<figure style="text-align: center;">
+  <img alt="ApiKey" src="../img/ratchet/ApiKey.png" width="90%"/>
   <figcaption>API endpoint and API key settings in Atomist web app</figcaption>
 </figure>
 
@@ -165,8 +184,8 @@ curl -X POST \
 * **${IMAGE_DIGEST}** is the digest of the image you've just built.  You can
     copy this from docker hub.
 
-<figure>
-  <img alt="Image Digest" src="../img/ratchet/ImageDigest.png" />
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/ImageDigest.png" width="90%"/>
   <figcaption>Find that image digest on Docker Hub</figcaption>
 </figure>
 
