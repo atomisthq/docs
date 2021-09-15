@@ -14,7 +14,14 @@ Setup a connection between AWS ECR and Atomist.  After completing this setup, At
 Navigate to the [integration config page][new-integration].  You should be able to fill out all fields except the "Trusted Role ARN".  You will only know the role ARN after running cloud formation.
 
 1.  Choose basic auth credentials to protect the endpoint that AWS will use to notify Atomist when Images are pushed or deleted.
-2.  Choose an "External ID" that is unique.
+
+!!! Note
+    How does Atomist protect you from a [confused deputy attack][confused-deputy]?  
+    Our cloud template ensures that every customer has a unique `ExternalId`, 
+    along with the appropriate condition on the IAM role statement.
+    Atomist will always pass this ExernalId whenever we need to access resources in your account.
+
+[confused-deputy]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
 
 <figure style="text-align: center;">
   <a href="https://dso.atomist.com/user/signup">
@@ -27,6 +34,9 @@ Navigate to the [integration config page][new-integration].  You should be able 
 In order to simplify onboarding, we have created a public Cloud Formation template.  This template will create an IAM role to provide Atomist with read-only access to ECR.  It will also set up AWS Event Bridge to notify Atomist whenever Container Images are pushed or deleted.  This notification occurs over HTTPS using the url and the basic auth creds you configured in the previous step.
 
 You can inspect this stack in the Designer before creating it.  Before creating the stack, AWS will ask you to enter four parameters.  You must use the same values that you entered into the form above.
+
+!!! Note
+    Click on one of the "Launch Stack" buttons below to start reviewing the details in your AWS account
 
 <div style="text-align: center">
 <table>
