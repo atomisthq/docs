@@ -1,6 +1,6 @@
 # Prevent new vulnerabilities in your containerized applications
 
-!!! Requirements
+!!! Setup 
     1. Create [free account](https://dso.atomist.com/user/signup) - no credit
        card required
     2. Install the [Atomist GitHub Application](https://github.com/apps/atomist)
@@ -8,7 +8,7 @@
 
     (approximate time: 15 minutes)
 
-In this tutorial, you'll enable automatic GitHub CheckRuns on Commits
+In this tutorial, you'll enable scans on Commits
 that build container images.  We'll demonstrate that you can easily 
 track pull requests that are about to introduce _new_ vulnerabilites (vulnerabilities
 that are not already present in your deployed container image).
@@ -23,8 +23,9 @@ that are not already present in your deployed container image).
 Start by creating a [free account](https://dso.atomist.com/user/signup).
 
 <figure style="text-align: center;">
-  <img alt="Image Digest" src="../img/ratchet/signup.png" width="300" style="text-align:center;"/>
-  <figcaption>Discover new vulnerabilities before merging</figcaption>
+  <a href="https://dso.atomist.com/user/signup">
+    <img alt="Image Digest" src="../img/ratchet/signup.png" width="300" style="text-align:center;"/>
+  </a>
 </figure>
 
 ## 2. Fork the test repository
@@ -34,7 +35,7 @@ your GitHub user account.
 
 ## 3. Connect GitHub
 
-Atomist typically starts by discovering Dockerfiles in your GitHub repositories
+Atomist starts by discovering Dockerfiles in your GitHub repositories
 The presence of a Dockerfile is a good sign that this repository produces
 container images - it's increasingly not the only sign ([`buildah`][buildah], 
 [`jib`][jib], and [`buildpacks`][buildpack] are just a few of the alternatives).  
@@ -50,7 +51,7 @@ container images - it's increasingly not the only sign ([`buildah`][buildah],
 
 When selecting repositories, select at least the `nodetest` repo that you just
 forked.  You can also let Atomist scan for Dockefiles in your other repos.  Atomist
-will not take any action without you activing a policy - it's safe to enable the
+will not take any action without first being [activated on each repository](#6-simulate-a-deployment) - it's safe to enable the
 application on other repositories.
 
 ## 4. Configure Docker Hub integration
@@ -71,7 +72,7 @@ Take note of the following requirements:
 - The **Docker Repository** for use in this tutorial (we suggested you create a repo named `nodetest`)
 - A **[Docker Hub Access Token](https://hub.docker.com/settings/security)** — Note that DockerHub has recently started limiting the number of personal access tokens that you can create from a free account. We’d have recommended creating a new personal access token but you may have to re-use an exisiting one.
 
-In the [web app](https://dso.atomist.com), select the Integrations tab and choose 'Configure' for the Docker Hub integration.
+In the [Atomist web app](https://dso.atomist.com), select the Integrations tab and choose 'Configure' for the Docker Hub integration.
 
 <figure style="text-align: center;">
   <img alt="Image Digest" src="../img/ratchet/ConfigureDHIntegration.png" width="90%" style="text-align:center;"/>
@@ -162,7 +163,7 @@ The number of ways to detect that an image has been deployed is essentially infi
 [awscodepipelines]: https://aws.amazon.com/codepipeline/
 [azuredevops]: https://azure.microsoft.com/en-us/services/devops/
 
-Start by simulating an image being deployed using a `curl` command.
+In this tutorial, we'll simulate an image being deployed using a simple `curl` request.
 
 ```bash
 curl -X POST \
@@ -247,7 +248,7 @@ The check run on your commit will indicate if the pull request has introduced an
 
 ![GotWorse-1.png](img/ratchet/GotWorseDetail-1.png)
 
-The Overview tab will also show any open PRs that have been scanned:
+The [Overview tab](https://dso.atomist.com/r/auth/overview) will also show any open PRs that have been scanned:
 
 ![PRVulns](img/ratchet/PR_Vulns.png)
 
