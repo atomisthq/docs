@@ -1,86 +1,130 @@
 # Amazon Elastic Container Registry
 
-There are two steps required to integrate Atomist and ECR.  Step one is configuring Atomist.  After this completing this
-step, Atomist will be able to read Docker v2 api exposed by ECR.  Step two is configuring
-AWS EventBridge.  After completing step two, Atomist will be notified when new images are pushed to ECS.
+Setup a connection between AWS ECR and Atomist.  After completing this setup, Atomist will be notified when Images are either Pushed or Deleted from your registry.  Atomist will also have read-only access to your registries.  This will enable Atomist to scan, and report on your Images.
 
-### Step 1:  Configuring Atomist
+!!! Steps
+    1. Start configuring the Atomist [ECR Integration](new-integration)
+    2. Create a stack using our public Cloud Formation template 
+    3. Copy one Output value (a role ARN) from the stack back to Atomist.
 
-In this step, the user must tell Atomist about the account and region for the ECS instance.  We will also need the user
-to enter an `access key id` and a `secret access key` which has permission to read the Docker v2 api.  We recommend
-creating an account specifically for this integration and attaching the `AmazonEC2ContainerRegistryReadOnly` policy.
-Providing atomist with credentials for this account will allow the integration to apply policy to images and metadata,
-that have been pushed to ECR.
+[new-integration]: https://dso.atomist.com/r/auth/integrations/s/atomist/ecr-integration/new
 
-![img/ecr/1.png](img/ecr/1.png)
+### Step 1:  Start Configuration
 
-In this step, users must also choose a username/password combination that will be used when configuring AWS EventBridge
-in the next step.
+Navigate to the [integration config page](new-integration).  You should be able to fill out all fields except the "Trusted Role ARN".  You will only know the role ARN after running cloud formation.
 
-### Step 2:  Configuring AWS EventBridge
+1.  Choose basic auth credentials to protect the endpoint that AWS will use to notify Atomist when Images are pushed or deleted.
+2.  Choose an "External ID" that is unique.
 
-In the previous step, users were asked to enter basic auth credentials for an Atomist webhook.  The webhook url was
-assigned by Atomist.  This url, combined with the credentials, are needed to configure AWS EventBridge.
+<figure style="text-align: center;">
+  <a href="https://dso.atomist.com/user/signup">
+    <img alt="Image Digest" src="../img/ecr/confignew.png" width="90%"/>
+  </a>
+</figure>
 
-![img/ecr/2.png](img/ecr/2.png)
+### Step 2:  Configure AWS
 
-This information will be needed to complete the configuration of AWS EventBridge.
+In order to simplify onboarding, we have created a public Cloud Formation template.  This template will create an IAM role to provide Atomist with read-only access to ECR.  It will also set up AWS Event Bridge to notify Atomist whenever Container Images are pushed or deleted.  This notification occurs over HTTPS using the url and the basic auth creds you configured in the previous step.
 
-From a high level, we'll need to create a new EventBridge rule.  However, this will roughly break down into three
-individual steps:
+You can inspect this stack in the Designer before creating it.  Before creating the stack, AWS will ask you to enter four parameters.  You must use the same values that you entered into the form above.
 
-1.  Create a rule `pattern`.  In this rule, it will be a pattern matching ECR events.
-2.  Create a `target` for the new rule.  This is where we tell our rule about the Atomist webhook url.
-3.  Create a new `connection` for the new `target`.  This is where we add the basic auth credentials that were created
-    in step 1.
+<div style="text-align: center">
+<table>
+      <tr>
+        <th>Region</th>
+        <th>ecr-integration.template</th>
+      </tr>
+      <tr>
+        <th>us-east-1</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-east-1/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>us-east-2</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-east-2/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>us-west-1</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-west-1/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>us-west-2</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-west-2/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>eu-west-1</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-1/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>eu-west-2</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-2/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>eu-west-3</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-3/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>eu-central-1</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-central-1/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th>ca-central-1</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-ca-central-1/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
+    </table>
+    </div>
 
-In the AWS UI, these three steps can be pulled together into the creation of one rule.
+Before creating the stack, AWS will ask for acknowledgement that creating this stack requires a capability.  This stack creates a role that will grant Atomist read-only access to ECR resources.
 
-#### Create a rule
+![confirm](../img/ecr/capability.png)
 
-An easy way to get started is to use the AWS console.  The AWS EventBridge service has a "Rules" page where you can
-create a new rule:
+## Step 3: Copy Role ARN to Atomist
 
-![img/ecr/createrules.png](img/ecr/createrules.png)
+Once the stack has been created, there will be one output value that must be copied back to Atomist.  The `Value` for the Key `AssumeRoleArn` must be copied.
 
-In the first part of the rule configuration, provide a rule `name` and `description`, and then define the pattern.  A
-simple pattern that can be configured using drop-down menus is:
+![output](../img/ecr/stackoutput.png)
 
-* `Service Provider`:  AWS
-* `Service Name`:  Elastic Container Registry (ECR)
-* `Event Type`: All Events
+Copy the value into the field named "Trusted Role ARN".
 
-The configuration screen will look like this:
+![output](../img/ecr/RoleArn.png)
 
-![img/ecr/createrule.png](img/ecr/createrule.png)
-
-Using the "default" event bus is a good choice.
-
-![img/ecr/eventbus.png](img/ecr/eventbus.png)
-
-#### Add a Target and a Connection
-
-After setting up the event pattern, you'll need to define a target for the rule.  The target type for webhooks is called
-`API destination`.  You'll be able to create a new api destination in line. 
-
-![img/ecr/addtarget.png](img/ecr/addtarget.png)
-
-* the `API destination enpdoint` must be the webhook url copied over from Atomist.
-* the `HTTP method` must be `POST`
-* you can leave the `Invocation rate limit per second` blank.  ECR events are naturally rate limited.
-
-Finally, the credentials for the target are added in a separate step.  This is where you'll need to copy in the basic
-auth credentials that you configured on the Atomist side.  You won't need to add any custom http parameters or inputs.
-The `Add Target` button at the bottom of this form is for adding `additional` targets.  You do not need to click this.
-
-![img/ecr/addconnection.png](img/ecr/addconnection.png)
+Save the configuration.  Atomist will now test the connection with your ECR registry.  You'll see a green check mark beside the integration if a successful connection was made.
 
 
-#### Create the Rule
-
-The final step is to click the `Create` button at the bottom of the form.
-
-![img/ecr/create.png](img/ecr/create.png)
-
-The connection with Atomist will be live at this point.  Simply delete this rule to stop sending events to Atomist.
+![output](../img/ecr/ConnectionSuccessful.png)
 
