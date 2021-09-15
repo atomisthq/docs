@@ -51,7 +51,7 @@ container images - it's increasingly not the only sign ([`buildah`][buildah],
 
 When selecting repositories, select at least the `nodetest` repo that you just
 forked.  You can also let Atomist scan for Dockefiles in your other repos.  Atomist
-will not take any action without first being [activated on each repository](#6-simulate-a-deployment) - it's safe to enable the
+will not take any action without first being [activated on each repository](#7-simulate-a-deployment) - it's safe to enable the
 application on other repositories.
 
 ## 4. Configure Docker Hub integration
