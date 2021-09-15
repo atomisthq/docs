@@ -1,14 +1,13 @@
 # Prevent new vulnerabilities in your containerized applications
 
-!!! Setup 
-    1. Create [free account](https://dso.atomist.com/user/signup) - no credit
-       card required
-    2. Install the [Atomist GitHub Application](https://github.com/apps/atomist)
-    3. Create one public Docker registry on your DockerHub account.
+!!! Summary 
+    * Create free account - no credit card required
+    * Install the Atomist GitHub Application
+    * Create one public Docker registry on your DockerHub account.
 
     (approximate time: 15 minutes)
 
-In this tutorial, you'll enable scans on Commits
+In this tutorial, you'll enable scans on commits
 that build container images.  We'll demonstrate that you can easily 
 track pull requests that are about to introduce _new_ vulnerabilites (vulnerabilities
 that are not already present in your deployed container image).
