@@ -257,6 +257,6 @@ The [Overview tab](https://dso.atomist.com/r/auth/overview) will also show any o
 Add your own repositories with Dockerfiles — new commits and PRs will be scanned
 for new vulnerabilities. Just follow the [steps above](#1-sign-up) and use your own repo instead of forking ours.
 
-Vulnerabilities in the container [base image OS](https://aquasecurity.github.io/trivy/v0.19.2/vulnerability/detection/os/) and Bundler, Composer, Pipenv, Poetry, npm, yarn, Cargo, NuGet, Maven, and Go application dependencies are reported.
+Vulnerabilities in the container base image operating system and application dependencies for Node.js, python, Java/Maven, Go and .NET packages are reported.
 
 Message us [in the app](https://dso.atomist.com) if you need help.
