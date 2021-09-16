@@ -245,11 +245,16 @@ The action workflow in this repository is configured to build and push branches 
 
 The check run on your commit will indicate if the pull request has introduced any problems that you should discuss with your AppSec team (hint: it has). Maybe you *are* the AppSec team?
 
-![GotWorse-1.png](img/ratchet/GotWorseDetail-2.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/GotWorseDetail-2.png" width="80%"/>
+</figure>
 
 The [Overview tab](https://dso.atomist.com/r/auth/overview) will also show any open PRs that have been scanned:
 
-![PRVulns](img/ratchet/PR_Vulns-1.png)
+<figure style="text-align: center;">
+  <img alt="Image Digest" src="../img/ratchet/PR_Vulns-1.png" width="80%"/>
+  <figcaption>Find that image digest on Docker Hub</figcaption>
+</figure>
 
 # Try it on your own container projects
 
