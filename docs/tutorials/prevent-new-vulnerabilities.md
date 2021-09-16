@@ -13,7 +13,7 @@ track pull requests that are about to introduce _new_ vulnerabilites (vulnerabil
 that are not already present in your deployed container image).
 
 <figure style="text-align:center;">
-  <img alt="Image Digest" src="../img/ratchet/GotWorse-1.png" width="600"/>
+  <img alt="Image Digest" src="../img/ratchet/GotWorse-2.png" width="600"/>
   <figcaption>Discover new vulnerabilities before merging</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ your GitHub user account.
 
 ## 3. Connect GitHub
 
-Atomist starts by discovering Dockerfiles in your GitHub repositories
+Atomist starts by discovering Dockerfiles in your GitHub repositories.
 The presence of a Dockerfile is a good sign that this repository produces
 container images - it's increasingly not the only sign ([`buildah`][buildah], 
 [`jib`][jib], and [`buildpacks`][buildpack] are just a few of the alternatives).  
@@ -50,7 +50,7 @@ container images - it's increasingly not the only sign ([`buildah`][buildah],
 
 When selecting repositories, select at least the `nodetest` repo that you just
 forked.  You can also let Atomist scan for Dockefiles in your other repos.  Atomist
-will not take any action without first being [activated on each repository](#7-simulate-a-deployment) - it's safe to enable the
+will not take any action without first being [activated on each repository](#6-activate-vulnerability-policy-and-push-a-change) - it's safe to enable the
 application on other repositories.
 
 ## 4. Configure Docker Hub integration
@@ -100,9 +100,9 @@ Save the configuration.  Atomist will test the connection and indicate with a gr
   <img alt="DockerHub Success" src="../img/ratchet/dockerhub_success.png" width="300" />
 </figure>
 
-## 5. Configure a Docker Build
+## 5. Configure a docker build
 
-This project contains a GitHub actions workflow to build your Dockerfile.  Click
+This project contains a GitHub Actions workflow to build your Dockerfile.  Click
 on the Actions tab in the forked repo and confirm that the workflow is enabled
 
 <figure style="text-align: center;">
@@ -137,7 +137,7 @@ Create a new push to your repository by incrementing the version number in
 the `version.txt` file in the root of the `nodetest` repository.
 
 Watch progress in the "Actions" tab.  It will take about 2 minutes for the GitHub action to build and push your
-Dockerfile, after which DockerHub will notify Atomist that the image is ready to
+container image, after which DockerHub will notify Atomist that the image is ready to
 be scanned for vulnerabilities.
 
 ![FirstCheckRun.png](img/ratchet/FirstCheckRun.png)
@@ -146,7 +146,7 @@ The "docker-vulnerability-policy" check will show there are 5 critical and 24 hi
 vulnerabilities in this image (this could be a different number when you go
 through the tutorial - vulnerabilities are always changing).
 
-## 7. Simulate a Deployment
+## 7. Simulate a deployment
 
 The number of ways to detect that an image has been deployed is essentially infinite:
 
@@ -245,11 +245,11 @@ The action workflow in this repository is configured to build and push branches 
 
 The check run on your commit will indicate if the pull request has introduced any problems that you should discuss with your AppSec team (hint: it has). Maybe you *are* the AppSec team?
 
-![GotWorse-1.png](img/ratchet/GotWorseDetail-1.png)
+![GotWorse-1.png](img/ratchet/GotWorseDetail-2.png)
 
 The [Overview tab](https://dso.atomist.com/r/auth/overview) will also show any open PRs that have been scanned:
 
-![PRVulns](img/ratchet/PR_Vulns.png)
+![PRVulns](img/ratchet/PR_Vulns-1.png)
 
 # Try it on your own container projects
 
