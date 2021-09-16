@@ -24,6 +24,8 @@ theme:
   custom_dir: "theme"
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+   - js/intercom.js  
 markdown_extensions:
   - admonition
   - attr_list
