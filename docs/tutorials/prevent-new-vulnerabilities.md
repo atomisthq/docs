@@ -172,7 +172,7 @@ curl -X POST \
      -d "{\"image\": {\"url\": \"${DOCKERHUB_NAMESPACE}/${DOCKERHUB_REPOSITORY}@${IMAGE_DIGEST}\"}}"
 ```
 
-* **${API_URL} and ${API_TOKEN}** get these from the "Integrations" tab of the [Atomist web app](https://dso.atomist.com/). 
+* **${API_URL} and ${API_KEY}** get these from the "Integrations" tab of the [Atomist web app](https://dso.atomist.com/). 
 
 <figure style="text-align: center;">
   <img alt="ApiKey" src="../img/ratchet/ApiKey.png" width="90%"/>
