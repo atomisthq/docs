@@ -209,7 +209,7 @@ repository, and insert a vulnerability.
 
 ```bash
 $ git checkout -b vulnerable
-$ npm install nodemailer@6.4.0
+$ npm install nodemailer@6.4.0 --save-exact
 $ git commit -am 'introduce vulnerability'
 $ git push origin -u vulnerable
 ```
