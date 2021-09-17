@@ -13,7 +13,7 @@ Setup a connection between AWS ECR and Atomist.  After completing this setup, At
 
 Navigate to the [integration config page][new-integration].  You should be able to fill out all fields except the "Trusted Role ARN".  You will only know the role ARN after running cloud formation.
 
-1.  Choose basic auth credentials to protect the endpoint that AWS will use to notify Atomist when Images are pushed or deleted.
+Choose basic auth credentials to protect the endpoint that AWS will use to notify Atomist when Images are pushed or deleted.  The url, and the basic auth credentials, will be parameters to the cloud formation template in the next step.
 
 <figure style="text-align: center;">
   <a href="https://dso.atomist.com/user/signup">
