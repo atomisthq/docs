@@ -17,7 +17,7 @@ Choose basic auth credentials to protect the endpoint that AWS will use to notif
 
 <figure style="text-align: center;">
   <a href="https://dso.atomist.com/user/signup">
-    <img alt="Image Digest" src="../img/ecr/confignew.png" width="90%"/>
+    <img alt="Image Digest" src="../img/ecr/confignew-1.png" width="90%"/>
   </a>
 </figure>
 
