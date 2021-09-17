@@ -15,14 +15,6 @@ Navigate to the [integration config page][new-integration].  You should be able 
 
 1.  Choose basic auth credentials to protect the endpoint that AWS will use to notify Atomist when Images are pushed or deleted.
 
-!!! Note
-    How does Atomist protect you from a [confused deputy attack][confused-deputy]?  
-    Our cloud template ensures that every customer has a unique `ExternalId`, 
-    along with the appropriate condition on the IAM role statement.
-    Atomist will always pass this ExernalId whenever we need to access resources in your account.
-
-[confused-deputy]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
-
 <figure style="text-align: center;">
   <a href="https://dso.atomist.com/user/signup">
     <img alt="Image Digest" src="../img/ecr/confignew.png" width="90%"/>
@@ -32,6 +24,14 @@ Navigate to the [integration config page][new-integration].  You should be able 
 ### Step 2:  Configure AWS
 
 In order to simplify onboarding, we have created a public Cloud Formation template.  This template will create an IAM role to provide Atomist with read-only access to ECR.  It will also set up AWS Event Bridge to notify Atomist whenever Container Images are pushed or deleted.  This notification occurs over HTTPS using the url and the basic auth creds you configured in the previous step.
+
+!!! Note
+    How does Atomist protect you from a [confused deputy attack][confused-deputy]?  
+    Our cloud template ensures that every customer has a unique `ExternalId`, 
+    along with the appropriate condition on the IAM role statement.
+    Atomist will always pass this ExernalId whenever we need to access resources in your account.
+
+[confused-deputy]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
 
 You can inspect this stack in the Designer before creating it.  Before creating the stack, AWS will ask you to enter four parameters.  You must use the same values that you entered into the form above.
 
@@ -134,7 +134,6 @@ Copy the value into the field named "Trusted Role ARN".
 ![output](img/ecr/RoleArn.png)
 
 Save the configuration.  Atomist will now test the connection with your ECR registry.  You'll see a green check mark beside the integration if a successful connection was made.
-
 
 ![output](img/ecr/ConnectionSuccessful.png)
 
