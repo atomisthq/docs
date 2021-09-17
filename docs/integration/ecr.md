@@ -116,6 +116,14 @@ You can inspect this stack in the Designer before creating it.  Before creating 
           </a>
         </td>
       </tr>
+      <tr>
+        <th>ap-southeast-2</th>
+        <td>
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-ap-southeast-2/public-templates/latest/ecr-integration.template">
+            <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
+          </a>
+        </td>
+      </tr>
     </table>
     </div>
 
