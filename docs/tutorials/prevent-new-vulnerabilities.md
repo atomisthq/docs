@@ -52,11 +52,13 @@ application on other repositories.
 If you don't already have a [Docker Hub](https://hub.docker.com){: target="_blank"} account, 
 you can [create one for free](https://hub.docker.com/signup){: target="_blank"}. 
 
-Create a new public repository called `nodetest`in your Docker Hub account. You
-can delete this repository after finishing the tutorial.
+Create a new public repository called `nodetest`in your [Docker Hub account](https://hub.docker.com/repositories). 
+You can delete this repository after finishing the tutorial.
 
 <figure style="text-align: center;">
-  <img alt="Image Digest" src="../img/ratchet/CreateDHRepo.png" width="80%" style="text-align:center;"/>
+  <a href="https://hub.docker.com/repositories" target="_blank">
+    <img alt="Image Digest" src="../img/ratchet/CreateDHRepo.png" width="80%" style="text-align:center;"/>
+  </a>
   <figcaption>Create a new Repository</figcaption>
 </figure>
 
@@ -117,8 +119,8 @@ on the Actions tab in the forked repo and confirm that the workflow is enabled
   <img alt="Image Digest" src="../img/ratchet/EnableWorkflows.png" width="90%" style="text-align:center;"/>
 </figure>
 
-Create three [secrets to be configured](https://docs.github.com/en/actions/reference/encrypted-secrets){: target="_source"}
-in your new GitHub repo:
+Create three secrets in your new GitHub repo.  You can find the "Secrets" in the left-hand menu 
+of the Repo "Settings" tab (see screenshot below).  The secrets you'll need to create are listed here:
 
 - `DOCKER_USERNAME` must be set to your Docker ID
 - `DOCKER_PASSWORD` is an [Access Token for your Docker Hub account](https://hub.docker.com/settings/security)
