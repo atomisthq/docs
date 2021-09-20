@@ -65,11 +65,14 @@ Take note of the following requirements:
 - Your **Docker Namespace** — this is the Docker ID you use to sign into Docker Hub
 - The **Docker Repository** for use in this tutorial (we suggested you create a repo named `nodetest`)
 - A **[Docker Hub Access Token][security-settings]{: target="_blank"}** — either create a new one 
-  or re-use an existing one.  See [instructions at Docker Hub][access-tokens]{: target="_blank"}. 
+  or re-use an existing one.  See [instructions at Docker Hub][access-tokens]{: target="_blank"}.
 
 !!! Note
-    * Keep this personal access token handy.  You'll need to set it for configuring the Atomist integration _and_ the GitHub Actions secret.
-    * DockerHub has recently started limiting the number of personal access tokens that you can create from a free account.
+    * The Docker Hub access token should have `Read-Write` permissions.  The Atomist integration requires only read scope; however, 
+      you'll also use this token to give your GitHub Action permission to push a new Image, and that requires write scope.
+    * Keep this personal access token handy.  You'll need it to configure both the Atomist integration _and_ the GitHub Actions secret.
+    * DockerHub has recently started limiting free account users to one personal access token.  Otherwise, you could create one access token
+      with read scope for the Atomist integration, and a second one with read-write scope for the GitHub Action secret.
 
 [security-settings]: https://hub.docker.com/settings/security
 [access-tokens]: https://docs.docker.com/docker-hub/access-tokens/
