@@ -216,19 +216,9 @@ changed now that you have a baseline for comparison.
 
 ## 8. Introduce a new vulnerability
 
-For those who have git and npm installed, clone the forked `nodetest` GitHub
-repository, and insert a vulnerability.
-
-```bash
-$ git checkout -b vulnerable
-$ npm install nodemailer@6.4.0 --save-exact
-$ git commit -am 'introduce vulnerability'
-$ git push origin -u vulnerable
-```
-
-You can also just edit the `package.json` directly on GitHub. 
-Add the `nodemailer` dependency and push to a new branch named `vulnerable`.
-Your updated package.json contents should be:
+Insert a vulnerability by editing the `package.json` directly on GitHub. 
+In this example, we're adding a dependency on a package.  After making an update to the file, push the change to a branch named "vulnerable".
+You can replace the entire contents of the file with following:
 
 ```jsx
 {
