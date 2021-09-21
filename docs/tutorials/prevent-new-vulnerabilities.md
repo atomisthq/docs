@@ -249,7 +249,7 @@ The action workflow in this repository is configured to build and push branches 
 
 ## Summary
 
-The check run on your commit will indicate if the pull request has introduced any problems that you should discuss with your AppSec team (hint: it has). Maybe you *are* the AppSec team?
+The check run on your commit will indicate if the pull request has introduced any problems. 
 
 <figure style="text-align: center;">
   <img alt="Image Digest" src="../img/ratchet/GotWorseDetail-2.png" width="80%"/>
