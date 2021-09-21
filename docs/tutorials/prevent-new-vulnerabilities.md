@@ -103,7 +103,15 @@ for your docker registry.
 
 Atomist will use events from this webhook to track images being pushed into this Docker Hub repository.
 
-Save the configuration.  Atomist will test the connection and indicate with a
+Add entries for all 3 fields in the form, and then save the configuration with the green "Save changes" button.
+
+<figure style="text-align: center;">
+  <a href="https://dso.atomist.com/r/auth/integrations/s/atomist/dockerhub-integration/docker_hub">
+    <img alt="Image Digest" src="../img/ratchet/IntegrationConfigForm.png" width="80%" style="text-align:center;"/>
+  </a>
+</figure>
+
+Atomism will test the connection and indicate with a
 green check mark if the connection was made successfully.
 
 <figure>
@@ -180,8 +188,8 @@ In this tutorial, we'll simulate an image being deployed using a simple `curl` r
 ```bash
 curl -X POST \
      -H "Content-Type: application/json" \
-     -H "Authorization: bearer ${API_KEY}" \
-     $API_URL \
+     -H "Authorization: Bearer ${API_KEY}" \
+     ${API_URL} \
      -d "{\"image\": {\"url\": \"${DOCKERHUB_NAMESPACE}/${DOCKERHUB_REPOSITORY}@${IMAGE_DIGEST}\"}}"
 ```
 
