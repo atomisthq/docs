@@ -121,7 +121,8 @@ green check mark if the connection was made successfully.
 ## 5. Configure a docker build
 
 This project contains a GitHub Actions workflow to build your Dockerfile.  Click
-on the Actions tab in the forked repo and confirm that the workflow is enabled
+on the Actions tab in the forked repo and confirm that the workflow should be enabled by clicking the green
+button with the text "I understand my workflows, go ahead and enable them".
 
 <figure style="text-align: center;">
   <img alt="Image Digest" src="../img/ratchet/EnableWorkflows.png" width="90%" style="text-align:center;"/>
