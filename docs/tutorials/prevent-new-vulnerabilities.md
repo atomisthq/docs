@@ -6,6 +6,7 @@
     * Create one public Docker registry on your DockerHub account.
 
     (approximate time: 15 minutes)
+Visit our website to learn more about [Atomist](https://atomist.com/) and [vulnerability scanning](https://atomist.com/product/vulnerability-scanning)
 
 In this tutorial, you'll enable scans on commits
 that build container images.  We'll demonstrate that you can easily 
