@@ -31,7 +31,7 @@ Start by creating a [free account](https://dso.atomist.com/user/signup).
 
 ## 2. Fork the test repository
 
-Fork [https://github.com/atomist/nodetest](https://github.com/atomist/nodetest){: target="_blank"} into
+Fork [https://github.com/atomisthq/atomist-docker-tutorial](https://github.com/atomisthq/atomist-docker-tutorial){: target="_blank"} into
 your GitHub user account.
 
 ## 3. Connect GitHub
@@ -43,7 +43,7 @@ Start by installing the Atomist GitHub application.
   <figcaption>Install Atomist GitHub app</figcaption>
 </figure>
 
-When selecting repositories, select at least the `nodetest` repo that you just
+When selecting repositories, select at least the `atomist-docker-tutorial` repo that you just
 forked.  You can also let Atomist scan for Dockefiles in your other repos.  Atomist
 will not take any action without first being 
 [activated on each repository](#6-activate-vulnerability-policy-and-push-a-change) - it's safe to enable the
@@ -54,7 +54,7 @@ application on other repositories.
 If you don't already have a [Docker Hub](https://hub.docker.com){: target="_blank"} account, 
 you can [create one for free](https://hub.docker.com/signup){: target="_blank"}. 
 
-Create a new public repository called `nodetest`in your [Docker Hub account](https://hub.docker.com/repositories). 
+Create a new public repository called `atomist-docker-tutorial`in your [Docker Hub account](https://hub.docker.com/repositories). 
 You can delete this repository after finishing the tutorial.
 
 <figure style="text-align: center;">
@@ -67,7 +67,7 @@ You can delete this repository after finishing the tutorial.
 Take note of the following requirements:
 
 - Your **Docker Namespace** — this is the Docker ID you use to sign into Docker Hub
-- The **Docker Repository** for use in this tutorial (we suggested you create a repo named `nodetest`)
+- The **Docker Repository** for use in this tutorial (we suggested you create a repo named `atomist-docker-tutorial`)
 - A **[Docker Hub Access Token][security-settings]{: target="_blank"}** — either create a new one 
   or re-use an existing one.  See [instructions at Docker Hub][access-tokens]{: target="_blank"}.
 
@@ -136,7 +136,7 @@ of the Repo "Settings" tab (see screenshot below).  The secrets you'll need to c
 - `DOCKER_USERNAME` must be set to your Docker ID
 - `DOCKER_PASSWORD` is an [Access Token for your Docker Hub account](https://hub.docker.com/settings/security)
 - `DOCKER_REPOSITORY` is the name of the repository you created on Docker Hub 
-   (e.g. `nodetest` if you followed our suggestion). This is the repository that has the webhook pointing to Atomist.
+   (e.g. `atomist-docker-tutorial` if you followed our suggestion). This is the repository that has the webhook pointing to Atomist.
 
 After completing this, you should see 3 repository secrets.
 
@@ -158,7 +158,7 @@ Confirm that you want the policy to be activated on this test repo.
 </figure>
 
 Create a new push to your repository by incrementing the version number in
-the `version.txt` file in the root of the `nodetest` repository.
+the `version.txt` file in the root of the `atomist-docker-tutorial` repository.
 
 Watch progress in the "Actions" tab.  It will take about 2 minutes for the GitHub action to build and push your
 container image, after which DockerHub will notify Atomist that the image is ready to
@@ -220,7 +220,7 @@ An example set of variables (changes these to match your local setup):
 API_URL=https://webhook.atomist.com/atomist/resource/b570bc8b-ed3a-4ced-a52b-46276e6063b6
 API_KEY=team::3765928D4DBD70E90174D03B54A239AE70FFE644CD02B87A64BA3F0846
 DOCKERHUB_NAMESPACE=jrdayfc
-DOCKERHUB_REPOSITORY=nodetest
+DOCKERHUB_REPOSITORY=atomist-docker-tutorial
 IMAGE_DIGEST=sha256:47437c32047850d002df8bfb55a4cab196fd80900f1b70c6bc3f
 ```
 
@@ -251,7 +251,7 @@ You can replace the entire contents of the file with following:
 ```
 
 !!! Note
-    This is a forked repo! Raise a pull request against the main branch of your repo, _not_ against `atomist/nodetest`.
+    This is a forked repo! Raise a pull request against the main branch of your repo, _not_ against `atomisthq/atomist-docker-tutorial`.
     If you're using the GitHub UI to raise the pull request, you'll have to select the non-default option.
 
 After pushing to the new `vulnerable` branch, raise the pull request. 
