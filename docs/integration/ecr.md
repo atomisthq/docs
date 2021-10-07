@@ -47,7 +47,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>us-east-1</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-east-1/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-east-1/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -55,7 +55,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>us-east-2</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-east-2/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-east-2/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -63,7 +63,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>us-west-1</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-west-1/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-west-1/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -71,7 +71,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>us-west-2</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-west-2/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-us-west-2/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -79,7 +79,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>eu-west-1</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-1/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-1/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -87,7 +87,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>eu-west-2</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-2/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-2/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -95,7 +95,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>eu-west-3</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-3/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-west-3/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -103,7 +103,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>eu-central-1</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-central-1/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-eu-central-1/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -111,7 +111,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>ca-central-1</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-ca-central-1/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-ca-central-1/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
@@ -119,7 +119,7 @@ You can inspect this stack in the Designer before creating it.  Before creating 
       <tr>
         <th>ap-southeast-2</th>
         <td>
-          <a href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-ap-southeast-2/public-templates/latest/ecr-integration.template">
+          <a href="https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=atomist-public-templates-ecr-integration&templateURL=https://s3.amazonaws.com/atomist-ap-southeast-2/atomist-public-templates/latest/ecr-integration.template">
             <img alt="Launch Stack" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png" />
           </a>
         </td>
