@@ -1,4 +1,4 @@
-# Atomist documentation 
+# Atomist documentation
 
 This repository contains the markdown sources for the documentation for
 [Atomist][atomist]. You can find the current version of the Atomist
@@ -218,4 +218,5 @@ Created by [Atomist][atomist]. Need Help? [Join our Slack workspace][slack].
 
 [atomist]: https://atomist.com/ "Atomist - How Teams Deliver Software"
 [slack]: https://join.atomist.com/ "Atomist Community Slack"
+
 
