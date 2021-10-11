@@ -15,7 +15,7 @@ Navigate to the **Integrations** tab and click **Configure** next to the Docker 
 
 To configure the integration:
 
-1. Enter a [Personal access token](https://docs.docker.com/docker-hub/access-tokens/).
+1. Enter a [Personal access token](https://docs.docker.com/docker-hub/access-tokens/) with _read_ access permission.
 2. Enter the [Docker ID](https://docs.docker.com/docker-id/) corresponding to the personal access token.
 3. Enter the namespace for your public or private image repositories. This can either be a Docker Hub organization, or your Docker ID.
 
