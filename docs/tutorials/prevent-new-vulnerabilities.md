@@ -18,4 +18,7 @@ that are not already present in your deployed container image).
 
 We have created an in-app guided flow to take you through the steps involved in setting up these scans.
 
+To start, visit the [atomist app](https://dso.atomist.com), and fork the [test app](https://github.com/atomisthq/atomist-docker-tutorial).  
+The app will guide you through the remaining setup steps.
+
 ![flow](img/ratchet/guided_flow.png)
