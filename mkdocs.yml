@@ -53,6 +53,7 @@ nav:
       - Google Container Registry: integration/gcr.md
       - GitHub Container Registry: integration/ghcr.md
       - Linking images to commits: integration/linking-images.md
+      - Tracking image deployments: integration/deploys.md
       # - Authentication Providers: 
           # - SAML: integration/saml.md
   - Tutorials:
