@@ -1,6 +1,6 @@
 # GitHub Container Registry
 
-!!! example Steps
+!!! example "Steps"
     1. Connect your GitHub user account or organization
     2. To enable "on push" scanning of private images, set a personal access token to use for container image pulls
 
