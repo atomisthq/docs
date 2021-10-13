@@ -1,6 +1,6 @@
 # GitHub Container Registry
 
-!!! example
+!!! example Steps
     1. Connect your GitHub user account or organization
     2. To enable "on push" scanning of private images, set a personal access token to use for container image pulls
 
@@ -10,12 +10,12 @@ If you have not already connected a GitHub user account or a GitHub organization
 
 ![install](img/ghcr/install.png)
 
-!!! important
+!!! info "Repository access required for image scanning" 
     Image scans are triggered by GitHub events sent to Atomist when a new image is pushed to your GitHub
     container registry.  In order for Atomist to be able to scan an image, the image must have a _Repository source_ 
     provided (see more below) and the Atomist GitHub app _Repository access_ must be configured to inlude the repository
     provided as the _Repository source_ for the image.
-    
+
     For example, if the repository source for an image is listed as `https://github.com/org/repo1`, then the Atomist
     GitHub app must be connected to the `org` GitHub organization and must have `repo1` repository in the configured
     repository access.
