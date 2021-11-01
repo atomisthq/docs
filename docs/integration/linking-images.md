@@ -1,6 +1,7 @@
 ## About linking images
 
-The Docker policy detects new vulnerabilities in base images in Dockerfiles and built images pushed to a registry. Configure image to Dockerfile linking to:
+The Docker policy detects new vulnerabilities in base images in Dockerfiles and built images pushed to a registry. 
+Configure image to Dockerfile linking to:
 
 - See new high-severity vulnerabilities reported on the **Overview** tab
 - See the repository that an image was built from
@@ -14,8 +15,9 @@ Many Docker build processes consist of creating a working copy for a particular 
 
 Atomist's Docker image linking support uses two Docker labels defined by the [Open Container Initiative image format specification](https://github.com/opencontainers/image-spec/blob/master/annotations.md).
 
-- `org.opencontainers.image.source` set to the relative path of the Dockerfile in the Git repo
-- `org.opencontainers.image.revision` set to the SHA of the commit used during the build
+- `org.opencontainers.image.revision` should be set to the SHA of the commit used during the build
+- `org.opencontainers.image.source` should be set to the url of the GitHub repository used for this build process
+- `com.atomist.containers.image.dockerfile` should be set to the relative path of the Dockerfile used to build this image.  This is not required if the Dockerfile is located in the root of the repository.
 
 ## Setting up linking for your Docker builds
 
@@ -28,7 +30,8 @@ The `docker build` command supports adding labels directly from the command line
 ```bash
 docker build \
     --label "org.opencontainers.image.revision=$(git rev-parse HEAD)" \
-    --label "org.opencontainers.image.source=docker/Dockerfile" \
+    --label "org.opencontainers.image.source=https://github.com/my-org/my-repo" \
+    --label "com.atomist.containers.image.dockerfile=docker/Dockerfile" \
     -f docker/Dockerfile \
     -t $IMAGE_NAME \
     .
@@ -63,7 +66,8 @@ jobs:
         tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
         labels: |
           org.opencontainers.image.revision=${{ github.sha }}
-          org.opencontainers.image.source=Dockerfile
+          org.opencontainers.image.source=https://github.com/${{ github.repository }}
+          com.atomist.containers.image.dockerfile=Dockerfile
 ```
 
 The step named "Push to Docker Hub" handles the build and pushes each of the tags listed in the `tags` section.  The `labels` sections gives us full control over what labels are added to our images.
@@ -86,7 +90,7 @@ The contents of the `build` file should be something like:
 docker build \
   -t $IMAGE_NAME \
   --label "org.opencontainers.image.revision=$SOURCE_COMMIT" \
-  --label "org.opencontainers.image.source=$DOCKERFILE_PATH" .
+  --label "com.atomist.containers.image.dockerfile=$DOCKERFILE_PATH" .
 ```
 
 The environment variables `IMAGE_NAME`, `SOURCE_COMMIT`, and `DOCKERFILE_PATH` are all set automatically by Docker Hub.
@@ -105,7 +109,7 @@ steps:
   - '--label' 
   - 'org.opencontainers.image.revision=$COMMIT_SHA' 
   - '--label' 
-  - 'org.opencontainers.image.source=docker/Dockerfile' 
+  - 'com.atomist.containers.image.dockerfile=docker/Dockerfile' 
   - '-f' 
   - 'docker/Dockerfile' 
   - '.'
@@ -130,7 +134,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=base/Dockerfile" -f base/Dockerfile .
+      - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "com.atomist.containers.image.dockerfile=base/Dockerfile" -f base/Dockerfile .
       - docker tag base:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest      
   post_build:
     commands:
@@ -141,7 +145,9 @@ phases:
 
 ### Circle CI
 
-[Circle CI](https://circleci.com/docs/2.0/building-docker-images/) makes the current Git SHA available in the environment variable `$CIRCLE_SHA1`.  Adding labels to a `docker build` command in a job step is shown here.
+[Circle CI](https://circleci.com/docs/2.0/building-docker-images/) makes the current Git SHA and REPOSITORY available 
+in the [environment variables][circle-ci-built-ins] `$CIRCLE_SHA1` and `$CIRCLE_REPOSITORY_URL`.  
+Adding labels to a `docker build` command in a job step is shown here.
 
 ```yaml
 version: 2
@@ -158,9 +164,15 @@ jobs:
        command: |
          docker build \
             --label "org.opencontainers.image.revision=$CIRCLE_SHA1" \
-            --label "org.opencontainers.image.source=Dockerfile" \
+            --label "org.opencontainers.image.source=$CIRCLE_REPOSITORY_URL" \
+            --label "com.atomist.containers.image.dockerfile=Dockerfile" \
             -t slimslenderslacks/app:latest .
 
      # deploy the image
      - run: docker push slimslenderslacks/app:latest
 ```
+
+The configuration above assumes that the `Dockerfile` is located in the root of the project.  Use the relative
+path from the root of the repository.
+
+[circle-ci-built-ins]: https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables
