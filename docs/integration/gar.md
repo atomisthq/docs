@@ -52,13 +52,13 @@ Your `PROJECT_ID` as well as the address of the new service account must
 configured in your Atomist workspace.  You'll also need to set the region for
 your GCR instance.
 
-![img/gcr/gcr_config.png](img/gcr/gcr_config.png)
+![img/gar/gar_config.png](img/gar/gar_config.png)
 
 Once these 3 pieces of information have been saved, Atomist will test the
 connection.  You'll see some green check marks when a connection has been
 established.
 
-![img/gcr/config_success.png](img/gcr/config_success.png)
+![img/gar/config_success.png](img/gar/config_success.png)
 
 ## Step 2: Configuring the Webhook
 
@@ -69,7 +69,7 @@ notifications when new images are pushed to your registry.
 Start by copying your workspace's unique webhook url. This will be the
 `PUSH_ENDPOINT_URI` on your new subscription.
 
-![img/gcr/webhook_config.png](img/gcr/webhook_config.png)
+![img/gar/webhook_config.png](img/gar/webhook_config.png)
 
 The integration form will show that no Webhook events have yet been received.
 If your Google project was created recently (after April 2021), then the
@@ -84,7 +84,7 @@ The `PUSH_ENDPOINT_URL` must be copied from your Atomist workspace.  You can use
 
 The `PROJECT_NUMBER` is different from the `PROJECT_ID` but both can be found in your google cloud console dashboard.
 
-![img/gcr/project_info.png](img/gcr/project_info.png)
+![img/gar/project_info.png](img/gar/project_info.png)
 
 ```bash
 SERVICE_ACCOUNT_EMAIL="${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com"
@@ -107,10 +107,10 @@ gcloud pubsub subscriptions create ${SUBSCRIPTION} \
 
 After we've received our first successful image push, the integration page will indicate this with another green check mark.
 
-![img/gcr/webhook_config_success.png](img/gcr/webhook_config_success.png)
+![img/gar/webhook_config_success.png](img/gar/webhook_config_success.png)
 
 [pubsub]: https://cloud.google.com/pubsub/docs/push
 [pubsub-authentication]: https://cloud.googme.com/pubsub/docs/push#setting_up_for_push_authentication
 [short-lived-credentials]: https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
-[gcr-access-control]: https://cloud.google.com/container-registry/docs/access-control
+[gar-access-control]: https://cloud.google.com/container-registry/docs/access-control
 [pubsub-create]: https://cloud.google.com/sdk/gcloud/reference/pubsub/subscriptions/create
