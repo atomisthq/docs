@@ -1,46 +1,46 @@
-# GCR
+# GAR
 
-The Atomist integration watches for new Images being pushed to the GCR
+The Atomist integration watches for new Images being pushed to the GAR
 registry, and continuously monitors vulnerability databases for anything that
-might impact you.  To setup the integration, a GCR administrator will need to
+might impact you.  To setup the integration, a GAR administrator will need to
 complete two steps:
 
-1.  Create a service account and grant it read-only access to GCR
-2.  Create a PubSub subscription to notify when new Images are pushed 
+1.  Create a service account and grant it the `roles/artifactregistry.reader` role
+2.  Create a PubSub subscription on the `gcr` topic to notify when new Images are pushed 
 
-## Step 1: Granting Atomist Read-Only Access to GCR
+## Step 1: Granting Atomist Read-Only Access to GAR
 
 This procedure requires a project administrator because you'll be creating a
 new service account, and two new iam bindings.  The service account can be called
-anything (we've called it `atomist-gcr-integration` in the example below).
+anything (we've called it `atomist-gar-integration` in the example below).
 After it is created, you'll enter the service account address, and the project
-id into the GCR Integration form.  No credentials will need to be exchanged
+id into the GAR Integration form.  No credentials will need to be exchanged
 because you'll have granted Atomist permission to create an access token for
 this new service account.  The gcloud instructions below achieve three things:
 
 1.  First step creates a new service account.  This service account represents
     how Atomist will access GCR on your behalf.
-2.  Grant only the `roles/storage.objectViewer` role to this service account.
+2.  Grant only the `roles/artifactregistry.reader` role to this service account.
     Permissions should be kept to only what Atomist needs for accessing GCR.
 3.  Finally, grant Atomist permission to create an access token for this new
     service account.
 
 Removing, or suspending, this service account will prevent any further access
-to your GCR resources.  The `gcloud` instructions are included here:
+to your GAR resources.  The `gcloud` instructions are included here:
 
 ```bash
-SERVICE_ACCOUNT_ID="atomist-gcr-integration"
+SERVICE_ACCOUNT_ID="atomist-gar-integration"
 PROJECT_ID="YOUR_GCP_PROJECT_ID"
 
 # create the service account
 gcloud iam service-accounts create ${SERVICE_ACCOUNT_ID} \
-    --description="Atomist GCR Integration Service Account" \
-    --display-name="Atomist GCR Integration"
+    --description="Atomist GAR Integration Service Account" \
+    --display-name="Atomist GAR Integration"
 
 # new service account should be granted read-only access to GCR
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
     --member="serviceAccount:${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com" \
-    --role="roles/storage.objectViewer"
+    --role="roles/artifactregistry.reader"
 
 # grant atomist access to this service account
 gcloud iam service-accounts add-iam-policy-binding "${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com" \
@@ -62,7 +62,7 @@ established.
 
 ## Step 2: Configuring the Webhook
 
-All GCR projects will have a pubsub topic named `gcr`.  Use the instructions
+All GAR projects will have a pubsub topic named `gcr`.  Use the instructions
 below to create a new PubSub subscription on that Topic.  This topic receives
 notifications when new images are pushed to your registry.
 
@@ -79,7 +79,7 @@ sign outbound requests without this additional grant.  Atomist validates all
 incoming push requests to ensure that they came from your account, and were
 intended for Atomist.
 
-The name of the `SUBSCRIPTION`.  We use `atomist-gcr-integration-subscription` in the example below.  
+The name of the `SUBSCRIPTION`.  We use `atomist-gar-integration-subscription` in the example below.  
 The `PUSH_ENDPOINT_URL` must be copied from your Atomist workspace.  You can use the same service account email address that was created in the previous step.
 
 The `PROJECT_NUMBER` is different from the `PROJECT_ID` but both can be found in your google cloud console dashboard.
@@ -88,7 +88,7 @@ The `PROJECT_NUMBER` is different from the `PROJECT_ID` but both can be found in
 
 ```bash
 SERVICE_ACCOUNT_EMAIL="${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com"
-SUBSCRIPTION="atomist-gcr-integration-subscription"
+SUBSCRIPTION="atomist-gar-integration-subscription"
 PUSH_ENDPOINT_URI="COPY_THIS_FROM_ATOMIST"
 
 # step is only needed if project created before April 2021
