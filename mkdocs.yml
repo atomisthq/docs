@@ -47,7 +47,7 @@ nav:
   - Integrations:
 #      - GitHub: integration/github.md
 #      - Slack: integration/slack.md
-#      - Kubernetes: integration/kubernetes.md
+      - Kubernetes: integration/kubernetes.md
       - DockerHub: integration/dockerhub.md
       - Amazon Elastic Container Registry: integration/ecr.md
       - Google Container Registry: integration/gcr.md

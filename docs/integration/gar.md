@@ -98,6 +98,9 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
  --member="serviceAccount:${PUBSUB_SERVICE_ACCOUNT}"\
  --role='roles/iam.serviceAccountTokenCreator'
 
+# this topic might already exist
+gcloud pubsub topics create gcr
+
 gcloud pubsub subscriptions create ${SUBSCRIPTION} \
   --topic='gcr' \
   --push-auth-token-audience='atomist' \
