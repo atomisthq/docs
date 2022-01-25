@@ -13,7 +13,7 @@
 
 ### 1. Fork this repo
 
-[Fork this repo](https://github.com/atomisth/adm-ctrl/fork).
+[Fork this repo](https://github.com/atomisthq/adm-ctrl/fork).
 
 This repo contains a set of base kubernetes that you'll adapt using `kustomize`.
 
