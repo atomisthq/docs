@@ -124,9 +124,15 @@ h1 {
 	padding-top: 75px !important;
 }
 
+/* This attempts to make the content full width and alongside another rule
+ * pushes the ToC off to the right of the page. However this just doesn't work
+ * as it makes the style completely off center and totally falls apart on smaller
+ * resolutions when zoomed to a level where the text can be read. I'm removing this
+ * for the moment. 
 .md-grid {
 	max-width: 100rem;
 }
+*/
 
 .md-main__inner {
 	padding-top: 50px !important;
@@ -247,11 +253,16 @@ html .md-footer-meta.md-typeset a.md-footer-social__link {
 
 /* OVERRIDES FOR RESPONSIVE ISSUES INTRODUCED WITH OVERRIDES */
 
-@media only screen and (min-width: 60em) {
+/* This attempts to make the content full width and alongside another rule
+ * pushes the ToC off to the right of the page. However this just doesn't work
+ * as it makes the style completely off center and totally falls apart on smaller
+ * resolutions when zoomed to a level where the text can be read. I'm removing this
+ * for the moment. */
+/*@media only screen and (min-width: 60em) {
 	.md-content {
 		margin-right: 0 !important;
 	}
-}
+}*/
 
 @media only screen and (min-width: 76.25em) {}
 
