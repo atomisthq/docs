@@ -1,17 +1,17 @@
 ## About linking images
 
-The Docker policy detects new vulnerabilities in base images in Dockerfiles and built images pushed to a registry. 
 Configure image to Dockerfile linking to:
 
-- See new high-severity vulnerabilities reported on the **Overview** tab
-- See the repository that an image was built from
-- See the commit from which an image was built
+- See the status of the image and know if its safe to deploy
+- Update GitHub with checks that report the scanning results
+- See which repository the image was built from
+- See the commit from which the image was built and know who pushed it
 
-![Image vulnerabilities Overview](img/image-vuln-overview.png)
+![Image Linked Status](img/linked-status.png)
 
 ## How linking works with your Docker build process
 
-Many Docker build processes consist of creating a working copy for a particular Git commit, and then executing a single-stage or multi-stage Docker build process.  The commit SHA and the Dockerfile that is used can be added to the resulting image as as Docker image labels.  With this image metadata, any image pushed to a Docker registry can be linked back to the commit that generated it.
+Many Docker build processes consist of creating a working copy for a particular Git commit, and then executing a single-stage or multi-stage Docker build process.  The commit SHA and the Dockerfile that it used can be added to the resulting image with Docker image labels.  With this image metadata, any image pushed to a Docker registry can be linked back to the commit that generated it.
 
 Atomist's Docker image linking support uses two Docker labels defined by the [Open Container Initiative image format specification](https://github.com/opencontainers/image-spec/blob/master/annotations.md).
 
@@ -21,7 +21,7 @@ Atomist's Docker image linking support uses two Docker labels defined by the [Op
 
 ## Setting up linking for your Docker builds
 
-There are several ways to add the labels needed for Docker image linking. If your Docker images are built as part of an automated build process, see the examples below for how to set up linking with several popular CI and build tools. If your Docker images are built from manually run commands or a script, see the Command Line Docker build example.  Choose the approach that works best with your particular Docker build process.
+There are several ways to add the labels needed for Docker image linking. If your Docker images are built as part of an automated build process, see the examples below for how to set up linking with several popular CI and build tools. If your Docker images are built manually or with a script, see the Command Line Docker build example.  Choose the approach that works best with your particular Docker build process.
 
 ### Command Line Docker Build
 
