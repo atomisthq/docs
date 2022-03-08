@@ -57,6 +57,6 @@ nav:
       - Tracking image deployments: integration/deploys.md
       # - Authentication Providers: 
           # - SAML: integration/saml.md
-  - Tutorials:
-      -  Prevent new vulnerabilities: tutorials/prevent-new-vulnerabilities.md
+#  - Tutorials:
+#      -  Prevent new vulnerabilities: tutorials/prevent-new-vulnerabilities.md
   - Support: support.md
