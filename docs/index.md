@@ -3,8 +3,9 @@
 We take a developer-focused approach to keeping your containerized applications safe. With our DevSecOps tool for Docker security that is currently in early access, security engineers and developers can:
 
 - Improve security by keeping projects up to date
+- Choose the best images using our open source scan database
 - Reduce noise and make security issues relevant
-- Get clear, actionable info directly in GitHub
+- Get clear, actionable info directly in GitHub and our website
 - Know the security impact of incremental changes
 - Increase uptake of security fixes with fewer blocked deployments
 
