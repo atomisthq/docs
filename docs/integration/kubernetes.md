@@ -1,13 +1,11 @@
-## Installation
+### Adding an Image Policy to Admission Control
 
 ### Prerequisites
 
-1.  [openssl v3][openssl] (tested with `3.0.1`)
-2.  [kustomize][kustomize] (tested with `v4.4.1`)
-3.  [kubectl][kubectl] (tested with `v1.21.1`)
-4.  kubectl must be authenticated and the current context should be set to the cluster that you will be updating
+1.  [kustomize][kustomize] (tested with `v4.4.1`)
+2.  [kubectl][kubectl] (tested with `v1.21.1`)
+3.  kubectl must be authenticated and the current context should be set to the cluster that you will be updating
 
-[openssl]: https://www.openssl.org/docs/man3.0/man7/migration_guide.html
 [kustomize]: https://kubectl.docs.kubernetes.io/installation/kustomize/
 [kubectl]: https://kubectl.docs.kubernetes.io/installation/kubectl/
 
@@ -28,51 +26,40 @@ mkdir -p resources/k8s/overlays/${CLUSTER_NAME}
 
 Create a file named `resources/k8s/overlays/${CLUSTER_NAME}/endpoint.env`.
 
-The file will start out like this.
-
 ```properties
 apiKey=<replace this>
 url=<replace this>
+team=<replace this>
 ```
 
-The `apiKey` and `url` should be filled in with your workspace's values.  Find these in the [atomist app](https://dso.atomist.com/r/auth/integrations) and replace them in the file.
+The `apiKey` and `url` must be filled in with your values from your Atomist workspace.  You can find these values in the [integrations tab](https://dso.atomist.com/r/auth/integrations). 
+You'll also need your the id for your atomist `team`.  This is a nine character value that you can find in any url when you're logged in to atomist.  For example, the url `https://dso.atomist.com/AZQP0824Q/overview/images` contains a team id of `AZQP0824Q`.
 
-### 3. Initialize SSL certs and keystore
-
-The kubernetes apiserver can only use HTTPS to send admission control requests.  This is true even when the admission webhook is running in the same cluster.  We can use a self-signed ca certificate, but we'll need to make the server certificate and private key available to the admission controller.  We'll also need to configure the apiserver to trust the self-signed CA certificate.   Since the keystore will need a password, generate a random password in a `password.txt` in the root of the project.
-
-```bash
-echo "changeme" > password.txt
-```
-This password will be used to set up the keystore, and also set as a kubernetes secret so the admission controller can use the keystore at runtime.
-
-Update [lines 23 to 27](https://github.com/atomisthq/adm-ctrl/blob/main/cert.sh#L23-L27) in the `cert.sh` file at the root of this project.  Running this script
-will generate the needed certificates, and keystore.
-
-```bash
-$ ./cert.sh
-```
-
-### 4. Update Kubernetes cluster
+### 3. Update Kubernetes cluster
 
 This procedure will create a service account, a cluster role binding, two secrets, a service, and a deployment.  All of these will be created in a new namespaced called `atomist`.
 
-![controller diagram](img/kubernetes/controller.png)
+![controller diagram](./docs/controller.png)
 
-Create an overlay for customisations.
+Use the same overlay that you created above (`resources/k8s/overlays/${CLUSTER_NAME}`).  Copy in a template kustomization.yaml file.
 
 ```
-CLUSTER_NAME=replacethis
-mkdir -p resources/k8s/overlays/${CLUSTER_NAME}
 cp resources/templates/default_controller.yaml resources/k8s/overlays/${CLUSTER_NAME}/kustomization.yaml
 ```
 
-This kustomization file will permit you to change the `CLUSTER_NAME` environment variable.  
-In the initial copy of the file, the value will be `"default"`, but it should be changed to the name of your cluster.  This change is made to the final line in your new kustomization file.
+This kustomization file requires one edit.  The last line shows a patch with a `value` of `"default"`.  This should be updated to be the name of your cluster.
 
 ```yaml
 resources:
   - ../../controller
+secretGenerator:
+- name: endpoint
+  behavior: merge
+  envs:
+  - endpoint.env
+images:
+- name: atomist/adm-ctrl
+  newTag: v4
 patchesJson6902:
 - target:
     group: apps
@@ -81,20 +68,44 @@ patchesJson6902:
     name: policy-controller
   patch: |-
     - op: replace
-      path: /spec/template/spec/containers/0/env/3/value
+      path: /spec/template/spec/containers/0/env/2/value
       value: "default"
 ```
 
-Deploy the admission controller into the the current kubernetes context using the command shown below.
+Deploy the admission controller into the the current kubernetes context by running the following script.
 
 ```bash
-kustomize build resources/k8s/overlays/sandbox | kubectl apply -f -
+# creates roles and service account for running jobs
+kustomize build resources/k8s/certs | kubectl apply -f -
+# create SSL certs for your new admission controller - stores them as secrets in the atomist namespace of your cluster
+kubectl apply -f resources/k8s/jobs/create.yaml
+# creates a secret to store the keystore for your new admission controller
+kubectl apply -f resources/k8s/jobs/keystore_secret.yaml
+# install admission controller pod
+kustomize build resources/k8s/overlays/${CLUSTER_NAME} | kubectl apply -f -
+# skip the kube-system namespace
+kubectl label namespace kube-system policy-controller.atomist.com/webhook=ignore
+# validating webhook configuration
+kubectl apply -f resources/k8s/admission/admission.yaml
+# patch the admission webhook with the ca certificate generated earlier
+kubectl apply -f resources/k8s/jobs/patch.yaml
 ```
 
-At this point, the admission controller will be running but the cluster will not be routing any admission control requests to it.  Create a configuration to start sending admission control requests to the controller using the following script.
+## Enable image check policy
+
+The admission controller will still be admitting all pods.  Reject pods with un-checked images by enabling the policy one namespace at a time.
+For example, start verifying that new pods in namespace `production` must have passed all necessary checks by annotating the namespace with the 
+annotation `policy-controller.atomist.com/policy`.
 
 ```bash
-kustomize build resources/k8s/admission | kubectl apply -f -
+kubectl annotate namespace production policy-controller.atomist.com/policy=enabled
+```
+
+Disable admission control on a namespace by removing the annotation or setting it to something other than `enabled`.
+
+```bash
+kubectl annotate namespace production policy-controller.atomist.com/policy-
 ```
 
 [dynamic-admission-control]: https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/
+
