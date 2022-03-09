@@ -6,7 +6,7 @@ Keep up to date with supported, current Docker base images and keep new vulnerab
 To get up and running quickly, simply sign up, select repositories, then get a summary of your 
 Docker security and start improving it.
 
-## Create an account
+### Create an account
 
 1. Go to [atomist.com](https://atomist.com) and click the **Try Atomist** button in the top menu
 
@@ -16,18 +16,35 @@ Docker security and start improving it.
 
     ![Sign up](img/getting-started/sign-up.png)
 
-3. Connect your user account or a GitHub organization to Atomist. You will be asked to authorize 
+### Configure Image Registry
+
+Start scanning images in your registry by enabling a [Registry Integration](https://dso.atomist.com/r/auth/integrations).  
+Specific instructions about each integration are included below.
+
+| Integration | link to documentation |
+| :----       | :-----  |
+| DockerHub   | [configure namespace and personal access token](integration/dockerhub.md) |
+| AWS ECR     | [use cloud formation template](integration/ecr.md) |
+| Google GCR  | [uses gcloud](integration/gcr.md) |
+| Google GAR  | [uses gcloud](integration/gar.md) |
+| GitHub GHCR | [uses Atomist GitHub application](integration/ghcr.md) |
+
+### Install GitHub App
+
+Connect your user account or a GitHub organization to Atomist. You will be asked to authorize 
 and install the Atomist GitHub app. This allows Atomist to analyze the repositories you select.
 
     ![Connect GitHub](img/getting-started/connect-github.png)
 
-4. Select repositories to analyze then activate the Docker policy. Be sure to select repositories 
-that contain Dockerfiles. Once activated, the Docker policy will be used to analyze Dockerfiles in the 
-selected repositories.
+---
 
-    ![Select repositories](img/getting-started/select-repos.png)
+We are now automatically tracking bills of materials, indexing images by package, and tracking both new and already present vulnerabilities.  You can search your images by vulnerability or package using the [image overview page](https://dso.atomist.com/r/auth/overview/images).  This view also breaks down vulnerabilities by layer so that you can see which vulnerabilities are added by layers you own, and which are pulled in from public images that you use.
 
-5. View the results in the **Overview** tab.
+![Overview](img/getting-started/overview.png)
 
-    ![Overview](img/getting-started/overview.png)
+### Next Steps
 
+* Atomist watches for new advisories from [public sources](getting_started/sources.md), but you can also add your own internal advisories.  Checkout how to [get started with your own advisories](getting_started/private-advisories.md).
+* TODO add [admission control](getting_started/admission-control.md)
+* TODO add [gitops](getting_started/pull-oriented.md)
+* TODO add [falco](getting_started/falco.md)

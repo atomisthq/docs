@@ -33,7 +33,9 @@ team=<replace this>
 ```
 
 The `apiKey` and `url` must be filled in with your values from your Atomist workspace.  You can find these values in the [integrations tab](https://dso.atomist.com/r/auth/integrations). 
-You'll also need your the id for your atomist `team`.  This is a nine character value that you can find in any url when you're logged in to atomist.  For example, the url `https://dso.atomist.com/AZQP0824Q/overview/images` contains a team id of `AZQP0824Q`.
+You'll also need your the id for your atomist `team`.  This is the nine character value that you'll find at the top of [this page](https://dso.atomist.com/r/auth/policies).
+
+![workspace id](./img/kubernetes/settings.png)
 
 ### 3. Update Kubernetes cluster
 
