@@ -42,8 +42,8 @@ nav:
   - Getting Started: 
       - Getting Started: getting-started.md
       - Creating Advisories: getting_started/private-advisories.md
-      - Kubernetes Admission Control: getting_started/admission-control.md
       - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
+      - Kubernetes Admission Control: getting_started/admission-control.md
       - Adding Falco: getting_started/falco.md 
 
 #  - Policies:
@@ -57,6 +57,7 @@ nav:
       - Google Container Registry: integration/gcr.md
       - Google Artifact Registry: integration/gar.md
       - GitHub Container Registry: integration/ghcr.md
+      - JFrog Artifactory: integration/jfrog.md
       - Linking images to commits: integration/linking-images.md
       - Tracking image deployments: integration/deploys.md
       # - GitHub: integration/github.md
