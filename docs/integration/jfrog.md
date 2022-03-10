@@ -14,4 +14,3 @@ docker run -ti --init broken-test:latest \
 
 > if we use `--init`, do we have to document the version of docker that we rely on?  I think --init creates what we used to call a `dumb_init` to set up signal handlers.  But once this runs in daemon mode, perhaps we don't need this anyway.  Their internal container orchestration will become responsible for this container anyway.
 
-

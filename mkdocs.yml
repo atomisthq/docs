@@ -44,7 +44,7 @@ nav:
       - Creating Advisories: getting_started/private-advisories.md
       - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
       - Kubernetes Admission Control: getting_started/admission-control.md
-      - Adding Falco: getting_started/falco.md 
+      # - Adding Falco: getting_started/falco.md 
 
 #  - Policies:
 #      - Dockerfiles: policies/docker-file.md
