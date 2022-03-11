@@ -12,6 +12,10 @@ integration.
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hSbPQn4ncUs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+Start here:
+
+https://vonwig.slack.com/apps/A0HM83NCC-atomist?tab=more_info
+
 ## Connect to Slack
 
 1.  From **Manage > Integrations**, choose the Slack integration.

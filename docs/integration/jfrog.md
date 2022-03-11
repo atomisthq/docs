@@ -45,7 +45,7 @@ Options:
 * `artifactory-repository`
   * an Artifactory container repository name to monitor
 * `container-registry-host`
-  * If Artifactory is behind a reverse proxy (most configurations), this is the hostname associated with the Artifactory repository containing images. If this isn't supplied, the agent will assume that the hostname of the `artifactory-url` is the docker v2 API hostname
+  * If Artifactory is behind a reverse proxy (most configurations), this is the hostname associated with the Artifactory repository containing images. If this isn't supplied, the agent will assume that the hostname of the `artifactory-url` is the docker v2 API hostname (i.e. you are using embedded tomcat). See https://www.jfrog.com/confluence/display/RTF4X/Getting+Started+with+Docker+and+Artifactory for more details
 * `username`
   *  Username used for HTTP/Basic authentication with Artifactory
 * `password`
