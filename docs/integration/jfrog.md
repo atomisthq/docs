@@ -2,7 +2,7 @@
 
 When your registry is not visible on the public internet, images can be indexed by running a monitoring agent inside the network.  
 
-The agent will scan configured Artifactory container repositories at regular intervals, and send newly discovered images' metadata to the Atomist control plan.
+The agent will scan configured Artifactory container repositories at regular intervals, and send newly discovered images' metadata to the Atomist control plane.
 
 In the example below, `https://hal9000.atomist.com` is a private registry that is only visible on an internal network.
 
@@ -10,7 +10,7 @@ In the example below, `https://hal9000.atomist.com` is a private registry that i
 docker run -ti atomist/docker-registry-broker:latest \
   --workspace AQ1K5FIKA \
   --api-key team::6016307E4DF885EAE0579AACC71D3507BB38E1855903850CF5D0D91C5C8C6DC0 \
-  --artifactory-url http://hal9000.atomist.com \
+  --artifactory-url https://hal9000.atomist.com \
   --artifactory-repository atomist-docker-local \
   --container-registry-host atomist-docker-local.hal9000.atomist.com
   --username admin \
