@@ -22,14 +22,14 @@ docker run -ti atomist/docker-registry-broker:latest \
 #### Configuration
 
 ```shell
-$ docker run -ti broker-test:latest -h
+$ docker run -ti atomist/docker-registry-broker:latest --help
 This is Atomist's docker registry broker.
 Options:
   -w, --workspace WORKSPACE_ID                 Atomist workspace ID
   -a, --api-key API_KEY                        Atomist API key
   -j, --artifactory-url ARTIFACTORY_URL        Artifactory base-url URL (without any path or trailing slashes)
   -r, --artifactory-repository REPOSITORY      Artifactory container repository name
-  -s, --container-registry-host HOST           The hostname to used to pull/push images to Artifactory
+  -h, --container-registry-host HOST           The hostname to used to pull/push images to Artifactory
   -u, --username USERNAME                      Repository username
   -p, --password PASSWORD                      Repository password
   -t, --period PERIOD                      60  Time in seconds between scans
