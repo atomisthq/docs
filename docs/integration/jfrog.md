@@ -36,6 +36,7 @@ Options:
   -h, --help
 ```
 
+
 * `workspace`
   * The Atomist workspace ID to store image metadata. Visit https://dso.atomist.com/r/auth/overview/images and grab the workspace ID from the URL. e.g. the workspace ID for https://dso.atomist.com/AQ1K5FIKA/overview/images is `AQ1K5FIKA`
 * `api-key`
