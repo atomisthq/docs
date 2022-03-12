@@ -47,6 +47,10 @@ We have provided a set of [examples](integration/linking-images.md) for how to e
 
 ![Connect GitHub](img/getting-started/connect-github.png)
 
+Once you are redirected back to Atomist, you'll be asked to select a set of repos that are used to create container images.  If you are trying out Atomist on just a few repositories then select them here.  Selecting "All Repos" means that Atomist will start watching for images built from all existing and future repositories in this Organization.  Note that if Atomist detects Dockerfiles FROM lines that could be pinned to digests and updated via pull request, it will begin raising automated pull requests.  We suggest that you start by selecting the repositories that are used to build all of the images that you are evaluation, and then switch to "All repositories".
+
+![activate-repos](img/getting-started/activate-repos.png)
+
 ### Initial Setup Complete
 
 Atomist is now tracking new container images.  This includes updates to bills of materials, indexing images by package, and tracking both new and existing vulnerabilities.  You can search your images by vulnerability or package using the [image overview page](https://dso.atomist.com/r/auth/overview/images).  This view also breaks down vulnerabilities by layer so that you can see which vulnerabilities are added by layers you own, and which are pulled in from public images that you use.
@@ -57,7 +61,8 @@ Atomist is now tracking new container images.  This includes updates to bills of
 
 Teams use Atomist to protect downstream workloads from new vulnerabilities.  It's also used to help teams track and remediate new vulnerabilities that impact existing workloads.  In the next sections, we'll look at how teams can use atomist to gain visibility into container workload systems like Kubernetes.
 
+* [Set up Checks](getting_started/checks.md) that will run whenever a new Image is pushed to your registry
 * Atomist watches for new advisories from [public sources](getting_started/sources.md), but you can also add your own internal advisories.  Checkout how to [get started with your own advisories](getting_started/private-advisories.md).
-* TODO add [gitops](getting_started/pull-oriented.md)
-* TODO add [admission control](getting_started/admission-control.md)
-* TODO add [falco](getting_started/falco.md)
+* Add a [gitops controller](getting_started/pull-oriented.md) like [Flux](https://www.weave.works/oss/flux/) to pull candidate images that have passed their checks.
+* Use [kubernetes admission control](getting_started/admission-control.md) to ensure that images are fully checked before being admitted into different clusters or namespaces.
+* Try adding another check to add [secret scanning](getting_started/add-secret-scanner-check.md) to make sure that the sources used to build an image are always scanned for leaked secrets.
