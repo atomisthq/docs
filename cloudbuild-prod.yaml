@@ -1,0 +1,19 @@
+steps:
+- name: squidfunk/mkdocs-material:3.3.0
+  entrypoint: "bash"
+  args:
+  - '-eEuo'
+  - 'pipefail'
+  - '-c'
+  - |-
+    mkdocs build --strict;
+    cp -R site/ /site
+  volumes:
+  - name: 'site'
+    path: '/site'
+- name: gcr.io/atomist-web-docs-prod/firebase
+  args: ["deploy", "--project=atomist-web-docs-production", "--only=hosting"]
+  volumes:
+  - name: 'site'
+    path: '/site'
+
