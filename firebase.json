@@ -1,8 +1,9 @@
 {
   "hosting": {
-    "public": "site",
+    "public": "/site",
     "ignore": [
       "firebase.json",
+      "cloudbuild.yaml",
       "**/.*",
       "**/node_modules/**"
     ]

@@ -174,14 +174,11 @@ Items on the same line create a visually equivalent admonition.
 
 ## Releasing
 
-When a push is made to this repository, the documentation is built by
-[atomist-web-sdm][] and published to
-[https://docs.atomist.services/][docs-staging].
+When a push is made to this repository, the documentation is built to [https://docs.atomist.services][docs-staging] 
+using [a CloudBuild trigger](https://console.cloud.google.com/cloud-build/triggers/edit/0ec71e57-ca79-4b05-a700-0936a5b465e5?project=atomist-web-docs-staging).
+The cloud build steps are in [this cloudbuild.yaml file](cloudbuild.yaml).  In the `atomist-web-docs-staging` project, the cloudbuild service account has 
+been given permission to deploy content updates to firebase.  See instructions [here](https://cloud.google.com/build/docs/deploying-builds/deploy-firebase).
 
-If the staging deployment is approved, the site is "published" to
-[https://docs.atomist.com/][atomist-doc].
-
-[atomist-web-sdm]: https://github.com/atomist/atomist-web-sdm
 [docs-staging]: https://docs.atomist.services/
 
 ### Updating dependencies
