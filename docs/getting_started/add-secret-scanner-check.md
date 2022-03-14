@@ -11,7 +11,6 @@ Secret Scanner automatically scans for access and API keys for Twitter, Facebook
 Save the following GraphQL snippet to a file
 
 ```shell
-
 cat <<'EOF' | sed 's/"/\\"/g' > secrets.graphql
 mutation enableSecretScanner {
   saveSkillConfiguration(name: "github-secret-scanner-skill",
@@ -21,22 +20,12 @@ mutation enableSecretScanner {
                            parameters: [{
                             repoFilter: {
                               name: "repos",
-                              value: {
-                                
-                              }
-                            }
-                          }],
-                           enabled: true
-                         }) {
-    __typename
-  }
-}
+                              value: {}}}],
+                           enabled: true}) {__typename}}
 EOF
-
-
 ```
 
-And use curl to send to the Atomist API.
+And use `curl` to send to the Atomist API.
 
 Now execute the script below. You’ll need to set the TEAM and the API_KEY to your `workspace-id` and an `api-key`.
 
