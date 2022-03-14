@@ -41,8 +41,8 @@ And use curl to send to the Atomist API.
 Now execute the script below. You’ll need to set the TEAM and the API_KEY to your `workspace-id` and an `api-key`.
 
 ```shell
-export ATOMIST_API_KEY=<api-key>
-export ATOMIST_WORKSPACE_ID=<workspace-id>
+ATOMIST_API_KEY=<api-key>
+ATOMIST_WORKSPACE_ID=<workspace-id>
 
 curl -X POST \
      -d '{"query": "'"$(< secrets.graphql)"'" }' \
