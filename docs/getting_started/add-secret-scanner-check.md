@@ -1,4 +1,4 @@
-## Adding code Secret Scanning to your Container Image Policy
+## Adding code Secret Scanning GitHub check
 
 ### Overview
 
