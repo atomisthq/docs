@@ -11,7 +11,7 @@ steps:
   volumes:
   - name: 'site'
     path: '/site'
-- name: gcr.io/atomist-web-docs-prod/firebase
+- name: gcr.io/atomist-web-docs-production/firebase
   args: ["deploy", "--project=atomist-web-docs-production", "--only=hosting"]
   volumes:
   - name: 'site'
