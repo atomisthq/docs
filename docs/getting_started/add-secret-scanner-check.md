@@ -55,6 +55,3 @@ curl -X POST \
     * The Atomist workspace ID to configure. Visit https://dso.atomist.com/r/auth/overview/images and grab the workspace ID from the URL. e.g. the workspace ID for https://dso.atomist.com/AQ1K5FIKA/overview/images is AQ1K5FIKA
 * `api-key`
     * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
-
-
-More fined grained configuration, for example adding your own secret patterns, excluding false positives, or constraining which repositories are scanned and be managed at: https://go.atomist.com/catalog/skills/atomist/github-secret-scanner-skill
