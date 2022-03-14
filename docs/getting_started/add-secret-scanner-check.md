@@ -11,7 +11,7 @@ Secret Scanner automatically scans for access and API keys for Twitter, Facebook
 Save the following GraphQL snippet to a file
 
 ```shell
-cat <<'EOF' | sed 's/"/\\"/g' > secrets.graphql
+cat <<'EOF' > secrets.graphql
 mutation enableSecretScanner {
   saveSkillConfiguration(name: "github-secret-scanner-skill",
                          namespace: "atomist",
@@ -34,7 +34,7 @@ ATOMIST_API_KEY=<api-key>
 ATOMIST_WORKSPACE_ID=<workspace-id>
 
 curl -X POST \
-     -d '{"query": "'"$(< secrets.graphql)"'" }' \
+     -d '{"query": "'"$(sed 's/"/\\"/g' < secrets.graphql)"'" }' \
      -H "Authorization: Bearer ${ATOMIST_API_KEY}" \
      -H "Content-Type: application/json" \
      https://automation.atomist.com/graphql/team/${ATOMIST_WORKSPACE_ID}
@@ -50,7 +50,7 @@ curl -X POST \
 To add this check to your Image Policy for an environment, it's just a case of adding the `github-secret-scanner-skill` GitHub check to the policy as configured at [Image Checks](checks.md). For example, if your policy previously looked like this:
 
 ```shell
-cat <<'EOF' |  sed 's/"/\\"/g' > rules.json
+cat <<'EOF' > rules.json
 {"rules": ["demo/production:github/docker-vulnerability-policy"]}
 EOF
 ```
@@ -58,7 +58,8 @@ EOF
 requiring secret scanning in the `demo/production` policy would look like:
 
 ```shell
-cat <<'EOF' |  sed 's/"/\\"/g' > rules.json
-{"rules": ["demo/production:github/docker-vulnerability-policy", "demo/production:github/github-secret-scanner-skill"]}
+cat <<'EOF' > rules.json
+{"rules": ["demo/production:github/docker-vulnerability-policy", 
+           "demo/production:github/github-secret-scanner-skill"]}
 EOF
 ```

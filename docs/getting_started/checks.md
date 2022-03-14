@@ -25,7 +25,7 @@ In the section called `New Image Vulnerabilites`, select the check box that cont
 Now that we are checking images for new vulnerabilities, we can begin requiring that certain sets of checks pass before an image is ready to be admitted into an existing workload (for example, see the [section on kubernetes admission control](admission-control.md)).  We can select different checks for different environments.  For example, let's start with the requirement that a kubernetes cluster named `demo` with a namespace `production` requires the check configured above.  We can configure that by calling a graphql mutation.  Copy the following mutation into a file (e.g. rules.json)
 
 ```bash
-cat <<'EOF' |  sed 's/"/\\"/g' > rules.json
+cat <<'EOF' > rules.json
 {"rules": ["demo/production:github/docker-vulnerability-policy"]}
 EOF
 ```
@@ -44,7 +44,7 @@ ATOMIST_API_KEY=<api-key>
 
 
 ```bash
-cat <<'EOF' | sed 's/"/\\"/g' > policy.graphql
+cat <<'EOF' > policy.graphql
 mutation setPolicy($rules: [String!]!) {
   setConfigurationParameter(
     name: "deploy-integration", 
@@ -62,7 +62,7 @@ mutation setPolicy($rules: [String!]!) {
 EOF
 
 curl -X POST \
-     -d '{"query": "'"$(< policy.graphql)"'", "variables": "'"$(< rules.json)"'"}' \
+     -d '{"query": "'"$(sed 's/"/\\"/g' < policy.graphql)"'", "variables": '"$(< rules.json)"'}' \
      -H "Authorization: Bearer ${ATOMIST_API_KEY}" \
      -H "Content-Type: application/json" \
      https://automation.atomist.com/graphql/team/${ATOMIST_API_KEY}
