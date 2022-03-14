@@ -47,7 +47,7 @@ curl -X POST \
 
 ### Adding to Image Policy
 
-To add this check to your Image Policy for an environment, it's just a case of adding the `github-secret-scanner-skill` GitHub check to the policy as configured at [Image Checks](getting_started/checks.md). For example, if your policy previously looked like this:
+To add this check to your Image Policy for an environment, it's just a case of adding the `github-secret-scanner-skill` GitHub check to the policy as configured at [Image Checks](checks.md). For example, if your policy previously looked like this:
 
 ```shell
 cat <<'EOF' |  sed 's/"/\\"/g' > rules.json
