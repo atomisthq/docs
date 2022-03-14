@@ -172,14 +172,18 @@ Items on the same line create a visually equivalent admonition.
 [ts]: https://www.typescriptlang.org/
 -->
 
-## Releasing
+## Buiding and Releasing
 
 When a push is made to this repository, the documentation is built to [https://docs.atomist.services][docs-staging] 
 using [a CloudBuild trigger](https://console.cloud.google.com/cloud-build/triggers/edit/0ec71e57-ca79-4b05-a700-0936a5b465e5?project=atomist-web-docs-staging).
 The cloud build steps are in [this cloudbuild.yaml file](cloudbuild.yaml).  In the `atomist-web-docs-staging` project, the cloudbuild service account has 
 been given permission to deploy content updates to firebase.  See instructions [here](https://cloud.google.com/build/docs/deploying-builds/deploy-firebase).
 
+When this repo is tagged, the documention is built to [https://docs.atomist.com][docs-prod] using [a CloudBuild trigger](https://console.cloud.google.com/cloud-build/triggers/edit/4c559023-14fd-4389-b029-2961cf41afcd?project=atomist-web-docs-production).
+The steps for the cloud build are in [this cloudbuild-prod.yaml](cloudbuild-prod.yaml).
+
 [docs-staging]: https://docs.atomist.services/
+[docs-prod]: https://docs.atomist.com/
 
 ### Updating dependencies
 
