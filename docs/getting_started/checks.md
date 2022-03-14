@@ -33,8 +33,8 @@ EOF
 Now execute the scripts below:
 
 ```bash
-export ATOMIST_WORKSPACE_ID=<workspace-id>
-export ATOMIST_API_KEY=<api-key>
+ATOMIST_WORKSPACE_ID=<workspace-id>
+ATOMIST_API_KEY=<api-key>
 ```
 
 * `workspace-id`
