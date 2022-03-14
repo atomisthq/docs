@@ -38,18 +38,18 @@ Options:
 
 
 * `workspace`
-  * The Atomist workspace ID to store image metadata. Visit https://dso.atomist.com/r/auth/overview/images and grab the workspace ID from the URL. e.g. the workspace ID for https://dso.atomist.com/AQ1K5FIKA/overview/images is `AQ1K5FIKA`
+    * The Atomist workspace ID to store image metadata. Visit https://dso.atomist.com/r/auth/overview/images and grab the workspace ID from the URL. e.g. the workspace ID for https://dso.atomist.com/AQ1K5FIKA/overview/images is `AQ1K5FIKA`
 * `api-key`
-  * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
+    * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
 * `artifactory-url` 
-  * is the base URL of your artifactory instance. This must not include any path or trailing slashes
+    * is the base URL of your artifactory instance. This must not include any path or trailing slashes
 * `artifactory-repository`
-  * an Artifactory container repository name to monitor
+    * an Artifactory container repository name to monitor
 * `container-registry-host`
-  * If Artifactory is behind a reverse proxy (most configurations), this is the hostname associated with the Artifactory repository containing images. If this isn't supplied, the agent will assume that the hostname of the `artifactory-url` is the docker v2 API hostname (i.e. you are using embedded tomcat). See https://www.jfrog.com/confluence/display/RTF4X/Getting+Started+with+Docker+and+Artifactory for more details
+    * If Artifactory is behind a reverse proxy (most configurations), this is the hostname associated with the Artifactory repository containing images. If this isn't supplied, the agent will assume that the hostname of the `artifactory-url` is the docker v2 API hostname (i.e. you are using embedded tomcat). See https://www.jfrog.com/confluence/display/RTF4X/Getting+Started+with+Docker+and+Artifactory for more details
 * `username`
-  *  Username used for HTTP/Basic authentication with Artifactory
+    *  Username used for HTTP/Basic authentication with Artifactory
 * `password`
-  * Password for `username`
+    * Password for `username`
  
 
