@@ -30,13 +30,18 @@ cat <<'EOF' |  sed 's/"/\\"/g' > rules.json
 EOF
 ```
 
-Now execute the script below.  You'll need to set the `TEAM` and the `API_KEY` to your [workspace-id]() and 
-an [api-key]().
+Now execute the scripts below:
 
 ```bash
-TEAM="<replace with your team-id>"
-API_KEY="<replace with  your api-key>"
+export ATOMIST_WORKSPACE_ID=<workspace-id>
+export ATOMIST_API_KEY=<api-key>
 ```
+
+* `workspace-id`
+    * The Atomist workspace ID to configure. Visit https://dso.atomist.com/r/auth/overview/images and grab the workspace ID from the URL. e.g. the workspace ID for https://dso.atomist.com/AQ1K5FIKA/overview/images is AQ1K5FIKA
+* `api-key`
+    * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
+
 
 ```bash
 cat <<'EOF' | sed 's/"/\\"/g' > policy.graphql
@@ -58,7 +63,9 @@ EOF
 
 curl -X POST \
      -d '{"query": "'"$(< policy.graphql)"'", "variables": "'"$(< rules.json)"'"}' \
-     -H "Authorization: Bearer ${API_KEY}" \
+     -H "Authorization: Bearer ${ATOMIST_API_KEY}" \
      -H "Content-Type: application/json" \
-     https://automation.atomist.com/graphql/team/${TEAM}
+     https://automation.atomist.com/graphql/team/${ATOMIST_API_KEY}
 ```
+
+
