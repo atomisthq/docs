@@ -22,7 +22,17 @@ In the section called `New Image Vulnerabilites`, select the check box that cont
 
 ### Choose Admission Checks
 
-Now that we are checking images for new vulnerabilities, we can begin requiring that certain sets of checks pass before an image is ready to be admitted into an existing workload (for example, see the [section on kubernetes admission control](admission-control.md)).  We can select different checks for different environments.  For example, let's start with the requirement that a kubernetes cluster named `demo` with a namespace `production` requires the check configured above.  We can configure that by calling a graphql mutation.  Copy the following mutation into a file (e.g. rules.json)
+Now that we are checking images for new vulnerabilities, we can begin requiring that certain sets of checks pass before an image is ready to be admitted into an existing workload (for example, see the [section on kubernetes admission control](admission-control.md)).  We can select different checks for different environments.  For example, let's start with the requirement that a kubernetes cluster named `demo` with a namespace `production` requires the check configured above.  
+
+This can be done by editing the [Deployment Policy](https://go.atomist.com/r/auth/manage/integrations/s/l/atomist/deploy-integration) and adding:
+
+`demo/production:github/docker-vulnerability-policy` to the list of checks in the **Image Policy**:
+
+![image-policy-checks](../img/image-policy-checks.png)
+
+#### Configuration via GraphQL
+
+We can also configure by calling a GraphQL mutation.  Copy the following mutation into a file (e.g. rules.json)
 
 ```bash
 cat <<'EOF' > rules.json
