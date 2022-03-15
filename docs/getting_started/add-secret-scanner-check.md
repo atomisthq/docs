@@ -6,7 +6,15 @@ Prevent leaking API keys, access tokens, passwords and other sensitive data by k
 
 Secret Scanner automatically scans for access and API keys for Twitter, Facebook, Google, Stripe, Square, PayPal, AWS, Twilio, Mailchimp, Mailgun and Picatic API. Secret Scanner supports adding patterns to detect other secrets not detected by default. Add scanning support for other tools with a simple regular expression.
 
-### Configuration with curl
+### Configuration
+
+Enable the Secret Scanner [here](https://go.atomist.com/catalog/skills/atomist/github-secret-scanner-skill), selecting the repositories for which you would like a a created.
+
+Add `github/github-secret-scanner-skill` to your Image Policy by following the instructions for [image checks](checks.md)
+
+### Configuration via GraphQL
+
+It's also possible to configure Secret Scanning via the GraphQL api.
 
 Save the following GraphQL snippet to a file
 
@@ -45,7 +53,7 @@ curl -X POST \
 * `api-key`
     * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
 
-### Adding to Image Policy
+#### Adding to Image Policy
 
 To add this check to your Image Policy for an environment, it's just a case of adding the `github-secret-scanner-skill` GitHub check to the policy as configured at [Image Checks](checks.md). For example, if your policy previously looked like this:
 
