@@ -38,7 +38,7 @@ ATOMIST_API_KEY=<api-key>
 ```
 
 * `workspace-id`
-    * The Atomist workspace ID to configure. Visit https://dso.atomist.com/r/auth/overview/images and grab the workspace ID from the URL. e.g. the workspace ID for https://dso.atomist.com/AQ1K5FIKA/overview/images is AQ1K5FIKA
+    * Grab your workspace ID from https://dso.atomist.com/r/auth/policies
 * `api-key`
     * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
 
