@@ -1,47 +1,49 @@
 # Slack
 
 Atomist has a powerful Slack integration to help your team leverage
-the power of ChatOps.  Select the Slack channels where you'd like to
-receive notifications when a given skill runs, and issue commands from
-chat that run skills.
+the power of ChatOps.  After installing the bot, you'll need to link
+some channels to GitHub repos.  The bot will only create notifications
+in channels that have subscribed to them.
 
-Here is a video walking you through setting up the Atomist Slack
-integration.
+Start by installing the GitHub Notifaction Skill.  [Click here to start the install](https://go.atomist.com/catalog/skills/atomist/github-notifications-skill).
 
-<div style="text-align:center;">
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hSbPQn4ncUs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+![start-enable](img/slack/0-skill-start-enable.png)
 
-Start here:
-
-https://vonwig.slack.com/apps/A0HM83NCC-atomist?tab=more_info
+Use the "Continue" button on the right.
 
 ## Connect to Slack
 
-1.  From **Manage > Integrations**, choose the Slack integration.
-2.  Click **Connect to Slack** and follow the Slack authorization
-    flow. You will be adding the [Atomist Slack app][slack-app] to
-    your Slack workspace.
-    
+In the next step, you'll be redirected to Slack so that you can install the Atomist application 
+into your workspace.  This step can only be performed by a Slack user that has permission
+to install new applications in the Slack workspace.
+
+### 1. Redirect to Slack
+
+![choose-slack](img/slack/1-skill-choose-slack.png)
+
+### 2. Authorize the application
+
+![redirect-to-slack](img/slack/2-redirect-to-slack.png)
+
+### 3. Redirect back to Atomist
+
+After being redirected back to Atomist, you'll be asked to link a channel to one of your GitHub repositories. 
+
+![redirect-to-slack](img/slack/3-link-channels.png)
+
 [slack-app]: https://slack.com/apps/A0HM83NCC-atomist (Atomist Slack App)
 
-## Linking Channels
-
-Once your Slack integration is complete, you will need to link
-channels to your GitHub repositories so that you receive notifications
-in the right channels.
-
--   If you have not yet enabled the [GitHub integration][github],
-    you'll need to do so before you can link channels.
 -   Select a **Slack Channel** on the left, and one or more
     **Repositories** on the right, then click the **Link** button.
 -   You can always add, edit and remove channel links in the **Manage
     > Integrations > Slack** page.
 -   The `@atomist` bot will automatically be invited to linked channels.
 
-![Linking Slack channels and GitHub Repositories](img/slack/slack-channel-linking.png)
-
 [github]: github.md (Atomist GitHub Integration)
+
+### 4.  Complete Installation
+
+![4-set-params](img/slack/4-set-params.png)
 
 ## Disconnecting Slack
 

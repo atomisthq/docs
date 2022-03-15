@@ -62,7 +62,7 @@ Atomist is now tracking new container images.  This includes updates to bills of
 Teams use Atomist to protect downstream workloads from new vulnerabilities.  It's also used to help teams track and remediate new vulnerabilities that impact existing workloads.  In the next sections, we'll look at how teams can use atomist to gain visibility into container workload systems like Kubernetes.
 
 * [Set up Checks](getting_started/checks.md) that will run whenever a new Image is pushed to your registry
+* [Create a Slack notification channel](integration/slack.md) to receive notifications about new security advisories impacting workloads.
 * Atomist watches for new advisories from [public sources](getting_started/sources.md), but you can also add your own internal advisories.  Checkout how to [get started with your own advisories](getting_started/private-advisories.md).
-* Add a [gitops controller](getting_started/pull-oriented.md) like [Flux](https://www.weave.works/oss/flux/) to pull candidate images that have passed their checks.
-* Use [kubernetes admission control](getting_started/admission-control.md) to ensure that images are fully checked before being admitted into different clusters or namespaces.
+* Use [kubernetes admission control](integration/kubernetes.md) to ensure that images are fully checked before being admitted into different clusters or namespaces.
 * Try adding another check to add [secret scanning](getting_started/add-secret-scanner-check.md) to make sure that the sources used to build an image are always scanned for leaked secrets.

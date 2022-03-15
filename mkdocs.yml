@@ -43,8 +43,8 @@ nav:
       - Getting Started: getting-started.md
       - Image Checks: getting_started/checks.md 
       - Creating Advisories: getting_started/private-advisories.md
-      - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
-      - Kubernetes Admission Control: getting_started/admission-control.md
+      # - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
+      - Kubernetes Admission Control: integration/kubernetes.md
       - Add secret scanning: getting_started/add-secret-scanner-check.md
       # - Adding Falco: getting_started/falco.md 
 
@@ -63,7 +63,7 @@ nav:
       - Linking images to commits: integration/linking-images.md
       - Tracking image deployments: integration/deploys.md
       # - GitHub: integration/github.md
-      # - Slack: integration/slack.md
+      - Slack: integration/slack.md
       # - Authentication Providers: 
           # - SAML: integration/saml.md
 #  - Tutorials:
