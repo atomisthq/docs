@@ -42,6 +42,7 @@ nav:
   - Getting Started: 
       - Getting Started: getting-started.md
       - Image Checks: getting_started/checks.md 
+      - Add Slack Notifications: integration/slack.md
       - Creating Advisories: getting_started/private-advisories.md
       # - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
       - Kubernetes Admission Control: integration/kubernetes.md
