@@ -44,9 +44,9 @@ nav:
       - Image Checks: getting_started/checks.md 
       - Add Slack Notifications: integration/slack.md
       - Creating Advisories: getting_started/private-advisories.md
-      # - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
       - Kubernetes Admission Control: integration/kubernetes.md
       - Add secret scanning: getting_started/add-secret-scanner-check.md
+      - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
       # - Adding Falco: getting_started/falco.md 
 
 #  - Policies:

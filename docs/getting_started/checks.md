@@ -75,7 +75,7 @@ curl -X POST \
      -d '{"query": "'"$(sed 's/"/\\"/g' < policy.graphql)"'", "variables": '"$(< rules.json)"'}' \
      -H "Authorization: Bearer ${ATOMIST_API_KEY}" \
      -H "Content-Type: application/json" \
-     https://automation.atomist.com/graphql/team/${ATOMIST_API_KEY}
+     https://automation.atomist.com/graphql/team/${ATOMIST_WORKSPACE_ID}
 ```
 
 
