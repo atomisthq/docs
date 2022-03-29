@@ -12,7 +12,7 @@ a personal access token with enough scope to access the repository.
 
 ```
 GITHUB_USER=<org-or-user-name>
-GITHUB_TOKEN=<personal access token?
+GITHUB_TOKEN=<personal access token>
 GITHUB_REPO=<repo-name>
 ```
 
@@ -39,7 +39,7 @@ like this.
 ```yaml
 spec:
   containers:
-    - image: gcr.io/personalsdm-216019/altjserver
+    - image: gcr.io/project/service1
 ```
 
 A `kustomization.yaml` that references this `deployment.yaml` file can update the `newTag` entry whenever
@@ -52,12 +52,16 @@ namespace: production
 resources:
 - deployment.yaml
 images:
-- name: gcr.io/personalsdm-216019/altjserver
+- name: gcr.io/project/service1
   newTag: v161
 ```
 
-In this example, an image from a repository named `gcr.io/personalsdm-216019/altjserver` can now be updated
+In this example, an image from a repository named `gcr.io/project/service1` can now be updated
 via the flux kustomization controller.
+
+If you're using the `$GITHUB_USER/$GITHUB_REPO` from above, then the kustomization.yaml, and the deployment.yaml, will need
+to be committed to some sub-directory of `/clusters/my-cluster` (this was the value passed to `--path` above).  For example you could commit
+these to `/clusters/my-cluster/service1_base`.
 
 #### Configure automatic updates for this git repository
 
