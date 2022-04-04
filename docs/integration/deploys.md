@@ -1,6 +1,6 @@
 ## Tracking Image Deployments
 
-Atomist compares recent image vulnerabilty scans against the scans of images that are currently deployed.  
+Atomist compares recent image vulnerabilty scans against the scans of images that are currently deployed.
 This level of tracking gives developers contexts about when security debt is both increasing and decreasing.  This can be integrated in several ways:
 
 * steps in continuous deployment pipelines
@@ -16,7 +16,7 @@ Each Atomist workspace exposes an endpoint that can be called whenever an Image 
 !!! Note
     you must create an api-key to use this endpoint.
 
-The simplest form of interation is to call this api whenever a new image is deployed.  The default environment name is `deployed` - if you want to image scans, and GitHub checkruns to start comparing against a "deployed" image, then call:
+The simplest form of interation is to call this api whenever a new image is deployed.  The default environment name is `deployed` - if you want to image scans, and GitHub Checks to start comparing against a "deployed" image, then call:
 
 ```
 $ curl \\
@@ -48,7 +48,6 @@ The payload supports additional fields to support additional use cases.
 }
 ```
 
-* use custom environment names to track different image versions in environments like `staging` and `production` 
+* use custom environment names to track different image versions in environments like `staging` and `production`
 * multi-platform image manifest lists are supported.  Add the platform details for the environments. Vulnerability scans are dependent on the platform.
 * if you are deploying multiple images from the same container repository into one environment, it is mandatory that each `image` have a unique `name`.
-

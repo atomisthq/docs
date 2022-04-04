@@ -1,9 +1,9 @@
-Atomist for DevSecOps is available in early access now. 
+Atomist for DevSecOps is available in early access now.
 Keep up to date with supported, current Docker base images and keep new vulnerabilities at bay.
 
 [early-access]: https://atomist.com/devsecops (Request early access)
 
-To get up and running quickly, simply sign up, select repositories, then get a summary of your 
+To get up and running quickly, simply sign up, select repositories, then get a summary of your
 Docker security and start improving it.
 
 ### Create an account
@@ -18,7 +18,7 @@ Docker security and start improving it.
 
 ### Configure Image Registry
 
-Start scanning images in your registry by enabling a [Registry Integration](https://dso.atomist.com/r/auth/integrations).  
+Start scanning images in your registry by enabling a [Registry Integration](https://dso.atomist.com/r/auth/integrations).
 Specific instructions about each integration are included below.
 
 | Integration | link to documentation |
@@ -61,8 +61,8 @@ Atomist is now tracking new container images.  This includes updates to bills of
 
 Teams use Atomist to protect downstream workloads from new vulnerabilities.  It's also used to help teams track and remediate new vulnerabilities that impact existing workloads.  In the next sections, we'll look at how teams can use atomist to gain visibility into container workload systems like Kubernetes.
 
-* [Set up Checks](getting_started/checks.md) that will run whenever a new Image is pushed to your registry
+* [Set up Image Policies](getting_started/checks.md) with rules that will run whenever a new Image is pushed to your registry
 * [Create a Slack notification channel](integration/slack.md) to receive notifications about new security advisories impacting workloads.
 * Atomist watches for new advisories from [public sources](getting_started/sources.md), but you can also add your own internal advisories.  Checkout how to [get started with your own advisories](getting_started/private-advisories.md).
-* Use [kubernetes admission control](integration/kubernetes.md) to ensure that images are fully checked before being admitted into different clusters or namespaces.
-* Try adding another check to add [secret scanning](getting_started/add-secret-scanner-check.md) to make sure that the sources used to build an image are always scanned for leaked secrets.
+* Use [kubernetes admission control](integration/kubernetes.md) to ensure that images conform to your policy before being admitted into different clusters or namespaces.
+* Try adding another rule to add [secret scanning](getting_started/add-secret-scanner-check.md) to make sure that the sources used to build an image are always scanned for leaked secrets.

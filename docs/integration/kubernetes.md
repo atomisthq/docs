@@ -32,7 +32,7 @@ url=<replace this>
 team=<replace this>
 ```
 
-The `apiKey` and `url` must be filled in with your values from your Atomist workspace.  You can find these values in the [integrations tab](https://dso.atomist.com/r/auth/integrations). 
+The `apiKey` and `url` must be filled in with your values from your Atomist workspace.  You can find these values in the [integrations tab](https://dso.atomist.com/r/auth/integrations).
 You'll also need your the id for your atomist `team`.  This is the nine character value that you'll find at the top of [this page](https://dso.atomist.com/r/auth/policies).
 
 ![workspace id](./img/kubernetes/settings.png)
@@ -93,10 +93,10 @@ kubectl apply -f resources/k8s/admission/admission.yaml
 kubectl apply -f resources/k8s/jobs/patch.yaml
 ```
 
-## Enable image check policy
+## Enable Image Policy
 
 The admission controller will still be admitting all pods.  Reject pods with un-checked images by enabling the policy one namespace at a time.
-For example, start verifying that new pods in namespace `production` must have passed all necessary checks by annotating the namespace with the 
+For example, start verifying that new pods in namespace `production` must have passed all necessary rules by annotating the namespace with the
 annotation `policy-controller.atomist.com/policy`.
 
 ```bash
@@ -110,4 +110,3 @@ kubectl annotate namespace production policy-controller.atomist.com/policy-
 ```
 
 [dynamic-admission-control]: https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/
-
