@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist/docs/compare/13.5.5...HEAD)
+## [Unreleased](https://github.com/atomist/docs/compare/13.5.6...HEAD)
+
+## [13.5.6](https://github.com/atomist/docs/compare/13.5.5...13.5.6) - 2022-04-06
 
 ## [13.5.5](https://github.com/atomist/docs/compare/13.5.2...13.5.5) - 2022-04-04
 
