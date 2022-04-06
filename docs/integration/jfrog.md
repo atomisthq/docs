@@ -7,7 +7,8 @@ The agent will scan configured Artifactory container repositories at regular int
 In the example below, `https://hal9000.atomist.com` is a private registry that is only visible on an internal network.
 
 ```
-docker run -ti atomist/docker-registry-broker:latest \
+docker run -ti atomist/docker-registry-broker:latest\
+  index-image remote \
   --workspace AQ1K5FIKA \
   --api-key team::6016307E4DF885EAE0579AACC71D3507BB38E1855903850CF5D0D91C5C8C6DC0 \
   --artifactory-url https://hal9000.atomist.com \
