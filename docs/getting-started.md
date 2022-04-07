@@ -18,7 +18,10 @@ Docker security and start improving it.
 
 ### Configure Image Registry
 
-Start scanning images in your registry by enabling a [Registry Integration](https://dso.atomist.com/r/auth/integrations).
+The easiest way to try out our image vulnerability analysis, is to use the [CLI](integration/local.md) to index images built on your local machine, upload the
+Software Bill of Materials (SBOM) to Atomist, and [view the vulnerability analysis](https://dso.atomist.com/r/auth/overview/images).
+
+To index images in your registry automatically, enable a [Registry Integration](https://dso.atomist.com/r/auth/integrations).
 Specific instructions about each integration are included below.
 
 | Integration | link to documentation |
@@ -28,6 +31,7 @@ Specific instructions about each integration are included below.
 | Google GCR  | [uses gcloud](integration/gcr.md) |
 | Google GAR  | [uses gcloud](integration/gar.md) |
 | GitHub GHCR | [uses Atomist GitHub application](integration/ghcr.md) |
+| Local CLI   | [Scan locally built containers](integration/local.md) |
 
 ### Linking Images to GitHub
 
