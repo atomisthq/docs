@@ -63,6 +63,7 @@ nav:
       - JFrog Artifactory: integration/jfrog.md
       - Linking images to commits: integration/linking-images.md
       - Tracking image deployments: integration/deploys.md
+      - Local image indexing: integration/local.md
       # - GitHub: integration/github.md
       - Slack: integration/slack.md
       # - Authentication Providers:
