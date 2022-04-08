@@ -48,7 +48,7 @@ Options:
 
 
 * `workspace`
-    * Grab your workspace ID from https://dso.atomist.com/r/auth/policies
+    * Grab your workspace ID from https://dso.atomist.com/r/auth/integrations
 * `api-key`
     * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
 * `image`

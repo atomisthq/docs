@@ -1,6 +1,6 @@
 ### Connecting to a private Artifactory Container Registry
 
-When your registry is not visible on the public internet, images can be indexed by running a monitoring agent inside the network.  
+When your registry is not visible on the public internet, images can be indexed by running a monitoring agent inside the network.
 
 The agent will scan configured Artifactory container repositories at regular intervals, and send newly discovered images' metadata to the Atomist control plane.
 
@@ -39,10 +39,10 @@ Options:
 
 
 * `workspace`
-    * Grab your workspace ID from https://dso.atomist.com/r/auth/policies
+    * Grab your workspace ID from https://dso.atomist.com/r/auth/integrations
 * `api-key`
     * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
-* `artifactory-url` 
+* `artifactory-url`
     * is the base URL of your artifactory instance. This must not include any path or trailing slashes
 * `artifactory-repository`
     * an Artifactory container repository name to monitor
@@ -52,5 +52,3 @@ Options:
     *  Username used for HTTP/Basic authentication with Artifactory
 * `password`
     * Password for `username`
- 
-
