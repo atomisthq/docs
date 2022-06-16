@@ -47,6 +47,13 @@ nav:
       - Kubernetes Admission Control: integration/kubernetes.md
       - Add secret scanning: getting_started/add-secret-scanner-check.md
       - Gitops (pull-oriented delivery): getting_started/pull-oriented.md
+      - Skill Authoring:
+        - Workspace Setup: authoring/workspace_setup.md
+        - Coding a Skill: authoring/skill_repo.md
+        - Enabling and Configuring a Skill: authoring/skill_management.md
+        - Transactions: authoring/transactions.md
+        - Logging: authoring/logging.md
+        - More Subscriptions: authoring/subscriptions.md
       # - Adding Falco: getting_started/falco.md
 
 #  - Policies:
