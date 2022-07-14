@@ -190,7 +190,7 @@ However, the `index.js` file would have to start up an HTTP listener for this to
 
 Here’s an example index.js file.  There are already many ways of connecting handlers in different languages (typescript, and clojure(script) are the ones we use most internally).  This example is just to demonstrate the basic structure of a Docker project that implements a handler.
 
-```jsx
+```javascript
 const api = require("@atomist/skill-entry-point")
 
 api.start(async payload => {
@@ -218,25 +218,9 @@ Your repo would now contain the following files
 
 Here’s an example [repo with this configuration](https://github.com/vonwig/skill-sample-2)
 
-If Atomist is set up to watch the github org, then it will see this semver tag, build your DockerImage, and create a new version of your skill.  For developer feedback, we use GitHub CheckRuns to show progress on the skill registration.
-
-- [ ]  documenting skill enablement with the magic url is in a different document - need a url for enablement and configuration - magic url is `https://go.atomist.com/catalog/skills/{namespace}/{name}?stability=unstable`
-
-In any case, skill registration should be automatic each time a developer pushes a tag.  But skill “enablement” and “configuration” remains an extra step.
-
 ## Transacting
 
-Test the enabled skill by curling a payload to the webhook url defined by the skill. This will log a skill execution in the [go.atomist.com](http://go.atomist.com) console.
-
-The webhook url will begin with `https://[webhook.atomist.com/atomist/resource](https://slimslenderslacks:password@webhook.atomist.com/atomist/resource/9c8aa94d-9c14-4d68-a2c6-000c57232995)`.  You can find the `$URL` in the configuration of the skill at [https://go.atomist.com/r/auth/manage/skills](https://go.atomist.com/r/auth/manage/skills). 
-
-```bash
-curl $URL -u $USER:$PASS -d '{\"a\": \"b\"}' -H 'Content-Type: application/json'
-```
-
-All skill execution logs are also available at https://go.atomist.com.  After executing the above command, go to the console to see a log of the skill execution.
-
-There are many things you’ll want to do in a skill handler, but transacting data is one of the most fundamental.  When you add facts to the graph, other skills can react to them.  The example below is language specific.  Atomist provides an authenticated POST api for handlers to transact new facts.
+A skill can write data.  When you transact facts, other skills can react to them.  The example below is language specific but Atomist provides an [authenticated POST api](api/transactions.md) for handlers to transact new facts.
 
 ```bash
 const api = require("@atomist/skill-entry-point")
@@ -257,9 +241,7 @@ api.start(async payload => {
 });
 ```
 
-With this handler, we are writing our first observation.  If you commit this change and push another semver tag then this new version will automatically start handling your skill’s traffic.
-
-If you curl the endpoint again, you’ll actually see two executions.  The first execution is the webhook payload, but the second one is a subscription watching for the facts that are transacted *because* of that payload.  In practice, we tend to  be in different skills.  We call skills that watch external events and transact new facts “integration” skills.  This is just a convention.  The important point is that we can work on ingesting new data separately from the skills that listen for that data.  The skills that subscribe are often subscribing to a much bigger picture of the world that can be built from just one single integration skill.  
+This handler writes new facts into our model.  Once written, any subscriptions watching for these "observations" will be triggered.  The next step is to do a [deployment](skill_management.md).  Once a version of the skill is deployed and enabled, we'll be able to POST data to the webhook and see it both write data to our graph. Skill that transact data from webhooks are, by convention, called "integration" skills, because they integrate data from the outside world.
 
 We build up knowledge graphs.
 
@@ -268,3 +250,4 @@ The graph is composed of facts.
 New kinds of facts can be added by defining schema.
 
 We react to changes in our knowledge graph using subscriptions.
+

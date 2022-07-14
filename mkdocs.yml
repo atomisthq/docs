@@ -51,9 +51,12 @@ nav:
         - Workspace Setup: authoring/workspace_setup.md
         - Coding a Skill: authoring/skill_repo.md
         - Enabling and Configuring a Skill: authoring/skill_management.md
-        - Transactions: authoring/transactions.md
-        - Logging: authoring/logging.md
         - More Subscriptions: authoring/subscriptions.md
+        - Example Repos: authoring/examples.md
+        - Api:
+          - Incoming Payload: authoring/api/incoming_payload.md
+          - Transactions: authoring/api/transactions.md
+          - Logging: authoring/api/logging.md
       # - Adding Falco: getting_started/falco.md
 
 #  - Policies:
