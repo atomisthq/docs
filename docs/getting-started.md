@@ -51,7 +51,7 @@ We have provided a set of [examples](integration/linking-images.md) for how to e
 
 ![Connect GitHub](img/getting-started/connect-github.png)
 
-Once you are redirected back to Atomist, you'll be asked to select a set of repos that are used to create container images.  If you are trying out Atomist on just a few repositories then select them here.  Selecting "All Repos" means that Atomist will start watching for images built from all existing and future repositories in this Organization.  Note that if Atomist detects Dockerfile FROM lines that could be pinned to digests and updated via pull request, it will begin raising automated pull requests.  We suggest that you start by selecting a few repositories during evaluation, and then switch to "All repositories" once you are comfortable Atomist.
+Once you are redirected back to Atomist, you'll be asked to select a set of repos that are used to create container images.  If you are trying out Atomist on just a few repositories then select them here.  Selecting "All Repos" means that Atomist will start watching for images built from all existing and future repositories in this Organization.  Note that if Atomist detects Dockerfile FROM lines that could be pinned to digests and updated via pull request, it will begin raising automated pull requests.  We suggest that you start by selecting a few repositories during evaluation, and then switch to "All repositories" once you are comfortable using Atomist.
 
 ![activate-repos](img/getting-started/activate-repos.png)
 
