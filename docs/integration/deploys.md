@@ -1,28 +1,29 @@
 ## Tracking Image Deployments
 
 Atomist compares recent image vulnerabilty scans against the scans of images that are currently deployed.
+
 This level of tracking gives developers contexts about when security debt is both increasing and decreasing.  This can be integrated in several ways:
 
 * steps in continuous deployment pipelines
 * Kubernetes Admission Controllers (for kube-based deployments)
-* calling api directly
+* Calling the API directly
 
 ## Api
 
-Each Atomist workspace exposes an endpoint that can be called whenever an Image is deployed.  All subsequent scans will can now be compared against each recorded environment.  Lookup the endpoint url in the [Atomist app](https://dso.atomist.com/ACDANG5BG/integrations).
+Each Atomist workspace exposes an endpoint to call whenever an image is deployed.  All subsequent scans will now be compared against each recorded environment.  Look up the endpoint URL in the [Atomist app](https://dso.atomist.com/r/auth/integrations).
 
 ![integration](img/deploy/integration.png)
 
 !!! Note
     you must create an api-key to use this endpoint.
 
-The simplest form of interation is to call this api whenever a new image is deployed.  The default environment name is `deployed` - if you want to image scans, and GitHub Checks to start comparing against a "deployed" image, then call:
+The simplest form of integration is to call this API whenever a new image is deployed.  The default environment name is `deployed` - if you want to scan images, and activate GitHub Checks to start comparing against a "deployed" image, then call:
 
 ```
 $ curl \\
   -X POST \\
   -H "Content-Type: application/json" \\
-  -H "Authorization: bearer api-oken" \\
+  -H "Authorization: bearer api-token" \\
   https://webhook.atomist.com/atomist/resource/39b472d9-c249-4ee2-80ec-bdbdbcb15026 \\
   -d '{"image": {"url": "gcr.io/atomist-container-registry/bot-service@sha256:698e0b6c22c8922b2c4ed257afbff40bcfe6597c744648f695f907598d3f6b5c"}}'
 ```
