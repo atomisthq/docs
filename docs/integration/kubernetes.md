@@ -75,7 +75,7 @@ patchesJson6902:
       value: "default"
 ```
 
-Deploy the admission controller into the the current Kubernetes context by running the following script.
+Deploy the admission controller into the current Kubernetes context by running the following script.
 
 ```bash
 # creates roles and service account for running jobs
