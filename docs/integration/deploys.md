@@ -6,7 +6,7 @@ This level of tracking gives developers contexts about when security debt is bot
 
 * steps in continuous deployment pipelines
 * Kubernetes Admission Controllers (for kube-based deployments)
-* calling API directly
+* Calling the API directly
 
 ## Api
 
