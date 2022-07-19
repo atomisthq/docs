@@ -17,7 +17,7 @@ Each Atomist workspace exposes an endpoint to call whenever an image is deployed
 !!! Note
     you must create an api-key to use this endpoint.
 
-The simplest form of interation is to call this API whenever a new image is deployed.  The default environment name is `deployed` - if you want to image scans, and GitHub Checks to start comparing against a "deployed" image, then call:
+The simplest form of integration is to call this API whenever a new image is deployed.  The default environment name is `deployed` - if you want to scan images, and activate GitHub Checks to start comparing against a "deployed" image, then call:
 
 ```
 $ curl \\
