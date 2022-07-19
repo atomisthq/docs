@@ -10,7 +10,7 @@ This level of tracking gives developers contexts about when security debt is bot
 
 ## Api
 
-Each Atomist workspace exposes an endpoint that can be called whenever an image is deployed.  All subsequent scans will now be compared against each recorded environment.  Lookup the endpoint URL in the [Atomist app](https://dso.atomist.com/r/auth/integrations).
+Each Atomist workspace exposes an endpoint to call whenever an image is deployed.  All subsequent scans will now be compared against each recorded environment.  Look up the endpoint URL in the [Atomist app](https://dso.atomist.com/r/auth/integrations).
 
 ![integration](img/deploy/integration.png)
 
