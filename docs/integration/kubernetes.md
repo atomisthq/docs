@@ -2,26 +2,26 @@
 
 ### Prerequisites
 
-1.  [kustomize][kustomize] (tested with `v4.4.1`)
-2.  [kubectl][kubectl] (tested with `v1.21.1`)
-3.  kubectl must be authenticated and the current context should be set to the cluster that you will be updating
+1.  [`kustomize`][kustomize] (tested with `v4.4.1`)
+2.  [`kubectl`][kubectl] (tested with `v1.21.1`)
+3.  `kubectl` must be authenticated and the current context should be set to the cluster that you will be updating
 
 [kustomize]: https://kubectl.docs.kubernetes.io/installation/kustomize/
 [kubectl]: https://kubectl.docs.kubernetes.io/installation/kubectl/
 
-### 1. Fork this repo
+### 1. Fork this repository
 
-[Fork this repo](https://github.com/atomisthq/adm-ctrl/fork).
+[Fork this repository](https://github.com/atomisthq/adm-ctrl/fork).
 
-This repo contains a set of base kubernetes that you'll adapt using `kustomize`.
+This repository contains a set of base Kubernetes resources that you'll adapt using `kustomize`.
 
-### 2. Api Key and Api Endpoint URL
+### 2. API Key and API Endpoint URL
 
 Create an overlay for your cluster.  Choose a cluster name and then create a new overlay directory.
 
 ```
-CLUSTER_NAME=replacethis
-mkdir -p resources/k8s/overlays/${CLUSTER_NAME}
+$ CLUSTER_NAME=replacethis
+$ mkdir -p resources/k8s/overlays/${CLUSTER_NAME}
 ```
 
 Create a file named `resources/k8s/overlays/${CLUSTER_NAME}/endpoint.env`.
@@ -33,7 +33,8 @@ team=<replace this>
 ```
 
 The `apiKey` and `url` must be filled in with your values from your Atomist workspace.  You can find these values in the [integrations tab](https://dso.atomist.com/r/auth/integrations).
-You'll also need your the id for your atomist `team`.  This is the nine character value that you'll find at the top of [this page](https://dso.atomist.com/r/auth/policies).
+
+You'll also need your the `id` for your Atomist `team`.  This is the nine character value that you'll find at the top of [this page](https://dso.atomist.com/r/auth/policies).
 
 ![workspace id](./img/kubernetes/settings.png)
 
@@ -46,7 +47,7 @@ This procedure will create a service account, a cluster role binding, two secret
 Use the same overlay that you created above (`resources/k8s/overlays/${CLUSTER_NAME}`).  Copy in a template kustomization.yaml file.
 
 ```
-cp resources/templates/default_controller.yaml resources/k8s/overlays/${CLUSTER_NAME}/kustomization.yaml
+$ cp resources/templates/default_controller.yaml resources/k8s/overlays/${CLUSTER_NAME}/kustomization.yaml
 ```
 
 This kustomization file requires one edit.  The last line shows a patch with a `value` of `"default"`.  This should be updated to be the name of your cluster.
@@ -74,7 +75,7 @@ patchesJson6902:
       value: "default"
 ```
 
-Deploy the admission controller into the the current kubernetes context by running the following script.
+Deploy the admission controller into the the current Kubernetes context by running the following script.
 
 ```bash
 # creates roles and service account for running jobs
@@ -100,13 +101,13 @@ For example, start verifying that new pods in namespace `production` must have p
 annotation `policy-controller.atomist.com/policy`.
 
 ```bash
-kubectl annotate namespace production policy-controller.atomist.com/policy=enabled
+$ kubectl annotate namespace production policy-controller.atomist.com/policy=enabled
 ```
 
 Disable admission control on a namespace by removing the annotation or setting it to something other than `enabled`.
 
 ```bash
-kubectl annotate namespace production policy-controller.atomist.com/policy-
+$ kubectl annotate namespace production policy-controller.atomist.com/policy-
 ```
 
 [dynamic-admission-control]: https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/
