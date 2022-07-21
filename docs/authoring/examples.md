@@ -3,7 +3,7 @@
 | Sample Repo | Summary | Details |
 | :---------- | :------- | :----  |
 | [Sample Skill written in GO](https://github.com/atomist-skills/go-sample-skill) | uses GitHub integration to watch for pushes and transact facts about commit signatures | [jump to description](#sample-skill-written-in-go) |
-| [Sample Skill written in JavaScript #1](https://github.com/atomist-skills/js-sample-skill) | uses GitHub integration to watch for pushes and transact facts about commit signatures | [jump to description](#sample-skill-written-in-js-#1) |
+| [Sample Skill written in JavaScript #1](https://github.com/atomist-skills/js-sample-skill) | uses GitHub integration to watch for pushes and transact facts about commit signatures | [jump to description](#sample-skill-written-in-js-1) |
 | [Sample Skill written in TypeScript](https://github.com/atomist-skills/ts-sample-skill) | uses GitHub integration to watch for pushes and transact facts about commit signatures | [jump to description](#sample-skill-written-in-ts) |
 | [Sample Skill written in JavaScript #2](https://github.com/vonwig/skill-sample-2) | creates a webhook and transacts a simple fact, which then triggers a subsciption (does not require any integrations to try) | [jump to description](#sample-skill-written-in-javascript) |
 | [Sample Skill written in ClojureScript](https://github.com/vonwig/skill-sample-1) | watches for extracted SBOMs after a docker image push | [jump to description](#sample-skill-written-in-clojurescript) |
