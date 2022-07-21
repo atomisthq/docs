@@ -10,7 +10,7 @@
 
 ### Sample Skill written in GO
 
-This skill uses the Go module [`https://github.com/atomist-skills/go-skill`](https://github.com/atomist-skills/go-skill) to implement handlers for two subscriptions. 
+This skill uses the Go module [`github.com/atomist-skills/go-skill`](https://github.com/atomist-skills/go-skill) to implement handlers for two subscriptions. 
 
 The first subscription [`on_push`](https://github.com/atomist-skills/go-sample-skill/blob/main/datalog/subscription/on_push.edn) listens for pushes to a GitHub repository and transact details about the commit signature back into Atomist. The [`commit_signature.edn`](https://github.com/atomist-skills/go-sample-skill/blob/main/datalog/schema/commit_signature.edn) Datalog schema defines some new facts to represent commit signatures in our data model and link a signature to our existing `:git/commit` entity.
 
