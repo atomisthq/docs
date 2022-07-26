@@ -17,19 +17,42 @@ You can find all of the configured skills in the [Manage Skills page](https://go
 
 ![untitled](images/manage-skills.png)
 
-### Publishing a skill
-
-Skills all start as private to the workspace that owns them.  They can be enabled and configured in only that workspace.  Users can share a skill with other workspaces by marking it as public. 
-
-!!! todo
-    Publish the api publish your skill to other workspaces.
-
 ### Promoting a skill
 
-Skill versions can be tagged as `stable`, `unstable`, or `testing`. New versions of skill will be marked `unstable` by default.  Workspaces can choose to use `unstable` versions of skills; however, workspaces only pick up new versions when they are marked as either `testing` or `stable`.
+Skill versions can be tagged as `stable`, `unstable`, or `testing`. New versions of skill will be marked `unstable` by default. Whenever a new version gets tagged to either of the promotion levels, workspaces that use the promotion level are being automatically updated to the new version of the skill.
 
-!!! todo
-    Publish the api to mark skills as either `stable` or `testing`.
+To promote a skill to `testing` or `stable` use the following API call:
 
-!!! todo
-    Document the difference between enabling `stable`, or `unstable` versions of skills
+```bash
+$ curl --location --request POST 'https://automation.atomist.com/graphql/team/<workspace id>' \
+    --header 'Authorization: Bearer <api key>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"query":"mutation setSkillMaturity { setSkillMaturity(namespace:\"<skill namespace>\", name: \"<skill name>\", version: \"<skill version>\", maturity: stable) { version }}"}'
+```
+
+### Selecting a promotion level
+
+Workspace owners can select different promotion levels for skills in their workspace individually. 
+
+Use the following API call to select the promotion level for a single skill:
+
+```bash
+$ curl --location --request POST 'https://automation.atomist.com/graphql/team/<workspace id>' \
+    --header 'Authorization: Bearer <api key>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"query":"mutation setUpgradePolicy { setUpgradePolicy(namespace:\"<skill namespace>\", name: \"<skill name>\", upgradePolicy: unstable) { version }}"}'
+```
+
+### Publishing a skill
+
+Skills all start as private to the workspace that owns them.  They can be enabled and configured in only that workspace.  Users can share a skill with other workspaces by publishing it to the catalog. 
+
+Only `stable` versions can be published.
+
+```bash
+$ curl --location --request POST 'https://automation.atomist.com/graphql/team/<workspace id>' \
+    --header 'Authorization: Bearer <api key>' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{"query":"mutation publishSkill {  publishSkill(namespace: \"<skill namespace>\", name: \"<skill name>\") { version }}"}'
+```
+
