@@ -53,10 +53,12 @@ nav:
         - Example Repos: authoring/examples.md
         - Enabling and Configuring a Skill: authoring/skill_management.md
         - More Subscriptions: authoring/subscriptions.md
-        - Api:
-          - Incoming Payload: authoring/api/incoming_payload.md
+        - API:
+          - Lifecycle: authoring/api/lifecycle.md
+          - Executions: authoring/api/executions.md
           - Transactions: authoring/api/transactions.md
-          - Logging: authoring/api/logging.md
+          - Logs: authoring/api/logs.md
+          - Types: authoring/api/types.md
       # - Adding Falco: getting_started/falco.md
 
 #  - Policies:
