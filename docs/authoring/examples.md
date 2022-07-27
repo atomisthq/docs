@@ -6,7 +6,7 @@ This skill illustrates the basic layout for a skill that exposes a webhook, defi
 | :---------- | :------- | :----  | :---- |
 | [Simple skill showing subscription, schema, and webhook parameter](https://github.com/vonwig/skill-sample-2) | creates a webhook and transacts a simple fact, which then triggers a subsciption (does not require any integrations) | [Create from template](https://github.com/vonwig/skill-sample-2/generate) | [jump to description](#basic-skill) |
 
-The next three samples show the same use case but with handlers implemented using Go, Javascript, and Typescript.  Note that many of the files in these repositories are identical.  The handlers, and the Dockerfile, illustrate three different technology stacks.
+The next three samples show the same use case but with handlers implemented using Go, JavaScript, and TypeScript.  Note that many of the files in these repositories are identical.  The handlers, and the Dockerfile, illustrate three different technology stacks.
 
 Each skill subscribes to new GitHub pushes and then transacts facts about commit signatures. Since the subscription watches for new GitHub pushes, these skills will require the GitHub integration.
 
@@ -16,14 +16,14 @@ Each skill subscribes to new GitHub pushes and then transacts facts about commit
 | [Sample Skill written in JavaScript](https://github.com/atomist-skills/js-sample-skill) | uses GitHub integration to watch for pushes and transact facts about commit signatures | [Create from template](https://github.com/atomist-skills/js-sample-skill/generate) | [jump to description](#sample-skill-written-in-javascript) |
 | [Sample Skill written in TypeScript](https://github.com/atomist-skills/ts-sample-skill) | uses GitHub integration to watch for pushes and transact facts about commit signatures | [Create from template](https://github.com/atomist-skills/ts-sample-skill/generate) | [jump to description](#sample-skill-written-in-typescript) |
 
-This next sample watches for a new SBOM being transacted against an Image.  It will only see activity if there's an active docker registry integration.
+This next sample watches for a new SBOM being transacted against an image.  It will only see activity if there's an active Docker registry integration.
 
 | Sample Repo | Summary | Template | Details |
 | :---------- | :------- | :----  | :----- |
-| [Sample Skill written in ClojureScript](https://github.com/vonwig/skill-sample-1) | watches for extracted SBOMs after a docker image push | [Create from template](https://github.com/atomist-skills/skill-sample-2/generate) | [jump to description](#sample-skill-written-in-clojurescript) |
+| [Sample Skill written in ClojureScript](https://github.com/vonwig/skill-sample-1) | watches for extracted SBOMs after a Docker image push | [Create from template](https://github.com/atomist-skills/skill-sample-2/generate) | [jump to description](#sample-skill-written-in-clojurescript) |
 
 !!! Note
-    Try out any of the skills above by clicking on one of the `Create from template` links.  If the new skill repo is in a github organization linked to an Atomist workspace with [authoring enabled](workspace_setup.md), a new version of the skill will be automatically registered with your workspace.  It can be
+    Try out any of the skills above by clicking on one of the `Create from template` links.  If the new skill repository is in a GitHub organization linked to an Atomist workspace with [authoring enabled](workspace_setup.md), a new version of the skill will be automatically registered with your workspace.  It can be
     enabled using the [instructions here](skill_management.md).
 
 ### Basic Skill
@@ -60,19 +60,19 @@ See [READMD.md](https://github.com/vonwig/skill-sample-1/blob/main/README.md) fo
 
 ### Generate from template
 
-Use the `Create from template` links above to create a skill repo in your organization.  If your org is [setup for authoring](workspace_setup.md), each push to the default branch will create a new version of the skill.
+Use the `Create from template` links above to create a skill repository in your organization.  If your organizaion is [setup for authoring](workspace_setup.md), each push to the default branch will create a new version of the skill.
 
-By default the namespace for your skill will be the github org of your repo, and the default name of the skill will be the repository name.  These can be changed in the `skill.yaml` file.  For example, use [this link](https://github.com/vonwig/skill-sample-2/generate) to create a new basic skill.
+By default the `namespace` for your skill will be the GitHub organization of your repository, and the default `name` of the skill will be the repository name.  These can be changed in the `skill.yaml` file.  For example, use [this link](https://github.com/vonwig/skill-sample-2/generate) to create a new basic skill.
 
 ![setup](images/generate.png)
 
-After creating your repo, you'll see GitHub check runs that show progress towards registration.
+After creating your repository, you'll see GitHub check runs that show progress towards registration.
 
 ![setup-checkrun](images/generate-checkrun.png)
 
 ### Enable and Configure skill
 
-Use the [instructions here](skill_management.md) to enable a version of the new skill in your workspace.  If you created the new repo in org `ORG` with repository name `REPO`, then construct the following link in your browser.
+Use the [instructions here](skill_management.md) to enable a version of the new skill in your workspace.  If you created the new repository in organization `ORG` with name `REPO`, then construct the following link in your browser.
 
 ```
 https://go.atomist.com/catalog/skills/ORG/REPO?stability=unstable
@@ -82,10 +82,10 @@ Click on the green `Continue` button.
 
 ![setup](images/enable.png)
 
-After filling out the initial parameters, click `Enable Skill`.  In the case below, the skill exposes a webhook parameter, you can copy the new webhook url fro this screen, and test it using curl. This webhook parameter was configured to use basic auth.
+After filling out the initial parameters, click `Enable Skill`.  In the case below, the skill exposes a webhook parameter, you can copy the new webhook url from this screen, and test it using `curl`. This webhook parameter was configured to use basic auth.
 
 ```
-curl -X POST -H "Content-Type: application/json" -u slim:passwd -d '{"data": 3.14}' $URL
+curl -X POST -H "Content-Type: application/json" -u <username>:<password> -d '{"data": 3.14}' $URL
 ```
 
 ![setup](images/configure.png)
