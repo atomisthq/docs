@@ -95,16 +95,16 @@ A `SubscriptionResult` will be in the form specified by the `pull` expression in
 
 ```clojure
 {:url string
- :body string
- :headers {string string}
+ :body string?
+ :headers {string string}?
  :tags [Tag]?}
 ```
 
 | Field | Description |
 | :--- | :--- |
 | `:url` | `string` - The URL of the webhook which was triggered. |
-| `:body` | `string` - The body of the webhook which was triggerd. This will be the raw value which was received. |
-| `:headers` | `{string string}` - The headers which were received by the server. Header names will be lowercased. |
+| `:body` | `string` (optional) - The body of the webhook which was triggered. This will be the raw value which was received. |
+| `:headers` | `{string string}` (optional) - The headers which were received by the server. Header names will be lowercased. |
 | `:tags` | An array of [`Tag`](#tag) (optional) - Any tags which are associated with the webhook which was triggered. |
 
 ## Tag
