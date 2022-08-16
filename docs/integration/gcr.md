@@ -34,16 +34,19 @@ PROJECT_ID="YOUR_GCP_PROJECT_ID"
 
 # create the service account
 gcloud iam service-accounts create ${SERVICE_ACCOUNT_ID} \
+    --project=${PROJECT_ID} \
     --description="Atomist GCR Integration Service Account" \
     --display-name="Atomist GCR Integration"
 
 # new service account should be granted read-only access to GCR
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+    --project=${PROJECT_ID} \
     --member="serviceAccount:${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com" \
     --role="roles/storage.objectViewer"
 
 # grant atomist access to this service account
 gcloud iam service-accounts add-iam-policy-binding "${SERVICE_ACCOUNT_ID}@${PROJECT_ID}.iam.gserviceaccount.com" \
+    --project=${PROJECT_ID} \
     --member="serviceAccount:atomist-bot@atomist.iam.gserviceaccount.com" \
     --role="roles/iam.serviceAccountTokenCreator"
 ```
@@ -95,6 +98,7 @@ PUSH_ENDPOINT_URI="COPY_THIS_FROM_ATOMIST"
 PROJECT_NUMBER="how do we look this up"
 PUBSUB_SERVICE_ACCOUNT="service-${PROJECT_NUMBER}@gcp-sa-pubsub.iam.gserviceaccount.com"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+ --project=${PROJECT_ID} \
  --member="serviceAccount:${PUBSUB_SERVICE_ACCOUNT}"\
  --role='roles/iam.serviceAccountTokenCreator'
 
@@ -102,6 +106,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
 gcloud pubsub topics create gcr
 
 gcloud pubsub subscriptions create ${SUBSCRIPTION} \
+  --project=${PROJECT_ID} \
   --topic='gcr' \
   --push-auth-token-audience='atomist' \
   --push-auth-service-account="${SERVICE_ACCOUNT_EMAIL}" \
