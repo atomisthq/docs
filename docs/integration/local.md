@@ -7,7 +7,7 @@ This CLI is hosted in a container itself and can be invoked like this:
 ```shell
 docker run \
    -v /var/run/docker.sock:/var/run/docker.sock \
-   -ti atomist/docker-registry-broker:latest \
+   -ti atomist/docker-registry-broker:0.0.1 \
    index-image local \
    --workspace AQ1K5FIKA \
    --api-key team::6016307E4DF885EAE0579AACC71D3507BB38E1855903850CF5D0D91C5C8C6DC0 \
@@ -31,7 +31,7 @@ which should output something like this:
  [info] Successfully transacted entities in team AQ1K5FIKA
 ```
 
-**N.B**: The image must be tagged (e.g. `docker build ... -t myimage:latest ...`) so that you can easily identify via the [web](https://dso.atomist.com/r/auth/overview/images)
+**N.B**: The image must be tagged (e.g. `docker build ... -t myimage:latest ...`) so that you can easily identify via the [web](https://dso.docker.com/r/auth/overview/images)
 
 #### Configuration
 
@@ -48,8 +48,8 @@ Options:
 
 
 * `workspace`
-    * Grab your workspace ID from https://dso.atomist.com/r/auth/integrations
+    * Grab your workspace ID from https://dso.docker.com/r/auth/integrations
 * `api-key`
-    * Used to authenticate with the Atomist API and managed here https://dso.atomist.com/r/auth/integrations
+    * Used to authenticate with the Atomist API and managed here https://dso.docker.com/r/auth/integrations
 * `image`
     * The name of a tagged image locally available (via the Docker daemon)
