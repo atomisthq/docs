@@ -17,7 +17,7 @@ Atomist's Docker image linking support uses two Docker labels defined by the [Op
 
 - `org.opencontainers.image.revision` should be set to the SHA of the commit used during the build
 - `org.opencontainers.image.source` should be set to the url of the GitHub repository used for this build process
-- `com.atomist.containers.image.dockerfile` should be set to the relative path of the Dockerfile used to build this image.  This is not required if the Dockerfile is located in the root of the repository.
+- `com.docker.image.source.entrypoint` should be set to the relative path of the Dockerfile used to build this image.  This is not required if the Dockerfile is located in the root of the repository.
 
 ## Setting up linking for your Docker builds
 
@@ -31,7 +31,7 @@ The `docker build` command supports adding labels directly from the command line
 docker build \
     --label "org.opencontainers.image.revision=$(git rev-parse HEAD)" \
     --label "org.opencontainers.image.source=https://github.com/my-org/my-repo" \
-    --label "com.atomist.containers.image.dockerfile=docker/Dockerfile" \
+    --label "com.docker.image.source.entrypoint=docker/Dockerfile" \
     -f docker/Dockerfile \
     -t $IMAGE_NAME \
     .
@@ -65,9 +65,9 @@ jobs:
         file: ./Dockerfile
         tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
         labels: |
-          org.opencontainers.image.revision=${{ github.sha }}
+          org.opencontainers.image.revision=${{ github.event.pull_request.head.sha || github.event.after || github.event.release.tag_name }}
           org.opencontainers.image.source=https://github.com/${{ github.repository }}
-          com.atomist.containers.image.dockerfile=Dockerfile
+          com.docker.image.source.entrypoint=Dockerfile
 ```
 
 The step named "Push to Docker Hub" handles the build and pushes each of the tags listed in the `tags` section.  The `labels` sections gives us full control over what labels are added to our images.
@@ -90,7 +90,7 @@ The contents of the `build` file should be something like:
 docker build \
   -t $IMAGE_NAME \
   --label "org.opencontainers.image.revision=$SOURCE_COMMIT" \
-  --label "com.atomist.containers.image.dockerfile=$DOCKERFILE_PATH" .
+  --label "com.docker.image.source.entrypoint=$DOCKERFILE_PATH" .
 ```
 
 The environment variables `IMAGE_NAME`, `SOURCE_COMMIT`, and `DOCKERFILE_PATH` are all set automatically by Docker Hub.
@@ -109,7 +109,7 @@ steps:
   - '--label' 
   - 'org.opencontainers.image.revision=$COMMIT_SHA' 
   - '--label' 
-  - 'com.atomist.containers.image.dockerfile=docker/Dockerfile' 
+  - 'com.docker.image.source.entrypoint=docker/Dockerfile' 
   - '-f' 
   - 'docker/Dockerfile' 
   - '.'
@@ -134,7 +134,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "com.atomist.containers.image.dockerfile=base/Dockerfile" -f base/Dockerfile .
+      - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "com.docker.image.source.entrypoint=base/Dockerfile" -f base/Dockerfile .
       - docker tag base:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest      
   post_build:
     commands:
@@ -165,7 +165,7 @@ jobs:
          docker build \
             --label "org.opencontainers.image.revision=$CIRCLE_SHA1" \
             --label "org.opencontainers.image.source=$CIRCLE_REPOSITORY_URL" \
-            --label "com.atomist.containers.image.dockerfile=Dockerfile" \
+            --label "com.docker.image.source.entrypoint=Dockerfile" \
             -t slimslenderslacks/app:latest .
 
      # deploy the image

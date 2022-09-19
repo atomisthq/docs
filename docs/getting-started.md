@@ -41,7 +41,7 @@ Many images already have metadata that link them back to a git sha.  For example
 docker build \
     --label "org.opencontainers.image.revision=$(git rev-parse HEAD)" \
     --label "org.opencontainers.image.source=https://github.com/my-org/my-repo" \
-    --label "com.atomist.containers.image.dockerfile=docker/Dockerfile" \
+    --label "com.docker.image.source.entrypoint=docker/Dockerfile" \
     -f docker/Dockerfile \
     -t $IMAGE_NAME \
     .
