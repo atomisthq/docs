@@ -41,6 +41,7 @@ nav:
   - Introduction: index.md
   - Getting Started:
       - Getting Started: getting-started.md
+      - Enabling Integrations: getting_started/enabling-integrations.md
       - Image Policies: getting_started/checks.md
       - Add Slack Notifications: integration/slack.md
       - Creating Advisories: getting_started/private-advisories.md
@@ -81,6 +82,14 @@ nav:
       - Slack: integration/slack.md
       # - Authentication Providers:
           # - SAML: integration/saml.md
+  - Data Model:
+      - Git: data/git.md
+      - Docker: data/docker.md
+      - Bill of Materials: data/sbom.md
+      - Advisories: data/advisory.md
+      - Deployment: data/deploy.md
+      - Skills: data/atomist.md
+
 #  - Tutorials:
 #      -  Prevent new vulnerabilities: tutorials/prevent-new-vulnerabilities.md
   - Support: support.md
