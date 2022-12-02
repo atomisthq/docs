@@ -22,8 +22,8 @@
 | :vulnerability.advisory.version/fixed-by | string | versions that first fixes this |
 | :vulnerability.advisory.version/id | string | id of this version |
 | :vulnerability.advisory.version/vulnerable-range | string | range of vulnerable versions |
-| :vulnerability.cpe.part/application | enum | null |
-| :vulnerability.cpe.part/operating-system | enum | null |
+| :vulnerability.cpe.part/application | enum |  |
+| :vulnerability.cpe.part/operating-system | enum |  |
 | :vulnerability.cve/created | instant | initial creation of cve record |
 | :vulnerability.cve/cvss-score | string | [link to cvss score definition](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System) |
 | :vulnerability.cve/description | string | vulnerability description (long) |

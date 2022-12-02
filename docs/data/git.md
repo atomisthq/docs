@@ -80,25 +80,25 @@
 | :github.checksuite/repo | ref | The repository associated with the check suite. |
 | :github.checksuite/source-id | string | The ID of the check suite. |
 | :github.checksuite/status | ref | The state of a check suite. |
-| :github.checksuite.action/completed | enum | null |
-| :github.checksuite.action/created | enum | null |
-| :github.checksuite.action/requested | enum | null |
-| :github.checksuite.action/requested_action | enum | null |
-| :github.checksuite.action/rerequested | enum | null |
-| :github.checksuite.conclusion/action_required | enum | null |
-| :github.checksuite.conclusion/cancelled | enum | null |
-| :github.checksuite.conclusion/failure | enum | null |
-| :github.checksuite.conclusion/neutral | enum | null |
-| :github.checksuite.conclusion/skipped | enum | null |
-| :github.checksuite.conclusion/stale | enum | null |
-| :github.checksuite.conclusion/startup_failure | enum | null |
-| :github.checksuite.conclusion/success | enum | null |
-| :github.checksuite.conclusion/timed_out | enum | null |
-| :github.checksuite.status/completed | enum | null |
-| :github.checksuite.status/in_progress | enum | null |
-| :github.checksuite.status/pending | enum | null |
-| :github.checksuite.status/queued | enum | null |
-| :github.checksuite.status/requested | enum | null |
+| :github.checksuite.action/completed | enum |  |
+| :github.checksuite.action/created | enum |  |
+| :github.checksuite.action/requested | enum |  |
+| :github.checksuite.action/requested_action | enum |  |
+| :github.checksuite.action/rerequested | enum |  |
+| :github.checksuite.conclusion/action_required | enum |  |
+| :github.checksuite.conclusion/cancelled | enum |  |
+| :github.checksuite.conclusion/failure | enum |  |
+| :github.checksuite.conclusion/neutral | enum |  |
+| :github.checksuite.conclusion/skipped | enum |  |
+| :github.checksuite.conclusion/stale | enum |  |
+| :github.checksuite.conclusion/startup_failure | enum |  |
+| :github.checksuite.conclusion/success | enum |  |
+| :github.checksuite.conclusion/timed_out | enum |  |
+| :github.checksuite.status/completed | enum |  |
+| :github.checksuite.status/in_progress | enum |  |
+| :github.checksuite.status/pending | enum |  |
+| :github.checksuite.status/queued | enum |  |
+| :github.checksuite.status/requested | enum |  |
 | :github.comment/author | ref | The user who wrote the comment. |
 | :github.comment/body | string | The Markdown body of an issue comment. |
 | :github.comment/issue | ref | The issue that the comment refers to. |
@@ -175,16 +175,16 @@
 | :sarif.result/locations | ref | sarif results point at specific source location locations |
 | :sarif.result/rule-id | string | the rule that was evaluated to produce this analysis result |
 | :sarif.result/run | ref | a static analysis result |
-| :sarif.result.kind/fail | enum | null |
-| :sarif.result.kind/informational | enum | null |
-| :sarif.result.kind/notApplicable | enum | null |
-| :sarif.result.kind/open | enum | null |
-| :sarif.result.kind/pass | enum | null |
-| :sarif.result.kind/review | enum | null |
-| :sarif.result.level/error | enum | null |
-| :sarif.result.level/none | enum | null |
-| :sarif.result.level/note | enum | null |
-| :sarif.result.level/warning | enum | null |
+| :sarif.result.kind/fail | enum |  |
+| :sarif.result.kind/informational | enum |  |
+| :sarif.result.kind/notApplicable | enum |  |
+| :sarif.result.kind/open | enum |  |
+| :sarif.result.kind/pass | enum |  |
+| :sarif.result.kind/review | enum |  |
+| :sarif.result.level/error | enum |  |
+| :sarif.result.level/none | enum |  |
+| :sarif.result.level/note | enum |  |
+| :sarif.result.level/warning | enum |  |
 | :sarif.result.message/text | string | human readable text for analysis result |
 | :sarif.run/commit | ref | references the git commit for this analysis run |
 | :sarif.tool.driver/name | string | name of analysis tool - typeically defines a set of analysis rules |

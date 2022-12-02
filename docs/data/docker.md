@@ -1,7 +1,7 @@
 | attribute | type | doc |
 | :---- | :---- | :---- |
 | :docker.file/count | long | Stamped on the commit once all parsing is complete |
-| :docker.file/path | string | null |
+| :docker.file/path | string |  |
 | :docker.file/scan-results | ref | link sarif scan results directly to a Dockerfile |
 | :docker.file.from/digest | string | image digest for a FROM instruction |
 | :docker.file.from/repository | ref | docker repository for a FROM instruction |
@@ -73,17 +73,17 @@
 | :docker.registry/server-url | string | registry url |
 | :docker.registry/type | ref | references the registry type |
 | :docker.registry/username | string | registry username (used by registry integrations) |
-| :docker.registry.ecr/arn | string | null |
-| :docker.registry.ecr/external-id | string | null |
-| :docker.registry.ecr/region | string | null |
-| :docker.registry.gar/service-account | string | null |
-| :docker.registry.gcr/service-account | string | null |
+| :docker.registry.ecr/arn | string |  |
+| :docker.registry.ecr/external-id | string |  |
+| :docker.registry.ecr/region | string |  |
+| :docker.registry.gar/service-account | string |  |
+| :docker.registry.gcr/service-account | string |  |
 | :docker.registry.type/DOCKER_HUB | enum | DockerHub registry |
-| :docker.registry.type/DOCKER_HUB_INTERNAL | enum | null |
-| :docker.registry.type/ECR | enum | null |
-| :docker.registry.type/GAR | enum | null |
-| :docker.registry.type/GCR | enum | null |
-| :docker.registry.type/GHCR | enum | null |
+| :docker.registry.type/DOCKER_HUB_INTERNAL | enum |  |
+| :docker.registry.type/ECR | enum |  |
+| :docker.registry.type/GAR | enum |  |
+| :docker.registry.type/GCR | enum |  |
+| :docker.registry.type/GHCR | enum |  |
 | :docker.repository/badge | string | Badge of repository as returned by https://hub.docker.com/v2/orgs/:org/ |
 | :docker.repository/description | string | short description of repository |
 | :docker.repository/host | string | hostname for docker repository |
