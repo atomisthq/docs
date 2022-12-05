@@ -1,6 +1,7 @@
 | attribute | type | doc |
 | :---- | :---- | :---- |
 | :vulnerability/advisories | ref | refs to :vulnerability/advisory |
+| :vulnerability/aliases | string | Aliases for CVEs, like #Log4Shell |
 | :vulnerability/cve-id | string | CVE ids if available and different to source-id CVE-2021-2313 |
 | :vulnerability/cwes | ref | refs to :vulnerability/cwe |
 | :vulnerability/description | string | description text of the vulnerability |
@@ -8,6 +9,7 @@
 | :vulnerability/references | ref | refs to :vulnerability/reference |
 | :vulnerability/source | string | e.g. github, nist, ubuntu, debian, alpine, npm |
 | :vulnerability/source-id | string | external id of the vulnerability like CVE-2021-2313 or GHSA-93q8-gq69-wqmw |
+| :vulnerability/state | ref | Attribute to indicate state of vulnerability |
 | :vulnerability/summary | string | summary text of the vulnerability |
 | :vulnerability/updated-at | instant | timestamp of last update |
 | :vulnerability/urls | ref | refs to :vulnerability/url |
@@ -16,9 +18,11 @@
 | :vulnerability.advisory/name | string | same as :package/name log4j |
 | :vulnerability.advisory/namespace | string | opt: same as :package/namespace e.g. org.apache.commons-logging |
 | :vulnerability.advisory/qualifiers | tuple | Name value pairs - same as :package/qualifiers |
+| :vulnerability.advisory/state | ref | Attribute to indicate state of advisory |
 | :vulnerability.advisory/type | string | same as :package/type e.g. npm, maven |
 | :vulnerability.advisory/url | string | url representing advisories for the same packages... e.g. adv://maven/org.clojure/clojure?os_name=alpine&os_version=1.2.3 |
 | :vulnerability.advisory/versions | ref | refs to :vulnerability.advisory/version |
+| :vulnerability.advisory.state/IGNORED | enum | Advisory is marked as ignored |
 | :vulnerability.advisory.version/fixed-by | string | versions that first fixes this |
 | :vulnerability.advisory.version/id | string | id of this version |
 | :vulnerability.advisory.version/vulnerable-range | string | range of vulnerable versions |
@@ -56,11 +60,15 @@
 | :vulnerability.report/low | long | number of low severity vulnerability advisories linked to this artifact |
 | :vulnerability.report/medium | long | number of medium severity vulnerability advisories linked to this artifact |
 | :vulnerability.report/package | ref | Ref to the artifact having the vulnerabilities; eg. :docker/image |
-| :vulnerability.report/state | ref | Attribute to indicate if state of report |
+| :vulnerability.report/state | ref | Attribute to indicate state of report |
 | :vulnerability.report/total | long | total number of vulnerability advisories currently linked to this artifact |
 | :vulnerability.report/unspecified | long | number of vulnerability advisories, with an unspecificed severity, linked to this artifact |
-| :vulnerability.report.state/STALE | enum |  |
-| :vulnerability.report.state/UP_TO_DATE | enum |  |
+| :vulnerability.report.state/STALE | enum | Report needs to be re-calculated based on recent changes to advisories that affect this image |
+| :vulnerability.report.state/UP_TO_DATE | enum | Report is up to date with latest advisories |
+| :vulnerability.state/DISPUTED | enum | Vulnerability has been disputed |
+| :vulnerability.state/REJECTED | enum | Vulnerability has been rejected |
+| :vulnerability.state/RESERVED | enum | Vulnerability has been reserved |
+| :vulnerability.state/WITHDRAWN | enum | Vulnerability has been withdrawn |
 | :vulnerability.url/name | string | name/identifier of url like nist |
 | :vulnerability.url/tags | string | tags on the url like Vendor Advisory |
 | :vulnerability.url/value | string | actual url |
