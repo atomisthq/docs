@@ -30,8 +30,6 @@
 | :git.ref/repo | ref | The Git repository that a branch or tag belongs to. |
 | :git.ref/type | ref | Whether a Git ref is a branch or a tag. |
 | :git.ref/url | string | HTTPS address of a Git branch or tag. |
-| :git.ref.type/branch | enum | Branch ref type. |
-| :git.ref.type/tag | enum | Tag ref type. |
 | :git.repo/chat-channels | ref | Name or address of a chat channel associated with a Git repository. |
 | :git.repo/default-branch | string | Name of the default branch of a Git repository. |
 | :git.repo/name | string | Name of a Git repository. |
@@ -54,24 +52,6 @@
 | :github.checkrun/requested-action-id | string | The request ID of the check run. |
 | :github.checkrun/source-id | string | The ID of a GitHub check. |
 | :github.checkrun/status | ref | The status of the check run. |
-| :github.checkrun.action/completed | enum | The action of the check run is 'completed'. |
-| :github.checkrun.action/created | enum | The action of the check run is 'created'. |
-| :github.checkrun.action/requested | enum | The action of the check run is 'requested'. |
-| :github.checkrun.action/requested_action | enum | The status of the check run is 'requested_action'. |
-| :github.checkrun.action/rerequested | enum | The action of the check run is 'rerequested'. |
-| :github.checkrun.conclusion/action_required | enum | Check run completed with a 'action_required' result. |
-| :github.checkrun.conclusion/cancelled | enum | Check run completed with a 'cancelled' result. |
-| :github.checkrun.conclusion/failure | enum | Check run completed with a 'failure' result. |
-| :github.checkrun.conclusion/neutral | enum | Check run completed with a 'neutral' result. |
-| :github.checkrun.conclusion/skipped | enum | Check run completed with a 'skipped' result. |
-| :github.checkrun.conclusion/stale | enum | Check run completed with a 'stale' result. |
-| :github.checkrun.conclusion/success | enum | Check run completed with a 'success' result. |
-| :github.checkrun.conclusion/timed_out | enum | Check run completed with a 'timed_out' result. |
-| :github.checkrun.status/completed | enum | The current status of the check run is 'completed'. |
-| :github.checkrun.status/in_progress | enum | The current status of the check run is 'in_progress'. |
-| :github.checkrun.status/pending | enum | The current status of the check run is 'pending'. |
-| :github.checkrun.status/queued | enum | The current status of the check run is 'queued'. |
-| :github.checkrun.status/requested | enum | The current status of the check run is 'requested'. |
 | :github.checksuite/action | ref | The action of the check suite. |
 | :github.checksuite/app-id | long | The ID of the GitHub app that created the check suite. |
 | :github.checksuite/app-slug | string | The slug name of the GitHub app that created the check suite. |
@@ -80,25 +60,6 @@
 | :github.checksuite/repo | ref | The repository associated with the check suite. |
 | :github.checksuite/source-id | string | The ID of the check suite. |
 | :github.checksuite/status | ref | The state of a check suite. |
-| :github.checksuite.action/completed | enum |  |
-| :github.checksuite.action/created | enum |  |
-| :github.checksuite.action/requested | enum |  |
-| :github.checksuite.action/requested_action | enum |  |
-| :github.checksuite.action/rerequested | enum |  |
-| :github.checksuite.conclusion/action_required | enum |  |
-| :github.checksuite.conclusion/cancelled | enum |  |
-| :github.checksuite.conclusion/failure | enum |  |
-| :github.checksuite.conclusion/neutral | enum |  |
-| :github.checksuite.conclusion/skipped | enum |  |
-| :github.checksuite.conclusion/stale | enum |  |
-| :github.checksuite.conclusion/startup_failure | enum |  |
-| :github.checksuite.conclusion/success | enum |  |
-| :github.checksuite.conclusion/timed_out | enum |  |
-| :github.checksuite.status/completed | enum |  |
-| :github.checksuite.status/in_progress | enum |  |
-| :github.checksuite.status/pending | enum |  |
-| :github.checksuite.status/queued | enum |  |
-| :github.checksuite.status/requested | enum |  |
 | :github.comment/author | ref | The user who wrote the comment. |
 | :github.comment/body | string | The Markdown body of an issue comment. |
 | :github.comment/issue | ref | The issue that the comment refers to. |
@@ -175,16 +136,6 @@
 | :sarif.result/locations | ref | sarif results point at specific source location locations |
 | :sarif.result/rule-id | string | the rule that was evaluated to produce this analysis result |
 | :sarif.result/run | ref | a static analysis result |
-| :sarif.result.kind/fail | enum |  |
-| :sarif.result.kind/informational | enum |  |
-| :sarif.result.kind/notApplicable | enum |  |
-| :sarif.result.kind/open | enum |  |
-| :sarif.result.kind/pass | enum |  |
-| :sarif.result.kind/review | enum |  |
-| :sarif.result.level/error | enum |  |
-| :sarif.result.level/none | enum |  |
-| :sarif.result.level/note | enum |  |
-| :sarif.result.level/warning | enum |  |
 | :sarif.result.message/text | string | human readable text for analysis result |
 | :sarif.run/commit | ref | references the git commit for this analysis run |
 | :sarif.tool.driver/name | string | name of analysis tool - typeically defines a set of analysis rules |

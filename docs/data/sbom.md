@@ -35,6 +35,3 @@
 | :sbom/package-count | long | Total count of packages indexed on image |
 | :sbom/state | ref | Attribute to indicate whether an artifact got indexed. |
 | :sbom/version | string | SBOM version |
-| :sbom.state/INDEXED | enum | The artifact has been indexed. |
-| :sbom.state/INDEXING | enum | The artifact is indexing. |
-| :sbom.state/INDEXING_FAILED | enum | The artifact failed to index. |

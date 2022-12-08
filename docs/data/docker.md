@@ -50,12 +50,6 @@
 | :docker.image.layer/created-by | string | Command that created this layer |
 | :docker.image.layer/image-digest | string | Digest of parent image |
 | :docker.image.layer/ordinal | long | image layer ordering |
-| :docker.image.link-state/manual | enum | provenance discovered through manual intervention |
-| :docker.image.link-state/match-label-commit | enum | provenance discovered because image build use one of the standard labels |
-| :docker.image.link-state/match-tag-sha | enum | provenance discovered because image tag matches git sha |
-| :docker.image.link-state/match-tag-tag | enum | provenance discovered because image tag matches git tag |
-| :docker.image.link-state/no-match | enum | unable to discover image provenance |
-| :docker.image.link-state/no-match-many-dockerfiles | enum | unable to complete provenance linking - ambiguous Dockerfile |
 | :docker.manifest-list/created-at | instant | manifest list creation time |
 | :docker.manifest-list/digest | string | manifest list digest |
 | :docker.manifest-list/images | ref | image manifests referenced by this manifest list |
@@ -73,17 +67,11 @@
 | :docker.registry/server-url | string | registry url |
 | :docker.registry/type | ref | references the registry type |
 | :docker.registry/username | string | registry username (used by registry integrations) |
-| :docker.registry.ecr/arn | string |  |
-| :docker.registry.ecr/external-id | string |  |
-| :docker.registry.ecr/region | string |  |
+| :docker.registry.ecr/arn | string | Amazon resource name. |
+| :docker.registry.ecr/external-id | string | External ID for third-party access to AWS resources. |
+| :docker.registry.ecr/region | string | Geographic region. |
 | :docker.registry.gar/service-account | string |  |
 | :docker.registry.gcr/service-account | string |  |
-| :docker.registry.type/DOCKER_HUB | enum | DockerHub registry |
-| :docker.registry.type/DOCKER_HUB_INTERNAL | enum |  |
-| :docker.registry.type/ECR | enum |  |
-| :docker.registry.type/GAR | enum |  |
-| :docker.registry.type/GCR | enum |  |
-| :docker.registry.type/GHCR | enum |  |
 | :docker.repository/badge | string | Badge of repository as returned by https://hub.docker.com/v2/orgs/:org/ |
 | :docker.repository/description | string | short description of repository |
 | :docker.repository/host | string | hostname for docker repository |
@@ -97,8 +85,6 @@
 | :docker.repository/star-count | long | number of stars for this repository (only set on repositories that support stars) |
 | :docker.repository/supported-tags | string | List of currently supported tags for DOI |
 | :docker.repository/type | ref | reference to repository type |
-| :docker.repository.type/ARTIFACTORY | enum | repository is managed by artifactory |
-| :docker.repository.type/LOCAL | enum | repository is local |
 | :docker.tag/digest | string | Digest of latest image/manifest-list |
 | :docker.tag/image | ref | Reference to current image for this tag (if any) |
 | :docker.tag/last-checked-at | instant | When did we last check for this tag? |

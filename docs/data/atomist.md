@@ -34,11 +34,6 @@
 | :atomist.skill.configuration.check/name | string | The name of the configuration check. |
 | :atomist.skill.configuration.check/status | ref | The status of the configuration check. |
 | :atomist.skill.configuration.check/title | string | The Markdown title of the check. |
-| :atomist.skill.configuration.check.conclusion/failure | enum | The configuration check completed and it failed. |
-| :atomist.skill.configuration.check.conclusion/success | enum | The configuration check completed and it succeeded. |
-| :atomist.skill.configuration.check.status/completed | enum | The configuration check is completed. |
-| :atomist.skill.configuration.check.status/in_progress | enum | The configuration check is in progress. |
-| :atomist.skill.configuration.check.status/queued | enum | The configuration check is queued. |
 | :atomist.skill.configuration.parameter/id | string | Hash from configuration ID and parameter name. |
 | :atomist.skill.configuration.parameter/name | string | Name of configuration parameter. |
 | :atomist.skill.configuration.parameter/type | string | Type of the parameter. e.g. stringArray |
