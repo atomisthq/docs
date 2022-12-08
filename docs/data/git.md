@@ -92,7 +92,9 @@
 | :user.team/skill-config-name | string | The config name of the skill that owns this team user | :chat/user,:git/user |
 | :user.team/skill-name | string | The name of the skill that owns this team user | :chat/user,:git/user |
 | :user.team/skill-namespace | string | The namespace of the skill that owns this team user | :chat/user,:git/user |
+
 ### Relationships
+
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :git.commit/author | Person who wrote a Git commit. | :git/commit | :git/user |

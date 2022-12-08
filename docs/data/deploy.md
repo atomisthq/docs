@@ -10,7 +10,9 @@
 | :image.recorded/tag | string | last tag picked up by this stream | :deployment/stream |
 | :linking.image/revision | string | git revision used to build a Docker image |  |
 | :linking.image/source | string | path to the Dockerfile used to build a Docker image |  |
+
 ### Relationships
+
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :check/conclusion | status of the image check |  |  |

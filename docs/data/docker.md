@@ -67,7 +67,9 @@
 | :ingestion/statuses | string | Used by batch processes to store state between runs | :docker/image |
 | :oci.annotation/name | string | Name of the annotation | :oci/annotation |
 | :oci.annotation/value | string | Value of this annotation | :oci/annotation |
+
 ### Relationships
+
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :docker.file/scan-results | link sarif scan results directly to a Dockerfile |  |  |

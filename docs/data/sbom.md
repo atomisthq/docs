@@ -26,7 +26,9 @@
 | :sbom/last-updated | instant | SBOM last updated | :docker/image |
 | :sbom/package-count | long | Total count of packages indexed on image | :docker/image |
 | :sbom/version | string | SBOM version | :docker/image |
+
 ### Relationships
+
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :artifact/dependencies | List of package dependencies for a package artifact. | :docker/image | :package/dependency |

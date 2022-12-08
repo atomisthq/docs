@@ -45,7 +45,9 @@
 | :vulnerability.url/name | string | name/identifier of url like nist | :vulnerability/url |
 | :vulnerability.url/tags | string | tags on the url like Vendor Advisory | :vulnerability/url |
 | :vulnerability.url/value | string | actual url | :vulnerability/url |
+
 ### Relationships
+
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :vulnerability/advisories | refs to :vulnerability/advisory | :vulnerability | :vulnerability/advisory |
