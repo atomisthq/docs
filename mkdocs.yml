@@ -88,7 +88,6 @@ nav:
       - Bill of Materials: data/sbom.md
       - Advisories: data/advisory.md
       - Deployment: data/deploy.md
-      - Skills: data/atomist.md
 
 #  - Tutorials:
 #      -  Prevent new vulnerabilities: tutorials/prevent-new-vulnerabilities.md
