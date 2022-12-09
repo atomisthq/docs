@@ -16,7 +16,7 @@
 | :docker.image/diff-chain-id | string | Cumulative hash of all the diff-ids in this image | :docker/image |
 | :docker.image/digest | string | the digest of this image | :docker/image |
 | :docker.image/file-not-found | string | message describing why the Dockerfile for this image was not found |  |
-| :docker.image/link-state | ref | reference to the strategy used to discover provenance for this image |  |
+| :docker.image/link-state | enum | reference to the strategy used to discover provenance for this image |  |
 | :docker.image/ports | tuple | ports exposed by this image | :docker/image |
 | :docker.image/sha | string | git/sha of the commit used to build this docker image | :docker/image |
 | :docker.image/tags | string | deprecated: use tag entities instead | :deployment/stream<br/>:docker/image |
@@ -44,7 +44,7 @@
 | :docker.platform.os/version | string | version of operating system |  |
 | :docker.registry/secret | string | some registry integrations store a credential for access - always used in a read-only context | :docker/registry |
 | :docker.registry/server-url | string | registry url | :docker/registry |
-| :docker.registry/type | ref | references the registry type |  |
+| :docker.registry/type | enum | references the registry type |  |
 | :docker.registry/username | string | registry username (used by registry integrations) | :docker/registry |
 | :docker.registry.ecr/arn | string | Amazon resource name. |  |
 | :docker.registry.ecr/external-id | string | External ID for third-party access to AWS resources. |  |
@@ -61,7 +61,7 @@
 | :docker.repository/repository | string | repository name | :docker/repository |
 | :docker.repository/star-count | long | number of stars for this repository (only set on repositories that support stars) |  |
 | :docker.repository/supported-tags | string | List of currently supported tags for DOI | :docker/repository |
-| :docker.repository/type | ref | reference to repository type |  |
+| :docker.repository/type | enum | reference to repository type |  |
 | :docker.tag/digest | string | Digest of latest image/manifest-list | :docker/tag |
 | :docker.tag/last-checked-at | instant | When did we last check for this tag? | :docker/tag |
 | :docker.tag/name | string | docker tag name (e.g. 'latest') | :docker/tag |

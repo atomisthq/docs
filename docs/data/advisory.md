@@ -7,7 +7,7 @@
 | :vulnerability/published-at | instant | timestamp of initial publication | :vulnerability |
 | :vulnerability/source | string | e.g. github, nist, ubuntu, debian, alpine, npm | :vulnerability |
 | :vulnerability/source-id | string | external id of the vulnerability like CVE-2021-2313 or GHSA-93q8-gq69-wqmw | :vulnerability |
-| :vulnerability/state | ref | Attribute to indicate state of vulnerability |  |
+| :vulnerability/state | enum | Attribute to indicate state of vulnerability |  |
 | :vulnerability/summary | string | summary text of the vulnerability |  |
 | :vulnerability/updated-at | instant | timestamp of last update | :vulnerability |
 | :vulnerability/withdrawn-at | instant | timestamp when vulnerability was withdrawn |  |
@@ -15,7 +15,7 @@
 | :vulnerability.advisory/name | string | same as :package/name log4j |  |
 | :vulnerability.advisory/namespace | string | opt: same as :package/namespace e.g. org.apache.commons-logging |  |
 | :vulnerability.advisory/qualifiers | tuple | Name value pairs - same as :package/qualifiers |  |
-| :vulnerability.advisory/state | ref | Attribute to indicate state of advisory |  |
+| :vulnerability.advisory/state | enum | Attribute to indicate state of advisory |  |
 | :vulnerability.advisory/type | string | same as :package/type e.g. npm, maven |  |
 | :vulnerability.advisory/url | string | url representing advisories for the same packages... e.g. adv://maven/org.clojure/clojure?os_name=alpine&os_version=1.2.3 | :vulnerability/advisory |
 | :vulnerability.advisory.version/fixed-by | string | versions that first fixes this | :vulnerability.advisory/version |
@@ -33,7 +33,7 @@
 | :vulnerability.report/last-updated | instant | timestamp when an updated advisory last impacted this artifact | :vulnerability/report |
 | :vulnerability.report/low | long | number of low severity vulnerability advisories linked to this artifact | :vulnerability/report |
 | :vulnerability.report/medium | long | number of medium severity vulnerability advisories linked to this artifact | :vulnerability/report |
-| :vulnerability.report/state | ref | Attribute to indicate state of report |  |
+| :vulnerability.report/state | enum | Attribute to indicate state of report |  |
 | :vulnerability.report/total | long | total number of vulnerability advisories currently linked to this artifact | :vulnerability/report |
 | :vulnerability.report/unspecified | long | number of vulnerability advisories, with an unspecificed severity, linked to this artifact | :vulnerability/report |
 | :vulnerability.url/name | string | name/identifier of url like nist | :vulnerability/url |

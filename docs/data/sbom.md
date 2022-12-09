@@ -25,7 +25,7 @@
 | :sbom/indexing-count | long | Count of attempts to index an image | :docker/image |
 | :sbom/last-updated | instant | SBOM last updated | :docker/image |
 | :sbom/package-count | long | Total count of packages indexed on image | :docker/image |
-| :sbom/state | ref | Attribute to indicate whether an artifact got indexed. |  |
+| :sbom/state | enum | Attribute to indicate whether an artifact got indexed. |  |
 | :sbom/version | string | SBOM version | :docker/image |
 
 ### Relationships
