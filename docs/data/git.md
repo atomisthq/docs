@@ -17,9 +17,10 @@
 | :git.org/provider-base-url | string | The HTTPS address of the GitHub organization. | :git/org |
 | :git.org/source-id | string | The ID of a Git organization. | :git/org |
 | :git.org/url | string | The HTTPS address of the Git organization or namespace. | :git/org |
-| :git.provider/url | string | The URL of a Git provider. | :github/checksuite,:git/repo,:git/org,:git/ref,:github/pullrequest,:git/repo-language,:git/user,:github/label,:github/comment,:github/checkrun,:github/issue,:git/commit |
+| :git.provider/url | string | The URL of a Git provider. | :github/checksuite<br/>:git/repo<br/>:git/org<br/>:git/ref<br/>:github/pullrequest<br/>:git/repo-language<br/>:git/user<br/>:github/label<br/>:github/comment<br/>:github/checkrun<br/>:github/issue<br/>:git/commit |
 | :git.ref/name | string | Name of a Git branch or tag. | :git/ref |
 | :git.ref/remote | boolean | Whether the branch or tag is remote to the repository, e.g. an incoming pull request from a fork. | :git/ref |
+| :git.ref/type | ref | Whether a Git ref is a branch or a tag. |  |
 | :git.ref/url | string | HTTPS address of a Git branch or tag. |  |
 | :git.repo/default-branch | string | Name of the default branch of a Git repository. | :git/repo |
 | :git.repo/name | string | Name of a Git repository. | :git/repo |
@@ -31,13 +32,18 @@
 | :git.user/avatar | string | HTTPS address of a Git user's avatar. | :git/user |
 | :git.user/login | string | Account username of a Git user. | :git/user |
 | :git.user/name | string | Display name of a Git user. | :git/user |
+| :github.checkrun/conclusion | ref | The conclusion of the check run. |  |
 | :github.checkrun/external-id | string | Reference of the check on the integrator's system. | :github/checkrun |
 | :github.checkrun/name | string | The name of the check run. | :github/checkrun |
 | :github.checkrun/requested-action-id | string | The request ID of the check run. | :github/checkrun |
 | :github.checkrun/source-id | string | The ID of a GitHub check. | :github/checkrun |
+| :github.checkrun/status | ref | The status of the check run. |  |
+| :github.checksuite/action | ref | The action of the check suite. |  |
 | :github.checksuite/app-id | long | The ID of the GitHub app that created the check suite. | :github/checksuite |
 | :github.checksuite/app-slug | string | The slug name of the GitHub app that created the check suite. | :github/checksuite |
+| :github.checksuite/conclusion | ref | The results of a check suite. |  |
 | :github.checksuite/source-id | string | The ID of the check suite. | :github/checksuite |
+| :github.checksuite/status | ref | The state of a check suite. |  |
 | :github.comment/body | string | The Markdown body of an issue comment. | :github/comment |
 | :github.comment/source-id | string | The ID of an issue comment. | :github/comment |
 | :github.comment/type | string | The type of issue comment. | :github/comment |
@@ -83,15 +89,17 @@
 | :sarif.physical-location/uri | string | identifies a source location | :sarif/physical-location |
 | :sarif.physical-location.region/endLine | long | end line of physical source location |  |
 | :sarif.physical-location.region/startLine | long | start line of physical source location | :sarif/physical-location |
+| :sarif.result/kind | ref | [sarif kind](https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127838) |  |
+| :sarif.result/level | ref | identifier for the sarif level [sarif levels](https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127839) |  |
 | :sarif.result/rule-id | string | the rule that was evaluated to produce this analysis result | :sarif/result |
 | :sarif.result.message/text | string | human readable text for analysis result | :sarif/result |
 | :sarif.tool.driver/name | string | name of analysis tool - typeically defines a set of analysis rules | :sarif/run |
 | :team.member/auth-provider-id | string | The ID of the auth provider that the team member is a part of. | :team/member |
 | :team.member/name | string | The name of the team member. | :team/member |
 | :team.member/subject | string | The subject of the team member. Subject as in a 'sub' claim of a JSON web token | :team/member |
-| :user.team/skill-config-name | string | The config name of the skill that owns this team user | :chat/user,:git/user |
-| :user.team/skill-name | string | The name of the skill that owns this team user | :chat/user,:git/user |
-| :user.team/skill-namespace | string | The namespace of the skill that owns this team user | :chat/user,:git/user |
+| :user.team/skill-config-name | string | The config name of the skill that owns this team user | :chat/user<br/>:git/user |
+| :user.team/skill-name | string | The name of the skill that owns this team user | :chat/user<br/>:git/user |
+| :user.team/skill-namespace | string | The namespace of the skill that owns this team user | :chat/user<br/>:git/user |
 
 ### Relationships
 
@@ -106,20 +114,14 @@
 | :git.file/scan-results | link sarif scan results directly to a file | :git/file | :sarif/result |
 | :git.ref/commit | Git commit that the ref points to. | :git/ref | :git/commit |
 | :git.ref/repo | The Git repository that a branch or tag belongs to. | :git/ref | :git/repo |
-| :git.ref/type | Whether a Git ref is a branch or a tag. |  |  |
 | :git.repo/chat-channels | Name or address of a chat channel associated with a Git repository. | :git/repo | :chat/channel |
 | :git.repo/org | Organization or namespace of a Git repository. | :git/repo | :git/org |
 | :git.repo-language/repo | Reference to a Git repository that contains source code. | :git/repo-language | :git/repo |
 | :git.user/emails | Email addresses of a Git user. | :git/user | :email/email |
 | :github.checkrun/action | The action of the check run. |  |  |
 | :github.checkrun/checksuite | Reference to the check suite of a check. | :github/checkrun | :github/checksuite |
-| :github.checkrun/conclusion | The conclusion of the check run. |  |  |
-| :github.checkrun/status | The status of the check run. |  |  |
-| :github.checksuite/action | The action of the check suite. |  |  |
 | :github.checksuite/commit | The commit associated with the check suite. | :github/checksuite | :git/commit |
-| :github.checksuite/conclusion | The results of a check suite. |  |  |
 | :github.checksuite/repo | The repository associated with the check suite. | :github/checksuite | :git/repo |
-| :github.checksuite/status | The state of a check suite. |  |  |
 | :github.comment/author | The user who wrote the comment. | :github/comment | :git/user |
 | :github.comment/issue | The issue that the comment refers to. | :github/comment | :github/issue |
 | :github.issue/assignees | Any users assigned to the issue. |  |  |
@@ -146,9 +148,7 @@
 | :github.pullrequest-review/pull-request | Reference to the pull request that is being reviewed. |  |  |
 | :github.pullrequest-review/reviewer | The user who issued the review. |  |  |
 | :github.release/tag | The tag associated with a GitHub release. |  |  |
-| :sarif.result/kind | [sarif kind](https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127838) |  |  |
-| :sarif.result/level | identifier for the sarif level [sarif levels](https://docs.oasis-open.org/sarif/sarif/v2.0/csprd02/sarif-v2.0-csprd02.html#_Toc10127839) |  |  |
 | :sarif.result/locations | sarif results point at specific source location locations | :sarif/result | :sarif/physical-location |
 | :sarif.result/run | a static analysis result | :sarif/result | :sarif/run |
 | :sarif.run/commit | references the git commit for this analysis run | :sarif/run | :git/commit |
-| :user.team/member | The reference to the team/member that represents the authed human that owns the user we are linking from | :chat/user,:git/user | :team/member |
+| :user.team/member | The reference to the team/member that represents the authed human that owns the user we are linking from | :chat/user<br/>:git/user | :team/member |

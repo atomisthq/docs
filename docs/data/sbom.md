@@ -25,6 +25,7 @@
 | :sbom/indexing-count | long | Count of attempts to index an image | :docker/image |
 | :sbom/last-updated | instant | SBOM last updated | :docker/image |
 | :sbom/package-count | long | Total count of packages indexed on image | :docker/image |
+| :sbom/state | ref | Attribute to indicate whether an artifact got indexed. |  |
 | :sbom/version | string | SBOM version | :docker/image |
 
 ### Relationships
@@ -32,12 +33,9 @@
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :artifact/dependencies | List of package dependencies for a package artifact. | :docker/image | :package/dependency |
-| :artifact/package | Reference to an artifact representing a package (for example, a static binary file). |  |  |
 | :package.dependency/dependencies | Dependencies of this dependency. |  |  |
 | :package.dependency/files | Package files. | :package/dependency | :package/file |
 | :package.dependency/package | The package being imported as a dependency in this instance. | :package/dependency | :package |
 | :package.dependency/parent | The dependency owner, e.g. a Docker image. | :package/dependency | :docker/image |
 | :project/dependencies | Package dependencies and their type, as specified in the project's dependency management file. | :package | :project/dependency |
-| :project/effective-dependencies | Effective package dependencies, as specified in the project's dependency management file. |  |  |
 | :project.dependency/package | Reference to a direct dependency used in a project. | :project/dependency | :package |
-| :sbom/state | Attribute to indicate whether an artifact got indexed. |  |  |
