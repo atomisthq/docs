@@ -1,15 +1,6 @@
 ### Attributes
 | attribute | type | doc | entities |
 | :---- | :---- | :---- | :----- |
-| :docker.file/count | long | Stamped on the commit once all parsing is complete | :git/commit |
-| :docker.file.from/digest | string | image digest for a FROM instruction | :docker.file/line |
-| :docker.file.from/tag | string | image tag for a FROM instruction | :docker.file/line |
-| :docker.file.line/args-array | string | Deprecated - use args-list | :docker.file/line |
-| :docker.file.line/args-map | tuple | TODO | :docker.file/line |
-| :docker.file.line/args-string | string | all args passed to a Dockerfile instruction | :docker.file/line |
-| :docker.file.line/instruction | string | name of the instruction (e.g. FROM, RUN, COPY, etc.) | :docker.file/line |
-| :docker.file.line/number | long | Dockerfile line number for start of each instruction | :docker.file/line |
-| :docker.file.line/start-number | long | TODO | :docker.file/line |
 | :docker.image/blob-digest | string | Cumulative hash of all the blobs in this image | :docker/image |
 | :docker.image/created-at | instant | image creation time | :docker/image |
 | :docker.image/created-by-digest | string | Cumulative hash of all the created-by instructions in this image | :docker/image |
@@ -74,13 +65,6 @@
 
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
-| :docker.file/scan-results | link sarif scan results directly to a Dockerfile |  |  |
-| :docker.file.from/repository | docker repository for a FROM instruction | :docker.file/line | :docker/repository |
-| :docker.file.from/repository-tag | Ref to docker/tag (could be a shell) | :docker.file/line | :docker/tag |
-| :docker.file.line/args-list | Ordered list of ordinal/string pairs | :docker.file/line | :docker.file.line/arg |
-| :docker.file.line/file | reference to the Dockerfile for an instruction | :docker.file/line | :git/file |
-| :docker.file.line/refers-to | This is an AS pointer to original FROM line (if relevant) |  |  |
-| :docker.file.line.arg/line | reference to the Dockerfile instruction for an arg | :docker.file.line/arg | :docker.file/line |
 | :docker.image/commit | commit entity used to build this docker image | :docker/image | :git/commit |
 | :docker.image/environment-variables | references the environment variables declared for this image | :docker/image | :docker.image.environment/variable |
 | :docker.image/file | Reference to a Dockerfile used to build this image | :docker/image | :git/file |
