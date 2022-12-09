@@ -33,7 +33,6 @@
 | attribute | doc | from | to |
 | :---- | :---- | :---- | :----- |
 | :artifact/dependencies | List of package dependencies for a package artifact. | :docker/image | :package/dependency |
-| :package.dependency/dependencies | Dependencies of this dependency. |  |  |
 | :package.dependency/files | Package files. | :package/dependency | :package/file |
 | :package.dependency/package | The package being imported as a dependency in this instance. | :package/dependency | :package |
 | :package.dependency/parent | The dependency owner, e.g. a Docker image. | :package/dependency | :docker/image |

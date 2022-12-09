@@ -49,6 +49,5 @@
 | :vulnerability/references | refs to :vulnerability/reference | :vulnerability | :vulnerability/reference |
 | :vulnerability/urls | refs to :vulnerability/url | :vulnerability | :vulnerability/url |
 | :vulnerability.advisory/versions | refs to :vulnerability.advisory/version | :vulnerability/advisory | :vulnerability.advisory/version |
-| :vulnerability.cwe/url | ref to :vulnerability/url |  |  |
 | :vulnerability.reference/scores | refs to scores as observed by the source | :vulnerability/reference | :vulnerability.reference/score |
 | :vulnerability.report/package | Ref to the artifact having the vulnerabilities; eg. :docker/image | :vulnerability/report | :docker/image |
