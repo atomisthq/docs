@@ -29,10 +29,10 @@ Incoming [`ExecutionTrigger`s](types.md#executiontrigger) contain URLs and tempo
 
 ```bash
 cat <<'EOF' > transactions.edn
-{:transactions [{:data {:schema/entity-type :vonwig.testing/observation
-                        :vonwig.testing.observation/id "123466789"
-                        :vonwig.testing.observation/seen-by-subscriber: false
-                        :vonwig.testing.observation/webhook-value "data"}}]}
+{:transactions [{:data [{:schema/entity-type :vonwig.testing/observation
+                         :vonwig.testing.observation/id "123466789"
+                         :vonwig.testing.observation/seen-by-subscriber: false
+                         :vonwig.testing.observation/webhook-value "data"}]}]}
 EOF
 
 curl -X POST \
